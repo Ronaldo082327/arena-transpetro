@@ -641,21 +641,21 @@ footer{padding-top:28px;font-size:13px;color:var(--muted);display:grid;gap:6px}
 
   // ---------- LABS: SQL ----------
   var SQL_SCHEMA=[
-    'CREATE TABLE Departamento (id INT, nome STRING, cidade STRING)',
-    'CREATE TABLE Funcionario (id INT, nome STRING, salario INT, depto_id INT, gerente_id INT)',
-    'CREATE TABLE Projeto (id INT, nome STRING, depto_id INT, orcamento INT)',
-    'CREATE TABLE Alocacao (func_id INT, proj_id INT, horas INT)'];
+    'CREATE TABLE Departamento (id, nome, cidade)',
+    'CREATE TABLE Funcionario (id, nome, salario, depto_id, gerente_id)',
+    'CREATE TABLE Projeto (id, nome, depto_id, orcamento)',
+    'CREATE TABLE Alocacao (func_id, proj_id, horas)'];
   var SQL_DATA={
-    Departamento:[[1,'Dutos','Rio de Janeiro'],[2,'Terminais','Santos'],[3,'TI','Rio de Janeiro'],[4,'Jurídico','Brasília']],
+    Departamento:[[1,'Dutos','Rio de Janeiro'],[2,'Terminais','Santos'],[3,'TI','Rio de Janeiro'],[4,'Jurídico','Brasília'],[5,'Auditoria','Salvador']],
     Funcionario:[[1,'Ana',15000,3,null],[2,'Bruno',9000,3,1],[3,'Carla',11000,1,null],[4,'Diego',7000,1,3],[5,'Elisa',7500,2,null],[6,'Fábio',6000,2,5],[7,'Gabi',9500,3,1],[8,'Hugo',5000,null,null]],
     Projeto:[[10,'SCADA',1,500000],[11,'Data Lake',3,300000],[12,'Portal',3,120000],[13,'Píer Norte',2,800000],[14,'Compliance',4,90000]],
     Alocacao:[[1,11,40],[2,11,80],[2,12,30],[3,10,60],[4,10,90],[5,13,50],[7,12,70],[7,11,20]]};
   var SQL_CH=[
     {t:'Nome e salário dos funcionários do departamento de TI (depto_id 3).',a:"SELECT nome, salario FROM Funcionario WHERE depto_id = 3"},
-    {t:'Nome de cada funcionário com o nome do seu departamento (só quem tem departamento).',a:"SELECT f.nome, d.nome FROM Funcionario f JOIN Departamento d ON f.depto_id = d.id"},
+    {t:'Nome de cada funcionário com o nome do seu departamento (só quem tem departamento). Dica: duas colunas chamadas nome precisam de apelido (AS).',a:"SELECT f.nome AS funcionario, d.nome AS departamento FROM Funcionario f JOIN Departamento d ON f.depto_id = d.id"},
     {t:'Todos os departamentos com a quantidade de funcionários, inclusive os que não têm nenhum.',a:"SELECT d.nome, COUNT(f.id) FROM Departamento d LEFT JOIN Funcionario f ON f.depto_id = d.id GROUP BY d.nome"},
     {t:'Departamentos (id) cuja média salarial é maior que 8000.',a:"SELECT depto_id, AVG(salario) FROM Funcionario WHERE depto_id IS NOT NULL GROUP BY depto_id HAVING AVG(salario) > 8000"},
-    {t:'Nome de cada funcionário e o nome do seu gerente (self-join; só quem tem gerente).',a:"SELECT f.nome, g.nome FROM Funcionario f JOIN Funcionario g ON f.gerente_id = g.id"},
+    {t:'Nome de cada funcionário e o nome do seu gerente (self-join; só quem tem gerente). Use apelidos (AS) para as duas colunas nome.',a:"SELECT f.nome AS funcionario, g.nome AS gerente FROM Funcionario f JOIN Funcionario g ON f.gerente_id = g.id"},
     {t:'Funcionários que NÃO estão alocados em nenhum projeto.',a:"SELECT nome FROM Funcionario f WHERE NOT EXISTS (SELECT 1 FROM Alocacao a WHERE a.func_id = f.id)"},
     {t:'Funcionários com salário acima da média geral.',a:"SELECT nome FROM Funcionario WHERE salario > (SELECT AVG(salario) FROM Funcionario)"},
     {t:'Projetos com total de horas alocadas maior que 80.',a:"SELECT p.nome, SUM(a.horas) FROM Projeto p JOIN Alocacao a ON a.proj_id = p.id GROUP BY p.nome HAVING SUM(a.horas) > 80"},
