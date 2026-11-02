@@ -1,0 +1,382 @@
+[
+  {
+    "id": "Db16XkGEyGY",
+    "titulo": "Mapeamento de Processos BPM: resolução de questão CESGRANRIO",
+    "canal": "Gestão em Curso",
+    "url": "https://www.youtube.com/watch?v=Db16XkGEyGY",
+    "assunto": "BPM: mapeamento de processos x demais fases do ciclo de vida (CBOK), as-is/to-be",
+    "nota": 5,
+    "duracao": "25:32",
+    "contexto": "Cesgranrio (IPEA)"
+  },
+  {
+    "id": "gz89cfU04I0",
+    "titulo": "Comentando questões de TI: Banco de Dados para CESGRANRIO",
+    "canal": "Professor Rogerão Araújo",
+    "url": "https://www.youtube.com/watch?v=gz89cfU04I0",
+    "assunto": "Banco de Dados: especialização/ER, relacional, normalização, SGBD (3 esquemas), data warehouse",
+    "nota": 5,
+    "duracao": "1:43:37",
+    "contexto": "Cesgranrio (BB e outras)"
+  },
+  {
+    "id": "6rdWqiJ5qBA",
+    "titulo": "Questões da CESGRANRIO sobre BANCO DE DADOS - Concurso BNDES",
+    "canal": "Arnaldo Junior",
+    "url": "https://www.youtube.com/watch?v=6rdWqiJ5qBA",
+    "assunto": "Banco de Dados: normalização, chave primária, INSERT que falha, mapeamento ER para relacional",
+    "nota": 5,
+    "duracao": "43:13",
+    "contexto": "Cesgranrio (Banco da Amazônia 2022)"
+  },
+  {
+    "id": "yHOY-Ud9TQE",
+    "titulo": "Aula em Questões de Data Warehouse focada na Cesgranrio.",
+    "canal": "Professor Gabriel Pacheco",
+    "url": "https://www.youtube.com/watch?v=yHOY-Ud9TQE",
+    "assunto": "Data Warehouse/BI: estrela x floco de neve, fato x dimensão, ETL, staging, OLAP",
+    "nota": 5,
+    "duracao": "27:47",
+    "contexto": "Cesgranrio"
+  },
+  {
+    "id": "wCePAhh7gyo",
+    "titulo": "Gestão de riscos: questões comentadas da CESGRANRIO",
+    "canal": "Prof. Marcelo Soares",
+    "url": "https://www.youtube.com/watch?v=wCePAhh7gyo",
+    "assunto": "Gestão de riscos: respostas a ameaças, ISO 31000, risco inerente x residual",
+    "nota": 5,
+    "duracao": "41:22",
+    "contexto": "Cesgranrio"
+  },
+  {
+    "id": "4YxL-tdVI60",
+    "titulo": "Prova de inglês da Petrobras corrigida — mesmo estilo da Transpetro (banca Cesgranrio)",
+    "canal": "Inglês com Simone",
+    "url": "https://www.youtube.com/watch?v=4YxL-tdVI60",
+    "assunto": "Inglês: prova Petrobras/Transpetro 2023.2 corrigida (questões sem ler o texto)",
+    "nota": 5,
+    "duracao": "19:33",
+    "contexto": "Cesgranrio (Transpetro 2023.2)"
+  },
+  {
+    "id": "rCqUuZW_tzo",
+    "titulo": "Prova de inglês da Transpetro (Cesgranrio) resolvida: 10 questões com gabarito",
+    "canal": "Inglês com Simone",
+    "url": "https://www.youtube.com/watch?v=rCqUuZW_tzo",
+    "assunto": "Inglês: prova Transpetro resolvida (10 questões, 1 texto)",
+    "nota": 5,
+    "duracao": "21:22",
+    "contexto": "Cesgranrio (Transpetro)"
+  },
+  {
+    "id": "ThdlEQuMXz0",
+    "titulo": "Transpetro (Reta Final) - Segurança da Informação: Dicas e Questões Comentadas.",
+    "canal": "Pratique Concursos",
+    "url": "https://www.youtube.com/watch?v=ThdlEQuMXz0",
+    "assunto": "Segurança: malware, VPN/IPsec, backup, evil twin, 802.1X, DoS (reta final Transpetro)",
+    "nota": 5,
+    "duracao": "",
+    "contexto": "Cesgranrio (BNDES, Transpetro, Basa)"
+  },
+  {
+    "id": "KJLnLUTGZZs",
+    "titulo": "🚨 TRANSPETRO TI: DETONANDO A BANCA CESGRANRIO | RESOLUÇÃO DE QUESTÕES",
+    "canal": "Prof. Max William - Concursos de TI",
+    "url": "https://www.youtube.com/watch?v=KJLnLUTGZZs",
+    "assunto": "Transpetro TI 2026: SQL (DDL/DML/DQL, UPDATE sem WHERE), hash, assinatura digital, resposta a riscos",
+    "nota": 5,
+    "duracao": "54:41",
+    "contexto": "Cesgranrio (questões 2024-2026)"
+  },
+  {
+    "id": "oZ8wtZDyuzs",
+    "titulo": "🔥 Resolução de Questões BPMN para Concursos 🔥",
+    "canal": "Gestão em Curso",
+    "url": "https://www.youtube.com/watch?v=oZ8wtZDyuzs",
+    "assunto": "BPMN: finalidade da notação, eventos, diagramas de orquestração/coreografia/conversação",
+    "nota": 4,
+    "duracao": "28:33",
+    "contexto": "Cebraspe (TRF5 e outras)"
+  },
+  {
+    "id": "E0g9GrGQ9KY",
+    "titulo": "Comentando questões de TI Banco de Dados para CESGRANRIO Parte II",
+    "canal": "Professor Rogerão Araújo",
+    "url": "https://www.youtube.com/watch?v=E0g9GrGQ9KY",
+    "assunto": "Banco de Dados: cardinalidade ER, SQL (NOT IN, join, produto cartesiano) na prova BB 2022",
+    "nota": 4,
+    "duracao": "50:46",
+    "contexto": "Cesgranrio (BB)"
+  },
+  {
+    "id": "jEj6kA1jEGo",
+    "titulo": "Questões Comentadas sobre DATA WAREHOUSE | Concurso BB 2026 - Agente de Tecnologia",
+    "canal": "Arnaldo Junior",
+    "url": "https://www.youtube.com/watch?v=jEj6kA1jEGo",
+    "assunto": "Data Warehouse: DW x Data Lake, mineração, estrela, drill-down/drill-across",
+    "nota": 4,
+    "duracao": "20:22",
+    "contexto": "Mistas (Cebraspe, FGV, Fundatec) para BB"
+  },
+  {
+    "id": "jyLlqhwt1b8",
+    "titulo": "Análise de Sistemas para Transpetro",
+    "canal": "Estratégia Concursos",
+    "url": "https://www.youtube.com/watch?v=jyLlqhwt1b8",
+    "assunto": "Edital Transpetro 2023: cargos, banca, estrutura de prova, ênfase Processos de Negócio",
+    "nota": 4,
+    "duracao": "",
+    "contexto": "Live do Estratégia (edital de 2023)"
+  },
+  {
+    "id": "zWCVlGkItdg",
+    "titulo": "INGLÊS PARA TRANSPETRO - CESGRANRIO",
+    "canal": "Prof. Renato Baggio",
+    "url": "https://www.youtube.com/watch?v=zWCVlGkItdg",
+    "assunto": "Inglês Transpetro: texto numerado, vocabulário, macetes, present perfect",
+    "nota": 4,
+    "duracao": "1:23:27",
+    "contexto": "Cesgranrio"
+  },
+  {
+    "id": "iBKuJTePVLM",
+    "titulo": "CONCURSO TRANSPETRO 2026 - RESOLUÇÃO DE QUESTÕES LÍNGUA INGLESA | Cesgranrio",
+    "canal": "Cursos do Portal",
+    "url": "https://www.youtube.com/watch?v=iBKuJTePVLM",
+    "assunto": "Inglês Transpetro: técnicas de leitura e questões",
+    "nota": 4,
+    "duracao": "1:00:40",
+    "contexto": "Cesgranrio (Transpetro)"
+  },
+  {
+    "id": "z5Q_fYEwQ-k",
+    "titulo": "Concurso Petrobras 2026 | Qual é o padrão por trás da banca Cesgranrio? 🤔",
+    "canal": "Nova Concursos",
+    "url": "https://www.youtube.com/watch?v=z5Q_fYEwQ-k",
+    "assunto": "Padrão da Cesgranrio na Petrobras/Transpetro: distratores, português, repetição de padrões",
+    "nota": 4,
+    "duracao": "9:56",
+    "contexto": "Cesgranrio"
+  },
+  {
+    "id": "2L-cdGoyZy8",
+    "titulo": "TRANSPETRO 2026: PORTUGUÊS CESGRANRIO | AULÃO COMPLETO + QUESTÕES",
+    "canal": "Pablo Jamilk",
+    "url": "https://www.youtube.com/watch?v=2L-cdGoyZy8",
+    "assunto": "Português Transpetro: interpretação de texto longo, referentes, causa x consequência",
+    "nota": 4,
+    "duracao": "40:40",
+    "contexto": "Cesgranrio (prova recente)"
+  },
+  {
+    "id": "Umkm3Utnqus",
+    "titulo": "Concurso Transpetro 2026 | Como a Cesgranrio cobra Português? Dicas para a prova! 📝",
+    "canal": "Nova Concursos",
+    "url": "https://www.youtube.com/watch?v=Umkm3Utnqus",
+    "assunto": "Português na Cesgranrio: gramática no contexto, distratores, reescrita, crase",
+    "nota": 4,
+    "duracao": "16:10",
+    "contexto": "Cesgranrio (Transpetro)"
+  },
+  {
+    "id": "maITuzLGR1o",
+    "titulo": "Português Transpetro / Dominando CONECTIVOS da banca Cesgranrio",
+    "canal": "Décio Terror",
+    "url": "https://www.youtube.com/watch?v=maITuzLGR1o",
+    "assunto": "Português: conectivos, orações coordenadas e subordinadas, pronome relativo",
+    "nota": 4,
+    "duracao": "1:52:25",
+    "contexto": "Cesgranrio"
+  },
+  {
+    "id": "Z7q2NWgnm7I",
+    "titulo": "Questão de SQL  - Controle de Passes de Metrô CESGRANRIO | EMBRAPA - ENGENHARIA DE SOFTWARE",
+    "canal": "Arnaldo Junior",
+    "url": "https://www.youtube.com/watch?v=Z7q2NWgnm7I",
+    "assunto": "SQL: integridade referencial, INSERT/UPDATE/DELETE que geram erro",
+    "nota": 4,
+    "duracao": "14:21",
+    "contexto": "Cesgranrio (Eletrobras 2022)"
+  },
+  {
+    "id": "7-jAP9Yx_Qw",
+    "titulo": "Como é a prova da CESGRANRIO? 7 Dicas matadoras",
+    "canal": "Concursar - Como estudar para concurso público",
+    "url": "https://www.youtube.com/watch?v=7-jAP9Yx_Qw",
+    "assunto": "Técnicas de resolução da Cesgranrio: pular/riscar, absolutos, historinha, listas",
+    "nota": 4,
+    "duracao": "17:06",
+    "contexto": "Cesgranrio (Caixa como exemplo)"
+  },
+  {
+    "id": "o1OyrrDhTTI",
+    "titulo": "Videoaulas ITnerantes: UML em Exercícios CESGRANRIO - Prof. Felipe Leite (Aula 07)",
+    "canal": "Provas de TI",
+    "url": "https://www.youtube.com/watch?v=o1OyrrDhTTI",
+    "assunto": "UML: casos de uso (include/extend, multiplicidade), classes de análise, ator generalizado",
+    "nota": 4,
+    "duracao": "15:13",
+    "contexto": "Cesgranrio (BR Distribuidora 2008/2012)"
+  },
+  {
+    "id": "uEMDIMHiXYA",
+    "titulo": "📌 Resolvendo Questões: BPMS e BPMN! 🚀",
+    "canal": "Gestão em Curso",
+    "url": "https://www.youtube.com/watch?v=uEMDIMHiXYA",
+    "assunto": "BPMS x BPMN: vantagens do BPMS e tipos de eventos BPMN 2.0",
+    "nota": 3,
+    "duracao": "17:46",
+    "contexto": "FGV (Dataprev, TCE-SP)"
+  },
+  {
+    "id": "0KfHmYndpTE",
+    "titulo": "Concurso Banco do Brasil 2023: Correção da prova de TI de Agente de Tecnologia",
+    "canal": "Direção Concursos",
+    "url": "https://www.youtube.com/watch?v=0KfHmYndpTE",
+    "assunto": "Correção da prova BB 2023 de TI: ML/Python, Java, SQL, SGBD, big data",
+    "nota": 3,
+    "duracao": "1:34:15",
+    "contexto": "Cesgranrio (BB 2023)"
+  },
+  {
+    "id": "0l7bfwpM9us",
+    "titulo": "🔴 TI Para Concursos | Criptografia",
+    "canal": "Prof. Ramon Souza",
+    "url": "https://www.youtube.com/watch?v=0l7bfwpM9us",
+    "assunto": "Criptografia: simétrica x assimétrica, propriedades garantidas, disponibilidade",
+    "nota": 3,
+    "duracao": "21:34",
+    "contexto": "Geral (concursos de TI)"
+  },
+  {
+    "id": "EVexuT0gb5w",
+    "titulo": "Governança de TI em Concursos: O que COBIT e ITIL Realmente Cobram?",
+    "canal": "Concurso é F",
+    "url": "https://www.youtube.com/watch?v=EVexuT0gb5w",
+    "assunto": "Governança de TI: COBIT x ITIL, governança x gestão, incidente x problema",
+    "nota": 3,
+    "duracao": "7:31",
+    "contexto": "Geral (não é focado em Cesgranrio)"
+  },
+  {
+    "id": "Dq_hks-zCew",
+    "titulo": "Descubra o SEGREDO da Cesgranrio | Técnica 21110 para chutar CERTO",
+    "canal": "O Primo Concursado",
+    "url": "https://www.youtube.com/watch?v=Dq_hks-zCew",
+    "assunto": "Heurística estatística de chute da Cesgranrio (blocos de 5)",
+    "nota": 3,
+    "duracao": "19:19",
+    "contexto": "Cesgranrio; método não validado"
+  },
+  {
+    "id": "cUx37UvceKQ",
+    "titulo": "Concurso Caixa Econômica Federal: Metodologias Ágeis – Teoria Simplificada",
+    "canal": "Carranza Cursos",
+    "url": "https://www.youtube.com/watch?v=cUx37UvceKQ",
+    "assunto": "Metodologias ágeis: Lean, Kanban, Scrum, XP e questões",
+    "nota": 3,
+    "duracao": "43:03",
+    "contexto": "Caixa (Cesgranrio); aula simplificada"
+  },
+  {
+    "id": "R0w0uh2eSt0",
+    "titulo": "Planejamento e Gestão Estratégica - Questões CESGRANRIO (Parte 1)",
+    "canal": "Prof. Marcelo Soares",
+    "url": "https://www.youtube.com/watch?v=R0w0uh2eSt0",
+    "assunto": "Planejamento estratégico: missão, SWOT, integração vertical, tipos de estratégia",
+    "nota": 3,
+    "duracao": "32:28",
+    "contexto": "Cesgranrio"
+  },
+  {
+    "id": "yQk5Z3Uf7lo",
+    "titulo": "Informática para concurso | Questões CESGRANRIO  - Segurança da informação",
+    "canal": "Professor Gabriel Roriz",
+    "url": "https://www.youtube.com/watch?v=yQk5Z3Uf7lo",
+    "assunto": "Segurança básica: vírus, worm, phishing, engenharia social, firewall, spyware",
+    "nota": 3,
+    "duracao": "23:50",
+    "contexto": "Cesgranrio (informática)"
+  },
+  {
+    "id": "bZUO87R9V9w",
+    "titulo": "Aula 25: Segurança da Informação: Princípios CIDA, Hash e Criptografia para Concursos | Cesgranrio",
+    "canal": "Maxsuel Todaka - Concurso Público",
+    "url": "https://www.youtube.com/watch?v=bZUO87R9V9w",
+    "assunto": "Segurança: CIDA, hash e criptografia (conceitos)",
+    "nota": 3,
+    "duracao": "29:42",
+    "contexto": "Cesgranrio (formato conversacional)"
+  },
+  {
+    "id": "FxJDOL4QwJE",
+    "titulo": "Segurança da Informação | Questões da banca CESGRANRIO - Informática | Prof. Sérgio Spolador",
+    "canal": "Prepara",
+    "url": "https://www.youtube.com/watch?v=FxJDOL4QwJE",
+    "assunto": "Segurança: malware, rootkit, AAA, autenticação multifator (live longa; conteúdo repetido)",
+    "nota": 3,
+    "duracao": "1:58:35",
+    "contexto": "Cesgranrio"
+  },
+  {
+    "id": "VLV0ay2tdno",
+    "titulo": "Informática para concursos | Questões que mais caem - Cesgranrio |  Prof. Danilo Vilanova #opior",
+    "canal": "Professor Danilo Vilanova | Informática Concursos",
+    "url": "https://www.youtube.com/watch?v=VLV0ay2tdno",
+    "assunto": "Informática (banca): CIDA, backup, DNS/protocolos, Word/Windows",
+    "nota": 2,
+    "duracao": "1:06:33",
+    "contexto": "Cesgranrio"
+  },
+  {
+    "id": "66ALTuwj558",
+    "titulo": "Questões de Matemática e Raciocínio Lógico para Cesgranrio",
+    "canal": "Nova Concursos",
+    "url": "https://www.youtube.com/watch?v=66ALTuwj558",
+    "assunto": "Matemática e raciocínio lógico: pegadinha das prateleiras, equações, combinatória, probabilidade",
+    "nota": 2,
+    "duracao": "1:08:46",
+    "contexto": "Cesgranrio"
+  },
+  {
+    "id": "wgmr-YzzGUk",
+    "titulo": "COMO NÃO CAIR EM PEGADINHAS DA BANCA CESGRANRIO | CONCURSOS BANCO DO BRASIL + BANESE",
+    "canal": "Exatas pra Gabaritar",
+    "url": "https://www.youtube.com/watch?v=wgmr-YzzGUk",
+    "assunto": "Matemática: tempo conjunto, porcentagem sem valor, regra do 72, juros compostos",
+    "nota": 2,
+    "duracao": "26:27",
+    "contexto": "Cesgranrio (BB/Banese)"
+  },
+  {
+    "id": "T-RRfLfifa4",
+    "titulo": "Interpretando questões Cesgranrio  - Transpetro",
+    "canal": "Felippe Loureiro",
+    "url": "https://www.youtube.com/watch?v=T-RRfLfifa4",
+    "assunto": "Mini simulado de matemática (modelagem de equações) para Transpetro",
+    "nota": 2,
+    "duracao": "50:08",
+    "contexto": "Cesgranrio"
+  },
+  {
+    "id": "WgOh8QWL_JI",
+    "titulo": "O que CAI na Prova da TRANSPETRO 2026 Cesgranrio e Nota para Passar",
+    "canal": "Willian Rabello",
+    "url": "https://www.youtube.com/watch?v=WgOh8QWL_JI",
+    "assunto": "O que cai na Transpetro 2026 (visão de engenharia): matérias e perfil de prova",
+    "nota": 2,
+    "duracao": "8:10",
+    "contexto": "Cesgranrio; foco em engenharia"
+  },
+  {
+    "id": "wPtkkMBc0lU",
+    "titulo": "O que Realmente Cai nas Provas da Cesgranrio - Informática",
+    "canal": "Renan Duarte",
+    "url": "https://www.youtube.com/watch?v=wPtkkMBc0lU",
+    "assunto": "O que mais cai em Informática na Cesgranrio (análise de frequência, concursos bancários)",
+    "nota": 2,
+    "duracao": "12:01",
+    "contexto": "Cesgranrio"
+  }
+]

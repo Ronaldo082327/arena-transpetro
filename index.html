@@ -1,0 +1,623 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;padding:env(safe-area-inset-top,0px) 0 env(safe-area-inset-bottom,0px)}body{margin:0;font:14px system-ui,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Arena Transpetro Processos de Negócios</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: barra de navegação fixa com as seis áreas; cada área é uma coluna de leitura no estilo do caderno de prova; placar lateral só em telas largas. */
+:root{
+  --bg:#f3f5f6; --paper:#ffffff; --ink:#14232a; --muted:#566870; --line:#d5dde0;
+  --accent:#0d5b6b; --accent-soft:#dcecef; --warn:#a96400; --warn-soft:#f8ecd8;
+  --bad:#a3322a; --bad-soft:#f6e1de; --ok:#2c6e3f; --ok-soft:#e1efe4; --on-accent:#ffffff;
+  --display:"Barlow Condensed","Arial Narrow",Arial,sans-serif;
+  --body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0e1619; --paper:#152126; --ink:#e3ecee; --muted:#9db0b6; --line:#2a3a40;
+  --accent:#5fb6c6; --accent-soft:#16343b; --warn:#e3a54b; --warn-soft:#3a2c14;
+  --bad:#ec8b81; --bad-soft:#3d1f1c; --ok:#7fc794; --ok-soft:#183324; --on-accent:#0e1619; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0e1619; --paper:#152126; --ink:#e3ecee; --muted:#9db0b6; --line:#2a3a40;
+  --accent:#5fb6c6; --accent-soft:#16343b; --warn:#e3a54b; --warn-soft:#3a2c14;
+  --bad:#ec8b81; --bad-soft:#3d1f1c; --ok:#7fc794; --ok-soft:#183324; --on-accent:#0e1619; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.5;margin:0;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 56px}
+.wrap{max-width:1080px;margin:0 auto}
+h1,h2,h3{font-family:var(--display);font-weight:600;line-height:1.1;text-wrap:balance;margin:0}
+h1{font-size:clamp(28px,4.6vw,42px)} h2{font-size:26px} h3{font-size:19px}
+p{margin:0;max-width:70ch}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.note{font-size:13px;color:var(--muted)}
+a{color:var(--accent)}
+button{font-family:var(--body);font-size:14px;cursor:pointer;border-radius:6px;border:1px solid var(--line);background:var(--paper);color:var(--ink);padding:8px 14px}
+button.primary{background:var(--accent);border-color:var(--accent);color:var(--on-accent);font-weight:600}
+button.ghost{background:none}
+button:disabled{opacity:.5;cursor:default}
+button:focus-visible,select:focus-visible,input:focus-visible,textarea:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+select,input[type=number],textarea{font-family:var(--body);font-size:14px;padding:7px 10px;border:1px solid var(--line);border-radius:6px;background:var(--paper);color:var(--ink);max-width:100%}
+textarea{width:100%;resize:vertical;min-height:70px}
+
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--paper)}
+nav.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--paper);border-bottom:1px solid var(--line);
+  margin-left:calc(-1 * max(16px,env(safe-area-inset-left,0px)));margin-right:calc(-1 * max(16px,env(safe-area-inset-right,0px)));
+  padding-block:8px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+nav.top .in{max-width:1080px;margin:0 auto;display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;align-items:center}
+nav.top .brand{font-family:var(--display);font-weight:700;font-size:18px;margin-right:8px;white-space:nowrap;color:var(--accent)}
+nav.top button{flex:0 0 auto;font-family:var(--mono);font-size:12px;padding:6px 12px;border-radius:999px;color:var(--muted)}
+nav.top button[aria-current="page"]{color:var(--accent);border-color:var(--accent);background:var(--accent-soft)}
+nav.top .sync{margin-left:auto;font-family:var(--mono);font-size:11px;color:var(--muted);white-space:nowrap;padding-left:8px}
+
+header.hero{padding-block:24px 8px;display:grid;gap:10px}
+.hero-row{display:flex;flex-wrap:wrap;gap:16px;align-items:flex-end;justify-content:space-between}
+.count{display:flex;align-items:baseline;gap:8px}
+.count .n{font-family:var(--display);font-size:60px;font-weight:700;color:var(--accent);line-height:.9}
+.count .l{font-family:var(--mono);font-size:12px;color:var(--muted)}
+
+section.view{padding-top:18px;display:grid;gap:16px}
+.panel{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:16px;display:grid;gap:12px;min-width:0}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.kpi{display:grid;gap:2px;padding:12px 14px;border:1px solid var(--line);border-radius:8px;background:var(--paper);min-width:0}
+.kpi b{font-family:var(--display);font-size:32px;font-weight:700;line-height:1}
+.kpi span{font-size:13px;color:var(--muted)}
+.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chips button{font-size:13px;padding:5px 10px;border-radius:999px}
+.chips button[aria-pressed="true"]{background:var(--accent-soft);border-color:var(--accent);color:var(--accent)}
+.filters{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;align-items:end}
+.filters label{display:grid;gap:4px;font-size:13px;color:var(--muted)}
+.pill{display:inline-block;font-family:var(--mono);font-size:11px;padding:2px 8px;border-radius:999px;border:1px solid currentColor;white-space:nowrap}
+.pill.ok{color:var(--ok);background:var(--ok-soft)} .pill.bad{color:var(--bad);background:var(--bad-soft)} .pill.warn{color:var(--warn);background:var(--warn-soft)} .pill.acc{color:var(--accent);background:var(--accent-soft)}
+.check{display:grid;gap:2px}
+.check label{display:grid;grid-template-columns:24px 1fr auto;gap:10px;align-items:start;padding:8px 4px;border-bottom:1px dashed var(--line);cursor:pointer}
+.check input{appearance:none;width:20px;height:20px;border:1.5px solid var(--ink);border-radius:50%;margin:1px 0 0;cursor:pointer;background:var(--paper)}
+.check input:checked{background:var(--ink)}
+.check input:checked + span{color:var(--muted);text-decoration:line-through}
+.check .min{font-family:var(--mono);font-size:12px;color:var(--muted)}
+ul.clean{margin:0;padding-left:18px;display:grid;gap:5px}
+
+/* questões */
+.layout{display:grid;grid-template-columns:minmax(0,1fr) 270px;gap:16px}
+@media (max-width:860px){.layout{grid-template-columns:1fr}}
+.q-meta{display:flex;flex-wrap:wrap;gap:6px 14px;font-family:var(--mono);font-size:12px;color:var(--muted)}
+.q-text{white-space:pre-wrap;font-size:15.5px;line-height:1.55;max-width:74ch}
+.alts{display:grid;gap:8px}
+.alt{display:grid;grid-template-columns:30px 1fr;gap:10px;align-items:start;padding:10px 12px;border:1px solid var(--line);border-radius:8px;background:var(--paper);text-align:left;font-size:15px;line-height:1.45;white-space:pre-wrap;width:100%}
+.alt .l{font-family:var(--display);font-size:20px;font-weight:700;color:var(--accent)}
+.alt:hover{border-color:var(--accent)}
+.alt.chosen{border-color:var(--accent);background:var(--accent-soft)}
+.alt.right{border-color:var(--ok);background:var(--ok-soft)}
+.alt.wrong{border-color:var(--bad);background:var(--bad-soft)}
+.alt.elim{opacity:.45;text-decoration:line-through}
+.feedback{border-left:4px solid var(--accent);padding:10px 14px;background:var(--accent-soft);border-radius:0 8px 8px 0;display:grid;gap:8px}
+.feedback.ok{border-color:var(--ok);background:var(--ok-soft)}
+.feedback.bad{border-color:var(--bad);background:var(--bad-soft)}
+.ai{white-space:pre-wrap;font-size:14.5px;line-height:1.55;border:1px dashed var(--accent);border-radius:8px;padding:12px 14px;background:var(--paper)}
+.ai.thinking{color:var(--muted);font-style:italic}
+.taxo{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.taxo button{font-size:12px;padding:4px 10px;border-radius:999px}
+.taxo button[aria-pressed="true"]{background:var(--warn-soft);border-color:var(--warn);color:var(--warn)}
+.grid10{display:grid;grid-template-columns:repeat(10,1fr);gap:4px}
+.grid10 button{padding:6px 0;font-family:var(--mono);font-size:12px;border-radius:4px}
+.grid10 button.done{background:var(--accent-soft);border-color:var(--accent)}
+.grid10 button.cur{outline:2px solid var(--accent)}
+.grid10 button.flag{border-color:var(--warn);color:var(--warn)}
+.timer{font-family:var(--display);font-size:30px;font-weight:600}
+.big{font-family:var(--display);font-size:42px;font-weight:700;line-height:1;color:var(--accent)}
+
+/* flashcards */
+.card{min-height:220px;display:grid;gap:14px;align-content:start;border:1px solid var(--line);border-radius:12px;padding:22px;background:var(--paper)}
+.card .front{font-size:19px;line-height:1.45;font-weight:500}
+.card .back{font-size:16px;line-height:1.55;border-top:1px dashed var(--line);padding-top:14px;white-space:pre-wrap}
+.grades{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.grades button{display:grid;gap:2px;padding:10px 6px}
+.grades button small{font-family:var(--mono);font-size:11px;color:var(--muted)}
+.grades .g0{border-color:var(--bad);color:var(--bad)} .grades .g1{border-color:var(--warn);color:var(--warn)} .grades .g2{border-color:var(--ok);color:var(--ok)} .grades .g3{border-color:var(--accent);color:var(--accent)}
+
+/* tutor */
+.chat{display:grid;gap:10px}
+.msg{padding:10px 14px;border-radius:10px;white-space:pre-wrap;line-height:1.55;max-width:80ch}
+.msg.u{background:var(--accent-soft);justify-self:end}
+.msg.a{background:var(--paper);border:1px solid var(--line)}
+
+/* ecossistema */
+.links{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:10px}
+.link{display:grid;gap:4px;padding:12px 14px;border:1px solid var(--line);border-radius:8px;background:var(--paper);text-decoration:none;color:var(--ink);min-width:0}
+.link:hover{border-color:var(--accent)}
+.link b{font-size:15px}
+.link span{font-size:13px;color:var(--muted)}
+
+.bars{display:grid;gap:6px}
+.bar{display:grid;grid-template-columns:minmax(90px,140px) 1fr 70px;gap:8px;align-items:center;font-size:13px}
+.bar .track{height:10px;background:var(--accent-soft);border-radius:2px;overflow:hidden}
+.bar .fill{height:100%;background:var(--accent)}
+.bar .v{font-family:var(--mono);text-align:right;font-size:12px}
+table{border-collapse:collapse;width:100%;font-size:13px}
+th,td{text-align:left;padding:6px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:500}
+td.num,th.num{text-align:right;font-family:var(--mono)}
+.tbl{overflow-x:auto}
+.empty{padding:20px;text-align:center;color:var(--muted)}
+footer{padding-top:28px;font-size:13px;color:var(--muted);display:grid;gap:6px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+
+<nav class="top" aria-label="Áreas"><div class="in">
+  <span class="brand">Arena Transpetro</span>
+  <button type="button" data-v="hoje" aria-current="page">Hoje</button>
+  <button type="button" data-v="questoes">Questões</button>
+  <button type="button" data-v="cards">Flashcards</button>
+  <button type="button" data-v="tutor">Tutor IA</button>
+  <button type="button" data-v="banca">Banca</button>
+  <button type="button" data-v="eco">Ecossistema</button>
+  <button type="button" data-v="placar">Placar</button>
+  <span class="sync" id="sync">salvo neste navegador</span>
+</div></nav>
+
+<div class="wrap">
+<header class="hero">
+  <div class="eyebrow">Transpetro 2026 · Ênfase 5 · Análise de Sistemas · Processos de Negócios · Cesgranrio</div>
+  <div class="hero-row">
+    <div style="display:grid;gap:6px;min-width:0">
+      <h1>Arena Transpetro Processos de Negócios</h1>
+      <p>1.000 questões reais da Cesgranrio com gabarito, 1.541 flashcards de contraste com revisão espaçada, tutor de IA que explica cada questão e gera questões inéditas no padrão da banca, e o seu ecossistema Google em um só lugar.</p>
+    </div>
+    <div class="count"><span class="n mono" id="days">34</span><span class="l">dias até<br>dom 06/12/2026</span></div>
+  </div>
+</header>
+
+<!-- HOJE -->
+<section class="view" id="v-hoje">
+  <div class="grid3" id="kpis"></div>
+  <div class="grid2">
+    <div class="panel">
+      <div class="eyebrow" id="weekLabel">Semana</div>
+      <h2 id="weekTitle">Plano da semana</h2>
+      <ul class="clean" id="weekTasks"></ul>
+      <div class="note" id="weekGoal"></div>
+    </div>
+    <div class="panel">
+      <div class="eyebrow" id="todayLabel">Rotina de hoje</div>
+      <h2>Rotina do dia</h2>
+      <div class="check" id="routine"></div>
+      <div class="note">As marcações do dia ficam salvas e entram no placar de constância.</div>
+    </div>
+  </div>
+  <div class="panel">
+    <div class="eyebrow">Próximo passo sugerido</div>
+    <div id="nextStep" class="row"></div>
+  </div>
+</section>
+
+<!-- QUESTÕES -->
+<section class="view" id="v-questoes" hidden>
+  <div class="panel" id="qsetup">
+    <div class="chips" role="group" aria-label="Modo">
+      <button type="button" data-m="treino" aria-pressed="true">Treino com correção na hora</button>
+      <button type="button" data-m="simulado" aria-pressed="false">Simulado cronometrado</button>
+      <button type="button" data-m="erros" aria-pressed="false">Refazer erros</button>
+    </div>
+    <div class="chips" id="discChips" aria-label="Disciplinas"></div>
+    <div class="filters">
+      <label>Assunto<select id="assunto"><option value="">Todos os assuntos do filtro</option></select></label>
+      <label>Período<select id="periodo"><option value="2023">2023 em diante (estilo atual)</option><option value="2019">2019 em diante</option><option value="0">Todos (2016 a 2026)</option></select></label>
+      <label>Ordem<select id="ordem"><option value="rand">Aleatória</option><option value="recent">Mais recentes primeiro</option></select></label>
+      <label id="nWrap" hidden>Questões no simulado<input type="number" id="nSim" min="5" max="70" step="5" value="20"></label>
+    </div>
+    <div class="row">
+      <label class="row" style="gap:6px;font-size:13px"><input type="checkbox" id="foraEnfase" checked> Ocultar assuntos de outras ênfases</label>
+      <label class="row" style="gap:6px;font-size:13px"><input type="checkbox" id="semFeitas"> Só questões ainda não feitas</label>
+    </div>
+    <div class="row"><button type="button" class="primary" id="qstart">Começar</button><span class="note" id="qcount"></span></div>
+  </div>
+  <div class="layout" id="qarena" hidden>
+    <div class="panel" id="qpanel"></div>
+    <aside class="panel" id="qside"></aside>
+  </div>
+</section>
+
+<!-- FLASHCARDS -->
+<section class="view" id="v-cards" hidden>
+  <div class="panel">
+    <div class="chips" id="cardChips" aria-label="Disciplinas dos flashcards"></div>
+    <div class="row">
+      <span class="note" id="cardCount"></span>
+      <label class="row" style="gap:6px;font-size:13px">Novos por dia <input type="number" id="newPerDay" min="0" max="200" step="5" value="30" style="width:80px"></label>
+    </div>
+  </div>
+  <div id="cardStage"></div>
+</section>
+
+<!-- TUTOR -->
+<section class="view" id="v-tutor" hidden>
+  <div class="grid2">
+    <div class="panel">
+      <div class="eyebrow">Gerador de questões inéditas</div>
+      <h2>Questões no padrão Cesgranrio</h2>
+      <p class="note">O tutor lê duas questões reais do assunto escolhido e escreve uma nova no mesmo molde: distrator vizinho, absoluto plantado, frase decisiva.</p>
+      <div class="filters">
+        <label>Disciplina<select id="genDisc"></select></label>
+        <label>Assunto<select id="genAss"></select></label>
+      </div>
+      <div class="row"><button type="button" class="primary" id="genBtn">Gerar questão</button><span class="note" id="genNote"></span></div>
+      <div id="genOut"></div>
+    </div>
+    <div class="panel">
+      <div class="eyebrow">Converse com o tutor</div>
+      <h2>Tutor Cesgranrio</h2>
+      <div class="chips" id="tutorQuick"></div>
+      <div class="chat" id="chat"></div>
+      <textarea id="chatIn" placeholder="Ex.: qual a diferença entre IDS e IPS do jeito que a Cesgranrio cobra?"></textarea>
+      <div class="row"><button type="button" class="primary" id="chatSend">Enviar</button><button type="button" class="ghost" id="chatStop" hidden>Parar</button><button type="button" class="ghost" id="chatClear">Limpar conversa</button></div>
+      <p class="note" id="tutorNote">O tutor usa o seu próprio acesso ao Claude e pede permissão na primeira pergunta.</p>
+    </div>
+  </div>
+</section>
+
+<!-- BANCA -->
+<section class="view" id="v-banca" hidden>
+  <div class="panel">
+    <div class="eyebrow">Perfil da Cesgranrio, prioridades e lições dos professores</div>
+    <h2>Banca</h2>
+    <div class="chips" id="bancaTabs"></div>
+    <div id="bancaBody" style="display:grid;gap:12px"></div>
+    <div class="note" id="bancaNote"></div>
+  </div>
+</section>
+
+<!-- ECOSSISTEMA -->
+<section class="view" id="v-eco" hidden>
+  <div id="ecoLinks" style="display:grid;gap:16px"></div>
+  <div class="panel">
+    <div class="eyebrow">Como usar cada ferramenta na reta final</div>
+    <h2>Seu ecossistema de estudo</h2>
+    <div class="tbl"><table>
+      <thead><tr><th>Ferramenta</th><th>Para quê nesta prova</th><th>Quando</th></tr></thead>
+      <tbody>
+        <tr><td><b>Arena (esta página)</b></td><td>Questões reais com correção, simulados de domingo, refação de erros, flashcards de contraste, tutor</td><td>Todo dia, blocos de Específicas e Anki</td></tr>
+        <tr><td><b>Gemini Notebook</b></td><td>Um caderno por disciplina com o guia Cesgranrio como fonte principal; Resumo em Áudio da lei seca e dos pares de contraste; teste e cartões gerados das suas fontes</td><td>Áudio no deslocamento; teste no fim do bloco do dia</td></tr>
+        <tr><td><b>Gemini (app)</b></td><td>Gems por disciplina que respondem só com base no guia; Canvas para simular OLAP, normalização e tabela-verdade; Deep Research para LGPD, normas ISO e NIST atualizadas</td><td>Quando travar num conceito; uma vez para cada norma</td></tr>
+        <tr><td><b>Flow e Veo</b></td><td>Cenas curtas para o palácio da memória: 14 táticas ATT&amp;CK, STRIDE, 5 grupos do PMBOK, ACID, as 6 operações OLAP</td><td>Uma lista por dia nas semanas 2 e 3</td></tr>
+        <tr><td><b>Google Vids</b></td><td>Microaulas narradas a partir do seu caderno de erros no Docs</td><td>Semana 4, para revisar os erros recorrentes</td></tr>
+        <tr><td><b>Colab</b></td><td>Estatística do seu desempenho e da incidência da banca a partir do banco de questões</td><td>Segunda-feira, junto da correção do simulado</td></tr>
+        <tr><td><b>TecConcursos</b></td><td>43 cadernos por tópico para volume e para medir com questões novas</td><td>Sessões de Específicas</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+</section>
+
+<!-- PLACAR -->
+<section class="view" id="v-placar" hidden>
+  <div class="panel" id="placar"></div>
+</section>
+
+<footer>
+  <div>Questões: cadernos "Treino massivo Cesgranrio 10 anos" do TecConcursos (Banco de Dados, Gestão de Projetos, Governança de TI, Engenharia de Software e UX, BI e Ciência de Dados, Segurança da Informação), com gabarito. Flashcards: guias Cesgranrio por disciplina de 02/11/2026. Português, Inglês e Lógica têm cards e tutor, mas não têm banco de questões aqui; use os cadernos do TecConcursos.</div>
+  <div>Seu progresso fica salvo no seu espaço privado desta página quando você está conectado; caso contrário, só neste navegador.</div>
+</footer>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var $=function(id){return document.getElementById(id)};
+  var esc=function(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})};
+  var EXAM=new Date(2026,11,6);
+  var DISC={Dados:'Dados',BI_CienciaDados:'BI e Dados',EngSoftware_UX:'Eng. Software e UX',Projetos:'Projetos',Governanca:'Governança e LGPD',Seguranca:'Segurança'};
+  var FORA=/Python|NumPy|Pandas|Tensores|Keras|Matplotlib|Scikit|NLTK|Bibliotecas Python|Linguagem R|Scala|Machine Learning|Redes Neurais|Deep Learning|IA Generativa|Linguagem Natural|LLM|Treinamento e Avalia|Multiagentes|Hadoop|Streaming|Jupyter|ERP \(Enterprise|IN SGD|CMMI|MPS\.BR|Protocolos Seguros|TLS, SSL|IPSec|SSH|Redes Sem Fio|Transferência Segura|RADIUS|Kerberos|Hardening|Forense|Blockchain|SQL Server|Oracle|MySQL|PostgreSQL|Access|Procedimentos armazenados|PL\/SQL|Padrões de Projeto|Pontos de Função|Maven|Jenkins|SubVersion|Github|Esteganografia|Algoritmos de Criptografia|Análise de Código Malicioso|Microsoft Endpoint/i;
+  var WEEKS=[
+    {s:'2026-11-02',e:'2026-11-08',n:'Semana 1 · Diagnóstico',t:['Dados todos os dias: SQL com tabela e ER → relacional com instâncias','Segurança em dias alternados: malware, ataques, ferramentas de defesa','Lógica em bloco curto diário (equivalências e negação)','Não abra a prova 2023 comentada antes de domingo','Domingo 08/11: Simulado 1 com a prova 2023, ordem A, 330 min'],g:'Meta do Simulado 1: Específicas ≥ 30 · Português ≥ 7 · Inglês ≥ 4'},
+    {s:'2026-11-09',e:'2026-11-15',n:'Semana 2 · Blocos fracos',t:['Segunda: correção do Simulado 1 (2h) e taxonomia dos erros','Bloco abaixo de 60% ganha sessão diária','Requisitos, testes e V&V, UML pela descrição, UX (Nielsen, WCAG, protótipos, MVP)','Criptografia (qual chave de quem), IAM, normas pelo número; DW/OLAP; ACID','Domingo 15/11: Simulado 2, ordem B (Inglês primeiro)'],g:'Meta do Simulado 2: Específicas ≥ 33 · Português ≥ 7 · Inglês ≥ 5'},
+    {s:'2026-11-16',e:'2026-11-22',n:'Semana 3 · Volume misto e lei seca',t:['Sessões com três assuntos intercalados, 3,5 min por questão','Lei seca 30 min/dia: LGPD, normas, Scrum Guide, grupos × áreas, PMBOK 7','Uma sessão de cálculo: rede, PERT, valor agregado','Glossário do bloco 4 (2h)','Domingo 22/11: Simulado 3 com questões não vistas; fixe a ordem do dia'],g:'Meta do Simulado 3: Específicas ≥ 36 · Português ≥ 8 · Inglês ≥ 5'},
+    {s:'2026-11-23',e:'2026-11-29',n:'Semana 4 · Reforço por erro',t:['Só subitens com dois ou mais erros','Segunda passada na prova 2023 (erradas e "?")','Inglês: texto da Transpetro 2023 pela terceira vez','Último conteúdo novo na sexta 27/11','Domingo 29/11: Simulado 4, ensaio geral no horário da prova'],g:'Meta do Simulado 4: Específicas ≥ 38 · Gerais ≥ 12'},
+    {s:'2026-11-30',e:'2026-12-06',n:'Semana 5 · Polimento',t:['01/12: Cartão de Confirmação; conferir as 5 adaptações, PcD e PN','01–03/12: só flashcards, regras de leitura e checklists de véspera','04/12: 2h leves e mochila pronta','05/12: reconhecer o local e dormir no horário','06/12: prova, chegada 1h30 antes'],g:'Nada de conteúdo novo. Sono vale mais que revisão.'}
+  ];
+  var ROUTINE=[['esp1','Específicas, sessão 1 (bloco prioritário)',100],['esp2','Específicas, sessão 2 (bloco fraco)',100],['ing','Inglês: um texto Cesgranrio cronometrado',45],['port','Português: 10 questões',20],['log','Lógica: 15 questões',30],['lei','Lei seca e listas',30],['erros','Triagem dos erros do dia',40],['anki','Flashcards devidos',25]];
+
+  // ---------- estado ----------
+  var state={hist:{},srs:{},sims:[],days:{},newCount:{},u:0};
+  try{var raw=localStorage.getItem('arenaTP.v2'); if(raw) state=Object.assign(state,JSON.parse(raw));}catch(e){}
+  var dbRef=null, saveTimer=null, saving=false, dirty=false;
+  function stamp(){state.u=Date.now();}
+  function persist(){ stamp(); try{localStorage.setItem('arenaTP.v2',JSON.stringify(state));}catch(e){} dirty=true; if(dbRef){ clearTimeout(saveTimer); saveTimer=setTimeout(flush,2500); } }
+  function flush(){ if(!dbRef||saving||!dirty) return; saving=true; dirty=false; $('sync').textContent='salvando…';
+    dbRef.set(JSON.parse(JSON.stringify(state))).then(function(){ $('sync').textContent='sincronizado'; }).catch(function(e){ $('sync').textContent= e&&e.code==='quota_exceeded'?'espaço cheio':'salvo neste navegador'; if(e&&e.code==='invalid_argument') dbRef=null; }).then(function(){ saving=false; if(dirty) saveTimer=setTimeout(flush,2500); }); }
+  function mergeIn(o){ if(!o) return; var k;
+    for(k in (o.hist||{})){ var a=state.hist[k], b=o.hist[k]; if(!a || (b.w||0)>(a.w||0)) state.hist[k]=b; }
+    for(k in (o.srs||{})){ var c=state.srs[k], d=o.srs[k]; if(!c || (d.u||0)>(c.u||0)) state.srs[k]=d; }
+    for(k in (o.days||{})){ state.days[k]=Object.assign({},o.days[k],state.days[k]||{}); }
+    for(k in (o.newCount||{})){ state.newCount[k]=Math.max(state.newCount[k]||0,o.newCount[k]); }
+    var seen={}; state.sims=(state.sims||[]).concat(o.sims||[]).filter(function(s){ if(seen[s.when]) return false; seen[s.when]=1; return true; }).sort(function(x,y){return x.when-y.when}); }
+  (async function(){ try{ if(!window.claude||!window.claude.use) return; var user=await window.claude.use('user'); var db=await window.claude.use('db'); if(!user||!db) return; var id=await user.id(); if(!id) return;
+      dbRef=db.doc('data/users/'+id+'/progress'); var snap=await dbRef.get(); if(snap.exists){ mergeIn(snap.data()); try{localStorage.setItem('arenaTP.v2',JSON.stringify(state));}catch(e){} rerender(); }
+      $('sync').textContent='sincronizado'; dirty=true; flush(); }catch(e){ dbRef=null; } })();
+
+  // ---------- util ----------
+  function todayKey(d){ d=d||new Date(); return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0'); }
+  function dayNum(d){ d=d||new Date(); return Math.floor(new Date(d.getFullYear(),d.getMonth(),d.getDate()).getTime()/86400000); }
+  function shuffle(a){ for(var i=a.length-1;i>0;i--){ var j=Math.floor(Math.random()*(i+1)); var t=a[i]; a[i]=a[j]; a[j]=t; } return a; }
+  function fmt(s){ s=Math.max(0,Math.floor(s)); var h=Math.floor(s/3600), m=Math.floor(s%3600/60), r=s%60; return (h?h+':':'')+(h&&m<10?'0':'')+m+':'+(r<10?'0':'')+r; }
+  function shortAss(a){ return String(a||'').replace(/^TI - [^-]+ - /,'').replace(/^(Gestão de Projetos \(PMBOK\)|Direito Digital) - /,''); }
+
+  var Q=[], QBY={}, C=[], LINKS=null, BANCA=null, VIDEOS=null, sample=null, bancaTab='perfil';
+
+  // ---------- navegação ----------
+  var VIEWS=['hoje','questoes','cards','tutor','banca','eco','placar'], current='hoje';
+  function show(v){ current=v; VIEWS.forEach(function(x){ $('v-'+x).hidden = x!==v; });
+    document.querySelectorAll('nav.top button').forEach(function(b){ if(b.dataset.v===v) b.setAttribute('aria-current','page'); else b.removeAttribute('aria-current'); });
+    try{ localStorage.setItem('arenaTP.view',v); }catch(e){}
+    rerender(); window.scrollTo({top:0}); }
+  document.querySelectorAll('nav.top button').forEach(function(b){ b.addEventListener('click',function(){ show(b.dataset.v); }); });
+  function rerender(){ if(current==='hoje') renderHoje(); else if(current==='cards') renderCards(); else if(current==='placar') renderPlacar(); else if(current==='eco') renderEco(); else if(current==='banca') renderBanca(); else if(current==='questoes' && !session) updateQCount(); }
+
+  // ---------- HOJE ----------
+  function dueCards(){ var t=dayNum(); return C.filter(function(c){ var s=state.srs[c.id]; return s && s.d<=t; }); }
+  function renderHoje(){
+    var d=Math.round((EXAM-new Date(new Date().getFullYear(),new Date().getMonth(),new Date().getDate()))/86400000);
+    $('days').textContent = d>0? d : (d===0?'hoje':'0');
+    var tk=todayKey(), done=0, ok=0, last7=0, ok7=0, lim=Date.now()-7*86400000;
+    Object.keys(state.hist).forEach(function(id){ var h=state.hist[id]; if(todayKey(new Date(h.w))===tk){ done++; if(h.ok) ok++; } if(h.w>=lim){ last7++; if(h.ok) ok7++; } });
+    var due=dueCards().length, nnew=Math.max(0,(parseInt(($('newPerDay')||{}).value,10)||30)-(state.newCount[tk]||0));
+    var streak=0, dd=new Date(); for(var i=0;i<60;i++){ var k=todayKey(dd), day=state.days[k]; var any=day && Object.keys(day).some(function(x){return day[x]}); if(any) streak++; else if(i>0) break; dd.setDate(dd.getDate()-1); }
+    $('kpis').innerHTML=[
+      ['<b>'+done+'</b>','questões hoje'+(done?' · '+Math.round(100*ok/done)+'% de acerto':'')],
+      ['<b>'+(last7?Math.round(100*ok7/last7)+'%':'—')+'</b>','acerto nos últimos 7 dias ('+last7+' questões)'],
+      ['<b>'+due+'</b>','flashcards para revisar hoje · '+nnew+' novos liberados'],
+      ['<b>'+streak+'</b>','dias seguidos com rotina marcada']
+    ].map(function(k){return '<div class="kpi">'+k[0]+'<span>'+k[1]+'</span></div>'}).join('');
+    var now=new Date(), w=WEEKS.filter(function(x){ return now>=new Date(x.s+'T00:00:00') && now<=new Date(x.e+'T23:59:59'); })[0] || WEEKS[0];
+    $('weekLabel').textContent=w.s.split('-').reverse().slice(0,2).join('/')+' a '+w.e.split('-').reverse().slice(0,2).join('/');
+    $('weekTitle').textContent=w.n; $('weekTasks').innerHTML=w.t.map(function(t){return '<li>'+esc(t)+'</li>'}).join(''); $('weekGoal').textContent=w.g;
+    var isSunday=now.getDay()===0; $('todayLabel').textContent=now.toLocaleDateString('pt-BR',{weekday:'long',day:'2-digit',month:'2-digit'})+(isSunday?' · dia de simulado':'');
+    var day=state.days[tk]||{};
+    var items = isSunday? [['sim','Simulado completo: 330 minutos, alguém avisa as horas',330],['ing','Inglês leve à noite (opcional)',20]] : ROUTINE;
+    $('routine').innerHTML=items.map(function(r){ return '<label><input type="checkbox" data-k="'+r[0]+'"'+(day[r[0]]?' checked':'')+'><span>'+esc(r[1])+'</span><span class="min">'+r[2]+' min</span></label>'; }).join('');
+    $('routine').querySelectorAll('input').forEach(function(i){ i.addEventListener('change',function(){ state.days[tk]=state.days[tk]||{}; state.days[tk][i.dataset.k]=i.checked; persist(); renderHoje(); }); });
+    // próximo passo
+    var by={}; Object.keys(state.hist).forEach(function(id){ var q=QBY[id]; if(!q) return; var a=q.assunto; by[a]=by[a]||{n:0,ok:0}; by[a].n++; if(state.hist[id].ok) by[a].ok++; });
+    var worst=Object.keys(by).filter(function(a){return by[a].n>=3}).sort(function(x,y){return by[x].ok/by[x].n-by[y].ok/by[y].n})[0];
+    var h='';
+    if(due) h+='<button type="button" class="primary" id="goCards">Revisar '+due+' flashcards devidos</button>';
+    if(worst) h+='<button type="button" id="goWorst">Treinar o seu pior assunto: '+esc(shortAss(worst))+' ('+Math.round(100*by[worst].ok/by[worst].n)+'%)</button>';
+    var wrong=Object.keys(state.hist).filter(function(id){return state.hist[id].ok===false}).length;
+    if(wrong) h+='<button type="button" id="goWrong">Refazer '+wrong+' questões erradas</button>';
+    if(!h) h='<button type="button" class="primary" id="goStart">Começar pelas questões de Dados de 2023 em diante</button><span class="note">Ainda não há histórico. Depois de algumas questões, esta área passa a apontar o seu pior assunto.</span>';
+    $('nextStep').innerHTML=h;
+    if($('goCards')) $('goCards').onclick=function(){ show('cards'); };
+    if($('goWorst')) $('goWorst').onclick=function(){ discSel={}; var q=Q.filter(function(x){return x.assunto===worst})[0]; if(q){ discSel[q.disc]=true; } show('questoes'); syncChips(); fillAssuntos(); $('assunto').value=worst; setMode('treino'); updateQCount(); };
+    if($('goWrong')) $('goWrong').onclick=function(){ discSel={}; show('questoes'); syncChips(); fillAssuntos(); setMode('erros'); $('periodo').value='0'; updateQCount(); };
+    if($('goStart')) $('goStart').onclick=function(){ discSel={Dados:true}; show('questoes'); syncChips(); fillAssuntos(); updateQCount(); };
+  }
+
+  // ---------- QUESTÕES ----------
+  var discSel={}, mode='treino', session=null, timerId=null;
+  function syncChips(){ $('discChips').querySelectorAll('button').forEach(function(b){ b.setAttribute('aria-pressed',String(!!discSel[b.dataset.d])); }); }
+  function pool(){
+    var per=parseInt($('periodo').value,10), ass=$('assunto').value, fora=$('foraEnfase').checked, sem=$('semFeitas').checked;
+    var discs=Object.keys(discSel).filter(function(k){return discSel[k]});
+    return Q.filter(function(q){
+      if(discs.length && discs.indexOf(q.disc)<0) return false;
+      if(per && (!q.ano || q.ano<per)) return false;
+      if(ass && q.assunto!==ass) return false;
+      if(fora && FORA.test(q.assunto)) return false;
+      if(sem && state.hist[q.id]) return false;
+      if(mode==='erros' && !(state.hist[q.id] && state.hist[q.id].ok===false)) return false;
+      return true; });
+  }
+  function fillAssuntos(){ var sel=$('assunto'), cur=sel.value, discs=Object.keys(discSel).filter(function(k){return discSel[k]}), fora=$('foraEnfase').checked, cnt={};
+    Q.forEach(function(q){ if(discs.length && discs.indexOf(q.disc)<0) return; if(fora && FORA.test(q.assunto)) return; cnt[q.assunto]=(cnt[q.assunto]||0)+1; });
+    sel.innerHTML='<option value="">Todos os assuntos do filtro</option>'+Object.keys(cnt).sort(function(a,b){return shortAss(a).localeCompare(shortAss(b))}).map(function(k){ return '<option value="'+esc(k)+'"'+(k===cur?' selected':'')+'>'+esc(shortAss(k))+' ('+cnt[k]+')</option>'; }).join(''); updateQCount(); }
+  function updateQCount(){ if(!Q.length) return; var n=pool().length, ns=Math.min(n,parseInt($('nSim').value,10)||20); $('qcount').textContent=n+' questões no filtro'+(mode==='simulado'?' · simulado de '+ns+' questões em '+fmt(210*ns):''); $('qstart').disabled=n===0; }
+  function setMode(m){ mode=m; document.querySelectorAll('#qsetup [data-m]').forEach(function(b){ b.setAttribute('aria-pressed',String(b.dataset.m===m)); }); $('nWrap').hidden = m!=='simulado'; updateQCount(); }
+  document.querySelectorAll('#qsetup [data-m]').forEach(function(b){ b.addEventListener('click',function(){ setMode(b.dataset.m); }); });
+  ['periodo','assunto','ordem','nSim','semFeitas'].forEach(function(id){ $(id).addEventListener('change',updateQCount); });
+  $('foraEnfase').addEventListener('change',fillAssuntos);
+  $('qstart').addEventListener('click',startSession);
+
+  function startSession(){ var qs=pool(); if(!qs.length) return;
+    qs = $('ordem').value==='recent' ? qs.slice().sort(function(a,b){return (b.ano||0)-(a.ano||0)}) : shuffle(qs.slice());
+    if(mode==='simulado') qs=qs.slice(0,Math.min(qs.length,parseInt($('nSim').value,10)||20));
+    session={qs:qs,i:0,ans:{},cert:{},elim:{},ai:{},start:Date.now(),budget:mode==='simulado'?210*qs.length:0,fin:false,mode:mode};
+    $('qsetup').hidden=true; $('qarena').hidden=false; renderQ(); if(mode==='simulado'){ clearInterval(timerId); timerId=setInterval(function(){ if(!session||session.fin){clearInterval(timerId);return;} renderSide(); if((Date.now()-session.start)/1000>=session.budget) finish(); },1000); } }
+  function quit(){ session=null; clearInterval(timerId); $('qarena').hidden=true; $('qsetup').hidden=false; updateQCount(); }
+
+  function renderQ(){ var s=session, q=s.qs[s.i]; if(!q){ finish(); return; }
+    var a=s.ans[q.id], rev = s.mode!=='simulado' && a!==undefined, h='';
+    h+='<div class="q-meta"><span>'+(s.i+1)+' / '+s.qs.length+'</span><span>'+esc(DISC[q.disc]||q.disc)+'</span><span>'+esc(q.concurso)+' · '+q.ano+'</span><span>tec '+q.id+'</span></div>';
+    h+='<div class="note">'+esc(shortAss(q.assunto))+'</div><div class="q-text">'+esc(q.enunciado)+'</div><div class="alts">';
+    ['A','B','C','D','E'].forEach(function(L){ var c='alt'; if(a===L) c+=' chosen'; if(rev){ if(L===q.gabarito) c+=' right'; else if(a===L) c+=' wrong'; } if(s.elim[q.id]&&s.elim[q.id][L]) c+=' elim';
+      h+='<button type="button" class="'+c+'" data-l="'+L+'"><span class="l">'+L+'</span><span>'+esc(q.alternativas[L]||'')+'</span></button>'; });
+    h+='</div>';
+    if(s.mode==='simulado'){ var ce=s.cert[q.id]||''; h+='<div class="taxo"><span class="note">Margem:</span>'+[['certo','✔ certeza'],['duvida','? dúvida'],['chute','× chute']].map(function(x){return '<button type="button" data-c="'+x[0]+'" aria-pressed="'+(ce===x[0])+'">'+x[1]+'</button>'}).join('')+'<span class="note">Botão direito numa alternativa risca a alternativa.</span></div>'; }
+    if(rev){ var ok=a===q.gabarito, tx=(state.hist[q.id]||{}).x||'';
+      h+='<div class="feedback '+(ok?'ok':'bad')+'"><b>'+(ok?'Certo.':'Errado.')+' Gabarito: '+q.gabarito+'.</b>';
+      if(!ok) h+='<div class="taxo"><span class="note">Tipo do erro:</span>'+['conteúdo','leitura','tempo','chute'].map(function(t){return '<button type="button" data-t="'+t+'" aria-pressed="'+(tx===t)+'">'+t+'</button>'}).join('')+'</div>';
+      h+='<div class="row">'+(sample?'<button type="button" id="aiExplain">Explicar com o tutor</button><button type="button" class="ghost" id="aiTwin">Gerar uma questão gêmea</button>':'<span class="note">Releia o subitem no guia e crie um card de contraste.</span>')+'</div>';
+      if(s.ai[q.id]) h+='<div class="ai'+(s.ai[q.id].busy?' thinking':'')+'" id="aiOut">'+esc(s.ai[q.id].text)+'</div>';
+      h+='</div>'; }
+    h+='<div class="row">'+(s.i>0?'<button type="button" id="qprev">Anterior</button>':'')+'<button type="button" class="primary" id="qnext">'+(s.i+1<s.qs.length?'Próxima':'Encerrar')+'</button>'+(s.mode==='simulado'?'<button type="button" class="ghost" id="qfin">Encerrar e corrigir</button>':'')+'<button type="button" class="ghost" id="qquit">Sair</button></div>';
+    $('qpanel').innerHTML=h; renderSide();
+    $('qpanel').querySelectorAll('.alt').forEach(function(b){ b.addEventListener('click',function(){ choose(q,b.dataset.l); }); b.addEventListener('contextmenu',function(e){ e.preventDefault(); s.elim[q.id]=s.elim[q.id]||{}; s.elim[q.id][b.dataset.l]=!s.elim[q.id][b.dataset.l]; renderQ(); }); });
+    $('qpanel').querySelectorAll('[data-c]').forEach(function(b){ b.addEventListener('click',function(){ s.cert[q.id]=b.dataset.c; renderQ(); }); });
+    $('qpanel').querySelectorAll('[data-t]').forEach(function(b){ b.addEventListener('click',function(){ if(state.hist[q.id]){ state.hist[q.id].x=b.dataset.t; persist(); } renderQ(); }); });
+    $('qnext').onclick=function(){ if(s.i+1<s.qs.length){ s.i++; renderQ(); } else finish(); };
+    if($('qprev')) $('qprev').onclick=function(){ s.i--; renderQ(); };
+    if($('qfin')) $('qfin').onclick=finish; $('qquit').onclick=quit;
+    if($('aiExplain')) $('aiExplain').onclick=function(){ explain(q,a); };
+    if($('aiTwin')) $('aiTwin').onclick=function(){ twin(q); };
+  }
+  function choose(q,L){ var s=session; if(s.mode==='simulado'){ s.ans[q.id]=L; if(!s.cert[q.id]) s.cert[q.id]='certo'; renderQ(); return; }
+    if(s.ans[q.id]!==undefined) return; s.ans[q.id]=L; state.hist[q.id]={ok:L===q.gabarito,l:L,w:Date.now(),x:(state.hist[q.id]||{}).x}; persist(); renderQ(); }
+  function renderSide(){ var s=session; if(!s) return; var done=Object.keys(s.ans).length, ok=0; s.qs.forEach(function(q){ if(s.ans[q.id]===q.gabarito) ok++; }); var el=(Date.now()-s.start)/1000, h='';
+    if(s.mode==='simulado'){ var left=s.budget-el; h+='<div class="eyebrow">Tempo restante · 3,5 min por questão</div><div class="timer" style="color:'+(left<120?'var(--bad)':'var(--ink)')+'">'+fmt(left)+'</div><div class="note">Respondidas: '+done+' de '+s.qs.length+'</div>'; }
+    else h+='<div class="eyebrow">Sessão</div><div class="big">'+ok+'<span style="font-size:18px;color:var(--muted)"> / '+done+'</span></div><div class="note">'+fmt(el)+(done?' · '+Math.round(el/done)+' s por questão':'')+'</div>';
+    h+='<div class="eyebrow">Mapa</div><div class="grid10">'+s.qs.map(function(q,i){ var c=''; if(s.ans[q.id]!==undefined) c+=' done'; if(i===s.i) c+=' cur'; if(s.cert[q.id]==='duvida'||s.cert[q.id]==='chute') c+=' flag'; return '<button type="button" class="'+c.trim()+'" data-i="'+i+'">'+(i+1)+'</button>'; }).join('')+'</div>';
+    h+='<div class="note">Teclas: A a E respondem, Enter avança, setas navegam.</div>';
+    $('qside').innerHTML=h; $('qside').querySelectorAll('[data-i]').forEach(function(b){ b.onclick=function(){ s.i=parseInt(b.dataset.i,10); renderQ(); }; }); }
+  function chuteRegra(s){ var sug={}, tot={A:0,B:0,C:0,D:0,E:0}; s.qs.forEach(function(q){ if(s.cert[q.id]==='certo'&&s.ans[q.id]) tot[s.ans[q.id]]++; });
+    for(var b=0;b<s.qs.length;b+=10){ var blk=s.qs.slice(b,b+10), cnt={A:0,B:0,C:0,D:0,E:0}; blk.forEach(function(q){ if(s.cert[q.id]==='certo'&&s.ans[q.id]) cnt[s.ans[q.id]]++; });
+      blk.forEach(function(q){ if(s.cert[q.id]==='chute'||(s.cert[q.id]==='duvida'&&s.elim[q.id])){ var c=['A','B','C','D','E'].filter(function(L){return !(s.elim[q.id]&&s.elim[q.id][L])}); if(!c.length) c=['A','B','C','D','E']; c.sort(function(x,y){return (cnt[x]-cnt[y])||(tot[x]-tot[y])||x.localeCompare(y)}); sug[q.id]=c[0]; } }); } return sug; }
+  function finish(){ var s=session; if(!s||s.fin) return; s.fin=true; clearInterval(timerId);
+    var el=Math.round((Date.now()-s.start)/1000), ok=0, blank=0, rows='', sug=s.mode==='simulado'?chuteRegra(s):{}, nR=0, okR=0, okP=0;
+    s.qs.forEach(function(q,i){ var a=s.ans[q.id], c=a===q.gabarito; if(a===undefined) blank++; if(c) ok++;
+      if(s.mode==='simulado') state.hist[q.id]={ok:c,l:a||'',w:Date.now(),x:(state.hist[q.id]||{}).x};
+      if(sug[q.id]){ nR++; if(sug[q.id]===q.gabarito) okR++; if(c) okP++; }
+      rows+='<tr><td class="num">'+(i+1)+'</td><td>'+esc(DISC[q.disc]||q.disc)+'</td><td class="num">'+(a||'—')+'</td><td class="num">'+q.gabarito+'</td><td>'+(c?'<span class="pill ok">certo</span>':'<span class="pill bad">errado</span>')+'</td><td>'+esc(s.cert[q.id]||'')+(sug[q.id]?' · regra: '+sug[q.id]:'')+'</td><td class="num">tec '+q.id+'</td></tr>'; });
+    if(s.mode==='simulado') state.sims.push({when:Date.now(),n:s.qs.length,ok:ok,t:el});
+    persist();
+    var h='<div class="eyebrow">Resultado</div><div class="big">'+ok+' <span style="font-size:18px;color:var(--muted)">/ '+s.qs.length+' ('+Math.round(100*ok/s.qs.length)+'%)</span></div><div class="note">'+fmt(el)+' no total · '+Math.round(el/s.qs.length)+' s por questão · '+blank+' em branco</div>';
+    if(nR) h+='<div class="feedback"><b>Chute calculado.</b><span>Nas '+nR+' questões marcadas como chute (ou dúvida com alternativas riscadas), a sua letra acertou '+okP+' e a regra do bloco de 10 teria acertado '+okR+'.</span></div>';
+    h+='<div class="tbl"><table><thead><tr><th class="num">#</th><th>Bloco</th><th class="num">Sua</th><th class="num">Gab.</th><th></th><th>Margem</th><th class="num">ID</th></tr></thead><tbody>'+rows+'</tbody></table></div>';
+    h+='<div class="row"><button type="button" class="primary" id="again">Nova sessão</button><button type="button" id="redo">Refazer só as erradas</button></div>';
+    $('qpanel').innerHTML=h; $('qside').innerHTML='<div class="eyebrow">Próximo passo</div><div class="note">Marque o tipo de cada erro, volte ao subitem do guia e refaça em 48 h e em 7 dias.</div>';
+    $('again').onclick=quit;
+    $('redo').onclick=function(){ var w=s.qs.filter(function(q){return s.ans[q.id]!==q.gabarito}); if(!w.length) return; session={qs:w,i:0,ans:{},cert:{},elim:{},ai:{},start:Date.now(),budget:0,fin:false,mode:'treino'}; renderQ(); }; }
+  document.addEventListener('keydown',function(e){ if(current!=='questoes'||!session||session.fin) return; var t=e.target.tagName; if(t==='INPUT'||t==='SELECT'||t==='TEXTAREA') return; var k=e.key.toUpperCase();
+    if('ABCDE'.indexOf(k)>=0 && k.length===1){ choose(session.qs[session.i],k); } else if(e.key==='Enter'||e.key==='ArrowRight'){ var n=$('qnext'); if(n) n.click(); } else if(e.key==='ArrowLeft'){ var p=$('qprev'); if(p) p.click(); } });
+
+  // ---------- TUTOR (sample) ----------
+  function qText(q){ return 'Enunciado: '+q.enunciado+'\n'+['A','B','C','D','E'].map(function(L){return '('+L+') '+(q.alternativas[L]||'')}).join('\n'); }
+  function aiErr(e){ var c=e&&e.code; if(c==='not_granted'||c==='sampling_disabled'||c==='not_declared'||c==='capability_disabled'||c==='capability_removed') return 'O tutor não está liberado nesta visualização.'; if(c==='rate_limited') return 'Muitas perguntas seguidas. Espere um pouco e tente de novo.'; if(c==='refused') return 'O tutor não respondeu a este pedido. Reformule a pergunta.'; if(c==='cancelled') return ''; return 'O tutor não conseguiu responder agora. Tente de novo.'; }
+  function explain(q,a){ var s=session; s.ai[q.id]={text:'Pensando…',busy:true}; renderQ();
+    var p='Você é um professor de concursos especialista na banca Cesgranrio, preparando um candidato para a prova Transpetro 2026, Ênfase 5 (Analista de Sistemas, Processos de Negócios).\nExplique a questão real abaixo em português do Brasil, em texto simples (sem markdown, sem asteriscos), em no máximo 230 palavras, nesta ordem:\n1. Por que a alternativa '+q.gabarito+' é a correta (a regra ou definição que decide).\n2. Uma linha para cada alternativa errada dizendo o que ela realmente descreve ou onde está o erro plantado.\n3. A armadilha da Cesgranrio nesta questão (distrator vizinho, absoluto, inversão, frase decisiva).\n4. Um macete curto para acertar questões deste tipo.\n'+(a&&a!==q.gabarito?'O candidato marcou '+a+'; comece explicando por que essa marcação parece certa e não é.\n':'')+'\nAssunto: '+shortAss(q.assunto)+' · '+q.concurso+' '+q.ano+'\n'+qText(q)+'\nGabarito oficial: '+q.gabarito;
+    sample(p,{onText:function(u){ s.ai[q.id]={text:u.text,busy:false}; var el=$('aiOut'); if(el&&s.qs[s.i]===q){ el.textContent=u.text; el.classList.remove('thinking'); } }}).then(function(r){ s.ai[q.id]={text:r.text,busy:false}; if(s.qs[s.i]===q) renderQ(); }).catch(function(e){ s.ai[q.id]={text:(e&&e.text)||aiErr(e),busy:false}; if(s.qs[s.i]===q) renderQ(); }); }
+  function genPrompt(ref, ass){ var ex=ref.slice(0,2).map(function(q,i){ return 'Exemplo real '+(i+1)+' ('+q.concurso+' '+q.ano+'):\n'+qText(q).slice(0,1800)+'\nGabarito: '+q.gabarito; }).join('\n\n');
+    return 'Você escreve questões inéditas no estilo exato da banca Cesgranrio para a prova Transpetro 2026, Ênfase 5 (Analista de Sistemas, Processos de Negócios).\nAssunto: '+ass+'.\nUse os exemplos reais abaixo só como molde de estilo; não copie o conteúdo. Regras da banca: cinco alternativas; os distratores são definições corretas de conceitos vizinhos, absolutos plantados ("apenas", "sempre") ou inversões; quando couber, um caso narrativo curto com uma frase decisiva; uma única alternativa correta e tecnicamente indiscutível.\n\n'+ex+'\n\nResponda apenas com um objeto JSON: {"enunciado": string, "alternativas": {"A": string, "B": string, "C": string, "D": string, "E": string}, "gabarito": "A"|"B"|"C"|"D"|"E", "comentario": string (até 120 palavras: por que a certa é certa e qual armadilha cada errada usa)}. Sorteie a letra do gabarito.'; }
+  function renderGenerated(box,obj,label){ if(!obj||!obj.alternativas||!obj.gabarito){ box.innerHTML='<div class="note">A resposta veio fora do formato. Tente de novo.</div>'; return; }
+    var h='<div class="eyebrow">'+esc(label)+' · questão inédita gerada por IA, não oficial</div><div class="q-text">'+esc(obj.enunciado)+'</div><div class="alts">';
+    ['A','B','C','D','E'].forEach(function(L){ h+='<button type="button" class="alt" data-l="'+L+'"><span class="l">'+L+'</span><span>'+esc(obj.alternativas[L]||'')+'</span></button>'; });
+    h+='</div><div class="ai" hidden data-com></div>'; box.innerHTML=h; var answered=false;
+    box.querySelectorAll('.alt').forEach(function(b){ b.onclick=function(){ if(answered) return; answered=true; var L=b.dataset.l, g=String(obj.gabarito).trim().toUpperCase().charAt(0); box.querySelectorAll('.alt').forEach(function(x){ if(x.dataset.l===g) x.classList.add('right'); else if(x.dataset.l===L) x.classList.add('wrong'); }); var c=box.querySelector('[data-com]'); c.hidden=false; c.textContent=(L===g?'Certo. ':'Errado. ')+'Gabarito: '+g+'. '+(obj.comentario||''); }; }); }
+  function twin(q){ var s=session; s.ai[q.id]={text:'Escrevendo uma questão gêmea…',busy:true}; renderQ();
+    var ref=[q].concat(Q.filter(function(x){return x.assunto===q.assunto && x.id!==q.id}).slice(0,1));
+    sample.json(genPrompt(ref, shortAss(q.assunto)),{cache:false}).then(function(obj){ s.ai[q.id]={text:'',busy:false}; if(s.qs[s.i]!==q) return; renderQ(); var el=$('aiOut'); if(el){ el.className=''; renderGenerated(el,obj,shortAss(q.assunto)); } }).catch(function(e){ s.ai[q.id]={text:aiErr(e),busy:false}; if(s.qs[s.i]===q) renderQ(); }); }
+
+  // gerador
+  function fillGen(){ var d=$('genDisc').value, cnt={}; Q.forEach(function(q){ if(q.disc===d && !FORA.test(q.assunto)) cnt[q.assunto]=(cnt[q.assunto]||0)+1; });
+    $('genAss').innerHTML=Object.keys(cnt).sort(function(a,b){return shortAss(a).localeCompare(shortAss(b))}).map(function(k){return '<option value="'+esc(k)+'">'+esc(shortAss(k))+' ('+cnt[k]+')</option>'}).join(''); }
+  $('genDisc').addEventListener('change',fillGen);
+  $('genBtn').addEventListener('click',function(){ if(!sample) return; var ass=$('genAss').value, ref=shuffle(Q.filter(function(q){return q.assunto===ass && q.ano>=2019})); if(ref.length<2) ref=shuffle(Q.filter(function(q){return q.assunto===ass}));
+    $('genBtn').disabled=true; $('genNote').textContent='Escrevendo… costuma levar de 20 a 60 segundos.'; $('genOut').innerHTML='';
+    sample.json(genPrompt(ref, shortAss(ass)),{cache:false}).then(function(obj){ renderGenerated($('genOut'),obj,shortAss(ass)); $('genNote').textContent=''; }).catch(function(e){ $('genNote').textContent=aiErr(e); }).then(function(){ $('genBtn').disabled=false; }); });
+
+  // chat
+  var turns=[], chatCtl=null;
+  var RULES='Você é o Tutor Cesgranrio de um candidato à prova Transpetro 2026, Ênfase 5 (Analista de Sistemas, Processos de Negócios), em 06/12/2026, 50 questões específicas (Dados e BI, Engenharia de Software e UX, Segurança, Projetos, Governança e LGPD, Lógica) mais 10 de Português e 10 de Inglês. Responda em português do Brasil, texto simples sem markdown, no máximo 200 palavras, sempre do jeito que a Cesgranrio cobra: a definição canônica, o conceito vizinho que a banca usa como distrator, o absoluto que marca alternativa errada, e um macete. Quando fizer sentido, termine com uma pergunta curta de verificação para o candidato responder. Se não souber algo com segurança, diga.';
+  var QUICK=['Monte um mnemônico para as 14 táticas do MITRE ATT&CK','Me teste com 3 perguntas rápidas de normalização (1FN a FNBC)','Explique SAST, DAST e IAST com o distrator típico','Diferença entre verificação e validação na Cesgranrio','As 6 operações OLAP com um exemplo de navegação','Negação de "Todo analista estuda e nenhum gerente falta"'];
+  function renderChat(){ $('chat').innerHTML=turns.map(function(t){ return '<div class="msg '+(t.role==='user'?'u':'a')+'">'+esc(t.content)+'</div>'; }).join(''); }
+  function send(text){ if(!sample||!text.trim()) return; turns.push({role:'user',content:text.trim()}); turns.push({role:'assistant',content:'Pensando…'}); renderChat(); $('chatIn').value='';
+    var hist=turns.slice(0,-1).filter(function(t){return t.content!=='Pensando…'}); if(hist.length>16) hist=hist.slice(hist.length-16); while(hist.length && hist[0].role!=='user') hist.shift();
+    chatCtl=new AbortController(); $('chatStop').hidden=false; $('chatSend').disabled=true;
+    sample([{role:'user',content:RULES}].concat(hist),{cache:false,signal:chatCtl.signal,onText:function(u){ turns[turns.length-1].content=u.text; var m=$('chat').lastElementChild; if(m) m.textContent=u.text; }})
+      .then(function(r){ turns[turns.length-1].content=r.text; }).catch(function(e){ var keep=e&&e.text; turns[turns.length-1].content= keep? keep+' (interrompido)' : (aiErr(e)||'(interrompido)'); })
+      .then(function(){ $('chatStop').hidden=true; $('chatSend').disabled=false; renderChat(); }); }
+  $('chatSend').addEventListener('click',function(){ send($('chatIn').value); });
+  $('chatIn').addEventListener('keydown',function(e){ if(e.key==='Enter'&&(e.ctrlKey||e.metaKey)){ e.preventDefault(); send($('chatIn').value); } });
+  $('chatStop').addEventListener('click',function(){ if(chatCtl) chatCtl.abort(); });
+  $('chatClear').addEventListener('click',function(){ turns=[]; renderChat(); });
+  $('tutorQuick').innerHTML=QUICK.map(function(t,i){return '<button type="button" data-i="'+i+'">'+esc(t)+'</button>'}).join('');
+  $('tutorQuick').querySelectorAll('button').forEach(function(b){ b.onclick=function(){ send(QUICK[+b.dataset.i]); }; });
+  function setTutorAvailable(on){ ['genBtn','chatSend'].forEach(function(id){ $(id).disabled=!on; }); $('tutorQuick').querySelectorAll('button').forEach(function(b){ b.disabled=!on; }); if(!on) $('tutorNote').textContent='O tutor de IA não está disponível nesta visualização. Abra a página dentro do Claude para usá-lo; questões e flashcards funcionam normalmente.'; }
+  setTutorAvailable(false); $('tutorNote').textContent='Conectando o tutor…';
+  (async function(){ try{ if(window.claude&&window.claude.use){ sample=await window.claude.use('sample'); } }catch(e){ sample=null; } setTutorAvailable(!!sample); if(sample) $('tutorNote').textContent='O tutor usa o seu próprio acesso ao Claude e pede permissão na primeira pergunta. Ctrl+Enter envia.'; if(session&&!session.fin) renderQ(); })();
+
+  // ---------- FLASHCARDS (revisão espaçada) ----------
+  var cardSel={}, cardQueue=[], cardCur=null, cardShow=false;
+  function cardPool(){ var ds=Object.keys(cardSel).filter(function(k){return cardSel[k]}); return C.filter(function(c){ return !ds.length || ds.indexOf(c.d)>=0; }); }
+  function buildQueue(){ var t=dayNum(), tk=todayKey(), pool=cardPool(), due=[], fresh=[];
+    pool.forEach(function(c){ var s=state.srs[c.id]; if(s){ if(s.d<=t) due.push(c); } else fresh.push(c); });
+    due.sort(function(a,b){ return state.srs[a.id].d-state.srs[b.id].d; });
+    var lim=Math.max(0,(parseInt($('newPerDay').value,10)||0)-(state.newCount[tk]||0));
+    cardQueue=due.concat(shuffle(fresh).slice(0,lim)); return {due:due.length,fresh:Math.min(fresh.length,lim),total:pool.length}; }
+  function grade(c,g){ var t=dayNum(), tk=todayKey(), s=state.srs[c.id], isNew=!s; s=s?Object.assign({},s):{r:0,i:0,e:2.5,d:t};
+    if(g===0){ s.r=0; s.i=0; s.e=Math.max(1.3,s.e-0.2); s.d=t; }
+    else if(g===1){ s.i=Math.max(1,Math.round((s.i||1)*1.2)); s.e=Math.max(1.3,s.e-0.15); s.r++; s.d=t+s.i; }
+    else if(g===2){ s.i= s.r===0?1 : s.r===1?3 : Math.round(s.i*s.e); s.r++; s.d=t+s.i; }
+    else { s.i= s.r===0?3 : Math.round(s.i*s.e*1.3); s.e+=0.15; s.r++; s.d=t+s.i; }
+    s.i=Math.min(s.i,30); if(g>0) s.d=Math.min(s.d,t+30); s.u=Date.now(); state.srs[c.id]=s;
+    if(isNew) state.newCount[tk]=(state.newCount[tk]||0)+1; persist();
+    if(g===0) cardQueue.splice(Math.min(cardQueue.length,4),0,c); }
+  function previewIvl(c,g){ var s=state.srs[c.id]||{r:0,i:0,e:2.5}; var i= g===0?0 : g===1?Math.max(1,Math.round((s.i||1)*1.2)) : g===2?(s.r===0?1:s.r===1?3:Math.round(s.i*s.e)) : (s.r===0?3:Math.round(s.i*s.e*1.3)); i=Math.min(i,30); return i===0?'agora':i===1?'1 dia':i+' dias'; }
+  function renderCards(){ var info=buildQueue(); var due=dueCards().length;
+    $('cardCount').textContent=info.total+' cards no filtro · '+info.due+' para revisar · '+info.fresh+' novos liberados hoje';
+    cardCur=cardQueue[0]||null; cardShow=false; drawCard(); }
+  function drawCard(){ var c=cardCur, st=$('cardStage');
+    if(!c){ st.innerHTML='<div class="panel empty">Nada para revisar agora neste filtro. Volte amanhã ou aumente os novos por dia.</div>'; return; }
+    var s=state.srs[c.id], tag=s?'<span class="pill acc">revisão</span>':'<span class="pill warn">novo</span>';
+    var h='<div class="card"><div class="row" style="justify-content:space-between"><span class="eyebrow">'+esc(c.d)+(c.s?' · '+esc(c.s):'')+'</span>'+tag+'</div><div class="front">'+esc(c.f)+'</div>';
+    if(cardShow) h+='<div class="back">'+esc(c.b.replace(/ · /g,'\n· '))+'</div>';
+    h+='</div>';
+    if(!cardShow) h+='<div class="row" style="margin-top:12px"><button type="button" class="primary" id="reveal">Mostrar resposta</button><span class="note">Espaço mostra · 1 a 4 avaliam · restam '+cardQueue.length+'</span></div>';
+    else h+='<div class="grades" style="margin-top:12px">'+[['g0','Errei',0],['g1','Difícil',1],['g2','Bom',2],['g3','Fácil',3]].map(function(g){ return '<button type="button" class="'+g[0]+'" data-g="'+g[2]+'">'+g[1]+'<small>'+previewIvl(c,g[2])+'</small></button>'; }).join('')+'</div>';
+    st.innerHTML=h;
+    if($('reveal')) $('reveal').onclick=function(){ cardShow=true; drawCard(); };
+    st.querySelectorAll('[data-g]').forEach(function(b){ b.onclick=function(){ doGrade(+b.dataset.g); }; }); }
+  function doGrade(g){ var c=cardCur; if(!c) return; cardQueue.shift(); grade(c,g); cardCur=cardQueue[0]||null; cardShow=false; drawCard();
+    var info=cardQueue.length; $('cardCount').textContent=info+' cards na fila desta sessão'; }
+  document.addEventListener('keydown',function(e){ if(current!=='cards'||!cardCur) return; var t=e.target.tagName; if(t==='INPUT'||t==='SELECT'||t==='TEXTAREA') return;
+    if(e.key===' '&&!cardShow){ e.preventDefault(); cardShow=true; drawCard(); } else if(cardShow && '1234'.indexOf(e.key)>=0 && e.key.length===1){ doGrade(+e.key-1); } });
+  $('newPerDay').addEventListener('change',renderCards);
+
+  // ---------- BANCA ----------
+  var BTABS=[['perfil','Perfil da banca'],['prioridades','Prioridades'],['armadilhas','Armadilhas'],['comentarios','Comentários'],['videos','Videoaulas']];
+  function bList(a){ return '<ul style="margin:0;padding-left:20px;display:grid;gap:6px">'+a.map(function(x){ return '<li>'+esc(x)+'</li>'; }).join('')+'</ul>'; }
+  function renderBanca(){ var t=$('bancaTabs'), b=$('bancaBody'), n=$('bancaNote');
+    t.innerHTML=BTABS.map(function(x){ return '<button type="button" data-t="'+x[0]+'" aria-pressed="'+(bancaTab===x[0])+'">'+x[1]+'</button>'; }).join('');
+    t.querySelectorAll('button').forEach(function(el){ el.onclick=function(){ bancaTab=el.dataset.t; renderBanca(); }; });
+    n.textContent=''; var D=BANCA||{}, h='';
+    if(bancaTab==='perfil'){ var P=D.perfil||{};
+      [['geral','Como a Cesgranrio costuma cobrar'],['transpetro','Neste concurso e cargo (Ênfase 5)']].forEach(function(k){ if(P[k[0]]&&P[k[0]].length) h+='<div><h3>'+k[1]+'</h3>'+bList(P[k[0]])+'</div>'; });
+      if(!h) h='<div class="empty">Perfil ainda não carregado.</div>'; }
+    else if(bancaTab==='prioridades'){ var R=D.prioridades||[];
+      h=R.length?'<div class="tbl"><table><thead><tr><th>Prioridade</th><th>Assunto</th><th>Por quê</th><th>O que fazer</th></tr></thead><tbody>'+R.map(function(r,i){ return '<tr><td class="num">'+(i+1)+'</td><td><b>'+esc(r.assunto)+'</b></td><td>'+esc(r.motivo)+'</td><td>'+esc(r.acao)+'</td></tr>'; }).join('')+'</tbody></table></div>':'<div class="empty">Sem dados.</div>'; }
+    else if(bancaTab==='armadilhas'){ var A=D.armadilhas||[];
+      h=A.length?A.map(function(a){ return '<div class="link" style="gap:6px"><span class="pill warn" style="justify-self:start">'+esc(a.disc||'')+'</span><b>'+esc(a.armadilha)+'</b><span><i>Como disfarça:</i> '+esc(a.disfarce||'')+'</span><span><i>Como eliminar:</i> '+esc(a.eliminar||'')+'</span></div>'; }).join(''):'<div class="empty">Sem dados.</div>'; }
+    else if(bancaTab==='comentarios'){ var K=D.comentarios||[];
+      h=K.length?K.map(function(a){ return '<div class="link" style="gap:6px"><span class="pill acc" style="justify-self:start">'+esc(a.disc||'')+(a.assunto?' · '+esc(a.assunto):'')+'</span><b>'+esc(a.titulo||'')+'</b><span>'+esc(a.dica||'')+'</span></div>'; }).join(''):'<div class="empty">Ainda sem síntese dos comentários.</div>'; n.textContent=D.comentariosNota||''; }
+    else { var V=VIDEOS||[]; V=V.slice().sort(function(x,y){ return (y.nota||0)-(x.nota||0); });
+      h=V.length?'<div class="links">'+V.map(function(v){ return '<a class="link" href="'+esc(v.url)+'" target="_blank" rel="noopener"><span class="pill acc" style="justify-self:start">nota '+esc(v.nota)+'/5</span><b>'+esc(v.titulo)+'</b><span>'+esc(v.canal||'')+(v.assunto?' · '+esc(v.assunto):'')+'</span></a>'; }).join('')+'</div>':'<div class="empty">Sem vídeos.</div>';
+      n.textContent='Vídeos curados por utilidade para a Cesgranrio. Legendas automáticas foram usadas só para análise.'; }
+    b.innerHTML=h; }
+
+  // ---------- ECOSSISTEMA ----------
+  function renderEco(){ var box=$('ecoLinks'); if(!LINKS){ box.innerHTML='<div class="panel empty">Carregando os links…</div>'; return; }
+    box.innerHTML=LINKS.grupos.map(function(g){ return '<div class="panel"><div class="eyebrow">'+esc(g.titulo)+'</div><div class="links">'+g.itens.map(function(i){ return '<a class="link" href="'+esc(i.url)+'" target="_blank" rel="noopener"><span class="pill acc" style="justify-self:start">'+esc(i.tipo)+'</span><b>'+esc(i.nome)+'</b><span>'+esc(i.desc)+'</span></a>'; }).join('')+'</div></div>'; }).join('')+'<div class="note">Links atualizados em '+esc(LINKS.atualizado)+'.</div>'; }
+
+  // ---------- PLACAR ----------
+  function renderPlacar(){ var ids=Object.keys(state.hist), h='<div class="eyebrow">Placar acumulado</div>';
+    if(!ids.length){ $('placar').innerHTML=h+'<div class="empty">Nenhuma questão feita ainda. Comece pela área Questões.</div>'; return; }
+    var byD={}, byA={}, tax={}, tot=0, ok=0;
+    ids.forEach(function(id){ var r=state.hist[id], q=QBY[id]; if(!q) return; tot++; if(r.ok) ok++; byD[q.disc]=byD[q.disc]||{n:0,ok:0}; byD[q.disc].n++; if(r.ok) byD[q.disc].ok++; var a=shortAss(q.assunto); byA[a]=byA[a]||{n:0,ok:0}; byA[a].n++; if(r.ok) byA[a].ok++; if(r.x) tax[r.x]=(tax[r.x]||0)+1; });
+    var learned=Object.keys(state.srs).length, mature=Object.keys(state.srs).filter(function(k){return state.srs[k].i>=7}).length;
+    h+='<div class="grid3"><div class="kpi"><b>'+(tot?Math.round(100*ok/tot):0)+'%</b><span>acerto em '+tot+' questões</span></div><div class="kpi"><b>'+learned+'</b><span>flashcards estudados de '+C.length+'</span></div><div class="kpi"><b>'+mature+'</b><span>flashcards com intervalo de 7+ dias</span></div></div>';
+    h+='<h3>Por disciplina</h3><div class="bars">'+Object.keys(byD).map(function(d){ var p=Math.round(100*byD[d].ok/byD[d].n); return '<div class="bar"><span>'+esc(DISC[d]||d)+'</span><div class="track"><div class="fill" style="width:'+p+'%"></div></div><span class="v">'+p+'% · '+byD[d].n+'</span></div>'; }).join('')+'</div>';
+    var worst=Object.keys(byA).filter(function(a){return byA[a].n>=3}).sort(function(x,y){return byA[x].ok/byA[x].n-byA[y].ok/byA[y].n}).slice(0,12);
+    if(worst.length) h+='<h3>Assuntos com pior acerto (3 ou mais questões)</h3><div class="tbl"><table><thead><tr><th>Assunto</th><th class="num">Feitas</th><th class="num">Acerto</th></tr></thead><tbody>'+worst.map(function(a){return '<tr><td>'+esc(a)+'</td><td class="num">'+byA[a].n+'</td><td class="num">'+Math.round(100*byA[a].ok/byA[a].n)+'%</td></tr>'}).join('')+'</tbody></table></div>';
+    if(Object.keys(tax).length) h+='<h3>Tipos de erro registrados</h3><div class="row">'+Object.keys(tax).map(function(t){return '<span class="pill warn">'+esc(t)+': '+tax[t]+'</span>'}).join('')+'</div>';
+    if(state.sims.length) h+='<h3>Simulados</h3><div class="tbl"><table><thead><tr><th>Quando</th><th class="num">Questões</th><th class="num">Acertos</th><th class="num">Tempo</th></tr></thead><tbody>'+state.sims.slice().reverse().map(function(s){return '<tr><td>'+new Date(s.when).toLocaleString('pt-BR')+'</td><td class="num">'+s.n+'</td><td class="num">'+s.ok+' ('+Math.round(100*s.ok/s.n)+'%)</td><td class="num">'+fmt(s.t)+'</td></tr>'}).join('')+'</tbody></table></div>';
+    $('placar').innerHTML=h; }
+
+  // ---------- carga ----------
+  Promise.all([fetch('questoes.json').then(function(r){return r.json()}),fetch('cards.json').then(function(r){return r.json()}),fetch('links.json').then(function(r){return r.json()}).catch(function(){return null}),fetch('banca.json').then(function(r){return r.json()}).catch(function(){return null}),fetch('videos.json').then(function(r){return r.json()}).catch(function(){return null})]).then(function(res){
+    Q=res[0]; Q.forEach(function(q){ QBY[q.id]=q; }); C=res[1]; LINKS=res[2]; BANCA=res[3]; VIDEOS=res[4];
+    var cnt={}; Q.forEach(function(q){ cnt[q.disc]=(cnt[q.disc]||0)+1; });
+    $('discChips').innerHTML=Object.keys(DISC).map(function(d){ return '<button type="button" data-d="'+d+'" aria-pressed="false">'+esc(DISC[d])+' <span class="mono">'+(cnt[d]||0)+'</span></button>'; }).join('');
+    $('discChips').querySelectorAll('button').forEach(function(b){ b.onclick=function(){ discSel[b.dataset.d]=!discSel[b.dataset.d]; syncChips(); fillAssuntos(); }; });
+    var cc={}; C.forEach(function(c){ cc[c.d]=(cc[c.d]||0)+1; });
+    $('cardChips').innerHTML=Object.keys(cc).filter(function(d){return d!=='Geral'}).map(function(d){ return '<button type="button" data-d="'+esc(d)+'" aria-pressed="false">'+esc(d)+' <span class="mono">'+cc[d]+'</span></button>'; }).join('');
+    $('cardChips').querySelectorAll('button').forEach(function(b){ b.onclick=function(){ cardSel[b.dataset.d]=!cardSel[b.dataset.d]; b.setAttribute('aria-pressed',String(!!cardSel[b.dataset.d])); renderCards(); }; });
+    $('genDisc').innerHTML=Object.keys(DISC).map(function(d){return '<option value="'+d+'">'+esc(DISC[d])+'</option>'}).join(''); fillGen();
+    fillAssuntos();
+    var v='hoje'; try{ v=localStorage.getItem('arenaTP.view')||'hoje'; }catch(e){} if(location.hash && VIEWS.indexOf(location.hash.slice(1))>=0) v=location.hash.slice(1);
+    show(v);
+  }).catch(function(e){ document.querySelector('.wrap').insertAdjacentHTML('afterbegin','<div class="panel empty">Não foi possível carregar os dados ('+esc(e.message)+'). Recarregue a página.</div>'); });
+  renderHoje();
+})();
+</script>
+
+</body></html>

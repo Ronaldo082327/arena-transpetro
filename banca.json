@@ -1,0 +1,442 @@
+{
+ "atualizado": "02/11/2026",
+ "perfil": {
+  "geral": [
+   "O distrator costuma ser a definição correta de outro conceito vizinho. Exemplo: rootkit com cinco definições de malware. Estude por contraste, uma linha de X versus Y.",
+   "Caso narrativo esconde uma frase decisiva no meio do ruído (BNDES 2024: 'antes da integração' = teste de unidade). Sublinhe essa frase antes de ler as alternativas.",
+   "Absolutos (apenas, sempre, nunca, todos, exclusivamente) marcam a alternativa errada. A certa tende a ser moderada e abrangente. Exceção: lei seca e norma, onde o absoluto pode ser literal.",
+   "Inversão lado a lado: se duas alternativas dizem o contrário uma da outra (estrela x floco de neve, roll-up x drill-down, IDS x IPS), uma delas é o gabarito.",
+   "Em banco de dados a banca usa código literal: cinco comandos quase iguais, diferindo por uma cláusula. 'Qual executa sem erro' apareceu em 4 provas. Execute na mão com os dados do enunciado.",
+   "Alternativas parecidas diferem por uma palavra. Leia o comando, volte ao trecho ou ao enunciado e só então compare. Ler as alternativas cedo demais faz 'enxergar' o que não está lá.",
+   "A banca repete padrões e conjuntos-base entre provas e entre ênfases do mesmo dia. Prova antiga da Cesgranrio é o treino mais preditivo, mais que aula teórica.",
+   "Cobra o que está no edital, de forma direta e conceitual, mas pune base mal feita. Norma e lei vêm pelo número com a função (27001 'deve' x 27002 'convém que').",
+   "Nesta linha de prova a banca não cobra 4FN/5FN, álgebra relacional com símbolos, tuning de SGBD específico nem configuração de ferramenta. Em 168 questões de PMBOK, nenhuma da 7ª edição.",
+   "Negativas (NÃO, EXCETO, INCORRETA) e afirmativas I, II, III: marque a palavra de comando e procure a única inversão plantada. Quatro verdadeiras confirmam a falsa.",
+   "Português: erro gramatical objetivo, sem ambiguidade; 'adequado' não é 'certo'; referente trocado e causa x consequência invertidas. Inglês: sem glossário, e muitas questões trazem o fragmento no enunciado.",
+   "Na dúvida, na ordem: tema (outra sigla está errada), absoluto, espelho, moderação e abrangência, vizinho da mesma família. A última frase do enunciado costuma ser isca; o substantivo central responde."
+  ],
+  "transpetro": [
+   "Estrutura: 70 questões objetivas (específicas 21 a 70 = 50; Português 1 a 10; Inglês 11 a 20), alternativas A a E, 1 ponto cada, sem desconto por erro. Marque todas, sem deixar branco.",
+   "Pesos de 2023 nas 50 específicas: Dados+BI 17, Eng. Software+UX 10, Segurança 7, Projetos 7, Governança+LGPD 5, Lógica 4. A projeção 2026 é estimativa: a ordem é robusta, os números não.",
+   "Tempo: prova de 4h30 (edital 8.1) mais até 60 min de tempo adicional por laudo (edital 5.16), total 330 min, só se solicitado na inscrição. Saída só após 2h do início. Prova em 06/12/2026 (retificação; edital original dizia 29/11).",
+   "Eliminatórias (edital 7.1.4.3): menos de 25/50 nas específicas, menos de 10/20 nas gerais, ou grau zero em Português ou Inglês. Inglês é a trava mais perigosa: garanta as questões mecânicas.",
+   "Habilitação pela nota só das específicas, até 2x (vagas + CR) por modalidade (7.1.2). Classificação final é a soma algébrica de Específicas e Gerais: um ponto de Inglês vale o mesmo que um de Dados na ordem final.",
+   "Concorrência é posicional e pequena. O relatório aponta 11 posições para a Ênfase 5 no Rio de Janeiro (ampla, PcD e PN) e uma única vaga imediata; conferir quadro do Anexo I. Corte alto é provável.",
+   "Chute calculado: com 16 gabaritos da Transpetro 2023, a banca equilibra as letras por bloco de 10 questões. No chute, entre as letras que sobraram, marque a menos usada no bloco; empate pela contagem do caderno.",
+   "Eliminar vale mais que a regra do bloco: o backtest do relatório dá 20% para 31% de acerto no chute sem eliminar, e 33% para 45% eliminando duas. Se em 2026 as letras forem independentes, a regra empata com o chute cego.",
+   "Edital 2026: a anatomia diz que o programa é igual ao de 2023, bloco a bloco. O relatório aponta itens sem precedente na banca: 14 siglas de Segurança, PMBOK 7, SAFe, MDM, banco em memória. Conferir no Anexo IV.",
+   "Divergência: a live do Estratégia (jyLlqhwt1b8) diz que em 2023 Português e Inglês só eliminavam. No edital 2026 a nota das Gerais entra na soma final (7.1.4.1). O vídeo sobre 'desempate' também conflita com 7.1.4.2.2.",
+   "Divergência: os vídeos de BPM/BPMN/Aris-EPC são de Cebraspe e FGV, e o edital lista BPMN 2.0 só na Ênfase 6 (SAP), não na 5. Vídeos de Python, ML, matemática financeira e planejamento estratégico (SWOT, BSC) também ficam fora do programa da 5.",
+   "As quatro provas de TI da Transpetro caem no mesmo dia e dividem conjunto-base (dados, ETL, OLAP, ACID, segurança básica). As provas de 2023 (Ênfases 4, 6 e 7) e a de 2018 são o espelho mais fiel."
+  ]
+ },
+ "prioridades": [
+  {
+   "assunto": "SQL, DDL e DML (Dados)",
+   "motivo": "Nº 1 do caderno de Dados: 46 de 192 questões (24%). 'Qual comando executa sem erro' apareceu em 4 provas; 17 questões são de 2023 em diante.",
+   "acao": "Resolver 60 questões de SQL e criar 20 cards do checklist (nº de colunas, NOT NULL, PK, FK, coluna inexistente, NOT IN x JOIN)."
+  },
+  {
+   "assunto": "Modelagem ER, relacional, mapeamento e normalização (Dados)",
+   "motivo": "MER 32, normalização 15, mapeamento ER-relacional 15 e modelo relacional 15 dão 77 das 192 questões de Dados (40%). Cardinalidade e 2FN x 3FN são os pontos de erro.",
+   "acao": "Fazer 80 questões e 25 cards: cardinalidade lida ao contrário, N:N = 3 tabelas com PK composta, seta da dependência 2FN x 3FN."
+  },
+  {
+   "assunto": "DW, modelagem dimensional, OLAP e ETL (BI)",
+   "motivo": "Bloco mais previsível: dimensional 20, OLAP 13, DW/data mart 12, ETL 8 em 200 questões de BI. Formato recente: narrativa de navegação OLAP.",
+   "acao": "Fazer 50 questões, 20 cards de contraste (estrela x floco, fato x dimensão, DW x mart x lake) e 10 narrativas de drill, roll, slice, dice e pivot."
+  },
+  {
+   "assunto": "Língua Inglesa",
+   "motivo": "Trava de eliminação: grau zero ou menos de 10/20 nas gerais elimina. É ponto fraco declarado e cada ponto vale na classificação final. Sinônimo em contexto é o tipo mais comum (26%).",
+   "acao": "Fazer 10 questões por dia (35 min) lendo perguntas antes do texto; treinar sinônimo, referente (which, it, they) e conectivos. Meta: 6 de 10."
+  },
+  {
+   "assunto": "Segurança: núcleo clássico",
+   "motivo": "198 questões no caderno: criptografia 27, ISO 27001/27002/27005 28, firewall e proxy 15, malware 12. Cobrança por vocabulário: uma definição por conceito, distrator vizinho.",
+   "acao": "Fazer 60 questões e 30 cards: um verbo por praga, hash x assinatura x cifra, IDS detecta x IPS bloqueia, 27001 'deve' x 27002 'convém'."
+  },
+  {
+   "assunto": "Segurança: siglas novas do edital",
+   "motivo": "O relatório conta 14 itens sem precedente na banca (DLP, CASB, SIEM, EDR, WAF, SAST/DAST/IAST, STRIDE, ATT&CK, NIST 800-61, SOX, IoT, nuvem). Devem estrear como definição pura.",
+   "acao": "Criar 20 cards de uma frase por sigla, com o pareamento do STRIDE e as fases da NIST 800-61 (conferir contagem no edital)."
+  },
+  {
+   "assunto": "Engenharia de Software: testes, ciclo de vida, requisitos e UML",
+   "motivo": "193 questões no caderno: UML 36, testes 20, requisitos 19, RUP 16. Nas provas de Processos de Negócios de 2018 e 2023 foram 26 de 95 questões (ES+UX).",
+   "acao": "Fazer 50 questões e 20 cards: RF x RNF, verificação x validação, níveis de teste, diagrama pelo cenário (casos de uso, atividades)."
+  },
+  {
+   "assunto": "Projetos: PMBOK clássico e Scrum",
+   "motivo": "98 questões no caderno de Projetos, com a maioria em PMBOK clássico (EAP 14) e Scrum 17. A Transpetro 2023 colocou 5 questões do núcleo clássico na ênfase.",
+   "acao": "Fazer 40 questões e 20 cards: grupos de processos, monitoramento transversal, EAP x cronograma, eventos e papéis do Scrum, Kanban = limitar WIP."
+  },
+  {
+   "assunto": "LGPD (Governança)",
+   "motivo": "22 questões no caderno (13 só dos arts. 1 a 6) e 10 de 2023 em diante. É lei seca, o melhor custo-benefício do bloco de Governança.",
+   "acao": "Fazer 25 questões e 15 cards dos arts. 5, 6, 7 e 18: agentes de tratamento, anonimização, 10 princípios, bases legais, direitos do titular."
+  },
+  {
+   "assunto": "UX: usabilidade, protótipo, design thinking e personas",
+   "motivo": "Bloco raso e definicional, metade estreante em 2026 (storytelling, dashboards, interoperabilidade). Em 2023 a Transpetro cobrou protótipo, mapa de empatia e MVP.",
+   "acao": "Fazer 30 questões e 12 cards: fatores de Nielsen (utilidade não é), texto alternativo, 3 C's da história, mapa de empatia x persona, MVP."
+  },
+  {
+   "assunto": "Lógica Matemática",
+   "motivo": "4 questões em 2023 (relatório). O banco de 1.000 questões não tem caderno de Lógica, então a frequência por tópico é não verificada. Escopo fechado e responde rápido a treino.",
+   "acao": "Fazer 40 questões de fonte externa e 12 cards: contrapositiva x recíproca, negação com quantificador, condicional falsa, Modus Tollens."
+  },
+  {
+   "assunto": "Língua Portuguesa",
+   "motivo": "Ponto forte: manutenção. Crase e vírgula caíram em todos os cadernos de 10 questões analisados no relatório. Q1 costuma ser compreensão global.",
+   "acao": "Fazer 10 questões por dia (20 min); revisar só o erro. Cards de crase (troca por masculino) e vírgula (sujeito x verbo)."
+  },
+  {
+   "assunto": "Transações, NoSQL, Data Lake, MDM e performance (Dados)",
+   "motivo": "ACID 8, NoSQL e grafos 11, Data Lake e Big Data 9, performance 8 (todas de 2023+). MDM tem 6 questões, todas de 2024, e é item novo do edital.",
+   "acao": "Fazer 25 questões e 12 cards: ACID sem expansão falsa, famílias NoSQL, lake com alternativa restritiva falsa, MDM = registro único."
+  },
+  {
+   "assunto": "Governança de TI: ITIL, KPI e sistemas de informação",
+   "motivo": "ITIL 10 e COBIT 9 em 119 questões de Governança. Em 2023 caíram governança corporativa, custo de oportunidade, IoT e KPI. Vocabulário amplo, retorno por hora menor.",
+   "acao": "Fazer 15 questões e 10 cards: sintoma para prática ITIL, incidente x problema, central de serviços é função, nível do sistema pela decisão."
+  },
+  {
+   "assunto": "Projetos: cálculo de rede, PERT e valor agregado",
+   "motivo": "A banca calcula: PERT 7 e valor agregado 3 no caderno; caminho crítico e folgas apareceram em provas de TI de 2023. Treino mecânico rende ponto certo.",
+   "acao": "Resolver 12 exercícios (caminho crítico, folga total x livre, PERT (O+4M+P)/6, IDC e IDP) e guardar 6 fórmulas em cards."
+  },
+  {
+   "assunto": "BI conceitual: dashboards, storytelling, DIKW e planilhas",
+   "motivo": "Itens de estreia sem precedente (storytelling, planilhas) ao lado de repertório fechado (dado, informação, conhecimento). Questões de 1ª geração tendem a premiar a alternativa sóbria.",
+   "acao": "Fazer 15 questões e 8 cards; reservar 1 h para tabela dinâmica e filtros. Item de planilhas é 'conferir no edital' (7.9), sem precedente."
+  },
+  {
+   "assunto": "PMBOK 7, SAFe, Nexus e PMO",
+   "motivo": "Zero questão de PMBOK 7 em 168 da banca, mas o item está no edital (2.4). Seguro barato: duas listas e números-contraste.",
+   "acao": "Gastar 30 min: 12 princípios, 8 domínios e 5 grupos, 10 áreas, 49 processos do PMBOK 6 em 8 cards. Depois, não voltar."
+  },
+  {
+   "assunto": "Fora do programa da Ênfase 5: não estudar",
+   "motivo": "Dos 1.000 itens, Python/ML/R/NumPy somam 92, ERP/SAP 35 e padrões GoF 17; BPMN e Aris-EPC constam só da Ênfase 6. Ocupam espaço sem render nesta prova.",
+   "acao": "Filtrar os cadernos por assunto antes de resolver. Para BPMN, só 1 h de reconhecimento (precedente de 2018). Conferir no Anexo IV."
+  }
+ ],
+ "armadilhas": [
+  {
+   "disc": "Dados",
+   "armadilha": "UPDATE sem filtro.",
+   "disfarce": "Alternativa certa na lógica, mas sem WHERE, ao lado de outra com WHERE; SELECT e INSERT oferecidos como se alterassem linhas.",
+   "eliminar": "Se o enunciado limita a um grupo, descarte quem não filtra. SELECT só exibe e INSERT cria linha."
+  },
+  {
+   "disc": "Dados",
+   "armadilha": "Classificação DDL, DML, DQL, DCL.",
+   "disfarce": "Verbos trocados: 'inserir registro' como DQL, 'criar tabela' como DML.",
+   "eliminar": "CREATE, ALTER, DROP = estrutura (DDL); INSERT, UPDATE, DELETE = DML; SELECT = DQL; GRANT, REVOKE = DCL."
+  },
+  {
+   "disc": "Dados",
+   "armadilha": "'Empresas que NÃO têm X'.",
+   "disfarce": "JOIN com 'diferente de X' parece lógico, mas traz quem também tem outras características.",
+   "eliminar": "A resposta usa subconsulta de quem tem X e filtra com NOT IN ou NOT EXISTS. Compare tipos: código com sigla é erro."
+  },
+  {
+   "disc": "Dados",
+   "armadilha": "Produto cartesiano.",
+   "disfarce": "FROM A, B sem WHERE com respostas 'só as correspondentes' ou 'associadas'.",
+   "eliminar": "Sem condição de junção são todos os pares: 5 x 10 = 50 linhas. Conte as linhas."
+  },
+  {
+   "disc": "Dados",
+   "armadilha": "Comando que falha ou 'executa sem erro'.",
+   "disfarce": "Sintaxe limpa com erro escondido: valores a menos que colunas, NOT NULL omitido, PK repetida, FK sem pai, coluna inexistente.",
+   "eliminar": "Checklist na ordem: colunas e valores, nulos, tipos, PK, FK, coluna que existe. Veja se pede 'falha' ou 'NÃO falha'."
+  },
+  {
+   "disc": "Dados",
+   "armadilha": "Chave primária composta e N:N.",
+   "disfarce": "Alternativa inclui atributo descritivo (valor) ou engole o atributo do relacionamento numa das entidades.",
+   "eliminar": "Chave = conjunto mínimo que identifica a linha pela regra do enunciado. N:N exige três tabelas, com PK composta na associativa."
+  },
+  {
+   "disc": "Dados",
+   "armadilha": "2FN x 3FN e formas normais.",
+   "disfarce": "'Na 2FN não existe dependência transitiva'; 'normalizar melhora o desempenho'; coluna multivalorada tratada como 4FN.",
+   "eliminar": "Dependência parcial da PK composta = 2FN; transitiva via não-chave = 3FN. Se falha a 1FN, falha a 2FN e a 3FN. Objetivo é reduzir redundância."
+  },
+  {
+   "disc": "Dados",
+   "armadilha": "Cardinalidade e aridade.",
+   "disfarce": "Modelo ER pronto com alternativas que trocam mínimo e máximo; relacionamento ternário.",
+   "eliminar": "Leia no sentido contrário e teste com conjuntos de instâncias. Em ternário, a cardinalidade fala dos pares das outras duas entidades."
+  },
+  {
+   "disc": "Dados",
+   "armadilha": "Propriedades ACID.",
+   "disfarce": "As quatro definições permutadas entre as letras; expansões falsas ('Confiabilidade', 'Permanência').",
+   "eliminar": "Ancore em duas definições certas: atomicidade (tudo ou nada) e durabilidade (persiste após commit). Descarte a alternativa em que essas duas falham."
+  },
+  {
+   "disc": "Dados",
+   "armadilha": "Data Lake, Data Mart e independência de dados.",
+   "disfarce": "Alternativas restritivas ('apenas', 'converte na ingestão') contra uma correta flexível.",
+   "eliminar": "A correta é a flexível e abrangente. Independência lógica = mudar o conceitual sem mudar o externo; física = mudar o interno sem mudar o conceitual."
+  },
+  {
+   "disc": "BI",
+   "armadilha": "Características do data warehouse.",
+   "disfarce": "'Volátil', 'atemporal', 'operacional', 'mesma estrutura do transacional', 'alterado a cada transação'.",
+   "eliminar": "DW é orientado a assunto, integrado, variante no tempo e não volátil. OLTP é o atual e detalhado. DW não devolve dados ao transacional."
+  },
+  {
+   "disc": "BI",
+   "armadilha": "Estrela x floco de neve.",
+   "disfarce": "Duas alternativas opostas trocando 'normalizado' por 'desnormalizado' e 'mais' por 'menos junções'; 'tabelão', várias fatos.",
+   "eliminar": "Estrela: dimensões desnormalizadas, menos junções. Floco: dimensões normalizadas. Valor/medida na fato; evento é fato; participante é dimensão."
+  },
+  {
+   "disc": "BI",
+   "armadilha": "Operações OLAP em narrativa.",
+   "disfarce": "'A analista via a produção por Estado e passou a ver só a cidade X'; grafia trocada; 'roll-up agrega em níveis mais baixos'; 'pivot cria dimensões'.",
+   "eliminar": "Traduza cada movimento: desce nível = drill-down; sobe = roll-up; fixa UM valor = slice; vários = dice; pivot só gira eixos. Drill-across pula nível."
+  },
+  {
+   "disc": "Eng. Software",
+   "armadilha": "Requisito funcional x não funcional.",
+   "disfarce": "Texto com número, unidade ou tecnologia disfarçado de função.",
+   "eliminar": "Teste do verbo: o que o sistema faz = RF; quão bem ou sob que restrição = RNF. Número, unidade e tecnologia indicam RNF."
+  },
+  {
+   "disc": "Eng. Software",
+   "armadilha": "Verificação x validação.",
+   "disfarce": "A frase literal da ISO ('confirmação, com evidência objetiva, de que os requisitos especificados foram cumpridos') com 'validação' ao lado.",
+   "eliminar": "Verificação = construímos certo (confere requisitos); validação = construímos o produto certo (atende ao uso pretendido)."
+  },
+  {
+   "disc": "Eng. Software",
+   "armadilha": "Nível de teste em narrativa.",
+   "disfarce": "Enunciado longo de problemas na integração com a frase 'mesmo antes da integração' no meio.",
+   "eliminar": "Sublinhe a frase decisiva: antes da integração = unidade; entre módulos = integração; sistema completo = sistema; usuário/cliente = aceitação."
+  },
+  {
+   "disc": "Eng. Software",
+   "armadilha": "UML: include x extend e diagrama pelo cenário.",
+   "disfarce": "'Colaboravam num fluxo de tarefas' empurrando ao diagrama de colaboração; seta de generalização invertida.",
+   "eliminar": "Fluxo de tarefas = diagrama de atividades. Include é obrigatório, extend é opcional; a seta de generalização aponta para o pai."
+  },
+  {
+   "disc": "UX",
+   "armadilha": "Fatores de usabilidade e acessibilidade.",
+   "disfarce": "'Utilidade' listada entre os fatores de Nielsen; imagem sem equivalente textual.",
+   "eliminar": "Utilidade não é fator de usabilidade. Equivalente textual de imagem é padrão de acessibilidade. Requisitos de ambos entram no protótipo, antes da codificação."
+  },
+  {
+   "disc": "UX",
+   "armadilha": "Mapa de empatia x persona.",
+   "disfarce": "Distratores trazem nome, idade e formação, que são dados de persona.",
+   "eliminar": "Mapa de empatia = pensa/sente, vê, ouve, fala/faz. Persona = perfil. MVP existe para aprender com o mínimo, não para lançar tudo."
+  },
+  {
+   "disc": "Segurança",
+   "armadilha": "Malware por verbo.",
+   "disfarce": "Cinco definições exatas de rootkit, trojan, worm, phishing e spyware; pergunta o que diferencia o rootkit.",
+   "eliminar": "Rootkit = ocultar; worm = replica sozinho; vírus = precisa de hospedeiro; trojan = disfarce; spyware = coletar; ransomware = cifra e cobra."
+  },
+  {
+   "disc": "Segurança",
+   "armadilha": "'Cripto' no nome.",
+   "disfarce": "Alternativas cheias de criptografia: ransomware, cryptojacking, polimórfico.",
+   "eliminar": "Cryptojacking minera moeda e não cifra seus dados; polimórfico muda a assinatura; formjacking rouba dados de formulário via JavaScript."
+  },
+  {
+   "disc": "Segurança",
+   "armadilha": "Chave privada e pública na assinatura.",
+   "disfarce": "História com dois usuários e opção 'chave pública para assinar'.",
+   "eliminar": "Autoria = assinar com a chave privada do remetente e verificar com a pública dele. Sigilo = cifrar com a pública do destinatário. Hash = integridade."
+  },
+  {
+   "disc": "Segurança",
+   "armadilha": "Backup completo, diferencial e incremental.",
+   "disfarce": "Termos como sinônimos; 'cumulativo' para o diferencial.",
+   "eliminar": "Diferencial copia desde o último completo e não marca (cumulativo); incremental copia desde o último backup e marca. Restaurar o diferencial = completo + último diferencial."
+  },
+  {
+   "disc": "Segurança",
+   "armadilha": "IDS x IPS, firewall x proxy.",
+   "disfarce": "Alternativa que define a tecnologia vizinha da mesma família.",
+   "eliminar": "IDS detecta e alerta; IPS bloqueia. Filtro de pacotes é o simples; proxy atua na aplicação e pode autenticar."
+  },
+  {
+   "disc": "Segurança",
+   "armadilha": "Norma pelo número.",
+   "disfarce": "27001 e 27002 trocadas; 'a norma que trata de' com número no lugar da função.",
+   "eliminar": "27001 exige ('deve'); 27002 recomenda controles ('convém que'); 27005 trata de riscos; 22301 de continuidade. Decore número com função."
+  },
+  {
+   "disc": "Projetos",
+   "armadilha": "Respostas a riscos.",
+   "disfarce": "'Prevenir' no lugar de 'transferir' em caso de seguro; 'aceitar' tratado como eliminar.",
+   "eliminar": "Seguro e terceirização = transferir; evitar = deixar a atividade; mitigar = reduzir probabilidade ou impacto; aceitar = não agir. A escolha é feita em Planejar as Respostas."
+  },
+  {
+   "disc": "Projetos",
+   "armadilha": "EAP x cronograma e monitoramento.",
+   "disfarce": "Rede de dependências oferecida como EAP; Monitoramento e Controle apresentado como etapa final da sequência.",
+   "eliminar": "EAP = decomposição hierárquica do escopo em entregas. Monitoramento e controle é processo de fundo, ativo durante todo o projeto."
+  },
+  {
+   "disc": "Projetos",
+   "armadilha": "Scrum e Kanban.",
+   "disfarce": "'Interativa' no lugar de 'iterativa'; Review x Retrospectiva trocadas; Kanban 'maximizar' WIP.",
+   "eliminar": "Só o time altera o Sprint Backlog. Review inspeciona o produto; Retrospectiva, o processo. Pull no Kanban = limitar o WIP. Duração de eventos: seguir o Guia do Scrum."
+  },
+  {
+   "disc": "Governança",
+   "armadilha": "Lei seca da LGPD.",
+   "disfarce": "Alternativa com 'apenas' ou 'sempre' em lei seca; consentimento tratado como regra geral.",
+   "eliminar": "Agentes de tratamento são só controlador e operador. Consentimento é uma entre as bases legais do art. 7. Anonimização = perda da possibilidade de associação, direta ou indireta."
+  },
+  {
+   "disc": "Governança",
+   "armadilha": "IoT x IA e ITIL por sintoma.",
+   "disfarce": "Enunciado com 'rede de sensores' que termina em 'tomada de decisão baseada em dados' (isca IA); incidente x problema.",
+   "eliminar": "Ancore no substantivo central: rede de sensores = IoT. Incidente = restaurar rápido; problema = causa raiz; RFC/CAB = mudança; central de serviços é função."
+  },
+  {
+   "disc": "Lógica",
+   "armadilha": "Equivalência e negação.",
+   "disfarce": "Recíproca e inversa no lugar da contrapositiva; negação de 'os dois são pares' como 'os dois são ímpares'.",
+   "eliminar": "Contrapositiva = inverte e nega. Negação de 'os dois são pares' = 'algum é ímpar'. Condicional só é falsa em V para F, o que fixa os valores."
+  },
+  {
+   "disc": "Português",
+   "armadilha": "Referente trocado e causa x consequência.",
+   "disfarce": "Alternativa atribui a um sujeito o que o texto diz de outro; 'adequado' lido como 'certo'.",
+   "eliminar": "Volte ao trecho, confira quem faz o quê e a ordem causa e consequência; o distrator é verdadeiro porém parcial, fique com a mais fiel e abrangente."
+  },
+  {
+   "disc": "Português",
+   "armadilha": "Crase e vírgula.",
+   "disfarce": "Crase antes de verbo ou palavra masculina; vírgula única entre sujeito e verbo.",
+   "eliminar": "Troque por masculino: se vira 'ao', há crase. Nunca antes de verbo ou plural sem artigo. A certa fecha a intercalação com duas vírgulas."
+  },
+  {
+   "disc": "Inglês",
+   "armadilha": "Ideia principal e tom.",
+   "disfarce": "Alternativas de tom oposto ao do texto (critica, alerta, protesto) em texto informativo e otimista.",
+   "eliminar": "Comece pelo título e pelas perguntas; elimine tom oposto, absolutos (only, never) e fique com a que repete os substantivos do título."
+  },
+  {
+   "disc": "Inglês",
+   "armadilha": "Referente e conectivo.",
+   "disfarce": "Pronome (which, it, they) apontando para o termo errado; however x moreover trocados.",
+   "eliminar": "Which após vírgula retoma o termo à esquerda; it e they, o sujeito anterior no mesmo número. However = oposição; moreover = adição. Resolva essas sem reler o texto."
+  }
+ ],
+ "comentarios": [
+  {
+   "disc": "Dados",
+   "assunto": "MER: cardinalidade",
+   "titulo": "Cardinalidade ao lado da entidade: leitura cruzada",
+   "dica": "O par (min,max) escrito ao lado de uma entidade diz quantas dela aparecem para cada ocorrência da outra. Parece invertido, mas é a regra. Desenhe o caso antes de ler as alternativas."
+  },
+  {
+   "disc": "Dados",
+   "assunto": "MER: cardinalidade",
+   "titulo": "O mínimo 0 ou 1 sai das palavras do texto",
+   "dica": "'Pode', 'poderá registrar' e 'nem todo' dão mínimo 0. 'Deve', 'exatamente' e 'pelo menos' dão 1. 'Vários' dá máximo n. As alternativas costumam diferir só nesse mínimo."
+  },
+  {
+   "disc": "Dados",
+   "assunto": "MER: relacionamento ternário",
+   "titulo": "Ternário: cardinalidade vale para pares de entidades",
+   "dica": "Fixe um par e pergunte quantas ocorrências da terceira entidade ligam a ele. Cuidado com 'pode' versus 'deve' na alternativa: um professor mostrou que essa palavra decidiu a questão."
+  },
+  {
+   "disc": "Dados",
+   "assunto": "MER: questões com conjuntos",
+   "titulo": "Conjuntos e tuplas: teste máximo, mínimo e direção",
+   "dica": "Para cada tupla confira o máximo. Para cada elemento de participação obrigatória, ache a tupla dele. Erros típicos: um elemento ligado a dois onde o máximo é 1, par invertido e elemento que nem existe no conjunto."
+  },
+  {
+   "disc": "Dados",
+   "assunto": "MER: atributos",
+   "titulo": "Atributo que depende de duas entidades vai no relacionamento",
+   "dica": "Custo que varia por transportadora e por endereço fica no relacionamento. Valor mínimo que pertence ao bloco fica no bloco. Atributo de relacionamento vale para qualquer cardinalidade e, no 1:N, migra para o lado N."
+  },
+  {
+   "disc": "Dados",
+   "assunto": "Generalização e especialização",
+   "titulo": "Total, parcial, exclusiva e sobreposta pelo texto",
+   "dica": "'Pertence a uma só categoria' é exclusiva. 'Alguns também exercem outra' é sobreposta. 'E apenas isso' é total. Total e parcial falam do pai, exclusiva e sobreposta falam de um item estar em mais de um filho."
+  },
+  {
+   "disc": "Dados",
+   "assunto": "Generalização e especialização",
+   "titulo": "Em conjuntos: união cobre, interseção vazia, sobra no pai",
+   "dica": "Total: união dos filhos igual ao pai. Exclusiva: interseção vazia. Parcial: pode sobrar item só no pai. Se um filho não vem listado, deduza pelos relacionamentos de que ele participa. Confira se o item existe no pai."
+  },
+  {
+   "disc": "Dados",
+   "assunto": "Mapeamento MER para relacional",
+   "titulo": "N:N vira tabela com a chave completa; 1:N põe FK no lado N",
+   "dica": "Na tabela do N:N a chave reúne as chaves das duas entidades, e a alternativa com só parte dela erra. No 1:N a FK fica no lado N. No 1:1 vale fusão ou coluna extra. Atributo do relacionamento acompanha a tabela."
+  },
+  {
+   "disc": "Dados",
+   "assunto": "Mapeamento MER para relacional",
+   "titulo": "UNIQUE sem NOT NULL indica participação 0,1",
+   "dica": "Na engenharia reversa de um CREATE TABLE, UNIQUE sozinho aceita nulo e aponta 0,1. UNIQUE com NOT NULL aponta 1,1. Procure esse detalhe de código: é ele que separa as alternativas."
+  },
+  {
+   "disc": "Dados",
+   "assunto": "Mapeamento MER para relacional",
+   "titulo": "Entidade fraca: chave própria mais a chave da forte",
+   "dica": "A entidade fraca (linha dupla) tem só chave parcial e herda a chave da entidade identificadora. A chave dela fica composta. A banca pergunta qual é o identificador total."
+  },
+  {
+   "disc": "Dados",
+   "assunto": "Modelo relacional: chaves",
+   "titulo": "Uma PK por tabela, composta ou não, e que também pode ser FK",
+   "dica": "A tabela tem exatamente uma chave primária, sem nulo e sem repetição. Ela pode ter várias colunas. Uma PK pode ser FK ao mesmo tempo (tabela associativa). RG novo ao lado do CPF vira chave candidata, não troca a PK."
+  },
+  {
+   "disc": "Dados",
+   "assunto": "Modelo relacional: integridade",
+   "titulo": "FK pode ser nula; ausência de vínculo é NULL",
+   "dica": "Chave estrangeira admite nulo e valor repetido. Integridade referencial exige valor nulo ou existente na chave referenciada. Número negativo ou código arbitrário não representam ausência. Muitos alunos erram esse ponto."
+  },
+  {
+   "disc": "Dados",
+   "assunto": "Modelo relacional: domínio",
+   "titulo": "Domínio é o conjunto de valores; linhas não têm ordem",
+   "dica": "Domínio define os valores permitidos do atributo, não a área do conhecimento nem o papel de chave. Linhas não têm ordem; a ordem das colunas é de esquema e não muda o significado dos dados."
+  },
+  {
+   "disc": "Dados",
+   "assunto": "Álgebra relacional",
+   "titulo": "SELECT do SQL é π; WHERE do SQL é σ",
+   "dica": "Nomes trocados: a projeção (π) escolhe colunas e a seleção (σ) filtra linhas. Monte o SQL equivalente e traduza. Atenção à ordem: projetar antes de filtrar por coluna removida quebra a expressão."
+  },
+  {
+   "disc": "Dados",
+   "assunto": "Níveis e modelos de dados",
+   "titulo": "Conceitual, lógico e físico; níveis do ANSI/SPARC",
+   "dica": "Conceitual: independente de SGBD. Lógico: depende do paradigma. Físico: índices, partições, disco. ANSI/SPARC: externo é visão, conceitual é a visão comunitária, interno é armazenamento. Hierárquico e rede são os pré-relacionais."
+  },
+  {
+   "disc": "Dados",
+   "assunto": "Desempenho e transações",
+   "titulo": "Desnormalização com critério, índices certos e atomicidade",
+   "dica": "Desnormalizar com critério reduz junções e é resposta de desempenho. 'Normalização extrema' e 'índice em tudo' são distratores. B+ serve a igualdade e intervalo; hash só a igualdade. Atomicidade é tudo ou nada."
+  },
+  {
+   "disc": "Dados",
+   "assunto": "Gabaritos contestáveis",
+   "titulo": "Professor pede anulação, a banca mantém: marque a mais provável",
+   "dica": "Em 5 das 76 questões do levantamento o professor apontou erro e o gabarito oficial ficou. Na prova não há recurso: escolha a alternativa mais provável pela regra padrão e não gaste tempo discutindo."
+  }
+ ],
+ "comentariosNota": "Baseado em amostra de 76 questões do TecConcursos (Dados em maioria). A coleta completa foi interrompida por limite do site."
+}

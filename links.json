@@ -1,0 +1,227 @@
+{
+  "atualizado": "02/11/2026",
+  "grupos": [
+    {
+      "titulo": "Plano e prova",
+      "itens": [
+        {
+          "nome": "Reta Final Transpetro",
+          "desc": "Plano de 34 dias, simulados de domingo e roteiro de 330 minutos para 06/12",
+          "url": "https://claude.ai/artifact/Q2ihvG56hy94bry9VbEFT8",
+          "tipo": "Claude"
+        },
+        {
+          "nome": "Modelo do Chute Cesgranrio",
+          "desc": "Calculadora da regra do bloco de 10 e treino com gabaritos reais de 2023",
+          "url": "https://claude.ai/artifact/6KPufyEQ479B2rkPiTXr9L",
+          "tipo": "Claude"
+        },
+        {
+          "nome": "Conteúdo Programático Comentado",
+          "desc": "Os 101 subitens do Anexo IV com o que cobra, como pergunta e onde confunde",
+          "url": "https://claude.ai/artifact/1i4dR6vor7gj7aNDGN2TYh",
+          "tipo": "Claude"
+        }
+      ]
+    },
+    {
+      "titulo": "TecConcursos",
+      "itens": [
+        {
+          "nome": "Pasta Transpetro Reta Final",
+          "desc": "43 cadernos Cesgranrio por tópico (PT, IN, BD, BI, ES, UX, PJ, GV, LG, SI)",
+          "url": "https://www.tecconcursos.com.br/questoes/pastas/7984226",
+          "tipo": "TecConcursos"
+        }
+      ]
+    },
+    {
+      "titulo": "Google Drive",
+      "itens": [
+        {
+          "nome": "Materiais gerados (guias, cadernos, prova comentada)",
+          "desc": "Pasta Reta Final 2026 com os Docs usados como fontes dos notebooks",
+          "url": "https://drive.google.com/drive/folders/1ks2ohckzhiij-kd5dqARzEaFY8hHKzr-",
+          "tipo": "Drive"
+        },
+        {
+          "nome": "Curso completo (espelho do Estratégia)",
+          "desc": "Aulas em PDF por disciplina e Passo Estratégico",
+          "url": "https://drive.google.com/drive/folders/19ePjbrOycmZSAhuci6ejUPQR5vWVuN1h",
+          "tipo": "Drive"
+        },
+        {
+          "nome": "Cronograma dia a dia",
+          "desc": "Planilha de 02/11 a 06/12 com foco, marcos, minutos por bloco e acerto do dia",
+          "url": "https://docs.google.com/spreadsheets/d/1Eni29cIMTcExMwtSU8G-gPfn07aYjqjJ_TDETm6N26U/edit",
+          "tipo": "Planilhas"
+        },
+        {
+          "nome": "Caderno de Erros e Revisão Espaçada",
+          "desc": "Uma linha por erro: tipo, regra que faltou, refação em 48 h e 7 dias, card criado",
+          "url": "https://docs.google.com/spreadsheets/d/15hrckhs5ZVutsaMMxkWQbxrz1-uPOSGq2H-YQim3tHs/edit",
+          "tipo": "Planilhas"
+        },
+        {
+          "nome": "Radar Cesgranrio no Colab",
+          "desc": "Incidência por assunto, o que mudou desde 2023, pontos em jogo por disciplina e simulação do chute",
+          "url": "https://colab.research.google.com/drive/1htKgMuDG9npHh9VQ-TeveR9MlQHqX7LZ",
+          "tipo": "Colab"
+        }
+      ]
+    },
+    {
+      "titulo": "Gemini Notebook (NotebookLM)",
+      "itens": [
+        {
+          "nome": "01 · Português",
+          "desc": "Guia, aulas e questões de Português",
+          "url": "https://notebook.google.com/notebook/5b6d9481-0f73-4227-a7c9-3de58c953b83",
+          "tipo": "NotebookLM"
+        },
+        {
+          "nome": "02 · Inglês",
+          "desc": "Texto, conectivos e vocabulário",
+          "url": "https://notebook.google.com/notebook/d12dfbfe-3869-4509-86ae-1efc6045f588",
+          "tipo": "NotebookLM"
+        },
+        {
+          "nome": "03 · Arquitetura de Dados",
+          "desc": "Áudio, teste, cartões, mapa mental e vídeo",
+          "url": "https://notebook.google.com/notebook/e885fe05-11eb-4f2c-8254-d22a92a01be1",
+          "tipo": "NotebookLM"
+        },
+        {
+          "nome": "04 · Projetos",
+          "desc": "PMBOK, teste, cartões e mapa mental",
+          "url": "https://notebook.google.com/notebook/0aa0692d-82a0-4b15-b363-69a3eb0512d1",
+          "tipo": "NotebookLM"
+        },
+        {
+          "nome": "05 · Governança e LGPD",
+          "desc": "Cartões e mapa mental",
+          "url": "https://notebook.google.com/notebook/2717852f-b26f-412c-8517-f7f702356dc1",
+          "tipo": "NotebookLM"
+        },
+        {
+          "nome": "06 · Engenharia de Software",
+          "desc": "Áudio, teste, cartões e mapa mental",
+          "url": "https://notebook.google.com/notebook/9aabcd7e-e806-4bdc-9513-c2cb6b257aa3",
+          "tipo": "NotebookLM"
+        },
+        {
+          "nome": "07 · UX",
+          "desc": "Teste, cartões e mapa mental",
+          "url": "https://notebook.google.com/notebook/eed9aa2e-daa7-4cb7-aa97-68b08106f90b",
+          "tipo": "NotebookLM"
+        },
+        {
+          "nome": "08 · BI e Ciência de Dados",
+          "desc": "Áudio, teste, cartões e mapa mental",
+          "url": "https://notebook.google.com/notebook/c228bc7b-0801-469e-9967-7225a9f19fb6",
+          "tipo": "NotebookLM"
+        },
+        {
+          "nome": "09 · Lógica",
+          "desc": "Teste, cartões e mapa mental",
+          "url": "https://notebook.google.com/notebook/821c91bf-0203-4e7e-96d4-64ec03b40455",
+          "tipo": "NotebookLM"
+        },
+        {
+          "nome": "10 · Segurança",
+          "desc": "Áudio, teste, cartões e mapa mental",
+          "url": "https://notebook.google.com/notebook/240c6514-f2c6-488c-8e1b-c760c00c9c61",
+          "tipo": "NotebookLM"
+        }
+      ]
+    },
+    {
+      "titulo": "Gemini (Gems tutores)",
+      "itens": [
+        {
+          "nome": "Tutor · Dados e BI",
+          "desc": "Guias 03 e 08",
+          "url": "https://gemini.google.com/gem/49ec3623fb0e",
+          "tipo": "Gem"
+        },
+        {
+          "nome": "Tutor · Segurança",
+          "desc": "Guia 10",
+          "url": "https://gemini.google.com/gem/d6a0df865bc1",
+          "tipo": "Gem"
+        },
+        {
+          "nome": "Tutor · Engenharia de Software e UX",
+          "desc": "Guias 06 e 07",
+          "url": "https://gemini.google.com/gem/12d9ea8be6c7",
+          "tipo": "Gem"
+        },
+        {
+          "nome": "Tutor · Projetos",
+          "desc": "Guia 04",
+          "url": "https://gemini.google.com/gem/17e5cfd93b77",
+          "tipo": "Gem"
+        },
+        {
+          "nome": "Tutor · Governança e LGPD",
+          "desc": "Guia 05",
+          "url": "https://gemini.google.com/gem/d558d36adfd8",
+          "tipo": "Gem"
+        },
+        {
+          "nome": "Tutor · Lógica",
+          "desc": "Guia 09",
+          "url": "https://gemini.google.com/gem/32f117992353",
+          "tipo": "Gem"
+        },
+        {
+          "nome": "Tutor · Português",
+          "desc": "Guia 01",
+          "url": "https://gemini.google.com/gem/72640d75dada",
+          "tipo": "Gem"
+        },
+        {
+          "nome": "Tutor · Inglês",
+          "desc": "Guia 02, treino de texto",
+          "url": "https://gemini.google.com/gem/515aded5ef81",
+          "tipo": "Gem"
+        }
+      ]
+    },
+    {
+      "titulo": "Gemini (apps Canvas)",
+      "itens": [
+        {
+          "nome": "Simulador OLAP",
+          "desc": "Seis operações em narrativas de navegação",
+          "url": "https://gemini.google.com/app/89e888b66d21477d",
+          "tipo": "Canvas"
+        },
+        {
+          "nome": "Laboratório de normalização",
+          "desc": "Forma normal violada, 20 casos",
+          "url": "https://gemini.google.com/app/ff203790bb506471",
+          "tipo": "Canvas"
+        },
+        {
+          "nome": "Tabela-verdade e negação",
+          "desc": "Negação e contrapositiva",
+          "url": "https://gemini.google.com/app/9f0ff23d863eead9",
+          "tipo": "Canvas"
+        },
+        {
+          "nome": "SQL com tabela de exemplo",
+          "desc": "15 desafios no formato Cesgranrio",
+          "url": "https://gemini.google.com/app/320f3d0cfc4218b3",
+          "tipo": "Canvas"
+        },
+        {
+          "nome": "Palácio da memória ATT&CK",
+          "desc": "14 táticas na ordem",
+          "url": "https://gemini.google.com/app/558e6f3108ea57e0",
+          "tipo": "Canvas"
+        }
+      ]
+    }
+  ]
+}
