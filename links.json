@@ -31,6 +31,594 @@
       ]
     },
     {
+      "titulo": "TecConcursos · pastas",
+      "itens": [
+        {
+          "nome": "Pasta Ronaldo João (Transpetro_Reta_Final)",
+          "desc": "44 cadernos por tópico, prefixos PT, IN, BD, BI, ES, UX, PJ, GV, LG, SI",
+          "url": "https://www.tecconcursos.com.br/questoes/pastas/7984226",
+          "tipo": "TecConcursos"
+        },
+        {
+          "nome": "Pasta Ronaldo João",
+          "desc": "Prova Transpetro, Sprint (34), Transpetro 2026 (3) e Treino Massivo (9)",
+          "url": "https://www.tecconcursos.com.br/questoes/pastas/5798534",
+          "tipo": "TecConcursos"
+        }
+      ]
+    },
+    {
+      "titulo": "TecConcursos · Reta Final (por tópico)",
+      "itens": [
+        {
+          "nome": "BD-01 - Modelagem conceitual (MER, generalização, cardinalidade)",
+          "desc": "52 questões",
+          "url": "https://www.tecconcursos.com.br/questoes/cadernos/107519698",
+          "tipo": "TecConcursos"
+        },
+        {
+          "nome": "BD-02 - Modelo relacional, chaves e mapeamento ER-relacional",
+          "desc": "43 questões",
+          "url": "https://www.tecconcursos.com.br/questoes/cadernos/107519702",
+          "tipo": "TecConcursos"
+        },
+        {
+          "nome": "BD-03 - Normalização",
+          "desc": "19 questões",
+          "url": "https://www.tecconcursos.com.br/questoes/cadernos/107519705",
+          "tipo": "TecConcursos"
+        },
+        {
+          "nome": "BD-04 SQL consultas (joins, subconsultas, agregação)",
+          "desc": "68 questões",
+          "url": "https://www.tecconcursos.com.br/questoes/cadernos/107519554",
+          "tipo": "TecConcursos"
+        },
+        {
+          "nome": "BD-05 - DDL, sublinguagens, views e triggers",
+          "desc": "8 questões",
+          "url": "https://www.tecconcursos.com.br/questoes/cadernos/107519706",
+          "tipo": "TecConcursos"
+        },
+        {
+          "nome": "BD-06 - Transações, ACID, SGBD, índices e desempenho",
+          "desc": "35 questões",
+          "url": "https://www.tecconcursos.com.br/questoes/cadernos/107519707",
+          "tipo": "TecConcursos"
+        },
+        {
+          "nome": "BD-07 - NoSQL e outros modelos de banco de dados",
+          "desc": "19 questões",
+          "url": "https://www.tecconcursos.com.br/questoes/cadernos/107519709",
+          "tipo": "TecConcursos"
+        },
+        {
+          "nome": "BD-08 - Data Warehouse, modelagem dimensional e ETL",
+          "desc": "41 questões",
+          "url": "https://www.tecconcursos.com.br/questoes/cadernos/107519711",
+          "tipo": "TecConcursos"
+        },
+        {
+          "nome": "BD-09 - Metadados, qualidade e governança de dados, Big Data e Data Lake",
+          "desc": "22 questões",
+          "url": "https://www.tecconcursos.com.br/questoes/cadernos/107519712",
+          "tipo": "TecConcursos"
+        },
+        {
+          "nome": "BI-01 - BI, analytics, DIKW e sistemas de informação (SIG, SAD)",
+          "desc": "20 questões",
+          "url": "https://www.tecconcursos.com.br/questoes/cadernos/107519715",
+          "tipo": "TecConcursos"
+        },
+        {
+          "nome": "BI-02 - OLAP (operações) e OLAP x OLTP",
+          "desc": "14 questões",
+          "url": "https://www.tecconcursos.com.br/questoes/cadernos/107519717",
+          "tipo": "TecConcursos"
+        },
+        {
+          "nome": "ES-01 - Engenharia de requisitos",
+          "desc": "16 questões",
+          "url": "https://www.tecconcursos.com.br/questoes/cadernos/107519719",
+          "tipo": "TecConcursos"
+        },
+        {
+          "nome": "ES-02 - Ciclos de vida e processos de software (cascata, V, espiral, RUP, prototipação)",
+          "desc": "39 questões",
+          "url": "https://www.tecconcursos.com.br/questoes/cadernos/107519721",
+          "tipo": "TecConcursos"
+        },
+        {
+          "nome": "ES-03 - Análise e projeto: estruturada, OO, UML e padrões",
+          "desc": "70 questões",
+          "url": "https://www.tecconcursos.com.br/questoes/cadernos/107519723",
+          "tipo": "TecConcursos"
+        },
+        {
+          "nome": "ES-04 - Testes, verificação e validação, qualidade",
+          "desc": "32 questões",
+          "url": "https://www.tecconcursos.com.br/questoes/cadernos/107519724",
+          "tipo": "TecConcursos"
+        },
+        {
+          "nome": "ES-05 - Ambientes, configuração, versionamento e DevOps",
+          "desc": "13 questões",
+          "url": "https://www.tecconcursos.com.br/questoes/cadernos/107519728",
+          "tipo": "TecConcursos"
+        },
+        {
+          "nome": "GV-01 - Governança, PETI, ITIL, COBIT, indicadores e serviços de TI",
+          "desc": "49 questões",
+          "url": "https://www.tecconcursos.com.br/questoes/cadernos/107519743",
+          "tipo": "TecConcursos"
+        },
+        {
+          "nome": "GV-02 - LGPD",
+          "desc": "21 questões",
+          "url": "https://www.tecconcursos.com.br/questoes/cadernos/107519745",
+          "tipo": "TecConcursos"
+        },
+        {
+          "nome": "GV-03 - Sistemas de informação, BPM, software e inovação",
+          "desc": "17 questões",
+          "url": "https://www.tecconcursos.com.br/questoes/cadernos/107519746",
+          "tipo": "TecConcursos"
+        },
+        {
+          "nome": "IN-01 - Interpretação de textos em inglês",
+          "desc": "574 questões",
+          "url": "https://www.tecconcursos.com.br/questoes/cadernos/107519691",
+          "tipo": "TecConcursos"
+        },
+        {
+          "nome": "IN-02 - Vocabulário, conectivos, pronomes e referência",
+          "desc": "266 questões",
+          "url": "https://www.tecconcursos.com.br/questoes/cadernos/107519695",
+          "tipo": "TecConcursos"
+        },
+        {
+          "nome": "LG-01 - Lógica proposicional: conectivos, tabela-verdade, equivalências e negação",
+          "desc": "19 questões",
+          "url": "https://www.tecconcursos.com.br/questoes/cadernos/107519749",
+          "tipo": "TecConcursos"
+        },
+        {
+          "nome": "LG-02 - Argumentação e regras de inferência",
+          "desc": "12 questões",
+          "url": "https://www.tecconcursos.com.br/questoes/cadernos/107519750",
+          "tipo": "TecConcursos"
+        },
+        {
+          "nome": "LG-03 - Predicados, diagramas lógicos e quantificadores",
+          "desc": "15 questões",
+          "url": "https://www.tecconcursos.com.br/questoes/cadernos/107519751",
+          "tipo": "TecConcursos"
+        },
+        {
+          "nome": "LG-04 - Associação, ordenação, verdade e mentira, sequências",
+          "desc": "42 questões",
+          "url": "https://www.tecconcursos.com.br/questoes/cadernos/107519752",
+          "tipo": "TecConcursos"
+        },
+        {
+          "nome": "PJ-01 - PMBOK: grupos, áreas, ciclo de vida, estruturas e PMO",
+          "desc": "71 questões",
+          "url": "https://www.tecconcursos.com.br/questoes/cadernos/107519733",
+          "tipo": "TecConcursos"
+        },
+        {
+          "nome": "PJ-02 - EAP, rede, PERT, caminho crítico, Gantt e valor agregado",
+          "desc": "36 questões",
+          "url": "https://www.tecconcursos.com.br/questoes/cadernos/107519738",
+          "tipo": "TecConcursos"
+        },
+        {
+          "nome": "PJ-03 - Ágil: Scrum, Kanban, XP e DevOps",
+          "desc": "27 questões",
+          "url": "https://www.tecconcursos.com.br/questoes/cadernos/107519741",
+          "tipo": "TecConcursos"
+        },
+        {
+          "nome": "PT-01 - Interpretação, tipologia e reescrita",
+          "desc": "1009 questões",
+          "url": "https://www.tecconcursos.com.br/questoes/cadernos/107519667",
+          "tipo": "TecConcursos"
+        },
+        {
+          "nome": "PT-02 - Crase",
+          "desc": "121 questões",
+          "url": "https://www.tecconcursos.com.br/questoes/cadernos/107519674",
+          "tipo": "TecConcursos"
+        },
+        {
+          "nome": "PT-03 - Pontuação (vírgula)",
+          "desc": "172 questões",
+          "url": "https://www.tecconcursos.com.br/questoes/cadernos/107519677",
+          "tipo": "TecConcursos"
+        },
+        {
+          "nome": "PT-04 - Coesão, conectivos, pronomes relativos e orações",
+          "desc": "309 questões",
+          "url": "https://www.tecconcursos.com.br/questoes/cadernos/107519679",
+          "tipo": "TecConcursos"
+        },
+        {
+          "nome": "PT-05 - Verbos, correlação, vozes e partícula se",
+          "desc": "171 questões",
+          "url": "https://www.tecconcursos.com.br/questoes/cadernos/107519683",
+          "tipo": "TecConcursos"
+        },
+        {
+          "nome": "PT-06 - Concordância e regência",
+          "desc": "240 questões",
+          "url": "https://www.tecconcursos.com.br/questoes/cadernos/107519685",
+          "tipo": "TecConcursos"
+        },
+        {
+          "nome": "PT-07 - Colocação pronominal, ortografia e semântica",
+          "desc": "503 questões",
+          "url": "https://www.tecconcursos.com.br/questoes/cadernos/107519686",
+          "tipo": "TecConcursos"
+        },
+        {
+          "nome": "SI-01 - Conceitos, princípios, políticas, classificação e segurança física",
+          "desc": "37 questões",
+          "url": "https://www.tecconcursos.com.br/questoes/cadernos/107519756",
+          "tipo": "TecConcursos"
+        },
+        {
+          "nome": "SI-02 - Malware, ataques, engenharia social e DoS",
+          "desc": "47 questões",
+          "url": "https://www.tecconcursos.com.br/questoes/cadernos/107519758",
+          "tipo": "TecConcursos"
+        },
+        {
+          "nome": "SI-03 - Criptografia, hash, assinatura e certificado digital",
+          "desc": "51 questões",
+          "url": "https://www.tecconcursos.com.br/questoes/cadernos/107519760",
+          "tipo": "TecConcursos"
+        },
+        {
+          "nome": "SI-04 - Firewall, proxy, IDS/IPS, VPN, WAF, SIEM, backup e ferramentas",
+          "desc": "52 questões",
+          "url": "https://www.tecconcursos.com.br/questoes/cadernos/107519762",
+          "tipo": "TecConcursos"
+        },
+        {
+          "nome": "SI-05 - IAM: autenticação, MFA, SSO, RBAC e ABAC",
+          "desc": "12 questões",
+          "url": "https://www.tecconcursos.com.br/questoes/cadernos/107519763",
+          "tipo": "TecConcursos"
+        },
+        {
+          "nome": "SI-06 - Normas ISO, riscos, continuidade, incidentes, NIST, ATT&CK e STRIDE",
+          "desc": "38 questões",
+          "url": "https://www.tecconcursos.com.br/questoes/cadernos/107519765",
+          "tipo": "TecConcursos"
+        },
+        {
+          "nome": "SI-07 - Desenvolvimento seguro, OWASP, SAST/DAST e pentest",
+          "desc": "12 questões",
+          "url": "https://www.tecconcursos.com.br/questoes/cadernos/107519768",
+          "tipo": "TecConcursos"
+        },
+        {
+          "nome": "UX-01 - Usabilidade, acessibilidade e interoperabilidade (Nielsen, WCAG, e-MAG, e-PING)",
+          "desc": "9 questões",
+          "url": "https://www.tecconcursos.com.br/questoes/cadernos/107519730",
+          "tipo": "TecConcursos"
+        },
+        {
+          "nome": "UX-02 - UX, design thinking, protótipos, MVP e Lean UX",
+          "desc": "2 questões",
+          "url": "https://www.tecconcursos.com.br/questoes/cadernos/107519731",
+          "tipo": "TecConcursos"
+        }
+      ]
+    },
+    {
+      "titulo": "TecConcursos · (TRANSPETRO) 2026 - Processos de Negócios",
+      "itens": [
+        {
+          "nome": "Conhecimentos Específicos Analista (Processos de Negócio) - TRANSPETRO - 2026",
+          "desc": "1318 questões",
+          "url": "https://www.tecconcursos.com.br/questoes/cadernos/101724316",
+          "tipo": "TecConcursos"
+        },
+        {
+          "nome": "Língua Inglesa (Superior) - TRANSPETRO - 2026",
+          "desc": "887 questões",
+          "url": "https://www.tecconcursos.com.br/questoes/cadernos/101724317",
+          "tipo": "TecConcursos"
+        },
+        {
+          "nome": "Língua Portuguesa (Superior) - TRANSPETRO - 2026",
+          "desc": "994 questões",
+          "url": "https://www.tecconcursos.com.br/questoes/cadernos/101724318",
+          "tipo": "TecConcursos"
+        }
+      ]
+    },
+    {
+      "titulo": "TecConcursos · Prova Transpetro",
+      "itens": [
+        {
+          "nome": "Prova da Transpetro de Nível Superior - Análise de Sistemas - Processos de Negócios",
+          "desc": "70 questões",
+          "url": "https://www.tecconcursos.com.br/questoes/cadernos/101785881",
+          "tipo": "TecConcursos"
+        }
+      ]
+    },
+    {
+      "titulo": "TecConcursos · TREINO MASSIVO CESGRANRIO",
+      "itens": [
+        {
+          "nome": "01 - Língua Portuguesa - CESGRANRIO 10 anos",
+          "desc": "873 questões",
+          "url": "https://www.tecconcursos.com.br/questoes/cadernos/102119556",
+          "tipo": "TecConcursos"
+        },
+        {
+          "nome": "02 - Língua Inglesa - CESGRANRIO 10 anos",
+          "desc": "291 questões",
+          "url": "https://www.tecconcursos.com.br/questoes/cadernos/102119667",
+          "tipo": "TecConcursos"
+        },
+        {
+          "nome": "03 - Banco de Dados - CESGRANRIO 10 anos",
+          "desc": "192 questões",
+          "url": "https://www.tecconcursos.com.br/questoes/cadernos/102119739",
+          "tipo": "TecConcursos"
+        },
+        {
+          "nome": "04 - Gestão de Projetos - CESGRANRIO 10 anos",
+          "desc": "98 questões",
+          "url": "https://www.tecconcursos.com.br/questoes/cadernos/102119886",
+          "tipo": "TecConcursos"
+        },
+        {
+          "nome": "05 - Governança de TI - CESGRANRIO 10 anos",
+          "desc": "119 questões",
+          "url": "https://www.tecconcursos.com.br/questoes/cadernos/102120000",
+          "tipo": "TecConcursos"
+        },
+        {
+          "nome": "06 - Engenharia de Software e UX - CESGRANRIO 10 anos",
+          "desc": "193 questões",
+          "url": "https://www.tecconcursos.com.br/questoes/cadernos/102120087",
+          "tipo": "TecConcursos"
+        },
+        {
+          "nome": "07 - Business Intelligence e Ciência de Dados - CESGRANRIO 10 anos",
+          "desc": "204 questões",
+          "url": "https://www.tecconcursos.com.br/questoes/cadernos/102120301",
+          "tipo": "TecConcursos"
+        },
+        {
+          "nome": "08 - Raciocínio Lógico - CESGRANRIO 10 anos",
+          "desc": "47 questões",
+          "url": "https://www.tecconcursos.com.br/questoes/cadernos/102120367",
+          "tipo": "TecConcursos"
+        },
+        {
+          "nome": "09 - Segurança da Informação - CESGRANRIO 10 anos",
+          "desc": "238 questões",
+          "url": "https://www.tecconcursos.com.br/questoes/cadernos/102120465",
+          "tipo": "TecConcursos"
+        }
+      ]
+    },
+    {
+      "titulo": "TecConcursos · [Sprint] Análise de Sistemas - Processos de Negócios",
+      "itens": [
+        {
+          "nome": "S00 [MAXIMA] Dados - Modelagem MER, modelo relacional e normalizacao (edital 1.1-1.5, 1.8)",
+          "desc": "48 questões",
+          "url": "https://www.tecconcursos.com.br/questoes/cadernos/101699941",
+          "tipo": "TecConcursos"
+        },
+        {
+          "nome": "S01 [ALTA] Dados - SGBD, transacoes e propriedades ACID (edital 1.13-1.17)",
+          "desc": "15 questões",
+          "url": "https://www.tecconcursos.com.br/questoes/cadernos/101700647",
+          "tipo": "TecConcursos"
+        },
+        {
+          "nome": "S01 [MAXIMA] Dados - SQL: consultas, DDL e DML (edital 1.10-1.12)",
+          "desc": "22 questões",
+          "url": "https://www.tecconcursos.com.br/questoes/cadernos/101699904",
+          "tipo": "TecConcursos"
+        },
+        {
+          "nome": "S02 [MAXIMA] Dados - Modelagem dimensional, SCD, OLAP e Data Warehouse (edital 1.7, 7.5-7.7)",
+          "desc": "21 questões",
+          "url": "https://www.tecconcursos.com.br/questoes/cadernos/101699859",
+          "tipo": "TecConcursos"
+        },
+        {
+          "nome": "S03 [ALTA] Dados - ETL, Data Lake e Big Data (edital 1.19, 1.22)",
+          "desc": "13 questões",
+          "url": "https://www.tecconcursos.com.br/questoes/cadernos/101714556",
+          "tipo": "TecConcursos"
+        },
+        {
+          "nome": "S03 [ALTA] Dados - NoSQL: documentos, chave-valor, colunas e grafos (edital 1.18, 1.23)",
+          "desc": "7 questões",
+          "url": "https://www.tecconcursos.com.br/questoes/cadernos/101700669",
+          "tipo": "TecConcursos"
+        },
+        {
+          "nome": "S04 [ALTA] Eng. Software - Requisitos, ciclos de vida, RUP e paradigmas (edital 5.1-5.2)",
+          "desc": "47 questões",
+          "url": "https://www.tecconcursos.com.br/questoes/cadernos/101700729",
+          "tipo": "TecConcursos"
+        },
+        {
+          "nome": "S05 [ALTA] Eng. Software - UML e testes: caixa branca/preta, niveis e mutacao (edital 5.3-5.4)",
+          "desc": "38 questões",
+          "url": "https://www.tecconcursos.com.br/questoes/cadernos/101700761",
+          "tipo": "TecConcursos"
+        },
+        {
+          "nome": "S06 [MAXIMA] Seguranca - Ataques (XSS, CSRF, SQLi, DDoS) e malwares (edital 9.3-9.4)",
+          "desc": "18 questões",
+          "url": "https://www.tecconcursos.com.br/questoes/cadernos/101699962",
+          "tipo": "TecConcursos"
+        },
+        {
+          "nome": "S06 [MAXIMA] Seguranca - Criptografia, hash, certificado e assinatura digital (edital 9.19)",
+          "desc": "30 questões",
+          "url": "https://www.tecconcursos.com.br/questoes/cadernos/101700108",
+          "tipo": "TecConcursos"
+        },
+        {
+          "nome": "S06 [MAXIMA] Seguranca - ISO 27001/27002: SGSI, controles, politicas e classificacao (edital 9.17-9.19)",
+          "desc": "26 questões",
+          "url": "https://www.tecconcursos.com.br/questoes/cadernos/101699984",
+          "tipo": "TecConcursos"
+        },
+        {
+          "nome": "S07 [ALTA] Seguranca - Firewall, proxy, IDS/IPS e controle de acesso RBAC/ABAC (edital 9.1-9.2, 9.10)",
+          "desc": "17 questões",
+          "url": "https://www.tecconcursos.com.br/questoes/cadernos/101700769",
+          "tipo": "TecConcursos"
+        },
+        {
+          "nome": "S07 [MEDIA] Seguranca - Dev seguro SAST/DAST, resposta a incidentes NIST, pentest, STRIDE e MITRE ATTACK (edital 9.5, 9.11-9.15)",
+          "desc": "6 questões",
+          "url": "https://www.tecconcursos.com.br/questoes/cadernos/101715604",
+          "tipo": "TecConcursos"
+        },
+        {
+          "nome": "S07 [MEDIA] Seguranca - Riscos ISO 31000, continuidade ISO 22301, SOX, nuvem e IoT (edital 9.16, 9.20-9.21)",
+          "desc": "20 questões",
+          "url": "https://www.tecconcursos.com.br/questoes/cadernos/101715798",
+          "tipo": "TecConcursos"
+        },
+        {
+          "nome": "S08 [MAXIMA] Projetos - Scrum e Kanban: papeis, eventos, artefatos e WIP (edital 2.1)",
+          "desc": "14 questões",
+          "url": "https://www.tecconcursos.com.br/questoes/cadernos/101700000",
+          "tipo": "TecConcursos"
+        },
+        {
+          "nome": "S09 [ALTA] Governanca - LGPD: principios, bases legais, agentes e ANPD (edital 4.6)",
+          "desc": "22 questões",
+          "url": "https://www.tecconcursos.com.br/questoes/cadernos/101714854",
+          "tipo": "TecConcursos"
+        },
+        {
+          "nome": "S09 [ALTA] Projetos - Grupos de processos e areas de conhecimento, EAP, CPI/SPI (edital item 3)",
+          "desc": "19 questões",
+          "url": "https://www.tecconcursos.com.br/questoes/cadernos/101700799",
+          "tipo": "TecConcursos"
+        },
+        {
+          "nome": "S09 [BAIXA] Projetos - PMO, estrutura organizacional e agil em escala/SAFe (edital 2.3, 2.5-2.7)",
+          "desc": "5 questões",
+          "url": "https://www.tecconcursos.com.br/questoes/cadernos/101716132",
+          "tipo": "TecConcursos"
+        },
+        {
+          "nome": "S09 [MEDIA] Governanca - Conceitos de governanca de TI, economia da inovacao e IA/perspectivas da tecnologia (edital 4.1-4.4)",
+          "desc": "49 questões",
+          "url": "https://www.tecconcursos.com.br/questoes/cadernos/101718752",
+          "tipo": "TecConcursos"
+        },
+        {
+          "nome": "S09 [MEDIA] Governanca - ITIL: gestao de servicos, ciclo de vida e ITIL 4 (edital 4.5)",
+          "desc": "10 questões",
+          "url": "https://www.tecconcursos.com.br/questoes/cadernos/101715177",
+          "tipo": "TecConcursos"
+        },
+        {
+          "nome": "S10 [BAIXA] Complementos - Metadados, engenharia reversa e ambientes de dev/Git (edital 1.6, 1.9, 5.5)",
+          "desc": "3 questões",
+          "url": "https://www.tecconcursos.com.br/questoes/cadernos/101718544",
+          "tipo": "TecConcursos"
+        },
+        {
+          "nome": "S10 [MEDIA] Dados - BI, dashboards, qualidade e governanca de dados (edital 1.21, 7.2, 7.8-7.11)",
+          "desc": "9 questões",
+          "url": "https://www.tecconcursos.com.br/questoes/cadernos/101714718",
+          "tipo": "TecConcursos"
+        },
+        {
+          "nome": "S10 [MEDIA] Dados - Manipulacao de dados em planilhas: Excel e Calc, formulas e funcoes (edital 7.9)",
+          "desc": "14 questões",
+          "url": "https://www.tecconcursos.com.br/questoes/cadernos/101716712",
+          "tipo": "TecConcursos"
+        },
+        {
+          "nome": "S10 [MEDIA] UX - Usabilidade ISO 9241, acessibilidade e-MAG, UI, Design Thinking e prototipacao (edital 6.1-6.4, 6.7-6.11)",
+          "desc": "7 questões",
+          "url": "https://www.tecconcursos.com.br/questoes/cadernos/101716496",
+          "tipo": "TecConcursos"
+        },
+        {
+          "nome": "TRILHO INGLES 1 [ALTA] Interpretacao de textos, main idea e referencia (edital LI 1)",
+          "desc": "30 questões",
+          "url": "https://www.tecconcursos.com.br/questoes/cadernos/101700130",
+          "tipo": "TecConcursos"
+        },
+        {
+          "nome": "TRILHO INGLES 2 [ALTA] Itens gramaticais: classes de palavras, reescrita de frases e word formation (edital LI 2)",
+          "desc": "28 questões",
+          "url": "https://www.tecconcursos.com.br/questoes/cadernos/101718245",
+          "tipo": "TecConcursos"
+        },
+        {
+          "nome": "TRILHO LOGICA 1 [ALTA] Proposicoes, conectivos, tabela-verdade e equivalencias (edital 8.1, 8.3, 8.5, 8.8-8.9)",
+          "desc": "14 questões",
+          "url": "https://www.tecconcursos.com.br/questoes/cadernos/101716837",
+          "tipo": "TecConcursos"
+        },
+        {
+          "nome": "TRILHO LOGICA 2 [ALTA] Argumentos validos, diagramas logicos e quantificadores/predicados (edital 8.2, 8.4, 8.6-8.7)",
+          "desc": "7 questões",
+          "url": "https://www.tecconcursos.com.br/questoes/cadernos/101717004",
+          "tipo": "TecConcursos"
+        },
+        {
+          "nome": "TRILHO PORTUGUES 1 [MAXIMA] Interpretacao e compreensao de textos (edital LP 1)",
+          "desc": "30 questões",
+          "url": "https://www.tecconcursos.com.br/questoes/cadernos/101700038",
+          "tipo": "TecConcursos"
+        },
+        {
+          "nome": "TRILHO PORTUGUES 2 [MAXIMA] Coesao textual, coerencia e conectivos (edital LP 3)",
+          "desc": "40 questões",
+          "url": "https://www.tecconcursos.com.br/questoes/cadernos/101700048",
+          "tipo": "TecConcursos"
+        },
+        {
+          "nome": "TRILHO PORTUGUES 3 [ALTA] Concordancia verbal/nominal, regencia e crase (edital LP 9, 10, 11)",
+          "desc": "73 questões",
+          "url": "https://www.tecconcursos.com.br/questoes/cadernos/101717203",
+          "tipo": "TecConcursos"
+        },
+        {
+          "nome": "TRILHO PORTUGUES 4 [ALTA] Pontuacao, coordenacao e subordinacao (edital LP 7, 8)",
+          "desc": "42 questões",
+          "url": "https://www.tecconcursos.com.br/questoes/cadernos/101717441",
+          "tipo": "TecConcursos"
+        },
+        {
+          "nome": "TRILHO PORTUGUES 5 [MEDIA] Classes de palavras, verbos e colocacao pronominal (edital LP 5, 6, 12)",
+          "desc": "40 questões",
+          "url": "https://www.tecconcursos.com.br/questoes/cadernos/101717672",
+          "tipo": "TecConcursos"
+        },
+        {
+          "nome": "TRILHO PORTUGUES 6 [MEDIA] Ortografia oficial e significacao das palavras (edital LP 2, 4)",
+          "desc": "33 questões",
+          "url": "https://www.tecconcursos.com.br/questoes/cadernos/101717820",
+          "tipo": "TecConcursos"
+        }
+      ]
+    },
+    {
       "titulo": "Plano e prova",
       "itens": [
         {
@@ -50,17 +638,6 @@
           "desc": "Os 101 subitens do Anexo IV com o que cobra, como pergunta e onde confunde",
           "url": "https://claude.ai/artifact/1i4dR6vor7gj7aNDGN2TYh",
           "tipo": "Claude"
-        }
-      ]
-    },
-    {
-      "titulo": "TecConcursos",
-      "itens": [
-        {
-          "nome": "Pasta Transpetro Reta Final",
-          "desc": "43 cadernos Cesgranrio por tópico (PT, IN, BD, BI, ES, UX, PJ, GV, LG, SI)",
-          "url": "https://www.tecconcursos.com.br/questoes/pastas/7984226",
-          "tipo": "TecConcursos"
         }
       ]
     },

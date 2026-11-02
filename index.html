@@ -129,6 +129,9 @@ ul.clean{margin:0;padding-left:18px;display:grid;gap:5px}
 .links{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:10px}
 .link{display:grid;gap:4px;padding:12px 14px;border:1px solid var(--line);border-radius:8px;background:var(--paper);text-decoration:none;color:var(--ink);min-width:0}
 .link:hover{border-color:var(--accent)}
+.btnlink{display:inline-flex;align-items:center;min-height:36px;padding:6px 12px;border:1px solid var(--accent);border-radius:6px;color:var(--accent);text-decoration:none;font-size:14px}
+.btnlink.ghost{border-color:var(--line);color:var(--ink)}
+.btnlink:hover{background:var(--accent-soft)}
 .link b{font-size:15px}
 .link span{font-size:13px;color:var(--muted)}
 
@@ -344,6 +347,7 @@ footer{padding-top:28px;font-size:13px;color:var(--muted);display:grid;gap:6px}
   function fmt(s){ s=Math.max(0,Math.floor(s)); var h=Math.floor(s/3600), m=Math.floor(s%3600/60), r=s%60; return (h?h+':':'')+(h&&m<10?'0':'')+m+':'+(r<10?'0':'')+r; }
   function shortAss(a){ return String(a||'').replace(/^TI - [^-]+ - /,'').replace(/^(Gestão de Projetos \(PMBOK\)|Direito Digital) - /,''); }
 
+  var TEC='https://www.tecconcursos.com.br/', CADMAP={Dados:102119739,Projetos:102119886,Governanca:102120000,EngSoftware_UX:102120087,BI_CienciaDados:102120301,Seguranca:102120465};
   var Q=[], QBY={}, C=[], LINKS=null, BANCA=null, VIDEOS=null, sample=null, bancaTab='perfil';
 
   // ---------- navegação ----------
@@ -428,7 +432,7 @@ footer{padding-top:28px;font-size:13px;color:var(--muted);display:grid;gap:6px}
 
   function renderQ(){ var s=session, q=s.qs[s.i]; if(!q){ finish(); return; }
     var a=s.ans[q.id], rev = s.mode!=='simulado' && a!==undefined, h='';
-    h+='<div class="q-meta"><span>'+(s.i+1)+' / '+s.qs.length+'</span><span>'+esc(DISC[q.disc]||q.disc)+'</span><span>'+esc(q.concurso)+' · '+q.ano+'</span><span>tec '+q.id+'</span></div>';
+    h+='<div class="q-meta"><span>'+(s.i+1)+' / '+s.qs.length+'</span><span>'+esc(DISC[q.disc]||q.disc)+'</span><span>'+esc(q.concurso)+' · '+q.ano+'</span>'+(s.mode==='simulado'&&a===undefined?'<span>tec '+q.id+'</span>':'<a href="'+TEC+'questoes/'+q.id+'" target="_blank" rel="noopener">tec '+q.id+' ↗</a>')+'</div>';
     h+='<div class="note">'+esc(shortAss(q.assunto))+'</div><div class="q-text">'+esc(q.enunciado)+'</div><div class="alts">';
     ['A','B','C','D','E'].forEach(function(L){ var c='alt'; if(a===L) c+=' chosen'; if(rev){ if(L===q.gabarito) c+=' right'; else if(a===L) c+=' wrong'; } if(s.elim[q.id]&&s.elim[q.id][L]) c+=' elim';
       h+='<button type="button" class="'+c+'" data-l="'+L+'"><span class="l">'+L+'</span><span>'+esc(q.alternativas[L]||'')+'</span></button>'; });
@@ -437,6 +441,7 @@ footer{padding-top:28px;font-size:13px;color:var(--muted);display:grid;gap:6px}
     if(rev){ var ok=a===q.gabarito, tx=(state.hist[q.id]||{}).x||'';
       h+='<div class="feedback '+(ok?'ok':'bad')+'"><b>'+(ok?'Certo.':'Errado.')+' Gabarito: '+q.gabarito+'.</b>';
       if(!ok) h+='<div class="taxo"><span class="note">Tipo do erro:</span>'+['conteúdo','leitura','tempo','chute'].map(function(t){return '<button type="button" data-t="'+t+'" aria-pressed="'+(tx===t)+'">'+t+'</button>'}).join('')+'</div>';
+      h+='<div class="row"><a class="btnlink" href="'+TEC+'questoes/'+q.id+'" target="_blank" rel="noopener">Abrir no TecConcursos (comentários) ↗</a>'+(CADMAP[q.disc]?'<a class="btnlink ghost" href="'+TEC+'questoes/cadernos/'+CADMAP[q.disc]+'" target="_blank" rel="noopener">Caderno da disciplina ↗</a>':'')+'</div>';
       h+='<div class="row">'+(sample?'<button type="button" id="aiExplain">Explicar com o tutor</button><button type="button" class="ghost" id="aiTwin">Gerar uma questão gêmea</button>':'<span class="note">Releia o subitem no guia e crie um card de contraste.</span>')+'</div>';
       if(s.ai[q.id]) h+='<div class="ai'+(s.ai[q.id].busy?' thinking':'')+'" id="aiOut">'+esc(s.ai[q.id].text)+'</div>';
       h+='</div>'; }
