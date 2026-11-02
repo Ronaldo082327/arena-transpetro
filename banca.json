@@ -339,104 +339,260 @@
    "disc": "Dados",
    "assunto": "MER: cardinalidade",
    "titulo": "Cardinalidade ao lado da entidade: leitura cruzada",
-   "dica": "O par (min,max) escrito ao lado de uma entidade diz quantas dela aparecem para cada ocorrência da outra. Parece invertido, mas é a regra. Desenhe o caso antes de ler as alternativas."
+   "dica": "O par (min,max) ao lado de uma entidade diz quantas dela há para uma ocorrência da outra. 'Pode' e 'nem todo' dão mínimo 0; 'deve' e 'exatamente' dão 1. Desenhe antes de ler as alternativas."
   },
   {
    "disc": "Dados",
-   "assunto": "MER: cardinalidade",
-   "titulo": "O mínimo 0 ou 1 sai das palavras do texto",
-   "dica": "'Pode', 'poderá registrar' e 'nem todo' dão mínimo 0. 'Deve', 'exatamente' e 'pelo menos' dão 1. 'Vários' dá máximo n. As alternativas costumam diferir só nesse mínimo."
+   "assunto": "MER: conjuntos e tuplas",
+   "titulo": "Teste cada regra contra os dados, começando pelo menor conjunto",
+   "dica": "Máximo 1 cai quando alguém aparece duas vezes. Mínimo 1 cai quando alguém não aparece. Mínimo 0 nunca cai. Confira também elemento que nem existe no conjunto (x7, x0)."
   },
   {
    "disc": "Dados",
-   "assunto": "MER: relacionamento ternário",
-   "titulo": "Ternário: cardinalidade vale para pares de entidades",
-   "dica": "Fixe um par e pergunte quantas ocorrências da terceira entidade ligam a ele. Cuidado com 'pode' versus 'deve' na alternativa: um professor mostrou que essa palavra decidiu a questão."
+   "assunto": "Generalização",
+   "titulo": "Total/parcial e exclusiva/sobreposta são perguntas separadas",
+   "dica": "Total: a união dos filhos cobre o pai. Exclusiva: interseção vazia. 'E apenas isso' indica total; 'misto' indica sobreposta. Herança desce do pai para o filho, nunca sobe."
   },
   {
    "disc": "Dados",
-   "assunto": "MER: questões com conjuntos",
-   "titulo": "Conjuntos e tuplas: teste máximo, mínimo e direção",
-   "dica": "Para cada tupla confira o máximo. Para cada elemento de participação obrigatória, ache a tupla dele. Erros típicos: um elemento ligado a dois onde o máximo é 1, par invertido e elemento que nem existe no conjunto."
+   "assunto": "Mapeamento ER-relacional",
+   "titulo": "Fusão, adição de coluna ou tabela própria",
+   "dica": "Fusão só em 1:1, nunca em (0,1)-(0,1). Em 1:N, FK no lado N. Em N:N, tabela própria com as duas chaves. A PK da tabela do relacionamento revela qual lado tem máximo 1."
   },
   {
    "disc": "Dados",
-   "assunto": "MER: atributos",
-   "titulo": "Atributo que depende de duas entidades vai no relacionamento",
-   "dica": "Custo que varia por transportadora e por endereço fica no relacionamento. Valor mínimo que pertence ao bloco fica no bloco. Atributo de relacionamento vale para qualquer cardinalidade e, no 1:N, migra para o lado N."
+   "assunto": "Normalização",
+   "titulo": "2FN só cai com chave composta",
+   "dica": "Chave simples: a 2FN está garantida. Atributo que depende de parte da chave quebra a 2FN. Não chave determinando não chave (cidade e UF) quebra a 3FN e gera nova tabela."
   },
   {
    "disc": "Dados",
-   "assunto": "Generalização e especialização",
-   "titulo": "Total, parcial, exclusiva e sobreposta pelo texto",
-   "dica": "'Pertence a uma só categoria' é exclusiva. 'Alguns também exercem outra' é sobreposta. 'E apenas isso' é total. Total e parcial falam do pai, exclusiva e sobreposta falam de um item estar em mais de um filho."
+   "assunto": "SQL",
+   "titulo": "NOT EXISTS inclui quem não tem linha nenhuma",
+   "dica": "Clientes sem empréstimo também saem no NOT EXISTS. Limite estrito importa: 10 não é menor que 10. HAVING filtra grupos; IN e EXISTS na mesma consulta somam condições com AND."
   },
   {
    "disc": "Dados",
-   "assunto": "Generalização e especialização",
-   "titulo": "Em conjuntos: união cobre, interseção vazia, sobra no pai",
-   "dica": "Total: união dos filhos igual ao pai. Exclusiva: interseção vazia. Parcial: pode sobrar item só no pai. Se um filho não vem listado, deduza pelos relacionamentos de que ele participa. Confira se o item existe no pai."
+   "assunto": "Chaves e integridade",
+   "titulo": "FK aceita nulo; PK é uma só por tabela",
+   "dica": "PK única e não nula, podendo ser composta. FK pode ser nula, repetir e até ser parte da PK. Acrescentar RG não muda a PK CPF: RG vira chave candidata."
   },
   {
    "disc": "Dados",
-   "assunto": "Mapeamento MER para relacional",
-   "titulo": "N:N vira tabela com a chave completa; 1:N põe FK no lado N",
-   "dica": "Na tabela do N:N a chave reúne as chaves das duas entidades, e a alternativa com só parte dela erra. No 1:N a FK fica no lado N. No 1:1 vale fusão ou coluna extra. Atributo do relacionamento acompanha a tabela."
+   "assunto": "SQL: DDL e DML",
+   "titulo": "Sintaxe inventada denuncia a alternativa errada",
+   "dica": "Desconfie de PRIME KEY, CHECKE, tipo DAT, INCLUDE COLUMN, MODIFY TABLE e vírgula faltando. Coluna nova é ALTER TABLE ADD COLUMN. UPDATE sem WHERE altera todas as linhas."
   },
   {
-   "disc": "Dados",
-   "assunto": "Mapeamento MER para relacional",
-   "titulo": "UNIQUE sem NOT NULL indica participação 0,1",
-   "dica": "Na engenharia reversa de um CREATE TABLE, UNIQUE sozinho aceita nulo e aponta 0,1. UNIQUE com NOT NULL aponta 1,1. Procure esse detalhe de código: é ele que separa as alternativas."
+   "disc": "BI",
+   "assunto": "Python",
+   "titulo": "Leia o código linha a linha antes de olhar as alternativas",
+   "dica": "Em all(), a condição precisa valer para todos. Em herança múltipla, super() segue a ordem da esquerda. Parênteses decidem a mistura de or e and. '{:.1f}' arredonda para uma casa."
   },
   {
-   "disc": "Dados",
-   "assunto": "Mapeamento MER para relacional",
-   "titulo": "Entidade fraca: chave própria mais a chave da forte",
-   "dica": "A entidade fraca (linha dupla) tem só chave parcial e herda a chave da entidade identificadora. A chave dela fica composta. A banca pergunta qual é o identificador total."
+   "disc": "BI",
+   "assunto": "ETL e enriquecimento",
+   "titulo": "Enriquecer é acrescentar o que não existia na origem",
+   "dica": "Dado externo ou coluna derivada (como sentimento de um comentário) é enriquecimento. Preencher ausentes com a média do próprio conjunto é imputação, não enriquecimento."
   },
   {
-   "disc": "Dados",
-   "assunto": "Modelo relacional: chaves",
-   "titulo": "Uma PK por tabela, composta ou não, e que também pode ser FK",
-   "dica": "A tabela tem exatamente uma chave primária, sem nulo e sem repetição. Ela pode ter várias colunas. Uma PK pode ser FK ao mesmo tempo (tabela associativa). RG novo ao lado do CPF vira chave candidata, não troca a PK."
+   "disc": "BI",
+   "assunto": "Modelagem dimensional",
+   "titulo": "Medida no fato, contexto na dimensão; tempo sempre existe",
+   "dica": "Data, local e categoria vão para dimensão. A dimensão tempo está em todo DW. Soma de quantidades é aditiva; taxas não se somam nem viram média simples."
   },
   {
-   "disc": "Dados",
-   "assunto": "Modelo relacional: integridade",
-   "titulo": "FK pode ser nula; ausência de vínculo é NULL",
-   "dica": "Chave estrangeira admite nulo e valor repetido. Integridade referencial exige valor nulo ou existente na chave referenciada. Número negativo ou código arbitrário não representam ausência. Muitos alunos erram esse ponto."
+   "disc": "BI",
+   "assunto": "OLAP",
+   "titulo": "Descer de estado para cidade e fixar uma: drill down e slice",
+   "dica": "Drill down detalha o nível da hierarquia. Slice fixa um valor de uma dimensão. Pivot só gira o cubo e não filtra nada."
   },
   {
-   "disc": "Dados",
-   "assunto": "Modelo relacional: domínio",
-   "titulo": "Domínio é o conjunto de valores; linhas não têm ordem",
-   "dica": "Domínio define os valores permitidos do atributo, não a área do conhecimento nem o papel de chave. Linhas não têm ordem; a ordem das colunas é de esquema e não muda o significado dos dados."
+   "disc": "BI",
+   "assunto": "Ingestão e Big Data",
+   "titulo": "Lote para intervalos, streaming para tempo real",
+   "dica": "Trânsito e clima pedem streaming. Spark Core cuida de agendamento e memória; SQL, Streaming, MLlib e GraphX são módulos. HDFS tolera falha com blocos replicados em máquinas diferentes."
   },
   {
-   "disc": "Dados",
-   "assunto": "Álgebra relacional",
-   "titulo": "SELECT do SQL é π; WHERE do SQL é σ",
-   "dica": "Nomes trocados: a projeção (π) escolhe colunas e a seleção (σ) filtra linhas. Monte o SQL equivalente e traduza. Atenção à ordem: projetar antes de filtrar por coluna removida quebra a expressão."
+   "disc": "BI",
+   "assunto": "Governança de dados",
+   "titulo": "Registro único compartilhado é MDM",
+   "dica": "Precisão e completude: gestão da qualidade de dados. Monitorar qualidade exige indicadores contínuos. Um sistema para vários destinos, de forma contínua, é o padrão transmissão."
   },
   {
-   "disc": "Dados",
-   "assunto": "Níveis e modelos de dados",
-   "titulo": "Conceitual, lógico e físico; níveis do ANSI/SPARC",
-   "dica": "Conceitual: independente de SGBD. Lógico: depende do paradigma. Físico: índices, partições, disco. ANSI/SPARC: externo é visão, conceitual é a visão comunitária, interno é armazenamento. Hierárquico e rede são os pré-relacionais."
+   "disc": "BI",
+   "assunto": "Data lake e DW",
+   "titulo": "DW define a estrutura antes de gravar; data lake depois",
+   "dica": "DW é schema-on-write. Data lake guarda bruto e seus metadados podem ser descobertos em parte de forma automática. Sem metadado descritivo não dá para avaliar qualidade."
   },
   {
-   "disc": "Dados",
-   "assunto": "Desempenho e transações",
-   "titulo": "Desnormalização com critério, índices certos e atomicidade",
-   "dica": "Desnormalizar com critério reduz junções e é resposta de desempenho. 'Normalização extrema' e 'índice em tudo' são distratores. B+ serve a igualdade e intervalo; hash só a igualdade. Atomicidade é tudo ou nada."
+   "disc": "Eng. Software e UX",
+   "assunto": "Scrum",
+   "titulo": "Só o PO cancela a Sprint, e só se a meta ficar obsoleta",
+   "dica": "A banca já aceitou alternativa com o Scrum Master encerrando a pedido do PO, e o professor pediu anulação. Na dúvida, prefira a opção em que a decisão parte do PO."
   },
   {
-   "disc": "Dados",
-   "assunto": "Gabaritos contestáveis",
-   "titulo": "Professor pede anulação, a banca mantém: marque a mais provável",
-   "dica": "Em 5 das 76 questões do levantamento o professor apontou erro e o gabarito oficial ficou. Na prova não há recurso: escolha a alternativa mais provável pela regra padrão e não gaste tempo discutindo."
+   "disc": "Eng. Software e UX",
+   "assunto": "Scrum: eventos",
+   "titulo": "Processo do time vai para a Retrospectiva; produto, para a Review",
+   "dica": "Planning abre a Sprint. Impedimento vai para a próxima Daily, não espera a Review. A lista do trabalho da Sprint é o Sprint Backlog. No Nexus, o papel novo é o Time de Integração."
+  },
+  {
+   "disc": "Eng. Software e UX",
+   "assunto": "UML",
+   "titulo": "Ator é só quem interage direto com o sistema",
+   "dica": "O passageiro que fala apenas com o atendente não é ator; a balança que envia dados é. Atributo que guarda outro objeto é associação; parâmetro de método é dependência."
+  },
+  {
+   "disc": "Eng. Software e UX",
+   "assunto": "Ágil",
+   "titulo": "Story points medem esforço relativo, não horas",
+   "dica": "História de usuário tem cartão, conversa e confirmação. Kanban limita o trabalho em andamento (WIP). Quadro a fazer, fazendo e feito é Kanban de produção."
+  },
+  {
+   "disc": "Eng. Software e UX",
+   "assunto": "TDD",
+   "titulo": "Escrever um teste, ver falhar, implementar, refatorar, repetir",
+   "dica": "Escrever todos os testes antes de todo o código não é TDD. Rodar todos os testes já criados a cada ciclo faz parte, apesar da palavra 'todos'."
+  },
+  {
+   "disc": "Eng. Software e UX",
+   "assunto": "Processo Unificado e espiral",
+   "titulo": "Elaboração define arquitetura; espiral começa pelo conceito de operação",
+   "dica": "Fases do UP: concepção, elaboração, construção e transição. Na elaboração se detalham requisitos, arquitetura e plano. O primeiro ciclo da espiral produz o conceito de operação."
+  },
+  {
+   "disc": "Eng. Software e UX",
+   "assunto": "UX e prototipação",
+   "titulo": "Papel e um caso de uso: vertical, descartável, baixa fidelidade",
+   "dica": "Foi o único item claro de UX nos 280 comentários. Vertical aprofunda uma função; horizontal cobre muitas por cima. Papel não é alta fidelidade."
+  },
+  {
+   "disc": "Segurança",
+   "assunto": "Criptografia",
+   "titulo": "Hash dá integridade; assinatura digital dá autoria",
+   "dica": "A Cesgranrio chama hash de resumo de mensagem (MD5, SHA). Assinar usa a chave privada do remetente. Cifra simétrica dá confidencialidade, não autenticidade."
+  },
+  {
+   "disc": "Segurança",
+   "assunto": "Envelope digital",
+   "titulo": "A chave secreta segue cifrada com a pública do destinatário",
+   "dica": "Cifrar com a própria privada é assinatura, não sigilo. A privada do destinatário nunca está com o remetente. O certificado do titular contém a chave pública dele."
+  },
+  {
+   "disc": "Segurança",
+   "assunto": "Princípios",
+   "titulo": "Irretratabilidade é não repúdio",
+   "dica": "Impede negar a autoria de uma ação. Não confunda com autenticidade. 'Irretroatividade' é distrator inventado. Projeto pequeno e simples é economia de mecanismo."
+  },
+  {
+   "disc": "Segurança",
+   "assunto": "ISO 27001 e 27005",
+   "titulo": "Cada item tem sua cláusula e as opções têm nome fixo",
+   "dica": "Análise crítica, auditoria interna e monitoramento: avaliação de desempenho. Não conformidade e ação corretiva: melhoria. Na 27005:2019, tratar é modificar, reter, evitar ou compartilhar."
+  },
+  {
+   "disc": "Segurança",
+   "assunto": "ISO 27002:2022",
+   "titulo": "Domínios de segurança não são CID",
+   "dica": "O atributo tem Governança_e_Ecossistema, Proteção, Defesa e Resiliência. Questões dessa norma são literais. Confidencialidade, integridade e disponibilidade são outro atributo."
+  },
+  {
+   "disc": "Segurança",
+   "assunto": "NIST",
+   "titulo": "CSF: Identificar compreende riscos; 800-61: detecção e análise",
+   "dica": "Funções do CSF 1.1: identificar, proteger, detectar, responder, recuperar (a 2.0 acrescenta governar). No 800-61, decidir se houve incidente é detecção e análise."
+  },
+  {
+   "disc": "Segurança",
+   "assunto": "Ataques",
+   "titulo": "Nome técnico em inglês com vizinhos inventados",
+   "dica": "IP spoofing falsifica origem; Evil Twin imita o SSID; RAT abre porta dos fundos; cryptojacking minera na vítima; baiting usa isca grátis. Sealing, jamming e misleading são distratores."
+  },
+  {
+   "disc": "Projetos",
+   "assunto": "Ciclo de vida",
+   "titulo": "Risco e influência caem; custo da mudança sobe",
+   "dica": "Custo e pessoal são baixos no início, sobem e caem no fim. Por isso mudança tardia pede mais critério. Escopo, prazo e custo fixados no início, como cascata: preditivo."
+  },
+  {
+   "disc": "Projetos",
+   "assunto": "Riscos: respostas",
+   "titulo": "Reserva de contingência é aceitação; seguro é transferência",
+   "dica": "Mudar o plano para zerar a ameaça é prevenir. Reduzir probabilidade ou impacto antes, com monitoramento e proteção pronta, é mitigar. O primeiro passo é identificar."
+  },
+  {
+   "disc": "Projetos",
+   "assunto": "Cálculos",
+   "titulo": "VME, SPI e CPI saem em segundos",
+   "dica": "VME: probabilidade vezes valor, com prejuízo negativo. SPI = VA/VP e CPI = VA/CR; abaixo de 1 é atraso e estouro. Confira o sinal antes de marcar."
+  },
+  {
+   "disc": "Projetos",
+   "assunto": "Cronograma",
+   "titulo": "Caminho crítico é o mais longo e define a duração mínima",
+   "dica": "Alongar um caminho não crítico, sem passar o crítico, não muda o prazo. Folga no crítico é zero. Gantt mostra barras no tempo e não otimiza nada."
+  },
+  {
+   "disc": "Projetos",
+   "assunto": "Estimativas",
+   "titulo": "Paramétrica usa relação estatística com histórico",
+   "dica": "Análoga copia um projeto parecido. Três pontos usa média ponderada. Bottom-up soma os componentes da EAP. A paramétrica aplica um algoritmo sobre parâmetros."
+  },
+  {
+   "disc": "Projetos",
+   "assunto": "EGP e partes interessadas",
+   "titulo": "EGP de suporte guarda lições; diretivo gerencia os gerentes",
+   "dica": "Suporte tem controle baixo; controle exige conformidade; diretivo designa e subordina gerentes. A banca já trocou o gabarito disso. Baixo poder e alto interesse: manter informado."
+  },
+  {
+   "disc": "Projetos",
+   "assunto": "Enunciado mal escrito",
+   "titulo": "PMBOK 6 tem fases genéricas; grupos de processos são outra coisa",
+   "dica": "A CEF 2026 chamou grupos de processos de fases e o professor pediu anulação. Responda pelo que a alternativa afirma: planejamento ocorre no início e volta ao longo do projeto."
+  },
+  {
+   "disc": "Governança e LGPD",
+   "assunto": "LGPD: princípios",
+   "titulo": "Cada princípio tem uma palavra-chave",
+   "dica": "Propósito informado: finalidade. Compatibilidade: adequação. Mínimo necessário: necessidade. Consulta gratuita: livre acesso. Informação clara: transparência. Fundamentos ficam no art. 2."
+  },
+  {
+   "disc": "Governança e LGPD",
+   "assunto": "LGPD: definições",
+   "titulo": "Anonimização e dado sensível saem do texto do art. 5",
+   "dica": "Anonimizar é perder a associação com a pessoa por meios técnicos razoáveis. Dado sensível tem lista fechada; CPF, nome e estado civil são pessoais, não sensíveis."
+  },
+  {
+   "disc": "Governança e LGPD",
+   "assunto": "LGPD: bases e agentes",
+   "titulo": "Autorização genérica não é hipótese válida",
+   "dica": "Compartilhar com parceiro exige consentimento específico. Pedido de agência reguladora: obrigação legal ou regulatória. A ANPD pode exigir o relatório de impacto do controlador."
+  },
+  {
+   "disc": "Governança e LGPD",
+   "assunto": "ITIL",
+   "titulo": "Problema é causa raiz; central de serviços é primeiro nível",
+   "dica": "Nível de serviço define SLA. CAB e RFC medem gestão de mudança. No ITIL 4, alinhar processos a políticas e integrar ao COBIT é o componente governança do sistema de valor."
+  },
+  {
+   "disc": "Governança e LGPD",
+   "assunto": "COBIT e BSC",
+   "titulo": "Risco de TI integrado ao corporativo fica em APO",
+   "dica": "EDM é governança; APO, BAI, DSS e MEA são gestão. No BSC de TI do COBIT 5, o compromisso da alta gestão com decisões de TI está na dimensão financeira."
+  },
+  {
+   "disc": "Governança e LGPD",
+   "assunto": "Sistemas e maturidade",
+   "titulo": "SIG relata, SAD simula, SIE dá visão estratégica",
+   "dica": "Relatório resumido para gerência média: SIG. Simulação de cenários: SAD. Nível 5 do CMMI equivale ao A do MPS.BR; nenhum dos dois certifica produto."
+  },
+  {
+   "disc": "Governança e LGPD",
+   "assunto": "ROI",
+   "titulo": "No ROI entram só os custos do próprio projeto",
+   "dica": "Gastos lançados em projetos antigos ficam fora. ROI = (ganho menos custo) dividido pelo custo. Na questão do BNDES 2024, isso deu cerca de 292%."
   }
  ],
- "comentariosNota": "Baseado em amostra de 76 questões do TecConcursos (Dados em maioria). A coleta completa foi interrompida por limite do site."
+ "comentariosNota": "Baseado em 280 questões do TecConcursos das seis disciplinas específicas (Dados em maioria). A coleta foi interrompida por limite do site."
 }
