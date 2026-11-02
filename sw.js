@@ -1,5 +1,5 @@
-// Service worker do Arena Transpetro: abre offline e atualiza em segundo plano.
-const CACHE = 'arena-202611021738';
+// Service worker do Doroxandria: abre offline e atualiza em segundo plano.
+const CACHE = 'arena-202611022058';
 const SHELL = ['./', 'index.html', 'manifest.json', 'icon-192.png', 'icon-512.png',
   'questoes.json', 'cards.json', 'banca.json', 'videos.json', 'links.json',
   'cadernos.json', 'familia.json', 'musicas.json'];

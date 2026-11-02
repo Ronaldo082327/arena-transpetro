@@ -2,22 +2,22 @@
   "atualizado": "02/11/2026",
   "grupos": [
     {
-      "titulo": "Arena (versões do app)",
+      "titulo": "Doroxandria (versões do app)",
       "itens": [
         {
-          "nome": "Arena no Claude",
+          "nome": "Doroxandria no Claude",
           "desc": "Versão com tutor pelo Claude, progresso salvo na conta",
           "url": "https://claude.ai/artifact/1noHvf3SQyzRf5kxqBU4yP",
           "tipo": "Claude"
         },
         {
-          "nome": "Arena no GitHub Pages",
+          "nome": "Doroxandria no GitHub Pages",
           "desc": "Versão estática pública, sem tutor; progresso no navegador",
           "url": "https://ronaldo082327.github.io/arena-transpetro/",
           "tipo": "GitHub"
         },
         {
-          "nome": "Arena no Google AI Studio",
+          "nome": "Doroxandria no Google AI Studio",
           "desc": "Versão com tutor Gemini, voz e grounding; abre no AI Studio",
           "url": "https://aistudio.google.com/apps/c0c8c1b2-a24d-4028-8912-9960bf4bba52",
           "tipo": "AI Studio"
