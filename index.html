@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;padding:env(safe-area-inset-top,0px) 0 env(safe-area-inset-bottom,0px)}body{margin:0;font:14px system-ui,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#0d5b6b"><link rel="manifest" href="manifest.json"><link rel="icon" href="icon-192.png"><link rel="apple-touch-icon" href="icon-192.png"><style>:root{color-scheme:light;padding:env(safe-area-inset-top,0px) 0 env(safe-area-inset-bottom,0px)}body{margin:0;font:14px system-ui,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style>
 <title>Arena Transpetro Processos de Negócios</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -157,6 +157,7 @@ footer{padding-top:28px;font-size:13px;color:var(--muted);display:grid;gap:6px}
   <button type="button" data-v="cards">Flashcards</button>
   <button type="button" data-v="tutor">Tutor IA</button>
   <button type="button" data-v="banca">Banca</button>
+  <button type="button" data-v="labs">Labs</button>
   <button type="button" data-v="familia">Família</button>
   <button type="button" data-v="musicas">Músicas</button>
   <button type="button" data-v="eco">Ecossistema</button>
@@ -265,6 +266,20 @@ footer{padding-top:28px;font-size:13px;color:var(--muted);display:grid;gap:6px}
   </div>
 </section>
 
+<!-- LABS -->
+<section class="view" id="v-labs" hidden>
+  <div class="panel">
+    <div class="eyebrow">Laboratório de SQL · roda no seu navegador</div>
+    <h2>Labs · SQL com as tabelas da prova</h2>
+    <p class="note">Quatro tabelas pequenas, no estilo das questões da Cesgranrio. Escolha um desafio, escreva a consulta e execute. O app compara o seu resultado com o esperado, sem olhar o nome das colunas nem a ordem das linhas, a menos que o desafio peça ORDER BY.</p>
+    <div class="row"><label class="note">Desafio <select id="sqlCh"></select></label><span class="pill acc" id="sqlScore"></span></div>
+    <div class="panel" id="sqlTask" style="background:var(--accent-soft)"></div>
+    <textarea id="sqlIn" spellcheck="false" style="font-family:var(--mono);min-height:120px" placeholder="SELECT ..."></textarea>
+    <div class="row"><button type="button" class="primary" id="sqlRun">Executar e conferir</button><button type="button" class="ghost" id="sqlShow">Mostrar uma resposta</button><button type="button" class="ghost" id="sqlSchema">Ver as tabelas</button><span class="note" id="sqlNote"></span></div>
+    <div id="sqlOut"></div>
+  </div>
+</section>
+
 <!-- FAMILIA -->
 <section class="view" id="v-familia" hidden>
   <div class="panel">
@@ -322,6 +337,14 @@ footer{padding-top:28px;font-size:13px;color:var(--muted);display:grid;gap:6px}
 <!-- PLACAR -->
 <section class="view" id="v-placar" hidden>
   <div class="panel" id="placar"></div>
+  <div class="panel" id="progIO">
+    <div class="eyebrow">Levar o progresso para outro aparelho</div>
+    <h3>Exportar e importar</h3>
+    <p class="note">O arquivo guarda questões feitas, flashcards, simulados e tipos de erro. Ao importar, o app junta com o que já existe aqui, sem apagar nada.</p>
+    <div class="row"><button type="button" class="primary" id="expFile">Baixar progresso (.json)</button><button type="button" id="expCopy">Copiar progresso</button><label class="btnlink ghost" style="cursor:pointer">Importar arquivo<input type="file" id="impFile" accept="application/json,.json" hidden></label></div>
+    <textarea id="impText" placeholder="Ou cole aqui o texto copiado de outro aparelho e clique em Importar texto"></textarea>
+    <div class="row"><button type="button" id="impBtn">Importar texto</button><span class="note" id="ioNote"></span></div>
+  </div>
 </section>
 
 <footer>
@@ -376,13 +399,13 @@ footer{padding-top:28px;font-size:13px;color:var(--muted);display:grid;gap:6px}
   var Q=[], QBY={}, C=[], LINKS=null, BANCA=null, VIDEOS=null, MUSICAS=null, musDisc='', FAMILIA=null, famQuem='', sample=null, bancaTab='perfil';
 
   // ---------- navegação ----------
-  var VIEWS=['hoje','questoes','cards','tutor','banca','familia','musicas','eco','placar'], current='hoje';
+  var VIEWS=['hoje','questoes','cards','tutor','labs','banca','familia','musicas','eco','placar'], current='hoje';
   function show(v){ current=v; VIEWS.forEach(function(x){ $('v-'+x).hidden = x!==v; });
     document.querySelectorAll('nav.top button').forEach(function(b){ if(b.dataset.v===v) b.setAttribute('aria-current','page'); else b.removeAttribute('aria-current'); });
     try{ localStorage.setItem('arenaTP.view',v); }catch(e){}
     rerender(); window.scrollTo({top:0}); }
   document.querySelectorAll('nav.top button').forEach(function(b){ b.addEventListener('click',function(){ show(b.dataset.v); }); });
-  function rerender(){ if(current==='hoje') renderHoje(); else if(current==='cards') renderCards(); else if(current==='placar') renderPlacar(); else if(current==='eco') renderEco(); else if(current==='banca') renderBanca(); else if(current==='musicas') renderMusicas(); else if(current==='familia') renderFamilia(); else if(current==='questoes' && !session) updateQCount(); }
+  function rerender(){ if(current==='hoje') renderHoje(); else if(current==='cards') renderCards(); else if(current==='placar') renderPlacar(); else if(current==='eco') renderEco(); else if(current==='banca') renderBanca(); else if(current==='musicas') renderMusicas(); else if(current==='familia') renderFamilia(); else if(current==='labs') renderLabs(); else if(current==='questoes' && !session) updateQCount(); }
 
   // ---------- HOJE ----------
   function dueCards(){ var t=dayNum(); return C.filter(function(c){ var s=state.srs[c.id]; return s && s.d<=t; }); }
@@ -501,6 +524,14 @@ footer{padding-top:28px;font-size:13px;color:var(--muted);display:grid;gap:6px}
     if(s.mode==='simulado') state.sims.push({when:Date.now(),n:s.qs.length,ok:ok,t:el});
     persist();
     var h='<div class="eyebrow">Resultado</div><div class="big">'+ok+' <span style="font-size:18px;color:var(--muted)">/ '+s.qs.length+' ('+Math.round(100*ok/s.qs.length)+'%)</span></div><div class="note">'+fmt(el)+' no total · '+Math.round(el/s.qs.length)+' s por questão · '+blank+' em branco</div>';
+    var byD={}, byM={}, txs={}; s.qs.forEach(function(q){ var a=s.ans[q.id], c=a===q.gabarito, d=DISC[q.disc]||q.disc, m=s.cert[q.id]||(a?'sem marca':'em branco');
+      byD[d]=byD[d]||{n:0,ok:0}; byD[d].n++; if(c) byD[d].ok++; byM[m]=byM[m]||{n:0,ok:0}; byM[m].n++; if(c) byM[m].ok++;
+      if(a&&!c){ var x=(state.hist[q.id]||{}).x||'não classificado'; txs[x]=(txs[x]||0)+1; } });
+    if(s.mode==='simulado'||s.qs.length>=10){ var worst=Object.keys(byD).sort(function(x,y){ return byD[x].ok/byD[x].n-byD[y].ok/byD[y].n; })[0];
+      h+='<h3>Relatório por bloco</h3><div class="bars">'+Object.keys(byD).map(function(d){ var p=Math.round(100*byD[d].ok/byD[d].n); return '<div class="bar"><span>'+esc(d)+'</span><div class="track"><div class="fill" style="width:'+p+'%"></div></div><span class="v">'+byD[d].ok+'/'+byD[d].n+'</span></div>'; }).join('')+'</div>';
+      h+='<h3>Calibração da margem</h3><div class="tbl"><table><thead><tr><th>Você marcou</th><th class="num">Questões</th><th class="num">Acerto</th></tr></thead><tbody>'+Object.keys(byM).map(function(m){ return '<tr><td>'+esc(m)+'</td><td class="num">'+byM[m].n+'</td><td class="num">'+Math.round(100*byM[m].ok/byM[m].n)+'%</td></tr>'; }).join('')+'</tbody></table></div><p class="note">Se as questões marcadas como certeza tiverem acerto abaixo de 90%, você está confiando demais: releia o comando e procure o absoluto antes de marcar.</p>';
+      if(Object.keys(txs).length) h+='<h3>Tipos de erro</h3><div class="row">'+Object.keys(txs).map(function(t){ return '<span class="pill warn">'+esc(t)+': '+txs[t]+'</span>'; }).join('')+'</div><p class="note">Classifique os erros na revisão (Refazer só as erradas) para o relatório ficar completo.</p>';
+      if(worst) h+='<div class="feedback"><b>Próximo foco: '+esc(worst)+'.</b><span>Abra o caderno da disciplina no TecConcursos e o guia do subitem antes do próximo simulado.</span></div>'; }
     if(nR) h+='<div class="feedback"><b>Chute calculado.</b><span>Nas '+nR+' questões marcadas como chute (ou dúvida com alternativas riscadas), a sua letra acertou '+okP+' e a regra do bloco de 10 teria acertado '+okR+'.</span></div>';
     h+='<div class="tbl"><table><thead><tr><th class="num">#</th><th>Bloco</th><th class="num">Sua</th><th class="num">Gab.</th><th></th><th>Margem</th><th class="num">ID</th></tr></thead><tbody>'+rows+'</tbody></table></div>';
     h+='<div class="row"><button type="button" class="primary" id="again">Nova sessão</button><button type="button" id="redo">Refazer só as erradas</button></div>';
@@ -593,6 +624,78 @@ footer{padding-top:28px;font-size:13px;color:var(--muted);display:grid;gap:6px}
     if(e.key===' '&&!cardShow){ e.preventDefault(); cardShow=true; drawCard(); } else if(cardShow && '1234'.indexOf(e.key)>=0 && e.key.length===1){ doGrade(+e.key-1); } });
   $('newPerDay').addEventListener('change',renderCards);
 
+  // ---------- EXPORTAR / IMPORTAR ----------
+  function progJSON(){ return JSON.stringify({app:'arena-transpetro',v:2,exportado:new Date().toISOString(),state:state}); }
+  function importProg(txt){ var o; try{ o=JSON.parse(txt); }catch(e){ $('ioNote').textContent='Arquivo inválido: não é JSON.'; return; }
+    var st=o&&o.state?o.state:o; if(!st||typeof st!=='object'||!st.hist){ $('ioNote').textContent='Esse arquivo não parece ser um progresso do Arena.'; return; }
+    var n=0; Object.keys(st.hist||{}).forEach(function(k){ var a=st.hist[k], b=state.hist[k]; if(!b||(a.w||0)>(b.w||0)){ state.hist[k]=a; n++; } });
+    Object.keys(st.srs||{}).forEach(function(k){ var a=st.srs[k], b=state.srs[k]; if(!b||(a.n||0)>(b.n||0)||(a.d||0)>(b.d||0)) state.srs[k]=a; });
+    var seen={}; state.sims.forEach(function(x){ seen[x.when]=1; }); (st.sims||[]).forEach(function(x){ if(!seen[x.when]) state.sims.push(x); });
+    Object.keys(st.days||{}).forEach(function(k){ state.days[k]=Math.max(state.days[k]||0,st.days[k]||0); });
+    persist(); $('ioNote').textContent='Progresso importado: '+n+' questões atualizadas.'; rerender(); }
+  function wireIO(){ if(!$('expFile')) return;
+    $('expFile').onclick=function(){ try{ var b=new Blob([progJSON()],{type:'application/json'}), a=document.createElement('a'); a.href=URL.createObjectURL(b); a.download='arena-progresso-'+new Date().toISOString().slice(0,10)+'.json'; document.body.appendChild(a); a.click(); a.remove(); $('ioNote').textContent='Se o download não começar, use Copiar progresso.'; }catch(e){ $('ioNote').textContent='Download bloqueado aqui. Use Copiar progresso.'; } };
+    $('expCopy').onclick=function(){ var t=progJSON(); if(navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(t).then(function(){ $('ioNote').textContent='Progresso copiado. Cole no outro aparelho.'; },function(){ $('impText').value=t; $('impText').select(); $('ioNote').textContent='Copie o texto selecionado.'; }); } else { $('impText').value=t; $('impText').select(); $('ioNote').textContent='Copie o texto selecionado.'; } };
+    $('impFile').onchange=function(e){ var f=e.target.files&&e.target.files[0]; if(!f) return; var r=new FileReader(); r.onload=function(){ importProg(String(r.result)); }; r.readAsText(f); e.target.value=''; };
+    $('impBtn').onclick=function(){ var t=$('impText').value.trim(); if(t) importProg(t); }; }
+
+  // ---------- LABS: SQL ----------
+  var SQL_SCHEMA=[
+    'CREATE TABLE Departamento (id INT, nome STRING, cidade STRING)',
+    'CREATE TABLE Funcionario (id INT, nome STRING, salario INT, depto_id INT, gerente_id INT)',
+    'CREATE TABLE Projeto (id INT, nome STRING, depto_id INT, orcamento INT)',
+    'CREATE TABLE Alocacao (func_id INT, proj_id INT, horas INT)'];
+  var SQL_DATA={
+    Departamento:[[1,'Dutos','Rio de Janeiro'],[2,'Terminais','Santos'],[3,'TI','Rio de Janeiro'],[4,'Jurídico','Brasília']],
+    Funcionario:[[1,'Ana',15000,3,null],[2,'Bruno',9000,3,1],[3,'Carla',11000,1,null],[4,'Diego',7000,1,3],[5,'Elisa',7500,2,null],[6,'Fábio',6000,2,5],[7,'Gabi',9500,3,1],[8,'Hugo',5000,null,null]],
+    Projeto:[[10,'SCADA',1,500000],[11,'Data Lake',3,300000],[12,'Portal',3,120000],[13,'Píer Norte',2,800000],[14,'Compliance',4,90000]],
+    Alocacao:[[1,11,40],[2,11,80],[2,12,30],[3,10,60],[4,10,90],[5,13,50],[7,12,70],[7,11,20]]};
+  var SQL_CH=[
+    {t:'Nome e salário dos funcionários do departamento de TI (depto_id 3).',a:"SELECT nome, salario FROM Funcionario WHERE depto_id = 3"},
+    {t:'Nome de cada funcionário com o nome do seu departamento (só quem tem departamento).',a:"SELECT f.nome, d.nome FROM Funcionario f JOIN Departamento d ON f.depto_id = d.id"},
+    {t:'Todos os departamentos com a quantidade de funcionários, inclusive os que não têm nenhum.',a:"SELECT d.nome, COUNT(f.id) FROM Departamento d LEFT JOIN Funcionario f ON f.depto_id = d.id GROUP BY d.nome"},
+    {t:'Departamentos (id) cuja média salarial é maior que 8000.',a:"SELECT depto_id, AVG(salario) FROM Funcionario WHERE depto_id IS NOT NULL GROUP BY depto_id HAVING AVG(salario) > 8000"},
+    {t:'Nome de cada funcionário e o nome do seu gerente (self-join; só quem tem gerente).',a:"SELECT f.nome, g.nome FROM Funcionario f JOIN Funcionario g ON f.gerente_id = g.id"},
+    {t:'Funcionários que NÃO estão alocados em nenhum projeto.',a:"SELECT nome FROM Funcionario f WHERE NOT EXISTS (SELECT 1 FROM Alocacao a WHERE a.func_id = f.id)"},
+    {t:'Funcionários com salário acima da média geral.',a:"SELECT nome FROM Funcionario WHERE salario > (SELECT AVG(salario) FROM Funcionario)"},
+    {t:'Projetos com total de horas alocadas maior que 80.',a:"SELECT p.nome, SUM(a.horas) FROM Projeto p JOIN Alocacao a ON a.proj_id = p.id GROUP BY p.nome HAVING SUM(a.horas) > 80"},
+    {t:'Departamentos do Rio de Janeiro que têm algum projeto (sem repetir).',a:"SELECT DISTINCT d.nome FROM Departamento d JOIN Projeto p ON p.depto_id = d.id WHERE d.cidade = 'Rio de Janeiro'"},
+    {t:'Os três maiores salários, do maior para o menor.',o:1,a:"SELECT TOP 3 nome, salario FROM Funcionario ORDER BY salario DESC"},
+    {t:'Departamentos sem nenhum projeto.',a:"SELECT d.nome FROM Departamento d LEFT JOIN Projeto p ON p.depto_id = d.id WHERE p.id IS NULL"},
+    {t:'Quantos funcionários não têm departamento (depto_id nulo)? Cuidado: "= NULL" não funciona.',a:"SELECT COUNT(*) FROM Funcionario WHERE depto_id IS NULL"}];
+  var labsReady=false, labsLoading=false, sqlIdx=0, sqlOk={};
+  try{ sqlOk=JSON.parse(localStorage.getItem('arenaTP.sql')||'{}'); }catch(e){ sqlOk={}; }
+  function sqlReset(){ var a=window.alasql; try{ a('DROP DATABASE IF EXISTS arena'); }catch(e){} a('CREATE DATABASE arena; USE arena'); SQL_SCHEMA.forEach(function(q){ a(q); });
+    Object.keys(SQL_DATA).forEach(function(t){ SQL_DATA[t].forEach(function(r){ a('INSERT INTO '+t+' VALUES ('+r.map(function(){return '?'}).join(',')+')',r); }); }); }
+  function loadAlasql(cb){ if(window.alasql){ cb(); return; } if(labsLoading) return; labsLoading=true; $('sqlNote').textContent='Carregando o motor SQL…';
+    var sc=document.createElement('script'); sc.src='https://cdn.jsdelivr.net/npm/alasql@4.6.6/dist/alasql.min.js';
+    sc.onload=function(){ labsLoading=false; $('sqlNote').textContent=''; cb(); }; sc.onerror=function(){ labsLoading=false; $('sqlNote').textContent='Não foi possível carregar o motor SQL. Verifique a internet.'; }; document.head.appendChild(sc); }
+  function sqlRows(res){ if(!Array.isArray(res)) return null; return res.map(function(r){ return Object.keys(r).map(function(k){ var v=r[k]; return typeof v==='number'?Math.round(v*100)/100:v; }); }); }
+  function sqlTable(res){ if(!Array.isArray(res)) return '<div class="note">Comando executado.</div>'; if(!res.length) return '<div class="note">Nenhuma linha.</div>'; var ks=Object.keys(res[0]);
+    return '<div class="tbl"><table><thead><tr>'+ks.map(function(k){return '<th>'+esc(k)+'</th>'}).join('')+'</tr></thead><tbody>'+res.map(function(r){ return '<tr>'+ks.map(function(k){ return '<td>'+esc(r[k]===null||r[k]===undefined?'NULL':String(r[k]))+'</td>'; }).join('')+'</tr>'; }).join('')+'</tbody></table></div>'; }
+  function sqlRun(){ var a=window.alasql, ch=SQL_CH[sqlIdx], q=$('sqlIn').value.trim(); if(!q) return;
+    if(/\b(drop|delete|update|insert|alter|create)\b/i.test(q)){ $('sqlOut').innerHTML='<div class="feedback bad">Nos desafios, só consultas SELECT. Os dados voltam ao original a cada execução.</div>'; return; }
+    sqlReset(); var mine, exp;
+    try{ mine=a(q); }catch(e){ $('sqlOut').innerHTML='<div class="feedback bad"><b>Erro na consulta.</b><span>'+esc(e.message||String(e))+'</span></div>'; return; }
+    sqlReset(); exp=a(ch.a);
+    var A=sqlRows(mine), B=sqlRows(exp), ok=false;
+    if(A&&B&&A.length===B.length&&(!A.length||A[0].length===B[0].length)){ var f=function(x){ return x.map(function(r){return JSON.stringify(r)}); }; var fa=f(A), fb=f(B); if(!ch.o){ fa.sort(); fb.sort(); } ok=fa.join('|')===fb.join('|'); }
+    if(ok){ sqlOk[sqlIdx]=1; try{ localStorage.setItem('arenaTP.sql',JSON.stringify(sqlOk)); }catch(e){} }
+    $('sqlOut').innerHTML='<div class="feedback '+(ok?'ok':'bad')+'"><b>'+(ok?'Certo! O resultado bate com o esperado.':'Ainda não. Compare com o resultado esperado abaixo.')+'</b></div><div class="grid2"><div><div class="eyebrow">Seu resultado</div>'+sqlTable(mine)+'</div><div><div class="eyebrow">Esperado</div>'+sqlTable(exp)+'</div></div>';
+    renderLabsHead(); }
+  function renderLabsHead(){ var n=Object.keys(sqlOk).length; $('sqlScore').textContent=n+' de '+SQL_CH.length+' resolvidos'; var ch=SQL_CH[sqlIdx];
+    $('sqlTask').innerHTML='<div class="eyebrow">Desafio '+(sqlIdx+1)+(sqlOk[sqlIdx]?' · resolvido':'')+'</div><b>'+esc(ch.t)+'</b>'; }
+  function renderLabs(){ if(!labsReady){ labsReady=true;
+      $('sqlCh').innerHTML=SQL_CH.map(function(c,i){ return '<option value="'+i+'">'+(i+1)+'. '+esc(c.t.slice(0,60))+(c.t.length>60?'…':'')+'</option>'; }).join('');
+      $('sqlCh').onchange=function(){ sqlIdx=+this.value; $('sqlIn').value=''; $('sqlOut').innerHTML=''; renderLabsHead(); };
+      $('sqlRun').onclick=function(){ loadAlasql(sqlRun); };
+      $('sqlShow').onclick=function(){ $('sqlIn').value=SQL_CH[sqlIdx].a; $('sqlNote').textContent='Esta é uma resposta possível; há outras corretas.'; };
+      $('sqlSchema').onclick=function(){ $('sqlOut').innerHTML=Object.keys(SQL_DATA).map(function(t,i){ var cols=SQL_SCHEMA[i].replace(/^.*\(|\)$/g,'').split(',').map(function(c){return c.trim().split(' ')[0]}); var res=SQL_DATA[t].map(function(r){ var o={}; cols.forEach(function(c,j){ o[c]=r[j]; }); return o; }); return '<div class="eyebrow">'+t+'</div>'+sqlTable(res); }).join(''); }; }
+    renderLabsHead(); loadAlasql(function(){}); }
+
+  // ---------- PWA (só fora do Claude) ----------
+  try{ if('serviceWorker' in navigator && /github\.io$/.test(location.hostname)){ navigator.serviceWorker.register('sw.js'); } }catch(e){}
+
   // ---------- PERSONAS (Família) ----------
   var PERSONAS={'':{n:'Tutor Cesgranrio',t:'',d:''},viviane:{n:'Viviane, sua esposa',t:'amor',d:'BI e Inglês'},pai:{n:'Pai',t:'filho',d:'Normalização e LGPD'},mae:{n:'Mãe',t:'filho',d:'Projetos e crase'},tio:{n:'Tio José Raimundo',t:'sobrinho',d:'Segurança e Lógica'},tiadores:{n:'Tia Maria das Dores',t:'sobrinho',d:'Scrum e Engenharia de Software'},tiajose:{n:'Tia Maria José',t:'sobrinho',d:'UX e Governança'},avo:{n:'Avô Milton',t:'neto',d:'PMBOK 7'},joao:{n:'João Miguel, seu filho',t:'papai',d:'OLAP'},sophia:{n:'Sophia, sua filha',t:'papai',d:'ACID'}};
   var persona=''; try{ persona=localStorage.getItem('arenaTP.persona')||''; }catch(e){}
@@ -665,7 +768,7 @@ footer{padding-top:28px;font-size:13px;color:var(--muted);display:grid;gap:6px}
 
   // ---------- carga ----------
   Promise.all([fetch('questoes.json').then(function(r){return r.json()}),fetch('cards.json').then(function(r){return r.json()}),fetch('links.json').then(function(r){return r.json()}).catch(function(){return null}),fetch('banca.json').then(function(r){return r.json()}).catch(function(){return null}),fetch('videos.json').then(function(r){return r.json()}).catch(function(){return null}),fetch('musicas.json').then(function(r){return r.json()}).catch(function(){return null}),fetch('familia.json').then(function(r){return r.json()}).catch(function(){return null})]).then(function(res){
-    Q=res[0]; Q.forEach(function(q){ QBY[q.id]=q; }); C=res[1]; LINKS=res[2]; BANCA=res[3]; VIDEOS=res[4]; MUSICAS=res[5]; FAMILIA=res[6]; fillPersona();
+    Q=res[0]; Q.forEach(function(q){ QBY[q.id]=q; }); C=res[1]; LINKS=res[2]; BANCA=res[3]; VIDEOS=res[4]; MUSICAS=res[5]; FAMILIA=res[6]; fillPersona(); wireIO();
     var cnt={}; Q.forEach(function(q){ cnt[q.disc]=(cnt[q.disc]||0)+1; });
     $('discChips').innerHTML=Object.keys(DISC).map(function(d){ return '<button type="button" data-d="'+d+'" aria-pressed="false">'+esc(DISC[d])+' <span class="mono">'+(cnt[d]||0)+'</span></button>'; }).join('');
     $('discChips').querySelectorAll('button').forEach(function(b){ b.onclick=function(){ discSel[b.dataset.d]=!discSel[b.dataset.d]; syncChips(); fillAssuntos(); }; });
