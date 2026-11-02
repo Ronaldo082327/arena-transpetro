@@ -1,5 +1,5 @@
 // Service worker do Arena Transpetro: abre offline e atualiza em segundo plano.
-const CACHE = 'arena-v2';
+const CACHE = 'arena-202611021513';
 const SHELL = ['./', 'index.html', 'manifest.json', 'icon-192.png', 'icon-512.png',
   'questoes.json', 'cards.json', 'banca.json', 'videos.json', 'links.json',
   'cadernos.json', 'familia.json', 'musicas.json'];
@@ -18,8 +18,9 @@ self.addEventListener('fetch', e => {
   const cdn = /(^|\.)cdn\.jsdelivr\.net$|(^|\.)fonts\.(googleapis|gstatic)\.com$/.test(url.hostname);
   if (!sameOrigin && !cdn) return;
   e.respondWith(caches.open(CACHE).then(async cache => {
-    const hit = await cache.match(req, {ignoreSearch: sameOrigin});
-    const net = fetch(req).then(res => { if (res && (res.ok || res.type === 'opaque')) cache.put(req, res.clone()); return res; }).catch(() => null);
+    const key = sameOrigin ? new Request(url.origin + url.pathname) : req;
+    const hit = await cache.match(key);
+    const net = fetch(req).then(res => { if (res && (res.ok || res.type === 'opaque')) cache.put(key, res.clone()); return res; }).catch(() => null);
     if (hit) { e.waitUntil(net); return hit; }
     const res = await net;
     return res || new Response('Sem conexão e sem cópia salva.', {status: 503, headers: {'Content-Type': 'text/plain; charset=utf-8'}});
