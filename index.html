@@ -157,6 +157,8 @@ footer{padding-top:28px;font-size:13px;color:var(--muted);display:grid;gap:6px}
   <button type="button" data-v="cards">Flashcards</button>
   <button type="button" data-v="tutor">Tutor IA</button>
   <button type="button" data-v="banca">Banca</button>
+  <button type="button" data-v="familia">Família</button>
+  <button type="button" data-v="musicas">Músicas</button>
   <button type="button" data-v="eco">Ecossistema</button>
   <button type="button" data-v="placar">Placar</button>
   <span class="sync" id="sync">salvo neste navegador</span>
@@ -253,12 +255,35 @@ footer{padding-top:28px;font-size:13px;color:var(--muted);display:grid;gap:6px}
     <div class="panel">
       <div class="eyebrow">Converse com o tutor</div>
       <h2>Tutor Cesgranrio</h2>
+      <label class="note">Quem explica <select id="persona"></select></label>
       <div class="chips" id="tutorQuick"></div>
       <div class="chat" id="chat"></div>
       <textarea id="chatIn" placeholder="Ex.: qual a diferença entre IDS e IPS do jeito que a Cesgranrio cobra?"></textarea>
       <div class="row"><button type="button" class="primary" id="chatSend">Enviar</button><button type="button" class="ghost" id="chatStop" hidden>Parar</button><button type="button" class="ghost" id="chatClear">Limpar conversa</button></div>
       <p class="note" id="tutorNote">O tutor usa o seu próprio acesso ao Claude e pede permissão na primeira pergunta.</p>
     </div>
+  </div>
+</section>
+
+<!-- FAMILIA -->
+<section class="view" id="v-familia" hidden>
+  <div class="panel">
+    <div class="eyebrow">Banca em Família · 18 cenas</div>
+    <h2>Família</h2>
+    <p class="note">Cada parente explica um ponto da prova do jeito dele. Leia a fala curta em voz alta e depois a explicação. O botão leva ao tutor já no personagem.</p>
+    <div class="chips" id="famChips"></div>
+    <div id="famList" style="display:grid;gap:12px"></div>
+  </div>
+</section>
+
+<!-- MUSICAS -->
+<section class="view" id="v-musicas" hidden>
+  <div class="panel">
+    <div class="eyebrow">Paródias de estudo · Conhecimentos Específicos</div>
+    <h2>Músicas</h2>
+    <p class="note">Letras originais para cantar na melodia que você já sabe. O refrão carrega a lista ou o contraste que cai na prova. Quando houver faixa gerada no Flow Music, o botão abre a música na sua conta.</p>
+    <div class="chips" id="musChips"></div>
+    <div id="musList" style="display:grid;gap:12px"></div>
   </div>
 </section>
 
@@ -348,16 +373,16 @@ footer{padding-top:28px;font-size:13px;color:var(--muted);display:grid;gap:6px}
   function shortAss(a){ return String(a||'').replace(/^TI - [^-]+ - /,'').replace(/^(Gestão de Projetos \(PMBOK\)|Direito Digital) - /,''); }
 
   var TEC='https://www.tecconcursos.com.br/', CADMAP={Dados:102119739,Projetos:102119886,Governanca:102120000,EngSoftware_UX:102120087,BI_CienciaDados:102120301,Seguranca:102120465};
-  var Q=[], QBY={}, C=[], LINKS=null, BANCA=null, VIDEOS=null, sample=null, bancaTab='perfil';
+  var Q=[], QBY={}, C=[], LINKS=null, BANCA=null, VIDEOS=null, MUSICAS=null, musDisc='', FAMILIA=null, famQuem='', sample=null, bancaTab='perfil';
 
   // ---------- navegação ----------
-  var VIEWS=['hoje','questoes','cards','tutor','banca','eco','placar'], current='hoje';
+  var VIEWS=['hoje','questoes','cards','tutor','banca','familia','musicas','eco','placar'], current='hoje';
   function show(v){ current=v; VIEWS.forEach(function(x){ $('v-'+x).hidden = x!==v; });
     document.querySelectorAll('nav.top button').forEach(function(b){ if(b.dataset.v===v) b.setAttribute('aria-current','page'); else b.removeAttribute('aria-current'); });
     try{ localStorage.setItem('arenaTP.view',v); }catch(e){}
     rerender(); window.scrollTo({top:0}); }
   document.querySelectorAll('nav.top button').forEach(function(b){ b.addEventListener('click',function(){ show(b.dataset.v); }); });
-  function rerender(){ if(current==='hoje') renderHoje(); else if(current==='cards') renderCards(); else if(current==='placar') renderPlacar(); else if(current==='eco') renderEco(); else if(current==='banca') renderBanca(); else if(current==='questoes' && !session) updateQCount(); }
+  function rerender(){ if(current==='hoje') renderHoje(); else if(current==='cards') renderCards(); else if(current==='placar') renderPlacar(); else if(current==='eco') renderEco(); else if(current==='banca') renderBanca(); else if(current==='musicas') renderMusicas(); else if(current==='familia') renderFamilia(); else if(current==='questoes' && !session) updateQCount(); }
 
   // ---------- HOJE ----------
   function dueCards(){ var t=dayNum(); return C.filter(function(c){ var s=state.srs[c.id]; return s && s.d<=t; }); }
@@ -490,7 +515,7 @@ footer{padding-top:28px;font-size:13px;color:var(--muted);display:grid;gap:6px}
   function aiErr(e){ var c=e&&e.code; if(c==='not_granted'||c==='sampling_disabled'||c==='not_declared'||c==='capability_disabled'||c==='capability_removed') return 'O tutor não está liberado nesta visualização.'; if(c==='rate_limited') return 'Muitas perguntas seguidas. Espere um pouco e tente de novo.'; if(c==='refused') return 'O tutor não respondeu a este pedido. Reformule a pergunta.'; if(c==='cancelled') return ''; return 'O tutor não conseguiu responder agora. Tente de novo.'; }
   function explain(q,a){ var s=session; s.ai[q.id]={text:'Pensando…',busy:true}; renderQ();
     var p='Você é um professor de concursos especialista na banca Cesgranrio, preparando um candidato para a prova Transpetro 2026, Ênfase 5 (Analista de Sistemas, Processos de Negócios).\nExplique a questão real abaixo em português do Brasil, em texto simples (sem markdown, sem asteriscos), em no máximo 230 palavras, nesta ordem:\n1. Por que a alternativa '+q.gabarito+' é a correta (a regra ou definição que decide).\n2. Uma linha para cada alternativa errada dizendo o que ela realmente descreve ou onde está o erro plantado.\n3. A armadilha da Cesgranrio nesta questão (distrator vizinho, absoluto, inversão, frase decisiva).\n4. Um macete curto para acertar questões deste tipo.\n'+(a&&a!==q.gabarito?'O candidato marcou '+a+'; comece explicando por que essa marcação parece certa e não é.\n':'')+'\nAssunto: '+shortAss(q.assunto)+' · '+q.concurso+' '+q.ano+'\n'+qText(q)+'\nGabarito oficial: '+q.gabarito;
-    sample(p,{onText:function(u){ s.ai[q.id]={text:u.text,busy:false}; var el=$('aiOut'); if(el&&s.qs[s.i]===q){ el.textContent=u.text; el.classList.remove('thinking'); } }}).then(function(r){ s.ai[q.id]={text:r.text,busy:false}; if(s.qs[s.i]===q) renderQ(); }).catch(function(e){ s.ai[q.id]={text:(e&&e.text)||aiErr(e),busy:false}; if(s.qs[s.i]===q) renderQ(); }); }
+    sample(personaTxt()+p,{onText:function(u){ s.ai[q.id]={text:u.text,busy:false}; var el=$('aiOut'); if(el&&s.qs[s.i]===q){ el.textContent=u.text; el.classList.remove('thinking'); } }}).then(function(r){ s.ai[q.id]={text:r.text,busy:false}; if(s.qs[s.i]===q) renderQ(); }).catch(function(e){ s.ai[q.id]={text:(e&&e.text)||aiErr(e),busy:false}; if(s.qs[s.i]===q) renderQ(); }); }
   function genPrompt(ref, ass){ var ex=ref.slice(0,2).map(function(q,i){ return 'Exemplo real '+(i+1)+' ('+q.concurso+' '+q.ano+'):\n'+qText(q).slice(0,1800)+'\nGabarito: '+q.gabarito; }).join('\n\n');
     return 'Você escreve questões inéditas no estilo exato da banca Cesgranrio para a prova Transpetro 2026, Ênfase 5 (Analista de Sistemas, Processos de Negócios).\nAssunto: '+ass+'.\nUse os exemplos reais abaixo só como molde de estilo; não copie o conteúdo. Regras da banca: cinco alternativas; os distratores são definições corretas de conceitos vizinhos, absolutos plantados ("apenas", "sempre") ou inversões; quando couber, um caso narrativo curto com uma frase decisiva; uma única alternativa correta e tecnicamente indiscutível.\n\n'+ex+'\n\nResponda apenas com um objeto JSON: {"enunciado": string, "alternativas": {"A": string, "B": string, "C": string, "D": string, "E": string}, "gabarito": "A"|"B"|"C"|"D"|"E", "comentario": string (até 120 palavras: por que a certa é certa e qual armadilha cada errada usa)}. Sorteie a letra do gabarito.'; }
   function renderGenerated(box,obj,label){ if(!obj||!obj.alternativas||!obj.gabarito){ box.innerHTML='<div class="note">A resposta veio fora do formato. Tente de novo.</div>'; return; }
@@ -518,7 +543,7 @@ footer{padding-top:28px;font-size:13px;color:var(--muted);display:grid;gap:6px}
   function send(text){ if(!sample||!text.trim()) return; turns.push({role:'user',content:text.trim()}); turns.push({role:'assistant',content:'Pensando…'}); renderChat(); $('chatIn').value='';
     var hist=turns.slice(0,-1).filter(function(t){return t.content!=='Pensando…'}); if(hist.length>16) hist=hist.slice(hist.length-16); while(hist.length && hist[0].role!=='user') hist.shift();
     chatCtl=new AbortController(); $('chatStop').hidden=false; $('chatSend').disabled=true;
-    sample([{role:'user',content:RULES}].concat(hist),{cache:false,signal:chatCtl.signal,onText:function(u){ turns[turns.length-1].content=u.text; var m=$('chat').lastElementChild; if(m) m.textContent=u.text; }})
+    sample([{role:'user',content:personaTxt()+RULES}].concat(hist),{cache:false,signal:chatCtl.signal,onText:function(u){ turns[turns.length-1].content=u.text; var m=$('chat').lastElementChild; if(m) m.textContent=u.text; }})
       .then(function(r){ turns[turns.length-1].content=r.text; }).catch(function(e){ var keep=e&&e.text; turns[turns.length-1].content= keep? keep+' (interrompido)' : (aiErr(e)||'(interrompido)'); })
       .then(function(){ $('chatStop').hidden=true; $('chatSend').disabled=false; renderChat(); }); }
   $('chatSend').addEventListener('click',function(){ send($('chatIn').value); });
@@ -568,6 +593,37 @@ footer{padding-top:28px;font-size:13px;color:var(--muted);display:grid;gap:6px}
     if(e.key===' '&&!cardShow){ e.preventDefault(); cardShow=true; drawCard(); } else if(cardShow && '1234'.indexOf(e.key)>=0 && e.key.length===1){ doGrade(+e.key-1); } });
   $('newPerDay').addEventListener('change',renderCards);
 
+  // ---------- PERSONAS (Família) ----------
+  var PERSONAS={'':{n:'Tutor Cesgranrio',t:'',d:''},viviane:{n:'Viviane, sua esposa',t:'amor',d:'BI e Inglês'},pai:{n:'Pai',t:'filho',d:'Normalização e LGPD'},mae:{n:'Mãe',t:'filho',d:'Projetos e crase'},tio:{n:'Tio José Raimundo',t:'sobrinho',d:'Segurança e Lógica'},tiadores:{n:'Tia Maria das Dores',t:'sobrinho',d:'Scrum e Engenharia de Software'},tiajose:{n:'Tia Maria José',t:'sobrinho',d:'UX e Governança'},avo:{n:'Avô Milton',t:'neto',d:'PMBOK 7'},joao:{n:'João Miguel, seu filho',t:'papai',d:'OLAP'},sophia:{n:'Sophia, sua filha',t:'papai',d:'ACID'}};
+  var persona=''; try{ persona=localStorage.getItem('arenaTP.persona')||''; }catch(e){}
+  function personaTxt(){ var P=PERSONAS[persona]; if(!P||!persona) return ''; return 'Fale como '+P.n+', da família do candidato Ronaldo, chamando-o carinhosamente de "'+P.t+'". Tom de conversa de família, frases curtas, mas o conteúdo continua técnico e fiel à banca Cesgranrio. Assuntos preferidos deste personagem: '+P.d+'. '; }
+  function fillPersona(){ var sel=$('persona'); if(!sel) return; sel.innerHTML=Object.keys(PERSONAS).map(function(k){ return '<option value="'+k+'"'+(k===persona?' selected':'')+'>'+esc(PERSONAS[k].n)+(PERSONAS[k].d?' · '+esc(PERSONAS[k].d):'')+'</option>'; }).join(''); sel.onchange=function(){ persona=sel.value; try{ localStorage.setItem('arenaTP.persona',persona); }catch(e){} }; }
+  var QUEM2P=[['Viviane e João','joao'],['Viviane','viviane'],['Pai','pai'],['Mãe','mae'],['Tio José','tio'],['Tia Maria das Dores','tiadores'],['Tia Maria José','tiajose'],['Avô','avo'],['Sophia','sophia']];
+  function quemKey(q){ for(var i=0;i<QUEM2P.length;i++){ if(q.indexOf(QUEM2P[i][0])===0) return QUEM2P[i][1]; } return ''; }
+  function renderFamilia(){ var box=$('famList'), ch=$('famChips'), F=FAMILIA||[];
+    if(!F.length){ ch.innerHTML=''; box.innerHTML='<div class="empty">As cenas ainda não foram carregadas.</div>'; return; }
+    var qs=[]; F.forEach(function(f){ var k=f.quem.split(' (')[0]; if(qs.indexOf(k)<0) qs.push(k); });
+    ch.innerHTML=['<button type="button" data-q="" aria-pressed="'+(famQuem==='')+'">Todos</button>'].concat(qs.map(function(q){ return '<button type="button" data-q="'+esc(q)+'" aria-pressed="'+(famQuem===q)+'">'+esc(q)+'</button>'; })).join('');
+    ch.querySelectorAll('button').forEach(function(b){ b.onclick=function(){ famQuem=b.dataset.q; renderFamilia(); }; });
+    box.innerHTML=F.filter(function(f){ return !famQuem||f.quem.split(' (')[0]===famQuem; }).map(function(f){ var k=quemKey(f.quem);
+      return '<div class="link" style="gap:8px"><span class="pill acc" style="justify-self:start">Cena '+f.n+' · '+esc(f.quem)+'</span><b>'+esc(f.tema)+'</b><div class="panel" style="background:var(--accent-soft)"><div class="eyebrow">Fala curta</div><div>'+esc(f.fala)+'</div></div><span>'+esc(f.explicacao)+'</span>'+(k&&sample?'<button type="button" class="ghost" data-p="'+k+'" style="justify-self:start">Conversar com '+esc(PERSONAS[k].n)+'</button>':'')+'</div>'; }).join('');
+    box.querySelectorAll('[data-p]').forEach(function(b){ b.onclick=function(){ persona=b.dataset.p; try{ localStorage.setItem('arenaTP.persona',persona); }catch(e){} fillPersona(); show('tutor'); }; }); }
+
+  // ---------- MUSICAS ----------
+  function renderMusicas(){ var box=$('musList'), ch=$('musChips'), M=MUSICAS||[];
+    if(!M.length){ ch.innerHTML=''; box.innerHTML='<div class="empty">As paródias ainda não foram carregadas.</div>'; return; }
+    var ds=[]; M.forEach(function(m){ if(ds.indexOf(m.disciplina)<0) ds.push(m.disciplina); });
+    ch.innerHTML=['<button type="button" data-d="" aria-pressed="'+(musDisc==='')+'">Todas <span class="mono">'+M.length+'</span></button>'].concat(ds.map(function(d){ return '<button type="button" data-d="'+esc(d)+'" aria-pressed="'+(musDisc===d)+'">'+esc(d)+'</button>'; })).join('');
+    ch.querySelectorAll('button').forEach(function(b){ b.onclick=function(){ musDisc=b.dataset.d; renderMusicas(); }; });
+    box.innerHTML=M.filter(function(m){ return !musDisc||m.disciplina===musDisc; }).map(function(m){
+      var conf=(m.confira||[]).map(function(c){ return '<li>'+esc(c.fato)+(c.fonte?' <span class="note">('+esc(c.fonte)+')</span>':'')+'</li>'; }).join('');
+      return '<details class="link" style="gap:8px"><summary style="cursor:pointer;display:grid;gap:4px"><span class="pill acc" style="justify-self:start">'+esc(m.disciplina)+'</span><b>'+esc(m.titulo)+'</b><span>Cantar na melodia de: '+esc(m.melodia)+'</span></summary>'
+        +(m.refrao?'<div class="panel" style="background:var(--accent-soft)"><div class="eyebrow">Refrão</div><div style="white-space:pre-line">'+esc(m.refrao)+'</div></div>':'')
+        +'<div style="white-space:pre-line;line-height:1.7">'+esc(m.letra||'')+'</div>'
+        +(conf?'<div><div class="eyebrow">Confira</div><ul style="margin:0;padding-left:20px">'+conf+'</ul></div>':'')
+        +(m.flow_url?'<a class="btnlink" href="'+esc(m.flow_url)+'" target="_blank" rel="noopener">Ouvir no Flow Music ↗</a>':'<span class="note">Faixa no Flow Music ainda não gerada.</span>')
+        +'</details>'; }).join(''); }
+
   // ---------- BANCA ----------
   var BTABS=[['perfil','Perfil da banca'],['prioridades','Prioridades'],['armadilhas','Armadilhas'],['comentarios','Comentários'],['videos','Videoaulas']];
   function bList(a){ return '<ul style="margin:0;padding-left:20px;display:grid;gap:6px">'+a.map(function(x){ return '<li>'+esc(x)+'</li>'; }).join('')+'</ul>'; }
@@ -608,8 +664,8 @@ footer{padding-top:28px;font-size:13px;color:var(--muted);display:grid;gap:6px}
     $('placar').innerHTML=h; }
 
   // ---------- carga ----------
-  Promise.all([fetch('questoes.json').then(function(r){return r.json()}),fetch('cards.json').then(function(r){return r.json()}),fetch('links.json').then(function(r){return r.json()}).catch(function(){return null}),fetch('banca.json').then(function(r){return r.json()}).catch(function(){return null}),fetch('videos.json').then(function(r){return r.json()}).catch(function(){return null})]).then(function(res){
-    Q=res[0]; Q.forEach(function(q){ QBY[q.id]=q; }); C=res[1]; LINKS=res[2]; BANCA=res[3]; VIDEOS=res[4];
+  Promise.all([fetch('questoes.json').then(function(r){return r.json()}),fetch('cards.json').then(function(r){return r.json()}),fetch('links.json').then(function(r){return r.json()}).catch(function(){return null}),fetch('banca.json').then(function(r){return r.json()}).catch(function(){return null}),fetch('videos.json').then(function(r){return r.json()}).catch(function(){return null}),fetch('musicas.json').then(function(r){return r.json()}).catch(function(){return null}),fetch('familia.json').then(function(r){return r.json()}).catch(function(){return null})]).then(function(res){
+    Q=res[0]; Q.forEach(function(q){ QBY[q.id]=q; }); C=res[1]; LINKS=res[2]; BANCA=res[3]; VIDEOS=res[4]; MUSICAS=res[5]; FAMILIA=res[6]; fillPersona();
     var cnt={}; Q.forEach(function(q){ cnt[q.disc]=(cnt[q.disc]||0)+1; });
     $('discChips').innerHTML=Object.keys(DISC).map(function(d){ return '<button type="button" data-d="'+d+'" aria-pressed="false">'+esc(DISC[d])+' <span class="mono">'+(cnt[d]||0)+'</span></button>'; }).join('');
     $('discChips').querySelectorAll('button').forEach(function(b){ b.onclick=function(){ discSel[b.dataset.d]=!discSel[b.dataset.d]; syncChips(); fillAssuntos(); }; });
