@@ -31,10 +31,17 @@ Publicado em https://ronaldo082327.github.io/arena-transpetro/ (GitHub Pages, br
 7. **Crianças da família** (João Miguel e Sophia) aparecem só como personagens desenhados, nunca a partir de fotos.
 8. **Commits pequenos**, mensagem em português, e teste no navegador antes de enviar.
 
-## Ideias de evolução (prioridade até 27/11/2026, depois só correções)
+## Já implementado (02/11/2026)
 
-- App instalável (manifest e service worker) para abrir offline no celular.
-- Exportar e importar o progresso em JSON.
-- Laboratório de SQL executável no navegador (sql.js ou alasql) com as tabelas da prova.
-- Simulado de 50 questões com a regra do chute por bloco de 10 e relatório por tipo de erro.
-- Acessibilidade: contraste AA, foco visível, alvos de 44 px.
+- App instalável e offline no GitHub Pages: `manifest.json`, `sw.js` (cache com versão por data; revalida com o servidor) e ícones `icon-192.png`/`icon-512.png`.
+- Exportar e importar o progresso (área Placar); no Claude, o download usa a permissão `downloads`.
+- Labs de SQL com alasql 4.6.6 (12 desafios conferidos automaticamente).
+- Relatório do simulado por bloco, calibração da margem (certeza, dúvida, chute) e tipos de erro.
+
+Ao mudar arquivos servidos, o `sw.js` precisa de uma versão nova (o script `pwa_github.py` gera pela data).
+
+## Próximas ideias (até 27/11/2026, depois só correções)
+
+- Gráfico de evolução do acerto por semana.
+- Modo "revisão relâmpago" com 10 cards e 5 questões dos assuntos de pior acerto.
+- Lembrete diário (notificação) quando o app estiver instalado.
