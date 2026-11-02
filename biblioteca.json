@@ -1,0 +1,1303 @@
+{
+ "atualizado": "02/11/2026",
+ "pasta": "https://drive.google.com/drive/folders/1mITfToRLT5IXrB67Q8FhJZzUF4zsvjKm",
+ "fonte_unica": "Google Drive · Arena · Base de conhecimento",
+ "itens": [
+  {
+   "grupo": "Guias Cesgranrio",
+   "titulo": "Guia 00 · Anatomia da Cesgranrio",
+   "disc": "Geral",
+   "tipo": "doc",
+   "id": "1H5Y5GqoHYKw173GZe4Sc7g3UC4WbvLoRrVV985civ78",
+   "url": "https://docs.google.com/document/d/1H5Y5GqoHYKw173GZe4Sc7g3UC4WbvLoRrVV985civ78/edit",
+   "local": "guias/00-anatomia-cesgranrio.md"
+  },
+  {
+   "grupo": "Guias Cesgranrio",
+   "titulo": "Guia 01 · Português",
+   "disc": "Português",
+   "tipo": "doc",
+   "id": "1QKdshqK4TOmwNBDEboIMuUAboQENzkMSgnPSHVDOkAc",
+   "url": "https://docs.google.com/document/d/1QKdshqK4TOmwNBDEboIMuUAboQENzkMSgnPSHVDOkAc/edit",
+   "local": "guias/01-portugues.md"
+  },
+  {
+   "grupo": "Guias Cesgranrio",
+   "titulo": "Guia 02 · Inglês",
+   "disc": "Inglês",
+   "tipo": "doc",
+   "id": "1aQ0dsAthSPJhnf_A0UwxLv-xr_f4x0hgDvAy5a41F70",
+   "url": "https://docs.google.com/document/d/1aQ0dsAthSPJhnf_A0UwxLv-xr_f4x0hgDvAy5a41F70/edit",
+   "local": "guias/02-ingles.md"
+  },
+  {
+   "grupo": "Guias Cesgranrio",
+   "titulo": "Guia 03 · Arquitetura de Dados",
+   "disc": "Dados",
+   "tipo": "doc",
+   "id": "1sh_ysWsBtYkR__ezlIKrXmpNHjNdVC0c_sdvcWNG-Dg",
+   "url": "https://docs.google.com/document/d/1sh_ysWsBtYkR__ezlIKrXmpNHjNdVC0c_sdvcWNG-Dg/edit",
+   "local": "guias/03-dados.md"
+  },
+  {
+   "grupo": "Guias Cesgranrio",
+   "titulo": "Guia 04 · Projetos",
+   "disc": "Projetos",
+   "tipo": "doc",
+   "id": "1PCQSo_apY6SMDFC7da1Ax-NmMqh2V2rcMsuVCPjmQ3w",
+   "url": "https://docs.google.com/document/d/1PCQSo_apY6SMDFC7da1Ax-NmMqh2V2rcMsuVCPjmQ3w/edit",
+   "local": "guias/04-projetos.md"
+  },
+  {
+   "grupo": "Guias Cesgranrio",
+   "titulo": "Guia 05 · Governança e LGPD",
+   "disc": "Governança",
+   "tipo": "doc",
+   "id": "1ly84fbG37OkXuyHA4hOHCeFgbl5mT-2foq26z9EbVwU",
+   "url": "https://docs.google.com/document/d/1ly84fbG37OkXuyHA4hOHCeFgbl5mT-2foq26z9EbVwU/edit",
+   "local": "guias/05-governanca.md"
+  },
+  {
+   "grupo": "Guias Cesgranrio",
+   "titulo": "Guia 06 · Engenharia de Software",
+   "disc": "Eng. Software",
+   "tipo": "doc",
+   "id": "1DJbsm5muBI0yyYpjuSu_TkAzOsP1u7DcbyeaiIyBti8",
+   "url": "https://docs.google.com/document/d/1DJbsm5muBI0yyYpjuSu_TkAzOsP1u7DcbyeaiIyBti8/edit",
+   "local": "guias/06-engenharia-software.md"
+  },
+  {
+   "grupo": "Guias Cesgranrio",
+   "titulo": "Guia 07 · UX",
+   "disc": "UX",
+   "tipo": "doc",
+   "id": "1KLZ-y2aSnTmQYfEbc6GME3cFG--7-Q4rsdBhCpVlapM",
+   "url": "https://docs.google.com/document/d/1KLZ-y2aSnTmQYfEbc6GME3cFG--7-Q4rsdBhCpVlapM/edit",
+   "local": "guias/07-ux.md"
+  },
+  {
+   "grupo": "Guias Cesgranrio",
+   "titulo": "Guia 08 · BI e Análise de Dados",
+   "disc": "BI",
+   "tipo": "doc",
+   "id": "1w71Jig1u9slGwJyd4lqW4jOY5m8QaYzM2UanuqQe7WY",
+   "url": "https://docs.google.com/document/d/1w71Jig1u9slGwJyd4lqW4jOY5m8QaYzM2UanuqQe7WY/edit",
+   "local": "guias/08-bi.md"
+  },
+  {
+   "grupo": "Guias Cesgranrio",
+   "titulo": "Guia 09 · Lógica",
+   "disc": "Lógica",
+   "tipo": "doc",
+   "id": "1qlSW1INBH39MkCmVuMgdczTUwn7_yJhQ_NL3Ntbk7vE",
+   "url": "https://docs.google.com/document/d/1qlSW1INBH39MkCmVuMgdczTUwn7_yJhQ_NL3Ntbk7vE/edit",
+   "local": "guias/09-logica.md"
+  },
+  {
+   "grupo": "Guias Cesgranrio",
+   "titulo": "Guia 10 · Segurança da Informação",
+   "disc": "Segurança",
+   "tipo": "doc",
+   "id": "1pZtvwrlgr61l62Gje462N8lFuC4Po_6KwkMzW7GjBq4",
+   "url": "https://docs.google.com/document/d/1pZtvwrlgr61l62Gje462N8lFuC4Po_6KwkMzW7GjBq4/edit",
+   "local": "guias/10-seguranca.md"
+  },
+  {
+   "grupo": "Guias Cesgranrio",
+   "titulo": "Guia 11 · Lições das videoaulas",
+   "disc": "Geral",
+   "tipo": "doc",
+   "id": "1H0znd0BMBcwZIJ5LMMO2fL2bEY-rxZiIjd_zP58cAHY",
+   "url": "https://docs.google.com/document/d/1H0znd0BMBcwZIJ5LMMO2fL2bEY-rxZiIjd_zP58cAHY/edit",
+   "local": "guias/11-licoes-das-videoaulas.md"
+  },
+  {
+   "grupo": "Guias Cesgranrio",
+   "titulo": "Guia 12 · Comentários do TecConcursos",
+   "disc": "Geral",
+   "tipo": "docx",
+   "id": "1km4gpSmfRzVZ26b-Rx6D85X1tlg5SCz8",
+   "url": "https://drive.google.com/file/d/1km4gpSmfRzVZ26b-Rx6D85X1tlg5SCz8/view",
+   "local": "guias/12-sintese-comentarios-tecconcursos.md"
+  },
+  {
+   "grupo": "Guias Cesgranrio",
+   "titulo": "Guia 13 · Gabaritos contestados",
+   "disc": "Geral",
+   "tipo": "docx",
+   "id": "1Vr4q1GihpsceL4n1zbgt-YYfAzrcav-0",
+   "url": "https://drive.google.com/file/d/1Vr4q1GihpsceL4n1zbgt-YYfAzrcav-0/view",
+   "local": "guias/13-gabaritos-contestados-analise.md"
+  },
+  {
+   "grupo": "Edital, plano e prova",
+   "titulo": "Conteúdo programático comentado",
+   "disc": "Geral",
+   "tipo": "doc",
+   "id": "1PtyUwSfKgMjYGGM9GsQsA-BSnzZmUPQylDUZGcA_uNo",
+   "url": "https://docs.google.com/document/d/1PtyUwSfKgMjYGGM9GsQsA-BSnzZmUPQylDUZGcA_uNo/edit",
+   "local": ""
+  },
+  {
+   "grupo": "Edital, plano e prova",
+   "titulo": "Reta Final · plano de revisão e dia da prova",
+   "disc": "Geral",
+   "tipo": "docx",
+   "id": "1Z3aKLCJyqNIF-t1LSz9R6eIl04cc6YLm",
+   "url": "https://drive.google.com/file/d/1Z3aKLCJyqNIF-t1LSz9R6eIl04cc6YLm/view",
+   "local": ""
+  },
+  {
+   "grupo": "Edital, plano e prova",
+   "titulo": "Prova Transpetro 2023 comentada · parte 1",
+   "disc": "Geral",
+   "tipo": "doc",
+   "id": "1QDbqeyfyUP_zEkJcGXQeRcP1dKwr2o5qz4Tt-1NLTcA",
+   "url": "https://docs.google.com/document/d/1QDbqeyfyUP_zEkJcGXQeRcP1dKwr2o5qz4Tt-1NLTcA/edit",
+   "local": ""
+  },
+  {
+   "grupo": "Edital, plano e prova",
+   "titulo": "Prova Transpetro 2023 comentada · parte 2",
+   "disc": "Geral",
+   "tipo": "doc",
+   "id": "1Qhdxzd0tDEu50ZU0tttpxo5Rfe6moXF2L8ROPmcUS_I",
+   "url": "https://docs.google.com/document/d/1Qhdxzd0tDEu50ZU0tttpxo5Rfe6moXF2L8ROPmcUS_I/edit",
+   "local": ""
+  },
+  {
+   "grupo": "Edital, plano e prova",
+   "titulo": "Prova Transpetro 2023 comentada · parte 3",
+   "disc": "Geral",
+   "tipo": "doc",
+   "id": "1KT7es2rB-MekG821xfojofn_H0bY2FqTI_qq1JdLwXM",
+   "url": "https://docs.google.com/document/d/1KT7es2rB-MekG821xfojofn_H0bY2FqTI_qq1JdLwXM/edit",
+   "local": ""
+  },
+  {
+   "grupo": "Edital, plano e prova",
+   "titulo": "Cadernos do TecConcursos · links",
+   "disc": "Geral",
+   "tipo": "docx",
+   "id": "1EQBMZaS4I_XEzn5pkyoEQyiWI3zVpkbu",
+   "url": "https://drive.google.com/file/d/1EQBMZaS4I_XEzn5pkyoEQyiWI3zVpkbu/view",
+   "local": ""
+  },
+  {
+   "grupo": "Edital, plano e prova",
+   "titulo": "Plano do app no Google AI Studio",
+   "disc": "Geral",
+   "tipo": "docx",
+   "id": "1TDPZPbih3njQxP1CuLUx1HPnkESgN5nt",
+   "url": "https://drive.google.com/file/d/1TDPZPbih3njQxP1CuLUx1HPnkESgN5nt/view",
+   "local": ""
+  },
+  {
+   "grupo": "Questões Cesgranrio (TecConcursos)",
+   "titulo": "Caderno Dados · parte 1",
+   "disc": "Dados",
+   "tipo": "doc",
+   "id": "1oxkfkxQl28V3tp0xLvl2tx5inp7RMQrQQ7K3Vq_qSOA",
+   "url": "https://docs.google.com/document/d/1oxkfkxQl28V3tp0xLvl2tx5inp7RMQrQQ7K3Vq_qSOA/edit",
+   "local": ""
+  },
+  {
+   "grupo": "Questões Cesgranrio (TecConcursos)",
+   "titulo": "Caderno Dados · parte 2",
+   "disc": "Dados",
+   "tipo": "doc",
+   "id": "1S_RVu1tgqdSxuyxAvoKx-XPML4S5i2ivRjqK2d_9L-M",
+   "url": "https://docs.google.com/document/d/1S_RVu1tgqdSxuyxAvoKx-XPML4S5i2ivRjqK2d_9L-M/edit",
+   "local": ""
+  },
+  {
+   "grupo": "Questões Cesgranrio (TecConcursos)",
+   "titulo": "Caderno Dados · parte 3",
+   "disc": "Dados",
+   "tipo": "doc",
+   "id": "1TXt2EHNf7WB0VC7kF-5jVjIW1HZepmwvmefayxP8sak",
+   "url": "https://docs.google.com/document/d/1TXt2EHNf7WB0VC7kF-5jVjIW1HZepmwvmefayxP8sak/edit",
+   "local": ""
+  },
+  {
+   "grupo": "Questões Cesgranrio (TecConcursos)",
+   "titulo": "Caderno Projetos",
+   "disc": "Projetos",
+   "tipo": "doc",
+   "id": "10xOOo5A15xpP0cc9mexdTwOGSwAPDFs38SD-3Sa9Xb8",
+   "url": "https://docs.google.com/document/d/10xOOo5A15xpP0cc9mexdTwOGSwAPDFs38SD-3Sa9Xb8/edit",
+   "local": ""
+  },
+  {
+   "grupo": "Questões Cesgranrio (TecConcursos)",
+   "titulo": "Caderno Governança",
+   "disc": "Governança",
+   "tipo": "doc",
+   "id": "1uTkhdiE-nejFpNLB84oF2JTUhHyjAZYMwObLy6DGTKQ",
+   "url": "https://docs.google.com/document/d/1uTkhdiE-nejFpNLB84oF2JTUhHyjAZYMwObLy6DGTKQ/edit",
+   "local": ""
+  },
+  {
+   "grupo": "Questões Cesgranrio (TecConcursos)",
+   "titulo": "Caderno Eng. Software e UX · parte 1",
+   "disc": "Eng. Software",
+   "tipo": "doc",
+   "id": "1PXlYY-M9RiffgrIWGVllzdjY02jwt0ebcexBBuzsKek",
+   "url": "https://docs.google.com/document/d/1PXlYY-M9RiffgrIWGVllzdjY02jwt0ebcexBBuzsKek/edit",
+   "local": ""
+  },
+  {
+   "grupo": "Questões Cesgranrio (TecConcursos)",
+   "titulo": "Caderno Eng. Software e UX · parte 2",
+   "disc": "Eng. Software",
+   "tipo": "doc",
+   "id": "1o3d8Yo4fYsR67yoDm3eU48uy8g9UKzFwjI-dBBvUoHM",
+   "url": "https://docs.google.com/document/d/1o3d8Yo4fYsR67yoDm3eU48uy8g9UKzFwjI-dBBvUoHM/edit",
+   "local": ""
+  },
+  {
+   "grupo": "Questões Cesgranrio (TecConcursos)",
+   "titulo": "Caderno BI e Ciência de Dados · parte 1",
+   "disc": "BI",
+   "tipo": "doc",
+   "id": "1zhjdzOycU9v4ckzF4QZ7nX3Vl0R6G3CY9QUR0FaclsQ",
+   "url": "https://docs.google.com/document/d/1zhjdzOycU9v4ckzF4QZ7nX3Vl0R6G3CY9QUR0FaclsQ/edit",
+   "local": ""
+  },
+  {
+   "grupo": "Questões Cesgranrio (TecConcursos)",
+   "titulo": "Caderno BI e Ciência de Dados · parte 2",
+   "disc": "BI",
+   "tipo": "doc",
+   "id": "1czij_tWwOLlNmr5cw6tXli79npzQQujd4iUNTrzWDvc",
+   "url": "https://docs.google.com/document/d/1czij_tWwOLlNmr5cw6tXli79npzQQujd4iUNTrzWDvc/edit",
+   "local": ""
+  },
+  {
+   "grupo": "Questões Cesgranrio (TecConcursos)",
+   "titulo": "Caderno Segurança · parte 1",
+   "disc": "Segurança",
+   "tipo": "doc",
+   "id": "17_jbAfTV0vTeMa-v0-Xz_4FcRnYOzyW9XxnMxuyC6-o",
+   "url": "https://docs.google.com/document/d/17_jbAfTV0vTeMa-v0-Xz_4FcRnYOzyW9XxnMxuyC6-o/edit",
+   "local": ""
+  },
+  {
+   "grupo": "Questões Cesgranrio (TecConcursos)",
+   "titulo": "Caderno Segurança · parte 2",
+   "disc": "Segurança",
+   "tipo": "doc",
+   "id": "1rE9M591PSCCZvBVtOWp_cn3QxCS9xe35D29Hh86axfA",
+   "url": "https://docs.google.com/document/d/1rE9M591PSCCZvBVtOWp_cn3QxCS9xe35D29Hh86axfA/edit",
+   "local": ""
+  },
+  {
+   "grupo": "Família e músicas",
+   "titulo": "Banca em Família · roteiro",
+   "disc": "Geral",
+   "tipo": "docx",
+   "id": "1GYbMyLOXp5FbZzqQAsIiz10RU8Jrgn13",
+   "url": "https://drive.google.com/file/d/1GYbMyLOXp5FbZzqQAsIiz10RU8Jrgn13/view",
+   "local": ""
+  },
+  {
+   "grupo": "Família e músicas",
+   "titulo": "Gravação em família · roteiro por pessoa",
+   "disc": "Geral",
+   "tipo": "docx",
+   "id": "1c7OnXvN0ahzqbkUpgAigeJReniac1gZk",
+   "url": "https://drive.google.com/file/d/1c7OnXvN0ahzqbkUpgAigeJReniac1gZk/view",
+   "local": ""
+  },
+  {
+   "grupo": "Família e músicas",
+   "titulo": "Paródias de estudo",
+   "disc": "Geral",
+   "tipo": "docx",
+   "id": "1Vzg2_3zYg-oNHAakWyU-3_haFjw0MnCd",
+   "url": "https://drive.google.com/file/d/1Vzg2_3zYg-oNHAakWyU-3_haFjw0MnCd/view",
+   "local": ""
+  },
+  {
+   "grupo": "Aulas dos cursos (PDF)",
+   "titulo": "Português · aula 00",
+   "disc": "Português",
+   "tipo": "pdf",
+   "id": "1LbqxSsxd0ZEsfKjiv4FO6MPfSk79AYUZ",
+   "url": "https://drive.google.com/file/d/1LbqxSsxd0ZEsfKjiv4FO6MPfSk79AYUZ/view",
+   "local": ""
+  },
+  {
+   "grupo": "Aulas dos cursos (PDF)",
+   "titulo": "Português · aula 01",
+   "disc": "Português",
+   "tipo": "pdf",
+   "id": "1PnUue4D49-cOTbfqVHX8FOPxmr_kRGBy",
+   "url": "https://drive.google.com/file/d/1PnUue4D49-cOTbfqVHX8FOPxmr_kRGBy/view",
+   "local": ""
+  },
+  {
+   "grupo": "Aulas dos cursos (PDF)",
+   "titulo": "Português · aula 02",
+   "disc": "Português",
+   "tipo": "pdf",
+   "id": "1IugchrCj7HRWNtpN42UHC14MQmA1mlf9",
+   "url": "https://drive.google.com/file/d/1IugchrCj7HRWNtpN42UHC14MQmA1mlf9/view",
+   "local": ""
+  },
+  {
+   "grupo": "Aulas dos cursos (PDF)",
+   "titulo": "Português · aula 03",
+   "disc": "Português",
+   "tipo": "pdf",
+   "id": "11Z01rpyn8mflXLdB9zJ82jRCMbBK7qAP",
+   "url": "https://drive.google.com/file/d/11Z01rpyn8mflXLdB9zJ82jRCMbBK7qAP/view",
+   "local": ""
+  },
+  {
+   "grupo": "Aulas dos cursos (PDF)",
+   "titulo": "Português · aula 04",
+   "disc": "Português",
+   "tipo": "pdf",
+   "id": "1gZLyCIoB_ZPtfbw8kwKjry2ZIlG7tIDM",
+   "url": "https://drive.google.com/file/d/1gZLyCIoB_ZPtfbw8kwKjry2ZIlG7tIDM/view",
+   "local": ""
+  },
+  {
+   "grupo": "Aulas dos cursos (PDF)",
+   "titulo": "Português · aula 05",
+   "disc": "Português",
+   "tipo": "pdf",
+   "id": "1fNcp2DLQAsVxdJpawRo749jeWwHX-Az5",
+   "url": "https://drive.google.com/file/d/1fNcp2DLQAsVxdJpawRo749jeWwHX-Az5/view",
+   "local": ""
+  },
+  {
+   "grupo": "Aulas dos cursos (PDF)",
+   "titulo": "Português · aula 06",
+   "disc": "Português",
+   "tipo": "pdf",
+   "id": "1_uxI76aMc_viiIyYksVnsOgg2nfXaNy9",
+   "url": "https://drive.google.com/file/d/1_uxI76aMc_viiIyYksVnsOgg2nfXaNy9/view",
+   "local": ""
+  },
+  {
+   "grupo": "Aulas dos cursos (PDF)",
+   "titulo": "Português · aula 07",
+   "disc": "Português",
+   "tipo": "pdf",
+   "id": "1HV5KHk9iVPUFJf3J_FW80oGgVJ-jG9SQ",
+   "url": "https://drive.google.com/file/d/1HV5KHk9iVPUFJf3J_FW80oGgVJ-jG9SQ/view",
+   "local": ""
+  },
+  {
+   "grupo": "Aulas dos cursos (PDF)",
+   "titulo": "Português · aula 08",
+   "disc": "Português",
+   "tipo": "pdf",
+   "id": "10LVpqfmLIp6spDrQgIS8LojhWQmS2w10",
+   "url": "https://drive.google.com/file/d/10LVpqfmLIp6spDrQgIS8LojhWQmS2w10/view",
+   "local": ""
+  },
+  {
+   "grupo": "Aulas dos cursos (PDF)",
+   "titulo": "Português · aula 09",
+   "disc": "Português",
+   "tipo": "pdf",
+   "id": "1IqJUPMroygFLx0nSJQL5GyskN3_p4owN",
+   "url": "https://drive.google.com/file/d/1IqJUPMroygFLx0nSJQL5GyskN3_p4owN/view",
+   "local": ""
+  },
+  {
+   "grupo": "Aulas dos cursos (PDF)",
+   "titulo": "Português · aula 10",
+   "disc": "Português",
+   "tipo": "pdf",
+   "id": "1FrRhwB_XsVY6gsh4OQsIGazRWxhAf5AP",
+   "url": "https://drive.google.com/file/d/1FrRhwB_XsVY6gsh4OQsIGazRWxhAf5AP/view",
+   "local": ""
+  },
+  {
+   "grupo": "Aulas dos cursos (PDF)",
+   "titulo": "Português · aula 11",
+   "disc": "Português",
+   "tipo": "pdf",
+   "id": "1meXvOienuxsAGuThF3TwpYr84uHVkabC",
+   "url": "https://drive.google.com/file/d/1meXvOienuxsAGuThF3TwpYr84uHVkabC/view",
+   "local": ""
+  },
+  {
+   "grupo": "Aulas dos cursos (PDF)",
+   "titulo": "Passo Estratégico · Português · aula 01",
+   "disc": "Português",
+   "tipo": "pdf",
+   "id": "1adHV9XRNJQd9R2gkjtMNijWs1IAGyxxj",
+   "url": "https://drive.google.com/file/d/1adHV9XRNJQd9R2gkjtMNijWs1IAGyxxj/view",
+   "local": ""
+  },
+  {
+   "grupo": "Aulas dos cursos (PDF)",
+   "titulo": "Passo Estratégico · Português · aula 02",
+   "disc": "Português",
+   "tipo": "pdf",
+   "id": "1XXKL0IflHT19MaGdtZsSvWiWFau7Z-NZ",
+   "url": "https://drive.google.com/file/d/1XXKL0IflHT19MaGdtZsSvWiWFau7Z-NZ/view",
+   "local": ""
+  },
+  {
+   "grupo": "Aulas dos cursos (PDF)",
+   "titulo": "Passo Estratégico · Português · aula 03",
+   "disc": "Português",
+   "tipo": "pdf",
+   "id": "1TmSQCEK2FgazurCM0avNJ7AFNiU-hCfU",
+   "url": "https://drive.google.com/file/d/1TmSQCEK2FgazurCM0avNJ7AFNiU-hCfU/view",
+   "local": ""
+  },
+  {
+   "grupo": "Aulas dos cursos (PDF)",
+   "titulo": "Passo Estratégico · Português · aula 04",
+   "disc": "Português",
+   "tipo": "pdf",
+   "id": "1vH_HPOqFmQAN_FODOkKDA51zyNQjncne",
+   "url": "https://drive.google.com/file/d/1vH_HPOqFmQAN_FODOkKDA51zyNQjncne/view",
+   "local": ""
+  },
+  {
+   "grupo": "Aulas dos cursos (PDF)",
+   "titulo": "Passo Estratégico · Português · aula 05",
+   "disc": "Português",
+   "tipo": "pdf",
+   "id": "19YZ5nz3kQyKRU-EmfmP2PubmP_48E3QD",
+   "url": "https://drive.google.com/file/d/19YZ5nz3kQyKRU-EmfmP2PubmP_48E3QD/view",
+   "local": ""
+  },
+  {
+   "grupo": "Aulas dos cursos (PDF)",
+   "titulo": "Passo Estratégico · Português · simulado 01",
+   "disc": "Português",
+   "tipo": "pdf",
+   "id": "1we5O0QfY45FYRH1GjIVjLEiuObs40xqy",
+   "url": "https://drive.google.com/file/d/1we5O0QfY45FYRH1GjIVjLEiuObs40xqy/view",
+   "local": ""
+  },
+  {
+   "grupo": "Aulas dos cursos (PDF)",
+   "titulo": "Inglês · aula 00",
+   "disc": "Inglês",
+   "tipo": "pdf",
+   "id": "13_llh7Mybn_HryUOuxwL-HuGwpRsgMI9",
+   "url": "https://drive.google.com/file/d/13_llh7Mybn_HryUOuxwL-HuGwpRsgMI9/view",
+   "local": ""
+  },
+  {
+   "grupo": "Aulas dos cursos (PDF)",
+   "titulo": "Inglês · aula 01",
+   "disc": "Inglês",
+   "tipo": "pdf",
+   "id": "1ENFZoA_Pm3KQIY9XNtKDVPokw9rFdYvI",
+   "url": "https://drive.google.com/file/d/1ENFZoA_Pm3KQIY9XNtKDVPokw9rFdYvI/view",
+   "local": ""
+  },
+  {
+   "grupo": "Aulas dos cursos (PDF)",
+   "titulo": "Inglês · aula 02",
+   "disc": "Inglês",
+   "tipo": "pdf",
+   "id": "1I7sR3LJUvYNWUsynBpDXKu_BsgYGx9Hg",
+   "url": "https://drive.google.com/file/d/1I7sR3LJUvYNWUsynBpDXKu_BsgYGx9Hg/view",
+   "local": ""
+  },
+  {
+   "grupo": "Aulas dos cursos (PDF)",
+   "titulo": "Inglês · aula 03",
+   "disc": "Inglês",
+   "tipo": "pdf",
+   "id": "1T6th8CAbt33LnUHMMQybaRmMQfOND8F5",
+   "url": "https://drive.google.com/file/d/1T6th8CAbt33LnUHMMQybaRmMQfOND8F5/view",
+   "local": ""
+  },
+  {
+   "grupo": "Aulas dos cursos (PDF)",
+   "titulo": "Inglês · aula 04",
+   "disc": "Inglês",
+   "tipo": "pdf",
+   "id": "1VCKIUs_4-yqSPQzpWvXRHqr7dHarvb9G",
+   "url": "https://drive.google.com/file/d/1VCKIUs_4-yqSPQzpWvXRHqr7dHarvb9G/view",
+   "local": ""
+  },
+  {
+   "grupo": "Aulas dos cursos (PDF)",
+   "titulo": "Inglês · aula 05",
+   "disc": "Inglês",
+   "tipo": "pdf",
+   "id": "1ackF_SBxv9hBhGGlfGQ32H3C7KUvXXBN",
+   "url": "https://drive.google.com/file/d/1ackF_SBxv9hBhGGlfGQ32H3C7KUvXXBN/view",
+   "local": ""
+  },
+  {
+   "grupo": "Aulas dos cursos (PDF)",
+   "titulo": "Inglês · aula 06",
+   "disc": "Inglês",
+   "tipo": "pdf",
+   "id": "1F9lUPOWPuv8Fp5_MGG8K9dLLrfGLOz3x",
+   "url": "https://drive.google.com/file/d/1F9lUPOWPuv8Fp5_MGG8K9dLLrfGLOz3x/view",
+   "local": ""
+  },
+  {
+   "grupo": "Aulas dos cursos (PDF)",
+   "titulo": "Inglês · aula 07",
+   "disc": "Inglês",
+   "tipo": "pdf",
+   "id": "1OLCDVm1QruwNia0LoARkxSZ8lYuLAzVp",
+   "url": "https://drive.google.com/file/d/1OLCDVm1QruwNia0LoARkxSZ8lYuLAzVp/view",
+   "local": ""
+  },
+  {
+   "grupo": "Aulas dos cursos (PDF)",
+   "titulo": "Passo Estratégico · Inglês · aula 00",
+   "disc": "Inglês",
+   "tipo": "pdf",
+   "id": "1YXVro90D0vaIzqCaCNklKYl7RcfNouDo",
+   "url": "https://drive.google.com/file/d/1YXVro90D0vaIzqCaCNklKYl7RcfNouDo/view",
+   "local": ""
+  },
+  {
+   "grupo": "Aulas dos cursos (PDF)",
+   "titulo": "Passo Estratégico · Inglês · aula 01",
+   "disc": "Inglês",
+   "tipo": "pdf",
+   "id": "1SRdZ6WQWWDZZQkZTsp072JLbiZTXCgkr",
+   "url": "https://drive.google.com/file/d/1SRdZ6WQWWDZZQkZTsp072JLbiZTXCgkr/view",
+   "local": ""
+  },
+  {
+   "grupo": "Aulas dos cursos (PDF)",
+   "titulo": "Passo Estratégico · Inglês · aula 02",
+   "disc": "Inglês",
+   "tipo": "pdf",
+   "id": "1wz157M4PL28uVFd-jlWQepUBSUMiIV6n",
+   "url": "https://drive.google.com/file/d/1wz157M4PL28uVFd-jlWQepUBSUMiIV6n/view",
+   "local": ""
+  },
+  {
+   "grupo": "Aulas dos cursos (PDF)",
+   "titulo": "Passo Estratégico · Inglês · aula 03",
+   "disc": "Inglês",
+   "tipo": "pdf",
+   "id": "1gmCyrE4YrWCtt1vhUMinzNGKodcvSrVW",
+   "url": "https://drive.google.com/file/d/1gmCyrE4YrWCtt1vhUMinzNGKodcvSrVW/view",
+   "local": ""
+  },
+  {
+   "grupo": "Aulas dos cursos (PDF)",
+   "titulo": "Passo Estratégico · Inglês · aula 04",
+   "disc": "Inglês",
+   "tipo": "pdf",
+   "id": "1sPG_pRsFAw_zcy5bHPdsgWhL2hRMUv7T",
+   "url": "https://drive.google.com/file/d/1sPG_pRsFAw_zcy5bHPdsgWhL2hRMUv7T/view",
+   "local": ""
+  },
+  {
+   "grupo": "Aulas dos cursos (PDF)",
+   "titulo": "Passo Estratégico · Inglês · aula 05",
+   "disc": "Inglês",
+   "tipo": "pdf",
+   "id": "1VB50j4FX4mpLd7SFIclrsey0b_7IjyWM",
+   "url": "https://drive.google.com/file/d/1VB50j4FX4mpLd7SFIclrsey0b_7IjyWM/view",
+   "local": ""
+  },
+  {
+   "grupo": "Aulas dos cursos (PDF)",
+   "titulo": "Passo Estratégico · Inglês · aula 06",
+   "disc": "Inglês",
+   "tipo": "pdf",
+   "id": "1kDQJgjSA8jGjxiLid0ep-AbZCL0mdR8X",
+   "url": "https://drive.google.com/file/d/1kDQJgjSA8jGjxiLid0ep-AbZCL0mdR8X/view",
+   "local": ""
+  },
+  {
+   "grupo": "Aulas dos cursos (PDF)",
+   "titulo": "Passo Estratégico · Inglês · aula 07",
+   "disc": "Inglês",
+   "tipo": "pdf",
+   "id": "1XKep8pfcE4sxAGUAX1YQ_gJ2wE9c-vtl",
+   "url": "https://drive.google.com/file/d/1XKep8pfcE4sxAGUAX1YQ_gJ2wE9c-vtl/view",
+   "local": ""
+  },
+  {
+   "grupo": "Aulas dos cursos (PDF)",
+   "titulo": "Passo Estratégico · Inglês · aula 08",
+   "disc": "Inglês",
+   "tipo": "pdf",
+   "id": "1PANojOruJmm7cw1dTgzCi4HJ91XjduIW",
+   "url": "https://drive.google.com/file/d/1PANojOruJmm7cw1dTgzCi4HJ91XjduIW/view",
+   "local": ""
+  },
+  {
+   "grupo": "Aulas dos cursos (PDF)",
+   "titulo": "Passo Estratégico · Inglês · aula 09",
+   "disc": "Inglês",
+   "tipo": "pdf",
+   "id": "1KmavGmz8HfbSX_EH-IZLZqBvfrudGWQw",
+   "url": "https://drive.google.com/file/d/1KmavGmz8HfbSX_EH-IZLZqBvfrudGWQw/view",
+   "local": ""
+  },
+  {
+   "grupo": "Aulas dos cursos (PDF)",
+   "titulo": "Passo Estratégico · Inglês · aula 10",
+   "disc": "Inglês",
+   "tipo": "pdf",
+   "id": "1DulJ86sLki_f0iLuUuYGExVU3t1vOV8I",
+   "url": "https://drive.google.com/file/d/1DulJ86sLki_f0iLuUuYGExVU3t1vOV8I/view",
+   "local": ""
+  },
+  {
+   "grupo": "Aulas dos cursos (PDF)",
+   "titulo": "Lógica · aula 00",
+   "disc": "Lógica",
+   "tipo": "pdf",
+   "id": "1wdEKQSx4SSFf4eMvOIrqwmQU27WAhi5F",
+   "url": "https://drive.google.com/file/d/1wdEKQSx4SSFf4eMvOIrqwmQU27WAhi5F/view",
+   "local": ""
+  },
+  {
+   "grupo": "Aulas dos cursos (PDF)",
+   "titulo": "Lógica · aula 01",
+   "disc": "Lógica",
+   "tipo": "pdf",
+   "id": "16ueHg8tAbYsOsuwNPIdR2ZkZoNRqCbLZ",
+   "url": "https://drive.google.com/file/d/16ueHg8tAbYsOsuwNPIdR2ZkZoNRqCbLZ/view",
+   "local": ""
+  },
+  {
+   "grupo": "Aulas dos cursos (PDF)",
+   "titulo": "Lógica · aula 02",
+   "disc": "Lógica",
+   "tipo": "pdf",
+   "id": "1ovtBMgwLkRH8BKMf9jXui4SYQs1ofRHR",
+   "url": "https://drive.google.com/file/d/1ovtBMgwLkRH8BKMf9jXui4SYQs1ofRHR/view",
+   "local": ""
+  },
+  {
+   "grupo": "Aulas dos cursos (PDF)",
+   "titulo": "Lógica · aula 03",
+   "disc": "Lógica",
+   "tipo": "pdf",
+   "id": "10OrT51t8YR33fTSNafflhq98VBdy_iYM",
+   "url": "https://drive.google.com/file/d/10OrT51t8YR33fTSNafflhq98VBdy_iYM/view",
+   "local": ""
+  },
+  {
+   "grupo": "Aulas dos cursos (PDF)",
+   "titulo": "Lógica · aula 04",
+   "disc": "Lógica",
+   "tipo": "pdf",
+   "id": "1vh_S9n9eNZgAW1gREGsqBJqwf8hSEcIs",
+   "url": "https://drive.google.com/file/d/1vh_S9n9eNZgAW1gREGsqBJqwf8hSEcIs/view",
+   "local": ""
+  },
+  {
+   "grupo": "Aulas dos cursos (PDF)",
+   "titulo": "Lógica · aula 05",
+   "disc": "Lógica",
+   "tipo": "pdf",
+   "id": "1RPRvocDZXWnBwNO4_FkIY0plRGX_Uh54",
+   "url": "https://drive.google.com/file/d/1RPRvocDZXWnBwNO4_FkIY0plRGX_Uh54/view",
+   "local": ""
+  },
+  {
+   "grupo": "Aulas dos cursos (PDF)",
+   "titulo": "Lógica · aula 06",
+   "disc": "Lógica",
+   "tipo": "pdf",
+   "id": "1DmsXvtGONupFrS0C7FhhwFwSc7WSdh-f",
+   "url": "https://drive.google.com/file/d/1DmsXvtGONupFrS0C7FhhwFwSc7WSdh-f/view",
+   "local": ""
+  },
+  {
+   "grupo": "Aulas dos cursos (PDF)",
+   "titulo": "Lógica · aula 07",
+   "disc": "Lógica",
+   "tipo": "pdf",
+   "id": "1KVaLSnURxYKKt_-4PF-jtrS2phhLj0FQ",
+   "url": "https://drive.google.com/file/d/1KVaLSnURxYKKt_-4PF-jtrS2phhLj0FQ/view",
+   "local": ""
+  },
+  {
+   "grupo": "Aulas dos cursos (PDF)",
+   "titulo": "Gestão e Governança · aula 00",
+   "disc": "Governança",
+   "tipo": "pdf",
+   "id": "1zy4IF0QqYcFISvw-kuRBrDtNIx4CM-7B",
+   "url": "https://drive.google.com/file/d/1zy4IF0QqYcFISvw-kuRBrDtNIx4CM-7B/view",
+   "local": ""
+  },
+  {
+   "grupo": "Aulas dos cursos (PDF)",
+   "titulo": "Gestão e Governança · aula 01",
+   "disc": "Governança",
+   "tipo": "pdf",
+   "id": "1moKQZJyR0qMvfrZWVuxnExWPq9YORLYQ",
+   "url": "https://drive.google.com/file/d/1moKQZJyR0qMvfrZWVuxnExWPq9YORLYQ/view",
+   "local": ""
+  },
+  {
+   "grupo": "Aulas dos cursos (PDF)",
+   "titulo": "Gestão e Governança · aula 02",
+   "disc": "Governança",
+   "tipo": "pdf",
+   "id": "1sbbdaTWcDJOu7OPTeK8DB8nx2L5lsEb0",
+   "url": "https://drive.google.com/file/d/1sbbdaTWcDJOu7OPTeK8DB8nx2L5lsEb0/view",
+   "local": ""
+  },
+  {
+   "grupo": "Aulas dos cursos (PDF)",
+   "titulo": "Gestão e Governança · aula 03",
+   "disc": "Governança",
+   "tipo": "pdf",
+   "id": "19EBilO7mExzyGZ6Wu3rT5PbciFt8abP5",
+   "url": "https://drive.google.com/file/d/19EBilO7mExzyGZ6Wu3rT5PbciFt8abP5/view",
+   "local": ""
+  },
+  {
+   "grupo": "Aulas dos cursos (PDF)",
+   "titulo": "Gestão e Governança · aula 04",
+   "disc": "Governança",
+   "tipo": "pdf",
+   "id": "1s1dea3FtksbiG_Z_6LzrIZkhDcWPe5OL",
+   "url": "https://drive.google.com/file/d/1s1dea3FtksbiG_Z_6LzrIZkhDcWPe5OL/view",
+   "local": ""
+  },
+  {
+   "grupo": "Aulas dos cursos (PDF)",
+   "titulo": "Engenharia de Software · aula 00",
+   "disc": "Eng. Software",
+   "tipo": "pdf",
+   "id": "1n2dVbuq-GRnVjPdgq89talpOmykr7Air",
+   "url": "https://drive.google.com/file/d/1n2dVbuq-GRnVjPdgq89talpOmykr7Air/view",
+   "local": ""
+  },
+  {
+   "grupo": "Aulas dos cursos (PDF)",
+   "titulo": "Engenharia de Software · aula 01",
+   "disc": "Eng. Software",
+   "tipo": "pdf",
+   "id": "1S7RYC06CdAXcA-rLTXf9V17fS3P8g0Eh",
+   "url": "https://drive.google.com/file/d/1S7RYC06CdAXcA-rLTXf9V17fS3P8g0Eh/view",
+   "local": ""
+  },
+  {
+   "grupo": "Aulas dos cursos (PDF)",
+   "titulo": "Engenharia de Software · aula 02",
+   "disc": "Eng. Software",
+   "tipo": "pdf",
+   "id": "1ROSjNgbGdjHdIy-SfYWwpU4xtSrCCrDl",
+   "url": "https://drive.google.com/file/d/1ROSjNgbGdjHdIy-SfYWwpU4xtSrCCrDl/view",
+   "local": ""
+  },
+  {
+   "grupo": "Aulas dos cursos (PDF)",
+   "titulo": "Engenharia de Software · aula 03",
+   "disc": "Eng. Software",
+   "tipo": "pdf",
+   "id": "15iJyqI13g1gtuxx2LTpJusDd7gdSuj5O",
+   "url": "https://drive.google.com/file/d/15iJyqI13g1gtuxx2LTpJusDd7gdSuj5O/view",
+   "local": ""
+  },
+  {
+   "grupo": "Aulas dos cursos (PDF)",
+   "titulo": "Engenharia de Software · aula 04",
+   "disc": "Eng. Software",
+   "tipo": "pdf",
+   "id": "1JYnwivckWiygBgz-ajuzUO9L33pHid4X",
+   "url": "https://drive.google.com/file/d/1JYnwivckWiygBgz-ajuzUO9L33pHid4X/view",
+   "local": ""
+  },
+  {
+   "grupo": "Aulas dos cursos (PDF)",
+   "titulo": "Engenharia de Software · aula 05",
+   "disc": "Eng. Software",
+   "tipo": "pdf",
+   "id": "1l2iw_svAD6DRKXpwbj47Ch-UGhB4LZZ-",
+   "url": "https://drive.google.com/file/d/1l2iw_svAD6DRKXpwbj47Ch-UGhB4LZZ-/view",
+   "local": ""
+  },
+  {
+   "grupo": "Aulas dos cursos (PDF)",
+   "titulo": "Engenharia de Software · aula 06",
+   "disc": "Eng. Software",
+   "tipo": "pdf",
+   "id": "1Dx5IRSQQ77QTVLp-eqDND9iNo_cxRqB9",
+   "url": "https://drive.google.com/file/d/1Dx5IRSQQ77QTVLp-eqDND9iNo_cxRqB9/view",
+   "local": ""
+  },
+  {
+   "grupo": "Aulas dos cursos (PDF)",
+   "titulo": "Engenharia de Software · aula 07",
+   "disc": "Eng. Software",
+   "tipo": "pdf",
+   "id": "1O1jAexoe2ooqlrW-OTmTZDu7Kj36gSY0",
+   "url": "https://drive.google.com/file/d/1O1jAexoe2ooqlrW-OTmTZDu7Kj36gSY0/view",
+   "local": ""
+  },
+  {
+   "grupo": "Aulas dos cursos (PDF)",
+   "titulo": "Engenharia de Software · aula 08",
+   "disc": "Eng. Software",
+   "tipo": "pdf",
+   "id": "1uYSCUptephaKsYQY9R3IapxM_KVEkf2V",
+   "url": "https://drive.google.com/file/d/1uYSCUptephaKsYQY9R3IapxM_KVEkf2V/view",
+   "local": ""
+  },
+  {
+   "grupo": "Aulas dos cursos (PDF)",
+   "titulo": "Desenvolvimento de Software · aula única",
+   "disc": "Eng. Software",
+   "tipo": "pdf",
+   "id": "1NsugOSfVzUuhOTNCl3jPa2veYEDHel9p",
+   "url": "https://drive.google.com/file/d/1NsugOSfVzUuhOTNCl3jPa2veYEDHel9p/view",
+   "local": ""
+  },
+  {
+   "grupo": "Aulas dos cursos (PDF)",
+   "titulo": "Segurança da Informação · aula 00",
+   "disc": "Segurança",
+   "tipo": "pdf",
+   "id": "1-YZlhXRHIrnxZKc1K4jHtp5KhakZka2p",
+   "url": "https://drive.google.com/file/d/1-YZlhXRHIrnxZKc1K4jHtp5KhakZka2p/view",
+   "local": ""
+  },
+  {
+   "grupo": "Aulas dos cursos (PDF)",
+   "titulo": "Segurança da Informação · aula 01",
+   "disc": "Segurança",
+   "tipo": "pdf",
+   "id": "1Xib29MTAzOd4ckqcC_894UIP6OQs4XSy",
+   "url": "https://drive.google.com/file/d/1Xib29MTAzOd4ckqcC_894UIP6OQs4XSy/view",
+   "local": ""
+  },
+  {
+   "grupo": "Aulas dos cursos (PDF)",
+   "titulo": "Segurança da Informação · aula 02",
+   "disc": "Segurança",
+   "tipo": "pdf",
+   "id": "1CwvIPK5720H1P7YGpBgthHtgVufPyI-_",
+   "url": "https://drive.google.com/file/d/1CwvIPK5720H1P7YGpBgthHtgVufPyI-_/view",
+   "local": ""
+  },
+  {
+   "grupo": "Aulas dos cursos (PDF)",
+   "titulo": "Segurança da Informação · aula 03",
+   "disc": "Segurança",
+   "tipo": "pdf",
+   "id": "1bfUdXZ21sGc7j4v1L-Wy6RDMLNTeMJpw",
+   "url": "https://drive.google.com/file/d/1bfUdXZ21sGc7j4v1L-Wy6RDMLNTeMJpw/view",
+   "local": ""
+  },
+  {
+   "grupo": "Aulas dos cursos (PDF)",
+   "titulo": "Segurança da Informação · aula 04",
+   "disc": "Segurança",
+   "tipo": "pdf",
+   "id": "18nS120-Bu_CXzCH_nK3nS-gKe_xWZ5jx",
+   "url": "https://drive.google.com/file/d/18nS120-Bu_CXzCH_nK3nS-gKe_xWZ5jx/view",
+   "local": ""
+  },
+  {
+   "grupo": "Aulas dos cursos (PDF)",
+   "titulo": "Segurança da Informação · aula 05",
+   "disc": "Segurança",
+   "tipo": "pdf",
+   "id": "12GXJhbyGvwCWxOt7awl79l8KzzjlKTWq",
+   "url": "https://drive.google.com/file/d/12GXJhbyGvwCWxOt7awl79l8KzzjlKTWq/view",
+   "local": ""
+  },
+  {
+   "grupo": "Aulas dos cursos (PDF)",
+   "titulo": "Segurança da Informação · aula 06",
+   "disc": "Segurança",
+   "tipo": "pdf",
+   "id": "1DdWBcQhO4aey4pVxFkUmS_XRH15CmzNX",
+   "url": "https://drive.google.com/file/d/1DdWBcQhO4aey4pVxFkUmS_XRH15CmzNX/view",
+   "local": ""
+  },
+  {
+   "grupo": "Aulas dos cursos (PDF)",
+   "titulo": "Segurança da Informação · aula 07",
+   "disc": "Segurança",
+   "tipo": "pdf",
+   "id": "1yPLVlNog5-NJmMUuZ8aDnFSHSiSrh6tm",
+   "url": "https://drive.google.com/file/d/1yPLVlNog5-NJmMUuZ8aDnFSHSiSrh6tm/view",
+   "local": ""
+  },
+  {
+   "grupo": "Aulas dos cursos (PDF)",
+   "titulo": "Segurança da Informação · aula 08",
+   "disc": "Segurança",
+   "tipo": "pdf",
+   "id": "1taGZNFp2Z331ZyJnnqRVtDBlGYCKY28G",
+   "url": "https://drive.google.com/file/d/1taGZNFp2Z331ZyJnnqRVtDBlGYCKY28G/view",
+   "local": ""
+  },
+  {
+   "grupo": "Aulas dos cursos (PDF)",
+   "titulo": "Segurança da Informação · aula 09",
+   "disc": "Segurança",
+   "tipo": "pdf",
+   "id": "1cN7gNz134bLOVj56e3M_-q_ntL8FeHdT",
+   "url": "https://drive.google.com/file/d/1cN7gNz134bLOVj56e3M_-q_ntL8FeHdT/view",
+   "local": ""
+  },
+  {
+   "grupo": "Aulas dos cursos (PDF)",
+   "titulo": "Segurança da Informação · aula 10",
+   "disc": "Segurança",
+   "tipo": "pdf",
+   "id": "1kYSE8lSVqOv5HaW_AZf-uBt6y7bWneWX",
+   "url": "https://drive.google.com/file/d/1kYSE8lSVqOv5HaW_AZf-uBt6y7bWneWX/view",
+   "local": ""
+  },
+  {
+   "grupo": "Aulas dos cursos (PDF)",
+   "titulo": "Segurança da Informação · aula 11",
+   "disc": "Segurança",
+   "tipo": "pdf",
+   "id": "18DAN1NwXYfshx5P5TcYUrppcqyXJVHTY",
+   "url": "https://drive.google.com/file/d/18DAN1NwXYfshx5P5TcYUrppcqyXJVHTY/view",
+   "local": ""
+  },
+  {
+   "grupo": "Aulas dos cursos (PDF)",
+   "titulo": "Segurança da Informação · aula 12",
+   "disc": "Segurança",
+   "tipo": "pdf",
+   "id": "1Y6RzUxxyzoWshlO8LgfrDmSHmAqPYXtf",
+   "url": "https://drive.google.com/file/d/1Y6RzUxxyzoWshlO8LgfrDmSHmAqPYXtf/view",
+   "local": ""
+  },
+  {
+   "grupo": "Aulas dos cursos (PDF)",
+   "titulo": "Segurança da Informação · aula 13",
+   "disc": "Segurança",
+   "tipo": "pdf",
+   "id": "16IPOpIw2U-KCXo_RXRPDJMtxyACBtJfq",
+   "url": "https://drive.google.com/file/d/16IPOpIw2U-KCXo_RXRPDJMtxyACBtJfq/view",
+   "local": ""
+  },
+  {
+   "grupo": "Aulas dos cursos (PDF)",
+   "titulo": "Banco de Dados · aula 01",
+   "disc": "Dados",
+   "tipo": "pdf",
+   "id": "1K5rhVzqYcvTkxAZhp3pCHhSm2eCBQtnO",
+   "url": "https://drive.google.com/file/d/1K5rhVzqYcvTkxAZhp3pCHhSm2eCBQtnO/view",
+   "local": ""
+  },
+  {
+   "grupo": "Aulas dos cursos (PDF)",
+   "titulo": "Banco de Dados · aula 02",
+   "disc": "Dados",
+   "tipo": "pdf",
+   "id": "1v-Lbrkaz4dlca2ZOADO4CCoM0N3-Rl32",
+   "url": "https://drive.google.com/file/d/1v-Lbrkaz4dlca2ZOADO4CCoM0N3-Rl32/view",
+   "local": ""
+  },
+  {
+   "grupo": "Aulas dos cursos (PDF)",
+   "titulo": "Banco de Dados · aula 03",
+   "disc": "Dados",
+   "tipo": "pdf",
+   "id": "1FVkNo5HWHqrh2AvZD3uADpzu0DxVAZgr",
+   "url": "https://drive.google.com/file/d/1FVkNo5HWHqrh2AvZD3uADpzu0DxVAZgr/view",
+   "local": ""
+  },
+  {
+   "grupo": "Aulas dos cursos (PDF)",
+   "titulo": "Banco de Dados · aula 04",
+   "disc": "Dados",
+   "tipo": "pdf",
+   "id": "12NcMPorIy-OrJbRypRU-ecJ-yoeAkcnk",
+   "url": "https://drive.google.com/file/d/12NcMPorIy-OrJbRypRU-ecJ-yoeAkcnk/view",
+   "local": ""
+  },
+  {
+   "grupo": "Aulas dos cursos (PDF)",
+   "titulo": "Banco de Dados · aula 05",
+   "disc": "Dados",
+   "tipo": "pdf",
+   "id": "1u1vU5Hi70QJ87ZasR1wGgVL66_R6PGwk",
+   "url": "https://drive.google.com/file/d/1u1vU5Hi70QJ87ZasR1wGgVL66_R6PGwk/view",
+   "local": ""
+  },
+  {
+   "grupo": "Aulas dos cursos (PDF)",
+   "titulo": "Banco de Dados · aula 06",
+   "disc": "Dados",
+   "tipo": "pdf",
+   "id": "1zutIosRjEEmJOyE2ngASULnnYkDZjT3N",
+   "url": "https://drive.google.com/file/d/1zutIosRjEEmJOyE2ngASULnnYkDZjT3N/view",
+   "local": ""
+  },
+  {
+   "grupo": "Aulas dos cursos (PDF)",
+   "titulo": "Banco de Dados · aula 07",
+   "disc": "Dados",
+   "tipo": "pdf",
+   "id": "1TczS0meBPnT1vyGhkwv2ox5GUHRi9UYp",
+   "url": "https://drive.google.com/file/d/1TczS0meBPnT1vyGhkwv2ox5GUHRi9UYp/view",
+   "local": ""
+  },
+  {
+   "grupo": "Aulas dos cursos (PDF)",
+   "titulo": "Banco de Dados · aula 08",
+   "disc": "Dados",
+   "tipo": "pdf",
+   "id": "1wxwwrxFF4y2gc6UtjDDITY4jWljmhApz",
+   "url": "https://drive.google.com/file/d/1wxwwrxFF4y2gc6UtjDDITY4jWljmhApz/view",
+   "local": ""
+  },
+  {
+   "grupo": "Aulas dos cursos (PDF)",
+   "titulo": "Banco de Dados · aula 09",
+   "disc": "Dados",
+   "tipo": "pdf",
+   "id": "1HuipunRb_MA1s-8ox8Tww9WzaWKcuT9-",
+   "url": "https://drive.google.com/file/d/1HuipunRb_MA1s-8ox8Tww9WzaWKcuT9-/view",
+   "local": ""
+  },
+  {
+   "grupo": "Aulas dos cursos (PDF)",
+   "titulo": "Banco de Dados · aula 10",
+   "disc": "Dados",
+   "tipo": "pdf",
+   "id": "1wOBW97D9K4wyWO0XO7WHofWhtKLwiRjj",
+   "url": "https://drive.google.com/file/d/1wOBW97D9K4wyWO0XO7WHofWhtKLwiRjj/view",
+   "local": ""
+  },
+  {
+   "grupo": "Aulas dos cursos (PDF)",
+   "titulo": "Banco de Dados · aula 12",
+   "disc": "Dados",
+   "tipo": "pdf",
+   "id": "1RTpOS38ejULMZWYwa-nn7XZPvHzQKmOd",
+   "url": "https://drive.google.com/file/d/1RTpOS38ejULMZWYwa-nn7XZPvHzQKmOd/view",
+   "local": ""
+  },
+  {
+   "grupo": "Aulas dos cursos (PDF)",
+   "titulo": "Banco de Dados · aula 13",
+   "disc": "Dados",
+   "tipo": "pdf",
+   "id": "1VQqYfm7oSYOC6SWClbYQeZle3he4-Prf",
+   "url": "https://drive.google.com/file/d/1VQqYfm7oSYOC6SWClbYQeZle3he4-Prf/view",
+   "local": ""
+  },
+  {
+   "grupo": "Aulas dos cursos (PDF)",
+   "titulo": "Passo Estratégico · Conhecimentos Específicos · aula 00",
+   "disc": "Geral",
+   "tipo": "pdf",
+   "id": "1Y7BVSgezYtswoz_htZsply_5Q8vZ3Ozd",
+   "url": "https://drive.google.com/file/d/1Y7BVSgezYtswoz_htZsply_5Q8vZ3Ozd/view",
+   "local": ""
+  },
+  {
+   "grupo": "Aulas dos cursos (PDF)",
+   "titulo": "Passo Estratégico · Conhecimentos Específicos · aula 01",
+   "disc": "Geral",
+   "tipo": "pdf",
+   "id": "1rwEUwQ7iKAmn8Ld0l-loOG6NTcsgtjsu",
+   "url": "https://drive.google.com/file/d/1rwEUwQ7iKAmn8Ld0l-loOG6NTcsgtjsu/view",
+   "local": ""
+  },
+  {
+   "grupo": "Aulas dos cursos (PDF)",
+   "titulo": "Passo Estratégico · Conhecimentos Específicos · aula 02",
+   "disc": "Geral",
+   "tipo": "pdf",
+   "id": "1afIcI4NB0_bnOfvT7FOEqrqF1icCoKgj",
+   "url": "https://drive.google.com/file/d/1afIcI4NB0_bnOfvT7FOEqrqF1icCoKgj/view",
+   "local": ""
+  },
+  {
+   "grupo": "Aulas dos cursos (PDF)",
+   "titulo": "Passo Estratégico · Conhecimentos Específicos · aula 03",
+   "disc": "Geral",
+   "tipo": "pdf",
+   "id": "1HOKsTjMqEZnGcJ5SfXhmcTkcMDOYr540",
+   "url": "https://drive.google.com/file/d/1HOKsTjMqEZnGcJ5SfXhmcTkcMDOYr540/view",
+   "local": ""
+  },
+  {
+   "grupo": "Aulas dos cursos (PDF)",
+   "titulo": "Passo Estratégico · Conhecimentos Específicos · aula 04",
+   "disc": "Geral",
+   "tipo": "pdf",
+   "id": "1Y5sI234sz-oYKY4UR5H8mDEmnmqvza0O",
+   "url": "https://drive.google.com/file/d/1Y5sI234sz-oYKY4UR5H8mDEmnmqvza0O/view",
+   "local": ""
+  },
+  {
+   "grupo": "Aulas dos cursos (PDF)",
+   "titulo": "Passo Estratégico · Conhecimentos Específicos · aula 05",
+   "disc": "Geral",
+   "tipo": "pdf",
+   "id": "1jRIUIDjl3CmK6Ot6-3KGlrBnw7ZwiVAt",
+   "url": "https://drive.google.com/file/d/1jRIUIDjl3CmK6Ot6-3KGlrBnw7ZwiVAt/view",
+   "local": ""
+  },
+  {
+   "grupo": "Aulas dos cursos (PDF)",
+   "titulo": "Passo Estratégico · Conhecimentos Específicos · aula 06",
+   "disc": "Geral",
+   "tipo": "pdf",
+   "id": "1JHuckkB7KYD0gHDMp5Iv75-IoEpSkHj6",
+   "url": "https://drive.google.com/file/d/1JHuckkB7KYD0gHDMp5Iv75-IoEpSkHj6/view",
+   "local": ""
+  },
+  {
+   "grupo": "Aulas dos cursos (PDF)",
+   "titulo": "Passo Estratégico · Conhecimentos Específicos · aula 07",
+   "disc": "Geral",
+   "tipo": "pdf",
+   "id": "1Dm_1Nj9iHv57rJmpun8J9ymTi4HhH-yB",
+   "url": "https://drive.google.com/file/d/1Dm_1Nj9iHv57rJmpun8J9ymTi4HhH-yB/view",
+   "local": ""
+  },
+  {
+   "grupo": "Aulas dos cursos (PDF)",
+   "titulo": "Passo Estratégico · Conhecimentos Específicos · aula 08",
+   "disc": "Geral",
+   "tipo": "pdf",
+   "id": "1JYTh48VaSNh8Ruw_GNmsmRDPVDTb00X8",
+   "url": "https://drive.google.com/file/d/1JYTh48VaSNh8Ruw_GNmsmRDPVDTb00X8/view",
+   "local": ""
+  },
+  {
+   "grupo": "Aulas dos cursos (PDF)",
+   "titulo": "Passo Estratégico · Conhecimentos Específicos · aula 09",
+   "disc": "Geral",
+   "tipo": "pdf",
+   "id": "1ZtwN8MZk__S0DqZHboWj5Zcw4beis2jV",
+   "url": "https://drive.google.com/file/d/1ZtwN8MZk__S0DqZHboWj5Zcw4beis2jV/view",
+   "local": ""
+  },
+  {
+   "grupo": "Aulas dos cursos (PDF)",
+   "titulo": "Passo Estratégico · Conhecimentos Específicos · aula 10",
+   "disc": "Geral",
+   "tipo": "pdf",
+   "id": "13bDfciucbqqWfR67JQzqUknOiQHn9MET",
+   "url": "https://drive.google.com/file/d/13bDfciucbqqWfR67JQzqUknOiQHn9MET/view",
+   "local": ""
+  },
+  {
+   "grupo": "Aulas dos cursos (PDF)",
+   "titulo": "Passo Estratégico · Conhecimentos Específicos · aula 11",
+   "disc": "Geral",
+   "tipo": "pdf",
+   "id": "1cCmu46ZmxkwGiH_CGUGOgpNLVWKfebTb",
+   "url": "https://drive.google.com/file/d/1cCmu46ZmxkwGiH_CGUGOgpNLVWKfebTb/view",
+   "local": ""
+  },
+  {
+   "grupo": "Aulas dos cursos (PDF)",
+   "titulo": "Passo Estratégico · Conhecimentos Específicos · aula 12",
+   "disc": "Geral",
+   "tipo": "pdf",
+   "id": "12-rK9qEUo0SJmTT1AFDxRaMpQ40pYNb8",
+   "url": "https://drive.google.com/file/d/12-rK9qEUo0SJmTT1AFDxRaMpQ40pYNb8/view",
+   "local": ""
+  },
+  {
+   "grupo": "Aulas dos cursos (PDF)",
+   "titulo": "Passo Estratégico · Conhecimentos Específicos · aula 13",
+   "disc": "Geral",
+   "tipo": "pdf",
+   "id": "17KAzxKXdtUEY8b7Hqkwg_0Z8BoFds8qY",
+   "url": "https://drive.google.com/file/d/17KAzxKXdtUEY8b7Hqkwg_0Z8BoFds8qY/view",
+   "local": ""
+  },
+  {
+   "grupo": "Aulas dos cursos (PDF)",
+   "titulo": "Passo Estratégico · Conhecimentos Específicos · aula 14",
+   "disc": "Geral",
+   "tipo": "pdf",
+   "id": "1zv8e9NTHtZrMqkedncl8a9zOF6LDRWR0",
+   "url": "https://drive.google.com/file/d/1zv8e9NTHtZrMqkedncl8a9zOF6LDRWR0/view",
+   "local": ""
+  },
+  {
+   "grupo": "Aulas dos cursos (PDF)",
+   "titulo": "Passo Estratégico · Conhecimentos Específicos · aula 15",
+   "disc": "Geral",
+   "tipo": "pdf",
+   "id": "1sMLNqZkkgZr-WeW2_1y2xywjXgq96gk9",
+   "url": "https://drive.google.com/file/d/1sMLNqZkkgZr-WeW2_1y2xywjXgq96gk9/view",
+   "local": ""
+  },
+  {
+   "grupo": "Aulas dos cursos (PDF)",
+   "titulo": "Passo Estratégico · Conhecimentos Específicos · aula 16",
+   "disc": "Geral",
+   "tipo": "pdf",
+   "id": "1KcKQCRkL8_U8MBXtusN_Q6NILy_JNlIl",
+   "url": "https://drive.google.com/file/d/1KcKQCRkL8_U8MBXtusN_Q6NILy_JNlIl/view",
+   "local": ""
+  },
+  {
+   "grupo": "Aulas dos cursos (PDF)",
+   "titulo": "Passo Estratégico · Conhecimentos Específicos · aula 17",
+   "disc": "Geral",
+   "tipo": "pdf",
+   "id": "167h6elsvtFzcBwbVRU9_NV37Xbarqw1U",
+   "url": "https://drive.google.com/file/d/167h6elsvtFzcBwbVRU9_NV37Xbarqw1U/view",
+   "local": ""
+  },
+  {
+   "grupo": "Aulas dos cursos (PDF)",
+   "titulo": "Passo Estratégico · Conhecimentos Específicos · aula 18",
+   "disc": "Geral",
+   "tipo": "pdf",
+   "id": "1TIcYebCOBfDdnP9D3TYiTnoTafgHFMbD",
+   "url": "https://drive.google.com/file/d/1TIcYebCOBfDdnP9D3TYiTnoTafgHFMbD/view",
+   "local": ""
+  },
+  {
+   "grupo": "Aulas dos cursos (PDF)",
+   "titulo": "Passo Estratégico · Conhecimentos Específicos · aula 19",
+   "disc": "Geral",
+   "tipo": "pdf",
+   "id": "1WVhErwVvqF5Dkcvw3il-RZpYPwsLOtEw",
+   "url": "https://drive.google.com/file/d/1WVhErwVvqF5Dkcvw3il-RZpYPwsLOtEw/view",
+   "local": ""
+  },
+  {
+   "grupo": "Aulas dos cursos (PDF)",
+   "titulo": "Passo Estratégico · Conhecimentos Específicos · aula 20",
+   "disc": "Geral",
+   "tipo": "pdf",
+   "id": "1otHcVJyz9r_ArijXraz7cTtq7rLzrxvZ",
+   "url": "https://drive.google.com/file/d/1otHcVJyz9r_ArijXraz7cTtq7rLzrxvZ/view",
+   "local": ""
+  },
+  {
+   "grupo": "Aulas dos cursos (PDF)",
+   "titulo": "Passo Estratégico · Conhecimentos Específicos · aula 21",
+   "disc": "Geral",
+   "tipo": "pdf",
+   "id": "1h9VSaRS7JBHUpA3kXyjSZZfeHgBzTpWd",
+   "url": "https://drive.google.com/file/d/1h9VSaRS7JBHUpA3kXyjSZZfeHgBzTpWd/view",
+   "local": ""
+  },
+  {
+   "grupo": "Aulas dos cursos (PDF)",
+   "titulo": "Passo Estratégico · Conhecimentos Específicos · aula 23",
+   "disc": "Geral",
+   "tipo": "pdf",
+   "id": "1ylu2VmNVQl-fvp3YEyvptVxu5vbQYYk9",
+   "url": "https://drive.google.com/file/d/1ylu2VmNVQl-fvp3YEyvptVxu5vbQYYk9/view",
+   "local": ""
+  }
+ ]
+}

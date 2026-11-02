@@ -132,6 +132,11 @@ ul.clean{margin:0;padding-left:18px;display:grid;gap:5px}
 .btnlink{display:inline-flex;align-items:center;min-height:36px;padding:6px 12px;border:1px solid var(--accent);border-radius:6px;color:var(--accent);text-decoration:none;font-size:14px}
 .btnlink.ghost{border-color:var(--line);color:var(--ink)}
 .btnlink:hover{background:var(--accent-soft)}
+.bib-text{line-height:1.7;max-width:75ch}
+.bib-text h3,.bib-text h4{margin:18px 0 6px}
+.bib-text p{margin:0 0 10px}
+.bib-text li{margin:0 0 6px}
+.bib-text mark{background:var(--warn-soft);color:inherit;border-radius:2px}
 .link b{font-size:15px}
 .link span{font-size:13px;color:var(--muted)}
 
@@ -157,6 +162,7 @@ footer{padding-top:28px;font-size:13px;color:var(--muted);display:grid;gap:6px}
   <button type="button" data-v="cards">Flashcards</button>
   <button type="button" data-v="tutor">Tutor IA</button>
   <button type="button" data-v="banca">Banca</button>
+  <button type="button" data-v="biblio">Biblioteca</button>
   <button type="button" data-v="labs">Labs</button>
   <button type="button" data-v="familia">Família</button>
   <button type="button" data-v="musicas">Músicas</button>
@@ -263,6 +269,24 @@ footer{padding-top:28px;font-size:13px;color:var(--muted);display:grid;gap:6px}
       <div class="row"><button type="button" class="primary" id="chatSend">Enviar</button><button type="button" class="ghost" id="chatStop" hidden>Parar</button><button type="button" class="ghost" id="chatClear">Limpar conversa</button></div>
       <p class="note" id="tutorNote">O tutor usa o seu próprio acesso ao Claude e pede permissão na primeira pergunta.</p>
     </div>
+  </div>
+</section>
+
+<!-- BIBLIOTECA -->
+<section class="view" id="v-biblio" hidden>
+  <div class="panel">
+    <div class="eyebrow">Fonte única: Google Drive · Arena · Base de conhecimento</div>
+    <h2>Biblioteca</h2>
+    <p class="note" id="bibNote">Guias, edital, prova comentada, cadernos de questões e aulas. No Claude, os textos vêm direto do seu Google Drive. Na versão pública, os guias abrem aqui e o resto abre no Drive (só para você, logado).</p>
+    <div class="row"><input type="search" id="bibQ" placeholder="Buscar por título ou disciplina" style="flex:1;min-width:0;padding:8px 10px;border:1px solid var(--line);border-radius:6px;background:var(--paper);color:var(--ink)"><button type="button" class="ghost" id="bibNew">O que há de novo no Drive</button></div>
+    <div class="chips" id="bibChips"></div>
+    <div id="bibList" style="display:grid;gap:14px"></div>
+  </div>
+  <div class="panel" id="bibReader" hidden>
+    <div class="row"><button type="button" class="ghost" id="bibBack">← Voltar à lista</button><a class="btnlink ghost" id="bibOpen" target="_blank" rel="noopener">Abrir no Drive ↗</a><span class="note" id="bibSrc"></span></div>
+    <h2 id="bibTitle"></h2>
+    <div class="row"><input type="search" id="bibFind" placeholder="Procurar neste texto" style="flex:1;min-width:0;padding:8px 10px;border:1px solid var(--line);border-radius:6px;background:var(--paper);color:var(--ink)"><span class="note" id="bibHits"></span></div>
+    <div id="bibText" class="bib-text"></div>
   </div>
 </section>
 
@@ -399,13 +423,13 @@ footer{padding-top:28px;font-size:13px;color:var(--muted);display:grid;gap:6px}
   var Q=[], QBY={}, C=[], LINKS=null, BANCA=null, VIDEOS=null, MUSICAS=null, musDisc='', FAMILIA=null, famQuem='', sample=null, bancaTab='perfil';
 
   // ---------- navegação ----------
-  var VIEWS=['hoje','questoes','cards','tutor','labs','banca','familia','musicas','eco','placar'], current='hoje';
+  var VIEWS=['hoje','questoes','cards','tutor','biblio','labs','banca','familia','musicas','eco','placar'], current='hoje';
   function show(v){ current=v; VIEWS.forEach(function(x){ $('v-'+x).hidden = x!==v; });
     document.querySelectorAll('nav.top button').forEach(function(b){ if(b.dataset.v===v) b.setAttribute('aria-current','page'); else b.removeAttribute('aria-current'); });
     try{ localStorage.setItem('arenaTP.view',v); }catch(e){}
     rerender(); window.scrollTo({top:0}); }
   document.querySelectorAll('nav.top button').forEach(function(b){ b.addEventListener('click',function(){ show(b.dataset.v); }); });
-  function rerender(){ if(current==='hoje') renderHoje(); else if(current==='cards') renderCards(); else if(current==='placar') renderPlacar(); else if(current==='eco') renderEco(); else if(current==='banca') renderBanca(); else if(current==='musicas') renderMusicas(); else if(current==='familia') renderFamilia(); else if(current==='labs') renderLabs(); else if(current==='questoes' && !session) updateQCount(); }
+  function rerender(){ if(current==='hoje') renderHoje(); else if(current==='cards') renderCards(); else if(current==='placar') renderPlacar(); else if(current==='eco') renderEco(); else if(current==='banca') renderBanca(); else if(current==='musicas') renderMusicas(); else if(current==='familia') renderFamilia(); else if(current==='labs') renderLabs(); else if(current==='biblio') renderBiblio(); else if(current==='questoes' && !session) updateQCount(); }
 
   // ---------- HOJE ----------
   function dueCards(){ var t=dayNum(); return C.filter(function(c){ var s=state.srs[c.id]; return s && s.d<=t; }); }
@@ -624,6 +648,52 @@ footer{padding-top:28px;font-size:13px;color:var(--muted);display:grid;gap:6px}
     if(e.key===' '&&!cardShow){ e.preventDefault(); cardShow=true; drawCard(); } else if(cardShow && '1234'.indexOf(e.key)>=0 && e.key.length===1){ doGrade(+e.key-1); } });
   $('newPerDay').addEventListener('change',renderCards);
 
+  // ---------- BIBLIOTECA (Google Drive como fonte única) ----------
+  var BIB=null, bibDisc='', bibCur=null, bibRaw='', bibMcp, BIB_FOLDERS=['14fejjOCgwLcpYToJpZoAGm7gbi_lEUqL','18SCwl2PofBPXVNwiQQUgSXlYXAT86dXm','1kfCj9qxPNrff2UL6X8gGNFcSCXtGbMek'];
+  function bibMcpGet(){ if(bibMcp!==undefined) return Promise.resolve(bibMcp); if(!(window.claude&&window.claude.use)){ bibMcp=null; return Promise.resolve(null); } return window.claude.use('mcp').then(function(m){ bibMcp=m; return m; },function(){ bibMcp=null; return null; }); }
+  function mdLite(t){ var out=[], list=false; String(t||'').split('\n').forEach(function(l){ var x=esc(l).replace(/\*\*(.+?)\*\*/g,'<b>$1</b>').replace(/`([^`]+)`/g,'<code>$1</code>');
+      var h=l.match(/^(#{1,4})\s+/), li=l.match(/^\s*([-*]|\d+\.)\s+/);
+      if(!li&&list){ out.push('</ul>'); list=false; }
+      if(h){ out.push('<h'+(h[1].length<3?3:4)+'>'+x.replace(/^#{1,4}\s+/,'')+'</h'+(h[1].length<3?3:4)+'>'); }
+      else if(li){ if(!list){ out.push('<ul>'); list=true; } out.push('<li>'+x.replace(/^\s*([-*]|\d+\.)\s+/,'')+'</li>'); }
+      else if(l.trim()){ out.push('<p>'+x+'</p>'); } });
+    if(list) out.push('</ul>'); return out.join(''); }
+  function bibErr(e){ var c=e&&e.code; if(c==='server_not_connected') return 'O conector do Google Drive não está ligado na sua conta Claude. Ative em claude.ai › Configurações › Conectores.';
+    if(c==='needs_reauth') return 'O Google Drive precisa ser reconectado em claude.ai › Configurações › Conectores.';
+    if(c==='approval_required') return 'Permita que esta página leia o seu Google Drive quando o Claude perguntar.';
+    if(c==='blocked_by_policy') return 'A sua organização bloqueou este acesso ao Drive.';
+    if(c==='server_unavailable'||c==='upstream_error') return 'O Google Drive não respondeu agora. Tente de novo em instantes.';
+    if(c==='tool_error') return 'O Drive não conseguiu ler este arquivo.'; return 'Não foi possível ler do Drive aqui.'; }
+  function bibRender(){ var it=(BIB&&BIB.itens)||[], q=($('bibQ').value||'').toLowerCase().trim();
+    var ds=[]; it.forEach(function(i){ if(i.disc&&ds.indexOf(i.disc)<0) ds.push(i.disc); });
+    $('bibChips').innerHTML=['<button type="button" data-d="" aria-pressed="'+(bibDisc==='')+'">Todas</button>'].concat(ds.map(function(d){ return '<button type="button" data-d="'+esc(d)+'" aria-pressed="'+(bibDisc===d)+'">'+esc(d)+'</button>'; })).join('');
+    $('bibChips').querySelectorAll('button').forEach(function(b){ b.onclick=function(){ bibDisc=b.dataset.d; bibRender(); }; });
+    var f=it.filter(function(i){ return (!bibDisc||i.disc===bibDisc)&&(!q||(i.titulo+' '+i.disc+' '+i.grupo).toLowerCase().indexOf(q)>=0); }), gs=[];
+    f.forEach(function(i){ if(gs.indexOf(i.grupo)<0) gs.push(i.grupo); });
+    $('bibList').innerHTML=gs.length?gs.map(function(g){ var its=f.filter(function(i){ return i.grupo===g; });
+      return '<details'+(g.indexOf('Guias')===0||q?' open':'')+' class="link" style="gap:8px"><summary style="cursor:pointer"><b>'+esc(g)+'</b> <span class="note">'+its.length+'</span></summary><div style="display:grid;gap:6px">'+its.map(function(i){ var k=it.indexOf(i);
+        var podeLer=bibMcp||i.local; return '<div class="row" style="justify-content:space-between;border-top:1px solid var(--line);padding-top:6px"><span style="min-width:0;flex:1">'+esc(i.titulo)+(i.disc?' <span class="note">· '+esc(i.disc)+'</span>':'')+'</span><span class="row">'+(podeLer?'<button type="button" data-k="'+k+'">Ler aqui</button>':'')+'<a class="btnlink ghost" href="'+esc(i.url)+'" target="_blank" rel="noopener">Drive ↗</a></span></div>'; }).join('')+'</div></details>'; }).join(''):'<div class="empty">Nada encontrado.</div>';
+    $('bibList').querySelectorAll('[data-k]').forEach(function(b){ b.onclick=function(){ bibOpen(it[+b.dataset.k]); }; }); }
+  function bibShowText(){ var q=($('bibFind').value||'').trim(), h=mdLite(bibRaw);
+    if(q.length>=3){ var re=new RegExp(q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'),'gi'), n=0; h=h.replace(/>([^<]+)</g,function(m,txt){ return '>'+txt.replace(re,function(x){ n++; return '<mark>'+x+'</mark>'; })+'<'; }); $('bibHits').textContent=n+' ocorrências'; var mk=null; setTimeout(function(){ mk=document.querySelector('#bibText mark'); if(mk) mk.scrollIntoView({block:'center'}); },30); } else $('bibHits').textContent='';
+    $('bibText').innerHTML=h; }
+  function bibOpen(i){ bibCur=i; $('bibReader').hidden=false; $('bibTitle').textContent=i.titulo; $('bibOpen').href=i.url; $('bibText').innerHTML='<div class="note">Carregando…</div>'; $('bibSrc').textContent=''; $('bibFind').value=''; $('bibHits').textContent='';
+    $('bibReader').scrollIntoView({block:'start'});
+    var viaLocal=function(msg){ if(!i.local){ $('bibText').innerHTML='<div class="feedback bad">'+esc(msg||'Este item abre só no Drive.')+'</div>'; return; }
+      fetch(i.local).then(function(r){ if(!r.ok) throw new Error(r.status); return r.text(); }).then(function(t){ bibRaw=t; $('bibSrc').textContent='Cópia do guia neste app'+(msg?' (o Drive não respondeu)':''); bibShowText(); }).catch(function(){ $('bibText').innerHTML='<div class="feedback bad">'+esc(msg||'Não consegui abrir este guia.')+'</div>'; }); };
+    bibMcpGet().then(function(m){ if(!m){ viaLocal(); return; }
+      m.callTool('Google Drive','read_file_content',{fileId:i.id}).then(function(res){ var p=res&&res.payload, t=(p&&p.fileContent)||(typeof p==='string'?p:'');
+        if(!t){ viaLocal('O Drive ainda não extraiu o texto deste arquivo. Abra pelo botão do Drive.'); return; } bibRaw=t; $('bibSrc').textContent='Lido agora do seu Google Drive'; bibShowText(); },function(e){ viaLocal(bibErr(e)); }); }); }
+  function bibNovidades(){ $('bibNote').textContent='Procurando arquivos novos na pasta do Drive…'; bibMcpGet().then(function(m){ if(!m){ $('bibNote').textContent='A busca no Drive funciona na versão do Arena dentro do Claude. Aqui, abra a pasta: '+((BIB&&BIB.pasta)||''); return; }
+    var q=BIB_FOLDERS.map(function(f){ return "parentId = '"+f+"'"; }).join(' or ');
+    m.callTool('Google Drive','search_files',{query:q,excludeContentSnippets:true,pageSize:100}).then(function(res){ var fs=((res&&res.payload)||{}).files||[], known={}; (BIB.itens||[]).forEach(function(i){ known[i.id]=1; });
+      var novos=fs.filter(function(f){ return !known[f.id]&&f.mimeType!=='application/vnd.google-apps.folder'; });
+      novos.forEach(function(f){ BIB.itens.push({grupo:'Novos no Drive',titulo:f.title,disc:'',tipo:'',id:f.id,url:f.viewUrl,local:''}); });
+      $('bibNote').textContent=novos.length?novos.length+' arquivo(s) novo(s) no Drive, no grupo "Novos no Drive".':'Nenhum arquivo novo na pasta do Drive.'; bibRender(); },function(e){ $('bibNote').textContent=bibErr(e); }); }); }
+  function renderBiblio(){ if(!BIB){ $('bibList').innerHTML='<div class="empty">Carregando o índice…</div>'; return; }
+    if(!renderBiblio.wired){ renderBiblio.wired=true; $('bibQ').oninput=bibRender; $('bibBack').onclick=function(){ $('bibReader').hidden=true; $('v-biblio').scrollIntoView({block:'start'}); }; $('bibFind').oninput=bibShowText; $('bibNew').onclick=bibNovidades; }
+    bibMcpGet().then(function(){ bibRender(); }); }
+
   // ---------- EXPORTAR / IMPORTAR ----------
   function progJSON(){ return JSON.stringify({app:'arena-transpetro',v:2,exportado:new Date().toISOString(),state:state}); }
   function importProg(txt){ var o; try{ o=JSON.parse(txt); }catch(e){ $('ioNote').textContent='Arquivo inválido: não é JSON.'; return; }
@@ -709,7 +779,7 @@ footer{padding-top:28px;font-size:13px;color:var(--muted);display:grid;gap:6px}
     ch.innerHTML=['<button type="button" data-q="" aria-pressed="'+(famQuem==='')+'">Todos</button>'].concat(qs.map(function(q){ return '<button type="button" data-q="'+esc(q)+'" aria-pressed="'+(famQuem===q)+'">'+esc(q)+'</button>'; })).join('');
     ch.querySelectorAll('button').forEach(function(b){ b.onclick=function(){ famQuem=b.dataset.q; renderFamilia(); }; });
     box.innerHTML=F.filter(function(f){ return !famQuem||f.quem.split(' (')[0]===famQuem; }).map(function(f){ var k=quemKey(f.quem);
-      return '<div class="link" style="gap:8px"><span class="pill acc" style="justify-self:start">Cena '+f.n+' · '+esc(f.quem)+'</span><b>'+esc(f.tema)+'</b><div class="panel" style="background:var(--accent-soft)"><div class="eyebrow">Fala curta</div><div>'+esc(f.fala)+'</div></div><span>'+esc(f.explicacao)+'</span>'+(f.video_url?'<a class="btnlink" href="'+esc(f.video_url)+'" target="_blank" rel="noopener" style="justify-self:start">Ver vídeo no Flow ↗</a>':'')+(f.imagem_url?'<a class="btnlink ghost" href="'+esc(f.imagem_url)+'" target="_blank" rel="noopener" style="justify-self:start">Ver quadro no Gemini ↗</a>':'')+(k&&sample?'<button type="button" class="ghost" data-p="'+k+'" style="justify-self:start">Conversar com '+esc(PERSONAS[k].n)+'</button>':'')+'</div>'; }).join('');
+      return '<div class="link" style="gap:8px"><span class="pill acc" style="justify-self:start">Cena '+f.n+' · '+esc(f.quem)+'</span><b>'+esc(f.tema)+'</b><div class="panel" style="background:var(--accent-soft)"><div class="eyebrow">Fala curta</div><div>'+esc(f.fala)+'</div>'+(f.audio_fala?'<audio controls preload="none" src="'+esc(f.audio_fala)+'" style="width:100%;margin-top:6px"></audio>':'')+'</div><span>'+esc(f.explicacao)+'</span>'+(f.audio_explicacao?'<audio controls preload="none" src="'+esc(f.audio_explicacao)+'" style="width:100%"></audio>':'')+(f.video_url?'<a class="btnlink" href="'+esc(f.video_url)+'" target="_blank" rel="noopener" style="justify-self:start">Ver vídeo no Flow ↗</a>':'')+(f.imagem_url?'<a class="btnlink ghost" href="'+esc(f.imagem_url)+'" target="_blank" rel="noopener" style="justify-self:start">Ver quadro no Gemini ↗</a>':'')+(k&&sample?'<button type="button" class="ghost" data-p="'+k+'" style="justify-self:start">Conversar com '+esc(PERSONAS[k].n)+'</button>':'')+'</div>'; }).join('');
     box.querySelectorAll('[data-p]').forEach(function(b){ b.onclick=function(){ persona=b.dataset.p; try{ localStorage.setItem('arenaTP.persona',persona); }catch(e){} fillPersona(); show('tutor'); }; }); }
 
   // ---------- MUSICAS ----------
@@ -767,8 +837,8 @@ footer{padding-top:28px;font-size:13px;color:var(--muted);display:grid;gap:6px}
     $('placar').innerHTML=h; }
 
   // ---------- carga ----------
-  Promise.all([fetch('questoes.json').then(function(r){return r.json()}),fetch('cards.json').then(function(r){return r.json()}),fetch('links.json').then(function(r){return r.json()}).catch(function(){return null}),fetch('banca.json').then(function(r){return r.json()}).catch(function(){return null}),fetch('videos.json').then(function(r){return r.json()}).catch(function(){return null}),fetch('musicas.json').then(function(r){return r.json()}).catch(function(){return null}),fetch('familia.json').then(function(r){return r.json()}).catch(function(){return null})]).then(function(res){
-    Q=res[0]; Q.forEach(function(q){ QBY[q.id]=q; }); C=res[1]; LINKS=res[2]; BANCA=res[3]; VIDEOS=res[4]; MUSICAS=res[5]; FAMILIA=res[6]; fillPersona(); wireIO();
+  Promise.all([fetch('questoes.json').then(function(r){return r.json()}),fetch('cards.json').then(function(r){return r.json()}),fetch('links.json').then(function(r){return r.json()}).catch(function(){return null}),fetch('banca.json').then(function(r){return r.json()}).catch(function(){return null}),fetch('videos.json').then(function(r){return r.json()}).catch(function(){return null}),fetch('musicas.json').then(function(r){return r.json()}).catch(function(){return null}),fetch('familia.json').then(function(r){return r.json()}).catch(function(){return null}),fetch('biblioteca.json').then(function(r){return r.json()}).catch(function(){return null})]).then(function(res){
+    Q=res[0]; Q.forEach(function(q){ QBY[q.id]=q; }); C=res[1]; LINKS=res[2]; BANCA=res[3]; VIDEOS=res[4]; MUSICAS=res[5]; FAMILIA=res[6]; BIB=res[7]; fillPersona(); wireIO();
     var cnt={}; Q.forEach(function(q){ cnt[q.disc]=(cnt[q.disc]||0)+1; });
     $('discChips').innerHTML=Object.keys(DISC).map(function(d){ return '<button type="button" data-d="'+d+'" aria-pressed="false">'+esc(DISC[d])+' <span class="mono">'+(cnt[d]||0)+'</span></button>'; }).join('');
     $('discChips').querySelectorAll('button').forEach(function(b){ b.onclick=function(){ discSel[b.dataset.d]=!discSel[b.dataset.d]; syncChips(); fillAssuntos(); }; });
