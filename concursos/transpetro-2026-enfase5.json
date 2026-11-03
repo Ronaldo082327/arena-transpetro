@@ -1,0 +1,5422 @@
+{
+ "tipo": "doroxandria-pacote-concurso",
+ "schemaVersion": 2,
+ "geradoEm": "2026-11-02",
+ "biblioteca": {
+  "disciplinas": [
+   {
+    "id": "portugues",
+    "nome": "Língua Portuguesa",
+    "curto": "Português"
+   },
+   {
+    "id": "ingles",
+    "nome": "Língua Inglesa",
+    "curto": "Inglês"
+   },
+   {
+    "id": "banco-de-dados",
+    "nome": "Banco de Dados e Arquitetura de Dados",
+    "curto": "Dados"
+   },
+   {
+    "id": "gestao-de-projetos",
+    "nome": "Gestão de Projetos e Produtos",
+    "curto": "Projetos"
+   },
+   {
+    "id": "governanca-de-ti",
+    "nome": "Gestão e Governança de TI",
+    "curto": "Governança"
+   },
+   {
+    "id": "engenharia-de-software",
+    "nome": "Engenharia de Software",
+    "curto": "Eng. Software"
+   },
+   {
+    "id": "ux",
+    "nome": "Experiência do Usuário (UX)",
+    "curto": "UX"
+   },
+   {
+    "id": "bi-e-analise-de-dados",
+    "nome": "BI e Análise de Dados",
+    "curto": "BI"
+   },
+   {
+    "id": "logica",
+    "nome": "Lógica Matemática",
+    "curto": "Lógica"
+   },
+   {
+    "id": "seguranca-da-informacao",
+    "nome": "Segurança da Informação",
+    "curto": "Segurança"
+   },
+   {
+    "id": "estrategia-de-prova",
+    "nome": "Estratégia de prova",
+    "curto": "Estratégia"
+   }
+  ],
+  "topicos": [
+   {
+    "id": "portugues/compreensao-de-textos",
+    "disc": "portugues",
+    "nome": "Compreensão de textos"
+   },
+   {
+    "id": "portugues/ortografia-oficial",
+    "disc": "portugues",
+    "nome": "Ortografia oficial"
+   },
+   {
+    "id": "portugues/mecanismos-de-coesao-textual",
+    "disc": "portugues",
+    "nome": "Mecanismos de coesão textual"
+   },
+   {
+    "id": "portugues/significacao-das-palavras",
+    "disc": "portugues",
+    "nome": "Significação das palavras"
+   },
+   {
+    "id": "portugues/emprego-de-tempos-e-modos-verbais",
+    "disc": "portugues",
+    "nome": "Emprego de tempos e modos verbais"
+   },
+   {
+    "id": "portugues/emprego-das-classes-de-palavras",
+    "disc": "portugues",
+    "nome": "Emprego das classes de palavras"
+   },
+   {
+    "id": "portugues/coordenacao-e-subordinacao",
+    "disc": "portugues",
+    "nome": "Coordenação e subordinação"
+   },
+   {
+    "id": "portugues/emprego-dos-sinais-de-pontuacao",
+    "disc": "portugues",
+    "nome": "Emprego dos sinais de pontuação"
+   },
+   {
+    "id": "portugues/concordancia-verbal-e-nominal",
+    "disc": "portugues",
+    "nome": "Concordância verbal e nominal"
+   },
+   {
+    "id": "portugues/regencia-verbal-e-nominal",
+    "disc": "portugues",
+    "nome": "Regência verbal e nominal"
+   },
+   {
+    "id": "portugues/emprego-do-sinal-indicativo-de-crase",
+    "disc": "portugues",
+    "nome": "Emprego do sinal indicativo de crase"
+   },
+   {
+    "id": "portugues/colocacao-dos-pronomes-atonos",
+    "disc": "portugues",
+    "nome": "Colocação dos pronomes átonos"
+   },
+   {
+    "id": "ingles/compreensao-de-texto-escrito-em-lingua-inglesa",
+    "disc": "ingles",
+    "nome": "Compreensão de texto escrito em língua inglesa"
+   },
+   {
+    "id": "ingles/itens-gramaticais-relevantes-para-a-compreensao",
+    "disc": "ingles",
+    "nome": "Itens gramaticais relevantes para a compreensão"
+   },
+   {
+    "id": "banco-de-dados/modelagem-de-dados-conceitual-logica-e-fisica",
+    "disc": "banco-de-dados",
+    "nome": "Modelagem de dados (conceitual, lógica e física)"
+   },
+   {
+    "id": "banco-de-dados/criacao-e-alteracao-dos-modelos-logico-e-fisico",
+    "disc": "banco-de-dados",
+    "nome": "Criação e alteração dos modelos lógico e físico"
+   },
+   {
+    "id": "banco-de-dados/o-modelo-relacional",
+    "disc": "banco-de-dados",
+    "nome": "O modelo relacional"
+   },
+   {
+    "id": "banco-de-dados/normalizacao",
+    "disc": "banco-de-dados",
+    "nome": "Normalização"
+   },
+   {
+    "id": "banco-de-dados/integridade-referencial",
+    "disc": "banco-de-dados",
+    "nome": "Integridade referencial"
+   },
+   {
+    "id": "banco-de-dados/metadados",
+    "disc": "banco-de-dados",
+    "nome": "Metadados"
+   },
+   {
+    "id": "banco-de-dados/modelagem-dimensional",
+    "disc": "banco-de-dados",
+    "nome": "Modelagem dimensional"
+   },
+   {
+    "id": "banco-de-dados/avaliacao-de-modelos-de-dados",
+    "disc": "banco-de-dados",
+    "nome": "Avaliação de modelos de dados"
+   },
+   {
+    "id": "banco-de-dados/engenharia-reversa-de-modelos-de-dados",
+    "disc": "banco-de-dados",
+    "nome": "Engenharia reversa de modelos de dados"
+   },
+   {
+    "id": "banco-de-dados/sql",
+    "disc": "banco-de-dados",
+    "nome": "SQL"
+   },
+   {
+    "id": "banco-de-dados/ddl",
+    "disc": "banco-de-dados",
+    "nome": "DDL"
+   },
+   {
+    "id": "banco-de-dados/dml",
+    "disc": "banco-de-dados",
+    "nome": "DML"
+   },
+   {
+    "id": "banco-de-dados/sgbd",
+    "disc": "banco-de-dados",
+    "nome": "SGBD"
+   },
+   {
+    "id": "banco-de-dados/propriedades-acid",
+    "disc": "banco-de-dados",
+    "nome": "Propriedades ACID"
+   },
+   {
+    "id": "banco-de-dados/independencia-de-dados",
+    "disc": "banco-de-dados",
+    "nome": "Independência de dados"
+   },
+   {
+    "id": "banco-de-dados/transacoes",
+    "disc": "banco-de-dados",
+    "nome": "Transações"
+   },
+   {
+    "id": "banco-de-dados/performance-de-banco-de-dados",
+    "disc": "banco-de-dados",
+    "nome": "Performance de banco de dados"
+   },
+   {
+    "id": "banco-de-dados/nosql",
+    "disc": "banco-de-dados",
+    "nome": "NoSQL"
+   },
+   {
+    "id": "banco-de-dados/integracao-de-dados-etl-arquivos-base-de-dados",
+    "disc": "banco-de-dados",
+    "nome": "Integração de dados (ETL, arquivos, base de dados)"
+   },
+   {
+    "id": "banco-de-dados/banco-de-dados-em-memoria",
+    "disc": "banco-de-dados",
+    "nome": "Banco de dados em memória"
+   },
+   {
+    "id": "banco-de-dados/qualidade-de-dados-e-dados-mestres-e-de-referencia",
+    "disc": "banco-de-dados",
+    "nome": "Qualidade de dados e dados mestres e de referência"
+   },
+   {
+    "id": "banco-de-dados/data-lakes-e-big-data",
+    "disc": "banco-de-dados",
+    "nome": "Data lakes e big data"
+   },
+   {
+    "id": "banco-de-dados/relacional-multidimensional-documentos-grafos",
+    "disc": "banco-de-dados",
+    "nome": "Relacional × multidimensional × documentos × grafos"
+   },
+   {
+    "id": "gestao-de-projetos/scrum-e-kanban",
+    "disc": "gestao-de-projetos",
+    "nome": "Scrum e Kanban"
+   },
+   {
+    "id": "gestao-de-projetos/gestao-de-projeto-gestao-de-produto",
+    "disc": "gestao-de-projetos",
+    "nome": "Gestão de projeto × gestão de produto"
+   },
+   {
+    "id": "gestao-de-projetos/agilidade-em-escala-e-safe",
+    "disc": "gestao-de-projetos",
+    "nome": "Agilidade em escala e SAFe"
+   },
+   {
+    "id": "gestao-de-projetos/pmbok-7a-edicao",
+    "disc": "gestao-de-projetos",
+    "nome": "PMBOK 7ª edição"
+   },
+   {
+    "id": "gestao-de-projetos/projetos-e-a-organizacao",
+    "disc": "gestao-de-projetos",
+    "nome": "Projetos e a organização"
+   },
+   {
+    "id": "gestao-de-projetos/escritorio-de-projetos-pmo",
+    "disc": "gestao-de-projetos",
+    "nome": "Escritório de projetos (PMO)"
+   },
+   {
+    "id": "gestao-de-projetos/modelos-e-caracteristicas-ciclos-de-vida",
+    "disc": "gestao-de-projetos",
+    "nome": "Modelos e características (ciclos de vida)"
+   },
+   {
+    "id": "gestao-de-projetos/processos-grupos-de-processos-e-areas-de-conhecimento",
+    "disc": "gestao-de-projetos",
+    "nome": "Processos, grupos de processos e áreas de conhecimento"
+   },
+   {
+    "id": "governanca-de-ti/conceitos-segmentos-e-mercado-de-ti",
+    "disc": "governanca-de-ti",
+    "nome": "Conceitos, segmentos e mercado de TI"
+   },
+   {
+    "id": "governanca-de-ti/economia-da-inovacao",
+    "disc": "governanca-de-ti",
+    "nome": "Economia da inovação"
+   },
+   {
+    "id": "governanca-de-ti/conceitos-e-perspectivas-da-tecnologia",
+    "disc": "governanca-de-ti",
+    "nome": "Conceitos e perspectivas da tecnologia"
+   },
+   {
+    "id": "governanca-de-ti/ciencia-pesquisa-desenvolvimento-e-industria",
+    "disc": "governanca-de-ti",
+    "nome": "Ciência, pesquisa, desenvolvimento e indústria"
+   },
+   {
+    "id": "governanca-de-ti/gerenciamento-de-servicos-de-ti-itil-cobit",
+    "disc": "governanca-de-ti",
+    "nome": "Gerenciamento de serviços de TI (ITIL, COBIT)"
+   },
+   {
+    "id": "governanca-de-ti/lgpd-lei-13-709-2018",
+    "disc": "governanca-de-ti",
+    "nome": "LGPD (Lei 13.709/2018)"
+   },
+   {
+    "id": "engenharia-de-software/requisitos",
+    "disc": "engenharia-de-software",
+    "nome": "Requisitos"
+   },
+   {
+    "id": "engenharia-de-software/ciclo-de-vida-e-paradigmas",
+    "disc": "engenharia-de-software",
+    "nome": "Ciclo de vida e paradigmas"
+   },
+   {
+    "id": "engenharia-de-software/analise-e-projeto-estruturado-e-oo-uml",
+    "disc": "engenharia-de-software",
+    "nome": "Análise e projeto (estruturado e OO, UML)"
+   },
+   {
+    "id": "engenharia-de-software/verificacao-validacao-e-teste",
+    "disc": "engenharia-de-software",
+    "nome": "Verificação, validação e teste"
+   },
+   {
+    "id": "engenharia-de-software/ambientes-de-desenvolvimento-devops-versionamento-ci-cd",
+    "disc": "engenharia-de-software",
+    "nome": "Ambientes de desenvolvimento (DevOps, versionamento, CI/CD)"
+   },
+   {
+    "id": "ux/acessibilidade-e-usabilidade",
+    "disc": "ux",
+    "nome": "Acessibilidade e usabilidade"
+   },
+   {
+    "id": "ux/historias-do-usuario",
+    "disc": "ux",
+    "nome": "Histórias do usuário"
+   },
+   {
+    "id": "ux/design-de-interacao-web",
+    "disc": "ux",
+    "nome": "Design de interação web"
+   },
+   {
+    "id": "ux/projeto-centrado-no-usuario",
+    "disc": "ux",
+    "nome": "Projeto centrado no usuário"
+   },
+   {
+    "id": "ux/storytelling-com-dados",
+    "disc": "ux",
+    "nome": "Storytelling com dados"
+   },
+   {
+    "id": "ux/relatorios-e-dashboards",
+    "disc": "ux",
+    "nome": "Relatórios e dashboards"
+   },
+   {
+    "id": "ux/interoperabilidade-entre-navegadores",
+    "disc": "ux",
+    "nome": "Interoperabilidade entre navegadores"
+   },
+   {
+    "id": "ux/mvp",
+    "disc": "ux",
+    "nome": "MVP"
+   },
+   {
+    "id": "ux/prototipacao",
+    "disc": "ux",
+    "nome": "Prototipação"
+   },
+   {
+    "id": "ux/design-thinking",
+    "disc": "ux",
+    "nome": "Design thinking"
+   },
+   {
+    "id": "ux/personas",
+    "disc": "ux",
+    "nome": "Personas"
+   },
+   {
+    "id": "bi-e-analise-de-dados/dado-informacao-conhecimento-e-inteligencia",
+    "disc": "bi-e-analise-de-dados",
+    "nome": "Dado, informação, conhecimento e inteligência"
+   },
+   {
+    "id": "bi-e-analise-de-dados/fundamentos-de-bi",
+    "disc": "bi-e-analise-de-dados",
+    "nome": "Fundamentos de BI"
+   },
+   {
+    "id": "bi-e-analise-de-dados/mapeamento-de-fontes-de-dados",
+    "disc": "bi-e-analise-de-dados",
+    "nome": "Mapeamento de fontes de dados"
+   },
+   {
+    "id": "bi-e-analise-de-dados/dados-estruturados-e-nao-estruturados",
+    "disc": "bi-e-analise-de-dados",
+    "nome": "Dados estruturados e não estruturados"
+   },
+   {
+    "id": "bi-e-analise-de-dados/olap-e-operacoes",
+    "disc": "bi-e-analise-de-dados",
+    "nome": "OLAP e operações"
+   },
+   {
+    "id": "bi-e-analise-de-dados/data-warehouse",
+    "disc": "bi-e-analise-de-dados",
+    "nome": "Data warehouse"
+   },
+   {
+    "id": "bi-e-analise-de-dados/modelagem-e-otimizacao-multidimensional",
+    "disc": "bi-e-analise-de-dados",
+    "nome": "Modelagem e otimização multidimensional"
+   },
+   {
+    "id": "bi-e-analise-de-dados/relatorios-e-dashboards-em-ferramentas-de-bi",
+    "disc": "bi-e-analise-de-dados",
+    "nome": "Relatórios e dashboards em ferramentas de BI"
+   },
+   {
+    "id": "bi-e-analise-de-dados/manipulacao-de-dados-em-planilhas",
+    "disc": "bi-e-analise-de-dados",
+    "nome": "Manipulação de dados em planilhas"
+   },
+   {
+    "id": "bi-e-analise-de-dados/geracao-de-insights",
+    "disc": "bi-e-analise-de-dados",
+    "nome": "Geração de insights"
+   },
+   {
+    "id": "bi-e-analise-de-dados/bi-e-tomada-de-decisao",
+    "disc": "bi-e-analise-de-dados",
+    "nome": "BI e tomada de decisão"
+   },
+   {
+    "id": "bi-e-analise-de-dados/mineracao-de-dados-e-ciencia-de-dados-complementar",
+    "disc": "bi-e-analise-de-dados",
+    "nome": "Mineração de dados e ciência de dados (complementar)"
+   },
+   {
+    "id": "logica/conectivos",
+    "disc": "logica",
+    "nome": "Conectivos"
+   },
+   {
+    "id": "logica/argumentos",
+    "disc": "logica",
+    "nome": "Argumentos"
+   },
+   {
+    "id": "logica/logica-sentencial",
+    "disc": "logica",
+    "nome": "Lógica sentencial"
+   },
+   {
+    "id": "logica/logica-de-predicados-de-1a-ordem",
+    "disc": "logica",
+    "nome": "Lógica de predicados de 1ª ordem"
+   },
+   {
+    "id": "logica/formacao-de-formulas",
+    "disc": "logica",
+    "nome": "Formação de fórmulas"
+   },
+   {
+    "id": "logica/sistemas-dedutivos",
+    "disc": "logica",
+    "nome": "Sistemas dedutivos"
+   },
+   {
+    "id": "logica/decidibilidade",
+    "disc": "logica",
+    "nome": "Decidibilidade"
+   },
+   {
+    "id": "logica/valores-verdade",
+    "disc": "logica",
+    "nome": "Valores-verdade"
+   },
+   {
+    "id": "logica/funcoes-de-avaliacao",
+    "disc": "logica",
+    "nome": "Funções de avaliação"
+   },
+   {
+    "id": "seguranca-da-informacao/seguranca-fisica-e-logica",
+    "disc": "seguranca-da-informacao",
+    "nome": "Segurança física e lógica"
+   },
+   {
+    "id": "seguranca-da-informacao/operacao-de-seguranca-firewall-ids-ips-siem-edr-waf-backup",
+    "disc": "seguranca-da-informacao",
+    "nome": "Operação de segurança (firewall, IDS/IPS, SIEM, EDR, WAF, backup)"
+   },
+   {
+    "id": "seguranca-da-informacao/softwares-maliciosos",
+    "disc": "seguranca-da-informacao",
+    "nome": "Softwares maliciosos"
+   },
+   {
+    "id": "seguranca-da-informacao/ataques",
+    "disc": "seguranca-da-informacao",
+    "nome": "Ataques"
+   },
+   {
+    "id": "seguranca-da-informacao/desenvolvimento-seguro-sast-dast-iast",
+    "disc": "seguranca-da-informacao",
+    "nome": "Desenvolvimento seguro (SAST, DAST, IAST)"
+   },
+   {
+    "id": "seguranca-da-informacao/vpn",
+    "disc": "seguranca-da-informacao",
+    "nome": "VPN"
+   },
+   {
+    "id": "seguranca-da-informacao/mdm",
+    "disc": "seguranca-da-informacao",
+    "nome": "MDM"
+   },
+   {
+    "id": "seguranca-da-informacao/sso",
+    "disc": "seguranca-da-informacao",
+    "nome": "SSO"
+   },
+   {
+    "id": "seguranca-da-informacao/mfa",
+    "disc": "seguranca-da-informacao",
+    "nome": "MFA"
+   },
+   {
+    "id": "seguranca-da-informacao/gestao-de-identidade-e-acesso-rbac-abac",
+    "disc": "seguranca-da-informacao",
+    "nome": "Gestão de identidade e acesso (RBAC, ABAC)"
+   },
+   {
+    "id": "seguranca-da-informacao/resposta-a-incidentes-nist-sp-800-61",
+    "disc": "seguranca-da-informacao",
+    "nome": "Resposta a incidentes (NIST SP 800-61)"
+   },
+   {
+    "id": "seguranca-da-informacao/threat-intel-e-threat-hunting",
+    "disc": "seguranca-da-informacao",
+    "nome": "Threat intel e threat hunting"
+   },
+   {
+    "id": "seguranca-da-informacao/testes-de-penetracao",
+    "disc": "seguranca-da-informacao",
+    "nome": "Testes de penetração"
+   },
+   {
+    "id": "seguranca-da-informacao/modelagem-de-ameacas-stride",
+    "disc": "seguranca-da-informacao",
+    "nome": "Modelagem de ameaças (STRIDE)"
+   },
+   {
+    "id": "seguranca-da-informacao/mitre-att-ck",
+    "disc": "seguranca-da-informacao",
+    "nome": "MITRE ATT&CK"
+   },
+   {
+    "id": "seguranca-da-informacao/iso-31000-iso-22301-e-sox",
+    "disc": "seguranca-da-informacao",
+    "nome": "ISO 31000, ISO 22301 e SOX"
+   },
+   {
+    "id": "seguranca-da-informacao/politicas-de-seguranca",
+    "disc": "seguranca-da-informacao",
+    "nome": "Políticas de segurança"
+   },
+   {
+    "id": "seguranca-da-informacao/classificacao-de-informacoes",
+    "disc": "seguranca-da-informacao",
+    "nome": "Classificação de informações"
+   },
+   {
+    "id": "seguranca-da-informacao/iso-27002-criptografia-certificacao-e-assinatura-digital",
+    "disc": "seguranca-da-informacao",
+    "nome": "ISO 27002, criptografia, certificação e assinatura digital"
+   },
+   {
+    "id": "seguranca-da-informacao/seguranca-em-nuvem",
+    "disc": "seguranca-da-informacao",
+    "nome": "Segurança em nuvem"
+   },
+   {
+    "id": "seguranca-da-informacao/seguranca-em-iot",
+    "disc": "seguranca-da-informacao",
+    "nome": "Segurança em IoT"
+   },
+   {
+    "id": "seguranca-da-informacao/protocolos-e-seguranca-de-redes-complementar",
+    "disc": "seguranca-da-informacao",
+    "nome": "Protocolos e segurança de redes (complementar)"
+   },
+   {
+    "id": "estrategia-de-prova/anatomia-da-cesgranrio",
+    "disc": "estrategia-de-prova",
+    "nome": "Anatomia da Cesgranrio"
+   },
+   {
+    "id": "estrategia-de-prova/licoes-das-videoaulas",
+    "disc": "estrategia-de-prova",
+    "nome": "Lições das videoaulas"
+   },
+   {
+    "id": "estrategia-de-prova/comentarios-do-tecconcursos",
+    "disc": "estrategia-de-prova",
+    "nome": "Comentários do TecConcursos"
+   },
+   {
+    "id": "estrategia-de-prova/gabaritos-contestados",
+    "disc": "estrategia-de-prova",
+    "nome": "Gabaritos contestados"
+   },
+   {
+    "id": "estrategia-de-prova/banca-em-familia-mnemonicos",
+    "disc": "estrategia-de-prova",
+    "nome": "Banca em Família (mnemônicos)"
+   }
+  ],
+  "materiais": [
+   {
+    "id": "tc107519698",
+    "tipo": "caderno",
+    "titulo": "BD-01 - Modelagem conceitual (MER, generalização, cardinalidade)",
+    "url": "https://www.tecconcursos.com.br/questoes/cadernos/107519698",
+    "info": "52 questões",
+    "questoes": 52,
+    "alvos": [
+     "banco-de-dados/modelagem-de-dados-conceitual-logica-e-fisica",
+     "banco-de-dados/criacao-e-alteracao-dos-modelos-logico-e-fisico",
+     "banco-de-dados/avaliacao-de-modelos-de-dados"
+    ],
+    "grupo": "TecConcursos"
+   },
+   {
+    "id": "tc107519702",
+    "tipo": "caderno",
+    "titulo": "BD-02 - Modelo relacional, chaves e mapeamento ER-relacional",
+    "url": "https://www.tecconcursos.com.br/questoes/cadernos/107519702",
+    "info": "43 questões",
+    "questoes": 43,
+    "alvos": [
+     "banco-de-dados/o-modelo-relacional",
+     "banco-de-dados/integridade-referencial",
+     "banco-de-dados/criacao-e-alteracao-dos-modelos-logico-e-fisico"
+    ],
+    "grupo": "TecConcursos"
+   },
+   {
+    "id": "tc107519705",
+    "tipo": "caderno",
+    "titulo": "BD-03 - Normalização",
+    "url": "https://www.tecconcursos.com.br/questoes/cadernos/107519705",
+    "info": "19 questões",
+    "questoes": 19,
+    "alvos": [
+     "banco-de-dados/normalizacao"
+    ],
+    "grupo": "TecConcursos"
+   },
+   {
+    "id": "tc107519554",
+    "tipo": "caderno",
+    "titulo": "BD-04 SQL consultas (joins, subconsultas, agregação)",
+    "url": "https://www.tecconcursos.com.br/questoes/cadernos/107519554",
+    "info": "68 questões",
+    "questoes": 68,
+    "alvos": [
+     "banco-de-dados/sql",
+     "banco-de-dados/dml"
+    ],
+    "grupo": "TecConcursos"
+   },
+   {
+    "id": "tc107519706",
+    "tipo": "caderno",
+    "titulo": "BD-05 - DDL, sublinguagens, views e triggers",
+    "url": "https://www.tecconcursos.com.br/questoes/cadernos/107519706",
+    "info": "8 questões",
+    "questoes": 8,
+    "alvos": [
+     "banco-de-dados/ddl",
+     "banco-de-dados/sql"
+    ],
+    "grupo": "TecConcursos"
+   },
+   {
+    "id": "tc107519707",
+    "tipo": "caderno",
+    "titulo": "BD-06 - Transações, ACID, SGBD, índices e desempenho",
+    "url": "https://www.tecconcursos.com.br/questoes/cadernos/107519707",
+    "info": "35 questões",
+    "questoes": 35,
+    "alvos": [
+     "banco-de-dados/sgbd",
+     "banco-de-dados/propriedades-acid",
+     "banco-de-dados/independencia-de-dados",
+     "banco-de-dados/transacoes",
+     "banco-de-dados/performance-de-banco-de-dados"
+    ],
+    "grupo": "TecConcursos"
+   },
+   {
+    "id": "tc107519709",
+    "tipo": "caderno",
+    "titulo": "BD-07 - NoSQL e outros modelos de banco de dados",
+    "url": "https://www.tecconcursos.com.br/questoes/cadernos/107519709",
+    "info": "19 questões",
+    "questoes": 19,
+    "alvos": [
+     "banco-de-dados/nosql",
+     "banco-de-dados/relacional-multidimensional-documentos-grafos"
+    ],
+    "grupo": "TecConcursos"
+   },
+   {
+    "id": "tc107519711",
+    "tipo": "caderno",
+    "titulo": "BD-08 - Data Warehouse, modelagem dimensional e ETL",
+    "url": "https://www.tecconcursos.com.br/questoes/cadernos/107519711",
+    "info": "41 questões",
+    "questoes": 41,
+    "alvos": [
+     "banco-de-dados/modelagem-dimensional",
+     "banco-de-dados/integracao-de-dados-etl-arquivos-base-de-dados",
+     "bi-e-analise-de-dados/data-warehouse",
+     "bi-e-analise-de-dados/modelagem-e-otimizacao-multidimensional"
+    ],
+    "grupo": "TecConcursos"
+   },
+   {
+    "id": "tc107519712",
+    "tipo": "caderno",
+    "titulo": "BD-09 - Metadados, qualidade e governança de dados, Big Data e Data Lake",
+    "url": "https://www.tecconcursos.com.br/questoes/cadernos/107519712",
+    "info": "22 questões",
+    "questoes": 22,
+    "alvos": [
+     "banco-de-dados/metadados",
+     "banco-de-dados/qualidade-de-dados-e-dados-mestres-e-de-referencia",
+     "banco-de-dados/data-lakes-e-big-data"
+    ],
+    "grupo": "TecConcursos"
+   },
+   {
+    "id": "tc107519715",
+    "tipo": "caderno",
+    "titulo": "BI-01 - BI, analytics, DIKW e sistemas de informação (SIG, SAD)",
+    "url": "https://www.tecconcursos.com.br/questoes/cadernos/107519715",
+    "info": "20 questões",
+    "questoes": 20,
+    "alvos": [
+     "bi-e-analise-de-dados/dado-informacao-conhecimento-e-inteligencia",
+     "bi-e-analise-de-dados/fundamentos-de-bi",
+     "bi-e-analise-de-dados/geracao-de-insights",
+     "bi-e-analise-de-dados/bi-e-tomada-de-decisao"
+    ],
+    "grupo": "TecConcursos"
+   },
+   {
+    "id": "tc107519717",
+    "tipo": "caderno",
+    "titulo": "BI-02 - OLAP (operações) e OLAP x OLTP",
+    "url": "https://www.tecconcursos.com.br/questoes/cadernos/107519717",
+    "info": "14 questões",
+    "questoes": 14,
+    "alvos": [
+     "bi-e-analise-de-dados/olap-e-operacoes"
+    ],
+    "grupo": "TecConcursos"
+   },
+   {
+    "id": "tc107519719",
+    "tipo": "caderno",
+    "titulo": "ES-01 - Engenharia de requisitos",
+    "url": "https://www.tecconcursos.com.br/questoes/cadernos/107519719",
+    "info": "16 questões",
+    "questoes": 16,
+    "alvos": [
+     "engenharia-de-software/requisitos"
+    ],
+    "grupo": "TecConcursos"
+   },
+   {
+    "id": "tc107519721",
+    "tipo": "caderno",
+    "titulo": "ES-02 - Ciclos de vida e processos de software (cascata, V, espiral, RUP, prototipação)",
+    "url": "https://www.tecconcursos.com.br/questoes/cadernos/107519721",
+    "info": "39 questões",
+    "questoes": 39,
+    "alvos": [
+     "engenharia-de-software/ciclo-de-vida-e-paradigmas"
+    ],
+    "grupo": "TecConcursos"
+   },
+   {
+    "id": "tc107519723",
+    "tipo": "caderno",
+    "titulo": "ES-03 - Análise e projeto: estruturada, OO, UML e padrões",
+    "url": "https://www.tecconcursos.com.br/questoes/cadernos/107519723",
+    "info": "70 questões",
+    "questoes": 70,
+    "alvos": [
+     "engenharia-de-software/analise-e-projeto-estruturado-e-oo-uml"
+    ],
+    "grupo": "TecConcursos"
+   },
+   {
+    "id": "tc107519724",
+    "tipo": "caderno",
+    "titulo": "ES-04 - Testes, verificação e validação, qualidade",
+    "url": "https://www.tecconcursos.com.br/questoes/cadernos/107519724",
+    "info": "32 questões",
+    "questoes": 32,
+    "alvos": [
+     "engenharia-de-software/verificacao-validacao-e-teste"
+    ],
+    "grupo": "TecConcursos"
+   },
+   {
+    "id": "tc107519728",
+    "tipo": "caderno",
+    "titulo": "ES-05 - Ambientes, configuração, versionamento e DevOps",
+    "url": "https://www.tecconcursos.com.br/questoes/cadernos/107519728",
+    "info": "13 questões",
+    "questoes": 13,
+    "alvos": [
+     "engenharia-de-software/ambientes-de-desenvolvimento-devops-versionamento-ci-cd"
+    ],
+    "grupo": "TecConcursos"
+   },
+   {
+    "id": "tc107519743",
+    "tipo": "caderno",
+    "titulo": "GV-01 - Governança, PETI, ITIL, COBIT, indicadores e serviços de TI",
+    "url": "https://www.tecconcursos.com.br/questoes/cadernos/107519743",
+    "info": "49 questões",
+    "questoes": 49,
+    "alvos": [
+     "governanca-de-ti/gerenciamento-de-servicos-de-ti-itil-cobit",
+     "governanca-de-ti/conceitos-segmentos-e-mercado-de-ti"
+    ],
+    "grupo": "TecConcursos"
+   },
+   {
+    "id": "tc107519745",
+    "tipo": "caderno",
+    "titulo": "GV-02 - LGPD",
+    "url": "https://www.tecconcursos.com.br/questoes/cadernos/107519745",
+    "info": "21 questões",
+    "questoes": 21,
+    "alvos": [
+     "governanca-de-ti/lgpd-lei-13-709-2018"
+    ],
+    "grupo": "TecConcursos"
+   },
+   {
+    "id": "tc107519746",
+    "tipo": "caderno",
+    "titulo": "GV-03 - Sistemas de informação, BPM, software e inovação",
+    "url": "https://www.tecconcursos.com.br/questoes/cadernos/107519746",
+    "info": "17 questões",
+    "questoes": 17,
+    "alvos": [
+     "governanca-de-ti/economia-da-inovacao",
+     "governanca-de-ti/conceitos-e-perspectivas-da-tecnologia",
+     "governanca-de-ti/ciencia-pesquisa-desenvolvimento-e-industria"
+    ],
+    "grupo": "TecConcursos"
+   },
+   {
+    "id": "tc107519691",
+    "tipo": "caderno",
+    "titulo": "IN-01 - Interpretação de textos em inglês",
+    "url": "https://www.tecconcursos.com.br/questoes/cadernos/107519691",
+    "info": "574 questões",
+    "questoes": 574,
+    "alvos": [
+     "ingles/compreensao-de-texto-escrito-em-lingua-inglesa"
+    ],
+    "grupo": "TecConcursos"
+   },
+   {
+    "id": "tc107519695",
+    "tipo": "caderno",
+    "titulo": "IN-02 - Vocabulário, conectivos, pronomes e referência",
+    "url": "https://www.tecconcursos.com.br/questoes/cadernos/107519695",
+    "info": "266 questões",
+    "questoes": 266,
+    "alvos": [
+     "ingles/itens-gramaticais-relevantes-para-a-compreensao"
+    ],
+    "grupo": "TecConcursos"
+   },
+   {
+    "id": "tc107519749",
+    "tipo": "caderno",
+    "titulo": "LG-01 - Lógica proposicional: conectivos, tabela-verdade, equivalências e negação",
+    "url": "https://www.tecconcursos.com.br/questoes/cadernos/107519749",
+    "info": "19 questões",
+    "questoes": 19,
+    "alvos": [
+     "logica/conectivos",
+     "logica/logica-sentencial",
+     "logica/formacao-de-formulas",
+     "logica/valores-verdade",
+     "logica/funcoes-de-avaliacao"
+    ],
+    "grupo": "TecConcursos"
+   },
+   {
+    "id": "tc107519750",
+    "tipo": "caderno",
+    "titulo": "LG-02 - Argumentação e regras de inferência",
+    "url": "https://www.tecconcursos.com.br/questoes/cadernos/107519750",
+    "info": "12 questões",
+    "questoes": 12,
+    "alvos": [
+     "logica/argumentos",
+     "logica/sistemas-dedutivos"
+    ],
+    "grupo": "TecConcursos"
+   },
+   {
+    "id": "tc107519751",
+    "tipo": "caderno",
+    "titulo": "LG-03 - Predicados, diagramas lógicos e quantificadores",
+    "url": "https://www.tecconcursos.com.br/questoes/cadernos/107519751",
+    "info": "15 questões",
+    "questoes": 15,
+    "alvos": [
+     "logica/logica-de-predicados-de-1a-ordem"
+    ],
+    "grupo": "TecConcursos"
+   },
+   {
+    "id": "tc107519752",
+    "tipo": "caderno",
+    "titulo": "LG-04 - Associação, ordenação, verdade e mentira, sequências",
+    "url": "https://www.tecconcursos.com.br/questoes/cadernos/107519752",
+    "info": "42 questões",
+    "questoes": 42,
+    "alvos": [
+     "disc:logica"
+    ],
+    "grupo": "TecConcursos"
+   },
+   {
+    "id": "tc107519733",
+    "tipo": "caderno",
+    "titulo": "PJ-01 - PMBOK: grupos, áreas, ciclo de vida, estruturas e PMO",
+    "url": "https://www.tecconcursos.com.br/questoes/cadernos/107519733",
+    "info": "71 questões",
+    "questoes": 71,
+    "alvos": [
+     "gestao-de-projetos/pmbok-7a-edicao",
+     "gestao-de-projetos/projetos-e-a-organizacao",
+     "gestao-de-projetos/escritorio-de-projetos-pmo",
+     "gestao-de-projetos/modelos-e-caracteristicas-ciclos-de-vida",
+     "gestao-de-projetos/processos-grupos-de-processos-e-areas-de-conhecimento"
+    ],
+    "grupo": "TecConcursos"
+   },
+   {
+    "id": "tc107519738",
+    "tipo": "caderno",
+    "titulo": "PJ-02 - EAP, rede, PERT, caminho crítico, Gantt e valor agregado",
+    "url": "https://www.tecconcursos.com.br/questoes/cadernos/107519738",
+    "info": "36 questões",
+    "questoes": 36,
+    "alvos": [
+     "gestao-de-projetos/processos-grupos-de-processos-e-areas-de-conhecimento"
+    ],
+    "grupo": "TecConcursos"
+   },
+   {
+    "id": "tc107519741",
+    "tipo": "caderno",
+    "titulo": "PJ-03 - Ágil: Scrum, Kanban, XP e DevOps",
+    "url": "https://www.tecconcursos.com.br/questoes/cadernos/107519741",
+    "info": "27 questões",
+    "questoes": 27,
+    "alvos": [
+     "gestao-de-projetos/scrum-e-kanban"
+    ],
+    "grupo": "TecConcursos"
+   },
+   {
+    "id": "tc107519667",
+    "tipo": "caderno",
+    "titulo": "PT-01 - Interpretação, tipologia e reescrita",
+    "url": "https://www.tecconcursos.com.br/questoes/cadernos/107519667",
+    "info": "1009 questões",
+    "questoes": 1009,
+    "alvos": [
+     "portugues/compreensao-de-textos"
+    ],
+    "grupo": "TecConcursos"
+   },
+   {
+    "id": "tc107519674",
+    "tipo": "caderno",
+    "titulo": "PT-02 - Crase",
+    "url": "https://www.tecconcursos.com.br/questoes/cadernos/107519674",
+    "info": "121 questões",
+    "questoes": 121,
+    "alvos": [
+     "portugues/emprego-do-sinal-indicativo-de-crase"
+    ],
+    "grupo": "TecConcursos"
+   },
+   {
+    "id": "tc107519677",
+    "tipo": "caderno",
+    "titulo": "PT-03 - Pontuação (vírgula)",
+    "url": "https://www.tecconcursos.com.br/questoes/cadernos/107519677",
+    "info": "172 questões",
+    "questoes": 172,
+    "alvos": [
+     "portugues/emprego-dos-sinais-de-pontuacao"
+    ],
+    "grupo": "TecConcursos"
+   },
+   {
+    "id": "tc107519679",
+    "tipo": "caderno",
+    "titulo": "PT-04 - Coesão, conectivos, pronomes relativos e orações",
+    "url": "https://www.tecconcursos.com.br/questoes/cadernos/107519679",
+    "info": "309 questões",
+    "questoes": 309,
+    "alvos": [
+     "portugues/mecanismos-de-coesao-textual",
+     "portugues/coordenacao-e-subordinacao"
+    ],
+    "grupo": "TecConcursos"
+   },
+   {
+    "id": "tc107519683",
+    "tipo": "caderno",
+    "titulo": "PT-05 - Verbos, correlação, vozes e partícula se",
+    "url": "https://www.tecconcursos.com.br/questoes/cadernos/107519683",
+    "info": "171 questões",
+    "questoes": 171,
+    "alvos": [
+     "portugues/emprego-de-tempos-e-modos-verbais",
+     "portugues/emprego-das-classes-de-palavras"
+    ],
+    "grupo": "TecConcursos"
+   },
+   {
+    "id": "tc107519685",
+    "tipo": "caderno",
+    "titulo": "PT-06 - Concordância e regência",
+    "url": "https://www.tecconcursos.com.br/questoes/cadernos/107519685",
+    "info": "240 questões",
+    "questoes": 240,
+    "alvos": [
+     "portugues/concordancia-verbal-e-nominal",
+     "portugues/regencia-verbal-e-nominal"
+    ],
+    "grupo": "TecConcursos"
+   },
+   {
+    "id": "tc107519686",
+    "tipo": "caderno",
+    "titulo": "PT-07 - Colocação pronominal, ortografia e semântica",
+    "url": "https://www.tecconcursos.com.br/questoes/cadernos/107519686",
+    "info": "503 questões",
+    "questoes": 503,
+    "alvos": [
+     "portugues/colocacao-dos-pronomes-atonos",
+     "portugues/ortografia-oficial",
+     "portugues/significacao-das-palavras"
+    ],
+    "grupo": "TecConcursos"
+   },
+   {
+    "id": "tc107519756",
+    "tipo": "caderno",
+    "titulo": "SI-01 - Conceitos, princípios, políticas, classificação e segurança física",
+    "url": "https://www.tecconcursos.com.br/questoes/cadernos/107519756",
+    "info": "37 questões",
+    "questoes": 37,
+    "alvos": [
+     "seguranca-da-informacao/seguranca-fisica-e-logica",
+     "seguranca-da-informacao/politicas-de-seguranca",
+     "seguranca-da-informacao/classificacao-de-informacoes"
+    ],
+    "grupo": "TecConcursos"
+   },
+   {
+    "id": "tc107519758",
+    "tipo": "caderno",
+    "titulo": "SI-02 - Malware, ataques, engenharia social e DoS",
+    "url": "https://www.tecconcursos.com.br/questoes/cadernos/107519758",
+    "info": "47 questões",
+    "questoes": 47,
+    "alvos": [
+     "seguranca-da-informacao/softwares-maliciosos",
+     "seguranca-da-informacao/ataques"
+    ],
+    "grupo": "TecConcursos"
+   },
+   {
+    "id": "tc107519760",
+    "tipo": "caderno",
+    "titulo": "SI-03 - Criptografia, hash, assinatura e certificado digital",
+    "url": "https://www.tecconcursos.com.br/questoes/cadernos/107519760",
+    "info": "51 questões",
+    "questoes": 51,
+    "alvos": [
+     "seguranca-da-informacao/iso-27002-criptografia-certificacao-e-assinatura-digital"
+    ],
+    "grupo": "TecConcursos"
+   },
+   {
+    "id": "tc107519762",
+    "tipo": "caderno",
+    "titulo": "SI-04 - Firewall, proxy, IDS/IPS, VPN, WAF, SIEM, backup e ferramentas",
+    "url": "https://www.tecconcursos.com.br/questoes/cadernos/107519762",
+    "info": "52 questões",
+    "questoes": 52,
+    "alvos": [
+     "seguranca-da-informacao/operacao-de-seguranca-firewall-ids-ips-siem-edr-waf-backup",
+     "seguranca-da-informacao/vpn"
+    ],
+    "grupo": "TecConcursos"
+   },
+   {
+    "id": "tc107519763",
+    "tipo": "caderno",
+    "titulo": "SI-05 - IAM: autenticação, MFA, SSO, RBAC e ABAC",
+    "url": "https://www.tecconcursos.com.br/questoes/cadernos/107519763",
+    "info": "12 questões",
+    "questoes": 12,
+    "alvos": [
+     "seguranca-da-informacao/sso",
+     "seguranca-da-informacao/mfa",
+     "seguranca-da-informacao/gestao-de-identidade-e-acesso-rbac-abac"
+    ],
+    "grupo": "TecConcursos"
+   },
+   {
+    "id": "tc107519765",
+    "tipo": "caderno",
+    "titulo": "SI-06 - Normas ISO, riscos, continuidade, incidentes, NIST, ATT&CK e STRIDE",
+    "url": "https://www.tecconcursos.com.br/questoes/cadernos/107519765",
+    "info": "38 questões",
+    "questoes": 38,
+    "alvos": [
+     "seguranca-da-informacao/resposta-a-incidentes-nist-sp-800-61",
+     "seguranca-da-informacao/threat-intel-e-threat-hunting",
+     "seguranca-da-informacao/modelagem-de-ameacas-stride",
+     "seguranca-da-informacao/mitre-att-ck",
+     "seguranca-da-informacao/iso-31000-iso-22301-e-sox"
+    ],
+    "grupo": "TecConcursos"
+   },
+   {
+    "id": "tc107519768",
+    "tipo": "caderno",
+    "titulo": "SI-07 - Desenvolvimento seguro, OWASP, SAST/DAST e pentest",
+    "url": "https://www.tecconcursos.com.br/questoes/cadernos/107519768",
+    "info": "12 questões",
+    "questoes": 12,
+    "alvos": [
+     "seguranca-da-informacao/desenvolvimento-seguro-sast-dast-iast",
+     "seguranca-da-informacao/testes-de-penetracao"
+    ],
+    "grupo": "TecConcursos"
+   },
+   {
+    "id": "tc107519730",
+    "tipo": "caderno",
+    "titulo": "UX-01 - Usabilidade, acessibilidade e interoperabilidade (Nielsen, WCAG, e-MAG, e-PING)",
+    "url": "https://www.tecconcursos.com.br/questoes/cadernos/107519730",
+    "info": "9 questões",
+    "questoes": 9,
+    "alvos": [
+     "ux/acessibilidade-e-usabilidade",
+     "ux/interoperabilidade-entre-navegadores"
+    ],
+    "grupo": "TecConcursos"
+   },
+   {
+    "id": "tc107519731",
+    "tipo": "caderno",
+    "titulo": "UX-02 - UX, design thinking, protótipos, MVP e Lean UX",
+    "url": "https://www.tecconcursos.com.br/questoes/cadernos/107519731",
+    "info": "2 questões",
+    "questoes": 2,
+    "alvos": [
+     "ux/projeto-centrado-no-usuario",
+     "ux/mvp",
+     "ux/prototipacao",
+     "ux/design-thinking"
+    ],
+    "grupo": "TecConcursos"
+   },
+   {
+    "id": "tc101785881",
+    "tipo": "caderno",
+    "titulo": "Prova da Transpetro de Nível Superior - Análise de Sistemas - Processos de Negócios",
+    "url": "https://www.tecconcursos.com.br/questoes/cadernos/101785881",
+    "info": "70 questões",
+    "questoes": 70,
+    "alvos": [
+     "concurso:transpetro-2026-enfase5"
+    ],
+    "grupo": "TecConcursos"
+   },
+   {
+    "id": "tc101699941",
+    "tipo": "caderno",
+    "titulo": "S00 [MAXIMA] Dados - Modelagem MER, modelo relacional e normalizacao (edital 1.1-1.5, 1.8)",
+    "url": "https://www.tecconcursos.com.br/questoes/cadernos/101699941",
+    "info": "48 questões",
+    "questoes": 48,
+    "alvos": [
+     "banco-de-dados/modelagem-de-dados-conceitual-logica-e-fisica",
+     "banco-de-dados/criacao-e-alteracao-dos-modelos-logico-e-fisico",
+     "banco-de-dados/o-modelo-relacional",
+     "banco-de-dados/normalizacao",
+     "banco-de-dados/integridade-referencial",
+     "banco-de-dados/avaliacao-de-modelos-de-dados"
+    ],
+    "grupo": "TecConcursos"
+   },
+   {
+    "id": "tc101700647",
+    "tipo": "caderno",
+    "titulo": "S01 [ALTA] Dados - SGBD, transacoes e propriedades ACID (edital 1.13-1.17)",
+    "url": "https://www.tecconcursos.com.br/questoes/cadernos/101700647",
+    "info": "15 questões",
+    "questoes": 15,
+    "alvos": [
+     "banco-de-dados/sgbd",
+     "banco-de-dados/propriedades-acid",
+     "banco-de-dados/independencia-de-dados",
+     "banco-de-dados/transacoes",
+     "banco-de-dados/performance-de-banco-de-dados"
+    ],
+    "grupo": "TecConcursos"
+   },
+   {
+    "id": "tc101699904",
+    "tipo": "caderno",
+    "titulo": "S01 [MAXIMA] Dados - SQL: consultas, DDL e DML (edital 1.10-1.12)",
+    "url": "https://www.tecconcursos.com.br/questoes/cadernos/101699904",
+    "info": "22 questões",
+    "questoes": 22,
+    "alvos": [
+     "banco-de-dados/sql",
+     "banco-de-dados/ddl",
+     "banco-de-dados/dml"
+    ],
+    "grupo": "TecConcursos"
+   },
+   {
+    "id": "tc101699859",
+    "tipo": "caderno",
+    "titulo": "S02 [MAXIMA] Dados - Modelagem dimensional, SCD, OLAP e Data Warehouse (edital 1.7, 7.5-7.7)",
+    "url": "https://www.tecconcursos.com.br/questoes/cadernos/101699859",
+    "info": "21 questões",
+    "questoes": 21,
+    "alvos": [
+     "banco-de-dados/modelagem-dimensional",
+     "bi-e-analise-de-dados/olap-e-operacoes",
+     "bi-e-analise-de-dados/data-warehouse",
+     "bi-e-analise-de-dados/modelagem-e-otimizacao-multidimensional"
+    ],
+    "grupo": "TecConcursos"
+   },
+   {
+    "id": "tc101714556",
+    "tipo": "caderno",
+    "titulo": "S03 [ALTA] Dados - ETL, Data Lake e Big Data (edital 1.19, 1.22)",
+    "url": "https://www.tecconcursos.com.br/questoes/cadernos/101714556",
+    "info": "13 questões",
+    "questoes": 13,
+    "alvos": [
+     "banco-de-dados/integracao-de-dados-etl-arquivos-base-de-dados",
+     "banco-de-dados/data-lakes-e-big-data"
+    ],
+    "grupo": "TecConcursos"
+   },
+   {
+    "id": "tc101700669",
+    "tipo": "caderno",
+    "titulo": "S03 [ALTA] Dados - NoSQL: documentos, chave-valor, colunas e grafos (edital 1.18, 1.23)",
+    "url": "https://www.tecconcursos.com.br/questoes/cadernos/101700669",
+    "info": "7 questões",
+    "questoes": 7,
+    "alvos": [
+     "banco-de-dados/nosql",
+     "banco-de-dados/relacional-multidimensional-documentos-grafos"
+    ],
+    "grupo": "TecConcursos"
+   },
+   {
+    "id": "tc101700729",
+    "tipo": "caderno",
+    "titulo": "S04 [ALTA] Eng. Software - Requisitos, ciclos de vida, RUP e paradigmas (edital 5.1-5.2)",
+    "url": "https://www.tecconcursos.com.br/questoes/cadernos/101700729",
+    "info": "47 questões",
+    "questoes": 47,
+    "alvos": [
+     "engenharia-de-software/requisitos",
+     "engenharia-de-software/ciclo-de-vida-e-paradigmas"
+    ],
+    "grupo": "TecConcursos"
+   },
+   {
+    "id": "tc101700761",
+    "tipo": "caderno",
+    "titulo": "S05 [ALTA] Eng. Software - UML e testes: caixa branca/preta, niveis e mutacao (edital 5.3-5.4)",
+    "url": "https://www.tecconcursos.com.br/questoes/cadernos/101700761",
+    "info": "38 questões",
+    "questoes": 38,
+    "alvos": [
+     "engenharia-de-software/analise-e-projeto-estruturado-e-oo-uml",
+     "engenharia-de-software/verificacao-validacao-e-teste"
+    ],
+    "grupo": "TecConcursos"
+   },
+   {
+    "id": "tc101699962",
+    "tipo": "caderno",
+    "titulo": "S06 [MAXIMA] Seguranca - Ataques (XSS, CSRF, SQLi, DDoS) e malwares (edital 9.3-9.4)",
+    "url": "https://www.tecconcursos.com.br/questoes/cadernos/101699962",
+    "info": "18 questões",
+    "questoes": 18,
+    "alvos": [
+     "seguranca-da-informacao/softwares-maliciosos",
+     "seguranca-da-informacao/ataques"
+    ],
+    "grupo": "TecConcursos"
+   },
+   {
+    "id": "tc101700108",
+    "tipo": "caderno",
+    "titulo": "S06 [MAXIMA] Seguranca - Criptografia, hash, certificado e assinatura digital (edital 9.19)",
+    "url": "https://www.tecconcursos.com.br/questoes/cadernos/101700108",
+    "info": "30 questões",
+    "questoes": 30,
+    "alvos": [
+     "seguranca-da-informacao/iso-27002-criptografia-certificacao-e-assinatura-digital"
+    ],
+    "grupo": "TecConcursos"
+   },
+   {
+    "id": "tc101699984",
+    "tipo": "caderno",
+    "titulo": "S06 [MAXIMA] Seguranca - ISO 27001/27002: SGSI, controles, politicas e classificacao (edital 9.17-9.19)",
+    "url": "https://www.tecconcursos.com.br/questoes/cadernos/101699984",
+    "info": "26 questões",
+    "questoes": 26,
+    "alvos": [
+     "seguranca-da-informacao/politicas-de-seguranca",
+     "seguranca-da-informacao/classificacao-de-informacoes",
+     "seguranca-da-informacao/iso-27002-criptografia-certificacao-e-assinatura-digital"
+    ],
+    "grupo": "TecConcursos"
+   },
+   {
+    "id": "tc101700769",
+    "tipo": "caderno",
+    "titulo": "S07 [ALTA] Seguranca - Firewall, proxy, IDS/IPS e controle de acesso RBAC/ABAC (edital 9.1-9.2, 9.10)",
+    "url": "https://www.tecconcursos.com.br/questoes/cadernos/101700769",
+    "info": "17 questões",
+    "questoes": 17,
+    "alvos": [
+     "seguranca-da-informacao/seguranca-fisica-e-logica",
+     "seguranca-da-informacao/operacao-de-seguranca-firewall-ids-ips-siem-edr-waf-backup",
+     "seguranca-da-informacao/gestao-de-identidade-e-acesso-rbac-abac"
+    ],
+    "grupo": "TecConcursos"
+   },
+   {
+    "id": "tc101715604",
+    "tipo": "caderno",
+    "titulo": "S07 [MEDIA] Seguranca - Dev seguro SAST/DAST, resposta a incidentes NIST, pentest, STRIDE e MITRE ATTACK (edital 9.5, 9.11-9.15)",
+    "url": "https://www.tecconcursos.com.br/questoes/cadernos/101715604",
+    "info": "6 questões",
+    "questoes": 6,
+    "alvos": [
+     "seguranca-da-informacao/desenvolvimento-seguro-sast-dast-iast",
+     "seguranca-da-informacao/resposta-a-incidentes-nist-sp-800-61",
+     "seguranca-da-informacao/threat-intel-e-threat-hunting",
+     "seguranca-da-informacao/testes-de-penetracao",
+     "seguranca-da-informacao/modelagem-de-ameacas-stride",
+     "seguranca-da-informacao/mitre-att-ck"
+    ],
+    "grupo": "TecConcursos"
+   },
+   {
+    "id": "tc101715798",
+    "tipo": "caderno",
+    "titulo": "S07 [MEDIA] Seguranca - Riscos ISO 31000, continuidade ISO 22301, SOX, nuvem e IoT (edital 9.16, 9.20-9.21)",
+    "url": "https://www.tecconcursos.com.br/questoes/cadernos/101715798",
+    "info": "20 questões",
+    "questoes": 20,
+    "alvos": [
+     "seguranca-da-informacao/iso-31000-iso-22301-e-sox",
+     "seguranca-da-informacao/seguranca-em-nuvem",
+     "seguranca-da-informacao/seguranca-em-iot"
+    ],
+    "grupo": "TecConcursos"
+   },
+   {
+    "id": "tc101700000",
+    "tipo": "caderno",
+    "titulo": "S08 [MAXIMA] Projetos - Scrum e Kanban: papeis, eventos, artefatos e WIP (edital 2.1)",
+    "url": "https://www.tecconcursos.com.br/questoes/cadernos/101700000",
+    "info": "14 questões",
+    "questoes": 14,
+    "alvos": [
+     "gestao-de-projetos/scrum-e-kanban"
+    ],
+    "grupo": "TecConcursos"
+   },
+   {
+    "id": "tc101714854",
+    "tipo": "caderno",
+    "titulo": "S09 [ALTA] Governanca - LGPD: principios, bases legais, agentes e ANPD (edital 4.6)",
+    "url": "https://www.tecconcursos.com.br/questoes/cadernos/101714854",
+    "info": "22 questões",
+    "questoes": 22,
+    "alvos": [
+     "governanca-de-ti/lgpd-lei-13-709-2018"
+    ],
+    "grupo": "TecConcursos"
+   },
+   {
+    "id": "tc101700799",
+    "tipo": "caderno",
+    "titulo": "S09 [ALTA] Projetos - Grupos de processos e areas de conhecimento, EAP, CPI/SPI (edital item 3)",
+    "url": "https://www.tecconcursos.com.br/questoes/cadernos/101700799",
+    "info": "19 questões",
+    "questoes": 19,
+    "alvos": [
+     "gestao-de-projetos/processos-grupos-de-processos-e-areas-de-conhecimento"
+    ],
+    "grupo": "TecConcursos"
+   },
+   {
+    "id": "tc101716132",
+    "tipo": "caderno",
+    "titulo": "S09 [BAIXA] Projetos - PMO, estrutura organizacional e agil em escala/SAFe (edital 2.3, 2.5-2.7)",
+    "url": "https://www.tecconcursos.com.br/questoes/cadernos/101716132",
+    "info": "5 questões",
+    "questoes": 5,
+    "alvos": [
+     "gestao-de-projetos/agilidade-em-escala-e-safe",
+     "gestao-de-projetos/projetos-e-a-organizacao",
+     "gestao-de-projetos/escritorio-de-projetos-pmo",
+     "gestao-de-projetos/modelos-e-caracteristicas-ciclos-de-vida"
+    ],
+    "grupo": "TecConcursos"
+   },
+   {
+    "id": "tc101718752",
+    "tipo": "caderno",
+    "titulo": "S09 [MEDIA] Governanca - Conceitos de governanca de TI, economia da inovacao e IA/perspectivas da tecnologia (edital 4.1-4.4)",
+    "url": "https://www.tecconcursos.com.br/questoes/cadernos/101718752",
+    "info": "49 questões",
+    "questoes": 49,
+    "alvos": [
+     "governanca-de-ti/conceitos-segmentos-e-mercado-de-ti",
+     "governanca-de-ti/economia-da-inovacao",
+     "governanca-de-ti/conceitos-e-perspectivas-da-tecnologia",
+     "governanca-de-ti/ciencia-pesquisa-desenvolvimento-e-industria"
+    ],
+    "grupo": "TecConcursos"
+   },
+   {
+    "id": "tc101715177",
+    "tipo": "caderno",
+    "titulo": "S09 [MEDIA] Governanca - ITIL: gestao de servicos, ciclo de vida e ITIL 4 (edital 4.5)",
+    "url": "https://www.tecconcursos.com.br/questoes/cadernos/101715177",
+    "info": "10 questões",
+    "questoes": 10,
+    "alvos": [
+     "governanca-de-ti/gerenciamento-de-servicos-de-ti-itil-cobit"
+    ],
+    "grupo": "TecConcursos"
+   },
+   {
+    "id": "tc101718544",
+    "tipo": "caderno",
+    "titulo": "S10 [BAIXA] Complementos - Metadados, engenharia reversa e ambientes de dev/Git (edital 1.6, 1.9, 5.5)",
+    "url": "https://www.tecconcursos.com.br/questoes/cadernos/101718544",
+    "info": "3 questões",
+    "questoes": 3,
+    "alvos": [
+     "banco-de-dados/metadados",
+     "banco-de-dados/engenharia-reversa-de-modelos-de-dados",
+     "engenharia-de-software/ambientes-de-desenvolvimento-devops-versionamento-ci-cd"
+    ],
+    "grupo": "TecConcursos"
+   },
+   {
+    "id": "tc101714718",
+    "tipo": "caderno",
+    "titulo": "S10 [MEDIA] Dados - BI, dashboards, qualidade e governanca de dados (edital 1.21, 7.2, 7.8-7.11)",
+    "url": "https://www.tecconcursos.com.br/questoes/cadernos/101714718",
+    "info": "9 questões",
+    "questoes": 9,
+    "alvos": [
+     "banco-de-dados/qualidade-de-dados-e-dados-mestres-e-de-referencia",
+     "bi-e-analise-de-dados/fundamentos-de-bi",
+     "bi-e-analise-de-dados/relatorios-e-dashboards-em-ferramentas-de-bi",
+     "bi-e-analise-de-dados/manipulacao-de-dados-em-planilhas",
+     "bi-e-analise-de-dados/geracao-de-insights",
+     "bi-e-analise-de-dados/bi-e-tomada-de-decisao"
+    ],
+    "grupo": "TecConcursos"
+   },
+   {
+    "id": "tc101716712",
+    "tipo": "caderno",
+    "titulo": "S10 [MEDIA] Dados - Manipulacao de dados em planilhas: Excel e Calc, formulas e funcoes (edital 7.9)",
+    "url": "https://www.tecconcursos.com.br/questoes/cadernos/101716712",
+    "info": "14 questões",
+    "questoes": 14,
+    "alvos": [
+     "bi-e-analise-de-dados/manipulacao-de-dados-em-planilhas"
+    ],
+    "grupo": "TecConcursos"
+   },
+   {
+    "id": "tc101716496",
+    "tipo": "caderno",
+    "titulo": "S10 [MEDIA] UX - Usabilidade ISO 9241, acessibilidade e-MAG, UI, Design Thinking e prototipacao (edital 6.1-6.4, 6.7-6.11)",
+    "url": "https://www.tecconcursos.com.br/questoes/cadernos/101716496",
+    "info": "7 questões",
+    "questoes": 7,
+    "alvos": [
+     "ux/acessibilidade-e-usabilidade",
+     "ux/historias-do-usuario",
+     "ux/design-de-interacao-web",
+     "ux/projeto-centrado-no-usuario",
+     "ux/interoperabilidade-entre-navegadores",
+     "ux/mvp",
+     "ux/prototipacao",
+     "ux/design-thinking",
+     "ux/personas"
+    ],
+    "grupo": "TecConcursos"
+   },
+   {
+    "id": "tc101700130",
+    "tipo": "caderno",
+    "titulo": "TRILHO INGLES 1 [ALTA] Interpretacao de textos, main idea e referencia (edital LI 1)",
+    "url": "https://www.tecconcursos.com.br/questoes/cadernos/101700130",
+    "info": "30 questões",
+    "questoes": 30,
+    "alvos": [
+     "ingles/compreensao-de-texto-escrito-em-lingua-inglesa"
+    ],
+    "grupo": "TecConcursos"
+   },
+   {
+    "id": "tc101718245",
+    "tipo": "caderno",
+    "titulo": "TRILHO INGLES 2 [ALTA] Itens gramaticais: classes de palavras, reescrita de frases e word formation (edital LI 2)",
+    "url": "https://www.tecconcursos.com.br/questoes/cadernos/101718245",
+    "info": "28 questões",
+    "questoes": 28,
+    "alvos": [
+     "ingles/itens-gramaticais-relevantes-para-a-compreensao"
+    ],
+    "grupo": "TecConcursos"
+   },
+   {
+    "id": "tc101716837",
+    "tipo": "caderno",
+    "titulo": "TRILHO LOGICA 1 [ALTA] Proposicoes, conectivos, tabela-verdade e equivalencias (edital 8.1, 8.3, 8.5, 8.8-8.9)",
+    "url": "https://www.tecconcursos.com.br/questoes/cadernos/101716837",
+    "info": "14 questões",
+    "questoes": 14,
+    "alvos": [
+     "logica/conectivos",
+     "logica/logica-sentencial",
+     "logica/formacao-de-formulas",
+     "logica/valores-verdade",
+     "logica/funcoes-de-avaliacao"
+    ],
+    "grupo": "TecConcursos"
+   },
+   {
+    "id": "tc101717004",
+    "tipo": "caderno",
+    "titulo": "TRILHO LOGICA 2 [ALTA] Argumentos validos, diagramas logicos e quantificadores/predicados (edital 8.2, 8.4, 8.6-8.7)",
+    "url": "https://www.tecconcursos.com.br/questoes/cadernos/101717004",
+    "info": "7 questões",
+    "questoes": 7,
+    "alvos": [
+     "logica/argumentos",
+     "logica/logica-de-predicados-de-1a-ordem",
+     "logica/sistemas-dedutivos",
+     "logica/decidibilidade"
+    ],
+    "grupo": "TecConcursos"
+   },
+   {
+    "id": "tc101700038",
+    "tipo": "caderno",
+    "titulo": "TRILHO PORTUGUES 1 [MAXIMA] Interpretacao e compreensao de textos (edital LP 1)",
+    "url": "https://www.tecconcursos.com.br/questoes/cadernos/101700038",
+    "info": "30 questões",
+    "questoes": 30,
+    "alvos": [
+     "portugues/compreensao-de-textos"
+    ],
+    "grupo": "TecConcursos"
+   },
+   {
+    "id": "tc101700048",
+    "tipo": "caderno",
+    "titulo": "TRILHO PORTUGUES 2 [MAXIMA] Coesao textual, coerencia e conectivos (edital LP 3)",
+    "url": "https://www.tecconcursos.com.br/questoes/cadernos/101700048",
+    "info": "40 questões",
+    "questoes": 40,
+    "alvos": [
+     "portugues/mecanismos-de-coesao-textual"
+    ],
+    "grupo": "TecConcursos"
+   },
+   {
+    "id": "tc101717203",
+    "tipo": "caderno",
+    "titulo": "TRILHO PORTUGUES 3 [ALTA] Concordancia verbal/nominal, regencia e crase (edital LP 9, 10, 11)",
+    "url": "https://www.tecconcursos.com.br/questoes/cadernos/101717203",
+    "info": "73 questões",
+    "questoes": 73,
+    "alvos": [
+     "portugues/concordancia-verbal-e-nominal",
+     "portugues/regencia-verbal-e-nominal",
+     "portugues/emprego-do-sinal-indicativo-de-crase"
+    ],
+    "grupo": "TecConcursos"
+   },
+   {
+    "id": "tc101717441",
+    "tipo": "caderno",
+    "titulo": "TRILHO PORTUGUES 4 [ALTA] Pontuacao, coordenacao e subordinacao (edital LP 7, 8)",
+    "url": "https://www.tecconcursos.com.br/questoes/cadernos/101717441",
+    "info": "42 questões",
+    "questoes": 42,
+    "alvos": [
+     "portugues/coordenacao-e-subordinacao",
+     "portugues/emprego-dos-sinais-de-pontuacao"
+    ],
+    "grupo": "TecConcursos"
+   },
+   {
+    "id": "tc101717672",
+    "tipo": "caderno",
+    "titulo": "TRILHO PORTUGUES 5 [MEDIA] Classes de palavras, verbos e colocacao pronominal (edital LP 5, 6, 12)",
+    "url": "https://www.tecconcursos.com.br/questoes/cadernos/101717672",
+    "info": "40 questões",
+    "questoes": 40,
+    "alvos": [
+     "portugues/emprego-de-tempos-e-modos-verbais",
+     "portugues/emprego-das-classes-de-palavras",
+     "portugues/colocacao-dos-pronomes-atonos"
+    ],
+    "grupo": "TecConcursos"
+   },
+   {
+    "id": "tc101717820",
+    "tipo": "caderno",
+    "titulo": "TRILHO PORTUGUES 6 [MEDIA] Ortografia oficial e significacao das palavras (edital LP 2, 4)",
+    "url": "https://www.tecconcursos.com.br/questoes/cadernos/101717820",
+    "info": "33 questões",
+    "questoes": 33,
+    "alvos": [
+     "portugues/ortografia-oficial",
+     "portugues/significacao-das-palavras"
+    ],
+    "grupo": "TecConcursos"
+   },
+   {
+    "id": "tc101724316",
+    "tipo": "caderno",
+    "titulo": "Conhecimentos Específicos Analista (Processos de Negócio) - TRANSPETRO - 2026",
+    "url": "https://www.tecconcursos.com.br/questoes/cadernos/101724316",
+    "info": "1318 questões",
+    "questoes": 1318,
+    "alvos": [
+     "concurso:transpetro-2026-enfase5"
+    ],
+    "grupo": "TecConcursos"
+   },
+   {
+    "id": "tc101724317",
+    "tipo": "caderno",
+    "titulo": "Língua Inglesa (Superior) - TRANSPETRO - 2026",
+    "url": "https://www.tecconcursos.com.br/questoes/cadernos/101724317",
+    "info": "887 questões",
+    "questoes": 887,
+    "alvos": [
+     "disc:ingles"
+    ],
+    "grupo": "TecConcursos"
+   },
+   {
+    "id": "tc101724318",
+    "tipo": "caderno",
+    "titulo": "Língua Portuguesa (Superior) - TRANSPETRO - 2026",
+    "url": "https://www.tecconcursos.com.br/questoes/cadernos/101724318",
+    "info": "994 questões",
+    "questoes": 994,
+    "alvos": [
+     "disc:portugues"
+    ],
+    "grupo": "TecConcursos"
+   },
+   {
+    "id": "tc102119556",
+    "tipo": "caderno",
+    "titulo": "01 - Língua Portuguesa - CESGRANRIO 10 anos",
+    "url": "https://www.tecconcursos.com.br/questoes/cadernos/102119556",
+    "info": "873 questões",
+    "questoes": 873,
+    "alvos": [
+     "disc:portugues"
+    ],
+    "grupo": "TecConcursos"
+   },
+   {
+    "id": "tc102119667",
+    "tipo": "caderno",
+    "titulo": "02 - Língua Inglesa - CESGRANRIO 10 anos",
+    "url": "https://www.tecconcursos.com.br/questoes/cadernos/102119667",
+    "info": "291 questões",
+    "questoes": 291,
+    "alvos": [
+     "disc:ingles"
+    ],
+    "grupo": "TecConcursos"
+   },
+   {
+    "id": "tc102119739",
+    "tipo": "caderno",
+    "titulo": "03 - Banco de Dados - CESGRANRIO 10 anos",
+    "url": "https://www.tecconcursos.com.br/questoes/cadernos/102119739",
+    "info": "192 questões",
+    "questoes": 192,
+    "alvos": [
+     "disc:banco-de-dados"
+    ],
+    "grupo": "TecConcursos"
+   },
+   {
+    "id": "tc102119886",
+    "tipo": "caderno",
+    "titulo": "04 - Gestão de Projetos - CESGRANRIO 10 anos",
+    "url": "https://www.tecconcursos.com.br/questoes/cadernos/102119886",
+    "info": "98 questões",
+    "questoes": 98,
+    "alvos": [
+     "disc:gestao-de-projetos"
+    ],
+    "grupo": "TecConcursos"
+   },
+   {
+    "id": "tc102120000",
+    "tipo": "caderno",
+    "titulo": "05 - Governança de TI - CESGRANRIO 10 anos",
+    "url": "https://www.tecconcursos.com.br/questoes/cadernos/102120000",
+    "info": "119 questões",
+    "questoes": 119,
+    "alvos": [
+     "disc:governanca-de-ti"
+    ],
+    "grupo": "TecConcursos"
+   },
+   {
+    "id": "tc102120087",
+    "tipo": "caderno",
+    "titulo": "06 - Engenharia de Software e UX - CESGRANRIO 10 anos",
+    "url": "https://www.tecconcursos.com.br/questoes/cadernos/102120087",
+    "info": "193 questões",
+    "questoes": 193,
+    "alvos": [
+     "disc:engenharia-de-software",
+     "disc:ux"
+    ],
+    "grupo": "TecConcursos"
+   },
+   {
+    "id": "tc102120301",
+    "tipo": "caderno",
+    "titulo": "07 - Business Intelligence e Ciência de Dados - CESGRANRIO 10 anos",
+    "url": "https://www.tecconcursos.com.br/questoes/cadernos/102120301",
+    "info": "204 questões",
+    "questoes": 204,
+    "alvos": [
+     "disc:bi-e-analise-de-dados"
+    ],
+    "grupo": "TecConcursos"
+   },
+   {
+    "id": "tc102120367",
+    "tipo": "caderno",
+    "titulo": "08 - Raciocínio Lógico - CESGRANRIO 10 anos",
+    "url": "https://www.tecconcursos.com.br/questoes/cadernos/102120367",
+    "info": "47 questões",
+    "questoes": 47,
+    "alvos": [
+     "disc:logica"
+    ],
+    "grupo": "TecConcursos"
+   },
+   {
+    "id": "tc102120465",
+    "tipo": "caderno",
+    "titulo": "09 - Segurança da Informação - CESGRANRIO 10 anos",
+    "url": "https://www.tecconcursos.com.br/questoes/cadernos/102120465",
+    "info": "238 questões",
+    "questoes": 238,
+    "alvos": [
+     "disc:seguranca-da-informacao"
+    ],
+    "grupo": "TecConcursos"
+   },
+   {
+    "id": "dr000",
+    "tipo": "drive",
+    "titulo": "Guia 00 · Anatomia da Cesgranrio",
+    "url": "https://docs.google.com/document/d/1H5Y5GqoHYKw173GZe4Sc7g3UC4WbvLoRrVV985civ78/edit",
+    "info": "Guias Cesgranrio",
+    "alvos": [
+     "concurso:transpetro-2026-enfase5",
+     "estrategia-de-prova/anatomia-da-cesgranrio"
+    ],
+    "grupo": "Guias Cesgranrio"
+   },
+   {
+    "id": "dr001",
+    "tipo": "drive",
+    "titulo": "Guia 01 · Português",
+    "url": "https://docs.google.com/document/d/1QKdshqK4TOmwNBDEboIMuUAboQENzkMSgnPSHVDOkAc/edit",
+    "info": "Guias Cesgranrio",
+    "alvos": [
+     "disc:portugues"
+    ],
+    "grupo": "Guias Cesgranrio"
+   },
+   {
+    "id": "dr002",
+    "tipo": "drive",
+    "titulo": "Guia 02 · Inglês",
+    "url": "https://docs.google.com/document/d/1aQ0dsAthSPJhnf_A0UwxLv-xr_f4x0hgDvAy5a41F70/edit",
+    "info": "Guias Cesgranrio",
+    "alvos": [
+     "disc:ingles"
+    ],
+    "grupo": "Guias Cesgranrio"
+   },
+   {
+    "id": "dr003",
+    "tipo": "drive",
+    "titulo": "Guia 03 · Arquitetura de Dados",
+    "url": "https://docs.google.com/document/d/1sh_ysWsBtYkR__ezlIKrXmpNHjNdVC0c_sdvcWNG-Dg/edit",
+    "info": "Guias Cesgranrio",
+    "alvos": [
+     "disc:banco-de-dados"
+    ],
+    "grupo": "Guias Cesgranrio"
+   },
+   {
+    "id": "dr004",
+    "tipo": "drive",
+    "titulo": "Guia 04 · Projetos",
+    "url": "https://docs.google.com/document/d/1PCQSo_apY6SMDFC7da1Ax-NmMqh2V2rcMsuVCPjmQ3w/edit",
+    "info": "Guias Cesgranrio",
+    "alvos": [
+     "disc:gestao-de-projetos"
+    ],
+    "grupo": "Guias Cesgranrio"
+   },
+   {
+    "id": "dr005",
+    "tipo": "drive",
+    "titulo": "Guia 05 · Governança e LGPD",
+    "url": "https://docs.google.com/document/d/1ly84fbG37OkXuyHA4hOHCeFgbl5mT-2foq26z9EbVwU/edit",
+    "info": "Guias Cesgranrio",
+    "alvos": [
+     "disc:governanca-de-ti"
+    ],
+    "grupo": "Guias Cesgranrio"
+   },
+   {
+    "id": "dr006",
+    "tipo": "drive",
+    "titulo": "Guia 06 · Engenharia de Software",
+    "url": "https://docs.google.com/document/d/1DJbsm5muBI0yyYpjuSu_TkAzOsP1u7DcbyeaiIyBti8/edit",
+    "info": "Guias Cesgranrio",
+    "alvos": [
+     "disc:engenharia-de-software"
+    ],
+    "grupo": "Guias Cesgranrio"
+   },
+   {
+    "id": "dr007",
+    "tipo": "drive",
+    "titulo": "Guia 07 · UX",
+    "url": "https://docs.google.com/document/d/1KLZ-y2aSnTmQYfEbc6GME3cFG--7-Q4rsdBhCpVlapM/edit",
+    "info": "Guias Cesgranrio",
+    "alvos": [
+     "disc:ux"
+    ],
+    "grupo": "Guias Cesgranrio"
+   },
+   {
+    "id": "dr008",
+    "tipo": "drive",
+    "titulo": "Guia 08 · BI e Análise de Dados",
+    "url": "https://docs.google.com/document/d/1w71Jig1u9slGwJyd4lqW4jOY5m8QaYzM2UanuqQe7WY/edit",
+    "info": "Guias Cesgranrio",
+    "alvos": [
+     "disc:bi-e-analise-de-dados"
+    ],
+    "grupo": "Guias Cesgranrio"
+   },
+   {
+    "id": "dr009",
+    "tipo": "drive",
+    "titulo": "Guia 09 · Lógica",
+    "url": "https://docs.google.com/document/d/1qlSW1INBH39MkCmVuMgdczTUwn7_yJhQ_NL3Ntbk7vE/edit",
+    "info": "Guias Cesgranrio",
+    "alvos": [
+     "disc:logica"
+    ],
+    "grupo": "Guias Cesgranrio"
+   },
+   {
+    "id": "dr010",
+    "tipo": "drive",
+    "titulo": "Guia 10 · Segurança da Informação",
+    "url": "https://docs.google.com/document/d/1pZtvwrlgr61l62Gje462N8lFuC4Po_6KwkMzW7GjBq4/edit",
+    "info": "Guias Cesgranrio",
+    "alvos": [
+     "disc:seguranca-da-informacao"
+    ],
+    "grupo": "Guias Cesgranrio"
+   },
+   {
+    "id": "dr011",
+    "tipo": "drive",
+    "titulo": "Guia 11 · Lições das videoaulas",
+    "url": "https://docs.google.com/document/d/1H0znd0BMBcwZIJ5LMMO2fL2bEY-rxZiIjd_zP58cAHY/edit",
+    "info": "Guias Cesgranrio",
+    "alvos": [
+     "estrategia-de-prova/licoes-das-videoaulas"
+    ],
+    "grupo": "Guias Cesgranrio"
+   },
+   {
+    "id": "dr012",
+    "tipo": "drive",
+    "titulo": "Guia 12 · Comentários do TecConcursos",
+    "url": "https://drive.google.com/file/d/1km4gpSmfRzVZ26b-Rx6D85X1tlg5SCz8/view",
+    "info": "Guias Cesgranrio",
+    "alvos": [
+     "estrategia-de-prova/comentarios-do-tecconcursos"
+    ],
+    "grupo": "Guias Cesgranrio"
+   },
+   {
+    "id": "dr013",
+    "tipo": "drive",
+    "titulo": "Guia 13 · Gabaritos contestados",
+    "url": "https://drive.google.com/file/d/1Vr4q1GihpsceL4n1zbgt-YYfAzrcav-0/view",
+    "info": "Guias Cesgranrio",
+    "alvos": [
+     "estrategia-de-prova/gabaritos-contestados"
+    ],
+    "grupo": "Guias Cesgranrio"
+   },
+   {
+    "id": "dr014",
+    "tipo": "drive",
+    "titulo": "Conteúdo programático comentado",
+    "url": "https://docs.google.com/document/d/1PtyUwSfKgMjYGGM9GsQsA-BSnzZmUPQylDUZGcA_uNo/edit",
+    "info": "Edital, plano e prova",
+    "alvos": [
+     "concurso:transpetro-2026-enfase5"
+    ],
+    "grupo": "Edital, plano e prova"
+   },
+   {
+    "id": "dr015",
+    "tipo": "drive",
+    "titulo": "Reta Final · plano de revisão e dia da prova",
+    "url": "https://drive.google.com/file/d/1Z3aKLCJyqNIF-t1LSz9R6eIl04cc6YLm/view",
+    "info": "Edital, plano e prova",
+    "alvos": [
+     "concurso:transpetro-2026-enfase5"
+    ],
+    "grupo": "Edital, plano e prova"
+   },
+   {
+    "id": "dr016",
+    "tipo": "drive",
+    "titulo": "Prova Transpetro 2023 comentada · parte 1",
+    "url": "https://docs.google.com/document/d/1QDbqeyfyUP_zEkJcGXQeRcP1dKwr2o5qz4Tt-1NLTcA/edit",
+    "info": "Edital, plano e prova",
+    "alvos": [
+     "concurso:transpetro-2026-enfase5"
+    ],
+    "grupo": "Edital, plano e prova"
+   },
+   {
+    "id": "dr017",
+    "tipo": "drive",
+    "titulo": "Prova Transpetro 2023 comentada · parte 2",
+    "url": "https://docs.google.com/document/d/1Qhdxzd0tDEu50ZU0tttpxo5Rfe6moXF2L8ROPmcUS_I/edit",
+    "info": "Edital, plano e prova",
+    "alvos": [
+     "concurso:transpetro-2026-enfase5"
+    ],
+    "grupo": "Edital, plano e prova"
+   },
+   {
+    "id": "dr018",
+    "tipo": "drive",
+    "titulo": "Prova Transpetro 2023 comentada · parte 3",
+    "url": "https://docs.google.com/document/d/1KT7es2rB-MekG821xfojofn_H0bY2FqTI_qq1JdLwXM/edit",
+    "info": "Edital, plano e prova",
+    "alvos": [
+     "concurso:transpetro-2026-enfase5"
+    ],
+    "grupo": "Edital, plano e prova"
+   },
+   {
+    "id": "dr019",
+    "tipo": "drive",
+    "titulo": "Edital Transpetro 2026 (com retificações)",
+    "url": "https://drive.google.com/file/d/1NITGkKiTIXtrmLr5szOWXZcT4k3SfnN2/view",
+    "info": "Edital, plano e prova",
+    "alvos": [
+     "concurso:transpetro-2026-enfase5"
+    ],
+    "grupo": "Edital, plano e prova"
+   },
+   {
+    "id": "dr020",
+    "tipo": "drive",
+    "titulo": "Edital verticalizado (Estratégia)",
+    "url": "https://drive.google.com/file/d/111rLGZ0pG7q-H8tO16WZhtk6asdGODA3/view",
+    "info": "Edital, plano e prova",
+    "alvos": [
+     "concurso:transpetro-2026-enfase5"
+    ],
+    "grupo": "Edital, plano e prova"
+   },
+   {
+    "id": "dr021",
+    "tipo": "drive",
+    "titulo": "Cadernos do TecConcursos · links",
+    "url": "https://drive.google.com/file/d/1EQBMZaS4I_XEzn5pkyoEQyiWI3zVpkbu/view",
+    "info": "Edital, plano e prova",
+    "alvos": [
+     "concurso:transpetro-2026-enfase5"
+    ],
+    "grupo": "Edital, plano e prova"
+   },
+   {
+    "id": "dr022",
+    "tipo": "drive",
+    "titulo": "Plano do app no Google AI Studio",
+    "url": "https://drive.google.com/file/d/1TDPZPbih3njQxP1CuLUx1HPnkESgN5nt/view",
+    "info": "Edital, plano e prova",
+    "alvos": [
+     "concurso:transpetro-2026-enfase5"
+    ],
+    "grupo": "Edital, plano e prova"
+   },
+   {
+    "id": "dr023",
+    "tipo": "drive",
+    "titulo": "Caderno Dados · parte 1",
+    "url": "https://docs.google.com/document/d/1oxkfkxQl28V3tp0xLvl2tx5inp7RMQrQQ7K3Vq_qSOA/edit",
+    "info": "Questões Cesgranrio (TecConcursos)",
+    "alvos": [
+     "disc:banco-de-dados"
+    ],
+    "grupo": "Questões Cesgranrio (TecConcursos)"
+   },
+   {
+    "id": "dr024",
+    "tipo": "drive",
+    "titulo": "Caderno Dados · parte 2",
+    "url": "https://docs.google.com/document/d/1S_RVu1tgqdSxuyxAvoKx-XPML4S5i2ivRjqK2d_9L-M/edit",
+    "info": "Questões Cesgranrio (TecConcursos)",
+    "alvos": [
+     "disc:banco-de-dados"
+    ],
+    "grupo": "Questões Cesgranrio (TecConcursos)"
+   },
+   {
+    "id": "dr025",
+    "tipo": "drive",
+    "titulo": "Caderno Dados · parte 3",
+    "url": "https://docs.google.com/document/d/1TXt2EHNf7WB0VC7kF-5jVjIW1HZepmwvmefayxP8sak/edit",
+    "info": "Questões Cesgranrio (TecConcursos)",
+    "alvos": [
+     "disc:banco-de-dados"
+    ],
+    "grupo": "Questões Cesgranrio (TecConcursos)"
+   },
+   {
+    "id": "dr026",
+    "tipo": "drive",
+    "titulo": "Caderno Projetos",
+    "url": "https://docs.google.com/document/d/10xOOo5A15xpP0cc9mexdTwOGSwAPDFs38SD-3Sa9Xb8/edit",
+    "info": "Questões Cesgranrio (TecConcursos)",
+    "alvos": [
+     "disc:gestao-de-projetos"
+    ],
+    "grupo": "Questões Cesgranrio (TecConcursos)"
+   },
+   {
+    "id": "dr027",
+    "tipo": "drive",
+    "titulo": "Caderno Governança",
+    "url": "https://docs.google.com/document/d/1uTkhdiE-nejFpNLB84oF2JTUhHyjAZYMwObLy6DGTKQ/edit",
+    "info": "Questões Cesgranrio (TecConcursos)",
+    "alvos": [
+     "disc:governanca-de-ti"
+    ],
+    "grupo": "Questões Cesgranrio (TecConcursos)"
+   },
+   {
+    "id": "dr028",
+    "tipo": "drive",
+    "titulo": "Caderno Eng. Software e UX · parte 1",
+    "url": "https://docs.google.com/document/d/1PXlYY-M9RiffgrIWGVllzdjY02jwt0ebcexBBuzsKek/edit",
+    "info": "Questões Cesgranrio (TecConcursos)",
+    "alvos": [
+     "disc:engenharia-de-software",
+     "disc:ux"
+    ],
+    "grupo": "Questões Cesgranrio (TecConcursos)"
+   },
+   {
+    "id": "dr029",
+    "tipo": "drive",
+    "titulo": "Caderno Eng. Software e UX · parte 2",
+    "url": "https://docs.google.com/document/d/1o3d8Yo4fYsR67yoDm3eU48uy8g9UKzFwjI-dBBvUoHM/edit",
+    "info": "Questões Cesgranrio (TecConcursos)",
+    "alvos": [
+     "disc:engenharia-de-software",
+     "disc:ux"
+    ],
+    "grupo": "Questões Cesgranrio (TecConcursos)"
+   },
+   {
+    "id": "dr030",
+    "tipo": "drive",
+    "titulo": "Caderno BI e Ciência de Dados · parte 1",
+    "url": "https://docs.google.com/document/d/1zhjdzOycU9v4ckzF4QZ7nX3Vl0R6G3CY9QUR0FaclsQ/edit",
+    "info": "Questões Cesgranrio (TecConcursos)",
+    "alvos": [
+     "disc:bi-e-analise-de-dados"
+    ],
+    "grupo": "Questões Cesgranrio (TecConcursos)"
+   },
+   {
+    "id": "dr031",
+    "tipo": "drive",
+    "titulo": "Caderno BI e Ciência de Dados · parte 2",
+    "url": "https://docs.google.com/document/d/1czij_tWwOLlNmr5cw6tXli79npzQQujd4iUNTrzWDvc/edit",
+    "info": "Questões Cesgranrio (TecConcursos)",
+    "alvos": [
+     "disc:bi-e-analise-de-dados"
+    ],
+    "grupo": "Questões Cesgranrio (TecConcursos)"
+   },
+   {
+    "id": "dr032",
+    "tipo": "drive",
+    "titulo": "Caderno Segurança · parte 1",
+    "url": "https://docs.google.com/document/d/17_jbAfTV0vTeMa-v0-Xz_4FcRnYOzyW9XxnMxuyC6-o/edit",
+    "info": "Questões Cesgranrio (TecConcursos)",
+    "alvos": [
+     "disc:seguranca-da-informacao"
+    ],
+    "grupo": "Questões Cesgranrio (TecConcursos)"
+   },
+   {
+    "id": "dr033",
+    "tipo": "drive",
+    "titulo": "Caderno Segurança · parte 2",
+    "url": "https://docs.google.com/document/d/1rE9M591PSCCZvBVtOWp_cn3QxCS9xe35D29Hh86axfA/edit",
+    "info": "Questões Cesgranrio (TecConcursos)",
+    "alvos": [
+     "disc:seguranca-da-informacao"
+    ],
+    "grupo": "Questões Cesgranrio (TecConcursos)"
+   },
+   {
+    "id": "dr034",
+    "tipo": "drive",
+    "titulo": "Banca em Família · roteiro",
+    "url": "https://drive.google.com/file/d/1GYbMyLOXp5FbZzqQAsIiz10RU8Jrgn13/view",
+    "info": "Família e músicas",
+    "alvos": [
+     "estrategia-de-prova/banca-em-familia-mnemonicos"
+    ],
+    "grupo": "Família e músicas"
+   },
+   {
+    "id": "dr035",
+    "tipo": "drive",
+    "titulo": "Gravação em família · roteiro por pessoa",
+    "url": "https://drive.google.com/file/d/1c7OnXvN0ahzqbkUpgAigeJReniac1gZk/view",
+    "info": "Família e músicas",
+    "alvos": [
+     "estrategia-de-prova/banca-em-familia-mnemonicos"
+    ],
+    "grupo": "Família e músicas"
+   },
+   {
+    "id": "dr036",
+    "tipo": "drive",
+    "titulo": "Paródias de estudo",
+    "url": "https://drive.google.com/file/d/1Vzg2_3zYg-oNHAakWyU-3_haFjw0MnCd/view",
+    "info": "Família e músicas",
+    "alvos": [
+     "estrategia-de-prova/banca-em-familia-mnemonicos"
+    ],
+    "grupo": "Família e músicas"
+   },
+   {
+    "id": "dr037",
+    "tipo": "drive",
+    "titulo": "Português · aula 00",
+    "url": "https://drive.google.com/file/d/1LbqxSsxd0ZEsfKjiv4FO6MPfSk79AYUZ/view",
+    "info": "Aulas dos cursos (PDF)",
+    "alvos": [
+     "disc:portugues"
+    ],
+    "grupo": "Aulas dos cursos (PDF)"
+   },
+   {
+    "id": "dr038",
+    "tipo": "drive",
+    "titulo": "Português · aula 01",
+    "url": "https://drive.google.com/file/d/1PnUue4D49-cOTbfqVHX8FOPxmr_kRGBy/view",
+    "info": "Aulas dos cursos (PDF)",
+    "alvos": [
+     "disc:portugues"
+    ],
+    "grupo": "Aulas dos cursos (PDF)"
+   },
+   {
+    "id": "dr039",
+    "tipo": "drive",
+    "titulo": "Português · aula 02",
+    "url": "https://drive.google.com/file/d/1IugchrCj7HRWNtpN42UHC14MQmA1mlf9/view",
+    "info": "Aulas dos cursos (PDF)",
+    "alvos": [
+     "disc:portugues"
+    ],
+    "grupo": "Aulas dos cursos (PDF)"
+   },
+   {
+    "id": "dr040",
+    "tipo": "drive",
+    "titulo": "Português · aula 03",
+    "url": "https://drive.google.com/file/d/11Z01rpyn8mflXLdB9zJ82jRCMbBK7qAP/view",
+    "info": "Aulas dos cursos (PDF)",
+    "alvos": [
+     "disc:portugues"
+    ],
+    "grupo": "Aulas dos cursos (PDF)"
+   },
+   {
+    "id": "dr041",
+    "tipo": "drive",
+    "titulo": "Português · aula 04",
+    "url": "https://drive.google.com/file/d/1gZLyCIoB_ZPtfbw8kwKjry2ZIlG7tIDM/view",
+    "info": "Aulas dos cursos (PDF)",
+    "alvos": [
+     "disc:portugues"
+    ],
+    "grupo": "Aulas dos cursos (PDF)"
+   },
+   {
+    "id": "dr042",
+    "tipo": "drive",
+    "titulo": "Português · aula 05",
+    "url": "https://drive.google.com/file/d/1fNcp2DLQAsVxdJpawRo749jeWwHX-Az5/view",
+    "info": "Aulas dos cursos (PDF)",
+    "alvos": [
+     "disc:portugues"
+    ],
+    "grupo": "Aulas dos cursos (PDF)"
+   },
+   {
+    "id": "dr043",
+    "tipo": "drive",
+    "titulo": "Português · aula 06",
+    "url": "https://drive.google.com/file/d/1_uxI76aMc_viiIyYksVnsOgg2nfXaNy9/view",
+    "info": "Aulas dos cursos (PDF)",
+    "alvos": [
+     "disc:portugues"
+    ],
+    "grupo": "Aulas dos cursos (PDF)"
+   },
+   {
+    "id": "dr044",
+    "tipo": "drive",
+    "titulo": "Português · aula 07",
+    "url": "https://drive.google.com/file/d/1HV5KHk9iVPUFJf3J_FW80oGgVJ-jG9SQ/view",
+    "info": "Aulas dos cursos (PDF)",
+    "alvos": [
+     "disc:portugues"
+    ],
+    "grupo": "Aulas dos cursos (PDF)"
+   },
+   {
+    "id": "dr045",
+    "tipo": "drive",
+    "titulo": "Português · aula 08",
+    "url": "https://drive.google.com/file/d/10LVpqfmLIp6spDrQgIS8LojhWQmS2w10/view",
+    "info": "Aulas dos cursos (PDF)",
+    "alvos": [
+     "disc:portugues"
+    ],
+    "grupo": "Aulas dos cursos (PDF)"
+   },
+   {
+    "id": "dr046",
+    "tipo": "drive",
+    "titulo": "Português · aula 09",
+    "url": "https://drive.google.com/file/d/1IqJUPMroygFLx0nSJQL5GyskN3_p4owN/view",
+    "info": "Aulas dos cursos (PDF)",
+    "alvos": [
+     "disc:portugues"
+    ],
+    "grupo": "Aulas dos cursos (PDF)"
+   },
+   {
+    "id": "dr047",
+    "tipo": "drive",
+    "titulo": "Português · aula 10",
+    "url": "https://drive.google.com/file/d/1FrRhwB_XsVY6gsh4OQsIGazRWxhAf5AP/view",
+    "info": "Aulas dos cursos (PDF)",
+    "alvos": [
+     "disc:portugues"
+    ],
+    "grupo": "Aulas dos cursos (PDF)"
+   },
+   {
+    "id": "dr048",
+    "tipo": "drive",
+    "titulo": "Português · aula 11",
+    "url": "https://drive.google.com/file/d/1meXvOienuxsAGuThF3TwpYr84uHVkabC/view",
+    "info": "Aulas dos cursos (PDF)",
+    "alvos": [
+     "disc:portugues"
+    ],
+    "grupo": "Aulas dos cursos (PDF)"
+   },
+   {
+    "id": "dr049",
+    "tipo": "drive",
+    "titulo": "Passo Estratégico · Português · aula 01",
+    "url": "https://drive.google.com/file/d/1adHV9XRNJQd9R2gkjtMNijWs1IAGyxxj/view",
+    "info": "Aulas dos cursos (PDF)",
+    "alvos": [
+     "disc:portugues"
+    ],
+    "grupo": "Aulas dos cursos (PDF)"
+   },
+   {
+    "id": "dr050",
+    "tipo": "drive",
+    "titulo": "Passo Estratégico · Português · aula 02",
+    "url": "https://drive.google.com/file/d/1XXKL0IflHT19MaGdtZsSvWiWFau7Z-NZ/view",
+    "info": "Aulas dos cursos (PDF)",
+    "alvos": [
+     "disc:portugues"
+    ],
+    "grupo": "Aulas dos cursos (PDF)"
+   },
+   {
+    "id": "dr051",
+    "tipo": "drive",
+    "titulo": "Passo Estratégico · Português · aula 03",
+    "url": "https://drive.google.com/file/d/1TmSQCEK2FgazurCM0avNJ7AFNiU-hCfU/view",
+    "info": "Aulas dos cursos (PDF)",
+    "alvos": [
+     "disc:portugues"
+    ],
+    "grupo": "Aulas dos cursos (PDF)"
+   },
+   {
+    "id": "dr052",
+    "tipo": "drive",
+    "titulo": "Passo Estratégico · Português · aula 04",
+    "url": "https://drive.google.com/file/d/1vH_HPOqFmQAN_FODOkKDA51zyNQjncne/view",
+    "info": "Aulas dos cursos (PDF)",
+    "alvos": [
+     "disc:portugues"
+    ],
+    "grupo": "Aulas dos cursos (PDF)"
+   },
+   {
+    "id": "dr053",
+    "tipo": "drive",
+    "titulo": "Passo Estratégico · Português · aula 05",
+    "url": "https://drive.google.com/file/d/19YZ5nz3kQyKRU-EmfmP2PubmP_48E3QD/view",
+    "info": "Aulas dos cursos (PDF)",
+    "alvos": [
+     "disc:portugues"
+    ],
+    "grupo": "Aulas dos cursos (PDF)"
+   },
+   {
+    "id": "dr054",
+    "tipo": "drive",
+    "titulo": "Passo Estratégico · Português · simulado 01",
+    "url": "https://drive.google.com/file/d/1we5O0QfY45FYRH1GjIVjLEiuObs40xqy/view",
+    "info": "Aulas dos cursos (PDF)",
+    "alvos": [
+     "disc:portugues"
+    ],
+    "grupo": "Aulas dos cursos (PDF)"
+   },
+   {
+    "id": "dr055",
+    "tipo": "drive",
+    "titulo": "Inglês · aula 00",
+    "url": "https://drive.google.com/file/d/13_llh7Mybn_HryUOuxwL-HuGwpRsgMI9/view",
+    "info": "Aulas dos cursos (PDF)",
+    "alvos": [
+     "disc:ingles"
+    ],
+    "grupo": "Aulas dos cursos (PDF)"
+   },
+   {
+    "id": "dr056",
+    "tipo": "drive",
+    "titulo": "Inglês · aula 01",
+    "url": "https://drive.google.com/file/d/1ENFZoA_Pm3KQIY9XNtKDVPokw9rFdYvI/view",
+    "info": "Aulas dos cursos (PDF)",
+    "alvos": [
+     "disc:ingles"
+    ],
+    "grupo": "Aulas dos cursos (PDF)"
+   },
+   {
+    "id": "dr057",
+    "tipo": "drive",
+    "titulo": "Inglês · aula 02",
+    "url": "https://drive.google.com/file/d/1I7sR3LJUvYNWUsynBpDXKu_BsgYGx9Hg/view",
+    "info": "Aulas dos cursos (PDF)",
+    "alvos": [
+     "disc:ingles"
+    ],
+    "grupo": "Aulas dos cursos (PDF)"
+   },
+   {
+    "id": "dr058",
+    "tipo": "drive",
+    "titulo": "Inglês · aula 03",
+    "url": "https://drive.google.com/file/d/1T6th8CAbt33LnUHMMQybaRmMQfOND8F5/view",
+    "info": "Aulas dos cursos (PDF)",
+    "alvos": [
+     "disc:ingles"
+    ],
+    "grupo": "Aulas dos cursos (PDF)"
+   },
+   {
+    "id": "dr059",
+    "tipo": "drive",
+    "titulo": "Inglês · aula 04",
+    "url": "https://drive.google.com/file/d/1VCKIUs_4-yqSPQzpWvXRHqr7dHarvb9G/view",
+    "info": "Aulas dos cursos (PDF)",
+    "alvos": [
+     "disc:ingles"
+    ],
+    "grupo": "Aulas dos cursos (PDF)"
+   },
+   {
+    "id": "dr060",
+    "tipo": "drive",
+    "titulo": "Inglês · aula 05",
+    "url": "https://drive.google.com/file/d/1ackF_SBxv9hBhGGlfGQ32H3C7KUvXXBN/view",
+    "info": "Aulas dos cursos (PDF)",
+    "alvos": [
+     "disc:ingles"
+    ],
+    "grupo": "Aulas dos cursos (PDF)"
+   },
+   {
+    "id": "dr061",
+    "tipo": "drive",
+    "titulo": "Inglês · aula 06",
+    "url": "https://drive.google.com/file/d/1F9lUPOWPuv8Fp5_MGG8K9dLLrfGLOz3x/view",
+    "info": "Aulas dos cursos (PDF)",
+    "alvos": [
+     "disc:ingles"
+    ],
+    "grupo": "Aulas dos cursos (PDF)"
+   },
+   {
+    "id": "dr062",
+    "tipo": "drive",
+    "titulo": "Inglês · aula 07",
+    "url": "https://drive.google.com/file/d/1OLCDVm1QruwNia0LoARkxSZ8lYuLAzVp/view",
+    "info": "Aulas dos cursos (PDF)",
+    "alvos": [
+     "disc:ingles"
+    ],
+    "grupo": "Aulas dos cursos (PDF)"
+   },
+   {
+    "id": "dr063",
+    "tipo": "drive",
+    "titulo": "Passo Estratégico · Inglês · aula 00",
+    "url": "https://drive.google.com/file/d/1YXVro90D0vaIzqCaCNklKYl7RcfNouDo/view",
+    "info": "Aulas dos cursos (PDF)",
+    "alvos": [
+     "disc:ingles"
+    ],
+    "grupo": "Aulas dos cursos (PDF)"
+   },
+   {
+    "id": "dr064",
+    "tipo": "drive",
+    "titulo": "Passo Estratégico · Inglês · aula 01",
+    "url": "https://drive.google.com/file/d/1SRdZ6WQWWDZZQkZTsp072JLbiZTXCgkr/view",
+    "info": "Aulas dos cursos (PDF)",
+    "alvos": [
+     "disc:ingles"
+    ],
+    "grupo": "Aulas dos cursos (PDF)"
+   },
+   {
+    "id": "dr065",
+    "tipo": "drive",
+    "titulo": "Passo Estratégico · Inglês · aula 02",
+    "url": "https://drive.google.com/file/d/1wz157M4PL28uVFd-jlWQepUBSUMiIV6n/view",
+    "info": "Aulas dos cursos (PDF)",
+    "alvos": [
+     "disc:ingles"
+    ],
+    "grupo": "Aulas dos cursos (PDF)"
+   },
+   {
+    "id": "dr066",
+    "tipo": "drive",
+    "titulo": "Passo Estratégico · Inglês · aula 03",
+    "url": "https://drive.google.com/file/d/1gmCyrE4YrWCtt1vhUMinzNGKodcvSrVW/view",
+    "info": "Aulas dos cursos (PDF)",
+    "alvos": [
+     "disc:ingles"
+    ],
+    "grupo": "Aulas dos cursos (PDF)"
+   },
+   {
+    "id": "dr067",
+    "tipo": "drive",
+    "titulo": "Passo Estratégico · Inglês · aula 04",
+    "url": "https://drive.google.com/file/d/1sPG_pRsFAw_zcy5bHPdsgWhL2hRMUv7T/view",
+    "info": "Aulas dos cursos (PDF)",
+    "alvos": [
+     "disc:ingles"
+    ],
+    "grupo": "Aulas dos cursos (PDF)"
+   },
+   {
+    "id": "dr068",
+    "tipo": "drive",
+    "titulo": "Passo Estratégico · Inglês · aula 05",
+    "url": "https://drive.google.com/file/d/1VB50j4FX4mpLd7SFIclrsey0b_7IjyWM/view",
+    "info": "Aulas dos cursos (PDF)",
+    "alvos": [
+     "disc:ingles"
+    ],
+    "grupo": "Aulas dos cursos (PDF)"
+   },
+   {
+    "id": "dr069",
+    "tipo": "drive",
+    "titulo": "Passo Estratégico · Inglês · aula 06",
+    "url": "https://drive.google.com/file/d/1kDQJgjSA8jGjxiLid0ep-AbZCL0mdR8X/view",
+    "info": "Aulas dos cursos (PDF)",
+    "alvos": [
+     "disc:ingles"
+    ],
+    "grupo": "Aulas dos cursos (PDF)"
+   },
+   {
+    "id": "dr070",
+    "tipo": "drive",
+    "titulo": "Passo Estratégico · Inglês · aula 07",
+    "url": "https://drive.google.com/file/d/1XKep8pfcE4sxAGUAX1YQ_gJ2wE9c-vtl/view",
+    "info": "Aulas dos cursos (PDF)",
+    "alvos": [
+     "disc:ingles"
+    ],
+    "grupo": "Aulas dos cursos (PDF)"
+   },
+   {
+    "id": "dr071",
+    "tipo": "drive",
+    "titulo": "Passo Estratégico · Inglês · aula 08",
+    "url": "https://drive.google.com/file/d/1PANojOruJmm7cw1dTgzCi4HJ91XjduIW/view",
+    "info": "Aulas dos cursos (PDF)",
+    "alvos": [
+     "disc:ingles"
+    ],
+    "grupo": "Aulas dos cursos (PDF)"
+   },
+   {
+    "id": "dr072",
+    "tipo": "drive",
+    "titulo": "Passo Estratégico · Inglês · aula 09",
+    "url": "https://drive.google.com/file/d/1KmavGmz8HfbSX_EH-IZLZqBvfrudGWQw/view",
+    "info": "Aulas dos cursos (PDF)",
+    "alvos": [
+     "disc:ingles"
+    ],
+    "grupo": "Aulas dos cursos (PDF)"
+   },
+   {
+    "id": "dr073",
+    "tipo": "drive",
+    "titulo": "Passo Estratégico · Inglês · aula 10",
+    "url": "https://drive.google.com/file/d/1DulJ86sLki_f0iLuUuYGExVU3t1vOV8I/view",
+    "info": "Aulas dos cursos (PDF)",
+    "alvos": [
+     "disc:ingles"
+    ],
+    "grupo": "Aulas dos cursos (PDF)"
+   },
+   {
+    "id": "dr074",
+    "tipo": "drive",
+    "titulo": "Lógica · aula 00",
+    "url": "https://drive.google.com/file/d/1wdEKQSx4SSFf4eMvOIrqwmQU27WAhi5F/view",
+    "info": "Aulas dos cursos (PDF)",
+    "alvos": [
+     "disc:logica"
+    ],
+    "grupo": "Aulas dos cursos (PDF)"
+   },
+   {
+    "id": "dr075",
+    "tipo": "drive",
+    "titulo": "Lógica · aula 01",
+    "url": "https://drive.google.com/file/d/16ueHg8tAbYsOsuwNPIdR2ZkZoNRqCbLZ/view",
+    "info": "Aulas dos cursos (PDF)",
+    "alvos": [
+     "disc:logica"
+    ],
+    "grupo": "Aulas dos cursos (PDF)"
+   },
+   {
+    "id": "dr076",
+    "tipo": "drive",
+    "titulo": "Lógica · aula 02",
+    "url": "https://drive.google.com/file/d/1ovtBMgwLkRH8BKMf9jXui4SYQs1ofRHR/view",
+    "info": "Aulas dos cursos (PDF)",
+    "alvos": [
+     "disc:logica"
+    ],
+    "grupo": "Aulas dos cursos (PDF)"
+   },
+   {
+    "id": "dr077",
+    "tipo": "drive",
+    "titulo": "Lógica · aula 03",
+    "url": "https://drive.google.com/file/d/10OrT51t8YR33fTSNafflhq98VBdy_iYM/view",
+    "info": "Aulas dos cursos (PDF)",
+    "alvos": [
+     "disc:logica"
+    ],
+    "grupo": "Aulas dos cursos (PDF)"
+   },
+   {
+    "id": "dr078",
+    "tipo": "drive",
+    "titulo": "Lógica · aula 04",
+    "url": "https://drive.google.com/file/d/1vh_S9n9eNZgAW1gREGsqBJqwf8hSEcIs/view",
+    "info": "Aulas dos cursos (PDF)",
+    "alvos": [
+     "disc:logica"
+    ],
+    "grupo": "Aulas dos cursos (PDF)"
+   },
+   {
+    "id": "dr079",
+    "tipo": "drive",
+    "titulo": "Lógica · aula 05",
+    "url": "https://drive.google.com/file/d/1RPRvocDZXWnBwNO4_FkIY0plRGX_Uh54/view",
+    "info": "Aulas dos cursos (PDF)",
+    "alvos": [
+     "disc:logica"
+    ],
+    "grupo": "Aulas dos cursos (PDF)"
+   },
+   {
+    "id": "dr080",
+    "tipo": "drive",
+    "titulo": "Lógica · aula 06",
+    "url": "https://drive.google.com/file/d/1DmsXvtGONupFrS0C7FhhwFwSc7WSdh-f/view",
+    "info": "Aulas dos cursos (PDF)",
+    "alvos": [
+     "disc:logica"
+    ],
+    "grupo": "Aulas dos cursos (PDF)"
+   },
+   {
+    "id": "dr081",
+    "tipo": "drive",
+    "titulo": "Lógica · aula 07",
+    "url": "https://drive.google.com/file/d/1KVaLSnURxYKKt_-4PF-jtrS2phhLj0FQ/view",
+    "info": "Aulas dos cursos (PDF)",
+    "alvos": [
+     "disc:logica"
+    ],
+    "grupo": "Aulas dos cursos (PDF)"
+   },
+   {
+    "id": "dr082",
+    "tipo": "drive",
+    "titulo": "Gestão e Governança · aula 00",
+    "url": "https://drive.google.com/file/d/1zy4IF0QqYcFISvw-kuRBrDtNIx4CM-7B/view",
+    "info": "Aulas dos cursos (PDF)",
+    "alvos": [
+     "disc:governanca-de-ti"
+    ],
+    "grupo": "Aulas dos cursos (PDF)"
+   },
+   {
+    "id": "dr083",
+    "tipo": "drive",
+    "titulo": "Gestão e Governança · aula 01",
+    "url": "https://drive.google.com/file/d/1moKQZJyR0qMvfrZWVuxnExWPq9YORLYQ/view",
+    "info": "Aulas dos cursos (PDF)",
+    "alvos": [
+     "disc:governanca-de-ti"
+    ],
+    "grupo": "Aulas dos cursos (PDF)"
+   },
+   {
+    "id": "dr084",
+    "tipo": "drive",
+    "titulo": "Gestão e Governança · aula 02",
+    "url": "https://drive.google.com/file/d/1sbbdaTWcDJOu7OPTeK8DB8nx2L5lsEb0/view",
+    "info": "Aulas dos cursos (PDF)",
+    "alvos": [
+     "disc:governanca-de-ti"
+    ],
+    "grupo": "Aulas dos cursos (PDF)"
+   },
+   {
+    "id": "dr085",
+    "tipo": "drive",
+    "titulo": "Gestão e Governança · aula 03",
+    "url": "https://drive.google.com/file/d/19EBilO7mExzyGZ6Wu3rT5PbciFt8abP5/view",
+    "info": "Aulas dos cursos (PDF)",
+    "alvos": [
+     "disc:governanca-de-ti"
+    ],
+    "grupo": "Aulas dos cursos (PDF)"
+   },
+   {
+    "id": "dr086",
+    "tipo": "drive",
+    "titulo": "Gestão e Governança · aula 04",
+    "url": "https://drive.google.com/file/d/1s1dea3FtksbiG_Z_6LzrIZkhDcWPe5OL/view",
+    "info": "Aulas dos cursos (PDF)",
+    "alvos": [
+     "disc:governanca-de-ti"
+    ],
+    "grupo": "Aulas dos cursos (PDF)"
+   },
+   {
+    "id": "dr087",
+    "tipo": "drive",
+    "titulo": "Engenharia de Software · aula 00",
+    "url": "https://drive.google.com/file/d/1n2dVbuq-GRnVjPdgq89talpOmykr7Air/view",
+    "info": "Aulas dos cursos (PDF)",
+    "alvos": [
+     "disc:engenharia-de-software"
+    ],
+    "grupo": "Aulas dos cursos (PDF)"
+   },
+   {
+    "id": "dr088",
+    "tipo": "drive",
+    "titulo": "Engenharia de Software · aula 01",
+    "url": "https://drive.google.com/file/d/1S7RYC06CdAXcA-rLTXf9V17fS3P8g0Eh/view",
+    "info": "Aulas dos cursos (PDF)",
+    "alvos": [
+     "disc:engenharia-de-software"
+    ],
+    "grupo": "Aulas dos cursos (PDF)"
+   },
+   {
+    "id": "dr089",
+    "tipo": "drive",
+    "titulo": "Engenharia de Software · aula 02",
+    "url": "https://drive.google.com/file/d/1ROSjNgbGdjHdIy-SfYWwpU4xtSrCCrDl/view",
+    "info": "Aulas dos cursos (PDF)",
+    "alvos": [
+     "disc:engenharia-de-software"
+    ],
+    "grupo": "Aulas dos cursos (PDF)"
+   },
+   {
+    "id": "dr090",
+    "tipo": "drive",
+    "titulo": "Engenharia de Software · aula 03",
+    "url": "https://drive.google.com/file/d/15iJyqI13g1gtuxx2LTpJusDd7gdSuj5O/view",
+    "info": "Aulas dos cursos (PDF)",
+    "alvos": [
+     "disc:engenharia-de-software"
+    ],
+    "grupo": "Aulas dos cursos (PDF)"
+   },
+   {
+    "id": "dr091",
+    "tipo": "drive",
+    "titulo": "Engenharia de Software · aula 04",
+    "url": "https://drive.google.com/file/d/1JYnwivckWiygBgz-ajuzUO9L33pHid4X/view",
+    "info": "Aulas dos cursos (PDF)",
+    "alvos": [
+     "disc:engenharia-de-software"
+    ],
+    "grupo": "Aulas dos cursos (PDF)"
+   },
+   {
+    "id": "dr092",
+    "tipo": "drive",
+    "titulo": "Engenharia de Software · aula 05",
+    "url": "https://drive.google.com/file/d/1l2iw_svAD6DRKXpwbj47Ch-UGhB4LZZ-/view",
+    "info": "Aulas dos cursos (PDF)",
+    "alvos": [
+     "disc:engenharia-de-software"
+    ],
+    "grupo": "Aulas dos cursos (PDF)"
+   },
+   {
+    "id": "dr093",
+    "tipo": "drive",
+    "titulo": "Engenharia de Software · aula 06",
+    "url": "https://drive.google.com/file/d/1Dx5IRSQQ77QTVLp-eqDND9iNo_cxRqB9/view",
+    "info": "Aulas dos cursos (PDF)",
+    "alvos": [
+     "disc:engenharia-de-software"
+    ],
+    "grupo": "Aulas dos cursos (PDF)"
+   },
+   {
+    "id": "dr094",
+    "tipo": "drive",
+    "titulo": "Engenharia de Software · aula 07",
+    "url": "https://drive.google.com/file/d/1O1jAexoe2ooqlrW-OTmTZDu7Kj36gSY0/view",
+    "info": "Aulas dos cursos (PDF)",
+    "alvos": [
+     "disc:engenharia-de-software"
+    ],
+    "grupo": "Aulas dos cursos (PDF)"
+   },
+   {
+    "id": "dr095",
+    "tipo": "drive",
+    "titulo": "Engenharia de Software · aula 08",
+    "url": "https://drive.google.com/file/d/1uYSCUptephaKsYQY9R3IapxM_KVEkf2V/view",
+    "info": "Aulas dos cursos (PDF)",
+    "alvos": [
+     "disc:engenharia-de-software"
+    ],
+    "grupo": "Aulas dos cursos (PDF)"
+   },
+   {
+    "id": "dr096",
+    "tipo": "drive",
+    "titulo": "Desenvolvimento de Software · aula única",
+    "url": "https://drive.google.com/file/d/1NsugOSfVzUuhOTNCl3jPa2veYEDHel9p/view",
+    "info": "Aulas dos cursos (PDF)",
+    "alvos": [
+     "disc:engenharia-de-software"
+    ],
+    "grupo": "Aulas dos cursos (PDF)"
+   },
+   {
+    "id": "dr097",
+    "tipo": "drive",
+    "titulo": "Segurança da Informação · aula 00",
+    "url": "https://drive.google.com/file/d/1-YZlhXRHIrnxZKc1K4jHtp5KhakZka2p/view",
+    "info": "Aulas dos cursos (PDF)",
+    "alvos": [
+     "disc:seguranca-da-informacao"
+    ],
+    "grupo": "Aulas dos cursos (PDF)"
+   },
+   {
+    "id": "dr098",
+    "tipo": "drive",
+    "titulo": "Segurança da Informação · aula 01",
+    "url": "https://drive.google.com/file/d/1Xib29MTAzOd4ckqcC_894UIP6OQs4XSy/view",
+    "info": "Aulas dos cursos (PDF)",
+    "alvos": [
+     "disc:seguranca-da-informacao"
+    ],
+    "grupo": "Aulas dos cursos (PDF)"
+   },
+   {
+    "id": "dr099",
+    "tipo": "drive",
+    "titulo": "Segurança da Informação · aula 02",
+    "url": "https://drive.google.com/file/d/1CwvIPK5720H1P7YGpBgthHtgVufPyI-_/view",
+    "info": "Aulas dos cursos (PDF)",
+    "alvos": [
+     "disc:seguranca-da-informacao"
+    ],
+    "grupo": "Aulas dos cursos (PDF)"
+   },
+   {
+    "id": "dr100",
+    "tipo": "drive",
+    "titulo": "Segurança da Informação · aula 03",
+    "url": "https://drive.google.com/file/d/1bfUdXZ21sGc7j4v1L-Wy6RDMLNTeMJpw/view",
+    "info": "Aulas dos cursos (PDF)",
+    "alvos": [
+     "disc:seguranca-da-informacao"
+    ],
+    "grupo": "Aulas dos cursos (PDF)"
+   },
+   {
+    "id": "dr101",
+    "tipo": "drive",
+    "titulo": "Segurança da Informação · aula 04",
+    "url": "https://drive.google.com/file/d/18nS120-Bu_CXzCH_nK3nS-gKe_xWZ5jx/view",
+    "info": "Aulas dos cursos (PDF)",
+    "alvos": [
+     "disc:seguranca-da-informacao"
+    ],
+    "grupo": "Aulas dos cursos (PDF)"
+   },
+   {
+    "id": "dr102",
+    "tipo": "drive",
+    "titulo": "Segurança da Informação · aula 05",
+    "url": "https://drive.google.com/file/d/12GXJhbyGvwCWxOt7awl79l8KzzjlKTWq/view",
+    "info": "Aulas dos cursos (PDF)",
+    "alvos": [
+     "disc:seguranca-da-informacao"
+    ],
+    "grupo": "Aulas dos cursos (PDF)"
+   },
+   {
+    "id": "dr103",
+    "tipo": "drive",
+    "titulo": "Segurança da Informação · aula 06",
+    "url": "https://drive.google.com/file/d/1DdWBcQhO4aey4pVxFkUmS_XRH15CmzNX/view",
+    "info": "Aulas dos cursos (PDF)",
+    "alvos": [
+     "disc:seguranca-da-informacao"
+    ],
+    "grupo": "Aulas dos cursos (PDF)"
+   },
+   {
+    "id": "dr104",
+    "tipo": "drive",
+    "titulo": "Segurança da Informação · aula 07",
+    "url": "https://drive.google.com/file/d/1yPLVlNog5-NJmMUuZ8aDnFSHSiSrh6tm/view",
+    "info": "Aulas dos cursos (PDF)",
+    "alvos": [
+     "disc:seguranca-da-informacao"
+    ],
+    "grupo": "Aulas dos cursos (PDF)"
+   },
+   {
+    "id": "dr105",
+    "tipo": "drive",
+    "titulo": "Segurança da Informação · aula 08",
+    "url": "https://drive.google.com/file/d/1taGZNFp2Z331ZyJnnqRVtDBlGYCKY28G/view",
+    "info": "Aulas dos cursos (PDF)",
+    "alvos": [
+     "disc:seguranca-da-informacao"
+    ],
+    "grupo": "Aulas dos cursos (PDF)"
+   },
+   {
+    "id": "dr106",
+    "tipo": "drive",
+    "titulo": "Segurança da Informação · aula 09",
+    "url": "https://drive.google.com/file/d/1cN7gNz134bLOVj56e3M_-q_ntL8FeHdT/view",
+    "info": "Aulas dos cursos (PDF)",
+    "alvos": [
+     "disc:seguranca-da-informacao"
+    ],
+    "grupo": "Aulas dos cursos (PDF)"
+   },
+   {
+    "id": "dr107",
+    "tipo": "drive",
+    "titulo": "Segurança da Informação · aula 10",
+    "url": "https://drive.google.com/file/d/1kYSE8lSVqOv5HaW_AZf-uBt6y7bWneWX/view",
+    "info": "Aulas dos cursos (PDF)",
+    "alvos": [
+     "disc:seguranca-da-informacao"
+    ],
+    "grupo": "Aulas dos cursos (PDF)"
+   },
+   {
+    "id": "dr108",
+    "tipo": "drive",
+    "titulo": "Segurança da Informação · aula 11",
+    "url": "https://drive.google.com/file/d/18DAN1NwXYfshx5P5TcYUrppcqyXJVHTY/view",
+    "info": "Aulas dos cursos (PDF)",
+    "alvos": [
+     "disc:seguranca-da-informacao"
+    ],
+    "grupo": "Aulas dos cursos (PDF)"
+   },
+   {
+    "id": "dr109",
+    "tipo": "drive",
+    "titulo": "Segurança da Informação · aula 12",
+    "url": "https://drive.google.com/file/d/1Y6RzUxxyzoWshlO8LgfrDmSHmAqPYXtf/view",
+    "info": "Aulas dos cursos (PDF)",
+    "alvos": [
+     "disc:seguranca-da-informacao"
+    ],
+    "grupo": "Aulas dos cursos (PDF)"
+   },
+   {
+    "id": "dr110",
+    "tipo": "drive",
+    "titulo": "Segurança da Informação · aula 13",
+    "url": "https://drive.google.com/file/d/16IPOpIw2U-KCXo_RXRPDJMtxyACBtJfq/view",
+    "info": "Aulas dos cursos (PDF)",
+    "alvos": [
+     "disc:seguranca-da-informacao"
+    ],
+    "grupo": "Aulas dos cursos (PDF)"
+   },
+   {
+    "id": "dr111",
+    "tipo": "drive",
+    "titulo": "Banco de Dados · aula 01",
+    "url": "https://drive.google.com/file/d/1K5rhVzqYcvTkxAZhp3pCHhSm2eCBQtnO/view",
+    "info": "Aulas dos cursos (PDF)",
+    "alvos": [
+     "disc:banco-de-dados"
+    ],
+    "grupo": "Aulas dos cursos (PDF)"
+   },
+   {
+    "id": "dr112",
+    "tipo": "drive",
+    "titulo": "Banco de Dados · aula 02",
+    "url": "https://drive.google.com/file/d/1v-Lbrkaz4dlca2ZOADO4CCoM0N3-Rl32/view",
+    "info": "Aulas dos cursos (PDF)",
+    "alvos": [
+     "disc:banco-de-dados"
+    ],
+    "grupo": "Aulas dos cursos (PDF)"
+   },
+   {
+    "id": "dr113",
+    "tipo": "drive",
+    "titulo": "Banco de Dados · aula 03",
+    "url": "https://drive.google.com/file/d/1FVkNo5HWHqrh2AvZD3uADpzu0DxVAZgr/view",
+    "info": "Aulas dos cursos (PDF)",
+    "alvos": [
+     "disc:banco-de-dados"
+    ],
+    "grupo": "Aulas dos cursos (PDF)"
+   },
+   {
+    "id": "dr114",
+    "tipo": "drive",
+    "titulo": "Banco de Dados · aula 04",
+    "url": "https://drive.google.com/file/d/12NcMPorIy-OrJbRypRU-ecJ-yoeAkcnk/view",
+    "info": "Aulas dos cursos (PDF)",
+    "alvos": [
+     "disc:banco-de-dados"
+    ],
+    "grupo": "Aulas dos cursos (PDF)"
+   },
+   {
+    "id": "dr115",
+    "tipo": "drive",
+    "titulo": "Banco de Dados · aula 05",
+    "url": "https://drive.google.com/file/d/1u1vU5Hi70QJ87ZasR1wGgVL66_R6PGwk/view",
+    "info": "Aulas dos cursos (PDF)",
+    "alvos": [
+     "disc:banco-de-dados"
+    ],
+    "grupo": "Aulas dos cursos (PDF)"
+   },
+   {
+    "id": "dr116",
+    "tipo": "drive",
+    "titulo": "Banco de Dados · aula 06",
+    "url": "https://drive.google.com/file/d/1zutIosRjEEmJOyE2ngASULnnYkDZjT3N/view",
+    "info": "Aulas dos cursos (PDF)",
+    "alvos": [
+     "disc:banco-de-dados"
+    ],
+    "grupo": "Aulas dos cursos (PDF)"
+   },
+   {
+    "id": "dr117",
+    "tipo": "drive",
+    "titulo": "Banco de Dados · aula 07",
+    "url": "https://drive.google.com/file/d/1TczS0meBPnT1vyGhkwv2ox5GUHRi9UYp/view",
+    "info": "Aulas dos cursos (PDF)",
+    "alvos": [
+     "disc:banco-de-dados"
+    ],
+    "grupo": "Aulas dos cursos (PDF)"
+   },
+   {
+    "id": "dr118",
+    "tipo": "drive",
+    "titulo": "Banco de Dados · aula 08",
+    "url": "https://drive.google.com/file/d/1wxwwrxFF4y2gc6UtjDDITY4jWljmhApz/view",
+    "info": "Aulas dos cursos (PDF)",
+    "alvos": [
+     "disc:banco-de-dados"
+    ],
+    "grupo": "Aulas dos cursos (PDF)"
+   },
+   {
+    "id": "dr119",
+    "tipo": "drive",
+    "titulo": "Banco de Dados · aula 09",
+    "url": "https://drive.google.com/file/d/1HuipunRb_MA1s-8ox8Tww9WzaWKcuT9-/view",
+    "info": "Aulas dos cursos (PDF)",
+    "alvos": [
+     "disc:banco-de-dados"
+    ],
+    "grupo": "Aulas dos cursos (PDF)"
+   },
+   {
+    "id": "dr120",
+    "tipo": "drive",
+    "titulo": "Banco de Dados · aula 10",
+    "url": "https://drive.google.com/file/d/1wOBW97D9K4wyWO0XO7WHofWhtKLwiRjj/view",
+    "info": "Aulas dos cursos (PDF)",
+    "alvos": [
+     "disc:banco-de-dados"
+    ],
+    "grupo": "Aulas dos cursos (PDF)"
+   },
+   {
+    "id": "dr121",
+    "tipo": "drive",
+    "titulo": "Banco de Dados · aula 12",
+    "url": "https://drive.google.com/file/d/1RTpOS38ejULMZWYwa-nn7XZPvHzQKmOd/view",
+    "info": "Aulas dos cursos (PDF)",
+    "alvos": [
+     "disc:banco-de-dados"
+    ],
+    "grupo": "Aulas dos cursos (PDF)"
+   },
+   {
+    "id": "dr122",
+    "tipo": "drive",
+    "titulo": "Banco de Dados · aula 13",
+    "url": "https://drive.google.com/file/d/1VQqYfm7oSYOC6SWClbYQeZle3he4-Prf/view",
+    "info": "Aulas dos cursos (PDF)",
+    "alvos": [
+     "disc:banco-de-dados"
+    ],
+    "grupo": "Aulas dos cursos (PDF)"
+   },
+   {
+    "id": "dr123",
+    "tipo": "drive",
+    "titulo": "Passo Estratégico · Conhecimentos Específicos · aula 00",
+    "url": "https://drive.google.com/file/d/1Y7BVSgezYtswoz_htZsply_5Q8vZ3Ozd/view",
+    "info": "Aulas dos cursos (PDF)",
+    "alvos": [
+     "concurso:transpetro-2026-enfase5"
+    ],
+    "grupo": "Aulas dos cursos (PDF)"
+   },
+   {
+    "id": "dr124",
+    "tipo": "drive",
+    "titulo": "Passo Estratégico · Conhecimentos Específicos · aula 01",
+    "url": "https://drive.google.com/file/d/1rwEUwQ7iKAmn8Ld0l-loOG6NTcsgtjsu/view",
+    "info": "Aulas dos cursos (PDF)",
+    "alvos": [
+     "concurso:transpetro-2026-enfase5"
+    ],
+    "grupo": "Aulas dos cursos (PDF)"
+   },
+   {
+    "id": "dr125",
+    "tipo": "drive",
+    "titulo": "Passo Estratégico · Conhecimentos Específicos · aula 02",
+    "url": "https://drive.google.com/file/d/1afIcI4NB0_bnOfvT7FOEqrqF1icCoKgj/view",
+    "info": "Aulas dos cursos (PDF)",
+    "alvos": [
+     "concurso:transpetro-2026-enfase5"
+    ],
+    "grupo": "Aulas dos cursos (PDF)"
+   },
+   {
+    "id": "dr126",
+    "tipo": "drive",
+    "titulo": "Passo Estratégico · Conhecimentos Específicos · aula 03",
+    "url": "https://drive.google.com/file/d/1HOKsTjMqEZnGcJ5SfXhmcTkcMDOYr540/view",
+    "info": "Aulas dos cursos (PDF)",
+    "alvos": [
+     "concurso:transpetro-2026-enfase5"
+    ],
+    "grupo": "Aulas dos cursos (PDF)"
+   },
+   {
+    "id": "dr127",
+    "tipo": "drive",
+    "titulo": "Passo Estratégico · Conhecimentos Específicos · aula 04",
+    "url": "https://drive.google.com/file/d/1Y5sI234sz-oYKY4UR5H8mDEmnmqvza0O/view",
+    "info": "Aulas dos cursos (PDF)",
+    "alvos": [
+     "concurso:transpetro-2026-enfase5"
+    ],
+    "grupo": "Aulas dos cursos (PDF)"
+   },
+   {
+    "id": "dr128",
+    "tipo": "drive",
+    "titulo": "Passo Estratégico · Conhecimentos Específicos · aula 05",
+    "url": "https://drive.google.com/file/d/1jRIUIDjl3CmK6Ot6-3KGlrBnw7ZwiVAt/view",
+    "info": "Aulas dos cursos (PDF)",
+    "alvos": [
+     "concurso:transpetro-2026-enfase5"
+    ],
+    "grupo": "Aulas dos cursos (PDF)"
+   },
+   {
+    "id": "dr129",
+    "tipo": "drive",
+    "titulo": "Passo Estratégico · Conhecimentos Específicos · aula 06",
+    "url": "https://drive.google.com/file/d/1JHuckkB7KYD0gHDMp5Iv75-IoEpSkHj6/view",
+    "info": "Aulas dos cursos (PDF)",
+    "alvos": [
+     "concurso:transpetro-2026-enfase5"
+    ],
+    "grupo": "Aulas dos cursos (PDF)"
+   },
+   {
+    "id": "dr130",
+    "tipo": "drive",
+    "titulo": "Passo Estratégico · Conhecimentos Específicos · aula 07",
+    "url": "https://drive.google.com/file/d/1Dm_1Nj9iHv57rJmpun8J9ymTi4HhH-yB/view",
+    "info": "Aulas dos cursos (PDF)",
+    "alvos": [
+     "concurso:transpetro-2026-enfase5"
+    ],
+    "grupo": "Aulas dos cursos (PDF)"
+   },
+   {
+    "id": "dr131",
+    "tipo": "drive",
+    "titulo": "Passo Estratégico · Conhecimentos Específicos · aula 08",
+    "url": "https://drive.google.com/file/d/1JYTh48VaSNh8Ruw_GNmsmRDPVDTb00X8/view",
+    "info": "Aulas dos cursos (PDF)",
+    "alvos": [
+     "concurso:transpetro-2026-enfase5"
+    ],
+    "grupo": "Aulas dos cursos (PDF)"
+   },
+   {
+    "id": "dr132",
+    "tipo": "drive",
+    "titulo": "Passo Estratégico · Conhecimentos Específicos · aula 09",
+    "url": "https://drive.google.com/file/d/1ZtwN8MZk__S0DqZHboWj5Zcw4beis2jV/view",
+    "info": "Aulas dos cursos (PDF)",
+    "alvos": [
+     "concurso:transpetro-2026-enfase5"
+    ],
+    "grupo": "Aulas dos cursos (PDF)"
+   },
+   {
+    "id": "dr133",
+    "tipo": "drive",
+    "titulo": "Passo Estratégico · Conhecimentos Específicos · aula 10",
+    "url": "https://drive.google.com/file/d/13bDfciucbqqWfR67JQzqUknOiQHn9MET/view",
+    "info": "Aulas dos cursos (PDF)",
+    "alvos": [
+     "concurso:transpetro-2026-enfase5"
+    ],
+    "grupo": "Aulas dos cursos (PDF)"
+   },
+   {
+    "id": "dr134",
+    "tipo": "drive",
+    "titulo": "Passo Estratégico · Conhecimentos Específicos · aula 11",
+    "url": "https://drive.google.com/file/d/1cCmu46ZmxkwGiH_CGUGOgpNLVWKfebTb/view",
+    "info": "Aulas dos cursos (PDF)",
+    "alvos": [
+     "concurso:transpetro-2026-enfase5"
+    ],
+    "grupo": "Aulas dos cursos (PDF)"
+   },
+   {
+    "id": "dr135",
+    "tipo": "drive",
+    "titulo": "Passo Estratégico · Conhecimentos Específicos · aula 12",
+    "url": "https://drive.google.com/file/d/12-rK9qEUo0SJmTT1AFDxRaMpQ40pYNb8/view",
+    "info": "Aulas dos cursos (PDF)",
+    "alvos": [
+     "concurso:transpetro-2026-enfase5"
+    ],
+    "grupo": "Aulas dos cursos (PDF)"
+   },
+   {
+    "id": "dr136",
+    "tipo": "drive",
+    "titulo": "Passo Estratégico · Conhecimentos Específicos · aula 13",
+    "url": "https://drive.google.com/file/d/17KAzxKXdtUEY8b7Hqkwg_0Z8BoFds8qY/view",
+    "info": "Aulas dos cursos (PDF)",
+    "alvos": [
+     "concurso:transpetro-2026-enfase5"
+    ],
+    "grupo": "Aulas dos cursos (PDF)"
+   },
+   {
+    "id": "dr137",
+    "tipo": "drive",
+    "titulo": "Passo Estratégico · Conhecimentos Específicos · aula 14",
+    "url": "https://drive.google.com/file/d/1zv8e9NTHtZrMqkedncl8a9zOF6LDRWR0/view",
+    "info": "Aulas dos cursos (PDF)",
+    "alvos": [
+     "concurso:transpetro-2026-enfase5"
+    ],
+    "grupo": "Aulas dos cursos (PDF)"
+   },
+   {
+    "id": "dr138",
+    "tipo": "drive",
+    "titulo": "Passo Estratégico · Conhecimentos Específicos · aula 15",
+    "url": "https://drive.google.com/file/d/1sMLNqZkkgZr-WeW2_1y2xywjXgq96gk9/view",
+    "info": "Aulas dos cursos (PDF)",
+    "alvos": [
+     "concurso:transpetro-2026-enfase5"
+    ],
+    "grupo": "Aulas dos cursos (PDF)"
+   },
+   {
+    "id": "dr139",
+    "tipo": "drive",
+    "titulo": "Passo Estratégico · Conhecimentos Específicos · aula 16",
+    "url": "https://drive.google.com/file/d/1KcKQCRkL8_U8MBXtusN_Q6NILy_JNlIl/view",
+    "info": "Aulas dos cursos (PDF)",
+    "alvos": [
+     "concurso:transpetro-2026-enfase5"
+    ],
+    "grupo": "Aulas dos cursos (PDF)"
+   },
+   {
+    "id": "dr140",
+    "tipo": "drive",
+    "titulo": "Passo Estratégico · Conhecimentos Específicos · aula 17",
+    "url": "https://drive.google.com/file/d/167h6elsvtFzcBwbVRU9_NV37Xbarqw1U/view",
+    "info": "Aulas dos cursos (PDF)",
+    "alvos": [
+     "concurso:transpetro-2026-enfase5"
+    ],
+    "grupo": "Aulas dos cursos (PDF)"
+   },
+   {
+    "id": "dr141",
+    "tipo": "drive",
+    "titulo": "Passo Estratégico · Conhecimentos Específicos · aula 18",
+    "url": "https://drive.google.com/file/d/1TIcYebCOBfDdnP9D3TYiTnoTafgHFMbD/view",
+    "info": "Aulas dos cursos (PDF)",
+    "alvos": [
+     "concurso:transpetro-2026-enfase5"
+    ],
+    "grupo": "Aulas dos cursos (PDF)"
+   },
+   {
+    "id": "dr142",
+    "tipo": "drive",
+    "titulo": "Passo Estratégico · Conhecimentos Específicos · aula 19",
+    "url": "https://drive.google.com/file/d/1WVhErwVvqF5Dkcvw3il-RZpYPwsLOtEw/view",
+    "info": "Aulas dos cursos (PDF)",
+    "alvos": [
+     "concurso:transpetro-2026-enfase5"
+    ],
+    "grupo": "Aulas dos cursos (PDF)"
+   },
+   {
+    "id": "dr143",
+    "tipo": "drive",
+    "titulo": "Passo Estratégico · Conhecimentos Específicos · aula 20",
+    "url": "https://drive.google.com/file/d/1otHcVJyz9r_ArijXraz7cTtq7rLzrxvZ/view",
+    "info": "Aulas dos cursos (PDF)",
+    "alvos": [
+     "concurso:transpetro-2026-enfase5"
+    ],
+    "grupo": "Aulas dos cursos (PDF)"
+   },
+   {
+    "id": "dr144",
+    "tipo": "drive",
+    "titulo": "Passo Estratégico · Conhecimentos Específicos · aula 21",
+    "url": "https://drive.google.com/file/d/1h9VSaRS7JBHUpA3kXyjSZZfeHgBzTpWd/view",
+    "info": "Aulas dos cursos (PDF)",
+    "alvos": [
+     "concurso:transpetro-2026-enfase5"
+    ],
+    "grupo": "Aulas dos cursos (PDF)"
+   },
+   {
+    "id": "dr145",
+    "tipo": "drive",
+    "titulo": "Passo Estratégico · Conhecimentos Específicos · aula 23",
+    "url": "https://drive.google.com/file/d/1ylu2VmNVQl-fvp3YEyvptVxu5vbQYYk9/view",
+    "info": "Aulas dos cursos (PDF)",
+    "alvos": [
+     "concurso:transpetro-2026-enfase5"
+    ],
+    "grupo": "Aulas dos cursos (PDF)"
+   },
+   {
+    "id": "md00",
+    "tipo": "guia",
+    "titulo": "Guia 00 · Anatomia da Cesgranrio",
+    "url": "dados/guias/00-anatomia-cesgranrio.md",
+    "md": "dados/guias/00-anatomia-cesgranrio.md",
+    "info": "guia no app",
+    "alvos": [
+     "concurso:transpetro-2026-enfase5",
+     "estrategia-de-prova/anatomia-da-cesgranrio"
+    ],
+    "grupo": "Guias"
+   },
+   {
+    "id": "md01",
+    "tipo": "guia",
+    "titulo": "Guia 01 · Português",
+    "url": "dados/guias/01-portugues.md",
+    "md": "dados/guias/01-portugues.md",
+    "info": "guia no app",
+    "alvos": [
+     "disc:portugues"
+    ],
+    "grupo": "Guias"
+   },
+   {
+    "id": "md02",
+    "tipo": "guia",
+    "titulo": "Guia 02 · Inglês",
+    "url": "dados/guias/02-ingles.md",
+    "md": "dados/guias/02-ingles.md",
+    "info": "guia no app",
+    "alvos": [
+     "disc:ingles"
+    ],
+    "grupo": "Guias"
+   },
+   {
+    "id": "md03",
+    "tipo": "guia",
+    "titulo": "Guia 03 · Arquitetura de Dados",
+    "url": "dados/guias/03-dados.md",
+    "md": "dados/guias/03-dados.md",
+    "info": "guia no app",
+    "alvos": [
+     "disc:banco-de-dados"
+    ],
+    "grupo": "Guias"
+   },
+   {
+    "id": "md04",
+    "tipo": "guia",
+    "titulo": "Guia 04 · Projetos",
+    "url": "dados/guias/04-projetos.md",
+    "md": "dados/guias/04-projetos.md",
+    "info": "guia no app",
+    "alvos": [
+     "disc:gestao-de-projetos"
+    ],
+    "grupo": "Guias"
+   },
+   {
+    "id": "md05",
+    "tipo": "guia",
+    "titulo": "Guia 05 · Governança e LGPD",
+    "url": "dados/guias/05-governanca.md",
+    "md": "dados/guias/05-governanca.md",
+    "info": "guia no app",
+    "alvos": [
+     "disc:governanca-de-ti"
+    ],
+    "grupo": "Guias"
+   },
+   {
+    "id": "md06",
+    "tipo": "guia",
+    "titulo": "Guia 06 · Engenharia de Software",
+    "url": "dados/guias/06-engenharia-software.md",
+    "md": "dados/guias/06-engenharia-software.md",
+    "info": "guia no app",
+    "alvos": [
+     "disc:engenharia-de-software"
+    ],
+    "grupo": "Guias"
+   },
+   {
+    "id": "md07",
+    "tipo": "guia",
+    "titulo": "Guia 07 · UX",
+    "url": "dados/guias/07-ux.md",
+    "md": "dados/guias/07-ux.md",
+    "info": "guia no app",
+    "alvos": [
+     "disc:ux"
+    ],
+    "grupo": "Guias"
+   },
+   {
+    "id": "md08",
+    "tipo": "guia",
+    "titulo": "Guia 08 · BI e Análise de Dados",
+    "url": "dados/guias/08-bi.md",
+    "md": "dados/guias/08-bi.md",
+    "info": "guia no app",
+    "alvos": [
+     "disc:bi-e-analise-de-dados"
+    ],
+    "grupo": "Guias"
+   },
+   {
+    "id": "md09",
+    "tipo": "guia",
+    "titulo": "Guia 09 · Lógica",
+    "url": "dados/guias/09-logica.md",
+    "md": "dados/guias/09-logica.md",
+    "info": "guia no app",
+    "alvos": [
+     "disc:logica"
+    ],
+    "grupo": "Guias"
+   },
+   {
+    "id": "md10",
+    "tipo": "guia",
+    "titulo": "Guia 10 · Segurança da Informação",
+    "url": "dados/guias/10-seguranca.md",
+    "md": "dados/guias/10-seguranca.md",
+    "info": "guia no app",
+    "alvos": [
+     "disc:seguranca-da-informacao"
+    ],
+    "grupo": "Guias"
+   },
+   {
+    "id": "md11",
+    "tipo": "guia",
+    "titulo": "Guia 11 · Lições das videoaulas",
+    "url": "dados/guias/11-licoes-das-videoaulas.md",
+    "md": "dados/guias/11-licoes-das-videoaulas.md",
+    "info": "guia no app",
+    "alvos": [
+     "estrategia-de-prova/licoes-das-videoaulas"
+    ],
+    "grupo": "Guias"
+   },
+   {
+    "id": "md12",
+    "tipo": "guia",
+    "titulo": "Guia 12 · Comentários do TecConcursos",
+    "url": "dados/guias/12-sintese-comentarios-tecconcursos.md",
+    "md": "dados/guias/12-sintese-comentarios-tecconcursos.md",
+    "info": "guia no app",
+    "alvos": [
+     "estrategia-de-prova/comentarios-do-tecconcursos"
+    ],
+    "grupo": "Guias"
+   },
+   {
+    "id": "md13",
+    "tipo": "guia",
+    "titulo": "Guia 13 · Gabaritos contestados",
+    "url": "dados/guias/13-gabaritos-contestados-analise.md",
+    "md": "dados/guias/13-gabaritos-contestados-analise.md",
+    "info": "guia no app",
+    "alvos": [
+     "estrategia-de-prova/gabaritos-contestados"
+    ],
+    "grupo": "Guias"
+   },
+   {
+    "id": "edital-transpetro-2026",
+    "tipo": "pdf",
+    "titulo": "Edital atualizado com as retificações",
+    "rel": "Edital atualizado com as retificações.pdf",
+    "url": "/pdf/Edital atualizado com as retificações.pdf",
+    "info": "PDF do projeto",
+    "alvos": [
+     "concurso:transpetro-2026-enfase5"
+    ],
+    "grupo": "Edital"
+   },
+   {
+    "id": "reta-final-md",
+    "tipo": "guia",
+    "titulo": "Reta Final · plano de revisão e dia da prova",
+    "md": "/raiz/Reta Final - Plano de revisão e dia da prova (06-12-2026).md",
+    "url": "/raiz/Reta Final - Plano de revisão e dia da prova (06-12-2026).md",
+    "info": "plano",
+    "alvos": [
+     "concurso:transpetro-2026-enfase5"
+    ],
+    "grupo": "Guias"
+   }
+  ],
+  "bancos": [
+   {
+    "id": "cesgranrio-1000",
+    "nome": "Questões Cesgranrio comentadas (Específicas, Português, Inglês e Lógica)",
+    "arquivo": "dados/banco_questoes.json"
+   }
+  ]
+ },
+ "concurso": {
+  "id": "transpetro-2026-enfase5",
+  "nome": "Transpetro 2026 · Ênfase 5",
+  "orgao": "Transpetro",
+  "banca": "Cesgranrio",
+  "cargo": "Analista de Sistemas Júnior",
+  "enfase": "Ênfase 5: Análise de Sistemas (Processos de Negócios)",
+  "polo": "RJ",
+  "modalidade": "PcD (vaga reservada) · pessoas negras solicitado",
+  "edital": {
+   "titulo": "Edital nº 04 TRANSPETRO/PSP/TERRA/NÍVEL SUPERIOR 2026.4 (11/08/2026)",
+   "rel": "Edital atualizado com as retificações.pdf",
+   "url": ""
+  },
+  "datas": {
+   "prova": "2026-12-06",
+   "limiteRevisao": "2026-12-05",
+   "eventos": [
+    {
+     "data": "2026-12-01",
+     "evento": "Cartão de Confirmação"
+    },
+    {
+     "data": "2026-12-04",
+     "evento": "Último dia de atendimento (0800 701 2028)"
+    },
+    {
+     "data": "2026-12-06",
+     "evento": "Prova"
+    },
+    {
+     "data": "2026-12-07",
+     "evento": "Gabarito"
+    },
+    {
+     "data": "2026-12-08",
+     "evento": "Fim dos recursos"
+    },
+    {
+     "data": "2027-01-14",
+     "evento": "Notas"
+    }
+   ]
+  },
+  "status": "pos-edital",
+  "resultado": {
+   "situacao": "",
+   "classificacao": "",
+   "notas": {},
+   "gabarito": "",
+   "recursos": "",
+   "licoes": ""
+  },
+  "painel": {
+   "tempoBaseMin": 270,
+   "usarTempoAdicional": true,
+   "questoes": 70,
+   "blocos": [
+    {
+     "id": "PT",
+     "nome": "Língua Portuguesa",
+     "de": 1,
+     "ate": 10,
+     "grupo": "gerais"
+    },
+    {
+     "id": "EN",
+     "nome": "Língua Inglesa",
+     "de": 11,
+     "ate": 20,
+     "grupo": "gerais"
+    },
+    {
+     "id": "ESP",
+     "nome": "Conhecimentos Específicos",
+     "de": 21,
+     "ate": 70,
+     "grupo": "especificas"
+    }
+   ],
+   "eliminacao": {
+    "especificasMin": 25,
+    "geraisMin": 10,
+    "zeroEmBlocos": [
+     "PT",
+     "EN"
+    ]
+   },
+   "alternativas": 5,
+   "descontoErro": false,
+   "cortesReferencia": [
+    {
+     "rotulo": "Corte PcD 2023 (não verificado)",
+     "especificas": 32
+    },
+    {
+     "rotulo": "Corte PN 2023 (não verificado)",
+     "especificas": 38
+    },
+    {
+     "rotulo": "Corte ampla 2023 (não verificado)",
+     "especificas": 40
+    }
+   ],
+   "observacoes": "Sem desconto por erro: marque as 70. Habilitação pelas Específicas; classificação final pela soma. Confirmar data, local e as 5 adaptações no Cartão de Confirmação (01/12).",
+   "pesosHistoricos": {
+    "titulo": "Peso das Específicas na prova de 2023",
+    "grupos": [
+     {
+      "nome": "Dados + BI",
+      "peso": 17,
+      "discs": [
+       "d03",
+       "d08"
+      ]
+     },
+     {
+      "nome": "Eng. Software + UX",
+      "peso": 10,
+      "discs": [
+       "d06",
+       "d07"
+      ]
+     },
+     {
+      "nome": "Segurança",
+      "peso": 7,
+      "discs": [
+       "d10"
+      ]
+     },
+     {
+      "nome": "Projetos",
+      "peso": 7,
+      "discs": [
+       "d04"
+      ]
+     },
+     {
+      "nome": "Governança + LGPD",
+      "peso": 5,
+      "discs": [
+       "d05"
+      ]
+     },
+     {
+      "nome": "Lógica",
+      "peso": 4,
+      "discs": [
+       "d09"
+      ]
+     }
+    ]
+   }
+  },
+  "disciplinas": [
+   {
+    "id": "d01",
+    "nome": "Língua Portuguesa",
+    "curto": "Português",
+    "bloco": "PT",
+    "peso": 10,
+    "dominioInicial": 0.75,
+    "trava": false,
+    "extra": false,
+    "bib": "portugues",
+    "ankiPasta": "01 Língua Portuguesa",
+    "itens": [
+     {
+      "id": "d01:P1",
+      "chave": "P1",
+      "nome": "01 Compreensão de textos",
+      "topico": "portugues/compreensao-de-textos",
+      "ankiDeck": "Transpetro 2026 · 1 Questões::01 Língua Portuguesa::01 Compreensão de textos"
+     },
+     {
+      "id": "d01:P2",
+      "chave": "P2",
+      "nome": "02 Ortografia oficial",
+      "topico": "portugues/ortografia-oficial",
+      "ankiDeck": "Transpetro 2026 · 1 Questões::01 Língua Portuguesa::02 Ortografia oficial"
+     },
+     {
+      "id": "d01:P3",
+      "chave": "P3",
+      "nome": "03 Mecanismos de coesão textual",
+      "topico": "portugues/mecanismos-de-coesao-textual",
+      "ankiDeck": "Transpetro 2026 · 1 Questões::01 Língua Portuguesa::03 Mecanismos de coesão textual"
+     },
+     {
+      "id": "d01:P4",
+      "chave": "P4",
+      "nome": "04 Significação das palavras",
+      "topico": "portugues/significacao-das-palavras",
+      "ankiDeck": "Transpetro 2026 · 1 Questões::01 Língua Portuguesa::04 Significação das palavras"
+     },
+     {
+      "id": "d01:P5",
+      "chave": "P5",
+      "nome": "05 Emprego de tempos e modos verbais",
+      "topico": "portugues/emprego-de-tempos-e-modos-verbais",
+      "ankiDeck": "Transpetro 2026 · 1 Questões::01 Língua Portuguesa::05 Emprego de tempos e modos verbais"
+     },
+     {
+      "id": "d01:P6",
+      "chave": "P6",
+      "nome": "06 Emprego das classes de palavras",
+      "topico": "portugues/emprego-das-classes-de-palavras",
+      "ankiDeck": "Transpetro 2026 · 1 Questões::01 Língua Portuguesa::06 Emprego das classes de palavras"
+     },
+     {
+      "id": "d01:P7",
+      "chave": "P7",
+      "nome": "07 Coordenação e subordinação",
+      "topico": "portugues/coordenacao-e-subordinacao",
+      "ankiDeck": "Transpetro 2026 · 1 Questões::01 Língua Portuguesa::07 Coordenação e subordinação"
+     },
+     {
+      "id": "d01:P8",
+      "chave": "P8",
+      "nome": "08 Emprego dos sinais de pontuação",
+      "topico": "portugues/emprego-dos-sinais-de-pontuacao",
+      "ankiDeck": "Transpetro 2026 · 1 Questões::01 Língua Portuguesa::08 Emprego dos sinais de pontuação"
+     },
+     {
+      "id": "d01:P9",
+      "chave": "P9",
+      "nome": "09 Concordância verbal e nominal",
+      "topico": "portugues/concordancia-verbal-e-nominal",
+      "ankiDeck": "Transpetro 2026 · 1 Questões::01 Língua Portuguesa::09 Concordância verbal e nominal"
+     },
+     {
+      "id": "d01:P10",
+      "chave": "P10",
+      "nome": "10 Regência verbal e nominal",
+      "topico": "portugues/regencia-verbal-e-nominal",
+      "ankiDeck": "Transpetro 2026 · 1 Questões::01 Língua Portuguesa::10 Regência verbal e nominal"
+     },
+     {
+      "id": "d01:P11",
+      "chave": "P11",
+      "nome": "11 Emprego do sinal indicativo de crase",
+      "topico": "portugues/emprego-do-sinal-indicativo-de-crase",
+      "ankiDeck": "Transpetro 2026 · 1 Questões::01 Língua Portuguesa::11 Emprego do sinal indicativo de crase"
+     },
+     {
+      "id": "d01:P12",
+      "chave": "P12",
+      "nome": "12 Colocação dos pronomes átonos",
+      "topico": "portugues/colocacao-dos-pronomes-atonos",
+      "ankiDeck": "Transpetro 2026 · 1 Questões::01 Língua Portuguesa::12 Colocação dos pronomes átonos"
+     }
+    ]
+   },
+   {
+    "id": "d02",
+    "nome": "Língua Inglesa",
+    "curto": "Inglês",
+    "bloco": "EN",
+    "peso": 10,
+    "dominioInicial": 0.3,
+    "trava": true,
+    "extra": false,
+    "bib": "ingles",
+    "ankiPasta": "02 Língua Inglesa",
+    "itens": [
+     {
+      "id": "d02:I1",
+      "chave": "I1",
+      "nome": "01 Compreensão de texto escrito em língua inglesa",
+      "topico": "ingles/compreensao-de-texto-escrito-em-lingua-inglesa",
+      "ankiDeck": "Transpetro 2026 · 1 Questões::02 Língua Inglesa::01 Compreensão de texto escrito em língua inglesa"
+     },
+     {
+      "id": "d02:I2",
+      "chave": "I2",
+      "nome": "02 Itens gramaticais relevantes para a compreensão",
+      "topico": "ingles/itens-gramaticais-relevantes-para-a-compreensao",
+      "ankiDeck": "Transpetro 2026 · 1 Questões::02 Língua Inglesa::02 Itens gramaticais relevantes para a compreensão"
+     }
+    ]
+   },
+   {
+    "id": "d03",
+    "nome": "Arquitetura de Dados",
+    "curto": "Dados",
+    "bloco": "ESP",
+    "peso": 11,
+    "dominioInicial": 0.5,
+    "trava": false,
+    "extra": false,
+    "bib": "banco-de-dados",
+    "ankiPasta": "03 Arquitetura de Dados",
+    "itens": [
+     {
+      "id": "d03:1.1",
+      "chave": "1.1",
+      "nome": "1.01 Modelagem de dados (conceitual, lógica e física)",
+      "topico": "banco-de-dados/modelagem-de-dados-conceitual-logica-e-fisica",
+      "ankiDeck": "Transpetro 2026 · 1 Questões::03 Arquitetura de Dados::1.01 Modelagem de dados (conceitual, lógica e física)"
+     },
+     {
+      "id": "d03:1.2",
+      "chave": "1.2",
+      "nome": "1.02 Criação e alteração dos modelos lógico e físico",
+      "topico": "banco-de-dados/criacao-e-alteracao-dos-modelos-logico-e-fisico",
+      "ankiDeck": "Transpetro 2026 · 1 Questões::03 Arquitetura de Dados::1.02 Criação e alteração dos modelos lógico e físico"
+     },
+     {
+      "id": "d03:1.3",
+      "chave": "1.3",
+      "nome": "1.03 O modelo relacional",
+      "topico": "banco-de-dados/o-modelo-relacional",
+      "ankiDeck": "Transpetro 2026 · 1 Questões::03 Arquitetura de Dados::1.03 O modelo relacional"
+     },
+     {
+      "id": "d03:1.4",
+      "chave": "1.4",
+      "nome": "1.04 Normalização",
+      "topico": "banco-de-dados/normalizacao",
+      "ankiDeck": "Transpetro 2026 · 1 Questões::03 Arquitetura de Dados::1.04 Normalização"
+     },
+     {
+      "id": "d03:1.5",
+      "chave": "1.5",
+      "nome": "1.05 Integridade referencial",
+      "topico": "banco-de-dados/integridade-referencial",
+      "ankiDeck": "Transpetro 2026 · 1 Questões::03 Arquitetura de Dados::1.05 Integridade referencial"
+     },
+     {
+      "id": "d03:1.6",
+      "chave": "1.6",
+      "nome": "1.06 Metadados",
+      "topico": "banco-de-dados/metadados",
+      "ankiDeck": "Transpetro 2026 · 1 Questões::03 Arquitetura de Dados::1.06 Metadados"
+     },
+     {
+      "id": "d03:1.7",
+      "chave": "1.7",
+      "nome": "1.07 Modelagem dimensional",
+      "topico": "banco-de-dados/modelagem-dimensional",
+      "ankiDeck": "Transpetro 2026 · 1 Questões::03 Arquitetura de Dados::1.07 Modelagem dimensional"
+     },
+     {
+      "id": "d03:1.8",
+      "chave": "1.8",
+      "nome": "1.08 Avaliação de modelos de dados",
+      "topico": "banco-de-dados/avaliacao-de-modelos-de-dados",
+      "ankiDeck": "Transpetro 2026 · 1 Questões::03 Arquitetura de Dados::1.08 Avaliação de modelos de dados"
+     },
+     {
+      "id": "d03:1.9",
+      "chave": "1.9",
+      "nome": "1.09 Engenharia reversa de modelos de dados",
+      "topico": "banco-de-dados/engenharia-reversa-de-modelos-de-dados",
+      "ankiDeck": "Transpetro 2026 · 1 Questões::03 Arquitetura de Dados::1.09 Engenharia reversa de modelos de dados"
+     },
+     {
+      "id": "d03:1.10",
+      "chave": "1.10",
+      "nome": "1.10 SQL",
+      "topico": "banco-de-dados/sql",
+      "ankiDeck": "Transpetro 2026 · 1 Questões::03 Arquitetura de Dados::1.10 SQL"
+     },
+     {
+      "id": "d03:1.11",
+      "chave": "1.11",
+      "nome": "1.11 DDL",
+      "topico": "banco-de-dados/ddl",
+      "ankiDeck": "Transpetro 2026 · 1 Questões::03 Arquitetura de Dados::1.11 DDL"
+     },
+     {
+      "id": "d03:1.12",
+      "chave": "1.12",
+      "nome": "1.12 DML",
+      "topico": "banco-de-dados/dml",
+      "ankiDeck": "Transpetro 2026 · 1 Questões::03 Arquitetura de Dados::1.12 DML"
+     },
+     {
+      "id": "d03:1.13",
+      "chave": "1.13",
+      "nome": "1.13 SGBD",
+      "topico": "banco-de-dados/sgbd",
+      "ankiDeck": "Transpetro 2026 · 1 Questões::03 Arquitetura de Dados::1.13 SGBD"
+     },
+     {
+      "id": "d03:1.14",
+      "chave": "1.14",
+      "nome": "1.14 Propriedades ACID",
+      "topico": "banco-de-dados/propriedades-acid",
+      "ankiDeck": "Transpetro 2026 · 1 Questões::03 Arquitetura de Dados::1.14 Propriedades ACID"
+     },
+     {
+      "id": "d03:1.15",
+      "chave": "1.15",
+      "nome": "1.15 Independência de dados",
+      "topico": "banco-de-dados/independencia-de-dados",
+      "ankiDeck": "Transpetro 2026 · 1 Questões::03 Arquitetura de Dados::1.15 Independência de dados"
+     },
+     {
+      "id": "d03:1.16",
+      "chave": "1.16",
+      "nome": "1.16 Transações",
+      "topico": "banco-de-dados/transacoes",
+      "ankiDeck": "Transpetro 2026 · 1 Questões::03 Arquitetura de Dados::1.16 Transações"
+     },
+     {
+      "id": "d03:1.17",
+      "chave": "1.17",
+      "nome": "1.17 Performance de banco de dados",
+      "topico": "banco-de-dados/performance-de-banco-de-dados",
+      "ankiDeck": "Transpetro 2026 · 1 Questões::03 Arquitetura de Dados::1.17 Performance de banco de dados"
+     },
+     {
+      "id": "d03:1.18",
+      "chave": "1.18",
+      "nome": "1.18 NoSQL",
+      "topico": "banco-de-dados/nosql",
+      "ankiDeck": "Transpetro 2026 · 1 Questões::03 Arquitetura de Dados::1.18 NoSQL"
+     },
+     {
+      "id": "d03:1.19",
+      "chave": "1.19",
+      "nome": "1.19 Integração de dados (ETL, arquivos, base de dados)",
+      "topico": "banco-de-dados/integracao-de-dados-etl-arquivos-base-de-dados",
+      "ankiDeck": "Transpetro 2026 · 1 Questões::03 Arquitetura de Dados::1.19 Integração de dados (ETL, arquivos, base de dados)"
+     },
+     {
+      "id": "d03:1.20",
+      "chave": "1.20",
+      "nome": "1.20 Banco de dados em memória",
+      "topico": "banco-de-dados/banco-de-dados-em-memoria",
+      "ankiDeck": "Transpetro 2026 · 1 Questões::03 Arquitetura de Dados::1.20 Banco de dados em memória"
+     },
+     {
+      "id": "d03:1.21",
+      "chave": "1.21",
+      "nome": "1.21 Qualidade de dados e dados mestres e de referência",
+      "topico": "banco-de-dados/qualidade-de-dados-e-dados-mestres-e-de-referencia",
+      "ankiDeck": "Transpetro 2026 · 1 Questões::03 Arquitetura de Dados::1.21 Qualidade de dados e dados mestres e de referência"
+     },
+     {
+      "id": "d03:1.22",
+      "chave": "1.22",
+      "nome": "1.22 Data lakes e big data",
+      "topico": "banco-de-dados/data-lakes-e-big-data",
+      "ankiDeck": "Transpetro 2026 · 1 Questões::03 Arquitetura de Dados::1.22 Data lakes e big data"
+     },
+     {
+      "id": "d03:1.23",
+      "chave": "1.23",
+      "nome": "1.23 Relacional × multidimensional × documentos × grafos",
+      "topico": "banco-de-dados/relacional-multidimensional-documentos-grafos",
+      "ankiDeck": "Transpetro 2026 · 1 Questões::03 Arquitetura de Dados::1.23 Relacional × multidimensional × documentos × grafos"
+     }
+    ]
+   },
+   {
+    "id": "d04",
+    "nome": "Gerenciamento de Projetos e Produtos",
+    "curto": "Projetos",
+    "bloco": "ESP",
+    "peso": 7,
+    "dominioInicial": 0.75,
+    "trava": false,
+    "extra": false,
+    "bib": "gestao-de-projetos",
+    "ankiPasta": "04 Gerenciamento de Projetos e Produtos",
+    "itens": [
+     {
+      "id": "d04:2.1",
+      "chave": "2.1",
+      "nome": "2.1 Scrum e Kanban",
+      "topico": "gestao-de-projetos/scrum-e-kanban",
+      "ankiDeck": "Transpetro 2026 · 1 Questões::04 Gerenciamento de Projetos e Produtos::2.1 Scrum e Kanban"
+     },
+     {
+      "id": "d04:2.2",
+      "chave": "2.2",
+      "nome": "2.2 Gestão de projeto × gestão de produto",
+      "topico": "gestao-de-projetos/gestao-de-projeto-gestao-de-produto",
+      "ankiDeck": "Transpetro 2026 · 1 Questões::04 Gerenciamento de Projetos e Produtos::2.2 Gestão de projeto × gestão de produto"
+     },
+     {
+      "id": "d04:2.3",
+      "chave": "2.3",
+      "nome": "2.3 Agilidade em escala e SAFe",
+      "topico": "gestao-de-projetos/agilidade-em-escala-e-safe",
+      "ankiDeck": "Transpetro 2026 · 1 Questões::04 Gerenciamento de Projetos e Produtos::2.3 Agilidade em escala e SAFe"
+     },
+     {
+      "id": "d04:2.4",
+      "chave": "2.4",
+      "nome": "2.4 PMBOK 7ª edição",
+      "topico": "gestao-de-projetos/pmbok-7a-edicao",
+      "ankiDeck": "Transpetro 2026 · 1 Questões::04 Gerenciamento de Projetos e Produtos::2.4 PMBOK 7ª edição"
+     },
+     {
+      "id": "d04:2.5",
+      "chave": "2.5",
+      "nome": "2.5 Projetos e a organização",
+      "topico": "gestao-de-projetos/projetos-e-a-organizacao",
+      "ankiDeck": "Transpetro 2026 · 1 Questões::04 Gerenciamento de Projetos e Produtos::2.5 Projetos e a organização"
+     },
+     {
+      "id": "d04:2.6",
+      "chave": "2.6",
+      "nome": "2.6 Escritório de projetos (PMO)",
+      "topico": "gestao-de-projetos/escritorio-de-projetos-pmo",
+      "ankiDeck": "Transpetro 2026 · 1 Questões::04 Gerenciamento de Projetos e Produtos::2.6 Escritório de projetos (PMO)"
+     },
+     {
+      "id": "d04:2.7",
+      "chave": "2.7",
+      "nome": "2.7 Modelos e características (ciclos de vida)",
+      "topico": "gestao-de-projetos/modelos-e-caracteristicas-ciclos-de-vida",
+      "ankiDeck": "Transpetro 2026 · 1 Questões::04 Gerenciamento de Projetos e Produtos::2.7 Modelos e características (ciclos de vida)"
+     },
+     {
+      "id": "d04:3",
+      "chave": "3",
+      "nome": "3 Processos, grupos de processos e áreas de conhecimento",
+      "topico": "gestao-de-projetos/processos-grupos-de-processos-e-areas-de-conhecimento",
+      "ankiDeck": "Transpetro 2026 · 1 Questões::04 Gerenciamento de Projetos e Produtos::3 Processos, grupos de processos e áreas de conhecimento"
+     }
+    ]
+   },
+   {
+    "id": "d05",
+    "nome": "Gestão e Governança em TI",
+    "curto": "Governança",
+    "bloco": "ESP",
+    "peso": 5,
+    "dominioInicial": 0.5,
+    "trava": false,
+    "extra": false,
+    "bib": "governanca-de-ti",
+    "ankiPasta": "05 Gestão e Governança em TI",
+    "itens": [
+     {
+      "id": "d05:4.1",
+      "chave": "4.1",
+      "nome": "4.1 Conceitos, segmentos e mercado de TI",
+      "topico": "governanca-de-ti/conceitos-segmentos-e-mercado-de-ti",
+      "ankiDeck": "Transpetro 2026 · 1 Questões::05 Gestão e Governança em TI::4.1 Conceitos, segmentos e mercado de TI"
+     },
+     {
+      "id": "d05:4.2",
+      "chave": "4.2",
+      "nome": "4.2 Economia da inovação",
+      "topico": "governanca-de-ti/economia-da-inovacao",
+      "ankiDeck": "Transpetro 2026 · 1 Questões::05 Gestão e Governança em TI::4.2 Economia da inovação"
+     },
+     {
+      "id": "d05:4.3",
+      "chave": "4.3",
+      "nome": "4.3 Conceitos e perspectivas da tecnologia",
+      "topico": "governanca-de-ti/conceitos-e-perspectivas-da-tecnologia",
+      "ankiDeck": "Transpetro 2026 · 1 Questões::05 Gestão e Governança em TI::4.3 Conceitos e perspectivas da tecnologia"
+     },
+     {
+      "id": "d05:4.4",
+      "chave": "4.4",
+      "nome": "4.4 Ciência, pesquisa, desenvolvimento e indústria",
+      "topico": "governanca-de-ti/ciencia-pesquisa-desenvolvimento-e-industria",
+      "ankiDeck": "Transpetro 2026 · 1 Questões::05 Gestão e Governança em TI::4.4 Ciência, pesquisa, desenvolvimento e indústria"
+     },
+     {
+      "id": "d05:4.5",
+      "chave": "4.5",
+      "nome": "4.5 Gerenciamento de serviços de TI (ITIL, COBIT)",
+      "topico": "governanca-de-ti/gerenciamento-de-servicos-de-ti-itil-cobit",
+      "ankiDeck": "Transpetro 2026 · 1 Questões::05 Gestão e Governança em TI::4.5 Gerenciamento de serviços de TI (ITIL, COBIT)"
+     },
+     {
+      "id": "d05:4.6",
+      "chave": "4.6",
+      "nome": "4.6 LGPD (Lei 13.709/2018)",
+      "topico": "governanca-de-ti/lgpd-lei-13-709-2018",
+      "ankiDeck": "Transpetro 2026 · 1 Questões::05 Gestão e Governança em TI::4.6 LGPD (Lei 13.709/2018)"
+     }
+    ]
+   },
+   {
+    "id": "d06",
+    "nome": "Engenharia de Software",
+    "curto": "Eng. Software",
+    "bloco": "ESP",
+    "peso": 7,
+    "dominioInicial": 0.35,
+    "trava": false,
+    "extra": false,
+    "bib": "engenharia-de-software",
+    "ankiPasta": "06 Engenharia de Software",
+    "itens": [
+     {
+      "id": "d06:5.1",
+      "chave": "5.1",
+      "nome": "5.1 Requisitos",
+      "topico": "engenharia-de-software/requisitos",
+      "ankiDeck": "Transpetro 2026 · 1 Questões::06 Engenharia de Software::5.1 Requisitos"
+     },
+     {
+      "id": "d06:5.2",
+      "chave": "5.2",
+      "nome": "5.2 Ciclo de vida e paradigmas",
+      "topico": "engenharia-de-software/ciclo-de-vida-e-paradigmas",
+      "ankiDeck": "Transpetro 2026 · 1 Questões::06 Engenharia de Software::5.2 Ciclo de vida e paradigmas"
+     },
+     {
+      "id": "d06:5.3",
+      "chave": "5.3",
+      "nome": "5.3 Análise e projeto (estruturado e OO, UML)",
+      "topico": "engenharia-de-software/analise-e-projeto-estruturado-e-oo-uml",
+      "ankiDeck": "Transpetro 2026 · 1 Questões::06 Engenharia de Software::5.3 Análise e projeto (estruturado e OO, UML)"
+     },
+     {
+      "id": "d06:5.4",
+      "chave": "5.4",
+      "nome": "5.4 Verificação, validação e teste",
+      "topico": "engenharia-de-software/verificacao-validacao-e-teste",
+      "ankiDeck": "Transpetro 2026 · 1 Questões::06 Engenharia de Software::5.4 Verificação, validação e teste"
+     },
+     {
+      "id": "d06:5.5",
+      "chave": "5.5",
+      "nome": "5.5 Ambientes de desenvolvimento (DevOps, versionamento, CI/CD)",
+      "topico": "engenharia-de-software/ambientes-de-desenvolvimento-devops-versionamento-ci-cd",
+      "ankiDeck": "Transpetro 2026 · 1 Questões::06 Engenharia de Software::5.5 Ambientes de desenvolvimento (DevOps, versionamento, CI/CD)"
+     }
+    ]
+   },
+   {
+    "id": "d07",
+    "nome": "User Experience (UX)",
+    "curto": "UX",
+    "bloco": "ESP",
+    "peso": 3,
+    "dominioInicial": 0.35,
+    "trava": false,
+    "extra": false,
+    "bib": "ux",
+    "ankiPasta": "07 User Experience (UX)",
+    "itens": [
+     {
+      "id": "d07:6.1",
+      "chave": "6.1",
+      "nome": "6.01 Acessibilidade e usabilidade",
+      "topico": "ux/acessibilidade-e-usabilidade",
+      "ankiDeck": "Transpetro 2026 · 1 Questões::07 User Experience (UX)::6.01 Acessibilidade e usabilidade"
+     },
+     {
+      "id": "d07:6.2",
+      "chave": "6.2",
+      "nome": "6.02 Histórias do usuário",
+      "topico": "ux/historias-do-usuario",
+      "ankiDeck": "Transpetro 2026 · 1 Questões::07 User Experience (UX)::6.02 Histórias do usuário"
+     },
+     {
+      "id": "d07:6.3",
+      "chave": "6.3",
+      "nome": "6.03 Design de interação web",
+      "topico": "ux/design-de-interacao-web",
+      "ankiDeck": "Transpetro 2026 · 1 Questões::07 User Experience (UX)::6.03 Design de interação web"
+     },
+     {
+      "id": "d07:6.4",
+      "chave": "6.4",
+      "nome": "6.04 Projeto centrado no usuário",
+      "topico": "ux/projeto-centrado-no-usuario",
+      "ankiDeck": "Transpetro 2026 · 1 Questões::07 User Experience (UX)::6.04 Projeto centrado no usuário"
+     },
+     {
+      "id": "d07:6.5",
+      "chave": "6.5",
+      "nome": "6.05 Storytelling com dados",
+      "topico": "ux/storytelling-com-dados",
+      "ankiDeck": "Transpetro 2026 · 1 Questões::07 User Experience (UX)::6.05 Storytelling com dados"
+     },
+     {
+      "id": "d07:6.6",
+      "chave": "6.6",
+      "nome": "6.06 Relatórios e dashboards",
+      "topico": "ux/relatorios-e-dashboards",
+      "ankiDeck": "Transpetro 2026 · 1 Questões::07 User Experience (UX)::6.06 Relatórios e dashboards"
+     },
+     {
+      "id": "d07:6.7",
+      "chave": "6.7",
+      "nome": "6.07 Interoperabilidade entre navegadores",
+      "topico": "ux/interoperabilidade-entre-navegadores",
+      "ankiDeck": "Transpetro 2026 · 1 Questões::07 User Experience (UX)::6.07 Interoperabilidade entre navegadores"
+     },
+     {
+      "id": "d07:6.8",
+      "chave": "6.8",
+      "nome": "6.08 MVP",
+      "topico": "ux/mvp",
+      "ankiDeck": "Transpetro 2026 · 1 Questões::07 User Experience (UX)::6.08 MVP"
+     },
+     {
+      "id": "d07:6.9",
+      "chave": "6.9",
+      "nome": "6.09 Prototipação",
+      "topico": "ux/prototipacao",
+      "ankiDeck": "Transpetro 2026 · 1 Questões::07 User Experience (UX)::6.09 Prototipação"
+     },
+     {
+      "id": "d07:6.10",
+      "chave": "6.10",
+      "nome": "6.10 Design thinking",
+      "topico": "ux/design-thinking",
+      "ankiDeck": "Transpetro 2026 · 1 Questões::07 User Experience (UX)::6.10 Design thinking"
+     },
+     {
+      "id": "d07:6.11",
+      "chave": "6.11",
+      "nome": "6.11 Personas",
+      "topico": "ux/personas",
+      "ankiDeck": "Transpetro 2026 · 1 Questões::07 User Experience (UX)::6.11 Personas"
+     }
+    ]
+   },
+   {
+    "id": "d08",
+    "nome": "Análise de Dados e BI",
+    "curto": "BI",
+    "bloco": "ESP",
+    "peso": 6,
+    "dominioInicial": 0.5,
+    "trava": false,
+    "extra": false,
+    "bib": "bi-e-analise-de-dados",
+    "ankiPasta": "08 Análise de Dados e BI",
+    "itens": [
+     {
+      "id": "d08:7.1",
+      "chave": "7.1",
+      "nome": "7.01 Dado, informação, conhecimento e inteligência",
+      "topico": "bi-e-analise-de-dados/dado-informacao-conhecimento-e-inteligencia",
+      "ankiDeck": "Transpetro 2026 · 1 Questões::08 Análise de Dados e BI::7.01 Dado, informação, conhecimento e inteligência"
+     },
+     {
+      "id": "d08:7.2",
+      "chave": "7.2",
+      "nome": "7.02 Fundamentos de BI",
+      "topico": "bi-e-analise-de-dados/fundamentos-de-bi",
+      "ankiDeck": "Transpetro 2026 · 1 Questões::08 Análise de Dados e BI::7.02 Fundamentos de BI"
+     },
+     {
+      "id": "d08:7.3",
+      "chave": "7.3",
+      "nome": "7.03 Mapeamento de fontes de dados",
+      "topico": "bi-e-analise-de-dados/mapeamento-de-fontes-de-dados",
+      "ankiDeck": "Transpetro 2026 · 1 Questões::08 Análise de Dados e BI::7.03 Mapeamento de fontes de dados"
+     },
+     {
+      "id": "d08:7.4",
+      "chave": "7.4",
+      "nome": "7.04 Dados estruturados e não estruturados",
+      "topico": "bi-e-analise-de-dados/dados-estruturados-e-nao-estruturados",
+      "ankiDeck": "Transpetro 2026 · 1 Questões::08 Análise de Dados e BI::7.04 Dados estruturados e não estruturados"
+     },
+     {
+      "id": "d08:7.5",
+      "chave": "7.5",
+      "nome": "7.05 OLAP e operações",
+      "topico": "bi-e-analise-de-dados/olap-e-operacoes",
+      "ankiDeck": "Transpetro 2026 · 1 Questões::08 Análise de Dados e BI::7.05 OLAP e operações"
+     },
+     {
+      "id": "d08:7.6",
+      "chave": "7.6",
+      "nome": "7.06 Data warehouse",
+      "topico": "bi-e-analise-de-dados/data-warehouse",
+      "ankiDeck": "Transpetro 2026 · 1 Questões::08 Análise de Dados e BI::7.06 Data warehouse"
+     },
+     {
+      "id": "d08:7.7",
+      "chave": "7.7",
+      "nome": "7.07 Modelagem e otimização multidimensional",
+      "topico": "bi-e-analise-de-dados/modelagem-e-otimizacao-multidimensional",
+      "ankiDeck": "Transpetro 2026 · 1 Questões::08 Análise de Dados e BI::7.07 Modelagem e otimização multidimensional"
+     },
+     {
+      "id": "d08:7.8",
+      "chave": "7.8",
+      "nome": "7.08 Relatórios e dashboards em ferramentas de BI",
+      "topico": "bi-e-analise-de-dados/relatorios-e-dashboards-em-ferramentas-de-bi",
+      "ankiDeck": "Transpetro 2026 · 1 Questões::08 Análise de Dados e BI::7.08 Relatórios e dashboards em ferramentas de BI"
+     },
+     {
+      "id": "d08:7.9",
+      "chave": "7.9",
+      "nome": "7.09 Manipulação de dados em planilhas",
+      "topico": "bi-e-analise-de-dados/manipulacao-de-dados-em-planilhas",
+      "ankiDeck": "Transpetro 2026 · 1 Questões::08 Análise de Dados e BI::7.09 Manipulação de dados em planilhas"
+     },
+     {
+      "id": "d08:7.10",
+      "chave": "7.10",
+      "nome": "7.10 Geração de insights",
+      "topico": "bi-e-analise-de-dados/geracao-de-insights",
+      "ankiDeck": "Transpetro 2026 · 1 Questões::08 Análise de Dados e BI::7.10 Geração de insights"
+     },
+     {
+      "id": "d08:7.11",
+      "chave": "7.11",
+      "nome": "7.11 BI e tomada de decisão",
+      "topico": "bi-e-analise-de-dados/bi-e-tomada-de-decisao",
+      "ankiDeck": "Transpetro 2026 · 1 Questões::08 Análise de Dados e BI::7.11 BI e tomada de decisão"
+     },
+     {
+      "id": "d08:7.X",
+      "chave": "7.X",
+      "nome": "7.12 Mineração de dados e ciência de dados (complementar)",
+      "topico": "bi-e-analise-de-dados/mineracao-de-dados-e-ciencia-de-dados-complementar",
+      "ankiDeck": "Transpetro 2026 · 1 Questões::08 Análise de Dados e BI::7.12 Mineração de dados e ciência de dados (complementar)"
+     }
+    ]
+   },
+   {
+    "id": "d09",
+    "nome": "Lógica Matemática",
+    "curto": "Lógica",
+    "bloco": "ESP",
+    "peso": 4,
+    "dominioInicial": 0.5,
+    "trava": false,
+    "extra": false,
+    "bib": "logica",
+    "ankiPasta": "09 Lógica Matemática",
+    "itens": [
+     {
+      "id": "d09:8.1",
+      "chave": "8.1",
+      "nome": "8.1 Conectivos",
+      "topico": "logica/conectivos",
+      "ankiDeck": "Transpetro 2026 · 1 Questões::09 Lógica Matemática::8.1 Conectivos"
+     },
+     {
+      "id": "d09:8.2",
+      "chave": "8.2",
+      "nome": "8.2 Argumentos",
+      "topico": "logica/argumentos",
+      "ankiDeck": "Transpetro 2026 · 1 Questões::09 Lógica Matemática::8.2 Argumentos"
+     },
+     {
+      "id": "d09:8.3",
+      "chave": "8.3",
+      "nome": "8.3 Lógica sentencial",
+      "topico": "logica/logica-sentencial",
+      "ankiDeck": "Transpetro 2026 · 1 Questões::09 Lógica Matemática::8.3 Lógica sentencial"
+     },
+     {
+      "id": "d09:8.4",
+      "chave": "8.4",
+      "nome": "8.4 Lógica de predicados de 1ª ordem",
+      "topico": "logica/logica-de-predicados-de-1a-ordem",
+      "ankiDeck": "Transpetro 2026 · 1 Questões::09 Lógica Matemática::8.4 Lógica de predicados de 1ª ordem"
+     },
+     {
+      "id": "d09:8.5",
+      "chave": "8.5",
+      "nome": "8.5 Formação de fórmulas",
+      "topico": "logica/formacao-de-formulas",
+      "ankiDeck": "Transpetro 2026 · 1 Questões::09 Lógica Matemática::8.5 Formação de fórmulas"
+     },
+     {
+      "id": "d09:8.6",
+      "chave": "8.6",
+      "nome": "8.6 Sistemas dedutivos",
+      "topico": "logica/sistemas-dedutivos",
+      "ankiDeck": "Transpetro 2026 · 1 Questões::09 Lógica Matemática::8.6 Sistemas dedutivos"
+     },
+     {
+      "id": "d09:8.7",
+      "chave": "8.7",
+      "nome": "8.7 Decidibilidade",
+      "topico": "logica/decidibilidade",
+      "ankiDeck": "Transpetro 2026 · 1 Questões::09 Lógica Matemática::8.7 Decidibilidade"
+     },
+     {
+      "id": "d09:8.8",
+      "chave": "8.8",
+      "nome": "8.8 Valores-verdade",
+      "topico": "logica/valores-verdade",
+      "ankiDeck": "Transpetro 2026 · 1 Questões::09 Lógica Matemática::8.8 Valores-verdade"
+     },
+     {
+      "id": "d09:8.9",
+      "chave": "8.9",
+      "nome": "8.9 Funções de avaliação",
+      "topico": "logica/funcoes-de-avaliacao",
+      "ankiDeck": "Transpetro 2026 · 1 Questões::09 Lógica Matemática::8.9 Funções de avaliação"
+     }
+    ]
+   },
+   {
+    "id": "d10",
+    "nome": "Segurança da Informação",
+    "curto": "Segurança",
+    "bloco": "ESP",
+    "peso": 7,
+    "dominioInicial": 0.3,
+    "trava": false,
+    "extra": false,
+    "bib": "seguranca-da-informacao",
+    "ankiPasta": "10 Segurança da Informação",
+    "itens": [
+     {
+      "id": "d10:9.1",
+      "chave": "9.1",
+      "nome": "9.01 Segurança física e lógica",
+      "topico": "seguranca-da-informacao/seguranca-fisica-e-logica",
+      "ankiDeck": "Transpetro 2026 · 1 Questões::10 Segurança da Informação::9.01 Segurança física e lógica"
+     },
+     {
+      "id": "d10:9.2",
+      "chave": "9.2",
+      "nome": "9.02 Operação de segurança (firewall, IDS/IPS, SIEM, EDR, WAF, backup)",
+      "topico": "seguranca-da-informacao/operacao-de-seguranca-firewall-ids-ips-siem-edr-waf-backup",
+      "ankiDeck": "Transpetro 2026 · 1 Questões::10 Segurança da Informação::9.02 Operação de segurança (firewall, IDS/IPS, SIEM, EDR, WAF, backup)"
+     },
+     {
+      "id": "d10:9.3",
+      "chave": "9.3",
+      "nome": "9.03 Softwares maliciosos",
+      "topico": "seguranca-da-informacao/softwares-maliciosos",
+      "ankiDeck": "Transpetro 2026 · 1 Questões::10 Segurança da Informação::9.03 Softwares maliciosos"
+     },
+     {
+      "id": "d10:9.4",
+      "chave": "9.4",
+      "nome": "9.04 Ataques",
+      "topico": "seguranca-da-informacao/ataques",
+      "ankiDeck": "Transpetro 2026 · 1 Questões::10 Segurança da Informação::9.04 Ataques"
+     },
+     {
+      "id": "d10:9.5",
+      "chave": "9.5",
+      "nome": "9.05 Desenvolvimento seguro (SAST, DAST, IAST)",
+      "topico": "seguranca-da-informacao/desenvolvimento-seguro-sast-dast-iast",
+      "ankiDeck": "Transpetro 2026 · 1 Questões::10 Segurança da Informação::9.05 Desenvolvimento seguro (SAST, DAST, IAST)"
+     },
+     {
+      "id": "d10:9.6",
+      "chave": "9.6",
+      "nome": "9.06 VPN",
+      "topico": "seguranca-da-informacao/vpn",
+      "ankiDeck": "Transpetro 2026 · 1 Questões::10 Segurança da Informação::9.06 VPN"
+     },
+     {
+      "id": "d10:9.7",
+      "chave": "9.7",
+      "nome": "9.07 MDM",
+      "topico": "seguranca-da-informacao/mdm",
+      "ankiDeck": "Transpetro 2026 · 1 Questões::10 Segurança da Informação::9.07 MDM"
+     },
+     {
+      "id": "d10:9.8",
+      "chave": "9.8",
+      "nome": "9.08 SSO",
+      "topico": "seguranca-da-informacao/sso",
+      "ankiDeck": "Transpetro 2026 · 1 Questões::10 Segurança da Informação::9.08 SSO"
+     },
+     {
+      "id": "d10:9.9",
+      "chave": "9.9",
+      "nome": "9.09 MFA",
+      "topico": "seguranca-da-informacao/mfa",
+      "ankiDeck": "Transpetro 2026 · 1 Questões::10 Segurança da Informação::9.09 MFA"
+     },
+     {
+      "id": "d10:9.10",
+      "chave": "9.10",
+      "nome": "9.10 Gestão de identidade e acesso (RBAC, ABAC)",
+      "topico": "seguranca-da-informacao/gestao-de-identidade-e-acesso-rbac-abac",
+      "ankiDeck": "Transpetro 2026 · 1 Questões::10 Segurança da Informação::9.10 Gestão de identidade e acesso (RBAC, ABAC)"
+     },
+     {
+      "id": "d10:9.11",
+      "chave": "9.11",
+      "nome": "9.11 Resposta a incidentes (NIST SP 800-61)",
+      "topico": "seguranca-da-informacao/resposta-a-incidentes-nist-sp-800-61",
+      "ankiDeck": "Transpetro 2026 · 1 Questões::10 Segurança da Informação::9.11 Resposta a incidentes (NIST SP 800-61)"
+     },
+     {
+      "id": "d10:9.12",
+      "chave": "9.12",
+      "nome": "9.12 Threat intel e threat hunting",
+      "topico": "seguranca-da-informacao/threat-intel-e-threat-hunting",
+      "ankiDeck": "Transpetro 2026 · 1 Questões::10 Segurança da Informação::9.12 Threat intel e threat hunting"
+     },
+     {
+      "id": "d10:9.13",
+      "chave": "9.13",
+      "nome": "9.13 Testes de penetração",
+      "topico": "seguranca-da-informacao/testes-de-penetracao",
+      "ankiDeck": "Transpetro 2026 · 1 Questões::10 Segurança da Informação::9.13 Testes de penetração"
+     },
+     {
+      "id": "d10:9.14",
+      "chave": "9.14",
+      "nome": "9.14 Modelagem de ameaças (STRIDE)",
+      "topico": "seguranca-da-informacao/modelagem-de-ameacas-stride",
+      "ankiDeck": "Transpetro 2026 · 1 Questões::10 Segurança da Informação::9.14 Modelagem de ameaças (STRIDE)"
+     },
+     {
+      "id": "d10:9.15",
+      "chave": "9.15",
+      "nome": "9.15 MITRE ATT&CK",
+      "topico": "seguranca-da-informacao/mitre-att-ck",
+      "ankiDeck": "Transpetro 2026 · 1 Questões::10 Segurança da Informação::9.15 MITRE ATT&CK"
+     },
+     {
+      "id": "d10:9.16",
+      "chave": "9.16",
+      "nome": "9.16 ISO 31000, ISO 22301 e SOX",
+      "topico": "seguranca-da-informacao/iso-31000-iso-22301-e-sox",
+      "ankiDeck": "Transpetro 2026 · 1 Questões::10 Segurança da Informação::9.16 ISO 31000, ISO 22301 e SOX"
+     },
+     {
+      "id": "d10:9.17",
+      "chave": "9.17",
+      "nome": "9.17 Políticas de segurança",
+      "topico": "seguranca-da-informacao/politicas-de-seguranca",
+      "ankiDeck": "Transpetro 2026 · 1 Questões::10 Segurança da Informação::9.17 Políticas de segurança"
+     },
+     {
+      "id": "d10:9.18",
+      "chave": "9.18",
+      "nome": "9.18 Classificação de informações",
+      "topico": "seguranca-da-informacao/classificacao-de-informacoes",
+      "ankiDeck": "Transpetro 2026 · 1 Questões::10 Segurança da Informação::9.18 Classificação de informações"
+     },
+     {
+      "id": "d10:9.19",
+      "chave": "9.19",
+      "nome": "9.19 ISO 27002, criptografia, certificação e assinatura digital",
+      "topico": "seguranca-da-informacao/iso-27002-criptografia-certificacao-e-assinatura-digital",
+      "ankiDeck": "Transpetro 2026 · 1 Questões::10 Segurança da Informação::9.19 ISO 27002, criptografia, certificação e assinatura digital"
+     },
+     {
+      "id": "d10:9.20",
+      "chave": "9.20",
+      "nome": "9.20 Segurança em nuvem",
+      "topico": "seguranca-da-informacao/seguranca-em-nuvem",
+      "ankiDeck": "Transpetro 2026 · 1 Questões::10 Segurança da Informação::9.20 Segurança em nuvem"
+     },
+     {
+      "id": "d10:9.21",
+      "chave": "9.21",
+      "nome": "9.21 Segurança em IoT",
+      "topico": "seguranca-da-informacao/seguranca-em-iot",
+      "ankiDeck": "Transpetro 2026 · 1 Questões::10 Segurança da Informação::9.21 Segurança em IoT"
+     },
+     {
+      "id": "d10:9.X",
+      "chave": "9.X",
+      "nome": "9.22 Protocolos e segurança de redes (complementar)",
+      "topico": "seguranca-da-informacao/protocolos-e-seguranca-de-redes-complementar",
+      "ankiDeck": "Transpetro 2026 · 1 Questões::10 Segurança da Informação::9.22 Protocolos e segurança de redes (complementar)"
+     }
+    ]
+   },
+   {
+    "id": "d11",
+    "nome": "Estratégia de prova",
+    "curto": "Estratégia",
+    "bloco": "EXTRA",
+    "peso": 0,
+    "dominioInicial": 0.5,
+    "trava": false,
+    "extra": true,
+    "bib": "estrategia-de-prova",
+    "ankiPasta": "11 Estratégia de prova",
+    "itens": [
+     {
+      "id": "d11:E1",
+      "chave": "E1",
+      "nome": "Anatomia da Cesgranrio",
+      "topico": "estrategia-de-prova/anatomia-da-cesgranrio",
+      "ankiDeck": "Transpetro 2026 · 1 Questões::11 Estratégia de prova::Anatomia da Cesgranrio"
+     },
+     {
+      "id": "d11:E2",
+      "chave": "E2",
+      "nome": "Lições das videoaulas",
+      "topico": "estrategia-de-prova/licoes-das-videoaulas",
+      "ankiDeck": "Transpetro 2026 · 1 Questões::11 Estratégia de prova::Lições das videoaulas"
+     },
+     {
+      "id": "d11:E3",
+      "chave": "E3",
+      "nome": "Comentários do TecConcursos",
+      "topico": "estrategia-de-prova/comentarios-do-tecconcursos",
+      "ankiDeck": "Transpetro 2026 · 1 Questões::11 Estratégia de prova::Comentários do TecConcursos"
+     },
+     {
+      "id": "d11:E4",
+      "chave": "E4",
+      "nome": "Gabaritos contestados",
+      "topico": "estrategia-de-prova/gabaritos-contestados",
+      "ankiDeck": "Transpetro 2026 · 1 Questões::11 Estratégia de prova::Gabaritos contestados"
+     },
+     {
+      "id": "d11:E5",
+      "chave": "E5",
+      "nome": "Banca em Família (mnemônicos)",
+      "topico": "estrategia-de-prova/banca-em-familia-mnemonicos",
+      "ankiDeck": "Transpetro 2026 · 1 Questões::11 Estratégia de prova::Banca em Família (mnemônicos)"
+     }
+    ]
+   }
+  ],
+  "plano": {
+   "rotina": [
+    {
+     "id": "esp1",
+     "rotulo": "Específicas · prioritário",
+     "min": 100,
+     "tipo": "questoes",
+     "papel": "prioritario"
+    },
+    {
+     "id": "esp2",
+     "rotulo": "Específicas · bloco fraco",
+     "min": 100,
+     "tipo": "questoes",
+     "papel": "fraco"
+    },
+    {
+     "id": "en",
+     "rotulo": "Inglês (texto 25 · correção 10 · palavras no Anki 10)",
+     "min": 45,
+     "tipo": "questoes",
+     "disc": "d02",
+     "minimo": 30
+    },
+    {
+     "id": "pt",
+     "rotulo": "Português",
+     "min": 20,
+     "tipo": "questoes",
+     "disc": "d01"
+    },
+    {
+     "id": "lg",
+     "rotulo": "Lógica",
+     "min": 30,
+     "tipo": "questoes",
+     "disc": "d09"
+    },
+    {
+     "id": "lei",
+     "rotulo": "Lei seca e listas",
+     "min": 30,
+     "tipo": "lei seca"
+    },
+    {
+     "id": "erros",
+     "rotulo": "Triagem de erros",
+     "min": 40,
+     "tipo": "revisao",
+     "papel": "correcao"
+    },
+    {
+     "id": "anki",
+     "rotulo": "Anki",
+     "min": 25,
+     "tipo": "revisao"
+    },
+    {
+     "id": "folga",
+     "rotulo": "Folga",
+     "min": 30,
+     "tipo": "folga"
+    }
+   ],
+   "gestos": "Primeiro gesto do dia: 10 min no “Onde confunde” do bloco. Último: aba Erros.",
+   "semanas": [
+    {
+     "n": 1,
+     "de": "2026-11-02",
+     "ate": "2026-11-08",
+     "foco": "Dados (BD-04, BD-01/02) diário; SI-04 e SI-02 alternados; LG-01 curto. Não abrir a prova 2023 antes de domingo.",
+     "focoDiscs": [
+      "d03",
+      "d10",
+      "d09"
+     ]
+    },
+    {
+     "n": 2,
+     "de": "2026-11-09",
+     "ate": "2026-11-15",
+     "foco": "Reequilibrar pelo Simulado 1 (< 60% ganha sessão diária; > 80% manutenção). ES-01, ES-04, ES-03, UX-01, UX-02; SI-03, SI-05, SI-06; BD-08, BD-06. Refazer erros do S1 na quinta.",
+     "focoDiscs": [
+      "d06",
+      "d07",
+      "d10",
+      "d03"
+     ]
+    },
+    {
+     "n": 3,
+     "de": "2026-11-16",
+     "ate": "2026-11-22",
+     "foco": "Sessões mistas (3 cadernos intercalados, 3,5 min/q). Lei seca 30 min/dia: LGPD, normas pelo número, Scrum Guide, grupos × áreas, listas do PMBOK 7. Uma sessão de cálculo (rede, PERT, valor agregado).",
+     "focoDiscs": [
+      "d05",
+      "d04"
+     ]
+    },
+    {
+     "n": 4,
+     "de": "2026-11-23",
+     "ate": "2026-11-29",
+     "foco": "Só subitens com 2+ erros. Segunda passada da prova 2023 (erradas e “?”). Inglês: texto 2023 pela 3ª vez (10 q em 25 min). Último conteúdo novo em 27/11.",
+     "focoDiscs": []
+    },
+    {
+     "n": 5,
+     "de": "2026-11-30",
+     "ate": "2026-12-06",
+     "foco": "Correção do S4, Cartão de Confirmação (01/12), Anki e regras de leitura, 30 questões mistas (03/12), dia leve (04/12), reconhecer o local (05/12).",
+     "focoDiscs": []
+    }
+   ],
+   "ultimoConteudoNovo": "2026-11-27",
+   "diasEspeciais": {
+    "2026-11-30": {
+     "titulo": "Correção do Simulado 4 e revisão leve",
+     "blocos": [
+      {
+       "rotulo": "Correção do Simulado 4",
+       "min": 60,
+       "tipo": "simulado"
+      },
+      {
+       "rotulo": "Anki",
+       "min": 40,
+       "tipo": "revisao"
+      },
+      {
+       "rotulo": "Regras de leitura e modelos de fixação",
+       "min": 60,
+       "tipo": "revisao"
+      },
+      {
+       "rotulo": "Inglês · texto curto",
+       "min": 30,
+       "tipo": "questoes",
+       "disc": "d02"
+      },
+      {
+       "rotulo": "Folga",
+       "min": 30,
+       "tipo": "folga"
+      }
+     ]
+    },
+    "2026-12-01": {
+     "titulo": "Cartão de Confirmação",
+     "blocos": [
+      {
+       "rotulo": "Cartão de Confirmação: cidade, local, turno, 5 adaptações, PcD, PN (falta → 0800 até 04/12)",
+       "min": 30,
+       "tipo": "outro"
+      },
+      {
+       "rotulo": "Anki",
+       "min": 45,
+       "tipo": "revisao"
+      },
+      {
+       "rotulo": "Modelos de fixação e regras de leitura",
+       "min": 90,
+       "tipo": "revisao"
+      },
+      {
+       "rotulo": "20 temas mais cobrados",
+       "min": 60,
+       "tipo": "revisao"
+      },
+      {
+       "rotulo": "Folga",
+       "min": 30,
+       "tipo": "folga"
+      }
+     ]
+    },
+    "2026-12-02": {
+     "titulo": "Revisão de fixação",
+     "blocos": [
+      {
+       "rotulo": "Anki",
+       "min": 45,
+       "tipo": "revisao"
+      },
+      {
+       "rotulo": "Modelos de fixação e regras de leitura",
+       "min": 90,
+       "tipo": "revisao"
+      },
+      {
+       "rotulo": "20 temas mais cobrados",
+       "min": 60,
+       "tipo": "revisao"
+      },
+      {
+       "rotulo": "Inglês · texto curto",
+       "min": 30,
+       "tipo": "questoes",
+       "disc": "d02"
+      },
+      {
+       "rotulo": "Folga",
+       "min": 30,
+       "tipo": "folga"
+      }
+     ]
+    },
+    "2026-12-03": {
+     "titulo": "30 questões mistas",
+     "blocos": [
+      {
+       "rotulo": "Anki",
+       "min": 40,
+       "tipo": "revisao"
+      },
+      {
+       "rotulo": "30 questões mistas (3,5 min/q)",
+       "min": 105,
+       "tipo": "questoes"
+      },
+      {
+       "rotulo": "Correção das 30 mistas",
+       "min": 45,
+       "tipo": "revisao"
+      },
+      {
+       "rotulo": "Folga",
+       "min": 30,
+       "tipo": "folga"
+      }
+     ]
+    },
+    "2026-12-04": {
+     "titulo": "Dia leve e mochila",
+     "blocos": [
+      {
+       "rotulo": "Revisão leve (Anki e listas)",
+       "min": 120,
+       "tipo": "revisao"
+      },
+      {
+       "rotulo": "Mochila: documento, Cartão impresso, deferimento impresso, canetas pretas transparentes, água, lanche, protetor de espuma",
+       "min": 30,
+       "tipo": "outro"
+      }
+     ]
+    },
+    "2026-12-05": {
+     "titulo": "Reconhecer o local e descansar",
+     "blocos": [
+      {
+       "rotulo": "Reconhecer o local da prova",
+       "min": 90,
+       "tipo": "outro"
+      },
+      {
+       "rotulo": "Dormir no horário",
+       "min": 0,
+       "tipo": "outro"
+      }
+     ]
+    },
+    "2026-12-06": {
+     "titulo": "PROVA · 330 minutos",
+     "blocos": [
+      {
+       "rotulo": "Chegar 1h30 antes (sala especial). Ordem B: Inglês → Específicas → Português.",
+       "min": 330,
+       "tipo": "prova"
+      }
+     ]
+    }
+   },
+   "diaProva": {
+    "ordemB": [
+     [
+      "0h00–0h05",
+      "Abertura: conferir caderno, assinar, escrever hora de início e marcos; confirmar término com +60 min com o fiscal"
+     ],
+     [
+      "0h05–0h50",
+      "Inglês 11–20 (perguntas antes do texto; mecânicas primeiro); transcrever 10"
+     ],
+     [
+      "0h50–2h05",
+      "Específicas 21–45 (3 min/q); transcrever 25"
+     ],
+     [
+      "2h05–2h10",
+      "Pausa de postura, água, lanche curto"
+     ],
+     [
+      "2h10–3h30",
+      "Específicas 46–70; contagem de letras por bloco de 10; transcrever 25"
+     ],
+     [
+      "3h30–4h05",
+      "Português 1–10; transcrever 10"
+     ],
+     [
+      "4h05–4h45",
+      "Segunda passada: “?” com motivo concreto, depois × pela regra do bloco"
+     ],
+     [
+      "4h45–5h10",
+      "Conferência final: cartão sem vazio ou duplo, assinatura, cópia das 70 no Cartão de Confirmação"
+     ],
+     [
+      "5h10–5h30",
+      "Margem (banheiro acompanhado, imprevisto)"
+     ]
+    ],
+    "regras": [
+     "Salto: conceitual aos 3 min; execução (SQL, ER, Lógica, cálculo) aos 6 min. Marque provisória e “?”.",
+     "Margem de cada questão: ✔ certeza; letras que sobraram; × sem ideia.",
+     "Chute calculado: ao fechar cada bloco de 10, marque a letra com a menor contagem entre as que sobraram.",
+     "Atraso de 15 min num marco: corte a segunda passada, nunca a conferência.",
+     "Inglês difícil: garanta número, pronome e conectivo; saia aos 50 min."
+    ],
+    "sacola": "Documento original com foto · Cartão de Confirmação impresso · tela “Solicitações e recursos” impressa · 2–3 canetas pretas transparentes · água · lanche testado · protetor de espuma"
+   },
+   "misturaDesde": "2026-11-16",
+   "notaMistura": "3 cadernos intercalados",
+   "notaSemConteudoNovo": "sem conteúdo novo: só subitens com 2+ erros",
+   "correcaoSimulado": {
+    "rotulo": "Correção do simulado (taxonomia, nota por bloco, realocação)",
+    "min": 120,
+    "tiraDosBlocos": 40
+   },
+   "simuladoDia": [
+    {
+     "rotulo": "Anki",
+     "min": 25,
+     "tipo": "revisao"
+    },
+    {
+     "rotulo": "Folga",
+     "min": 30,
+     "tipo": "folga"
+    }
+   ],
+   "descricaoCronograma": "Rotina-base de 7 h: Específicas 100 + 100 min, Inglês 45, Português 20, Lógica 30, lei seca 30, triagem de erros 40, Anki 25 e folga 30. Domingos de 08, 15, 22 e 29/11 são simulados. O bloco prioritário segue peso e acerto; o bloco fraco alterna as três disciplinas de menor domínio.",
+   "regrasLeitura": [
+    "Definição canônica com distrator vizinho: a errada é a definição correta de outro conceito da mesma família. Estude em pares e trios.",
+    "Absoluto marca erro (\"apenas\", \"sempre\", \"nunca\"); flexível marca acerto. Exceção: lei seca e normas.",
+    "Duas alternativas espelhadas: uma delas é o gabarito.",
+    "Isca na última frase do enunciado; o substantivo central aponta a resposta (Q61: rede de sensores = IoT).",
+    "A opção óbvia pode não existir (Q22): teste as que estão lá.",
+    "Figura e código exigem execução com os dados do enunciado (Q21, Q27, Q47–49).",
+    "Cardinalidade em ternário fala dos pares das outras duas entidades (Q27: C, não A)."
+   ],
+   "macetes": [
+    {
+     "bloco": "Dados/BI",
+     "texto": "execute com as instâncias; 5 SQLs quase iguais → ache a cláusula diferente; seta da parte da PK viola 2FN, de não chave viola 3FN; slice fixa UM valor; roll-up sobe."
+    },
+    {
+     "bloco": "Segurança",
+     "texto": "uma frase por sigla; a alternativa que define OUTRA sigla está errada; sigilo = pública do destinatário, assinatura = minha privada; norma pelo número."
+    },
+    {
+     "bloco": "ES/UX",
+     "texto": "sublinhe a frase decisiva do caso antes das alternativas; a certa em UX é a sóbria, centrada no usuário."
+    },
+    {
+     "bloco": "Projetos",
+     "texto": "frase do Guia com uma palavra trocada; EAP = entregas; M&C transversal; Kanban limita WIP."
+    },
+    {
+     "bloco": "Governança/LGPD",
+     "texto": "\"apenas\" em LGPD marca falsa; ITIL sintoma → prática."
+    },
+    {
+     "bloco": "Lógica",
+     "texto": "¬(p→q) = p∧¬q; recíproca e inversa não equivalem; conclusão válida é a mais fraca."
+    },
+    {
+     "bloco": "Português",
+     "texto": "masculino para testar crase; vírgula nunca entre sujeito e verbo; interpretação: a mais ampla e moderada."
+    },
+    {
+     "bloco": "Inglês",
+     "texto": "número → pronome → conectivo → ideia principal → sinônimo → informação específica; elimine absolutos e polaridade negativa."
+    }
+   ]
+  },
+  "simulados": [
+   {
+    "id": "sim-2026-11-08",
+    "data": "2026-11-08",
+    "nome": "Simulado 1 · Prova 2023 comentada",
+    "descricao": "Ordem A (Específicas → PT → EN), 330 min. Não abrir a prova 2023 antes.",
+    "meta": {
+     "esp": 30,
+     "pt": 7,
+     "en": 4
+    }
+   },
+   {
+    "id": "sim-2026-11-15",
+    "data": "2026-11-15",
+    "nome": "Simulado 2 · Transpetro 2018 + PT/EN Cesgranrio",
+    "descricao": "Ordem B (EN → Esp → PT). 50 específicas da Transpetro 2018 PN + PT/EN de Petrobras 2021/22 ou Banese 2025.",
+    "meta": {
+     "esp": 33,
+     "pt": 7,
+     "en": 5
+    }
+   },
+   {
+    "id": "sim-2026-11-22",
+    "data": "2026-11-22",
+    "nome": "Simulado 3 · 70 questões montadas",
+    "descricao": "70 q no TecConcursos (2023+, não vistas, proporção de 2023). Ordem definitiva. Testar protetor de espuma.",
+    "meta": {
+     "esp": 36,
+     "pt": 8,
+     "en": 5
+    }
+   },
+   {
+    "id": "sim-2026-11-29",
+    "data": "2026-11-29",
+    "nome": "Simulado 4 · Ensaio geral",
+    "descricao": "No horário da prova (BNDES 2024 / Banese 2025 montadas), com comida, caneta, protetor e sem relógio.",
+    "meta": {
+     "esp": 38,
+     "pt": 8,
+     "en": 6,
+     "gerais": 12
+    }
+   }
+  ],
+  "integracoes": {
+   "anki": {
+    "baralhos": [
+     "Transpetro 2026 · 1 Questões",
+     "Transpetro 2026 · 2 Resumos, mapas e esquemas"
+    ],
+    "modeloQuestao": "Questão Cesgranrio · Transpetro 2026",
+    "baralhoErros": "Transpetro 2026 · 1 Questões::00 Erros",
+    "modeloErro": "Revisão · Transpetro 2026"
+   },
+   "pdfs": {
+    "pastas": [
+     ""
+    ],
+    "excluir": [
+     "Doroxandria"
+    ]
+   },
+   "tecconcursos": {
+    "cadernos": [
+     "tc107519698",
+     "tc107519702",
+     "tc107519705",
+     "tc107519554",
+     "tc107519706",
+     "tc107519707",
+     "tc107519709",
+     "tc107519711",
+     "tc107519712",
+     "tc107519715",
+     "tc107519717",
+     "tc107519719",
+     "tc107519721",
+     "tc107519723",
+     "tc107519724",
+     "tc107519728",
+     "tc107519743",
+     "tc107519745",
+     "tc107519746",
+     "tc107519691",
+     "tc107519695",
+     "tc107519749",
+     "tc107519750",
+     "tc107519751",
+     "tc107519752",
+     "tc107519733",
+     "tc107519738",
+     "tc107519741",
+     "tc107519667",
+     "tc107519674",
+     "tc107519677",
+     "tc107519679",
+     "tc107519683",
+     "tc107519685",
+     "tc107519686",
+     "tc107519756",
+     "tc107519758",
+     "tc107519760",
+     "tc107519762",
+     "tc107519763",
+     "tc107519765",
+     "tc107519768",
+     "tc107519730",
+     "tc107519731",
+     "tc101785881",
+     "tc101699941",
+     "tc101700647",
+     "tc101699904",
+     "tc101699859",
+     "tc101714556",
+     "tc101700669",
+     "tc101700729",
+     "tc101700761",
+     "tc101699962",
+     "tc101700108",
+     "tc101699984",
+     "tc101700769",
+     "tc101715604",
+     "tc101715798",
+     "tc101700000",
+     "tc101714854",
+     "tc101700799",
+     "tc101716132",
+     "tc101718752",
+     "tc101715177",
+     "tc101718544",
+     "tc101714718",
+     "tc101716712",
+     "tc101716496",
+     "tc101700130",
+     "tc101718245",
+     "tc101716837",
+     "tc101717004",
+     "tc101700038",
+     "tc101700048",
+     "tc101717203",
+     "tc101717441",
+     "tc101717672",
+     "tc101717820",
+     "tc101724316",
+     "tc101724317",
+     "tc101724318",
+     "tc102119556",
+     "tc102119667",
+     "tc102119739",
+     "tc102119886",
+     "tc102120000",
+     "tc102120087",
+     "tc102120301",
+     "tc102120367",
+     "tc102120465"
+    ],
+    "pasta": "Ronaldo João (Transpetro_Reta_Final)"
+   },
+   "gemini": {
+    "modelo": "gemini-3.8-flash",
+    "reserva": "gemini-3.5-flash-lite",
+    "contexto": "Prova Transpetro 2026, Ênfase 5 (Analista de Sistemas, Processos de Negócios), banca Cesgranrio, em 06/12/2026: 50 questões específicas (Dados e BI, Engenharia de Software e UX, Segurança, Projetos, Governança e LGPD, Lógica) mais 10 de Português e 10 de Inglês."
+   }
+  },
+  "conteudos": {
+   "familia": "dados/familia.json",
+   "musicas": "dados/musicas.json",
+   "banca": "dados/banca.json",
+   "videos": "dados/videos.json",
+   "links": "dados/links.json",
+   "personas": {
+    "": {
+     "nome": "Tutor Cesgranrio",
+     "trata": "",
+     "temas": ""
+    },
+    "viviane": {
+     "nome": "Viviane, sua esposa",
+     "trata": "amor",
+     "temas": "BI e Inglês"
+    },
+    "pai": {
+     "nome": "Pai",
+     "trata": "filho",
+     "temas": "Normalização e LGPD"
+    },
+    "mae": {
+     "nome": "Mãe",
+     "trata": "filho",
+     "temas": "Projetos e crase"
+    },
+    "tio": {
+     "nome": "Tio José Raimundo",
+     "trata": "sobrinho",
+     "temas": "Segurança e Lógica"
+    },
+    "tiadores": {
+     "nome": "Tia Maria das Dores",
+     "trata": "sobrinho",
+     "temas": "Scrum e Engenharia de Software"
+    },
+    "tiajose": {
+     "nome": "Tia Maria José",
+     "trata": "sobrinho",
+     "temas": "UX e Governança"
+    },
+    "avo": {
+     "nome": "Avô Milton",
+     "trata": "neto",
+     "temas": "PMBOK 7"
+    },
+    "joao": {
+     "nome": "João Miguel, seu filho",
+     "trata": "papai",
+     "temas": "OLAP"
+    },
+    "sophia": {
+     "nome": "Sophia, sua filha",
+     "trata": "papai",
+     "temas": "ACID"
+    }
+   },
+   "familiaQuem": {
+    "Viviane": "viviane",
+    "Pai": "pai",
+    "Mãe": "mae",
+    "Tio José Raimundo": "tio",
+    "Tia Maria das Dores": "tiadores",
+    "Tia Maria José": "tiajose",
+    "Avô Milton": "avo",
+    "Viviane e João Miguel (personagem ilustrado)": "joao",
+    "Sophia (personagem ilustrada)": "sophia",
+    "Viviane, Ronaldo e o Max": "viviane",
+    "Max": "",
+    "Ronaldo explica para si mesmo": ""
+   },
+   "atalhos": [
+    {
+     "titulo": "Arena Cesgranrio (Claude)",
+     "url": "https://claude.ai/artifact/1noHvf3SQyzRf5kxqBU4yP"
+    },
+    {
+     "titulo": "Arena Transpetro (PWA)",
+     "url": "https://ronaldo082327.github.io/arena-transpetro/"
+    },
+    {
+     "titulo": "AnkiWeb",
+     "url": "https://ankiweb.net/decks"
+    },
+    {
+     "titulo": "Pasta do Drive",
+     "url": "https://drive.google.com/drive/folders/1mITfToRLT5IXrB67Q8FhJZzUF4zsvjKm"
+    }
+   ]
+  }
+ }
+}

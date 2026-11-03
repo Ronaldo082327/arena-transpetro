@@ -158,6 +158,7 @@ footer{padding-top:28px;font-size:13px;color:var(--muted);display:grid;gap:6px}
 <nav class="top" aria-label="Áreas"><div class="in">
   <span class="brand">Doroxandria</span>
   <button type="button" data-v="hoje" aria-current="page">Hoje</button>
+  <button type="button" data-v="edital">Edital</button>
   <button type="button" data-v="questoes">Questões</button>
   <button type="button" data-v="cards">Flashcards</button>
   <button type="button" data-v="tutor">Tutor IA</button>
@@ -173,13 +174,13 @@ footer{padding-top:28px;font-size:13px;color:var(--muted);display:grid;gap:6px}
 
 <div class="wrap">
 <header class="hero">
-  <div class="eyebrow">Transpetro 2026 · Ênfase 5 · Análise de Sistemas · Processos de Negócios · Cesgranrio</div>
+  <div class="eyebrow" id="heroEyebrow">Carregando o concurso…</div>
   <div class="hero-row">
     <div style="display:grid;gap:6px;min-width:0">
-      <h1>Doroxandria</h1><p class="subtitulo" style="margin:0 0 4px;font-size:15px;font-weight:600;opacity:.85">Plataforma de Engenharia Cognitiva para Concursos Públicos</p><p class="concurso-ativo" style="margin:0 0 4px;font-size:13px"><b>Concurso ativo:</b> Transpetro 2026 · Ênfase 5 (Análise de Sistemas, Processos de Negócios) · Cesgranrio · prova em 06/12/2026</p><p class="homenagem" style="margin:0 0 10px;font-size:12px;opacity:.7">Doroxandria — em homenagem a Doroteia (Dorothea)</p>
-      <p>1.000 questões reais da Cesgranrio com gabarito, 1.541 flashcards de contraste com revisão espaçada, tutor de IA que explica cada questão e gera questões inéditas no padrão da banca, e o seu ecossistema Google em um só lugar.</p>
+      <h1>Doroxandria</h1><p class="subtitulo" style="margin:0 0 4px;font-size:15px;font-weight:600;opacity:.85">Plataforma de Engenharia Cognitiva para Concursos Públicos</p><p class="concurso-ativo" style="margin:0 0 4px;font-size:13px"><b>Concurso ativo:</b> <span id="concAtivo">carregando…</span></p><div class="row conc-row" style="gap:8px;margin:0 0 6px"><label class="note" for="concSel">Concurso</label><select id="concSel"><option value="">Carregando…</option></select><label class="btnlink ghost" style="cursor:pointer">Importar pacote de concurso (JSON)<input type="file" id="pacFile" accept="application/json,.json" hidden></label><span class="note" id="pacNote" role="status"></span></div><p class="homenagem" style="margin:0 0 10px;font-size:12px;opacity:.7">Doroxandria — em homenagem a Doroteia (Dorothea)</p>
+      <p id="heroText">Questões reais com gabarito, flashcards de contraste com revisão espaçada, tutor de IA que explica cada questão e gera questões inéditas no padrão da banca, e o seu ecossistema Google em um só lugar.</p>
     </div>
-    <div class="count"><span class="n mono" id="days">34</span><span class="l">dias até<br>dom 06/12/2026</span></div>
+    <div class="count"><span class="n mono" id="days">—</span><span class="l" id="daysLabel">dias até<br>a prova</span></div>
   </div>
 </header>
 
@@ -204,6 +205,11 @@ footer{padding-top:28px;font-size:13px;color:var(--muted);display:grid;gap:6px}
     <div class="eyebrow">Próximo passo sugerido</div>
     <div id="nextStep" class="row"></div>
   </div>
+</section>
+
+<!-- EDITAL (painel da prova, pesos, edital e cadernos, tudo do pacote do concurso) -->
+<section class="view" id="v-edital" hidden>
+  <div id="editalBody" style="display:grid;gap:16px"></div>
 </section>
 
 <!-- QUESTÕES -->
@@ -250,7 +256,7 @@ footer{padding-top:28px;font-size:13px;color:var(--muted);display:grid;gap:6px}
   <div class="grid2">
     <div class="panel">
       <div class="eyebrow">Gerador de questões inéditas</div>
-      <h2>Questões no padrão Cesgranrio</h2>
+      <h2>Questões no padrão <span data-conc="banca" data-padrao="da banca">Cesgranrio</span></h2>
       <p class="note">O tutor lê duas questões reais do assunto escolhido e escreve uma nova no mesmo molde: distrator vizinho, absoluto plantado, frase decisiva.</p>
       <div class="filters">
         <label>Disciplina<select id="genDisc"></select></label>
@@ -261,7 +267,7 @@ footer{padding-top:28px;font-size:13px;color:var(--muted);display:grid;gap:6px}
     </div>
     <div class="panel">
       <div class="eyebrow">Converse com o tutor</div>
-      <h2>Tutor Cesgranrio</h2>
+      <h2>Tutor <span data-conc="banca" data-padrao="de concursos">Cesgranrio</span></h2>
       <label class="note">Quem explica <select id="persona"></select></label>
       <div class="chips" id="tutorQuick"></div>
       <div class="chat" id="chat"></div>
@@ -307,7 +313,7 @@ footer{padding-top:28px;font-size:13px;color:var(--muted);display:grid;gap:6px}
 <!-- FAMILIA -->
 <section class="view" id="v-familia" hidden>
   <div class="panel">
-    <div class="eyebrow">Banca em Família · 18 cenas</div>
+    <div class="eyebrow" id="famEyebrow">Banca em Família</div>
     <h2>Família</h2>
     <p class="note">Cada parente explica um ponto da prova do jeito dele. Leia a fala curta em voz alta e depois a explicação. O botão leva ao tutor já no personagem.</p>
     <div class="chips" id="famChips"></div>
@@ -329,7 +335,7 @@ footer{padding-top:28px;font-size:13px;color:var(--muted);display:grid;gap:6px}
 <!-- BANCA -->
 <section class="view" id="v-banca" hidden>
   <div class="panel">
-    <div class="eyebrow">Perfil da Cesgranrio, prioridades e lições dos professores</div>
+    <div class="eyebrow">Perfil da <span data-conc="banca" data-padrao="banca">Cesgranrio</span>, prioridades e lições dos professores</div>
     <h2>Banca</h2>
     <div class="chips" id="bancaTabs"></div>
     <div id="bancaBody" style="display:grid;gap:12px"></div>
@@ -382,7 +388,7 @@ footer{padding-top:28px;font-size:13px;color:var(--muted);display:grid;gap:6px}
   "use strict";
   var $=function(id){return document.getElementById(id)};
   var esc=function(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})};
-  var EXAM=new Date(2026,11,6);
+  var EXAM=null; // data da prova: vem do pacote do concurso ativo (concurso.datas.prova)
   var DISC={Dados:'Dados',BI_CienciaDados:'BI e Dados',EngSoftware_UX:'Eng. Software e UX',Projetos:'Projetos',Governanca:'Governança e LGPD',Seguranca:'Segurança'};
   var FORA=/Python|NumPy|Pandas|Tensores|Keras|Matplotlib|Scikit|NLTK|Bibliotecas Python|Linguagem R|Scala|Machine Learning|Redes Neurais|Deep Learning|IA Generativa|Linguagem Natural|LLM|Treinamento e Avalia|Multiagentes|Hadoop|Streaming|Jupyter|ERP \(Enterprise|IN SGD|CMMI|MPS\.BR|Protocolos Seguros|TLS, SSL|IPSec|SSH|Redes Sem Fio|Transferência Segura|RADIUS|Kerberos|Hardening|Forense|Blockchain|SQL Server|Oracle|MySQL|PostgreSQL|Access|Procedimentos armazenados|PL\/SQL|Padrões de Projeto|Pontos de Função|Maven|Jenkins|SubVersion|Github|Esteganografia|Algoritmos de Criptografia|Análise de Código Malicioso|Microsoft Endpoint/i;
   var WEEKS=[
@@ -419,23 +425,181 @@ footer{padding-top:28px;font-size:13px;color:var(--muted);display:grid;gap:6px}
   function fmt(s){ s=Math.max(0,Math.floor(s)); var h=Math.floor(s/3600), m=Math.floor(s%3600/60), r=s%60; return (h?h+':':'')+(h&&m<10?'0':'')+m+':'+(r<10?'0':'')+r; }
   function shortAss(a){ return String(a||'').replace(/^TI - [^-]+ - /,'').replace(/^(Gestão de Projetos \(PMBOK\)|Direito Digital) - /,''); }
 
-  var TEC='https://www.tecconcursos.com.br/', CADMAP={Dados:102119739,Projetos:102119886,Governanca:102120000,EngSoftware_UX:102120087,BI_CienciaDados:102120301,Seguranca:102120465};
-  var Q=[], QBY={}, C=[], LINKS=null, BANCA=null, VIDEOS=null, MUSICAS=null, musDisc='', FAMILIA=null, famQuem='', sample=null, bancaTab='perfil';
+  var TEC='https://www.tecconcursos.com.br/';
+  var Q=[], QBY={}, C=[], LINKS=undefined, BANCA=undefined, VIDEOS=undefined, MUSICAS=undefined, musDisc='', FAMILIA=undefined, famQuem='', sample=null, bancaTab='perfil';
+
+  // ---------- CONCURSOS: pacotes no mesmo formato do Doroxandria local ----------
+  // concursos/indice.json lista os pacotes do app; o usuário pode importar outros (exportados do Doroxandria).
+  // Do pacote saem nome, órgão, banca, datas, painel da prova, pesos, edital, cadernos, plano e conteúdos.
+  var Q_ALL=[], C_ALL=[], BIB_ALL=null, CONC=null, PACOTE=null, PACS=[], ALV=null, conteudoToken=0, CONTEUDO_CACHE={}, IMPORT_MEM={};
+  var CONC_KEY='arenaTP.concurso', PAC_KEY='arenaTP.pacotes', DIAS=['dom','seg','ter','qua','qui','sex','sáb'];
+  // banco desta página (questoes.json) → disciplinas da biblioteca compartilhada do Doroxandria
+  var WEB_BIB={Dados:['banco-de-dados'],BI_CienciaDados:['bi-e-analise-de-dados'],EngSoftware_UX:['engenharia-de-software','ux'],Projetos:['gestao-de-projetos'],Governanca:['governanca-de-ti'],Seguranca:['seguranca-da-informacao']};
+  var CARD_ALIAS={Geral:'estrategia-de-prova'};
+  var PLANOS_EMBUTIDOS={'transpetro-2026-enfase5':{weeks:WEEKS,routine:ROUTINE,domingo:[['sim','Simulado completo: 330 minutos, alguém avisa as horas',330],['ing','Inglês leve à noite (opcional)',20]]}};
+  function lerJSON(url){ return fetch(url).then(function(r){ if(!r.ok) throw new Error(url+' ('+r.status+')'); return r.json(); }); }
+  function caminhoConteudo(p){ p=String(p||'').trim(); if(!p) return ''; if(/^https?:\/\//i.test(p)) return p; return p.replace(/^\/+/,'').replace(/^dados\//,''); }
+  function prepConc(c){ c.nome=c.nome||c.id; c.datas=c.datas||{}; c.painel=c.painel||{}; c.painel.blocos=c.painel.blocos||[]; c.painel.eliminacao=c.painel.eliminacao||{};
+    c.disciplinas=c.disciplinas||[]; c.disciplinas.forEach(function(d){ d.itens=d.itens||[]; }); c.plano=c.plano||{}; c.integracoes=c.integracoes||{}; c.conteudos=c.conteudos||{};
+    if(!c.edital||typeof c.edital!=='object') c.edital={titulo:c.edital||''}; return c; }
+  function validarPacote(p){ if(!p||typeof p!=='object'||p.tipo!=='doroxandria-pacote-concurso'||!p.concurso||!p.concurso.id) throw new Error('Este arquivo não é um pacote de concurso do Doroxandria. No Doroxandria local, use Concursos › Exportar pacote.');
+    prepConc(p.concurso); p.biblioteca=p.biblioteca||{}; return p; }
+  function lerImportados(){ try{ var o=JSON.parse(localStorage.getItem(PAC_KEY)||'{}'); o=o&&typeof o==='object'?o:{}; Object.keys(IMPORT_MEM).forEach(function(k){ o[k]=IMPORT_MEM[k]; }); return o; }catch(e){ return Object.assign({},IMPORT_MEM); } }
+  function gravarImportados(o){ var semMem={}; Object.keys(o).forEach(function(k){ if(!IMPORT_MEM[k]) semMem[k]=o[k]; }); try{ localStorage.setItem(PAC_KEY,JSON.stringify(semMem)); return true; }catch(e){ return false; } }
+  function porId(id){ for(var i=0;i<PACS.length;i++) if(PACS[i].id===id) return PACS[i]; return null; }
+  function registrarPacote(p,origem){ var id=p.concurso.id, e={id:id,nome:p.concurso.nome,origem:origem,pacote:p,embutido:null}, i=-1;
+    PACS.forEach(function(x,k){ if(x.id===id) i=k; });
+    if(i<0) PACS.push(e); else if(origem==='importado'){ e.embutido=PACS[i].origem==='embutido'?PACS[i]:PACS[i].embutido; PACS[i]=e; }
+    return e; }
+  function carregarConcursos(){
+    return lerJSON('concursos/indice.json').then(function(ind){ var ps=(ind&&ind.pacotes)||[];
+        return Promise.all(ps.map(function(x){ return lerJSON('concursos/'+x.arquivo).then(function(p){ return {p:validarPacote(p),x:x}; }).catch(function(){ return null; }); })); })
+      .catch(function(){ return []; })
+      .then(function(arr){ var pref='';
+        arr.forEach(function(r){ if(!r) return; registrarPacote(r.p,'embutido'); if(r.x.primeiraExecucao&&!pref) pref=r.p.concurso.id; });
+        var imp=lerImportados(); Object.keys(imp).forEach(function(k){ try{ registrarPacote(validarPacote(imp[k]),'importado'); }catch(e){} });
+        var salvo=''; try{ salvo=localStorage.getItem(CONC_KEY)||''; }catch(e){}
+        return porId(salvo)?salvo:(pref||(PACS[0]&&PACS[0].id)||''); }); }
+  function associado(alvos){ if(!ALV) return true; for(var i=0;i<(alvos||[]).length;i++) if(ALV[alvos[i]]) return true; return false; }
+  function bibPorNome(nome){ if(!nome) return ''; if(CARD_ALIAS[nome]) return CARD_ALIAS[nome];
+    for(var i=0;i<PACS.length;i++){ var ds=PACS[i].pacote.biblioteca.disciplinas||[]; for(var j=0;j<ds.length;j++) if(ds[j].curto===nome||ds[j].nome===nome) return ds[j].id; }
+    var d=CONC&&CONC.disciplinas.filter(function(x){ return x.curto===nome||x.nome===nome; })[0]; return d?d.bib:''; }
+  function materialPorUrl(url){ for(var i=0;i<PACS.length;i++){ var ms=PACS[i].pacote.biblioteca.materiais||[]; for(var j=0;j<ms.length;j++) if(ms[j].url&&ms[j].url===url) return ms[j]; } return null; }
+  function itemBibAssociado(i){ if(!ALV||!i.url) return true; var m=materialPorUrl(i.url); if(m) return associado(m.alvos); var b=bibPorNome(i.disc); return b?associado(['disc:'+b]):!i.disc; }
+  function bancaAtual(){ return (CONC&&CONC.banca)||''; }
+  function dataBR(iso){ var a=String(iso||'').slice(0,10).split('-'); return a.length===3?a[2]+'/'+a[1]+'/'+a[0]:''; }
+  function enfaseCurta(c){ return String((c&&c.enfase)||'').replace(/^Ênfase\s*\d+\s*:\s*/i,'').trim(); }
+  function linhaConcurso(c){ if(!c) return 'nenhum pacote de concurso carregado · use “Importar pacote de concurso (JSON)”';
+    var e=enfaseCurta(c), t=c.nome+(e?' ('+e.replace(/\s*\(([^)]*)\)\s*$/,', $1')+')':''); if(c.banca) t+=' · '+c.banca; if(c.datas.prova) t+=' · prova em '+dataBR(c.datas.prova); return t; }
+  function descProva(){ if(!CONC) return 'um concurso público'; var e=enfaseCurta(CONC).replace(/\s*\(([^)]*)\)\s*$/,', $1'), x=[CONC.cargo,e].filter(Boolean).join(', ');
+    return 'a prova '+CONC.nome+(x?' ('+x+')':''); }
+  function composicaoProva(){ var bl=(CONC&&CONC.painel.blocos)||[]; return bl.length?': '+bl.map(function(b){ return b.nome+' (questões '+b.de+' a '+b.ate+')'; }).join(', '):''; }
+  function contextoProva(){ var g=CONC&&CONC.integracoes.gemini; if(g&&g.contexto) return g.contexto;
+    return 'Prova: '+descProva()+(bancaAtual()?', banca '+bancaAtual():'')+(CONC&&CONC.datas.prova?', em '+dataBR(CONC.datas.prova):'')+composicaoProva()+'.'; }
+  function semConteudo(o){ return '<div class="empty">Sem conteúdo para este concurso'+(o?' ('+esc(o)+')':'')+'.</div>'; }
+  function planoAtivo(){ var emb=PLANOS_EMBUTIDOS[CONC?CONC.id:'transpetro-2026-enfase5']; if(emb) return emb;
+    var pl=(CONC&&CONC.plano)||{};
+    var weeks=(pl.semanas||[]).map(function(x){ return {s:x.de,e:x.ate,n:'Semana '+(x.n||'')+(x.titulo?' · '+x.titulo:''),t:[x.foco].concat(x.tarefas||[]).filter(Boolean),g:x.meta||''}; }).filter(function(w){ return w.s&&w.e; });
+    var routine=(pl.rotina||[]).map(function(r,i){ return [r.id||('r'+i),r.rotulo||r.nome||'',+r.min||0]; });
+    var tp=+((CONC&&CONC.painel.tempoBaseMin)||0);
+    return {weeks:weeks,routine:routine,domingo:tp?[['sim','Simulado completo: '+tp+' minutos',tp]]:routine}; }
+  function cadernosDoPacote(){ if(!PACOTE) return []; var ids={}, lista=((CONC.integracoes.tecconcursos||{}).cadernos)||[]; lista.forEach(function(x){ ids[x]=1; });
+    var ms=(PACOTE.biblioteca.materiais||[]).filter(function(m){ return m.tipo==='caderno'&&m.url; });
+    var sel=ms.filter(function(m){ return ids[m.id]; }); return lista.length?sel:ms.filter(function(m){ return associado(m.alvos); }); }
+  function cadernoDaQuestao(q){ var cs=cadernosDoPacote(); if(!cs.length) return null; var pre=q.caderno?q.caderno+' - ':'', bibs=(WEB_BIB[q.disc]||[]).map(function(b){ return 'disc:'+b; });
+    var toca=function(m){ return (m.alvos||[]).some(function(a){ return bibs.indexOf(a)>=0; }); };
+    var c=pre?cs.filter(function(m){ return String(m.titulo||'').indexOf(pre)===0&&toca(m); })[0]:null;
+    if(!c) c=cs.filter(function(m){ var al=m.alvos||[]; return al.length&&al.every(function(a){ return bibs.indexOf(a)>=0; }); })[0];
+    return c||null; }
+  function discsWebAtivas(){ var cnt={}; Q.forEach(function(q){ cnt[q.disc]=(cnt[q.disc]||0)+1; }); return Object.keys(DISC).filter(function(d){ return cnt[d]; }).map(function(d){ return {d:d,n:cnt[d]}; }); }
+  function personasDoConcurso(){ var ps=CONC&&CONC.conteudos.personas, out={};
+    if(!CONC) return PERSONAS_PADRAO;
+    if(ps&&typeof ps==='object') Object.keys(ps).forEach(function(k){ var p=ps[k]||{}; out[k]={n:p.nome||p.n||k,t:p.trata||p.t||'',d:p.temas||p.d||''}; });
+    if(!out['']) out['']={n:'Tutor '+(bancaAtual()||'de concursos'),t:'',d:''}; return out; }
+  function cabecalhoConcurso(){ var c=CONC, b=bancaAtual();
+    var e=enfaseCurta(c), eb=c?(c.orgao&&String(c.nome).indexOf(c.orgao)<0?c.orgao+' · ':'')+c.nome+(e?' · '+e.replace(/\s*\(([^)]*)\)\s*$/,' · $1'):'')+(b?' · '+b:''):'Doroxandria · sem concurso ativo';
+    $('heroEyebrow').textContent=eb; $('concAtivo').textContent=linhaConcurso(c);
+    var nq=Q.length, nc=C.length, fmtN=function(n){ return n.toLocaleString('pt-BR'); };
+    $('heroText').textContent=(nq?fmtN(nq)+' questões reais'+(b?' da '+b:'')+' com gabarito, ':'Sem banco de questões para este concurso nesta página, ')+(nc?fmtN(nc)+' flashcards de contraste com revisão espaçada, ':'')+'tutor de IA que explica cada questão e gera questões inéditas no padrão da banca, e o seu ecossistema Google em um só lugar.';
+    $('daysLabel').innerHTML=EXAM?'dias até<br>'+DIAS[EXAM.getDay()]+' '+dataBR(c.datas.prova):'data da prova<br>a definir';
+    document.querySelectorAll('[data-conc]').forEach(function(el){ el.textContent=(c&&c[el.dataset.conc])||el.dataset.padrao||''; });
+    $('chatIn').placeholder='Ex.: qual a diferença entre IDS e IPS do jeito que a '+(b||'banca')+' cobra?'; }
+  function seletorConcurso(){ var sel=$('concSel');
+    sel.innerHTML=PACS.length?PACS.map(function(e){ return '<option value="'+esc(e.id)+'"'+(CONC&&CONC.id===e.id?' selected':'')+'>'+esc(e.nome)+(e.origem==='importado'?' (importado)':'')+'</option>'; }).join(''):'<option value="">Nenhum concurso</option>';
+    sel.disabled=!PACS.length; }
+  function montarFiltros(){ var ds=discsWebAtivas();
+    $('discChips').innerHTML=ds.length?ds.map(function(x){ return '<button type="button" data-d="'+x.d+'" aria-pressed="false">'+esc(DISC[x.d])+' <span class="mono">'+x.n+'</span></button>'; }).join(''):'<span class="note">Sem banco de questões para este concurso nesta página. Use os cadernos do TecConcursos na aba Edital.</span>';
+    $('discChips').querySelectorAll('button').forEach(function(b){ b.onclick=function(){ discSel[b.dataset.d]=!discSel[b.dataset.d]; syncChips(); fillAssuntos(); }; });
+    var cc={}; C.forEach(function(c){ cc[c.d]=(cc[c.d]||0)+1; });
+    var cds=Object.keys(cc).filter(function(d){ return d!=='Geral'; });
+    $('cardChips').innerHTML=cds.length?cds.map(function(d){ return '<button type="button" data-d="'+esc(d)+'" aria-pressed="false">'+esc(d)+' <span class="mono">'+cc[d]+'</span></button>'; }).join(''):(C.length?'':'<span class="note">Sem flashcards para este concurso.</span>');
+    $('cardChips').querySelectorAll('button').forEach(function(b){ b.onclick=function(){ cardSel[b.dataset.d]=!cardSel[b.dataset.d]; b.setAttribute('aria-pressed',String(!!cardSel[b.dataset.d])); renderCards(); }; });
+    $('genDisc').innerHTML=ds.map(function(x){ return '<option value="'+x.d+'">'+esc(DISC[x.d])+'</option>'; }).join(''); fillGen();
+    fillAssuntos(); syncChips(); }
+  function aplicarConcurso(id){ var e=porId(id); PACOTE=e?e.pacote:null; CONC=PACOTE?PACOTE.concurso:null;
+    try{ if(CONC) localStorage.setItem(CONC_KEY,CONC.id); }catch(x){}
+    ALV=null; if(CONC){ ALV={}; ALV['concurso:'+CONC.id]=1; CONC.disciplinas.forEach(function(d){ if(d.bib) ALV['disc:'+d.bib]=1; d.itens.forEach(function(it){ if(it.topico) ALV[it.topico]=1; }); }); }
+    EXAM=null; var dp=CONC&&CONC.datas.prova; if(dp&&/^\d{4}-\d{2}-\d{2}/.test(dp)){ var a=dp.slice(0,10).split('-'); EXAM=new Date(+a[0],+a[1]-1,+a[2]); }
+    if(session) quit();
+    Q=Q_ALL.filter(function(q){ return associado((WEB_BIB[q.disc]||[]).map(function(b){ return 'disc:'+b; })); }); QBY={}; Q.forEach(function(q){ QBY[q.id]=q; });
+    C=C_ALL.filter(function(c){ var b=bibPorNome(c.d); return b?associado(['disc:'+b]):!CONC; });
+    BIB=BIB_ALL?Object.assign({},BIB_ALL,{itens:(BIB_ALL.itens||[]).filter(itemBibAssociado)}):null;
+    discSel={}; cardSel={}; bibDisc='';
+    PERSONAS=personasDoConcurso(); if(!PERSONAS[persona]) persona='';
+    seletorConcurso(); montarFiltros(); cabecalhoConcurso(); fillPersona();
+    carregarConteudos(); }
+  function carregarConteudos(){ var tk=++conteudoToken, ct=CONC?CONC.conteudos:null;
+    function um(chave,legado){ var p=ct?caminhoConteudo(ct[chave]):legado; if(!p) return Promise.resolve(null);
+      if(CONTEUDO_CACHE.hasOwnProperty(p)) return Promise.resolve(CONTEUDO_CACHE[p]);
+      return lerJSON(p).then(function(j){ CONTEUDO_CACHE[p]=j; return j; },function(){ CONTEUDO_CACHE[p]=null; return null; }); }
+    LINKS=BANCA=VIDEOS=MUSICAS=FAMILIA=undefined; musDisc=''; famQuem=''; rerender();
+    Promise.all([um('links','links.json'),um('banca','banca.json'),um('videos','videos.json'),um('musicas','musicas.json'),um('familia','familia.json')]).then(function(r){
+      if(tk!==conteudoToken) return; LINKS=r[0]; BANCA=r[1]; VIDEOS=r[2]; MUSICAS=r[3]; FAMILIA=r[4]; rerender(); }); }
+  function importarPacoteTexto(txt){ var p;
+    try{ p=validarPacote(JSON.parse(txt)); }catch(e){ $('pacNote').textContent=e instanceof SyntaxError?'Arquivo inválido: não é JSON.':e.message; return false; }
+    var id=p.concurso.id, havia=!!porId(id), imp=lerImportados(); delete IMPORT_MEM[id]; imp[id]=p;
+    var ok=gravarImportados(imp); if(!ok) IMPORT_MEM[id]=p;
+    registrarPacote(p,'importado'); aplicarConcurso(id);
+    $('pacNote').textContent='Pacote “'+p.concurso.nome+'” importado'+(havia?' (substitui a versão anterior deste concurso)':'')+(ok?'.':'; não coube no armazenamento do navegador e vale só nesta sessão.');
+    return true; }
+  function removerImportado(id){ var imp=lerImportados(); delete imp[id]; delete IMPORT_MEM[id]; gravarImportados(imp);
+    var i=-1; PACS.forEach(function(x,k){ if(x.id===id) i=k; }); if(i>=0){ if(PACS[i].embutido) PACS[i]=PACS[i].embutido; else PACS.splice(i,1); }
+    aplicarConcurso(porId(id)?id:((PACS[0]&&PACS[0].id)||'')); $('pacNote').textContent='Pacote importado removido.'; }
+  $('concSel').addEventListener('change',function(){ aplicarConcurso(this.value); $('pacNote').textContent=''; });
+  $('pacFile').addEventListener('change',function(e){ var f=e.target.files&&e.target.files[0]; if(!f) return; var r=new FileReader(); r.onload=function(){ if(importarPacoteTexto(String(r.result))) show(current==='hoje'?'edital':current); }; r.readAsText(f); e.target.value=''; });
+  function statsPorBib(){ var st={}; Q.forEach(function(q){ var h=state.hist[q.id]; (WEB_BIB[q.disc]||[]).forEach(function(b){ var x=st[b]=st[b]||{n:0,f:0,ok:0}; x.n++; if(h){ x.f++; if(h.ok) x.ok++; } }); }); return st; }
+  function renderEdital(){ var box=$('editalBody');
+    if(!CONC){ box.innerHTML='<div class="panel empty">Nenhum pacote de concurso carregado. Use “Importar pacote de concurso (JSON)” no cabeçalho para trazer um edital exportado do Doroxandria local.</div>'; return; }
+    var c=CONC, p=c.painel, el=p.eliminacao||{}, ent=porId(c.id), h='', ativas=c.disciplinas.filter(function(d){ return !d.extra; });
+    var ident=[['Órgão',c.orgao],['Banca',c.banca],['Cargo',c.cargo],['Ênfase',c.enfase],['Polo',c.polo],['Modalidade',c.modalidade],['Edital',c.edital.titulo],['Data da prova',c.datas.prova?(EXAM?DIAS[EXAM.getDay()]+' ':'')+dataBR(c.datas.prova):'a definir']].filter(function(x){ return x[1]; });
+    h+='<div class="panel"><div class="eyebrow">Concurso · '+(ent&&ent.origem==='importado'?'pacote importado':'pacote do app')+'</div><h2>'+esc(c.nome)+'</h2>'
+      +'<div class="tbl"><table><tbody>'+ident.map(function(r){ return '<tr><th scope="row">'+r[0]+'</th><td>'+esc(r[1])+'</td></tr>'; }).join('')+'</tbody></table></div>'
+      +(c.edital.url?'<div class="row"><a class="btnlink" href="'+esc(c.edital.url)+'" target="_blank" rel="noopener">Abrir o edital ↗</a></div>':'')
+      +((c.datas.eventos||[]).length?'<h3>Datas</h3><div class="tbl"><table><thead><tr><th>Data</th><th>Evento</th></tr></thead><tbody>'+c.datas.eventos.map(function(ev){ return '<tr><td class="num">'+esc(dataBR(ev.data))+'</td><td>'+esc(ev.evento)+'</td></tr>'; }).join('')+'</tbody></table></div>':'')
+      +(ent&&ent.origem==='importado'?'<div class="row"><button type="button" class="ghost" id="pacRemover">Remover este pacote importado</button><span class="note">'+(ent.embutido?'Volta a valer a versão que veio com o app.':'O concurso sai da lista.')+'</span></div>':'')+'</div>';
+    var bl=p.blocos||[], nq=p.questoes||bl.reduce(function(s,b){ return s+(b.ate-b.de+1); },0);
+    var elim=[]; if(el.especificasMin) elim.push('mínimo de '+el.especificasMin+' acertos nas Específicas'); if(el.geraisMin) elim.push('mínimo de '+el.geraisMin+' acertos nas Gerais');
+    var zs=(el.zeroEmBlocos||[]).map(function(id){ var b=bl.filter(function(x){ return x.id===id; })[0]; return b?b.nome:id; }); if(zs.length) elim.push('zero em '+zs.join(' ou ')+' elimina');
+    h+='<div class="panel"><div class="eyebrow">Painel da prova</div><h2>'+(nq?nq+' questões':'Questões a definir')+' · '+(p.tempoBaseMin?p.tempoBaseMin+' min':'tempo a definir')+'</h2>'
+      +'<p class="note">'+[(p.alternativas||5)+' alternativas',p.descontoErro?'erro desconta acerto':'sem desconto por erro',p.usarTempoAdicional?'tempo adicional, quando houver, soma ao tempo base':''].filter(Boolean).join(' · ')+'</p>'
+      +(bl.length?'<div class="tbl"><table><thead><tr><th>Bloco</th><th class="num">Questões</th><th>Grupo</th><th>Disciplinas (questões)</th></tr></thead><tbody>'+bl.map(function(b){ var ds=ativas.filter(function(d){ return d.bloco===b.id; });
+        return '<tr><td><b>'+esc(b.nome)+'</b></td><td class="num">'+b.de+'–'+b.ate+'</td><td>'+(b.grupo==='gerais'?'Gerais':'Específicas')+'</td><td>'+ds.map(function(d){ return esc(d.curto||d.nome)+' ('+(d.peso||0)+')'; }).join(', ')+'</td></tr>'; }).join('')+'</tbody></table></div>':semConteudo('o pacote não traz os blocos da prova'))
+      +(elim.length?'<div class="feedback"><b>Eliminação</b><span>'+esc(elim.join('; '))+'.</span></div>':'')
+      +((p.cortesReferencia||[]).length?'<h3>Cortes de referência</h3><ul style="margin:0;padding-left:20px">'+p.cortesReferencia.map(function(x){ return '<li>'+esc(x.rotulo)+': '+esc(x.especificas)+' nas Específicas</li>'; }).join('')+'</ul>':'')
+      +(p.observacoes?'<p class="note">'+esc(p.observacoes)+'</p>':'')+'</div>';
+    var tot=ativas.reduce(function(s,d){ return s+(+d.peso||0); },0), comPeso=ativas.filter(function(d){ return d.peso>0; }).sort(function(a,b){ return b.peso-a.peso; });
+    h+='<div class="panel"><div class="eyebrow">Pesos por disciplina</div><h2>Onde estão as questões</h2>'
+      +(comPeso.length?'<div class="bars">'+comPeso.map(function(d){ var pc=tot?Math.round(100*d.peso/tot):0; return '<div class="bar"><span>'+esc(d.curto||d.nome)+'</span><div class="track"><div class="fill" style="width:'+pc+'%"></div></div><span class="v">'+d.peso+' · '+pc+'%</span></div>'; }).join('')+'</div>':semConteudo('o pacote não traz os pesos'))
+      +(p.pesosHistoricos&&(p.pesosHistoricos.grupos||[]).length?'<h3>'+esc(p.pesosHistoricos.titulo||'Pesos históricos')+'</h3><div class="tbl"><table><thead><tr><th>Grupo</th><th class="num">Questões</th></tr></thead><tbody>'+p.pesosHistoricos.grupos.map(function(g){ return '<tr><td>'+esc(g.nome)+'</td><td class="num">'+esc(g.peso)+'</td></tr>'; }).join('')+'</tbody></table></div>':'')+'</div>';
+    var st=statsPorBib();
+    h+='<div class="panel"><div class="eyebrow">Conteúdo programático</div><h2>Edital</h2>'+(c.edital.titulo?'<p class="note">'+esc(c.edital.titulo)+'</p>':'')
+      +(c.disciplinas.length?c.disciplinas.map(function(d){ var x=st[d.bib];
+        return '<details class="link" style="gap:8px"><summary style="cursor:pointer"><b>'+esc(d.nome)+'</b> <span class="note">'+d.itens.length+' itens'+(d.peso?' · '+d.peso+' questões':'')+(d.extra?' · extra':'')+(x&&x.n?' · '+x.n+' no banco desta página'+(x.f?' · '+Math.round(100*x.ok/x.f)+'% de acerto em '+x.f:''):'')+'</span></summary>'
+          +'<ul style="margin:0;padding-left:20px;display:grid;gap:4px">'+d.itens.map(function(it){ return '<li>'+esc(it.nome||it.chave)+'</li>'; }).join('')+'</ul></details>'; }).join(''):semConteudo('o pacote não traz o edital'))+'</div>';
+    var cs=cadernosDoPacote(), grupos=[], usados={};
+    if(cs.length){ var geral=cs.filter(function(m){ return (m.alvos||[]).indexOf('concurso:'+c.id)>=0; }); if(geral.length){ grupos.push(['Prova e concurso',geral]); geral.forEach(function(m){ usados[m.id]=1; }); }
+      c.disciplinas.forEach(function(d){ var tops={}; d.itens.forEach(function(it){ tops[it.topico]=1; });
+        var ms=cs.filter(function(m){ return (m.alvos||[]).some(function(a){ return a==='disc:'+d.bib||tops[a]; }); }); if(ms.length){ grupos.push([d.nome,ms]); ms.forEach(function(m){ usados[m.id]=1; }); } });
+      var resto=cs.filter(function(m){ return !usados[m.id]; }); if(resto.length) grupos.push(['Outros',resto]); }
+    h+='<div class="panel"><div class="eyebrow">TecConcursos</div><h2>Cadernos do concurso</h2>'+(grupos.length?'<p class="note">'+cs.length+' cadernos ligados aos itens do edital pelo pacote.</p>'+grupos.map(function(g,i){
+        return '<details class="link" style="gap:8px"'+(i===0?' open':'')+'><summary style="cursor:pointer"><b>'+esc(g[0])+'</b> <span class="note">'+g[1].length+'</span></summary><div style="display:grid;gap:6px">'+g[1].map(function(m){ return '<div class="row" style="justify-content:space-between;border-top:1px solid var(--line);padding-top:6px"><a href="'+esc(m.url)+'" target="_blank" rel="noopener" style="min-width:0;flex:1">'+esc(m.titulo)+' ↗</a>'+(m.questoes?'<span class="note">'+m.questoes+' questões</span>':'')+'</div>'; }).join('')+'</div></details>'; }).join(''):semConteudo('o pacote não traz cadernos'))+'</div>';
+    box.innerHTML=h;
+    if($('pacRemover')) $('pacRemover').onclick=function(){ removerImportado(c.id); }; }
 
   // ---------- navegação ----------
-  var VIEWS=['hoje','questoes','cards','tutor','biblio','labs','banca','familia','musicas','eco','placar'], current='hoje';
+  var VIEWS=['hoje','edital','questoes','cards','tutor','biblio','labs','banca','familia','musicas','eco','placar'], current='hoje';
   function show(v){ current=v; VIEWS.forEach(function(x){ $('v-'+x).hidden = x!==v; });
     document.querySelectorAll('nav.top button').forEach(function(b){ if(b.dataset.v===v) b.setAttribute('aria-current','page'); else b.removeAttribute('aria-current'); });
     try{ localStorage.setItem('arenaTP.view',v); }catch(e){}
     rerender(); window.scrollTo({top:0}); }
   document.querySelectorAll('nav.top button').forEach(function(b){ b.addEventListener('click',function(){ show(b.dataset.v); }); });
-  function rerender(){ if(current==='hoje') renderHoje(); else if(current==='cards') renderCards(); else if(current==='placar') renderPlacar(); else if(current==='eco') renderEco(); else if(current==='banca') renderBanca(); else if(current==='musicas') renderMusicas(); else if(current==='familia') renderFamilia(); else if(current==='labs') renderLabs(); else if(current==='biblio') renderBiblio(); else if(current==='questoes' && !session) updateQCount(); }
+  function rerender(){ if(current==='hoje') renderHoje(); else if(current==='edital') renderEdital(); else if(current==='cards') renderCards(); else if(current==='placar') renderPlacar(); else if(current==='eco') renderEco(); else if(current==='banca') renderBanca(); else if(current==='musicas') renderMusicas(); else if(current==='familia') renderFamilia(); else if(current==='labs') renderLabs(); else if(current==='biblio') renderBiblio(); else if(current==='questoes' && !session) updateQCount(); }
 
   // ---------- HOJE ----------
   function dueCards(){ var t=dayNum(); return C.filter(function(c){ var s=state.srs[c.id]; return s && s.d<=t; }); }
   function renderHoje(){
-    var d=Math.round((EXAM-new Date(new Date().getFullYear(),new Date().getMonth(),new Date().getDate()))/86400000);
-    $('days').textContent = d>0? d : (d===0?'hoje':'0');
+    if(EXAM){ var d=Math.round((EXAM-new Date(new Date().getFullYear(),new Date().getMonth(),new Date().getDate()))/86400000);
+    $('days').textContent = d>0? d : (d===0?'hoje':'0'); } else $('days').textContent='—';
     var tk=todayKey(), done=0, ok=0, last7=0, ok7=0, lim=Date.now()-7*86400000;
     Object.keys(state.hist).forEach(function(id){ var h=state.hist[id]; if(todayKey(new Date(h.w))===tk){ done++; if(h.ok) ok++; } if(h.w>=lim){ last7++; if(h.ok) ok7++; } });
     var due=dueCards().length, nnew=Math.max(0,(parseInt(($('newPerDay')||{}).value,10)||30)-(state.newCount[tk]||0));
@@ -446,13 +610,15 @@ footer{padding-top:28px;font-size:13px;color:var(--muted);display:grid;gap:6px}
       ['<b>'+due+'</b>','flashcards para revisar hoje · '+nnew+' novos liberados'],
       ['<b>'+streak+'</b>','dias seguidos com rotina marcada']
     ].map(function(k){return '<div class="kpi">'+k[0]+'<span>'+k[1]+'</span></div>'}).join('');
-    var now=new Date(), w=WEEKS.filter(function(x){ return now>=new Date(x.s+'T00:00:00') && now<=new Date(x.e+'T23:59:59'); })[0] || WEEKS[0];
-    $('weekLabel').textContent=w.s.split('-').reverse().slice(0,2).join('/')+' a '+w.e.split('-').reverse().slice(0,2).join('/');
-    $('weekTitle').textContent=w.n; $('weekTasks').innerHTML=w.t.map(function(t){return '<li>'+esc(t)+'</li>'}).join(''); $('weekGoal').textContent=w.g;
+    var pl=planoAtivo(), now=new Date(), w=pl.weeks.filter(function(x){ return now>=new Date(x.s+'T00:00:00') && now<=new Date(x.e+'T23:59:59'); })[0] || pl.weeks[0];
+    if(w){ $('weekLabel').textContent=w.s.split('-').reverse().slice(0,2).join('/')+' a '+w.e.split('-').reverse().slice(0,2).join('/');
+      $('weekTitle').textContent=w.n; $('weekTasks').innerHTML=w.t.map(function(t){return '<li>'+esc(t)+'</li>'}).join(''); $('weekGoal').textContent=w.g||''; }
+    else { $('weekLabel').textContent='Semana'; $('weekTitle').textContent='Plano da semana'; $('weekTasks').innerHTML='<li class="note">Sem conteúdo para este concurso: o pacote não traz plano semanal.</li>'; $('weekGoal').textContent=''; }
     var isSunday=now.getDay()===0; $('todayLabel').textContent=now.toLocaleDateString('pt-BR',{weekday:'long',day:'2-digit',month:'2-digit'})+(isSunday?' · dia de simulado':'');
     var day=state.days[tk]||{};
-    var items = isSunday? [['sim','Simulado completo: 330 minutos, alguém avisa as horas',330],['ing','Inglês leve à noite (opcional)',20]] : ROUTINE;
+    var items = (isSunday? pl.domingo : pl.routine)||[];
     $('routine').innerHTML=items.map(function(r){ return '<label><input type="checkbox" data-k="'+r[0]+'"'+(day[r[0]]?' checked':'')+'><span>'+esc(r[1])+'</span><span class="min">'+r[2]+' min</span></label>'; }).join('');
+    if(!items.length) $('routine').innerHTML='<div class="note">Sem conteúdo para este concurso: o pacote não traz rotina diária.</div>';
     $('routine').querySelectorAll('input').forEach(function(i){ i.addEventListener('change',function(){ state.days[tk]=state.days[tk]||{}; state.days[tk][i.dataset.k]=i.checked; persist(); renderHoje(); }); });
     // próximo passo
     var by={}; Object.keys(state.hist).forEach(function(id){ var q=QBY[id]; if(!q) return; var a=q.assunto; by[a]=by[a]||{n:0,ok:0}; by[a].n++; if(state.hist[id].ok) by[a].ok++; });
@@ -460,14 +626,16 @@ footer{padding-top:28px;font-size:13px;color:var(--muted);display:grid;gap:6px}
     var h='';
     if(due) h+='<button type="button" class="primary" id="goCards">Revisar '+due+' flashcards devidos</button>';
     if(worst) h+='<button type="button" id="goWorst">Treinar o seu pior assunto: '+esc(shortAss(worst))+' ('+Math.round(100*by[worst].ok/by[worst].n)+'%)</button>';
-    var wrong=Object.keys(state.hist).filter(function(id){return state.hist[id].ok===false}).length;
+    var wrong=Object.keys(state.hist).filter(function(id){return state.hist[id].ok===false && QBY[id]}).length;
     if(wrong) h+='<button type="button" id="goWrong">Refazer '+wrong+' questões erradas</button>';
-    if(!h) h='<button type="button" class="primary" id="goStart">Começar pelas questões de Dados de 2023 em diante</button><span class="note">Ainda não há histórico. Depois de algumas questões, esta área passa a apontar o seu pior assunto.</span>';
+    var d0=discsWebAtivas()[0];
+    if(!h) h= d0? '<button type="button" class="primary" id="goStart">Começar pelas questões de '+esc(DISC[d0.d])+' de 2023 em diante</button><span class="note">Ainda não há histórico. Depois de algumas questões, esta área passa a apontar o seu pior assunto.</span>' : '<button type="button" class="primary" id="goEdital">Ver o edital e os cadernos do concurso</button><span class="note">Este concurso ainda não tem banco de questões nesta página.</span>';
     $('nextStep').innerHTML=h;
     if($('goCards')) $('goCards').onclick=function(){ show('cards'); };
     if($('goWorst')) $('goWorst').onclick=function(){ discSel={}; var q=Q.filter(function(x){return x.assunto===worst})[0]; if(q){ discSel[q.disc]=true; } show('questoes'); syncChips(); fillAssuntos(); $('assunto').value=worst; setMode('treino'); updateQCount(); };
     if($('goWrong')) $('goWrong').onclick=function(){ discSel={}; show('questoes'); syncChips(); fillAssuntos(); setMode('erros'); $('periodo').value='0'; updateQCount(); };
-    if($('goStart')) $('goStart').onclick=function(){ discSel={Dados:true}; show('questoes'); syncChips(); fillAssuntos(); updateQCount(); };
+    if($('goEdital')) $('goEdital').onclick=function(){ show('edital'); };
+    if($('goStart')) $('goStart').onclick=function(){ discSel={}; discSel[d0.d]=true; show('questoes'); syncChips(); fillAssuntos(); updateQCount(); };
   }
 
   // ---------- QUESTÕES ----------
@@ -488,7 +656,7 @@ footer{padding-top:28px;font-size:13px;color:var(--muted);display:grid;gap:6px}
   function fillAssuntos(){ var sel=$('assunto'), cur=sel.value, discs=Object.keys(discSel).filter(function(k){return discSel[k]}), fora=$('foraEnfase').checked, cnt={};
     Q.forEach(function(q){ if(discs.length && discs.indexOf(q.disc)<0) return; if(fora && FORA.test(q.assunto)) return; cnt[q.assunto]=(cnt[q.assunto]||0)+1; });
     sel.innerHTML='<option value="">Todos os assuntos do filtro</option>'+Object.keys(cnt).sort(function(a,b){return shortAss(a).localeCompare(shortAss(b))}).map(function(k){ return '<option value="'+esc(k)+'"'+(k===cur?' selected':'')+'>'+esc(shortAss(k))+' ('+cnt[k]+')</option>'; }).join(''); updateQCount(); }
-  function updateQCount(){ if(!Q.length) return; var n=pool().length, ns=Math.min(n,parseInt($('nSim').value,10)||20); $('qcount').textContent=n+' questões no filtro'+(mode==='simulado'?' · simulado de '+ns+' questões em '+fmt(210*ns):''); $('qstart').disabled=n===0; }
+  function updateQCount(){ if(!Q.length){ $('qcount').textContent=Q_ALL.length?'Sem questões para este concurso nesta página. Use os cadernos do TecConcursos na aba Edital.':''; $('qstart').disabled=true; return; } var n=pool().length, ns=Math.min(n,parseInt($('nSim').value,10)||20); $('qcount').textContent=n+' questões no filtro'+(mode==='simulado'?' · simulado de '+ns+' questões em '+fmt(210*ns):''); $('qstart').disabled=n===0; }
   function setMode(m){ mode=m; document.querySelectorAll('#qsetup [data-m]').forEach(function(b){ b.setAttribute('aria-pressed',String(b.dataset.m===m)); }); $('nWrap').hidden = m!=='simulado'; updateQCount(); }
   document.querySelectorAll('#qsetup [data-m]').forEach(function(b){ b.addEventListener('click',function(){ setMode(b.dataset.m); }); });
   ['periodo','assunto','ordem','nSim','semFeitas'].forEach(function(id){ $(id).addEventListener('change',updateQCount); });
@@ -513,7 +681,7 @@ footer{padding-top:28px;font-size:13px;color:var(--muted);display:grid;gap:6px}
     if(rev){ var ok=a===q.gabarito, tx=(state.hist[q.id]||{}).x||'';
       h+='<div class="feedback '+(ok?'ok':'bad')+'"><b>'+(ok?'Certo.':'Errado.')+' Gabarito: '+q.gabarito+'.</b>';
       if(!ok) h+='<div class="taxo"><span class="note">Tipo do erro:</span>'+['conteúdo','leitura','tempo','chute'].map(function(t){return '<button type="button" data-t="'+t+'" aria-pressed="'+(tx===t)+'">'+t+'</button>'}).join('')+'</div>';
-      h+='<div class="row"><a class="btnlink" href="'+TEC+'questoes/'+q.id+'" target="_blank" rel="noopener">Abrir no TecConcursos (comentários) ↗</a>'+(CADMAP[q.disc]?'<a class="btnlink ghost" href="'+TEC+'questoes/cadernos/'+CADMAP[q.disc]+'" target="_blank" rel="noopener">Caderno da disciplina ↗</a>':'')+'</div>';
+      h+='<div class="row"><a class="btnlink" href="'+TEC+'questoes/'+q.id+'" target="_blank" rel="noopener">Abrir no TecConcursos (comentários) ↗</a>'+(function(){ var cd=cadernoDaQuestao(q); return cd?'<a class="btnlink ghost" href="'+esc(cd.url)+'" target="_blank" rel="noopener">Caderno da disciplina ↗</a>':''; })()+'</div>';
       h+='<div class="row">'+(sample?'<button type="button" id="aiExplain">Explicar com o tutor</button><button type="button" class="ghost" id="aiTwin">Gerar uma questão gêmea</button>':'<span class="note">Releia o subitem no guia e crie um card de contraste.</span>')+'</div>';
       if(s.ai[q.id]) h+='<div class="ai'+(s.ai[q.id].busy?' thinking':'')+'" id="aiOut">'+esc(s.ai[q.id].text)+'</div>';
       h+='</div>'; }
@@ -545,7 +713,7 @@ footer{padding-top:28px;font-size:13px;color:var(--muted);display:grid;gap:6px}
       if(s.mode==='simulado') state.hist[q.id]={ok:c,l:a||'',w:Date.now(),x:(state.hist[q.id]||{}).x};
       if(sug[q.id]){ nR++; if(sug[q.id]===q.gabarito) okR++; if(c) okP++; }
       rows+='<tr><td class="num">'+(i+1)+'</td><td>'+esc(DISC[q.disc]||q.disc)+'</td><td class="num">'+(a||'—')+'</td><td class="num">'+q.gabarito+'</td><td>'+(c?'<span class="pill ok">certo</span>':'<span class="pill bad">errado</span>')+'</td><td>'+esc(s.cert[q.id]||'')+(sug[q.id]?' · regra: '+sug[q.id]:'')+'</td><td class="num">tec '+q.id+'</td></tr>'; });
-    if(s.mode==='simulado') state.sims.push({when:Date.now(),n:s.qs.length,ok:ok,t:el});
+    if(s.mode==='simulado') state.sims.push({when:Date.now(),n:s.qs.length,ok:ok,t:el,c:CONC?CONC.id:''});
     persist();
     var h='<div class="eyebrow">Resultado</div><div class="big">'+ok+' <span style="font-size:18px;color:var(--muted)">/ '+s.qs.length+' ('+Math.round(100*ok/s.qs.length)+'%)</span></div><div class="note">'+fmt(el)+' no total · '+Math.round(el/s.qs.length)+' s por questão · '+blank+' em branco</div>';
     var byD={}, byM={}, txs={}; s.qs.forEach(function(q){ var a=s.ans[q.id], c=a===q.gabarito, d=DISC[q.disc]||q.disc, m=s.cert[q.id]||(a?'sem marca':'em branco');
@@ -569,10 +737,10 @@ footer{padding-top:28px;font-size:13px;color:var(--muted);display:grid;gap:6px}
   function qText(q){ return 'Enunciado: '+q.enunciado+'\n'+['A','B','C','D','E'].map(function(L){return '('+L+') '+(q.alternativas[L]||'')}).join('\n'); }
   function aiErr(e){ var c=e&&e.code; if(c==='not_granted'||c==='sampling_disabled'||c==='not_declared'||c==='capability_disabled'||c==='capability_removed') return 'O tutor não está liberado nesta visualização.'; if(c==='rate_limited') return 'Muitas perguntas seguidas. Espere um pouco e tente de novo.'; if(c==='refused') return 'O tutor não respondeu a este pedido. Reformule a pergunta.'; if(c==='cancelled') return ''; return 'O tutor não conseguiu responder agora. Tente de novo.'; }
   function explain(q,a){ var s=session; s.ai[q.id]={text:'Pensando…',busy:true}; renderQ();
-    var p='Você é um professor de concursos especialista na banca Cesgranrio, preparando um candidato para a prova Transpetro 2026, Ênfase 5 (Analista de Sistemas, Processos de Negócios).\nExplique a questão real abaixo em português do Brasil, em texto simples (sem markdown, sem asteriscos), em no máximo 230 palavras, nesta ordem:\n1. Por que a alternativa '+q.gabarito+' é a correta (a regra ou definição que decide).\n2. Uma linha para cada alternativa errada dizendo o que ela realmente descreve ou onde está o erro plantado.\n3. A armadilha da Cesgranrio nesta questão (distrator vizinho, absoluto, inversão, frase decisiva).\n4. Um macete curto para acertar questões deste tipo.\n'+(a&&a!==q.gabarito?'O candidato marcou '+a+'; comece explicando por que essa marcação parece certa e não é.\n':'')+'\nAssunto: '+shortAss(q.assunto)+' · '+q.concurso+' '+q.ano+'\n'+qText(q)+'\nGabarito oficial: '+q.gabarito;
+    var p='Você é um professor de concursos especialista na banca '+(bancaAtual()||'do concurso')+', preparando um candidato para '+descProva()+'.\nExplique a questão real abaixo em português do Brasil, em texto simples (sem markdown, sem asteriscos), em no máximo 230 palavras, nesta ordem:\n1. Por que a alternativa '+q.gabarito+' é a correta (a regra ou definição que decide).\n2. Uma linha para cada alternativa errada dizendo o que ela realmente descreve ou onde está o erro plantado.\n3. A armadilha da '+(bancaAtual()||'banca')+' nesta questão (distrator vizinho, absoluto, inversão, frase decisiva).\n4. Um macete curto para acertar questões deste tipo.\n'+(a&&a!==q.gabarito?'O candidato marcou '+a+'; comece explicando por que essa marcação parece certa e não é.\n':'')+'\nAssunto: '+shortAss(q.assunto)+' · '+q.concurso+' '+q.ano+'\n'+qText(q)+'\nGabarito oficial: '+q.gabarito;
     sample(personaTxt()+p,{onText:function(u){ s.ai[q.id]={text:u.text,busy:false}; var el=$('aiOut'); if(el&&s.qs[s.i]===q){ el.textContent=u.text; el.classList.remove('thinking'); } }}).then(function(r){ s.ai[q.id]={text:r.text,busy:false}; if(s.qs[s.i]===q) renderQ(); }).catch(function(e){ s.ai[q.id]={text:(e&&e.text)||aiErr(e),busy:false}; if(s.qs[s.i]===q) renderQ(); }); }
   function genPrompt(ref, ass){ var ex=ref.slice(0,2).map(function(q,i){ return 'Exemplo real '+(i+1)+' ('+q.concurso+' '+q.ano+'):\n'+qText(q).slice(0,1800)+'\nGabarito: '+q.gabarito; }).join('\n\n');
-    return 'Você escreve questões inéditas no estilo exato da banca Cesgranrio para a prova Transpetro 2026, Ênfase 5 (Analista de Sistemas, Processos de Negócios).\nAssunto: '+ass+'.\nUse os exemplos reais abaixo só como molde de estilo; não copie o conteúdo. Regras da banca: cinco alternativas; os distratores são definições corretas de conceitos vizinhos, absolutos plantados ("apenas", "sempre") ou inversões; quando couber, um caso narrativo curto com uma frase decisiva; uma única alternativa correta e tecnicamente indiscutível.\n\n'+ex+'\n\nResponda apenas com um objeto JSON: {"enunciado": string, "alternativas": {"A": string, "B": string, "C": string, "D": string, "E": string}, "gabarito": "A"|"B"|"C"|"D"|"E", "comentario": string (até 120 palavras: por que a certa é certa e qual armadilha cada errada usa)}. Sorteie a letra do gabarito.'; }
+    return 'Você escreve questões inéditas no estilo exato da banca '+(bancaAtual()||'do concurso')+' para '+descProva()+'.\nAssunto: '+ass+'.\nUse os exemplos reais abaixo só como molde de estilo; não copie o conteúdo. Regras da banca: cinco alternativas; os distratores são definições corretas de conceitos vizinhos, absolutos plantados ("apenas", "sempre") ou inversões; quando couber, um caso narrativo curto com uma frase decisiva; uma única alternativa correta e tecnicamente indiscutível.\n\n'+ex+'\n\nResponda apenas com um objeto JSON: {"enunciado": string, "alternativas": {"A": string, "B": string, "C": string, "D": string, "E": string}, "gabarito": "A"|"B"|"C"|"D"|"E", "comentario": string (até 120 palavras: por que a certa é certa e qual armadilha cada errada usa)}. Sorteie a letra do gabarito.'; }
   function renderGenerated(box,obj,label){ if(!obj||!obj.alternativas||!obj.gabarito){ box.innerHTML='<div class="note">A resposta veio fora do formato. Tente de novo.</div>'; return; }
     var h='<div class="eyebrow">'+esc(label)+' · questão inédita gerada por IA, não oficial</div><div class="q-text">'+esc(obj.enunciado)+'</div><div class="alts">';
     ['A','B','C','D','E'].forEach(function(L){ h+='<button type="button" class="alt" data-l="'+L+'"><span class="l">'+L+'</span><span>'+esc(obj.alternativas[L]||'')+'</span></button>'; });
@@ -586,19 +754,19 @@ footer{padding-top:28px;font-size:13px;color:var(--muted);display:grid;gap:6px}
   function fillGen(){ var d=$('genDisc').value, cnt={}; Q.forEach(function(q){ if(q.disc===d && !FORA.test(q.assunto)) cnt[q.assunto]=(cnt[q.assunto]||0)+1; });
     $('genAss').innerHTML=Object.keys(cnt).sort(function(a,b){return shortAss(a).localeCompare(shortAss(b))}).map(function(k){return '<option value="'+esc(k)+'">'+esc(shortAss(k))+' ('+cnt[k]+')</option>'}).join(''); }
   $('genDisc').addEventListener('change',fillGen);
-  $('genBtn').addEventListener('click',function(){ if(!sample) return; var ass=$('genAss').value, ref=shuffle(Q.filter(function(q){return q.assunto===ass && q.ano>=2019})); if(ref.length<2) ref=shuffle(Q.filter(function(q){return q.assunto===ass}));
+  $('genBtn').addEventListener('click',function(){ if(!sample||!$('genAss').value) return; var ass=$('genAss').value, ref=shuffle(Q.filter(function(q){return q.assunto===ass && q.ano>=2019})); if(ref.length<2) ref=shuffle(Q.filter(function(q){return q.assunto===ass}));
     $('genBtn').disabled=true; $('genNote').textContent='Escrevendo… costuma levar de 20 a 60 segundos.'; $('genOut').innerHTML='';
     sample.json(genPrompt(ref, shortAss(ass)),{cache:false}).then(function(obj){ renderGenerated($('genOut'),obj,shortAss(ass)); $('genNote').textContent=''; }).catch(function(e){ $('genNote').textContent=aiErr(e); }).then(function(){ $('genBtn').disabled=false; }); });
 
   // chat
   var turns=[], chatCtl=null;
-  var RULES='Você é o Tutor Cesgranrio de um candidato à prova Transpetro 2026, Ênfase 5 (Analista de Sistemas, Processos de Negócios), em 06/12/2026, 50 questões específicas (Dados e BI, Engenharia de Software e UX, Segurança, Projetos, Governança e LGPD, Lógica) mais 10 de Português e 10 de Inglês. Responda em português do Brasil, texto simples sem markdown, no máximo 200 palavras, sempre do jeito que a Cesgranrio cobra: a definição canônica, o conceito vizinho que a banca usa como distrator, o absoluto que marca alternativa errada, e um macete. Quando fizer sentido, termine com uma pergunta curta de verificação para o candidato responder. Se não souber algo com segurança, diga.';
+  function rulesTxt(){ var b=bancaAtual(); return 'Você é o Tutor '+(b||'de concursos')+' de um candidato. '+contextoProva()+' Responda em português do Brasil, texto simples sem markdown, no máximo 200 palavras, sempre do jeito que a '+(b||'banca')+' cobra: a definição canônica, o conceito vizinho que a banca usa como distrator, o absoluto que marca alternativa errada, e um macete. Quando fizer sentido, termine com uma pergunta curta de verificação para o candidato responder. Se não souber algo com segurança, diga.'; }
   var QUICK=['Monte um mnemônico para as 14 táticas do MITRE ATT&CK','Me teste com 3 perguntas rápidas de normalização (1FN a FNBC)','Explique SAST, DAST e IAST com o distrator típico','Diferença entre verificação e validação na Cesgranrio','As 6 operações OLAP com um exemplo de navegação','Negação de "Todo analista estuda e nenhum gerente falta"'];
   function renderChat(){ $('chat').innerHTML=turns.map(function(t){ return '<div class="msg '+(t.role==='user'?'u':'a')+'">'+esc(t.content)+'</div>'; }).join(''); }
   function send(text){ if(!sample||!text.trim()) return; turns.push({role:'user',content:text.trim()}); turns.push({role:'assistant',content:'Pensando…'}); renderChat(); $('chatIn').value='';
     var hist=turns.slice(0,-1).filter(function(t){return t.content!=='Pensando…'}); if(hist.length>16) hist=hist.slice(hist.length-16); while(hist.length && hist[0].role!=='user') hist.shift();
     chatCtl=new AbortController(); $('chatStop').hidden=false; $('chatSend').disabled=true;
-    sample([{role:'user',content:personaTxt()+RULES}].concat(hist),{cache:false,signal:chatCtl.signal,onText:function(u){ turns[turns.length-1].content=u.text; var m=$('chat').lastElementChild; if(m) m.textContent=u.text; }})
+    sample([{role:'user',content:personaTxt()+rulesTxt()}].concat(hist),{cache:false,signal:chatCtl.signal,onText:function(u){ turns[turns.length-1].content=u.text; var m=$('chat').lastElementChild; if(m) m.textContent=u.text; }})
       .then(function(r){ turns[turns.length-1].content=r.text; }).catch(function(e){ var keep=e&&e.text; turns[turns.length-1].content= keep? keep+' (interrompido)' : (aiErr(e)||'(interrompido)'); })
       .then(function(){ $('chatStop').hidden=true; $('chatSend').disabled=false; renderChat(); }); }
   $('chatSend').addEventListener('click',function(){ send($('chatIn').value); });
@@ -688,7 +856,7 @@ footer{padding-top:28px;font-size:13px;color:var(--muted);display:grid;gap:6px}
     var q=BIB_FOLDERS.map(function(f){ return "parentId = '"+f+"'"; }).join(' or ');
     m.callTool('Google Drive','search_files',{query:q,excludeContentSnippets:true,pageSize:100}).then(function(res){ var fs=((res&&res.payload)||{}).files||[], known={}; (BIB.itens||[]).forEach(function(i){ known[i.id]=1; });
       var novos=fs.filter(function(f){ return !known[f.id]&&f.mimeType!=='application/vnd.google-apps.folder'; });
-      novos.forEach(function(f){ BIB.itens.push({grupo:'Novos no Drive',titulo:f.title,disc:'',tipo:'',id:f.id,url:f.viewUrl,local:''}); });
+      novos.forEach(function(f){ var it={grupo:'Novos no Drive',titulo:f.title,disc:'',tipo:'',id:f.id,url:f.viewUrl,local:''}; BIB.itens.push(it); if(BIB_ALL&&BIB_ALL.itens!==BIB.itens) BIB_ALL.itens.push(it); });
       $('bibNote').textContent=novos.length?novos.length+' arquivo(s) novo(s) no Drive, no grupo "Novos no Drive".':'Nenhum arquivo novo na pasta do Drive.'; bibRender(); },function(e){ $('bibNote').textContent=bibErr(e); }); }); }
   function renderBiblio(){ if(!BIB){ $('bibList').innerHTML='<div class="empty">Carregando o índice…</div>'; return; }
     if(!renderBiblio.wired){ renderBiblio.wired=true; $('bibQ').oninput=bibRender; $('bibBack').onclick=function(){ $('bibReader').hidden=true; $('v-biblio').scrollIntoView({block:'start'}); }; $('bibFind').oninput=bibShowText; $('bibNew').onclick=bibNovidades; }
@@ -767,14 +935,16 @@ footer{padding-top:28px;font-size:13px;color:var(--muted);display:grid;gap:6px}
   try{ if('serviceWorker' in navigator && /github\.io$/.test(location.hostname)){ navigator.serviceWorker.register('sw.js'); } }catch(e){}
 
   // ---------- PERSONAS (Família) ----------
-  var PERSONAS={'':{n:'Tutor Cesgranrio',t:'',d:''},viviane:{n:'Viviane, sua esposa',t:'amor',d:'BI e Inglês'},pai:{n:'Pai',t:'filho',d:'Normalização e LGPD'},mae:{n:'Mãe',t:'filho',d:'Projetos e crase'},tio:{n:'Tio José Raimundo',t:'sobrinho',d:'Segurança e Lógica'},tiadores:{n:'Tia Maria das Dores',t:'sobrinho',d:'Scrum e Engenharia de Software'},tiajose:{n:'Tia Maria José',t:'sobrinho',d:'UX e Governança'},avo:{n:'Avô Milton',t:'neto',d:'PMBOK 7'},joao:{n:'João Miguel, seu filho',t:'papai',d:'OLAP'},sophia:{n:'Sophia, sua filha',t:'papai',d:'ACID'}};
+  var PERSONAS_PADRAO={'':{n:'Tutor Cesgranrio',t:'',d:''},viviane:{n:'Viviane, sua esposa',t:'amor',d:'BI e Inglês'},pai:{n:'Pai',t:'filho',d:'Normalização e LGPD'},mae:{n:'Mãe',t:'filho',d:'Projetos e crase'},tio:{n:'Tio José Raimundo',t:'sobrinho',d:'Segurança e Lógica'},tiadores:{n:'Tia Maria das Dores',t:'sobrinho',d:'Scrum e Engenharia de Software'},tiajose:{n:'Tia Maria José',t:'sobrinho',d:'UX e Governança'},avo:{n:'Avô Milton',t:'neto',d:'PMBOK 7'},joao:{n:'João Miguel, seu filho',t:'papai',d:'OLAP'},sophia:{n:'Sophia, sua filha',t:'papai',d:'ACID'}};
+  var PERSONAS=PERSONAS_PADRAO; // trocado pelas personas do pacote (concurso.conteudos.personas) em aplicarConcurso
   var persona=''; try{ persona=localStorage.getItem('arenaTP.persona')||''; }catch(e){}
-  function personaTxt(){ var P=PERSONAS[persona]; if(!P||!persona) return ''; return 'Fale como '+P.n+', da família do candidato Ronaldo, chamando-o carinhosamente de "'+P.t+'". Tom de conversa de família, frases curtas, mas o conteúdo continua técnico e fiel à banca Cesgranrio. Assuntos preferidos deste personagem: '+P.d+'. '; }
+  function personaTxt(){ var P=PERSONAS[persona]; if(!P||!persona) return ''; return 'Fale como '+P.n+', da família do candidato Ronaldo, chamando-o carinhosamente de "'+P.t+'". Tom de conversa de família, frases curtas, mas o conteúdo continua técnico e fiel à banca '+(bancaAtual()||'do concurso')+'. Assuntos preferidos deste personagem: '+P.d+'. '; }
   function fillPersona(){ var sel=$('persona'); if(!sel) return; sel.innerHTML=Object.keys(PERSONAS).map(function(k){ return '<option value="'+k+'"'+(k===persona?' selected':'')+'>'+esc(PERSONAS[k].n)+(PERSONAS[k].d?' · '+esc(PERSONAS[k].d):'')+'</option>'; }).join(''); sel.onchange=function(){ persona=sel.value; try{ localStorage.setItem('arenaTP.persona',persona); }catch(e){} }; }
   var QUEM2P=[['Viviane e João','joao'],['Viviane','viviane'],['Pai','pai'],['Mãe','mae'],['Tio José','tio'],['Tia Maria das Dores','tiadores'],['Tia Maria José','tiajose'],['Avô','avo'],['Sophia','sophia']];
-  function quemKey(q){ for(var i=0;i<QUEM2P.length;i++){ if(q.indexOf(QUEM2P[i][0])===0) return QUEM2P[i][1]; } return ''; }
+  function quemKey(q){ var fq=CONC&&CONC.conteudos.familiaQuem; if(CONC){ var k=fq&&fq[q]; return k&&PERSONAS[k]?k:''; } for(var i=0;i<QUEM2P.length;i++){ if(q.indexOf(QUEM2P[i][0])===0) return QUEM2P[i][1]; } return ''; }
   function renderFamilia(){ var box=$('famList'), ch=$('famChips'), F=FAMILIA||[];
-    if(!F.length){ ch.innerHTML=''; box.innerHTML='<div class="empty">As cenas ainda não foram carregadas.</div>'; return; }
+    $('famEyebrow').textContent='Banca em Família'+(F.length?' · '+F.length+' cenas':'');
+    if(!F.length){ ch.innerHTML=''; box.innerHTML=FAMILIA===undefined?'<div class="empty">Carregando as cenas…</div>':semConteudo('Família'); return; }
     var qs=[]; F.forEach(function(f){ var k=f.quem.split(' (')[0]; if(qs.indexOf(k)<0) qs.push(k); });
     ch.innerHTML=['<button type="button" data-q="" aria-pressed="'+(famQuem==='')+'">Todos</button>'].concat(qs.map(function(q){ return '<button type="button" data-q="'+esc(q)+'" aria-pressed="'+(famQuem===q)+'">'+esc(q)+'</button>'; })).join('');
     ch.querySelectorAll('button').forEach(function(b){ b.onclick=function(){ famQuem=b.dataset.q; renderFamilia(); }; });
@@ -784,7 +954,7 @@ footer{padding-top:28px;font-size:13px;color:var(--muted);display:grid;gap:6px}
 
   // ---------- MUSICAS ----------
   function renderMusicas(){ var box=$('musList'), ch=$('musChips'), M=MUSICAS||[];
-    if(!M.length){ ch.innerHTML=''; box.innerHTML='<div class="empty">As paródias ainda não foram carregadas.</div>'; return; }
+    if(!M.length){ ch.innerHTML=''; box.innerHTML=MUSICAS===undefined?'<div class="empty">Carregando as paródias…</div>':semConteudo('Músicas'); return; }
     var ds=[]; M.forEach(function(m){ if(ds.indexOf(m.disciplina)<0) ds.push(m.disciplina); });
     ch.innerHTML=['<button type="button" data-d="" aria-pressed="'+(musDisc==='')+'">Todas <span class="mono">'+M.length+'</span></button>'].concat(ds.map(function(d){ return '<button type="button" data-d="'+esc(d)+'" aria-pressed="'+(musDisc===d)+'">'+esc(d)+'</button>'; })).join('');
     ch.querySelectorAll('button').forEach(function(b){ b.onclick=function(){ musDisc=b.dataset.d; renderMusicas(); }; });
@@ -803,9 +973,11 @@ footer{padding-top:28px;font-size:13px;color:var(--muted);display:grid;gap:6px}
   function renderBanca(){ var t=$('bancaTabs'), b=$('bancaBody'), n=$('bancaNote');
     t.innerHTML=BTABS.map(function(x){ return '<button type="button" data-t="'+x[0]+'" aria-pressed="'+(bancaTab===x[0])+'">'+x[1]+'</button>'; }).join('');
     t.querySelectorAll('button').forEach(function(el){ el.onclick=function(){ bancaTab=el.dataset.t; renderBanca(); }; });
-    n.textContent=''; var D=BANCA||{}, h='';
+    n.textContent=''; var D=BANCA||{}, h='', B=bancaAtual()||'banca', enf=(/^(Ênfase\s*\d+)/i.exec((CONC&&CONC.enfase)||'')||[])[1];
+    if(bancaTab!=='videos' && !BANCA){ b.innerHTML=BANCA===undefined?'<div class="empty">Carregando…</div>':semConteudo('perfil da banca'); return; }
+    if(bancaTab==='videos' && !(VIDEOS&&VIDEOS.length)){ b.innerHTML=VIDEOS===undefined?'<div class="empty">Carregando…</div>':semConteudo('videoaulas'); return; }
     if(bancaTab==='perfil'){ var P=D.perfil||{};
-      [['geral','Como a Cesgranrio costuma cobrar'],['transpetro','Neste concurso e cargo (Ênfase 5)']].forEach(function(k){ if(P[k[0]]&&P[k[0]].length) h+='<div><h3>'+k[1]+'</h3>'+bList(P[k[0]])+'</div>'; });
+      Object.keys(P).map(function(k){ return [k, k==='geral'?'Como a '+B+' costuma cobrar':'Neste concurso e cargo'+(enf?' ('+enf+')':'')]; }).forEach(function(k){ if(P[k[0]]&&P[k[0]].length) h+='<div><h3>'+k[1]+'</h3>'+bList(P[k[0]])+'</div>'; });
       if(!h) h='<div class="empty">Perfil ainda não carregado.</div>'; }
     else if(bancaTab==='prioridades'){ var R=D.prioridades||[];
       h=R.length?'<div class="tbl"><table><thead><tr><th>Prioridade</th><th>Assunto</th><th>Por quê</th><th>O que fazer</th></tr></thead><tbody>'+R.map(function(r,i){ return '<tr><td class="num">'+(i+1)+'</td><td><b>'+esc(r.assunto)+'</b></td><td>'+esc(r.motivo)+'</td><td>'+esc(r.acao)+'</td></tr>'; }).join('')+'</tbody></table></div>':'<div class="empty">Sem dados.</div>'; }
@@ -815,11 +987,13 @@ footer{padding-top:28px;font-size:13px;color:var(--muted);display:grid;gap:6px}
       h=K.length?K.map(function(a){ return '<div class="link" style="gap:6px"><span class="pill acc" style="justify-self:start">'+esc(a.disc||'')+(a.assunto?' · '+esc(a.assunto):'')+'</span><b>'+esc(a.titulo||'')+'</b><span>'+esc(a.dica||'')+'</span></div>'; }).join(''):'<div class="empty">Ainda sem síntese dos comentários.</div>'; n.textContent=D.comentariosNota||''; }
     else { var V=VIDEOS||[]; V=V.slice().sort(function(x,y){ return (y.nota||0)-(x.nota||0); });
       h=V.length?'<div class="links">'+V.map(function(v){ return '<a class="link" href="'+esc(v.url)+'" target="_blank" rel="noopener"><span class="pill acc" style="justify-self:start">nota '+esc(v.nota)+'/5</span><b>'+esc(v.titulo)+'</b><span>'+esc(v.canal||'')+(v.assunto?' · '+esc(v.assunto):'')+'</span></a>'; }).join('')+'</div>':'<div class="empty">Sem vídeos.</div>';
-      n.textContent='Vídeos curados por utilidade para a Cesgranrio. Legendas automáticas foram usadas só para análise.'; }
+      n.textContent='Vídeos curados por utilidade para a '+B+'. Legendas automáticas foram usadas só para análise.'; }
     b.innerHTML=h; }
 
   // ---------- ECOSSISTEMA ----------
-  function renderEco(){ var box=$('ecoLinks'); if(!LINKS){ box.innerHTML='<div class="panel empty">Carregando os links…</div>'; return; }
+  function renderEco(){ var box=$('ecoLinks'); if(LINKS===undefined){ box.innerHTML='<div class="panel empty">Carregando os links…</div>'; return; }
+    if(!LINKS||!(LINKS.grupos||[]).length){ var at=(CONC&&CONC.conteudos.atalhos)||[];
+      box.innerHTML=at.length?'<div class="panel"><div class="eyebrow">Atalhos do concurso</div><div class="links">'+at.map(function(i){ return '<a class="link" href="'+esc(i.url)+'" target="_blank" rel="noopener"><b>'+esc(i.titulo)+'</b></a>'; }).join('')+'</div></div>':'<div class="panel">'+semConteudo('links do ecossistema')+'</div>'; return; }
     box.innerHTML=LINKS.grupos.map(function(g){ return '<div class="panel"><div class="eyebrow">'+esc(g.titulo)+'</div><div class="links">'+g.itens.map(function(i){ return '<a class="link" href="'+esc(i.url)+'" target="_blank" rel="noopener"><span class="pill acc" style="justify-self:start">'+esc(i.tipo)+'</span><b>'+esc(i.nome)+'</b><span>'+esc(i.desc)+'</span></a>'; }).join('')+'</div></div>'; }).join('')+'<div class="note">Links atualizados em '+esc(LINKS.atualizado)+'.</div>'; }
 
   // ---------- PLACAR ----------
@@ -837,16 +1011,9 @@ footer{padding-top:28px;font-size:13px;color:var(--muted);display:grid;gap:6px}
     $('placar').innerHTML=h; }
 
   // ---------- carga ----------
-  Promise.all([fetch('questoes.json').then(function(r){return r.json()}),fetch('cards.json').then(function(r){return r.json()}),fetch('links.json').then(function(r){return r.json()}).catch(function(){return null}),fetch('banca.json').then(function(r){return r.json()}).catch(function(){return null}),fetch('videos.json').then(function(r){return r.json()}).catch(function(){return null}),fetch('musicas.json').then(function(r){return r.json()}).catch(function(){return null}),fetch('familia.json').then(function(r){return r.json()}).catch(function(){return null}),fetch('biblioteca.json').then(function(r){return r.json()}).catch(function(){return null})]).then(function(res){
-    Q=res[0]; Q.forEach(function(q){ QBY[q.id]=q; }); C=res[1]; LINKS=res[2]; BANCA=res[3]; VIDEOS=res[4]; MUSICAS=res[5]; FAMILIA=res[6]; BIB=res[7]; fillPersona(); wireIO();
-    var cnt={}; Q.forEach(function(q){ cnt[q.disc]=(cnt[q.disc]||0)+1; });
-    $('discChips').innerHTML=Object.keys(DISC).map(function(d){ return '<button type="button" data-d="'+d+'" aria-pressed="false">'+esc(DISC[d])+' <span class="mono">'+(cnt[d]||0)+'</span></button>'; }).join('');
-    $('discChips').querySelectorAll('button').forEach(function(b){ b.onclick=function(){ discSel[b.dataset.d]=!discSel[b.dataset.d]; syncChips(); fillAssuntos(); }; });
-    var cc={}; C.forEach(function(c){ cc[c.d]=(cc[c.d]||0)+1; });
-    $('cardChips').innerHTML=Object.keys(cc).filter(function(d){return d!=='Geral'}).map(function(d){ return '<button type="button" data-d="'+esc(d)+'" aria-pressed="false">'+esc(d)+' <span class="mono">'+cc[d]+'</span></button>'; }).join('');
-    $('cardChips').querySelectorAll('button').forEach(function(b){ b.onclick=function(){ cardSel[b.dataset.d]=!cardSel[b.dataset.d]; b.setAttribute('aria-pressed',String(!!cardSel[b.dataset.d])); renderCards(); }; });
-    $('genDisc').innerHTML=Object.keys(DISC).map(function(d){return '<option value="'+d+'">'+esc(DISC[d])+'</option>'}).join(''); fillGen();
-    fillAssuntos();
+  Promise.all([fetch('questoes.json').then(function(r){return r.json()}),fetch('cards.json').then(function(r){return r.json()}),fetch('biblioteca.json').then(function(r){return r.json()}).catch(function(){return null}),carregarConcursos()]).then(function(res){
+    Q_ALL=res[0]; C_ALL=res[1]; BIB_ALL=res[2]; wireIO();
+    aplicarConcurso(res[3]);
     var v='hoje'; try{ v=localStorage.getItem('arenaTP.view')||'hoje'; }catch(e){} if(location.hash && VIEWS.indexOf(location.hash.slice(1))>=0) v=location.hash.slice(1);
     show(v);
   }).catch(function(e){ document.querySelector('.wrap').insertAdjacentHTML('afterbegin','<div class="panel empty">Não foi possível carregar os dados ('+esc(e.message)+'). Recarregue a página.</div>'); });
