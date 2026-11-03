@@ -58,7 +58,8 @@ header.hero{padding-block:24px 8px;display:grid;gap:10px}
 .count .n{font-family:var(--display);font-size:60px;font-weight:700;color:var(--accent);line-height:.9}
 .count .l{font-family:var(--mono);font-size:12px;color:var(--muted)}
 
-section.view{padding-top:18px;display:grid;gap:16px}
+section[hidden]{display:none!important}
+.view{padding-top:18px;display:grid;gap:16px}
 .panel{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:16px;display:grid;gap:12px;min-width:0}
 .grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
 .grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
@@ -165,8 +166,6 @@ footer{padding-top:28px;font-size:13px;color:var(--muted);display:grid;gap:6px}
   <button type="button" data-v="banca">Banca</button>
   <button type="button" data-v="biblio">Biblioteca</button>
   <button type="button" data-v="labs">Labs</button>
-  <button type="button" data-v="familia">Família</button>
-  <button type="button" data-v="musicas">Músicas</button>
   <button type="button" data-v="eco">Ecossistema</button>
   <button type="button" data-v="placar">Placar</button>
   <span class="sync" id="sync">salvo neste navegador</span>
@@ -268,7 +267,6 @@ footer{padding-top:28px;font-size:13px;color:var(--muted);display:grid;gap:6px}
     <div class="panel">
       <div class="eyebrow">Converse com o tutor</div>
       <h2>Tutor <span data-conc="banca" data-padrao="de concursos">Cesgranrio</span></h2>
-      <label class="note">Quem explica <select id="persona"></select></label>
       <div class="chips" id="tutorQuick"></div>
       <div class="chat" id="chat"></div>
       <textarea id="chatIn" placeholder="Ex.: qual a diferença entre IDS e IPS do jeito que a Cesgranrio cobra?"></textarea>
@@ -307,28 +305,6 @@ footer{padding-top:28px;font-size:13px;color:var(--muted);display:grid;gap:6px}
     <textarea id="sqlIn" spellcheck="false" style="font-family:var(--mono);min-height:120px" placeholder="SELECT ..."></textarea>
     <div class="row"><button type="button" class="primary" id="sqlRun">Executar e conferir</button><button type="button" class="ghost" id="sqlShow">Mostrar uma resposta</button><button type="button" class="ghost" id="sqlSchema">Ver as tabelas</button><span class="note" id="sqlNote"></span></div>
     <div id="sqlOut"></div>
-  </div>
-</section>
-
-<!-- FAMILIA -->
-<section class="view" id="v-familia" hidden>
-  <div class="panel">
-    <div class="eyebrow" id="famEyebrow">Banca em Família</div>
-    <h2>Família</h2>
-    <p class="note">Cada parente explica um ponto da prova do jeito dele. Leia a fala curta em voz alta e depois a explicação. O botão leva ao tutor já no personagem.</p>
-    <div class="chips" id="famChips"></div>
-    <div id="famList" style="display:grid;gap:12px"></div>
-  </div>
-</section>
-
-<!-- MUSICAS -->
-<section class="view" id="v-musicas" hidden>
-  <div class="panel">
-    <div class="eyebrow">Paródias de estudo · Conhecimentos Específicos</div>
-    <h2>Músicas</h2>
-    <p class="note">Letras originais para cantar na melodia que você já sabe. O refrão carrega a lista ou o contraste que cai na prova. Quando houver faixa gerada no Flow Music, o botão abre a música na sua conta.</p>
-    <div class="chips" id="musChips"></div>
-    <div id="musList" style="display:grid;gap:12px"></div>
   </div>
 </section>
 
@@ -426,7 +402,7 @@ footer{padding-top:28px;font-size:13px;color:var(--muted);display:grid;gap:6px}
   function shortAss(a){ return String(a||'').replace(/^TI - [^-]+ - /,'').replace(/^(Gestão de Projetos \(PMBOK\)|Direito Digital) - /,''); }
 
   var TEC='https://www.tecconcursos.com.br/';
-  var Q=[], QBY={}, C=[], LINKS=undefined, BANCA=undefined, VIDEOS=undefined, MUSICAS=undefined, musDisc='', FAMILIA=undefined, famQuem='', sample=null, bancaTab='perfil';
+  var Q=[], QBY={}, C=[], LINKS=undefined, BANCA=undefined, VIDEOS=undefined, sample=null, bancaTab='perfil';
 
   // ---------- CONCURSOS: pacotes no mesmo formato do Doroxandria local ----------
   // concursos/indice.json lista os pacotes do app; o usuário pode importar outros (exportados do Doroxandria).
@@ -492,10 +468,6 @@ footer{padding-top:28px;font-size:13px;color:var(--muted);display:grid;gap:6px}
     if(!c) c=cs.filter(function(m){ var al=m.alvos||[]; return al.length&&al.every(function(a){ return bibs.indexOf(a)>=0; }); })[0];
     return c||null; }
   function discsWebAtivas(){ var cnt={}; Q.forEach(function(q){ cnt[q.disc]=(cnt[q.disc]||0)+1; }); return Object.keys(DISC).filter(function(d){ return cnt[d]; }).map(function(d){ return {d:d,n:cnt[d]}; }); }
-  function personasDoConcurso(){ var ps=CONC&&CONC.conteudos.personas, out={};
-    if(!CONC) return PERSONAS_PADRAO;
-    if(ps&&typeof ps==='object') Object.keys(ps).forEach(function(k){ var p=ps[k]||{}; out[k]={n:p.nome||p.n||k,t:p.trata||p.t||'',d:p.temas||p.d||''}; });
-    if(!out['']) out['']={n:'Tutor '+(bancaAtual()||'de concursos'),t:'',d:''}; return out; }
   function cabecalhoConcurso(){ var c=CONC, b=bancaAtual();
     var e=enfaseCurta(c), eb=c?(c.orgao&&String(c.nome).indexOf(c.orgao)<0?c.orgao+' · ':'')+c.nome+(e?' · '+e.replace(/\s*\(([^)]*)\)\s*$/,' · $1'):'')+(b?' · '+b:''):'Doroxandria · sem concurso ativo';
     $('heroEyebrow').textContent=eb; $('concAtivo').textContent=linhaConcurso(c);
@@ -525,16 +497,15 @@ footer{padding-top:28px;font-size:13px;color:var(--muted);display:grid;gap:6px}
     C=C_ALL.filter(function(c){ var b=bibPorNome(c.d); return b?associado(['disc:'+b]):!CONC; });
     BIB=BIB_ALL?Object.assign({},BIB_ALL,{itens:(BIB_ALL.itens||[]).filter(itemBibAssociado)}):null;
     discSel={}; cardSel={}; bibDisc='';
-    PERSONAS=personasDoConcurso(); if(!PERSONAS[persona]) persona='';
-    seletorConcurso(); montarFiltros(); cabecalhoConcurso(); fillPersona();
+    seletorConcurso(); montarFiltros(); cabecalhoConcurso();
     carregarConteudos(); }
   function carregarConteudos(){ var tk=++conteudoToken, ct=CONC?CONC.conteudos:null;
     function um(chave,legado){ var p=ct?caminhoConteudo(ct[chave]):legado; if(!p) return Promise.resolve(null);
       if(CONTEUDO_CACHE.hasOwnProperty(p)) return Promise.resolve(CONTEUDO_CACHE[p]);
       return lerJSON(p).then(function(j){ CONTEUDO_CACHE[p]=j; return j; },function(){ CONTEUDO_CACHE[p]=null; return null; }); }
-    LINKS=BANCA=VIDEOS=MUSICAS=FAMILIA=undefined; musDisc=''; famQuem=''; rerender();
-    Promise.all([um('links','links.json'),um('banca','banca.json'),um('videos','videos.json'),um('musicas','musicas.json'),um('familia','familia.json')]).then(function(r){
-      if(tk!==conteudoToken) return; LINKS=r[0]; BANCA=r[1]; VIDEOS=r[2]; MUSICAS=r[3]; FAMILIA=r[4]; rerender(); }); }
+    LINKS=BANCA=VIDEOS=undefined; rerender();
+    Promise.all([um('links','links.json'),um('banca','banca.json'),um('videos','videos.json')]).then(function(r){
+      if(tk!==conteudoToken) return; LINKS=r[0]; BANCA=r[1]; VIDEOS=r[2]; rerender(); }); }
   function importarPacoteTexto(txt){ var p;
     try{ p=validarPacote(JSON.parse(txt)); }catch(e){ $('pacNote').textContent=e instanceof SyntaxError?'Arquivo inválido: não é JSON.':e.message; return false; }
     var id=p.concurso.id, havia=!!porId(id), imp=lerImportados(); delete IMPORT_MEM[id]; imp[id]=p;
@@ -587,13 +558,13 @@ footer{padding-top:28px;font-size:13px;color:var(--muted);display:grid;gap:6px}
     if($('pacRemover')) $('pacRemover').onclick=function(){ removerImportado(c.id); }; }
 
   // ---------- navegação ----------
-  var VIEWS=['hoje','edital','questoes','cards','tutor','biblio','labs','banca','familia','musicas','eco','placar'], current='hoje';
+  var VIEWS=['hoje','edital','questoes','cards','tutor','biblio','labs','banca','eco','placar'], current='hoje';
   function show(v){ current=v; VIEWS.forEach(function(x){ $('v-'+x).hidden = x!==v; });
     document.querySelectorAll('nav.top button').forEach(function(b){ if(b.dataset.v===v) b.setAttribute('aria-current','page'); else b.removeAttribute('aria-current'); });
     try{ localStorage.setItem('arenaTP.view',v); }catch(e){}
     rerender(); window.scrollTo({top:0}); }
   document.querySelectorAll('nav.top button').forEach(function(b){ b.addEventListener('click',function(){ show(b.dataset.v); }); });
-  function rerender(){ if(current==='hoje') renderHoje(); else if(current==='edital') renderEdital(); else if(current==='cards') renderCards(); else if(current==='placar') renderPlacar(); else if(current==='eco') renderEco(); else if(current==='banca') renderBanca(); else if(current==='musicas') renderMusicas(); else if(current==='familia') renderFamilia(); else if(current==='labs') renderLabs(); else if(current==='biblio') renderBiblio(); else if(current==='questoes' && !session) updateQCount(); }
+  function rerender(){ if(current==='hoje') renderHoje(); else if(current==='edital') renderEdital(); else if(current==='cards') renderCards(); else if(current==='placar') renderPlacar(); else if(current==='eco') renderEco(); else if(current==='banca') renderBanca(); else if(current==='labs') renderLabs(); else if(current==='biblio') renderBiblio(); else if(current==='questoes' && !session) updateQCount(); }
 
   // ---------- HOJE ----------
   function dueCards(){ var t=dayNum(); return C.filter(function(c){ var s=state.srs[c.id]; return s && s.d<=t; }); }
@@ -738,7 +709,7 @@ footer{padding-top:28px;font-size:13px;color:var(--muted);display:grid;gap:6px}
   function aiErr(e){ var c=e&&e.code; if(c==='not_granted'||c==='sampling_disabled'||c==='not_declared'||c==='capability_disabled'||c==='capability_removed') return 'O tutor não está liberado nesta visualização.'; if(c==='rate_limited') return 'Muitas perguntas seguidas. Espere um pouco e tente de novo.'; if(c==='refused') return 'O tutor não respondeu a este pedido. Reformule a pergunta.'; if(c==='cancelled') return ''; return 'O tutor não conseguiu responder agora. Tente de novo.'; }
   function explain(q,a){ var s=session; s.ai[q.id]={text:'Pensando…',busy:true}; renderQ();
     var p='Você é um professor de concursos especialista na banca '+(bancaAtual()||'do concurso')+', preparando um candidato para '+descProva()+'.\nExplique a questão real abaixo em português do Brasil, em texto simples (sem markdown, sem asteriscos), em no máximo 230 palavras, nesta ordem:\n1. Por que a alternativa '+q.gabarito+' é a correta (a regra ou definição que decide).\n2. Uma linha para cada alternativa errada dizendo o que ela realmente descreve ou onde está o erro plantado.\n3. A armadilha da '+(bancaAtual()||'banca')+' nesta questão (distrator vizinho, absoluto, inversão, frase decisiva).\n4. Um macete curto para acertar questões deste tipo.\n'+(a&&a!==q.gabarito?'O candidato marcou '+a+'; comece explicando por que essa marcação parece certa e não é.\n':'')+'\nAssunto: '+shortAss(q.assunto)+' · '+q.concurso+' '+q.ano+'\n'+qText(q)+'\nGabarito oficial: '+q.gabarito;
-    sample(personaTxt()+p,{onText:function(u){ s.ai[q.id]={text:u.text,busy:false}; var el=$('aiOut'); if(el&&s.qs[s.i]===q){ el.textContent=u.text; el.classList.remove('thinking'); } }}).then(function(r){ s.ai[q.id]={text:r.text,busy:false}; if(s.qs[s.i]===q) renderQ(); }).catch(function(e){ s.ai[q.id]={text:(e&&e.text)||aiErr(e),busy:false}; if(s.qs[s.i]===q) renderQ(); }); }
+    sample(p,{onText:function(u){ s.ai[q.id]={text:u.text,busy:false}; var el=$('aiOut'); if(el&&s.qs[s.i]===q){ el.textContent=u.text; el.classList.remove('thinking'); } }}).then(function(r){ s.ai[q.id]={text:r.text,busy:false}; if(s.qs[s.i]===q) renderQ(); }).catch(function(e){ s.ai[q.id]={text:(e&&e.text)||aiErr(e),busy:false}; if(s.qs[s.i]===q) renderQ(); }); }
   function genPrompt(ref, ass){ var ex=ref.slice(0,2).map(function(q,i){ return 'Exemplo real '+(i+1)+' ('+q.concurso+' '+q.ano+'):\n'+qText(q).slice(0,1800)+'\nGabarito: '+q.gabarito; }).join('\n\n');
     return 'Você escreve questões inéditas no estilo exato da banca '+(bancaAtual()||'do concurso')+' para '+descProva()+'.\nAssunto: '+ass+'.\nUse os exemplos reais abaixo só como molde de estilo; não copie o conteúdo. Regras da banca: cinco alternativas; os distratores são definições corretas de conceitos vizinhos, absolutos plantados ("apenas", "sempre") ou inversões; quando couber, um caso narrativo curto com uma frase decisiva; uma única alternativa correta e tecnicamente indiscutível.\n\n'+ex+'\n\nResponda apenas com um objeto JSON: {"enunciado": string, "alternativas": {"A": string, "B": string, "C": string, "D": string, "E": string}, "gabarito": "A"|"B"|"C"|"D"|"E", "comentario": string (até 120 palavras: por que a certa é certa e qual armadilha cada errada usa)}. Sorteie a letra do gabarito.'; }
   function renderGenerated(box,obj,label){ if(!obj||!obj.alternativas||!obj.gabarito){ box.innerHTML='<div class="note">A resposta veio fora do formato. Tente de novo.</div>'; return; }
@@ -760,13 +731,13 @@ footer{padding-top:28px;font-size:13px;color:var(--muted);display:grid;gap:6px}
 
   // chat
   var turns=[], chatCtl=null;
-  function rulesTxt(){ var b=bancaAtual(); return 'Você é o Tutor '+(b||'de concursos')+' de um candidato. '+contextoProva()+' Responda em português do Brasil, texto simples sem markdown, no máximo 200 palavras, sempre do jeito que a '+(b||'banca')+' cobra: a definição canônica, o conceito vizinho que a banca usa como distrator, o absoluto que marca alternativa errada, e um macete. Quando fizer sentido, termine com uma pergunta curta de verificação para o candidato responder. Se não souber algo com segurança, diga.'; }
+  function rulesTxt(){ var b=bancaAtual(); return 'Você é o Tutor '+(b||'de concursos')+' de um candidato. '+contextoProva()+' Responda em português do Brasil, texto simples sem markdown, no máximo 200 palavras, sempre do jeito que a '+(b||'banca')+' cobra: a definição canônica, o conceito vizinho que a banca usa como distrator, o absoluto que marca alternativa errada, e um macete. Tom profissional e direto, de professor para candidato. Quando fizer sentido, termine com uma pergunta curta de verificação para o candidato responder. Se não souber algo com segurança, diga.'; }
   var QUICK=['Monte um mnemônico para as 14 táticas do MITRE ATT&CK','Me teste com 3 perguntas rápidas de normalização (1FN a FNBC)','Explique SAST, DAST e IAST com o distrator típico','Diferença entre verificação e validação na Cesgranrio','As 6 operações OLAP com um exemplo de navegação','Negação de "Todo analista estuda e nenhum gerente falta"'];
   function renderChat(){ $('chat').innerHTML=turns.map(function(t){ return '<div class="msg '+(t.role==='user'?'u':'a')+'">'+esc(t.content)+'</div>'; }).join(''); }
   function send(text){ if(!sample||!text.trim()) return; turns.push({role:'user',content:text.trim()}); turns.push({role:'assistant',content:'Pensando…'}); renderChat(); $('chatIn').value='';
     var hist=turns.slice(0,-1).filter(function(t){return t.content!=='Pensando…'}); if(hist.length>16) hist=hist.slice(hist.length-16); while(hist.length && hist[0].role!=='user') hist.shift();
     chatCtl=new AbortController(); $('chatStop').hidden=false; $('chatSend').disabled=true;
-    sample([{role:'user',content:personaTxt()+rulesTxt()}].concat(hist),{cache:false,signal:chatCtl.signal,onText:function(u){ turns[turns.length-1].content=u.text; var m=$('chat').lastElementChild; if(m) m.textContent=u.text; }})
+    sample([{role:'user',content:rulesTxt()}].concat(hist),{cache:false,signal:chatCtl.signal,onText:function(u){ turns[turns.length-1].content=u.text; var m=$('chat').lastElementChild; if(m) m.textContent=u.text; }})
       .then(function(r){ turns[turns.length-1].content=r.text; }).catch(function(e){ var keep=e&&e.text; turns[turns.length-1].content= keep? keep+' (interrompido)' : (aiErr(e)||'(interrompido)'); })
       .then(function(){ $('chatStop').hidden=true; $('chatSend').disabled=false; renderChat(); }); }
   $('chatSend').addEventListener('click',function(){ send($('chatIn').value); });
@@ -934,39 +905,6 @@ footer{padding-top:28px;font-size:13px;color:var(--muted);display:grid;gap:6px}
   // ---------- PWA (só fora do Claude) ----------
   try{ if('serviceWorker' in navigator && /github\.io$/.test(location.hostname)){ navigator.serviceWorker.register('sw.js'); } }catch(e){}
 
-  // ---------- PERSONAS (Família) ----------
-  var PERSONAS_PADRAO={'':{n:'Tutor Cesgranrio',t:'',d:''},viviane:{n:'Viviane, sua esposa',t:'amor',d:'BI e Inglês'},pai:{n:'Pai',t:'filho',d:'Normalização e LGPD'},mae:{n:'Mãe',t:'filho',d:'Projetos e crase'},tio:{n:'Tio José Raimundo',t:'sobrinho',d:'Segurança e Lógica'},tiadores:{n:'Tia Maria das Dores',t:'sobrinho',d:'Scrum e Engenharia de Software'},tiajose:{n:'Tia Maria José',t:'sobrinho',d:'UX e Governança'},avo:{n:'Avô Milton',t:'neto',d:'PMBOK 7'},joao:{n:'João Miguel, seu filho',t:'papai',d:'OLAP'},sophia:{n:'Sophia, sua filha',t:'papai',d:'ACID'}};
-  var PERSONAS=PERSONAS_PADRAO; // trocado pelas personas do pacote (concurso.conteudos.personas) em aplicarConcurso
-  var persona=''; try{ persona=localStorage.getItem('arenaTP.persona')||''; }catch(e){}
-  function personaTxt(){ var P=PERSONAS[persona]; if(!P||!persona) return ''; return 'Fale como '+P.n+', da família do candidato Ronaldo, chamando-o carinhosamente de "'+P.t+'". Tom de conversa de família, frases curtas, mas o conteúdo continua técnico e fiel à banca '+(bancaAtual()||'do concurso')+'. Assuntos preferidos deste personagem: '+P.d+'. '; }
-  function fillPersona(){ var sel=$('persona'); if(!sel) return; sel.innerHTML=Object.keys(PERSONAS).map(function(k){ return '<option value="'+k+'"'+(k===persona?' selected':'')+'>'+esc(PERSONAS[k].n)+(PERSONAS[k].d?' · '+esc(PERSONAS[k].d):'')+'</option>'; }).join(''); sel.onchange=function(){ persona=sel.value; try{ localStorage.setItem('arenaTP.persona',persona); }catch(e){} }; }
-  var QUEM2P=[['Viviane e João','joao'],['Viviane','viviane'],['Pai','pai'],['Mãe','mae'],['Tio José','tio'],['Tia Maria das Dores','tiadores'],['Tia Maria José','tiajose'],['Avô','avo'],['Sophia','sophia']];
-  function quemKey(q){ var fq=CONC&&CONC.conteudos.familiaQuem; if(CONC){ var k=fq&&fq[q]; return k&&PERSONAS[k]?k:''; } for(var i=0;i<QUEM2P.length;i++){ if(q.indexOf(QUEM2P[i][0])===0) return QUEM2P[i][1]; } return ''; }
-  function renderFamilia(){ var box=$('famList'), ch=$('famChips'), F=FAMILIA||[];
-    $('famEyebrow').textContent='Banca em Família'+(F.length?' · '+F.length+' cenas':'');
-    if(!F.length){ ch.innerHTML=''; box.innerHTML=FAMILIA===undefined?'<div class="empty">Carregando as cenas…</div>':semConteudo('Família'); return; }
-    var qs=[]; F.forEach(function(f){ var k=f.quem.split(' (')[0]; if(qs.indexOf(k)<0) qs.push(k); });
-    ch.innerHTML=['<button type="button" data-q="" aria-pressed="'+(famQuem==='')+'">Todos</button>'].concat(qs.map(function(q){ return '<button type="button" data-q="'+esc(q)+'" aria-pressed="'+(famQuem===q)+'">'+esc(q)+'</button>'; })).join('');
-    ch.querySelectorAll('button').forEach(function(b){ b.onclick=function(){ famQuem=b.dataset.q; renderFamilia(); }; });
-    box.innerHTML=F.filter(function(f){ return !famQuem||f.quem.split(' (')[0]===famQuem; }).map(function(f){ var k=quemKey(f.quem);
-      return '<div class="link" style="gap:8px"><span class="pill acc" style="justify-self:start">Cena '+f.n+' · '+esc(f.quem)+'</span><b>'+esc(f.tema)+'</b><div class="panel" style="background:var(--accent-soft)"><div class="eyebrow">Fala curta</div><div>'+esc(f.fala)+'</div>'+(f.audio_fala?'<audio controls preload="none" src="'+esc(f.audio_fala)+'" style="width:100%;margin-top:6px"></audio>':'')+'</div><span>'+esc(f.explicacao)+'</span>'+(f.audio_explicacao?'<audio controls preload="none" src="'+esc(f.audio_explicacao)+'" style="width:100%"></audio>':'')+(f.video_url?'<a class="btnlink" href="'+esc(f.video_url)+'" target="_blank" rel="noopener" style="justify-self:start">Ver vídeo no Flow ↗</a>':'')+(f.imagem_url?'<a class="btnlink ghost" href="'+esc(f.imagem_url)+'" target="_blank" rel="noopener" style="justify-self:start">Ver quadro no Gemini ↗</a>':'')+(k&&sample?'<button type="button" class="ghost" data-p="'+k+'" style="justify-self:start">Conversar com '+esc(PERSONAS[k].n)+'</button>':'')+'</div>'; }).join('');
-    box.querySelectorAll('[data-p]').forEach(function(b){ b.onclick=function(){ persona=b.dataset.p; try{ localStorage.setItem('arenaTP.persona',persona); }catch(e){} fillPersona(); show('tutor'); }; }); }
-
-  // ---------- MUSICAS ----------
-  function renderMusicas(){ var box=$('musList'), ch=$('musChips'), M=MUSICAS||[];
-    if(!M.length){ ch.innerHTML=''; box.innerHTML=MUSICAS===undefined?'<div class="empty">Carregando as paródias…</div>':semConteudo('Músicas'); return; }
-    var ds=[]; M.forEach(function(m){ if(ds.indexOf(m.disciplina)<0) ds.push(m.disciplina); });
-    ch.innerHTML=['<button type="button" data-d="" aria-pressed="'+(musDisc==='')+'">Todas <span class="mono">'+M.length+'</span></button>'].concat(ds.map(function(d){ return '<button type="button" data-d="'+esc(d)+'" aria-pressed="'+(musDisc===d)+'">'+esc(d)+'</button>'; })).join('');
-    ch.querySelectorAll('button').forEach(function(b){ b.onclick=function(){ musDisc=b.dataset.d; renderMusicas(); }; });
-    box.innerHTML=M.filter(function(m){ return !musDisc||m.disciplina===musDisc; }).map(function(m){
-      var conf=(m.confira||[]).map(function(c){ return '<li>'+esc(c.fato)+(c.fonte?' <span class="note">('+esc(c.fonte)+')</span>':'')+'</li>'; }).join('');
-      return '<details class="link" style="gap:8px"><summary style="cursor:pointer;display:grid;gap:4px"><span class="pill acc" style="justify-self:start">'+esc(m.disciplina)+'</span><b>'+esc(m.titulo)+'</b><span>Cantar na melodia de: '+esc(m.melodia)+'</span></summary>'
-        +(m.refrao?'<div class="panel" style="background:var(--accent-soft)"><div class="eyebrow">Refrão</div><div style="white-space:pre-line">'+esc(m.refrao)+'</div></div>':'')
-        +'<div style="white-space:pre-line;line-height:1.7">'+esc(m.letra||'')+'</div>'
-        +(conf?'<div><div class="eyebrow">Confira</div><ul style="margin:0;padding-left:20px">'+conf+'</ul></div>':'')
-        +(m.flow_url?'<a class="btnlink" href="'+esc(m.flow_url)+'" target="_blank" rel="noopener">Ouvir no Flow Music ↗</a>':'<span class="note">Faixa no Flow Music ainda não gerada.</span>')
-        +'</details>'; }).join(''); }
-
   // ---------- BANCA ----------
   var BTABS=[['perfil','Perfil da banca'],['prioridades','Prioridades'],['armadilhas','Armadilhas'],['comentarios','Comentários'],['videos','Videoaulas']];
   function bList(a){ return '<ul style="margin:0;padding-left:20px;display:grid;gap:6px">'+a.map(function(x){ return '<li>'+esc(x)+'</li>'; }).join('')+'</ul>'; }
@@ -1014,7 +952,7 @@ footer{padding-top:28px;font-size:13px;color:var(--muted);display:grid;gap:6px}
   Promise.all([fetch('questoes.json').then(function(r){return r.json()}),fetch('cards.json').then(function(r){return r.json()}),fetch('biblioteca.json').then(function(r){return r.json()}).catch(function(){return null}),carregarConcursos()]).then(function(res){
     Q_ALL=res[0]; C_ALL=res[1]; BIB_ALL=res[2]; wireIO();
     aplicarConcurso(res[3]);
-    var v='hoje'; try{ v=localStorage.getItem('arenaTP.view')||'hoje'; }catch(e){} if(location.hash && VIEWS.indexOf(location.hash.slice(1))>=0) v=location.hash.slice(1);
+    var v='hoje'; try{ v=localStorage.getItem('arenaTP.view')||'hoje'; }catch(e){} if(VIEWS.indexOf(v)<0) v='hoje'; if(location.hash && VIEWS.indexOf(location.hash.slice(1))>=0) v=location.hash.slice(1);
     show(v);
   }).catch(function(e){ document.querySelector('.wrap').insertAdjacentHTML('afterbegin','<div class="panel empty">Não foi possível carregar os dados ('+esc(e.message)+'). Recarregue a página.</div>'); });
   renderHoje();

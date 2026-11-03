@@ -31,23 +31,6 @@
       ]
     },
     {
-      "titulo": "Banca em Família",
-      "itens": [
-        {
-          "nome": "Vídeos no Flow",
-          "desc": "11 cenas em desenho animado com a fala curta de cada parente (cenas 2, 3, 5, 9, 10, 12, 14 a 18)",
-          "url": "https://flow.google.com/project/1e39042a-226d-47cd-aa8d-584c9c55af66",
-          "tipo": "Flow"
-        },
-        {
-          "nome": "Quadros no Gemini",
-          "desc": "Quadro-base e cenas 1, 4, 6, 7, 8 e 11 com fotos da família",
-          "url": "https://gemini.google.com/app/87360e0a41b58925",
-          "tipo": "Gemini"
-        }
-      ]
-    },
-    {
       "titulo": "TecConcursos · pastas",
       "itens": [
         {

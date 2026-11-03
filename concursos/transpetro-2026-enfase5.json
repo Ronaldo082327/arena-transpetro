@@ -630,11 +630,6 @@
     "id": "estrategia-de-prova/gabaritos-contestados",
     "disc": "estrategia-de-prova",
     "nome": "Gabaritos contestados"
-   },
-   {
-    "id": "estrategia-de-prova/banca-em-familia-mnemonicos",
-    "disc": "estrategia-de-prova",
-    "nome": "Banca em Família (mnemônicos)"
    }
   ],
   "materiais": [
@@ -2222,39 +2217,6 @@
      "disc:seguranca-da-informacao"
     ],
     "grupo": "Questões Cesgranrio (TecConcursos)"
-   },
-   {
-    "id": "dr034",
-    "tipo": "drive",
-    "titulo": "Banca em Família · roteiro",
-    "url": "https://drive.google.com/file/d/1GYbMyLOXp5FbZzqQAsIiz10RU8Jrgn13/view",
-    "info": "Família e músicas",
-    "alvos": [
-     "estrategia-de-prova/banca-em-familia-mnemonicos"
-    ],
-    "grupo": "Família e músicas"
-   },
-   {
-    "id": "dr035",
-    "tipo": "drive",
-    "titulo": "Gravação em família · roteiro por pessoa",
-    "url": "https://drive.google.com/file/d/1c7OnXvN0ahzqbkUpgAigeJReniac1gZk/view",
-    "info": "Família e músicas",
-    "alvos": [
-     "estrategia-de-prova/banca-em-familia-mnemonicos"
-    ],
-    "grupo": "Família e músicas"
-   },
-   {
-    "id": "dr036",
-    "tipo": "drive",
-    "titulo": "Paródias de estudo",
-    "url": "https://drive.google.com/file/d/1Vzg2_3zYg-oNHAakWyU-3_haFjw0MnCd/view",
-    "info": "Família e músicas",
-    "alvos": [
-     "estrategia-de-prova/banca-em-familia-mnemonicos"
-    ],
-    "grupo": "Família e músicas"
    },
    {
     "id": "dr037",
@@ -4762,13 +4724,6 @@
       "nome": "Gabaritos contestados",
       "topico": "estrategia-de-prova/gabaritos-contestados",
       "ankiDeck": "Transpetro 2026 · 1 Questões::11 Estratégia de prova::Gabaritos contestados"
-     },
-     {
-      "id": "d11:E5",
-      "chave": "E5",
-      "nome": "Banca em Família (mnemônicos)",
-      "topico": "estrategia-de-prova/banca-em-familia-mnemonicos",
-      "ankiDeck": "Transpetro 2026 · 1 Questões::11 Estratégia de prova::Banca em Família (mnemônicos)"
      }
     ]
    }
@@ -5328,77 +5283,9 @@
    }
   },
   "conteudos": {
-   "familia": "dados/familia.json",
-   "musicas": "dados/musicas.json",
    "banca": "dados/banca.json",
    "videos": "dados/videos.json",
    "links": "dados/links.json",
-   "personas": {
-    "": {
-     "nome": "Tutor Cesgranrio",
-     "trata": "",
-     "temas": ""
-    },
-    "viviane": {
-     "nome": "Viviane, sua esposa",
-     "trata": "amor",
-     "temas": "BI e Inglês"
-    },
-    "pai": {
-     "nome": "Pai",
-     "trata": "filho",
-     "temas": "Normalização e LGPD"
-    },
-    "mae": {
-     "nome": "Mãe",
-     "trata": "filho",
-     "temas": "Projetos e crase"
-    },
-    "tio": {
-     "nome": "Tio José Raimundo",
-     "trata": "sobrinho",
-     "temas": "Segurança e Lógica"
-    },
-    "tiadores": {
-     "nome": "Tia Maria das Dores",
-     "trata": "sobrinho",
-     "temas": "Scrum e Engenharia de Software"
-    },
-    "tiajose": {
-     "nome": "Tia Maria José",
-     "trata": "sobrinho",
-     "temas": "UX e Governança"
-    },
-    "avo": {
-     "nome": "Avô Milton",
-     "trata": "neto",
-     "temas": "PMBOK 7"
-    },
-    "joao": {
-     "nome": "João Miguel, seu filho",
-     "trata": "papai",
-     "temas": "OLAP"
-    },
-    "sophia": {
-     "nome": "Sophia, sua filha",
-     "trata": "papai",
-     "temas": "ACID"
-    }
-   },
-   "familiaQuem": {
-    "Viviane": "viviane",
-    "Pai": "pai",
-    "Mãe": "mae",
-    "Tio José Raimundo": "tio",
-    "Tia Maria das Dores": "tiadores",
-    "Tia Maria José": "tiajose",
-    "Avô Milton": "avo",
-    "Viviane e João Miguel (personagem ilustrado)": "joao",
-    "Sophia (personagem ilustrada)": "sophia",
-    "Viviane, Ronaldo e o Max": "viviane",
-    "Max": "",
-    "Ronaldo explica para si mesmo": ""
-   },
    "atalhos": [
     {
      "titulo": "Arena Cesgranrio (Claude)",
