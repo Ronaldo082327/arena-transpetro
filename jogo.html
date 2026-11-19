@@ -1,0 +1,390 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#0d5b6b"><link rel="manifest" href="manifest.json"><link rel="icon" href="icon-192.png">
+<title>Arena Relâmpago</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Arena Relâmpago: revisão gamificada do Arena Transpetro. Mesmo sistema visual do index.html; progresso próprio em arenaTP.jogo.v1. */
+:root{
+  --bg:#f3f5f6; --paper:#ffffff; --ink:#14232a; --muted:#566870; --line:#d5dde0;
+  --accent:#0d5b6b; --accent-soft:#dcecef; --warn:#a96400; --warn-soft:#f8ecd8;
+  --bad:#a3322a; --bad-soft:#f6e1de; --ok:#2c6e3f; --ok-soft:#e1efe4; --on-accent:#ffffff; --gold:#b07d10;
+  --display:"Barlow Condensed","Arial Narrow",Arial,sans-serif;
+  --body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0e1619; --paper:#152126; --ink:#e3ecee; --muted:#9db0b6; --line:#2a3a40;
+  --accent:#5fb6c6; --accent-soft:#16343b; --warn:#e3a54b; --warn-soft:#3a2c14;
+  --bad:#ec8b81; --bad-soft:#3d1f1c; --ok:#7fc794; --ok-soft:#183324; --on-accent:#0e1619; --gold:#e6b84a; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0e1619; --paper:#152126; --ink:#e3ecee; --muted:#9db0b6; --line:#2a3a40;
+  --accent:#5fb6c6; --accent-soft:#16343b; --warn:#e3a54b; --warn-soft:#3a2c14;
+  --bad:#ec8b81; --bad-soft:#3d1f1c; --ok:#7fc794; --ok-soft:#183324; --on-accent:#0e1619; --gold:#e6b84a; color-scheme:dark}
+*{box-sizing:border-box}
+html,body{overflow-x:hidden}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.5;margin:0;
+  padding:0 max(16px,env(safe-area-inset-right,0px)) 64px max(16px,env(safe-area-inset-left,0px))}
+.wrap{max-width:860px;margin:0 auto}
+h1,h2,h3{font-family:var(--display);font-weight:600;line-height:1.1;margin:0;text-wrap:balance}
+h1{font-size:clamp(30px,6vw,44px)} h2{font-size:26px} h3{font-size:19px}
+p{margin:0}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.note{font-size:13px;color:var(--muted)}
+a{color:var(--accent)}
+button{font-family:var(--body);font-size:14px;cursor:pointer;border-radius:8px;border:1px solid var(--line);background:var(--paper);color:var(--ink);padding:9px 14px;touch-action:manipulation}
+button.primary{background:var(--accent);border-color:var(--accent);color:var(--on-accent);font-weight:600}
+button.ghost{background:none}
+button:disabled{opacity:.5;cursor:default}
+button:focus-visible,select:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+select{font-family:var(--body);font-size:14px;padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:var(--paper);color:var(--ink);max-width:100%}
+
+/* Barra superior: nível, XP, sequência e contagem regressiva */
+.bar{position:sticky;top:0;z-index:5;background:var(--paper);border-bottom:1px solid var(--line);
+  margin:0 calc(-1*max(16px,env(safe-area-inset-right,0px))) 0 calc(-1*max(16px,env(safe-area-inset-left,0px)));
+  padding:calc(8px + env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) 8px max(16px,env(safe-area-inset-left,0px))}
+.bar .in{max-width:860px;margin:0 auto;display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.brand{font-family:var(--display);font-weight:700;font-size:20px;color:var(--accent);white-space:nowrap;text-decoration:none}
+.lvl{display:flex;align-items:center;gap:8px;flex:1 1 200px;min-width:0}
+.lvl .badge{font-family:var(--display);font-weight:700;font-size:15px;background:var(--accent);color:var(--on-accent);border-radius:6px;padding:2px 8px;white-space:nowrap}
+.xpbar{flex:1;height:8px;border-radius:99px;background:var(--accent-soft);overflow:hidden;min-width:60px}
+.xpbar i{display:block;height:100%;background:var(--accent);width:0;transition:width .5s}
+.chips{display:flex;gap:6px;font-family:var(--mono);font-size:12px;color:var(--muted)}
+.chip{border:1px solid var(--line);border-radius:99px;padding:3px 9px;white-space:nowrap}
+.chip.hot{color:var(--warn);border-color:var(--warn);background:var(--warn-soft)}
+
+header.hero{padding:24px 0 12px;display:grid;gap:8px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px;margin-top:12px}
+.mode{all:unset;cursor:pointer;background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:16px;display:grid;gap:6px;align-content:start;transition:transform .12s,border-color .12s}
+.mode:hover{border-color:var(--accent);transform:translateY(-2px)}
+.mode:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.mode .ic{font-size:26px;line-height:1}
+.mode h3{font-size:22px}
+.mode .tag{font-family:var(--mono);font-size:11px;color:var(--accent)}
+.mode.feature{grid-column:1/-1;background:linear-gradient(135deg,var(--accent-soft),var(--paper));border-color:var(--accent)}
+.mode.done{opacity:.7}
+.panel{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:18px;margin-top:14px}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.spread{display:flex;justify-content:space-between;gap:10px;align-items:center;flex-wrap:wrap}
+.hud{display:flex;gap:14px;font-family:var(--mono);font-size:13px;color:var(--muted);flex-wrap:wrap}
+.hud b{color:var(--ink);font-weight:500}
+.combo{color:var(--warn)!important}
+.timer{height:6px;border-radius:99px;background:var(--line);overflow:hidden;margin:10px 0}
+.timer i{display:block;height:100%;background:var(--warn);width:100%;transition:width 1s linear}
+
+/* Questão */
+.enun{white-space:pre-line;font-size:15.5px;margin:12px 0;max-height:46vh;overflow:auto}
+.meta{font-family:var(--mono);font-size:11.5px;color:var(--muted)}
+.alts{display:grid;gap:8px}
+.alt{all:unset;cursor:pointer;display:flex;gap:10px;align-items:flex-start;border:1px solid var(--line);border-radius:8px;padding:10px 12px;background:var(--paper)}
+.alt:hover{border-color:var(--accent)}
+.alt:focus-visible{outline:2px solid var(--accent)}
+.alt .k{font-family:var(--mono);font-weight:500;color:var(--accent);min-width:1.2em}
+.alt.ok{border-color:var(--ok);background:var(--ok-soft)}
+.alt.bad{border-color:var(--bad);background:var(--bad-soft)}
+.alt.dim{opacity:.55}
+.alts.locked .alt{cursor:default}
+
+/* Flashcard */
+.card3d{perspective:1200px;margin:14px 0;cursor:pointer}
+.card3d .inner{position:relative;min-height:220px;transition:transform .45s;transform-style:preserve-3d}
+.card3d.flip .inner{transform:rotateY(180deg)}
+.face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border:1px solid var(--line);border-radius:12px;padding:20px;display:grid;align-content:center;gap:10px;background:var(--paper);overflow:auto}
+.face.back{transform:rotateY(180deg);background:var(--accent-soft);border-color:var(--accent)}
+.face p{font-size:17px}
+.grade{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.grade button{padding:12px 6px}
+.b-bad{border-color:var(--bad)!important;color:var(--bad)} .b-mid{border-color:var(--warn)!important;color:var(--warn)} .b-ok{border-color:var(--ok)!important;color:var(--ok)}
+
+/* Chefão */
+.boss{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:center;margin:8px 0}
+.boss .face-b{font-size:44px;line-height:1;transition:transform .2s}
+.boss .face-b.hit{transform:scale(.8) rotate(-8deg)}
+.hp{height:12px;border-radius:99px;background:var(--bad-soft);overflow:hidden}
+.hp i{display:block;height:100%;background:var(--bad);transition:width .4s}
+.lives{font-size:18px;letter-spacing:2px}
+
+/* Feedback e placar */
+.fb{margin-top:12px;padding:12px;border-radius:8px;border:1px solid var(--line);display:grid;gap:6px}
+.fb.ok{background:var(--ok-soft);border-color:var(--ok)}
+.fb.bad{background:var(--bad-soft);border-color:var(--bad)}
+.stat{display:grid;grid-template-columns:120px 1fr 64px;gap:10px;align-items:center;font-size:13.5px;margin:6px 0}
+.stat .track{height:10px;border-radius:99px;background:var(--line);overflow:hidden}
+.stat .track i{display:block;height:100%}
+.ach{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px;margin-top:10px}
+.ach div{border:1px solid var(--line);border-radius:10px;padding:10px;font-size:13px;display:grid;gap:2px}
+.ach div.on{border-color:var(--gold);background:var(--warn-soft)}
+.ach div.off{opacity:.45}
+.ach .i{font-size:22px}
+.mac{border:1px solid var(--line);border-radius:10px;padding:14px;display:grid;gap:6px;margin-top:10px}
+.mac .m{font-family:var(--display);font-size:20px;line-height:1.2;color:var(--accent)}
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%) translateY(120px);background:var(--ink);color:var(--bg);padding:10px 16px;border-radius:99px;font-family:var(--mono);font-size:13px;transition:transform .3s,opacity .3s;opacity:0;z-index:20;max-width:calc(100vw - 32px);text-align:center}
+.toast.on{transform:translateX(-50%) translateY(0);opacity:1}
+.float{position:fixed;pointer-events:none;font-family:var(--display);font-weight:700;font-size:26px;color:var(--ok);z-index:15;animation:up 1s ease-out forwards}
+@keyframes up{to{transform:translateY(-60px);opacity:0}}
+canvas#fx{position:fixed;inset:0;pointer-events:none;z-index:19}
+.kbd{font-family:var(--mono);font-size:11px;border:1px solid var(--line);border-radius:4px;padding:0 4px}
+@media (max-width:520px){.stat{grid-template-columns:90px 1fr 54px}.face p{font-size:16px}.hide-sm{display:none}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style></head>
+<body>
+<div class="bar"><div class="in">
+  <a class="brand" href="#" data-go="hub">⚡ Arena Relâmpago</a>
+  <div class="lvl"><span class="badge" id="lvlBadge">Nv 1</span><div class="xpbar" title="XP até o próximo nível"><i id="xpFill"></i></div><span class="mono note" id="xpTxt">0 XP</span></div>
+  <div class="chips"><span class="chip" id="streakChip">🔥 0</span><span class="chip" id="countChip">D-0</span></div>
+</div></div>
+<canvas id="fx"></canvas>
+<div class="wrap"><main id="app" aria-live="polite"><p class="note" style="padding:40px 0">Carregando questões e cards…</p></main></div>
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+(function(){
+'use strict';
+var KEY='arenaTP.jogo.v1', PROVA=new Date('2026-12-06T13:00:00-03:00');
+var DISC_Q={BI_CienciaDados:'BI',Seguranca:'Segurança',EngSoftware_UX:'Eng. Software',Dados:'Dados',Governanca:'Governança',Projetos:'Projetos'};
+var RANKS=['Estagiário de Terminal','Técnico de Operação','Operador de Duto','Analista Júnior','Analista Pleno','Analista Sênior','Coordenador de Terminal','Gerente de Frota','Comandante de Petroleiro','Lenda da Cesgranrio'];
+var BOSS_FACE={'Dados':'🐘','BI':'🧊','Segurança':'🦠','Eng. Software':'🐛','Governança':'🏛️','Projetos':'📅'};
+var BOSS_NAME={'Dados':'O Normalizador','BI':'O Cubo OLAP','Segurança':'O Rootkit','Eng. Software':'O Bug de Produção','Governança':'O Conselho EDM','Projetos':'O Caminho Crítico'};
+var Q=[],C=[],ARM=[],MAC=[],PRI=[];
+var S={xp:0,days:{},streak:0,last:'',box:{},qs:{},disc:{},ach:{},boss:{},best:{},missao:{},mac:{},sound:true,ans:0,ok:0,maxCombo:0};
+try{var raw=localStorage.getItem(KEY); if(raw) S=Object.assign(S,JSON.parse(raw));}catch(e){}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(S));}catch(e){}}
+var $=function(s,r){return (r||document).querySelector(s);};
+var app=$('#app');
+function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+function today(){var d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');}
+function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;}
+function pick(a,n){return shuffle(a).slice(0,n);}
+
+/* ---------- XP, nível, sequência ---------- */
+function lvlOf(xp){var l=1,need=100,acc=0;while(xp>=acc+need){acc+=need;l++;need=Math.round(100*Math.pow(l,1.35));}return {l:l,cur:xp-acc,need:need};}
+function rank(l){return RANKS[Math.min(RANKS.length-1,Math.floor((l-1)/3))];}
+function touchDay(){var t=today();if(S.last===t)return;var y=new Date();y.setDate(y.getDate()-1);var ys=y.getFullYear()+'-'+String(y.getMonth()+1).padStart(2,'0')+'-'+String(y.getDate()).padStart(2,'0');S.streak=(S.last===ys)?S.streak+1:1;S.last=t;}
+function gain(n,el){if(n<=0)return;var before=lvlOf(S.xp).l;touchDay();S.xp+=n;var t=today();S.days[t]=(S.days[t]||0)+n;save();var after=lvlOf(S.xp).l;
+  if(el){var r=el.getBoundingClientRect();var f=document.createElement('div');f.className='float';f.textContent='+'+n;f.style.left=(r.left+r.width/2-20)+'px';f.style.top=(r.top-10)+'px';document.body.appendChild(f);setTimeout(function(){f.remove();},1000);}
+  if(after>before){confetti();toast('⬆️ Nível '+after+' · '+rank(after));beep(880,.15);setTimeout(function(){beep(1175,.2);},140);}
+  checkAch();hud();}
+function hud(){var L=lvlOf(S.xp);$('#lvlBadge').textContent='Nv '+L.l;$('#lvlBadge').title=rank(L.l);$('#xpFill').style.width=(100*L.cur/L.need)+'%';$('#xpTxt').textContent=S.xp+' XP';
+  var alive=S.last===today()||(function(){var y=new Date();y.setDate(y.getDate()-1);return S.last===y.getFullYear()+'-'+String(y.getMonth()+1).padStart(2,'0')+'-'+String(y.getDate()).padStart(2,'0');})();
+  var st=alive?S.streak:0;var sc=$('#streakChip');sc.textContent='🔥 '+st;sc.className='chip'+(st>=3?' hot':'');sc.title=st+' dia(s) seguidos';
+  var d=Math.ceil((PROVA-new Date())/864e5);$('#countChip').textContent=d>0?'D-'+d:(d===0?'É HOJE':'Prova feita');$('#countChip').title='Prova em 06/12/2026';}
+function record(disc,ok,qid){S.ans++;if(ok)S.ok++;var o=S.disc[disc]||(S.disc[disc]={ok:0,n:0});o.n++;if(ok)o.ok++;if(qid){var q=S.qs[qid]||(S.qs[qid]={ok:0,n:0});q.n++;if(ok)q.ok++;}save();}
+
+/* ---------- Efeitos ---------- */
+var AC=null;function beep(f,d){if(!S.sound)return;try{AC=AC||new (window.AudioContext||window.webkitAudioContext)();var o=AC.createOscillator(),g=AC.createGain();o.frequency.value=f;o.type='triangle';g.gain.setValueAtTime(.08,AC.currentTime);g.gain.exponentialRampToValueAtTime(.0001,AC.currentTime+d);o.connect(g);g.connect(AC.destination);o.start();o.stop(AC.currentTime+d);}catch(e){}}
+function good(){beep(660,.09);setTimeout(function(){beep(990,.12);},80);}
+function badS(){beep(220,.22);}
+var tt;function toast(m){var t=$('#toast');t.textContent=m;t.classList.add('on');clearTimeout(tt);tt=setTimeout(function(){t.classList.remove('on');},2600);}
+function confetti(){if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;var c=$('#fx'),x=c.getContext('2d');c.width=innerWidth;c.height=innerHeight;var cs=['#0d5b6b','#5fb6c6','#e3a54b','#7fc794','#ec8b81'];var P=[];for(var i=0;i<140;i++)P.push({x:innerWidth/2,y:innerHeight/3,vx:(Math.random()-.5)*14,vy:Math.random()*-12-3,s:Math.random()*6+3,c:cs[i%5],r:Math.random()*6});var n=0;(function f(){x.clearRect(0,0,c.width,c.height);P.forEach(function(p){p.vy+=.35;p.x+=p.vx;p.y+=p.vy;p.r+=.2;x.fillStyle=p.c;x.save();x.translate(p.x,p.y);x.rotate(p.r);x.fillRect(-p.s/2,-p.s/2,p.s,p.s*.6);x.restore();});if(++n<110)requestAnimationFrame(f);else x.clearRect(0,0,c.width,c.height);})();}
+
+/* ---------- Conquistas ---------- */
+var ACH=[
+ ['primeira','🎯','Primeiro acerto',function(){return S.ok>=1;}],
+ ['cem','💯','100 respostas',function(){return S.ans>=100;}],
+ ['mil','🏗️','1.000 respostas',function(){return S.ans>=1000;}],
+ ['combo5','🔥','Combo de 5',function(){return S.maxCombo>=5;}],
+ ['combo10','🌋','Combo de 10',function(){return S.maxCombo>=10;}],
+ ['seq3','📆','3 dias seguidos',function(){return S.streak>=3;}],
+ ['seq7','🗓️','7 dias seguidos',function(){return S.streak>=7;}],
+ ['missao','✅','Missão do dia',function(){return Object.keys(S.missao).length>=1;}],
+ ['missao5','🎖️','5 missões',function(){return Object.keys(S.missao).length>=5;}],
+ ['boss1','⚔️','Primeiro chefão',function(){return Object.keys(S.boss).length>=1;}],
+ ['bossAll','👑','Todos os chefões',function(){return Object.keys(S.boss).length>=6;}],
+ ['cacador','🕵️','20 armadilhas desarmadas',function(){return (S.armOk||0)>=20;}],
+ ['macetes','🧠','Todos os macetes acertados',function(){return MAC.length&&MAC.every(function(m){return S.mac[m.id]&&S.mac[m.id].ok>0;});}],
+ ['caixa5','📦','50 cards na caixa 5',function(){return Object.keys(S.box).filter(function(k){return S.box[k].b>=5;}).length>=50;}],
+ ['nv10','🚢','Nível 10',function(){return lvlOf(S.xp).l>=10;}]
+];
+function checkAch(){ACH.forEach(function(a){if(!S.ach[a[0]]&&a[3]()){S.ach[a[0]]=today();save();setTimeout(function(){toast(a[1]+' Conquista: '+a[2]);confetti();},400);}});}
+
+/* ---------- Seleção inteligente ---------- */
+function acc(d){var o=S.disc[d];return o&&o.n?o.ok/o.n:null;}
+function weakest(n){var ds=Object.keys(BOSS_NAME);return ds.sort(function(a,b){var x=acc(a),y=acc(b);x=x==null?.5:x;y=y==null?.5:y;return x-y;}).slice(0,n);}
+function qPool(disc){var p=disc?Q.filter(function(q){return DISC_Q[q.disc]===disc;}):Q;
+  // prioriza questões nunca vistas e as já erradas
+  return shuffle(p).sort(function(a,b){var x=S.qs[a.id],y=S.qs[b.id];var sx=!x?1:(x.ok<x.n?2:0),sy=!y?1:(y.ok<y.n?2:0);return sy-sx;});}
+var IV=[0,1,3,7,14,30];
+function dueCards(disc){var now=Date.now();return C.filter(function(c){if(disc&&c.d!==disc)return false;var b=S.box[c.id];return !b||b.due<=now;});}
+function cardsSorted(disc){var due=dueCards(disc);var rev=due.filter(function(c){return S.box[c.id];}),neu=due.filter(function(c){return !S.box[c.id];});return shuffle(rev).concat(shuffle(neu));}
+
+/* ---------- Telas ---------- */
+function go(v,arg){stopTimer();window.scrollTo(0,0);(VIEWS[v]||VIEWS.hub)(arg);}
+var VIEWS={};
+VIEWS.hub=function(){
+  var t=today(),md=S.missao[t];var L=lvlOf(S.xp);var due=dueCards().filter(function(c){return S.box[c.id];}).length;
+  var w=weakest(2);
+  app.innerHTML='<header class="hero"><div class="eyebrow">Transpetro 2026 · Cesgranrio · Ênfase 5</div><h1>'+esc(rank(L.l))+'</h1><p class="note">'+Q.length+' questões reais, '+C.length+' flashcards, '+ARM.length+' armadilhas da banca e '+MAC.length+' macetes. Cada acerto vale XP; seus pontos fracos viram prioridade.</p></header>'+
+  '<div class="grid">'+
+  mode('missao','🎯','Missão do dia',md?'Concluída hoje. Volte amanhã para manter a sequência.':'10 cards, 5 questões de '+esc(w.join(' e '))+', 2 armadilhas e 2 macetes. Bônus de 150 XP.',md?'feito ✓':'+150 XP bônus',true,md)+
+  mode('relampago','⚡','Relâmpago','5 minutos de questões reais. Acertos seguidos multiplicam o XP.','recorde '+(S.best.relampago||0)+' XP')+
+  mode('chefao','⚔️','Chefão da disciplina','15 questões, 3 vidas. Derrube o chefe e ganhe a medalha.',Object.keys(S.boss).length+'/6 derrotados')+
+  mode('cards','🃏','Flashcards','Revisão espaçada em 5 caixas. Errou, volta para a 1.',due+' para revisar hoje')+
+  mode('armadilha','🕵️','Caça-armadilha','A banca preparou a pegadinha. Escolha como desarmar.',(S.armOk||0)+' desarmadas')+
+  mode('macetes','🧠','Macetes','Mnemônicos para as listas que a banca adora cobrar.',MAC.filter(function(m){return S.mac[m.id]&&S.mac[m.id].ok;}).length+'/'+MAC.length+' dominados')+
+  mode('placar','📊','Placar','Acerto por disciplina, conquistas e backup do progresso.',Object.keys(S.ach).length+'/'+ACH.length+' conquistas')+
+  '</div><p class="note" style="margin-top:18px">Atalhos: <span class="kbd">A</span>–<span class="kbd">E</span> respondem, <span class="kbd">Espaço</span> vira o card, <span class="kbd">1</span>–<span class="kbd">3</span> avaliam, <span class="kbd">Enter</span> avança. <a href="index.html">Voltar ao Arena completo</a>.</p>';
+};
+function mode(id,ic,t,d,tag,feat,done){return '<button class="mode'+(feat?' feature':'')+(done?' done':'')+'" data-go="'+id+'"><span class="ic">'+ic+'</span><h3>'+t+'</h3><p class="note">'+d+'</p><span class="tag">'+tag+'</span></button>';}
+
+/* --- Motor de questão reaproveitado por Relâmpago, Chefão e Missão --- */
+function renderQ(q,ctx){
+  var L=['A','B','C','D','E'].filter(function(k){return q.alternativas[k]!=null;});
+  return '<div class="meta">'+esc(DISC_Q[q.disc]||q.disc)+' · '+esc(q.concurso)+' · '+esc(q.ano)+'</div><div class="meta">'+esc(q.assunto)+'</div>'+
+   '<div class="enun">'+esc(q.enunciado)+'</div><div class="alts" id="alts">'+L.map(function(k){return '<button class="alt" data-k="'+k+'"><span class="k">'+k+'</span><span>'+esc(q.alternativas[k])+'</span></button>';}).join('')+'</div><div id="fbq"></div>';
+}
+function bindQ(q,cb){var box=$('#alts');box.onclick=function(e){var b=e.target.closest('.alt');if(!b||box.classList.contains('locked'))return;answerQ(q,b.dataset.k,cb);};}
+function answerQ(q,k,cb){var box=$('#alts');if(!box||box.classList.contains('locked'))return;box.classList.add('locked');var ok=k===q.gabarito;
+  box.querySelectorAll('.alt').forEach(function(b){if(b.dataset.k===q.gabarito)b.classList.add('ok');else if(b.dataset.k===k)b.classList.add('bad');else b.classList.add('dim');});
+  record(DISC_Q[q.disc]||q.disc,ok,q.id);ok?good():badS();cb(ok,box.querySelector('.alt[data-k="'+k+'"]'));}
+
+/* Relâmpago */
+var timer=null;function stopTimer(){if(timer){clearInterval(timer);timer=null;}}
+VIEWS.relampago=function(disc){
+  if(disc===undefined){app.innerHTML=header('⚡ Relâmpago','5 minutos. Cada acerto vale 10 XP × combo (até ×5). Errar zera o combo.')+'<div class="panel"><div class="row"><label for="dsel" class="note">Disciplina</label><select id="dsel"><option value="">Todas</option>'+Object.keys(BOSS_NAME).map(function(d){return '<option>'+esc(d)+'</option>';}).join('')+'</select><button class="primary" id="start">Começar</button></div></div>';
+    $('#start').onclick=function(){VIEWS.relampago($('#dsel').value);};return;}
+  var pool=qPool(disc||null),i=0,xp=0,combo=0,hits=0,n=0,left=300;
+  function step(){var q=pool[i++%pool.length];
+    app.innerHTML='<div class="panel"><div class="spread"><div class="hud"><span>⏱ <b id="tl">'+fmt(left)+'</b></span><span>XP <b>'+xp+'</b></span><span class="combo">combo ×<b>'+Math.min(5,combo+1)+'</b></span><span>'+hits+'/'+n+'</span></div><button class="ghost" id="quit">Encerrar</button></div><div class="timer"><i id="tb" style="width:'+(left/3)+'%"></i></div>'+renderQ(q)+'</div>';
+    $('#quit').onclick=end;
+    bindQ(q,function(ok,el){n++;if(ok){hits++;combo++;S.maxCombo=Math.max(S.maxCombo,combo);var g=10*Math.min(5,combo);xp+=g;gain(g,el);}else{combo=0;}
+      $('#fbq').innerHTML=fb(ok,q)+'<div class="row" style="margin-top:8px"><button class="primary" id="nx">Próxima ↵</button></div>';$('#nx').onclick=step;$('#nx').focus({preventScroll:true});});}
+  function end(){stopTimer();var rec=xp>(S.best.relampago||0);if(rec){S.best.relampago=xp;save();confetti();}
+    app.innerHTML=header('⚡ Fim do Relâmpago',rec?'Novo recorde!':'Recorde: '+(S.best.relampago||0)+' XP')+'<div class="panel"><div class="hud" style="font-size:16px"><span>XP <b>'+xp+'</b></span><span>Acertos <b>'+hits+'/'+n+'</b></span><span>Aproveitamento <b>'+(n?Math.round(100*hits/n):0)+'%</b></span></div><div class="row" style="margin-top:14px"><button class="primary" data-go="relampago">Jogar de novo</button><button data-go="hub">Início</button></div></div>';}
+  timer=setInterval(function(){left--;var tl=$('#tl'),tb=$('#tb');if(tl)tl.textContent=fmt(left);if(tb)tb.style.width=(left/3)+'%';if(left<=0)end();},1000);
+  step();
+};
+function fmt(s){return Math.floor(s/60)+':'+String(s%60).padStart(2,'0');}
+function fb(ok,q){var arm=ARM.filter(function(a){return a.disc===(DISC_Q[q.disc]||'');});var tip=!ok&&arm.length?'<p class="note">💡 Armadilha da banca nesta disciplina: '+esc(pick(arm,1)[0].eliminar)+'</p>':'';
+  return '<div class="fb '+(ok?'ok':'bad')+'"><b>'+(ok?'Certo!':'Gabarito: '+q.gabarito)+'</b>'+tip+'</div>';}
+function header(t,s){return '<header class="hero"><div class="spread"><h2>'+t+'</h2><button class="ghost" data-go="hub">← Início</button></div>'+(s?'<p class="note">'+s+'</p>':'')+'</header>';}
+
+/* Chefão */
+VIEWS.chefao=function(disc){
+  if(!disc){app.innerHTML=header('⚔️ Chefão da disciplina','15 questões da disciplina. Cada acerto tira 1 de vida do chefe; você tem 3 vidas. Vencer vale 300 XP e a medalha.')+'<div class="grid">'+Object.keys(BOSS_NAME).map(function(d){var a=acc(d);return '<button class="mode'+(S.boss[d]?' done':'')+'" data-go="chefao" data-arg="'+esc(d)+'"><span class="ic">'+BOSS_FACE[d]+'</span><h3>'+esc(BOSS_NAME[d])+'</h3><p class="note">'+esc(d)+(a!=null?' · seu acerto '+Math.round(a*100)+'%':'')+'</p><span class="tag">'+(S.boss[d]?'🏅 derrotado':'desafiar')+'</span></button>';}).join('')+'</div>';return;}
+  var pool=qPool(disc),HP=10,hp=HP,lives=3,i=0;
+  function step(){var q=pool[i++];if(!q||i>15&&hp>0){return lose();}
+    app.innerHTML='<div class="panel"><div class="spread"><b class="mono">'+esc(BOSS_NAME[disc])+'</b><span class="lives" aria-label="'+lives+' vidas">'+'❤️'.repeat(lives)+'🖤'.repeat(3-lives)+'</span></div><div class="boss"><span class="face-b" id="bf">'+BOSS_FACE[disc]+'</span><div><div class="hp"><i style="width:'+(100*hp/HP)+'%"></i></div><div class="meta" style="margin-top:4px">vida do chefe '+hp+'/'+HP+' · questão '+i+'/15</div></div></div>'+renderQ(q)+'</div>';
+    bindQ(q,function(ok,el){if(ok){hp--;gain(15,el);var bf=$('#bf');bf.classList.add('hit');}else{lives--;}
+      var bar=app.querySelector('.hp i');if(bar)bar.style.width=(100*hp/HP)+'%';
+      if(hp<=0)return setTimeout(win,700);if(lives<=0)return setTimeout(lose,900);
+      $('#fbq').innerHTML=fb(ok,q)+'<div class="row" style="margin-top:8px"><button class="primary" id="nx">Próxima ↵</button></div>';$('#nx').onclick=step;});}
+  function win(){var first=!S.boss[disc];S.boss[disc]=today();save();gain(first?300:100);confetti();
+    app.innerHTML=header('🏅 '+esc(BOSS_NAME[disc])+' derrotado!',first?'Medalha nova e 300 XP.':'Revanche vencida: 100 XP.')+'<div class="row"><button class="primary" data-go="chefao">Outro chefão</button><button data-go="hub">Início</button></div>';checkAch();}
+  function lose(){app.innerHTML=header(BOSS_FACE[disc]+' O chefe venceu desta vez','Faça os flashcards de '+esc(disc)+' e volte. Os erros entram primeiro no próximo duelo.')+'<div class="row"><button class="primary" data-go="chefao" data-arg="'+esc(disc)+'">Revanche</button><button data-go="cards" data-arg="'+esc(disc==='Eng. Software'?'Eng. Software':disc)+'">Treinar cards</button><button data-go="hub">Início</button></div>';}
+  step();
+};
+
+/* Flashcards (Leitner) */
+VIEWS.cards=function(disc){
+  var discs=Array.from(new Set(C.map(function(c){return c.d;}))).filter(function(d){return d!=='Geral';});
+  var list=cardsSorted(disc||null).slice(0,20),i=0,xp=0;
+  function step(){var c=list[i];
+    if(!c){app.innerHTML=header('🃏 Sessão concluída',list.length?'+'+xp+' XP. Os cards voltam conforme a caixa.':'Nada pendente aqui. Escolha outra disciplina ou volte amanhã.')+'<div class="row"><button class="primary" data-go="cards" data-arg="'+esc(disc||'')+'">Mais 20</button><button data-go="hub">Início</button></div>';return;}
+    var b=(S.box[c.id]||{}).b||0;
+    app.innerHTML=header('🃏 Flashcards','<span class="mono">'+(i+1)+'/'+list.length+' · caixa '+(b||'nova')+'</span>')+
+     '<div class="row"><select id="dsel"><option value="">Todas as disciplinas</option>'+discs.map(function(d){return '<option'+(d===disc?' selected':'')+'>'+esc(d)+'</option>';}).join('')+'</select></div>'+
+     '<div class="card3d" id="cd" tabindex="0" role="button" aria-label="Virar card"><div class="inner"><div class="face"><div class="meta">'+esc(c.d)+' · '+esc(c.s||'')+'</div><p>'+esc(c.f)+'</p><div class="note">toque ou Espaço para virar</div></div><div class="face back"><div class="meta">resposta</div><p>'+esc(c.b)+'</p></div></div></div>'+
+     '<div class="grade" id="gr" hidden><button class="b-bad" data-g="0">1 · Errei</button><button class="b-mid" data-g="1">2 · Difícil</button><button class="b-ok" data-g="2">3 · Fácil</button></div>';
+    var cd=$('#cd');var flip=function(){cd.classList.add('flip');$('#gr').hidden=false;};cd.onclick=flip;cd.onkeydown=function(e){if(e.key===' '||e.key==='Enter'){e.preventDefault();flip();}};
+    $('#dsel').onchange=function(){VIEWS.cards(this.value||null);};
+    $('#gr').onclick=function(e){var g=e.target.closest('button');if(!g)return;grade(+g.dataset.g,g);};
+    cur=function(g){if(!cd.classList.contains('flip'))return flip();var btn=$('#gr [data-g="'+g+'"]');grade(g,btn);};
+  }
+  function grade(g,el){var c=list[i];var b=(S.box[c.id]||{}).b||0;var nb=g===0?1:(g===1?Math.max(1,b):Math.min(5,b+1));
+    S.box[c.id]={b:nb,due:Date.now()+IV[nb]*864e5-36e5};record(c.d,g>0);var x=g===0?2:(g===1?5:8);xp+=x;gain(x,el);i++;step();}
+  step();
+};
+var cur=null;
+
+/* Caça-armadilha */
+VIEWS.armadilha=function(){
+  var rounds=pick(ARM,8),i=0,hits=0;
+  function step(){var a=rounds[i];if(!a){var x=hits*20;app.innerHTML=header('🕵️ Rodada encerrada',hits+' de '+rounds.length+' armadilhas desarmadas.')+'<div class="row"><button class="primary" data-go="armadilha">Nova rodada</button><button data-go="hub">Início</button></div>';return;}
+    var opts=shuffle([a].concat(pick(ARM.filter(function(o){return o!==a;}).sort(function(x,y){return (y.disc===a.disc)-(x.disc===a.disc);}).slice(0,8),3)));
+    app.innerHTML=header('🕵️ Caça-armadilha','<span class="mono">'+(i+1)+'/'+rounds.length+'</span>')+'<div class="panel"><div class="meta">'+esc(a.disc)+'</div><h3 style="margin:6px 0">'+esc(a.armadilha)+'</h3><p><b>Como a banca disfarça:</b> '+esc(a.disfarce)+'</p><p class="note" style="margin:12px 0 8px">Qual regra desarma esta armadilha?</p><div class="alts" id="alts">'+opts.map(function(o,j){return '<button class="alt" data-k="'+'ABCD'[j]+'" data-r="'+(o===a?1:0)+'"><span class="k">'+'ABCD'[j]+'</span><span>'+esc(o.eliminar)+'</span></button>';}).join('')+'</div><div id="fbq"></div></div>';
+    var box=$('#alts');var answer=function(b){if(box.classList.contains('locked'))return;box.classList.add('locked');var ok=b.dataset.r==='1';box.querySelectorAll('.alt').forEach(function(o){o.classList.add(o.dataset.r==='1'?'ok':(o===b?'bad':'dim'));});
+      record(a.disc,ok);if(ok){hits++;S.armOk=(S.armOk||0)+1;save();gain(20,b);good();}else badS();
+      $('#fbq').innerHTML='<div class="row" style="margin-top:10px"><button class="primary" id="nx">Próxima ↵</button></div>';$('#nx').onclick=function(){i++;step();};};
+    box.onclick=function(e){var b=e.target.closest('.alt');if(b)answer(b);};
+  }
+  step();
+};
+
+/* Macetes */
+VIEWS.macetes=function(tab){
+  var discs=Array.from(new Set(MAC.map(function(m){return m.d;})));
+  if(tab!=='quiz'){app.innerHTML=header('🧠 Macetes','Leia, depois teste no quiz. Cada macete acertado pela primeira vez vale 25 XP.')+'<div class="row"><button class="primary" data-go="macetes" data-arg="quiz">Fazer o quiz</button><select id="dsel"><option value="">Todas</option>'+discs.map(function(d){return '<option>'+esc(d)+'</option>';}).join('')+'</select></div><div id="ml"></div>';
+    var draw=function(d){$('#ml').innerHTML=MAC.filter(function(m){return !d||m.d===d;}).map(function(m){var k=S.mac[m.id]&&S.mac[m.id].ok;return '<div class="mac"><div class="spread"><span class="meta">'+esc(m.d)+' · '+esc(m.t)+'</span>'+(k?'<span class="meta" style="color:var(--ok)">dominado ✓</span>':'')+'</div><div class="m">'+esc(m.m)+'</div><p class="note">'+esc(m.e)+'</p></div>';}).join('');};
+    $('#dsel').onchange=function(){draw(this.value);};draw('');return;}
+  var rounds=shuffle(MAC).sort(function(a,b){return ((S.mac[a.id]||{}).ok?1:0)-((S.mac[b.id]||{}).ok?1:0);}).slice(0,10),i=0,hits=0;
+  function rr(s){return s.split('|').map(function(x){return x.trim();}).join(' / ');}
+  function step(){var m=rounds[i];if(!m){app.innerHTML=header('🧠 Quiz concluído',hits+' de '+rounds.length+'.')+'<div class="row"><button class="primary" data-go="macetes" data-arg="quiz">De novo</button><button data-go="macetes">Ler macetes</button><button data-go="hub">Início</button></div>';return;}
+    var others=MAC.filter(function(o){return o!==m;}).sort(function(x,y){return (y.d===m.d)-(x.d===m.d)+Math.random()-.5;}).slice(0,3);
+    var opts=shuffle([m].concat(others));
+    app.innerHTML=header('🧠 Quiz de macetes','<span class="mono">'+(i+1)+'/'+rounds.length+'</span>')+'<div class="panel"><div class="meta">'+esc(m.d)+' · '+esc(m.t)+'</div><h3 style="margin:8px 0 12px">'+esc(m.p)+'</h3><div class="alts" id="alts">'+opts.map(function(o,j){return '<button class="alt" data-r="'+(o===m?1:0)+'" data-k="'+'ABCD'[j]+'"><span class="k">'+'ABCD'[j]+'</span><span>'+esc(rr(o.r))+'</span></button>';}).join('')+'</div><div id="fbq"></div></div>';
+    var box=$('#alts');box.onclick=function(e){var b=e.target.closest('.alt');if(!b||box.classList.contains('locked'))return;box.classList.add('locked');var ok=b.dataset.r==='1';
+      box.querySelectorAll('.alt').forEach(function(o){o.classList.add(o.dataset.r==='1'?'ok':(o===b?'bad':'dim'));});
+      var st=S.mac[m.id]||(S.mac[m.id]={ok:0,n:0});st.n++;record(m.d,ok);if(ok){hits++;gain(st.ok?8:25,b);st.ok++;good();}else badS();save();
+      $('#fbq').innerHTML='<div class="fb '+(ok?'ok':'bad')+'"><div class="mac" style="margin:0;border:0;padding:0"><div class="m">'+esc(m.m)+'</div></div></div><div class="row" style="margin-top:8px"><button class="primary" id="nx">Próxima ↵</button></div>';$('#nx').onclick=function(){i++;step();};};
+  }
+  step();
+};
+
+/* Missão do dia: cards → questões → armadilhas → macetes */
+VIEWS.missao=function(){
+  var t=today();if(S.missao[t]){toast('Missão de hoje já concluída ✓');return go('hub');}
+  var w=weakest(2);var qs=qPool(w[0]).slice(0,3).concat(qPool(w[1]).slice(0,2));
+  var steps=[].concat(cardsSorted().slice(0,10).map(function(c){return {k:'c',v:c};}),qs.map(function(q){return {k:'q',v:q};}),pick(ARM,2).map(function(a){return {k:'a',v:a};}),pick(MAC,2).map(function(m){return {k:'m',v:m};}));
+  var i=0,hits=0;
+  function prog(){return '<div class="spread"><span class="eyebrow">🎯 Missão do dia · '+(i+1)+'/'+steps.length+'</span><div class="xpbar" style="max-width:220px"><i style="width:'+(100*i/steps.length)+'%"></i></div></div>';}
+  function next(){i++;step();}
+  function step(){var s=steps[i];
+    if(!s){S.missao[t]=hits;save();gain(150);confetti();app.innerHTML=header('🎯 Missão cumprida!','+150 XP de bônus. Sequência: 🔥 '+S.streak+' dia(s). Pontos fracos de hoje: '+esc(w.join(', '))+'.')+'<div class="row"><button class="primary" data-go="chefao" data-arg="'+esc(w[0])+'">Enfrentar o chefão de '+esc(w[0])+'</button><button data-go="hub">Início</button></div>';checkAch();return;}
+    if(s.k==='c'){var c=s.v;app.innerHTML='<div class="panel">'+prog()+'<div class="card3d" id="cd" tabindex="0" role="button" aria-label="Virar card"><div class="inner"><div class="face"><div class="meta">'+esc(c.d)+'</div><p>'+esc(c.f)+'</p><div class="note">toque para virar</div></div><div class="face back"><p>'+esc(c.b)+'</p></div></div></div><div class="grade" id="gr" hidden><button class="b-bad" data-g="0">1 · Errei</button><button class="b-mid" data-g="1">2 · Difícil</button><button class="b-ok" data-g="2">3 · Fácil</button></div></div>';
+      var cd=$('#cd');var flip=function(){cd.classList.add('flip');$('#gr').hidden=false;};cd.onclick=flip;
+      var grade=function(g,el){var b=(S.box[c.id]||{}).b||0;var nb=g===0?1:(g===1?Math.max(1,b):Math.min(5,b+1));S.box[c.id]={b:nb,due:Date.now()+IV[nb]*864e5-36e5};record(c.d,g>0);if(g>0)hits++;gain(g===0?2:5,el);next();};
+      $('#gr').onclick=function(e){var g=e.target.closest('button');if(g)grade(+g.dataset.g,g);};
+      cur=function(g){if(!cd.classList.contains('flip'))return flip();grade(g,$('#gr [data-g="'+g+'"]'));};return;}
+    if(s.k==='q'){var q=s.v;app.innerHTML='<div class="panel">'+prog()+renderQ(q)+'</div>';bindQ(q,function(ok,el){if(ok){hits++;gain(15,el);}$('#fbq').innerHTML=fb(ok,q)+'<div class="row" style="margin-top:8px"><button class="primary" id="nx">Continuar ↵</button></div>';$('#nx').onclick=next;});return;}
+    if(s.k==='a'){var a=s.v;app.innerHTML='<div class="panel">'+prog()+'<div class="meta" style="margin-top:10px">Armadilha · '+esc(a.disc)+'</div><h3 style="margin:6px 0">'+esc(a.armadilha)+'</h3><p><b>Disfarce:</b> '+esc(a.disfarce)+'</p><div class="fb ok" id="rv" hidden><b>Como eliminar</b><p>'+esc(a.eliminar)+'</p></div><div class="row" style="margin-top:12px"><button class="primary" id="sh">Revelar como eliminar</button></div></div>';
+      $('#sh').onclick=function(){if($('#rv').hidden){$('#rv').hidden=false;this.textContent='Continuar ↵';gain(5,this);}else next();};$('#sh').id='nx';return;}
+    var m=s.v;app.innerHTML='<div class="panel">'+prog()+'<div class="meta" style="margin-top:10px">Macete · '+esc(m.d)+' · '+esc(m.t)+'</div><div class="mac"><div class="m">'+esc(m.m)+'</div><p class="note">'+esc(m.e)+'</p></div><div class="row" style="margin-top:12px"><button class="primary" id="nx">Memorizei ↵</button></div></div>';$('#nx').onclick=function(){gain(5,this);next();};
+  }
+  step();
+};
+
+/* Placar */
+VIEWS.placar=function(){
+  var ds=Object.keys(S.disc).sort(function(a,b){return (acc(a)||0)-(acc(b)||0);});
+  var days=[];for(var k=13;k>=0;k--){var d=new Date();d.setDate(d.getDate()-k);var s=d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');days.push([s,S.days[s]||0]);}
+  var mx=Math.max.apply(null,days.map(function(x){return x[1];}).concat([1]));
+  app.innerHTML=header('📊 Placar',S.ans+' respostas · '+(S.ans?Math.round(100*S.ok/S.ans):0)+'% de acerto · maior combo '+S.maxCombo)+
+  '<div class="panel"><h3>Acerto por disciplina</h3><p class="note">Do pior para o melhor. A Missão do dia puxa os dois primeiros.</p>'+(ds.length?ds.map(function(d){var a=acc(d),o=S.disc[d];var col=a<.5?'var(--bad)':(a<.7?'var(--warn)':'var(--ok)');return '<div class="stat"><span>'+esc(d)+'</span><div class="track"><i style="width:'+Math.round(a*100)+'%;background:'+col+'"></i></div><span class="mono">'+Math.round(a*100)+'% <span class="note">'+o.n+'</span></span></div>';}).join(''):'<p class="note" style="margin-top:8px">Responda algo para ver seu mapa.</p>')+'</div>'+
+  '<div class="panel"><h3>XP nos últimos 14 dias</h3><div style="display:flex;gap:4px;align-items:flex-end;height:90px;margin-top:10px" role="img" aria-label="XP por dia">'+days.map(function(x){return '<div title="'+x[0]+': '+x[1]+' XP" style="flex:1;background:var(--accent);opacity:'+(x[1]?1:.15)+';height:'+Math.max(3,80*x[1]/mx)+'px;border-radius:3px 3px 0 0"></div>';}).join('')+'</div></div>'+
+  '<div class="panel"><h3>Conquistas</h3><div class="ach">'+ACH.map(function(a){var on=S.ach[a[0]];return '<div class="'+(on?'on':'off')+'"><span class="i">'+a[1]+'</span><b>'+a[2]+'</b><span class="note">'+(on?on.split('-').reverse().join('/'):'bloqueada')+'</span></div>';}).join('')+'</div></div>'+
+  '<div class="panel"><h3>Chefões</h3><p>'+Object.keys(BOSS_NAME).map(function(d){return '<span title="'+esc(d)+'" style="font-size:26px;opacity:'+(S.boss[d]?1:.25)+'">'+BOSS_FACE[d]+'</span>';}).join(' ')+'</p></div>'+
+  '<div class="panel"><h3>Ajustes e backup</h3><div class="row" style="margin-top:8px"><button id="snd">'+(S.sound?'🔊 Som ligado':'🔇 Som desligado')+'</button><button id="exp">Exportar progresso</button><label class="note" style="display:inline-flex;gap:6px;align-items:center"><span style="border:1px solid var(--line);border-radius:8px;padding:9px 14px;cursor:pointer">Importar</span><input type="file" id="imp" accept="application/json" hidden></label></div><p class="note" style="margin-top:8px">O progresso do jogo fica neste navegador (chave '+KEY+'), separado do Arena principal.</p></div>';
+  $('#snd').onclick=function(){S.sound=!S.sound;save();VIEWS.placar();};
+  $('#exp').onclick=function(){var b=new Blob([JSON.stringify(S,null,1)],{type:'application/json'});var a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='arena-relampago-'+today()+'.json';a.click();};
+  $('#imp').onchange=function(){var f=this.files[0];if(!f)return;f.text().then(function(t){var o=JSON.parse(t);if(typeof o.xp!=='number')throw 0;S=Object.assign(S,o);save();hud();toast('Progresso importado');VIEWS.placar();}).catch(function(){toast('Arquivo inválido');});};
+};
+
+/* ---------- Navegação e teclado ---------- */
+document.addEventListener('click',function(e){var g=e.target.closest('[data-go]');if(!g)return;e.preventDefault();cur=null;var a=g.getAttribute('data-arg');go(g.dataset.go,a===null?undefined:a);});
+document.addEventListener('keydown',function(e){if(e.target.tagName==='SELECT'||e.metaKey||e.ctrlKey||e.altKey)return;var k=e.key.toUpperCase();
+  var box=$('#alts');if(box&&!box.classList.contains('locked')&&/^[A-E]$/.test(k)){var b=box.querySelector('.alt[data-k="'+k+'"]');if(b){e.preventDefault();b.click();}return;}
+  if(e.key==='Enter'){var nx=$('#nx');if(nx){e.preventDefault();nx.click();}return;}
+  if(cur&&$('#cd')){if(e.key===' '){e.preventDefault();if(!$('#cd').classList.contains('flip'))cur(-1);}else if(/^[123]$/.test(e.key)&&$('#cd').classList.contains('flip')){cur(+e.key-1);}}});
+
+/* ---------- Carga ---------- */
+function getJ(u){return fetch(u).then(function(r){if(!r.ok)throw new Error(u);return r.json();});}
+Promise.all([getJ('questoes.json'),getJ('cards.json'),getJ('banca.json'),getJ('macetes.json')]).then(function(r){
+  Q=r[0].filter(function(q){return q.gabarito&&q.alternativas&&q.alternativas[q.gabarito];});C=r[1].filter(function(c){return c.f&&c.b;});ARM=r[2].armadilhas||[];PRI=r[2].prioridades||[];MAC=r[3];
+  hud();checkAch();go('hub');
+}).catch(function(e){app.innerHTML='<div class="panel"><h3>Não consegui carregar os dados</h3><p class="note">Abra esta página pelo servidor do Arena (GitHub Pages), não direto do arquivo. Detalhe: '+esc(e.message)+'</p></div>';});
+if('serviceWorker' in navigator&&location.protocol==='https:')navigator.serviceWorker.register('sw.js').catch(function(){});
+})();
+</script>
+</body></html>

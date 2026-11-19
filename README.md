@@ -7,3 +7,7 @@ App de estudo para a prova Transpetro 2026 (Cesgranrio, Analista de Sistemas, Ê
 - O tutor com IA só aparece quando o app roda dentro do Claude (artifact). Fora dele a página funciona sem o tutor.
 
 Dados: `questoes.json`, `cards.json`, `banca.json`, `videos.json`, `links.json`.
+
+## Arena Relâmpago (`jogo.html`)
+
+Revisão gamificada que usa os mesmos dados: Missão do dia (pontos fracos), Relâmpago de 5 minutos com combo, Chefão por disciplina, flashcards em 5 caixas, Caça-armadilha (`banca.json`) e 40 macetes (`macetes.json`). XP, níveis, sequência de dias e conquistas ficam em `localStorage` na chave `arenaTP.jogo.v1`, separada do `arenaTP.v2`.

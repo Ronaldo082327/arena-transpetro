@@ -1,0 +1,362 @@
+[
+ {
+  "id": "m01",
+  "d": "Dados",
+  "t": "Sublinguagens SQL",
+  "m": "\"Crie, Altere, Derrube\" a estrutura (DDL) · \"Insira, Atualize, Delete\" linhas (DML) · \"Selecione\" para ver (DQL) · \"Garanta ou Revogue\" acesso (DCL) · \"Commit/Rollback\" fecha a transação (DTL/TCL)",
+  "e": "CREATE, ALTER, DROP, TRUNCATE = DDL; INSERT, UPDATE, DELETE = DML; SELECT = DQL; GRANT, REVOKE = DCL; COMMIT, ROLLBACK, SAVEPOINT = TCL.",
+  "p": "DDL mexe na ___; DML mexe nas ___",
+  "r": "estrutura | linhas"
+ },
+ {
+  "id": "m02",
+  "d": "Dados",
+  "t": "Formas normais",
+  "m": "\"A chave, a chave inteira e nada além da chave\": 1FN = atômico · 2FN = depende da chave INTEIRA (sem dependência parcial) · 3FN = só da chave (sem dependência transitiva)",
+  "e": "Dependência parcial só existe com chave composta. Tabela com chave simples em 1FN já está em 2FN.",
+  "p": "Dependência transitiva viola a ___FN",
+  "r": "3"
+ },
+ {
+  "id": "m03",
+  "d": "Dados",
+  "t": "ACID",
+  "m": "\"Ou tudo ou nada, sempre coerente, cada um no seu canto, e para sempre\": Atomicidade · Consistência · Isolamento · Durabilidade",
+  "e": "Durabilidade = após o COMMIT, sobrevive a falha. Isolamento = transações concorrentes não se enxergam no meio do caminho.",
+  "p": "A propriedade que garante que o COMMIT sobrevive a queda de energia é a ___",
+  "r": "Durabilidade"
+ },
+ {
+  "id": "m04",
+  "d": "Dados",
+  "t": "N:N no relacional",
+  "m": "\"Muitos para muitos vira três\": duas tabelas das entidades + uma associativa com PK composta pelas duas FKs",
+  "e": "No mapeamento ER-relacional, 1:N leva a FK para o lado N; N:N gera tabela própria.",
+  "p": "No 1:N, a chave estrangeira vai para o lado ___",
+  "r": "N"
+ },
+ {
+  "id": "m05",
+  "d": "Dados",
+  "t": "WHERE x HAVING",
+  "m": "\"WHERE filtra a linha antes do grupo; HAVING filtra o grupo depois\"",
+  "e": "Função de agregação (COUNT, SUM, AVG) no filtro exige HAVING. Ordem lógica: FROM, WHERE, GROUP BY, HAVING, SELECT, ORDER BY.",
+  "p": "Filtrar por COUNT(*) > 5 usa ___",
+  "r": "HAVING"
+ },
+ {
+  "id": "m06",
+  "d": "Dados",
+  "t": "Empresas que NÃO têm X",
+  "m": "\"Quem não tem, procura no NOT\": NOT IN / NOT EXISTS sobre a subconsulta de quem tem",
+  "e": "JOIN com 'diferente de X' devolve quem também tem outras coisas. Armadilha clássica da banca.",
+  "p": "Para 'clientes sem pedido' use NOT ___ ou NOT ___",
+  "r": "IN | EXISTS"
+ },
+ {
+  "id": "m07",
+  "d": "BI",
+  "t": "Operações OLAP",
+  "m": "\"Drill desce, Roll sobe, Slice fatia uma, Dice corta várias, Pivot gira\"",
+  "e": "Drill-down vai ao detalhe (ano → mês); roll-up agrega; slice fixa uma dimensão; dice seleciona subcubo em duas ou mais; pivot troca eixos.",
+  "p": "Passar de 'ano' para 'mês' é ___",
+  "r": "drill-down"
+ },
+ {
+  "id": "m08",
+  "d": "BI",
+  "t": "Estrela x Floco de neve",
+  "m": "\"Estrela é gorda e rápida; floco é magro e cheio de joins\": estrela tem dimensões desnormalizadas; floco normaliza as dimensões",
+  "e": "No centro fica a tabela fato (métricas + FKs). Dimensões descrevem o contexto (quem, onde, quando).",
+  "p": "O esquema com dimensões normalizadas é o ___",
+  "r": "floco de neve"
+ },
+ {
+  "id": "m09",
+  "d": "BI",
+  "t": "Kimball x Inmon",
+  "m": "\"Kimball começa pelo Kanto (data marts, bottom-up); Inmon começa pelo Inteiro (DW corporativo normalizado, top-down)\"",
+  "e": "Kimball: modelagem dimensional e barramento de dimensões conformadas. Inmon: DW em 3FN que alimenta os marts.",
+  "p": "A abordagem bottom-up é de ___",
+  "r": "Kimball"
+ },
+ {
+  "id": "m10",
+  "d": "BI",
+  "t": "ETL",
+  "m": "\"Extrai, Transforma, Leva\" · no ELT a transformação acontece depois da carga, dentro do destino",
+  "e": "Staging area é a área intermediária de limpeza. ELT é comum em data lakes e nuvem.",
+  "p": "Na sigla ELT, a transformação ocorre ___ da carga",
+  "r": "depois"
+ },
+ {
+  "id": "m11",
+  "d": "Segurança",
+  "t": "Tríade CID",
+  "m": "\"CID: Ninguém Lê, Ninguém Muda, Sempre Funciona\": Confidencialidade · Integridade · Disponibilidade",
+  "e": "Hash protege integridade; criptografia, confidencialidade; redundância e backup, disponibilidade. DDoS ataca disponibilidade.",
+  "p": "DDoS ataca principalmente a ___",
+  "r": "Disponibilidade"
+ },
+ {
+  "id": "m12",
+  "d": "Segurança",
+  "t": "Malware por contraste",
+  "m": "\"Vírus pega carona, Worm anda sozinho, Trojan se fantasia, Rootkit se esconde, Ransomware sequestra, Spyware espia, Backdoor deixa a porta\"",
+  "e": "Vírus precisa de hospedeiro e execução; worm se replica pela rede sem hospedeiro; rootkit oculta a presença do invasor.",
+  "p": "O malware que se propaga pela rede sem precisar de arquivo hospedeiro é o ___",
+  "r": "worm"
+ },
+ {
+  "id": "m13",
+  "d": "Segurança",
+  "t": "Assinatura x sigilo",
+  "m": "\"Para ASSINAR uso a MINHA privada; para mandar SEGREDO uso a pública DELE\"",
+  "e": "Assinatura digital: cifra o hash com a chave privada do remetente; qualquer um verifica com a pública. Sigilo: cifra com a pública do destinatário.",
+  "p": "Para garantir sigilo, cifro com a chave ___ do destinatário",
+  "r": "pública"
+ },
+ {
+  "id": "m14",
+  "d": "Segurança",
+  "t": "Simétrica x assimétrica",
+  "m": "\"Simétrica: uma chave, rápida (AES, DES, 3DES) · Assimétrica: par de chaves, lenta (RSA, ECC, Diffie-Hellman)\"",
+  "e": "Na prática se combinam: a assimétrica troca a chave de sessão, a simétrica cifra os dados (como no TLS).",
+  "p": "AES é um algoritmo de criptografia ___",
+  "r": "simétrica"
+ },
+ {
+  "id": "m15",
+  "d": "Segurança",
+  "t": "Backup",
+  "m": "\"Completo copia tudo · Incremental, só o que mudou desde o ÚLTIMO backup · Diferencial, tudo desde o último COMPLETO\"",
+  "e": "Restaurar incremental exige o completo + todos os incrementais; diferencial exige o completo + o último diferencial.",
+  "p": "O backup cuja restauração precisa só do completo e do último ___ é o diferencial",
+  "r": "diferencial"
+ },
+ {
+  "id": "m16",
+  "d": "Governança",
+  "t": "COBIT 2019: governança x gestão",
+  "m": "\"EDM é o conselho que manda (Avaliar, Dirigir, Monitorar); APO, BAI, DSS, MEA são a gestão que executa\"",
+  "e": "Governança: EDM. Gestão: APO (alinhar, planejar, organizar), BAI (construir, adquirir, implementar), DSS (entregar, servir, suportar), MEA (monitorar, avaliar).",
+  "p": "O único domínio de governança do COBIT 2019 é o ___",
+  "r": "EDM"
+ },
+ {
+  "id": "m17",
+  "d": "Governança",
+  "t": "ITIL 4: quatro dimensões",
+  "m": "\"OPIP\": Organizações e pessoas · Parceiros e fornecedores · Informação e tecnologia · Processos e fluxos de valor",
+  "e": "As quatro dimensões do gerenciamento de serviços, sob influência de fatores externos (PESTLE).",
+  "p": "As dimensões do ITIL 4 são ___",
+  "r": "quatro"
+ },
+ {
+  "id": "m18",
+  "d": "Governança",
+  "t": "ITIL 4: incidente x problema",
+  "m": "\"Incidente: apaga o incêndio agora · Problema: descobre quem acendeu o fósforo\"",
+  "e": "Gerenciamento de incidente restaura o serviço o mais rápido possível; de problema busca a causa-raiz. Erro conhecido = problema com causa diagnosticada.",
+  "p": "Buscar a causa-raiz é tarefa do gerenciamento de ___",
+  "r": "problema"
+ },
+ {
+  "id": "m19",
+  "d": "Governança",
+  "t": "ITIL 4: cadeia de valor",
+  "m": "\"Planeje, Melhore, Engaje, Desenhe/Faça a transição, Obtenha/Construa, Entregue e suporte\" (6 atividades)",
+  "e": "Atividades da cadeia de valor de serviço do ITIL 4. Ficam dentro do Sistema de Valor de Serviço (SVS).",
+  "p": "A cadeia de valor de serviço do ITIL 4 tem ___ atividades",
+  "r": "seis"
+ },
+ {
+  "id": "m20",
+  "d": "Projetos",
+  "t": "Scrum: 3-5-3",
+  "m": "\"3 papéis/responsabilidades, 5 eventos, 3 artefatos\": PO, Scrum Master, Developers · Sprint, Planning, Daily, Review, Retrospectiva · Product Backlog, Sprint Backlog, Incremento",
+  "e": "Guia 2020: compromissos = Meta do Produto, Meta da Sprint, Definição de Pronto. Daily tem timebox de 15 minutos.",
+  "p": "O compromisso do Incremento é a ___",
+  "r": "Definição de Pronto"
+ },
+ {
+  "id": "m21",
+  "d": "Projetos",
+  "t": "Scrum: quem é dono de quê",
+  "m": "\"PO ordena o Product Backlog; Developers são donos do Sprint Backlog; Scrum Master serve e remove impedimentos\"",
+  "e": "O PO é uma pessoa, não um comitê. Os Developers decidem quanto cabe na Sprint.",
+  "p": "Quem ordena o Product Backlog é o ___",
+  "r": "Product Owner"
+ },
+ {
+  "id": "m22",
+  "d": "Projetos",
+  "t": "Valor agregado",
+  "m": "\"Tudo começa com V de Valor (EV): CV = EV − AC · SV = EV − PV · CPI = EV/AC · SPI = EV/PV. Negativo ou menor que 1 é ruim\"",
+  "e": "CPI < 1 = acima do custo; SPI < 1 = atrasado. EV sempre vem primeiro na fórmula.",
+  "p": "SPI = 0,8 indica que o projeto está ___",
+  "r": "atrasado"
+ },
+ {
+  "id": "m23",
+  "d": "Projetos",
+  "t": "Caminho crítico",
+  "m": "\"Crítico é quem tem folga zero\": o caminho mais longo define a menor duração do projeto",
+  "e": "Atrasar atividade do caminho crítico atrasa o projeto. Compressão: crashing (mais recursos, mais custo) e fast tracking (paralelizar, mais risco).",
+  "p": "Paralelizar atividades para encurtar o prazo é ___",
+  "r": "fast tracking"
+ },
+ {
+  "id": "m24",
+  "d": "Projetos",
+  "t": "Kanban",
+  "m": "\"Puxe, não empurre; limite o WIP; visualize o fluxo\"",
+  "e": "Kanban não tem papéis nem iterações obrigatórias. Lead time = do pedido à entrega; cycle time = do início do trabalho à entrega.",
+  "p": "O limite de trabalho em andamento é o ___",
+  "r": "WIP"
+ },
+ {
+  "id": "m25",
+  "d": "Eng. Software",
+  "t": "Pirâmide de testes",
+  "m": "\"Unidade na base (muitos, rápidos), integração no meio, sistema/E2E no topo (poucos, lentos)\"",
+  "e": "Teste de unidade isola o componente ANTES da integração. Aceitação valida com o usuário. Regressão: o que funcionava continua funcionando.",
+  "p": "Teste que verifica se a correção quebrou algo que funcionava é o de ___",
+  "r": "regressão"
+ },
+ {
+  "id": "m26",
+  "d": "Eng. Software",
+  "t": "Caixa-preta x caixa-branca",
+  "m": "\"Preta: não vejo o código, testo entradas e saídas · Branca: vejo o código, testo caminhos\"",
+  "e": "Partição de equivalência e valor-limite são caixa-preta; cobertura de comandos e de decisões é caixa-branca.",
+  "p": "Análise do valor-limite é técnica de caixa-___",
+  "r": "preta"
+ },
+ {
+  "id": "m27",
+  "d": "Eng. Software",
+  "t": "SOLID",
+  "m": "\"Single, Open, Liskov, Interface, Dependency\": uma responsabilidade · aberto à extensão, fechado à modificação · subtipo substitui o pai · interfaces enxutas · dependa de abstrações",
+  "e": "O 'O' é o mais cobrado em contraste: estender sem alterar o código existente.",
+  "p": "'Aberto para extensão e fechado para modificação' é o princípio ___",
+  "r": "Open/Closed"
+ },
+ {
+  "id": "m28",
+  "d": "Eng. Software",
+  "t": "Coesão e acoplamento",
+  "m": "\"Coesão Alta, Acoplamento Baixo\" (CA-AB): o módulo faz uma coisa bem e depende pouco dos outros",
+  "e": "Alta coesão + baixo acoplamento = manutenibilidade. A banca troca os termos nas alternativas.",
+  "p": "O desejável é acoplamento ___",
+  "r": "baixo"
+ },
+ {
+  "id": "m29",
+  "d": "Eng. Software",
+  "t": "Requisitos",
+  "m": "\"Funcional diz O QUE o sistema faz; não funcional diz COMO (quão rápido, seguro, disponível)\"",
+  "e": "Desempenho, usabilidade, segurança e portabilidade são não funcionais.",
+  "p": "'Responder em até 2 segundos' é requisito ___",
+  "r": "não funcional"
+ },
+ {
+  "id": "m30",
+  "d": "UX",
+  "t": "10 heurísticas de Nielsen",
+  "m": "\"Vi o Mundo, Controlei, Padronizei, Preveni, Reconheci, Flexibilizei, Enxuguei, Diagnostiquei e Documentei\" — e antes de tudo, Visibilidade do status",
+  "e": "Visibilidade do status · Correspondência com o mundo real · Controle e liberdade · Consistência e padrões · Prevenção de erros · Reconhecer em vez de lembrar · Flexibilidade e eficiência · Estética minimalista · Ajudar a reconhecer, diagnosticar e recuperar erros · Ajuda e documentação.",
+  "p": "Barra de progresso no upload atende à heurística de ___",
+  "r": "visibilidade do status do sistema"
+ },
+ {
+  "id": "m31",
+  "d": "UX",
+  "t": "Double Diamond",
+  "m": "\"Descobrir e Definir (o problema certo), Desenvolver e Entregar (a solução certa)\": abre, fecha, abre, fecha",
+  "e": "Divergir e convergir duas vezes. O primeiro diamante é sobre o problema; o segundo, sobre a solução.",
+  "p": "A fase que converge para o problema certo é ___",
+  "r": "Definir"
+ },
+ {
+  "id": "m32",
+  "d": "UX",
+  "t": "Usabilidade (ISO 9241-11)",
+  "m": "\"EES\": Eficácia (consegue?), Eficiência (com quanto esforço?), Satisfação (gostou?) num contexto de uso",
+  "e": "Contraste com acessibilidade (WCAG: perceptível, operável, compreensível, robusto = POCR).",
+  "p": "Os quatro princípios da WCAG formam ___",
+  "r": "POCR (perceptível, operável, compreensível, robusto)"
+ },
+ {
+  "id": "m33",
+  "d": "Lógica",
+  "t": "Negação do 'se, então'",
+  "m": "\"MANÉ\": MAntém a primeira E Nega a segunda · ~(p → q) ≡ p ∧ ~q",
+  "e": "Equivalências do condicional: p → q ≡ ~q → ~p (contrapositiva) ≡ ~p ∨ q (\"NEYMAR\": Nega a primeira, ou mantém a segunda).",
+  "p": "A negação de 'Se chove, então molha' é ___",
+  "r": "Chove e não molha"
+ },
+ {
+  "id": "m34",
+  "d": "Lógica",
+  "t": "De Morgan",
+  "m": "\"Nega tudo e troca o conectivo\": ~(p ∧ q) ≡ ~p ∨ ~q · ~(p ∨ q) ≡ ~p ∧ ~q",
+  "e": "Negação de 'todo' é 'algum não'; de 'algum' é 'nenhum'.",
+  "p": "A negação de 'Todo analista é técnico' é ___",
+  "r": "Algum analista não é técnico"
+ },
+ {
+  "id": "m35",
+  "d": "Lógica",
+  "t": "Tabela-verdade do condicional",
+  "m": "\"Vera Fischer é Falsa\": p → q só é falso quando V → F",
+  "e": "Bicondicional (↔) é verdadeiro quando os dois têm o mesmo valor. Disjunção exclusiva é o contrário do bicondicional.",
+  "p": "p → q é falso somente quando p é ___ e q é ___",
+  "r": "V | F"
+ },
+ {
+  "id": "m36",
+  "d": "Português",
+  "t": "Crase: troca pelo masculino",
+  "m": "\"Se troca por AO, tem crase\": Vou à praia → vou ao clube",
+  "e": "Não há crase antes de verbo, de palavra masculina, entre palavras repetidas (cara a cara) e antes de pronomes pessoais.",
+  "p": "Em 'cara a cara', a crase ___",
+  "r": "não ocorre"
+ },
+ {
+  "id": "m37",
+  "d": "Português",
+  "t": "Porquês",
+  "m": "\"Por que pergunta, porque responde, porquê é substantivo (o porquê), por quê no fim da frase\"",
+  "e": "'Por que' também equivale a 'pelo qual': o motivo por que saí.",
+  "p": "'Não sei o ___ da demora'",
+  "r": "porquê"
+ },
+ {
+  "id": "m38",
+  "d": "Português",
+  "t": "Q1 da Cesgranrio",
+  "m": "\"A certa abraça o texto inteiro; o distrator conta um detalhe verdadeiro\"",
+  "e": "Compreensão global: escolha a alternativa mais abrangente. Absolutos (sempre, nunca, apenas) costumam marcar a errada.",
+  "p": "Na compreensão global, o distrator costuma ser verdadeiro mas ___",
+  "r": "parcial"
+ },
+ {
+  "id": "m39",
+  "d": "Inglês",
+  "t": "Falsos cognatos",
+  "m": "\"Actually é de fato · Eventually é finalmente · Pretend é fingir · Realize é perceber · Push é empurrar · Library é biblioteca\"",
+  "e": "Atual = current; eventualmente = occasionally; livraria = bookstore.",
+  "p": "'Eventually' significa ___",
+  "r": "finalmente / com o tempo"
+ },
+ {
+  "id": "m40",
+  "d": "Inglês",
+  "t": "Conectivos de contraste",
+  "m": "\"HOWEVER, NEVERTHELESS, ALTHOUGH, WHEREAS, YET: vira o jogo\" · \"MOREOVER, FURTHERMORE, BESIDES: soma\" · \"THEREFORE, THUS, HENCE: conclui\"",
+  "e": "A Cesgranrio pergunta o sentido do conectivo no trecho: pergunte se ele adiciona, contrasta ou conclui.",
+  "p": "'Thus' expressa ___",
+  "r": "conclusão"
+ }
+]
