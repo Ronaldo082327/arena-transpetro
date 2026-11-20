@@ -88,7 +88,7 @@ for q in Q:
     if ps:
         n+=1;ok=any(q['gabarito'] in p for p in ps);h+=ok
         if len(ex)<8: ex.append(q['id'])
-H.append({'nome':'Par espelho por antônimo: o gabarito está no par','n':n,'acertos':h,'taxa':round(100*h/n,1) if n else None,'base':40,'como':'Duas alternativas quase iguais trocando um antônimo (aumenta/diminui, detecta/bloqueia, total/parcial)','uso':'concentrar','exemplos':ex})
+H.append({'nome':'Par espelho por antônimo: o gabarito está no par','n':n,'acertos':h,'taxa':round(100*h/n,1) if n else None,'base':40,'como':'Duas alternativas quase iguais trocando um antônimo (aumenta/diminui, detecta/bloqueia, total/parcial)','uso':'não confirmado (teste cego da Central: 37%, acaso 40%)','exemplos':ex})
 out['heuristicas']=H
 ABS=r'\b(exclusivamente|necessariamente|obrigatoriamente|nunca|jamais|qualquer|sempre|somente|apenas|unicamente)\b'
 pd=collections.defaultdict(lambda:[0,0])

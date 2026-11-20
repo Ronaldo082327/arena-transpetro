@@ -128,6 +128,13 @@
     "pp": 0.92
    },
    {
+    "disc": "Governança",
+    "assunto": "ITIL v4",
+    "antes": 0,
+    "depois": 5,
+    "pp": 0.85
+   },
+   {
     "disc": "BI e Ciência de Dados",
     "assunto": "Governança e Qualidade de Dados (DAMA-DMBOK e Conceitos Relacionados)",
     "antes": 0,
@@ -137,13 +144,6 @@
    {
     "disc": "BI e Ciência de Dados",
     "assunto": "Redes Neurais",
-    "antes": 0,
-    "depois": 5,
-    "pp": 0.85
-   },
-   {
-    "disc": "Governança",
-    "assunto": "ITIL v4",
     "antes": 0,
     "depois": 5,
     "pp": 0.85
@@ -1442,7 +1442,7 @@
    "taxa": 81.2,
    "base": 40,
    "como": "Duas alternativas quase iguais trocando um antônimo (aumenta/diminui, detecta/bloqueia, total/parcial)",
-   "uso": "concentrar",
+   "uso": "não confirmado (teste cego da Central: 37%, acaso 40%)",
    "exemplos": [
     "2694739",
     "634012",

@@ -324,17 +324,22 @@
   {
    "m": "Absolutos (exclusivamente, nunca, qualquer) indicam alternativa errada",
    "v": "verdadeiro",
-   "d": "Medido: exclusivamente, necessariamente, nunca e qualquer foram gabarito 0 vezes em 46 alternativas; 'sempre' 1 em 28; 'somente/apenas' 11%. Exceção: lei e norma citadas literalmente."
+   "d": "Medido: exclusivamente, necessariamente, nunca e qualquer foram gabarito 0 vezes em 46 alternativas aqui; no teste rigoroso da Central, 3 de 85 (3,5%; intervalo de 1,2% a 9,9%), na mesma direção nos 6 concursos testados. É o único sinal que passou no rigor. Exceção: lei e norma citadas literalmente."
   },
   {
    "m": "'Nenhum' é absoluto, logo errado",
    "v": "cuidado",
-   "d": "Medido: 'nenhum(a)' foi gabarito 6 vezes em 10. Amostra pequena, mas aparece em definições corretas (ex.: 'nenhum atributo não chave depende de outro')."
+   "d": "Medido: 'nenhum(a)' foi gabarito 6 vezes em 10 aqui e 6 em 11 na Central. Não elimine por isso."
   },
   {
    "m": "Duas alternativas quase iguais: uma é o gabarito",
-   "v": "depende",
-   "d": "Par espelho semântico contém o gabarito em 89% (Central Reta Final). Pares só parecidos no texto: 43% (acaso 40%). O que conta é a inversão de sentido, não a semelhança de palavras."
+   "v": "falso",
+   "d": "Não confirmado com rigor. Detectado às cegas (sem ver o gabarito) em 70 questões, o gabarito estava no par em 37%, abaixo do acaso (40%). Os 89% e 75% anteriores tinham viés de quem marcou o par vendo a resposta (Central Reta Final, validação por concurso). Não use para escolher."
+  },
+  {
+   "m": "Somando vários sinais dá para acertar sem saber o conteúdo",
+   "v": "falso",
+   "d": "Modelo com todos os sinais, testado em concurso que ele não viu: 24,2% contra 20% do acaso (Central Reta Final). Sinal serve para eliminar uma ou duas; o conteúdo decide."
   }
  ],
  "montagem": {
@@ -380,8 +385,8 @@
     "max4mais": 56.8,
     "exato22222": 1.2
    },
-   "medido": "Blocos de 10 mais equilibrados que o acaso (2-2-2-2-2 em 3,4% dos blocos, contra 1,2% ao acaso, medido pela Central), mas sem cota: o bloco de Português de 2011 (AACBBBCAEE) não tem nenhuma D e repete B três vezes seguidas.",
-   "regra": "Use o equilíbrio só para o chute: entre as que sobraram, a letra menos usada nas suas certezas do bloco. Nunca troque uma resposta que você sabe por causa da contagem."
+   "medido": "EM DISPUTA. O guia 00 (16 gabaritos oficiais da Transpetro 2023, 1.114 questões, na ordem do caderno) encontrou letras equilibradas dentro de cada bloco de 10. O teste mais recente da Central Reta Final (1.006 questões reais, validação por concurso) não achou desvio por bloco, tipo, ano ou órgão (p = 0,68). Exemplo concreto: o bloco de Português de 2011 (AACBBBCAEE) não tem D e repete B três vezes.",
+   "regra": "Na dúvida entre os dois estudos: contar letras para o chute não piora (no pior caso fica nos 20% do acaso) e pode ajudar se o guia 00 estiver certo. Mas nunca troque uma resposta que você sabe por causa da contagem, e gaste o tempo primeiro eliminando pelo conteúdo e pelo absoluto forte."
   },
   "portugues": {
    "textos": [
