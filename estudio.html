@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#0b1e26"><link rel="manifest" href="manifest.json"><link rel="icon" href="icon-192.png">
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#fbf3ea"><link rel="manifest" href="manifest.json"><link rel="icon" href="icon-192.png">
 <title>Estúdio Cesgranrio</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -7,24 +7,25 @@
 <style>
 /* Estúdio Cesgranrio: videoaulas animadas, métodos, mapas mentais, esquemas e flashcards gerados dos guias (expedicao/*.json). */
 :root{
-  --bg:#f3f5f6; --paper:#ffffff; --ink:#14232a; --muted:#566870; --line:#d5dde0;
-  --accent:#0d5b6b; --accent-soft:#dcecef; --warn:#a96400; --warn-soft:#f8ecd8;
-  --bad:#a3322a; --bad-soft:#f6e1de; --ok:#2c6e3f; --ok-soft:#e1efe4; --on-accent:#ffffff; --gold:#9a6a00; --gold-soft:#f8ecd8;
+  --bg:#fbf3ea; --paper:#fffaf4; --ink:#3b2a1d; --muted:#7c6553; --line:#eddcc9;
+  --accent:#c8641f; --accent-soft:#fde8d6; --warn:#a96400; --warn-soft:#fbecd4;
+  --bad:#b0413a; --bad-soft:#fbe3df; --ok:#2f7a45; --ok-soft:#e3f2e6; --on-accent:#ffffff; --gold:#9a6a00; --gold-soft:#fbefd2;
+  --shadow:0 1px 0 rgba(255,255,255,.9) inset,0 8px 22px rgba(176,108,52,.13),0 1px 3px rgba(176,108,52,.12);
+  --shadow-lg:0 1px 0 rgba(255,255,255,.9) inset,0 18px 40px rgba(176,108,52,.18),0 2px 6px rgba(176,108,52,.12);
   --display:"Barlow Condensed","Arial Narrow",Arial,sans-serif;
   --body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
   --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+  color-scheme:light;
 }
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
-  --bg:#0e1619; --paper:#152126; --ink:#e3ecee; --muted:#9db0b6; --line:#2a3a40;
-  --accent:#5fb6c6; --accent-soft:#16343b; --warn:#e3a54b; --warn-soft:#3a2c14;
-  --bad:#ec8b81; --bad-soft:#3d1f1c; --ok:#7fc794; --ok-soft:#183324; --on-accent:#0e1619; --gold:#e6b84a; --gold-soft:#3a2c14; color-scheme:dark}}
+/* Visual pedido pelo Ronaldo: claro, laranja suave, com relevo. O modo escuro só existe se escolhido explicitamente. */
 :root[data-theme="dark"]{
-  --bg:#0e1619; --paper:#152126; --ink:#e3ecee; --muted:#9db0b6; --line:#2a3a40;
-  --accent:#5fb6c6; --accent-soft:#16343b; --warn:#e3a54b; --warn-soft:#3a2c14;
-  --bad:#ec8b81; --bad-soft:#3d1f1c; --ok:#7fc794; --ok-soft:#183324; --on-accent:#0e1619; --gold:#e6b84a; --gold-soft:#3a2c14; color-scheme:dark}
+  --bg:#2a211b; --paper:#352a22; --ink:#f6ebe0; --muted:#cdb7a4; --line:#4a3b30;
+  --accent:#f0a062; --accent-soft:#4a3426; --warn:#e3a54b; --warn-soft:#3a2c14;
+  --bad:#ec8b81; --bad-soft:#3d1f1c; --ok:#7fc794; --ok-soft:#183324; --on-accent:#2a211b; --gold:#e6b84a; --gold-soft:#3a2c14;
+  --shadow:0 6px 18px rgba(0,0,0,.3); --shadow-lg:0 14px 36px rgba(0,0,0,.4); color-scheme:dark}
 *{box-sizing:border-box}
 html,body{overflow-x:hidden}
-body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.55;margin:0;
+body{background:radial-gradient(1200px 600px at 10% -10%,#ffe3c8 0,transparent 60%),radial-gradient(900px 500px at 110% 10%,#ffeedd 0,transparent 55%),var(--bg);background-attachment:fixed;color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.55;margin:0;
   padding:0 max(16px,env(safe-area-inset-right,0px)) 72px max(16px,env(safe-area-inset-left,0px))}
 .wrap{max-width:1040px;margin:0 auto}
 h1,h2,h3,h4{font-family:var(--display);font-weight:600;line-height:1.1;margin:0;text-wrap:balance}
@@ -36,12 +37,12 @@ a{color:var(--accent)}
 .mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
 button,select{font-family:var(--body);font-size:14px;border-radius:9px;border:1px solid var(--line);background:var(--paper);color:var(--ink);padding:9px 14px}
 button{cursor:pointer;touch-action:manipulation}
-button.primary{background:var(--accent);border-color:var(--accent);color:var(--on-accent);font-weight:600}
+button.primary{background:linear-gradient(180deg,#e2803b,var(--accent));box-shadow:0 1px 0 rgba(255,255,255,.35) inset,0 4px 12px rgba(200,100,31,.3);border-color:var(--accent);color:var(--on-accent);font-weight:600}
 button.ghost{background:none}
 button:focus-visible,select:focus-visible,a:focus-visible,[tabindex]:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
 .spread{display:flex;justify-content:space-between;gap:10px;align-items:center;flex-wrap:wrap}
-.top{position:sticky;top:0;z-index:8;background:var(--paper);border-bottom:1px solid var(--line);
+.top{position:sticky;top:0;z-index:8;background:color-mix(in srgb,var(--paper) 88%,transparent);backdrop-filter:blur(10px);box-shadow:0 4px 16px rgba(176,108,52,.10);border-bottom:1px solid var(--line);
   margin:0 calc(-1*max(16px,env(safe-area-inset-right,0px))) 0 calc(-1*max(16px,env(safe-area-inset-left,0px)));
   padding:calc(8px + env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) 8px max(16px,env(safe-area-inset-left,0px))}
 .top .in{max-width:1040px;margin:0 auto;display:flex;gap:6px;align-items:center;overflow-x:auto;scrollbar-width:none}
@@ -50,10 +51,10 @@ button:focus-visible,select:focus-visible,a:focus-visible,[tabindex]:focus-visib
 .top nav a{flex:0 0 auto;font-family:var(--mono);font-size:12px;padding:6px 11px;border-radius:99px;border:1px solid var(--line);color:var(--muted);text-decoration:none;white-space:nowrap}
 .top nav a[aria-current="page"]{color:var(--accent);border-color:var(--accent);background:var(--accent-soft)}
 .hero{padding:24px 0 8px;display:grid;gap:8px}
-.panel{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:18px;margin-top:14px}
+.panel{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:18px;margin-top:14px;box-shadow:var(--shadow)}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px;margin-top:12px}
-.card{all:unset;cursor:pointer;background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:16px;display:grid;gap:6px;align-content:start;transition:border-color .15s,transform .15s}
-.card:hover{border-color:var(--accent);transform:translateY(-2px)}
+.card{all:unset;cursor:pointer;background:linear-gradient(180deg,#fffdf9,var(--paper));border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);padding:16px;display:grid;gap:6px;align-content:start;transition:border-color .15s,transform .15s}
+.card:hover{border-color:var(--accent);transform:translateY(-3px);box-shadow:var(--shadow-lg)}
 .card:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .card .ic{font-size:28px;line-height:1}
 .card .tag{font-family:var(--mono);font-size:11.5px;color:var(--accent)}
@@ -62,10 +63,10 @@ button:focus-visible,select:focus-visible,a:focus-visible,[tabindex]:focus-visib
 .discs button{flex:0 0 auto;border-radius:99px;font-size:13px;padding:6px 12px}
 .discs button[aria-pressed="true"]{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
 .vlist{display:grid;gap:8px;margin-top:10px}
-.vitem{all:unset;cursor:pointer;display:grid;grid-template-columns:70px 1fr auto;gap:12px;align-items:center;border:1px solid var(--line);border-radius:12px;padding:10px 12px;background:var(--paper)}
+.vitem{all:unset;cursor:pointer;display:grid;grid-template-columns:70px 1fr auto;gap:12px;align-items:center;border:1px solid var(--line);border-radius:12px;padding:10px 12px;background:var(--paper);box-shadow:var(--shadow)}
 .vitem:hover{border-color:var(--accent)}
 .vitem:focus-visible{outline:2px solid var(--accent)}
-.thumb{width:70px;aspect-ratio:16/9;border-radius:7px;display:grid;place-items:center;font-size:18px;color:#fff;background:linear-gradient(135deg,var(--c,#0d5b6b),#0b1e26);position:relative}
+.thumb{width:70px;aspect-ratio:16/9;border-radius:9px;display:grid;place-items:center;font-size:18px;color:#3b2a1d;background:linear-gradient(135deg,#fff3e6,color-mix(in srgb,var(--c,#e8803a) 55%,#fff));box-shadow:0 3px 8px rgba(176,108,52,.2);position:relative}
 .thumb::after{content:"▶";position:absolute;right:4px;bottom:2px;font-size:10px;opacity:.85}
 .vitem .d{font-family:var(--mono);font-size:11.5px;color:var(--muted);white-space:nowrap}
 .vitem.seen .thumb{outline:2px solid var(--gold)}
@@ -168,8 +169,43 @@ button:focus-visible,select:focus-visible,a:focus-visible,[tabindex]:focus-visib
 .chapters button{flex:0 0 auto;background:transparent;border:1px solid rgba(255,255,255,.15);color:#a9c3c9;font-family:var(--mono);font-size:11.5px;padding:4px 10px;border-radius:99px}
 .chapters button.cur{color:#06131a;background:var(--c,#5fb6c6);border-color:var(--c,#5fb6c6)}
 
+
+/* Quadro claro das videoaulas (sem fundo escuro) */
+.player{background:#fff7ef;box-shadow:var(--shadow-lg);border-radius:18px}
+.viewport{background:#fff7ef}
+.stage{color:#3b2a1d;background:radial-gradient(ellipse at 15% 0%,color-mix(in srgb,var(--c) 30%,#fff7ef),#fff7ef 55%),linear-gradient(160deg,#fffaf3,#fde9d6)}
+.stage .orb{opacity:.28}
+.stage .bgwave{opacity:.22}
+.stage .hud{color:#9a7b62}
+.scene h2{color:#3b2a1d}
+.scene .kick{color:color-mix(in srgb,var(--c) 55%,#7a4a1c)}
+.s-open .sub{color:#7c6553}
+.hl{background:color-mix(in srgb,var(--c) 35%,#fff)}
+.fstep{background:#fffdf9;border-color:#f0dcc6;box-shadow:0 6px 16px rgba(176,108,52,.12)}
+.fstep .n{color:#fff;background:color-mix(in srgb,var(--c) 70%,#a0521a)}
+.danger{background:#fff1ee;color:#5a2a24}
+.goldcard{background:#fff6dc;color:#3b2a1d;box-shadow:0 18px 50px rgba(200,140,40,.25)}
+.chip{background:#fffdf9;color:#3b2a1d}
+.bubble2{box-shadow:0 12px 30px rgba(176,108,52,.2)}
+.qstem{background:#fffdf9;box-shadow:0 6px 16px rgba(176,108,52,.1)}
+.qsrc{color:#9a6a00}
+.alt2{background:#fffdf9;border-color:#f0dcc6}
+.alt2 .k{color:color-mix(in srgb,var(--c) 60%,#7a4a1c)}
+.alt2 .why{color:#b0413a}
+.alt2.x{background:#fff1ee;border-color:#f3b8ae}
+.alt2.win{background:#e6f6ea;border-color:#55b070;box-shadow:0 0 30px rgba(85,176,112,.35)}
+.fc .f{background:#fffdf9;border-color:#f0dcc6;color:#3b2a1d}
+.fc .b{background:color-mix(in srgb,var(--c) 22%,#fff);color:#3b2a1d}
+.caption{background:#fff1e3;color:#3b2a1d;border-top:1px solid #f0dcc6}
+.controls{background:#fbe9d8;color:#5a4232}
+.controls button,.controls select{border-color:#e9cdb1;color:#5a4232;background:#fffaf4}
+.scrub .track{background:#ecd3bb}
+.chapters{background:#fbe9d8;border-top-color:#f0dcc6}
+.chapters button{border-color:#e9cdb1;color:#7c6553;background:#fffaf4}
+.endcard{background:rgba(255,247,239,.94);color:#3b2a1d}
+.endcard p{color:#7c6553!important}
 /* ===== Métodos (fluxogramas) ===== */
-.method{border:1px solid var(--line);border-radius:14px;padding:16px;background:var(--paper);margin-top:12px;display:grid;gap:12px}
+.method{border:1px solid var(--line);border-radius:14px;padding:16px;background:var(--paper);box-shadow:var(--shadow);margin-top:12px;display:grid;gap:12px}
 .flow{display:grid;gap:0;justify-items:stretch}
 .fn{border:1px solid var(--line);border-radius:12px;padding:10px 14px;background:var(--bg);display:grid;grid-template-columns:30px 1fr;gap:10px;align-items:start}
 .fn .n{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:var(--accent);color:var(--on-accent);font-family:var(--mono);font-size:12px}
@@ -200,7 +236,7 @@ code{font-family:var(--mono);font-size:.88em;background:var(--accent-soft);paddi
 .tabs button{flex:0 0 auto;border-radius:99px;font-family:var(--mono);font-size:12px;padding:6px 12px;color:var(--muted)}
 .tabs button[aria-selected="true"]{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
 .duels{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px;margin-top:12px}
-.duel{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--paper);display:grid}
+.duel{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--paper);box-shadow:var(--shadow);display:grid}
 .duel .sides{display:grid;grid-auto-flow:column;grid-auto-columns:1fr;position:relative}
 .duel .side{padding:12px 14px;display:grid;gap:4px;align-content:start}
 .duel .side:nth-child(odd){background:var(--accent-soft)} .duel .side:nth-child(even){background:var(--gold-soft)}
@@ -211,7 +247,7 @@ code{font-family:var(--mono);font-size:.88em;background:var(--accent-soft);paddi
 .duel .dist{padding:10px 14px;font-size:14px;border-top:1px solid var(--line)}
 .duel .src{padding:6px 14px 10px;font-family:var(--mono);font-size:11px;color:var(--muted)}
 .lists{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:12px;margin-top:12px}
-.lcard{border:1px solid var(--line);border-radius:14px;padding:14px;background:var(--paper);display:grid;gap:8px;align-content:start}
+.lcard{border:1px solid var(--line);border-radius:14px;padding:14px;background:var(--paper);box-shadow:var(--shadow);display:grid;gap:8px;align-content:start}
 .lcard .gat{font-size:13px;border-left:3px solid var(--gold);padding-left:8px;color:var(--muted)}
 .lcard .gat b{color:var(--gold);font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;display:block}
 .lcard ol{margin:0;padding-left:20px;display:grid;gap:4px;font-size:14px}
@@ -242,13 +278,64 @@ code{font-family:var(--mono);font-size:.88em;background:var(--accent-soft);paddi
 .toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%) translateY(100px);opacity:0;background:var(--ink);color:var(--bg);padding:10px 16px;border-radius:99px;font-family:var(--mono);font-size:13px;transition:transform .3s,opacity .3s;z-index:30;max-width:calc(100vw - 32px);text-align:center}
 .toast.on{transform:translateX(-50%) translateY(0);opacity:1}
 .kbd{font-family:var(--mono);font-size:11px;border:1px solid var(--line);border-radius:4px;padding:0 5px}
+
+/* ===== Inteligência ===== */
+.bigplay{background:rgba(255,247,239,.45)!important}
+.geo-grid{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:14px;margin-top:12px;align-items:start}
+.geomap{height:min(70vh,640px);min-height:380px;border-radius:18px;border:1px solid var(--line);box-shadow:var(--shadow-lg);overflow:hidden;z-index:0}
+.geo-panel{margin-top:0;max-height:min(70vh,640px);overflow:auto}
+.pin{width:42px;height:42px;border-radius:50% 50% 50% 6px;transform:rotate(-45deg);background:linear-gradient(135deg,#fff,color-mix(in srgb,var(--c) 60%,#fff));border:2px solid #c8641f;box-shadow:0 6px 14px rgba(176,108,52,.35);display:grid;place-items:center}
+.pin span{transform:rotate(45deg);font-size:20px}
+.stat-pill{background:var(--accent-soft);border-radius:99px;padding:4px 12px;font-size:13px}
+.stat-pill b{font-family:var(--display);font-size:18px;margin-right:3px}
+.mini{margin:6px 0 0;padding-left:18px;display:grid;gap:5px;font-size:13.5px}
+.mac-mini{background:var(--gold-soft);border:1px solid var(--gold);border-radius:12px;padding:10px 12px;font-family:var(--display);font-size:18px;line-height:1.25}
+.btnlink{display:inline-flex;align-items:center;border:1px solid var(--line);border-radius:9px;padding:9px 14px;background:var(--paper);color:var(--ink);text-decoration:none;font-size:14px}
+.satbox iframe{width:100%;height:260px;border:0;border-radius:12px;margin:8px 0}
+.lab-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
+.lab-grid>.panel{margin-top:14px}
+.sig{display:grid;gap:7px;margin-top:10px}
+.sigrow{display:grid;grid-template-columns:minmax(120px,1.3fr) 2fr 92px;gap:10px;align-items:center;font-size:13.5px}
+.sigbar{position:relative;height:12px;border-radius:99px;background:var(--line);overflow:visible}
+.sigbar i{display:block;height:100%;border-radius:99px}
+.sigbar em{position:absolute;top:-4px;bottom:-4px;border-left:2px dashed var(--ink);opacity:.45}
+.letters{display:flex;gap:14px;align-items:flex-end;height:150px;margin:12px 0 6px}
+.letters>div{display:grid;justify-items:center;gap:3px;flex:1}
+.lb{width:100%;max-width:46px;border-radius:10px 10px 4px 4px;background:linear-gradient(180deg,#f2a066,var(--accent));box-shadow:var(--shadow)}
+.myths{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:10px;margin-top:10px}
+.myth{border-radius:14px;padding:12px 14px;display:grid;gap:6px;border:1px solid var(--line);background:var(--paper);box-shadow:var(--shadow)}
+.myth .tag2{justify-self:start;font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;border-radius:99px;padding:2px 9px}
+.myth.ok .tag2{background:var(--ok-soft);color:var(--ok)} .myth.bad .tag2{background:var(--bad-soft);color:var(--bad)} .myth.warn .tag2{background:var(--warn-soft);color:var(--warn)}
+.trow{display:grid;grid-template-columns:1fr 54px 60px;gap:8px;font-size:13.5px;padding:5px 0;border-bottom:1px dashed var(--line)}
+.linkish{all:unset;cursor:pointer;color:var(--accent);text-decoration:underline;text-underline-offset:2px}
+.linkish:focus-visible{outline:2px solid var(--accent)}
+textarea{width:100%;font-family:var(--body);font-size:14px;padding:10px 12px;border:1px solid var(--line);border-radius:12px;background:var(--paper);color:var(--ink);margin-top:8px;box-shadow:inset 0 2px 4px rgba(176,108,52,.08)}
+input[type=password],input[type=text]{font-family:var(--body);font-size:14px;padding:9px 12px;border:1px solid var(--line);border-radius:9px;background:var(--paper);color:var(--ink)}
+mark.sg{border-radius:4px;padding:0 3px} mark.sg.bad{background:var(--bad-soft);color:var(--bad)} mark.sg.ok{background:var(--ok-soft);color:var(--ok)} mark.sg.warn{background:var(--warn-soft);color:var(--warn)}
+.scanline{display:grid;grid-template-columns:22px 1fr;gap:8px;padding:8px 0;border-bottom:1px dashed var(--line)}
+.conv{display:grid;gap:10px;margin-top:10px}
+.convrow{display:grid;grid-template-columns:1fr 26px 1.2fr auto;gap:12px;align-items:center;border:1px solid var(--line);border-radius:14px;padding:12px 14px;background:linear-gradient(90deg,#fff7ef,var(--paper));box-shadow:var(--shadow)}
+.convrow>div{display:grid;gap:3px}
+.convrow .arrowr{font-size:22px;color:var(--accent);text-align:center}
+.force{justify-items:end;color:var(--accent);font-size:16px;letter-spacing:2px}
+.facts2{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:10px;margin-top:10px}
+.fact2{display:grid;gap:6px;border:1px solid var(--line);border-radius:14px;padding:12px;background:var(--paper);color:var(--ink);text-decoration:none;box-shadow:var(--shadow)}
+.fact2:hover{border-color:var(--accent)}
+.vocab{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px;margin-top:10px}
+.vocab div{display:grid;border:1px solid var(--line);border-radius:12px;padding:8px 12px;background:var(--paper)}
+.gq{border:1px solid var(--accent);border-radius:16px;padding:16px;background:linear-gradient(180deg,#fff7ef,var(--paper));box-shadow:var(--shadow-lg)}
+.galts{display:grid;gap:8px}
+.galt{text-align:left;border-radius:10px}
+.galt.ok{border-color:var(--ok);background:var(--ok-soft)} .galt.bad{border-color:var(--bad);background:var(--bad-soft)} .galt.dim{opacity:.55}
+@media (max-width:900px){.geo-grid{grid-template-columns:1fr}.geo-panel{max-height:none}.convrow{grid-template-columns:1fr}.convrow .arrowr{transform:rotate(90deg)}.force{justify-items:start}}
+@media (max-width:560px){.sigrow{grid-template-columns:1fr 64px}.sigrow .sigbar{grid-column:1/-1;grid-row:2}}
 @media (max-width:560px){.vitem{grid-template-columns:56px 1fr}.vitem .d{grid-column:2}.thumb{width:56px}.duels,.lists{grid-template-columns:1fr}.controls .hide-sm{display:none}}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
 </style></head>
 <body>
 <div class="top"><div class="in">
   <a class="brand" href="#">🎬 Estúdio Cesgranrio</a>
-  <nav aria-label="Áreas"><a href="#v" data-nav="v">Videoaulas</a><a href="#met" data-nav="met">Métodos</a><a href="#mm" data-nav="mm">Mapas mentais</a><a href="#esq" data-nav="esq">Esquemas</a><a href="#fc" data-nav="fc">Flashcards</a><a href="expedicao.html">🚢 Expedição</a><a href="jogo.html">⚡ Relâmpago</a></nav>
+  <nav aria-label="Áreas"><a href="#v" data-nav="v">Videoaulas</a><a href="#met" data-nav="met">Métodos</a><a href="#mm" data-nav="mm">Mapas mentais</a><a href="#esq" data-nav="esq">Esquemas</a><a href="#geo" data-nav="geo">🗺️ Mapa Transpetro</a><a href="#lab" data-nav="lab">🔬 Laboratório</a><a href="#radar" data-nav="radar">📡 Radar</a><a href="#fc" data-nav="fc">Flashcards</a><a href="#gem" data-nav="gem">✨ Gemini</a><a href="expedicao.html">🚢 Expedição</a><a href="jogo.html">⚡ Relâmpago</a></nav>
 </div></div>
 <div class="wrap"><main id="app" aria-live="polite"><p class="note" style="padding:40px 0">Abrindo o estúdio…</p></main></div>
 <div class="toast" id="toast" role="status"></div>
@@ -292,7 +379,7 @@ function md(src){var L=String(src||'').split('\n'),out=[],i=0;
     var p=[];while(i<L.length&&L[i].trim()&&!/^(#{2,4}\s|\||\s*([-*]|\d+[.)]) )/.test(L[i])){p.push(L[i]);i++;}out.push('<p>'+inline(p.join(' '))+'</p>');}
   return '<div class="md">'+out.join('')+'</div>';}
 function stepsOf(t){return String(t||'').split(/\s*\(\d+\)\s*/).map(function(x){return x.replace(/;\s*$/,'').trim();}).filter(Boolean);}
-function emblem(slug){var c=COR[slug];return '<svg class="emblem" viewBox="0 0 210 210" aria-hidden="true"><defs><radialGradient id="eg'+slug+'" cx="50%" cy="40%"><stop offset="0" stop-color="'+c+'" stop-opacity=".55"/><stop offset="1" stop-color="#06131a" stop-opacity="0"/></radialGradient></defs><circle cx="105" cy="105" r="100" fill="url(#eg'+slug+')"/><g class="spin"><circle cx="105" cy="105" r="92" fill="none" stroke="'+c+'" stroke-width="2" stroke-dasharray="4 10"/><circle cx="105" cy="13" r="6" fill="'+c+'"/></g><circle cx="105" cy="105" r="70" fill="#0b1e26" stroke="'+c+'" stroke-width="4"/><text x="105" y="128" text-anchor="middle" font-size="66">'+ICON[slug]+'</text></svg>';}
+function emblem(slug){var c=COR[slug];return '<svg class="emblem" viewBox="0 0 210 210" aria-hidden="true"><defs><radialGradient id="eg'+slug+'" cx="50%" cy="40%"><stop offset="0" stop-color="'+c+'" stop-opacity=".55"/><stop offset="1" stop-color="#fff7ef" stop-opacity="0"/></radialGradient></defs><circle cx="105" cy="105" r="100" fill="url(#eg'+slug+')"/><g class="spin"><circle cx="105" cy="105" r="92" fill="none" stroke="'+c+'" stroke-width="2" stroke-dasharray="4 10"/><circle cx="105" cy="13" r="6" fill="'+c+'"/></g><circle cx="105" cy="105" r="70" fill="#fffaf3" stroke="'+c+'" stroke-width="4"/><text x="105" y="128" text-anchor="middle" font-size="66">'+ICON[slug]+'</text></svg>';}
 
 /* ===================== MOTOR DA VIDEOAULA ===================== */
 function Builder(slug,title,kind){this.slug=slug;this.title=title;this.kind=kind;this.scenes=[];this.cues=[];}
@@ -316,7 +403,7 @@ function lessonFormat(slug,o,i){var f=o.formatos[i],b=new Builder(slug,f.t.repla
   if(f.erro){b.scene('Erro típico','');var c4=b.cue('Cuidado com o erro típico. '+f.erro);
     b.add('<div class="kick rv" data-c="'+c4+'">⚠️ Onde o candidato cai</div><h2 class="rv" data-c="'+c4+'">Erro típico</h2><div class="fit"><div class="danger rv" data-c="'+c4+'"><div class="x rv in" data-c="'+c4+'">✗</div><div>'+inline(f.erro)+'</div></div></div>');}
   b.scene('Para memorizar','');var c5=b.cue('Para memorizar: reconheça pelo gatilho, aplique os passos na ordem e desconfie do erro típico. Pause o vídeo e diga os passos em voz alta.',.6);
-  b.add('<div class="kick rv" data-c="'+c5+'">🧠 Revisão de 10 segundos</div><h2 class="rv" data-c="'+c5+'">Para memorizar</h2><div class="chips rv" data-c="'+c5+'">'+st.slice(0,6).map(function(s,k){return '<span class="chip">'+(k+1)+' · '+esc(short(s,34))+'</span>';}).join('')+'</div><p class="big-text rv" data-c="'+c5+'" style="color:#b9d2d8;font-size:28px">Gatilho → passos → desconfie do erro típico.</p>');
+  b.add('<div class="kick rv" data-c="'+c5+'">🧠 Revisão de 10 segundos</div><h2 class="rv" data-c="'+c5+'">Para memorizar</h2><div class="chips rv" data-c="'+c5+'">'+st.slice(0,6).map(function(s,k){return '<span class="chip">'+(k+1)+' · '+esc(short(s,34))+'</span>';}).join('')+'</div><p class="big-text rv" data-c="'+c5+'" style="color:#7c6553;font-size:28px">Gatilho → passos → desconfie do erro típico.</p>');
   return b;}
 
 /* Motivo de cada alternativa a partir do comentário */
@@ -333,13 +420,13 @@ function lessonTopic(slug,o,i){var t=o.topicos[i],title=t.t.replace(/^[\d.]+\s*(
   var n=(t.peso||'').match(/(\d+)\s+quest/),pc=(t.peso||'').match(/(\d+(?:,\d+)?)\s*%/),trp=/Transpetro/.test(t.peso||'');
   b.scene('Abertura','s-open');var c=b.cue('Videoaula. '+o.nome+'. '+title+'. '+(n?'São '+n[1]+' questões no caderno de estudo. ':'')+(trp?'E este assunto já caiu na Transpetro.':''),.3);
   var C=2*Math.PI*80,v=pc?Math.min(1,parseFloat(pc[1].replace(',','.'))/25):(n?Math.min(1,+n[1]/40):.12);
-  b.add('<div class="kick rv" data-c="'+c+'">Como a Cesgranrio cobra · '+esc(o.nome)+'</div><h2 class="rv" data-c="'+c+'" style="font-size:'+(title.length>70?50:(title.length>45?62:76))+'px">'+esc(short(title,110))+'</h2><div class="gaugev rv pop" data-c="'+c+'"><svg width="200" height="200" viewBox="0 0 200 200"><circle cx="100" cy="100" r="80" fill="none" stroke="rgba(255,255,255,.15)" stroke-width="16"/><circle cx="100" cy="100" r="80" fill="none" stroke="#f2c14e" stroke-width="16" stroke-linecap="round" stroke-dasharray="'+(C*v)+' '+C+'" transform="rotate(-90 100 100)"/><text x="100" y="104" text-anchor="middle" fill="#fff" font-family="Barlow Condensed" font-weight="700" font-size="58">'+(n?n[1]:'—')+'</text><text x="100" y="134" text-anchor="middle" fill="#b9d2d8" font-family="IBM Plex Mono" font-size="16">'+(pc?pc[1]+'%':'questões')+'</text></svg><div style="text-align:left;font-size:26px;max-width:620px">'+(trp?'<span class="chip" style="border-color:#f2c14e;color:#f2c14e">⭐ Já caiu na Transpetro</span>':'<span class="chip">Sem precedente na Transpetro</span>')+'<p style="margin-top:16px;color:#b9d2d8;font-size:22px">'+esc(short(t.peso||'',190))+'</p></div></div>');
+  b.add('<div class="kick rv" data-c="'+c+'">Como a Cesgranrio cobra · '+esc(o.nome)+'</div><h2 class="rv" data-c="'+c+'" style="font-size:'+(title.length>70?50:(title.length>45?62:76))+'px">'+esc(short(title,110))+'</h2><div class="gaugev rv pop" data-c="'+c+'"><svg width="200" height="200" viewBox="0 0 200 200"><circle cx="100" cy="100" r="80" fill="none" stroke="#f0dcc6" stroke-width="16"/><circle cx="100" cy="100" r="80" fill="none" stroke="#f2c14e" stroke-width="16" stroke-linecap="round" stroke-dasharray="'+(C*v)+' '+C+'" transform="rotate(-90 100 100)"/><text x="100" y="104" text-anchor="middle" fill="#3b2a1d" font-family="Barlow Condensed" font-weight="700" font-size="58">'+(n?n[1]:'—')+'</text><text x="100" y="134" text-anchor="middle" fill="#7c6553" font-family="IBM Plex Mono" font-size="16">'+(pc?pc[1]+'%':'questões')+'</text></svg><div style="text-align:left;font-size:26px;max-width:620px">'+(trp?'<span class="chip" style="border-color:#f2c14e;color:#f2c14e">⭐ Já caiu na Transpetro</span>':'<span class="chip">Sem precedente na Transpetro</span>')+'<p style="margin-top:16px;color:#7c6553;font-size:22px">'+esc(short(t.peso||'',190))+'</p></div></div>');
   if(t.cobra){var ss=sentences(t.cobra).filter(function(x){return x.length>12;}).slice(0,5);b.scene('O que a banca cobra','');var c1=b.cue('O que a banca cobra.',0);
     b.add('<div class="kick rv" data-c="'+c1+'">🎯 Conteúdo que cai</div><h2 class="rv" data-c="'+c1+'">O que a banca cobra</h2><div class="fit"><ul class="bul">'+ss.map(function(s){var ck=b.cue(short(s,300));return '<li class="rv left" data-c="'+ck+'"><span>'+inline(short(s,200))+'</span></li>';}).join('')+'</ul></div>');}
   if(t.pergunta){var qt=(t.pergunta.match(/"[^"]{6,140}"/g)||[]).slice(0,3);b.scene('Como ela pergunta','');var c2=b.cue('Como ela pergunta. '+(qt.length?'Repare nas frases que se repetem: '+qt.join('. '):short(t.pergunta,320)));
     b.add('<div class="kick rv" data-c="'+c2+'">🗣️ A voz da banca</div><h2 class="rv" data-c="'+c2+'">Como ela pergunta</h2><div class="fit" style="display:grid;gap:18px;align-content:start">'+(qt.length?qt.map(function(q,k){return '<div class="bubble2 rv pop" data-c="'+c2+'" style="transition-delay:'+(k*.5)+'s">'+esc(q.replace(/"/g,''))+'</div>';}).join(''):'<p class="big-text rv" data-c="'+c2+'">'+inline(short(t.pergunta,300))+'</p>')+'</div>');}
   if(t.confunde){var cf=sentences(t.confunde).slice(0,4);b.scene('Onde ela confunde','');var c3=b.cue('Atenção: é aqui que a banca derruba candidatos.',0);
-    b.add('<div class="kick rv" data-c="'+c3+'" style="color:#ff8f84">⚠️ Zona de risco</div><h2 class="rv" data-c="'+c3+'">Onde ela confunde</h2><div class="fit"><ul class="bul">'+cf.map(function(s){var ck=b.cue(short(s,260));return '<li class="rv left" data-c="'+ck+'" style="color:#ffd9d4"><span>'+inline(short(s,170))+'</span></li>';}).join('')+'</ul></div>');}
+    b.add('<div class="kick rv" data-c="'+c3+'" style="color:#ff8f84">⚠️ Zona de risco</div><h2 class="rv" data-c="'+c3+'">Onde ela confunde</h2><div class="fit"><ul class="bul">'+cf.map(function(s){var ck=b.cue(short(s,260));return '<li class="rv left" data-c="'+ck+'" style="color:#7a2f27"><span>'+inline(short(s,170))+'</span></li>';}).join('')+'</ul></div>');}
   if(t.macete){b.scene('Macete','');var c4=b.cue('Guarde este macete. '+t.macete,.5);b.add('<div class="kick rv" data-c="'+c4+'" style="color:#f2c14e">💡 Para nunca mais errar</div><h2 class="rv" data-c="'+c4+'">Macete</h2><div class="fit"><div class="goldcard rv pop" data-c="'+c4+'">'+inline(short(t.macete,260))+'</div></div>');}
   var q=t.qs.find(function(x){return x.alts&&Object.keys(x.alts).length===5&&x.gab;});
   if(q){var rs=reasons(q.expl||'');b.scene('Resolução ao vivo','');var c5=b.cue('Resolução ao vivo. '+short(q.stem,360),.4);
@@ -432,8 +519,13 @@ function home(){nav('');var D=IDX.disciplinas,nt=D.reduce(function(a,d){return a
   card('met','🧭','Métodos de resolução',nf+' fluxogramas: como reconhecer, o passo a passo e o erro típico de cada formato de questão.','um por tipo de questão')+
   card('mm','🧠','Mapas mentais','A prova inteira e cada disciplina em mapas que se expandem: o que cobra, como pergunta, onde confunde, macete.','arraste, amplie, baixe')+
   card('esq','🗺️','Esquemas','Duelos "X × Y" que a banca troca, listas que precisam estar decoradas e o checklist de véspera.','duelos, listas, véspera')+
+  card('geo','🗺️','Mapa Transpetro','Cada disciplina num terminal real da empresa, com satélite do Google Maps, pegadinhas e a rota do dia pelos seus pontos fracos.','imersão geográfica')+
+  card('lab','🔬','Laboratório da Banca','Padrões medidos em 1.000 questões: palavras que nunca são gabarito, mitos derrubados, tendências e lacunas.','dados, não palpite')+
+  card('radar','📡','Radar Transpetro','Estratégia e tecnologia da empresa cruzadas com o que a banca passou a cobrar mais.','matriz de convergência')+
+  card('gem','✨','Gemini','Com a sua chave do Google AI Studio: questões inéditas no padrão da banca, explicações e previsões a partir dos guias.','sua conta Google')+
   card('fc','🃏','Flashcards','Cartões dos guias, dos duelos, dos métodos e das listas, com revisão espaçada.',Object.keys(S.box).length+' em revisão')+
-  '</div><p class="note" style="margin-top:16px">Atalhos no player: <span class="kbd">Espaço</span> pausa, <span class="kbd">←</span> <span class="kbd">→</span> trechos, <span class="kbd">F</span> tela cheia. A narração usa a voz em português do seu aparelho.</p>';}
+  '</div><section class="panel"><h3>🧩 Seu ecossistema de estudo</h3><p class="note">Os outros sistemas que você montou, num só lugar. Os links do claude.ai e do Notebook abrem na sua conta.</p><div class="facts2" style="margin-top:10px">'+
+  [['🚢 Expedição Cesgranrio','expedicao.html','Viagem por 115 estações com questões comentadas'],['⚡ Arena Relâmpago','jogo.html','Missão do dia, chefões, XP e conquistas'],['📚 Arena completo','index.html','1.000 questões, simulados e a aba Banca'],['📖 Leitor do método (17 capítulos)','https://claude.ai/artifact/MpC3nWU3bvUMg8DqeFfNZD','Central Reta Final, artefato no claude.ai'],['🎯 Treinador de Tipos','https://claude.ai/artifact/87e5edAZBHgQofTxyLoGDD','636 questões reais classificadas por tipo'],['🎧 Notebook do Gemini','https://notebook.google.com/notebook/577727ea-53df-4c47-ad8a-b7d152a92030','Áudios, mapa, flashcards e teste no Google']].map(function(x){var ext=/^https/.test(x[1]);return '<a class="fact2" href="'+x[1]+'"'+(ext?' target="_blank" rel="noopener"':'')+'><b>'+x[0]+'</b><span class="note">'+x[2]+'</span>'+(ext?'<span class="note">abre em nova aba ↗</span>':'')+'</a>';}).join('')+'</div></section><p class="note" style="margin-top:16px">Atalhos no player: <span class="kbd">Espaço</span> pausa, <span class="kbd">←</span> <span class="kbd">→</span> trechos, <span class="kbd">F</span> tela cheia. A narração usa a voz em português do seu aparelho.</p>';}
 function card(h,ic,t,d,tag){return '<button class="card big" data-href="'+h+'"><span class="ic">'+ic+'</span><h3>'+t+'</h3><p class="note">'+d+'</p><span class="tag">'+tag+'</span></button>';}
 
 /* Videoteca */
@@ -569,9 +661,110 @@ function session(list){var i=0,ok=0,box=$('#fz');
     session.key=function(k){if(!fc.classList.contains('on')){if(k===' ')flip();return;}if(/^[123]$/.test(k))grade(+k-1);};};
   draw();box.scrollIntoView({behavior:'smooth',block:'start'});}
 
+/* ===================== INTELIGÊNCIA: mapa, laboratório, radar, Gemini ===================== */
+var INT=null;function loadInt(){return INT?Promise.resolve(INT):Promise.all([getJ('inteligencia/padroes.json'),getJ('inteligencia/radar.json')]).then(function(r){INT={p:r[0],r:r[1]};return INT;});}
+function jogoState(){try{return JSON.parse(localStorage.getItem(JOGO)||'{}');}catch(e){return {};}}
+var DQ={dados:'Dados',projetos:'Projetos',governanca:'Governança',engsoft:'Eng. Software',ux:'UX',bi:'BI',seguranca:'Segurança',portugues:'Português',ingles:'Inglês',logica:'Lógica'};
+function accOf(slug){var j=jogoState().disc||{},o=j[DQ[slug]];return o&&o.n?o.ok/o.n:null;}
+function weakOrder(){return IDX.disciplinas.map(function(d){var a=accOf(d.slug);return {slug:d.slug,a:a,k:a==null?.55:a};}).sort(function(x,y){return x.k-y.k;});}
+function bar(v,max,col){return '<span style="display:block;height:10px;border-radius:99px;background:var(--line);overflow:hidden"><i style="display:block;height:100%;width:'+Math.max(2,Math.min(100,100*v/max))+'%;background:'+(col||'var(--accent)')+';border-radius:99px"></i></span>';}
+function loadCss(h){if(document.querySelector('link[href="'+h+'"]'))return;var l=document.createElement('link');l.rel='stylesheet';l.href=h;document.head.appendChild(l);}
+function loadScript(src){return new Promise(function(ok,ko){if(window.L)return ok();var s=document.createElement('script');s.src=src;s.onload=ok;s.onerror=ko;document.head.appendChild(s);});}
+
+/* --- Mapa Transpetro --- */
+function geo(){nav('geo');app.innerHTML='<p class="note" style="padding:30px 0">Carregando o mapa…</p>';
+  loadCss('https://unpkg.com/leaflet@1.9.4/dist/leaflet.css');
+  Promise.all([loadInt(),loadScript('https://unpkg.com/leaflet@1.9.4/dist/leaflet.js')]).then(function(){var R=INT.r,W=weakOrder();
+    app.innerHTML='<header class="hero"><div class="eyebrow">Imersão geográfica</div><h2>Mapa Transpetro</h2><p class="note" style="max-width:70ch">Cada disciplina mora num terminal real da empresa. Toque num terminal para ver o fato da operação, as pegadinhas da banca naquela disciplina e a missão de estudo. A <b>rota do dia</b> liga os seus três pontos mais fracos (pelo acerto no Arena Relâmpago).</p></header>'+
+    '<div class="row"><button class="primary" id="rota">⛴ Navegar a rota do dia</button><span class="note">Rota: '+W.slice(0,3).map(function(w){return ICON[w.slug]+' '+esc(dname(w.slug))+(w.a!=null?' ('+Math.round(w.a*100)+'%)':'');}).join(' → ')+'</span></div>'+
+    '<div class="discs" id="tchips">'+R.terminais.map(function(t){return '<button data-t="'+t.slug+'">'+ICON[t.slug]+' '+esc(t.nome.replace(/^Terminal (de |da |do )?/,''))+'</button>';}).join('')+'</div>'+'<div class="geo-grid"><div id="map" class="geomap" role="application" aria-label="Mapa dos terminais"></div><aside id="gp" class="panel geo-panel"><p class="note">Escolha um terminal no mapa.</p></aside></div>'+
+    '<p class="note" style="margin-top:8px">Localizações aproximadas. Mapa base © OpenStreetMap e CARTO; vista de satélite pelo Google Maps.</p>';
+    var map=L.map('map',{scrollWheelZoom:false,zoomSnap:.5}).setView([-15.5,-47],4);
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',{attribution:'© OpenStreetMap, © CARTO',maxZoom:18}).addTo(map);
+    var mk={};R.terminais.forEach(function(t){var a=accOf(t.slug);var html='<div class="pin" style="--c:'+COR[t.slug]+'"><span>'+ICON[t.slug]+'</span></div>';
+      var m=L.marker([t.lat,t.lng],{icon:L.divIcon({className:'',html:html,iconSize:[42,42],iconAnchor:[21,40]}),title:t.nome+' · '+dname(t.slug),keyboard:true}).addTo(map);m.on('click',function(){panel(t);});mk[t.slug]=m;});
+    map.fitBounds(R.terminais.map(function(t){return [t.lat,t.lng];}),{padding:[30,30]});
+    $$('#tchips [data-t]').forEach(function(b){b.onclick=function(){$$('#tchips button').forEach(function(x){x.setAttribute('aria-pressed',x===b);});panel(R.terminais.find(function(t){return t.slug===b.dataset.t;}));};});
+    function panel(t){loadDisc(t.slug).then(function(o){var a=accOf(t.slug),cnt=(INT.p.porDisc[{dados:'Dados',projetos:'Projetos',governanca:'Governança',seguranca:'Segurança',bi:'BI e Ciência de Dados',engsoft:'Eng. Software e UX',ux:'Eng. Software e UX'}[t.slug]]||0);
+      var du=o.duelos.slice(0,3),top=o.topicos.find(function(x){return /Transpetro/.test(x.peso||'')&&x.macete;})||o.topicos.find(function(x){return x.macete;});
+      var ti=top?o.topicos.indexOf(top):0;
+      $('#gp').innerHTML='<div class="eyebrow">'+esc(t.nome)+' · '+esc(t.uf)+'</div><h3 style="margin-top:4px">'+ICON[t.slug]+' '+esc(o.nome)+'</h3><p class="note" style="margin-top:6px">⚓ '+esc(t.nota)+' · <a href="'+esc(t.src)+'" target="_blank" rel="noopener">fonte</a></p>'+
+        '<div class="row" style="margin-top:10px;gap:14px"><span class="stat-pill"><b>'+o.topicos.length+'</b> tópicos</span>'+(cnt?'<span class="stat-pill"><b>'+cnt+'</b> questões no banco</span>':'')+'<span class="stat-pill"><b>'+(a!=null?Math.round(a*100)+'%':'—')+'</b> seu acerto</span></div>'+
+        (du.length?'<h4 style="margin-top:14px">⚔️ Pegadinhas deste terminal</h4><ul class="mini">'+du.map(function(d){return '<li><b>'+d.lados.map(inline).join(' × ')+'</b>: '+inline(short(d.dist.join(' / '),110))+'</li>';}).join('')+'</ul>':'')+
+        (top?'<h4 style="margin-top:12px">💡 Macete da estação</h4><p class="mac-mini">'+inline(short(top.macete,180))+'</p>':'')+
+        '<h4 style="margin-top:12px">🎯 Missão neste terminal</h4><div class="row" style="margin-top:6px"><button class="primary" data-autoplay data-href="play/'+t.slug+'/t/'+ti+'">▶ Videoaula</button><a class="btnlink" href="expedicao.html#t/'+t.slug+'/e/'+ti+'">🚢 Estação</a><button data-href="mm/'+t.slug+'">🧠 Mapa</button><button data-href="esq/'+t.slug+'/duelos">⚔️ Duelos</button></div>'+
+        '<details class="sat" style="margin-top:12px"><summary>🛰️ Ver o terminal no Google Maps (satélite)</summary><div class="satbox" data-lat="'+t.lat+'" data-lng="'+t.lng+'"></div><a class="note" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query='+t.lat+','+t.lng+'">Abrir no Google Maps ↗</a></details>';
+      var d=$('#gp details.sat');d.addEventListener('toggle',function(){var b=$('.satbox',d);if(d.open&&!b.firstChild)b.innerHTML='<iframe title="Satélite do Google Maps" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q='+t.lat+','+t.lng+'&t=k&z=13&output=embed"></iframe>';});
+      map.flyTo([t.lat,t.lng],Math.max(map.getZoom(),6),{duration:.8});
+      if(window.innerWidth<900)$('#gp').scrollIntoView({behavior:'smooth',block:'start'});});}
+    var line=null,ship=null;
+    $('#rota').onclick=function(){var pts=W.slice(0,3).map(function(w){var t=R.terminais.find(function(x){return x.slug===w.slug;});return t;}).filter(Boolean);
+      if(line)map.removeLayer(line);if(ship)map.removeLayer(ship);line=L.polyline(pts.map(function(t){return [t.lat,t.lng];}),{color:'#c8641f',weight:4,dashArray:'8 10',opacity:.85}).addTo(map);map.fitBounds(line.getBounds(),{padding:[50,50]});
+      ship=L.marker([pts[0].lat,pts[0].lng],{icon:L.divIcon({className:'',html:'<div style="font-size:30px;filter:drop-shadow(0 3px 4px rgba(0,0,0,.3))">🚢</div>',iconSize:[34,34],iconAnchor:[17,17]})}).addTo(map);
+      var seg=0,t0=null;panel(pts[0]);
+      function step(ts){if(!t0)t0=ts;var p=Math.min(1,(ts-t0)/2600);var A=pts[seg],B=pts[seg+1];ship.setLatLng([A.lat+(B.lat-A.lat)*p,A.lng+(B.lng-A.lng)*p]);if(p<1)requestAnimationFrame(step);else{seg++;t0=null;panel(B);if(seg<pts.length-1)setTimeout(function(){requestAnimationFrame(step);},2400);}}
+      if(pts.length>1&&!matchMedia('(prefers-reduced-motion: reduce)').matches)setTimeout(function(){requestAnimationFrame(step);},1600);};
+  }).catch(function(e){app.innerHTML='<div class="panel">Não consegui carregar o mapa (sem conexão?). '+esc(e&&e.message||'')+'</div>';});}
+
+/* --- Laboratório da Banca --- */
+function lab(){nav('lab');loadInt().then(function(I){var P=I.p,R=I.r;var L=P.letras,tot=P.n;
+  var pal=Object.keys(P.palavras).map(function(k){var v=P.palavras[k];return {k:k,v:v};}).sort(function(a,b){return a.v.taxa-b.v.taxa;});
+  var verd={verdadeiro:['ok','Confirmado'],falso:['bad','Falso'],fraco:['warn','Fraco'],cuidado:['warn','Cuidado'],depende:['warn','Depende']};
+  var lac=P.topicos,estreia=lac.filter(function(t){return t.n>=10&&!t.tp;}).sort(function(a,b){return b.n-a.n;}),surpresa=lac.filter(function(t){return t.sem;}),repete=lac.filter(function(t){return t.tp;}).sort(function(a,b){return b.n-a.n;});
+  var tl=function(t){return '<li><button class="linkish" data-autoplay data-href="play/'+t.slug+'/t/'+t.i+'">'+ICON[t.slug]+' '+esc(t.t)+'</button> <span class="note">'+(t.n?t.n+' questões':'')+'</span></li>';};
+  app.innerHTML='<header class="hero"><div class="eyebrow">Laboratório da Banca</div><h2>O que os dados dizem sobre a Cesgranrio</h2><p class="note" style="max-width:72ch">Medido em '+tot+' questões reais ('+esc(P.fonte)+'), cruzado com os guias e com os achados da Central Reta Final. Nada aqui é palpite: cada número tem a contagem ao lado.</p></header>'+
+  '<div class="lab-grid">'+
+  '<section class="panel"><h3>🧪 Palavras-sinal nas alternativas</h3><p class="note">Chance de a alternativa ser o gabarito quando contém a palavra. Linha pontilhada = acaso (20%).</p><div class="sig">'+pal.map(function(x){var t=x.v.taxa||0;var col=t<12?'var(--bad)':(t>22?'var(--ok)':'var(--warn)');return '<div class="sigrow"><span>'+esc(x.k)+'</span><span class="sigbar"><i style="width:'+Math.min(100,t*1.6)+'%;background:'+col+'"></i><em style="left:32%"></em></span><span class="mono">'+t+'% <span class="note">'+x.v.certas+'/'+x.v.alts+'</span></span></div>';}).join('')+'</div><p class="note" style="margin-top:8px">Leitura: absolutos fortes ("exclusivamente", "nunca", "qualquer", "necessariamente") <b>nunca</b> foram gabarito. "Pode" está acima do acaso. Amostras pequenas (menos de 15) são indício, não regra.</p></section>'+
+  '<section class="panel"><h3>🔤 Letra do gabarito</h3><div class="letters">'+'ABCDE'.split('').map(function(k){var v=L[k]||0;return '<div><span class="lb" style="height:'+(v/tot*500)+'px"></span><b>'+k+'</b><span class="mono note">'+(100*v/tot).toFixed(1)+'%</span></div>';}).join('')+'</div><p class="note">Não existe letra preferida. Para o chute, a Central recomenda a letra menos usada entre as suas certezas daquele bloco (de 20% para cerca de 30%).</p>'+
+  '<h3 style="margin-top:16px">📏 Tamanho da alternativa</h3><p class="note">Posição do gabarito no ranking de tamanho (1 = a mais longa).</p><div class="letters">'+Object.keys(P.tamanho).map(function(k){var v=P.tamanho[k];return '<div><span class="lb" style="height:'+(v/tot*500)+'px;background:var(--gold)"></span><b>'+k+'º</b><span class="mono note">'+(100*v/tot).toFixed(0)+'%</span></div>';}).join('')+'</div><p class="note">A mais longa acerta 22%, quase o acaso. Tamanho não decide.</p></section>'+
+  '</div>'+
+  '<section class="panel"><h3>🧯 Mitos × medido</h3><div class="myths">'+R.mitos.map(function(m){var v=verd[m.v]||['warn',m.v];return '<div class="myth '+v[0]+'"><span class="tag2">'+v[1]+'</span><b>'+esc(m.m)+'</b><p class="note">'+esc(m.d)+'</p></div>';}).join('')+'</div></section>'+
+  '<section class="panel"><h3>📈 Para onde a banca está indo</h3><p class="note">Participação de cada assunto antes de 2023 ('+P.tendencia.nAntes+' questões) e de 2023 em diante ('+P.tendencia.nDepois+'). Em pontos percentuais.</p><div class="lab-grid"><div><h4 style="color:var(--ok)">Subindo</h4>'+P.tendencia.sobe.slice(0,10).map(function(x){return '<div class="trow"><span>'+esc(x.assunto)+' <span class="note">· '+esc(x.disc)+'</span></span><span class="mono" style="color:var(--ok)">+'+x.pp.toFixed(1)+'</span><span class="note mono">'+x.antes+'→'+x.depois+'</span></div>';}).join('')+'</div><div><h4 style="color:var(--bad)">Perdendo espaço</h4>'+P.tendencia.desce.slice(0,8).map(function(x){return '<div class="trow"><span>'+esc(x.assunto)+' <span class="note">· '+esc(x.disc)+'</span></span><span class="mono" style="color:var(--bad)">'+x.pp.toFixed(1)+'</span><span class="note mono">'+x.antes+'→'+x.depois+'</span></div>';}).join('')+'</div></div><p class="note" style="margin-top:8px">"Perdendo espaço" não é "sumiu": SQL continua sendo o assunto com mais questões em Dados. Só deixou de crescer.</p></section>'+
+  '<section class="panel"><h3>🕳️ Lacunas: onde quase ninguém olha</h3><div class="lab-grid"><div><h4>🆕 Candidatos a estreia</h4><p class="note">Muito cobrados pela Cesgranrio em outros concursos e ainda sem registro na Transpetro.</p><ul class="mini">'+estreia.slice(0,10).map(tl).join('')+'</ul></div><div><h4>🎲 Zona de surpresa</h4><p class="note">Itens do edital sem precedente localizado: estude a definição canônica, que é como a banca estreia um assunto.</p><ul class="mini">'+surpresa.slice(0,10).map(tl).join('')+(surpresa.length?'':'<li class="note">Nenhum marcado nos guias.</li>')+'</ul></div><div><h4>🔁 Repetição de padrão</h4><p class="note">Já caíram na Transpetro: a banca reaproveita formato e conjunto-base.</p><ul class="mini">'+repete.slice(0,10).map(tl).join('')+'</ul></div></div></section>'+
+  '<section class="panel"><h3>🔎 Scanner de pegadinhas</h3><p class="note">Cole uma alternativa (ou as cinco, uma por linha). O scanner marca as palavras-sinal com a taxa medida. Serve para eliminar, nunca para marcar sem pensar.</p><textarea id="scan" rows="5" placeholder="Ex.: A normalização elimina exclusivamente a redundância de chaves estrangeiras."></textarea><div id="scanout" style="margin-top:10px"></div></section>';
+  var SIG=[[/\b(exclusivamente)\b/gi,'exclusivamente'],[/\b(necessariamente|obrigatoriamente)\b/gi,'necessariamente/obrigatoriamente'],[/\b(nunca|jamais)\b/gi,'nunca/jamais'],[/\b(qualquer)\b/gi,'qualquer'],[/\b(sempre)\b/gi,'sempre'],[/\b(somente|apenas|unicamente)\b/gi,'somente/apenas/unicamente'],[/\b(todos?|todas?)\b/gi,'todo(s)/toda(s)'],[/\b(nenhuma?)\b/gi,'nenhum(a)'],[/\b(pode|podem|poderá|poderão|possível)\b/gi,'pode/podem/poderá'],[/\b(geralmente|em regra|normalmente|tipicamente|frequentemente)\b/gi,'geralmente/em regra/normalmente']];
+  $('#scan').oninput=function(){var lines=this.value.split('\n').filter(function(x){return x.trim();});$('#scanout').innerHTML=lines.map(function(l,idx){var h=esc(l),hits=[];SIG.forEach(function(sg){var tx=P.palavras[sg[1]].taxa;h=h.replace(sg[0],function(m){hits.push([m,tx]);var c=tx<12?'bad':(tx>22?'ok':'warn');return '<mark class="sg '+c+'" title="gabarito em '+tx+'% das vezes">'+m+'</mark>';});});
+    var verdict=hits.length?(Math.min.apply(null,hits.map(function(x){return x[1];}))<5?'⚠️ Forte sinal de distrator (salvo lei ou norma literal).':(hits.some(function(x){return x[1]>22;})?'🟢 Linguagem moderada: compatível com alternativa correta.':'🟡 Sinal fraco: decida pelo conteúdo.')):'Sem palavras-sinal: decida pelo conteúdo.';
+    return '<div class="scanline"><span class="mono note">'+(lines.length>1?'ABCDE'[idx]||idx+1:'')+'</span><span>'+h+'<br><span class="note">'+verdict+'</span></span></div>';}).join('');};});}
+
+/* --- Radar Transpetro --- */
+function radar(){nav('radar');loadInt().then(function(I){var R=I.r,F={};R.fatos.forEach(function(f){F[f.id]=f;});
+  app.innerHTML='<header class="hero"><div class="eyebrow">Radar Transpetro · atualizado em '+esc(R.atualizado.split('-').reverse().join('/'))+'</div><h2>A empresa por trás da prova</h2><p class="note" style="max-width:72ch">O que a Transpetro está priorizando, cruzado com o que a Cesgranrio passou a cobrar mais desde 2023. Onde as duas curvas se encontram está a zona de maior retorno de estudo. '+esc(R.aviso)+'</p></header>'+
+  '<section class="panel"><h3>🎯 Matriz de convergência</h3><p class="note">Prioridade da empresa × item do edital × tendência medida da banca.</p><div class="conv">'+R.convergencia.map(function(c){return '<div class="convrow"><div><span class="eyebrow">Empresa</span><b>'+esc(c.prioridade)+'</b><span class="note">'+c.fatos.map(function(id){return '<a href="'+esc(F[id].src)+'" target="_blank" rel="noopener">'+esc(short(F[id].t,60))+'</a>';}).join(' · ')+'</span></div><div class="arrowr">→</div><div><span class="eyebrow">Edital</span><b>'+ICON[c.slug]+' '+esc(c.edital)+'</b><span class="note">📈 '+esc(c.tendencia)+'</span></div><div class="force"><span>'+'●'.repeat(c.forca)+'<span style="opacity:.25">'+'●'.repeat(3-c.forca)+'</span></span><button data-href="mm/'+c.slug+'">Estudar</button></div></div>';}).join('')+'</div></section>'+
+  '<section class="panel"><h3>📰 Fatos recentes (com fonte)</h3><div class="facts2">'+R.fatos.map(function(f){return '<a class="fact2" href="'+esc(f.src)+'" target="_blank" rel="noopener"><span class="eyebrow">'+esc(f.area)+'</span><span>'+esc(f.t)+'</span><span class="note">'+esc(f.src.replace(/^https?:\/\/(www\.)?/,'').split('/')[0])+' ↗</span></a>';}).join('')+'</div></section>'+
+  '<section class="panel"><h3>🌐 Vocabulário de domínio para o Inglês</h3><p class="note">A Cesgranrio escolhe textos de energia, transporte e tecnologia. Estes termos aparecem no noticiário da própria empresa.</p><div class="vocab">'+R.vocabulario.map(function(v){return '<div><b>'+esc(v[0])+'</b><span class="note">'+esc(v[1])+'</span></div>';}).join('')+'</div></section>'+
+  '<p class="note" style="margin-top:12px">Não analisei as redes sociais da empresa nesta versão. Os temas acima vêm de imprensa especializada e de documentos oficiais.</p>';});}
+
+/* --- Gemini (chave do próprio usuário, guardada só neste navegador) --- */
+var GKEY='arenaTP.gemini';
+function gcfg(){try{return JSON.parse(localStorage.getItem(GKEY)||'{}');}catch(e){return {};}}
+function gsave(o){try{localStorage.setItem(GKEY,JSON.stringify(o));}catch(e){}}
+function gcall(prompt,json){var c=gcfg();if(!c.key)return Promise.reject(new Error('Sem chave'));var body={contents:[{role:'user',parts:[{text:prompt}]}],generationConfig:{temperature:.8}};if(json)body.generationConfig.responseMimeType='application/json';
+  return fetch('https://generativelanguage.googleapis.com/v1beta/models/'+encodeURIComponent(c.model||'gemini-2.5-flash')+':generateContent',{method:'POST',headers:{'Content-Type':'application/json','x-goog-api-key':c.key},body:JSON.stringify(body)}).then(function(r){return r.json().then(function(j){if(!r.ok)throw new Error((j.error&&j.error.message)||('HTTP '+r.status));var t=((j.candidates||[])[0]||{}).content;t=t&&t.parts?t.parts.map(function(p){return p.text||'';}).join(''):'';return t;});});}
+function topicCtx(o,t){var q=t.qs.find(function(x){return x.alts&&Object.keys(x.alts).length===5;});return 'Disciplina: '+o.nome+'\nTópico do edital: '+t.t+'\nPeso: '+(t.peso||'')+'\nO que a banca cobra: '+(t.cobra||'')+'\nComo ela pergunta: '+(t.pergunta||'')+'\nOnde ela confunde: '+(t.confunde||'')+'\nMacete: '+(t.macete||'')+(q?'\nQuestão real de referência: '+q.stem+' '+JSON.stringify(q.alts)+' Gabarito '+q.gab+'. '+q.expl:'');}
+function gemini(){nav('gem');var c=gcfg();
+  app.innerHTML='<header class="hero"><div class="eyebrow">Gemini no Arena</div><h2>Banca sintética com Gemini</h2><p class="note" style="max-width:72ch">Use a sua conta Google: crie uma chave gratuita no <a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener">Google AI Studio</a> e cole abaixo. A chave fica <b>só neste navegador</b>; nunca vai para o repositório. Cada pedido envia ao Gemini o conteúdo do guia daquele tópico, para que ele escreva no padrão medido da Cesgranrio.</p></header>'+
+  '<section class="panel"><div class="row"><input id="gk" type="password" autocomplete="off" placeholder="Chave do Google AI Studio" value="'+esc(c.key||'')+'" style="flex:1;min-width:220px"><select id="gm"><option>'+esc(c.model||'gemini-2.5-flash')+'</option></select><button id="gl">Listar modelos</button><button class="primary" id="gs">Salvar</button>'+(c.key?'<button class="ghost" id="gx">Apagar chave</button>':'')+'</div><p class="note" id="gst" style="margin-top:6px">'+(c.key?'Chave salva neste aparelho.':'Sem chave: as ferramentas abaixo ficam bloqueadas.')+'</p></section>'+
+  '<section class="panel"><h3>🧬 Gerar questão inédita no estilo Cesgranrio</h3><div class="row" style="margin-top:8px"><select id="gd">'+IDX.disciplinas.map(function(d){return '<option value="'+d.slug+'"'+(d.slug===S.disc?' selected':'')+'>'+ICON[d.slug]+' '+esc(d.nome)+'</option>';}).join('')+'</select><select id="gt" style="max-width:100%;flex:1"></select></div><div class="row" style="margin-top:10px"><button class="primary" id="gq">Gerar questão</button><button id="ge">Explicar como professor</button><button id="gp2">Prever como a banca cobraria em 2026</button></div><div id="gout" style="margin-top:12px"></div></section>';
+  var fillT=function(){loadDisc($('#gd').value).then(function(o){$('#gt').innerHTML=o.topicos.map(function(t,i){return '<option value="'+i+'">'+esc(t.t)+'</option>';}).join('');});};$('#gd').onchange=fillT;fillT();
+  $('#gs').onclick=function(){var o=gcfg();o.key=$('#gk').value.trim();o.model=$('#gm').value;gsave(o);toast(o.key?'Chave salva neste aparelho':'Chave removida');gemini();};
+  var gx=$('#gx');if(gx)gx.onclick=function(){gsave({});gemini();};
+  $('#gl').onclick=function(){var k=$('#gk').value.trim();if(!k)return toast('Cole a chave primeiro');$('#gst').textContent='Consultando modelos…';
+    fetch('https://generativelanguage.googleapis.com/v1beta/models?pageSize=200',{headers:{'x-goog-api-key':k}}).then(function(r){return r.json();}).then(function(j){if(j.error)throw new Error(j.error.message);var ms=(j.models||[]).filter(function(m){return (m.supportedGenerationMethods||[]).indexOf('generateContent')>=0;}).map(function(m){return m.name.replace('models/','');});
+      $('#gm').innerHTML=ms.map(function(m){return '<option'+(m===(gcfg().model||'')?' selected':'')+'>'+esc(m)+'</option>';}).join('');$('#gst').textContent=ms.length+' modelos disponíveis na sua conta. Escolha e salve.';}).catch(function(e){$('#gst').textContent='Erro: '+e.message;});};
+  var run=function(kind){var c=gcfg();if(!c.key)return toast('Salve a sua chave do AI Studio primeiro');loadDisc($('#gd').value).then(function(o){var t=o.topicos[+$('#gt').value];var ctx=topicCtx(o,t);var out=$('#gout');out.innerHTML='<p class="note">Gemini pensando…</p>';
+    var regras='Regras medidas da Cesgranrio: 5 alternativas A a E; enunciado direto; o distrator é a definição correta de um conceito vizinho; nunca use "exclusivamente", "necessariamente", "nunca" ou "qualquer" na alternativa correta; a correta é moderada e abrangente; as erradas podem usar absolutos e inversões; inclua um par espelho (duas alternativas que dizem o contrário). Português do Brasil.';
+    if(kind==='q'){gcall('Você é um examinador da banca Cesgranrio criando uma questão INÉDITA para Transpetro 2026, Analista de Sistemas, Ênfase Processos de Negócios. Baseie-se APENAS no material abaixo. '+regras+'\nResponda em JSON: {"enunciado":"","alternativas":{"A":"","B":"","C":"","D":"","E":""},"gabarito":"A-E","comentarios":{"A":"por que certa ou errada",...},"pegadinha":"qual armadilha foi usada","padrao":"qual formato de questão da banca foi imitado"}\n\nMATERIAL:\n'+ctx,true).then(function(txt){var q=JSON.parse(txt.replace(/^```json|```$/g,''));
+      out.innerHTML='<div class="gq"><span class="eyebrow">Questão inédita gerada pelo Gemini · '+esc(gcfg().model)+'</span><p style="margin:8px 0;font-size:16px">'+esc(q.enunciado)+'</p><div class="galts">'+'ABCDE'.split('').map(function(k){return '<button class="galt" data-k="'+k+'"><b>'+k+'</b> '+esc(q.alternativas[k])+'</button>';}).join('')+'</div><div id="gfb"></div></div>';
+      $$('.galt').forEach(function(b){b.onclick=function(){if($('.galts').classList.contains('done'))return;$('.galts').classList.add('done');var k=b.dataset.k;$$('.galt').forEach(function(x){x.classList.add(x.dataset.k===q.gabarito?'ok':(x===b?'bad':'dim'));});if(k===q.gabarito)xp(10);
+        $('#gfb').innerHTML='<div class="panel" style="margin-top:10px"><b>'+(k===q.gabarito?'Certo!':'Gabarito: '+esc(q.gabarito))+'</b><ul class="mini">'+'ABCDE'.split('').map(function(x){return '<li><b>'+x+'</b>: '+esc((q.comentarios||{})[x]||'')+'</li>';}).join('')+'</ul><p class="note">🪤 Pegadinha: '+esc(q.pegadinha||'')+'<br>🧩 Padrão imitado: '+esc(q.padrao||'')+'</p><p class="note">Questão gerada por IA a partir do seu guia: confira com o material antes de decorar.</p></div>';};});}).catch(function(e){out.innerHTML='<p class="note">Erro do Gemini: '+esc(e.message)+'</p>';});}
+    else{var ask=kind==='e'?'Explique este tópico como um professor brilhante para quem faz a prova em duas semanas: uma analogia do dia a dia de uma empresa de logística de petróleo, os 3 pontos que a banca mais cobra, a pegadinha principal e um mnemônico novo. Seja curto, em tópicos.':'Com base no material e na tendência da banca, escreva 3 formas prováveis de a Cesgranrio cobrar este tópico em 2026 (enunciado resumido + onde estará a pegadinha) e diga o que estudar em 20 minutos para cobrir as 3.';
+      gcall(ask+' Use apenas o material abaixo; se algo não estiver nele, diga "não consta no guia".\n\nMATERIAL:\n'+ctx).then(function(txt){out.innerHTML='<div class="panel">'+md(txt)+'<p class="note">Texto gerado pelo Gemini a partir do seu guia.</p></div>';}).catch(function(e){out.innerHTML='<p class="note">Erro do Gemini: '+esc(e.message)+'</p>';});}});};
+  $('#gq').onclick=function(){run('q');};$('#ge').onclick=function(){run('e');};$('#gp2').onclick=function(){run('p');};}
+
 /* ===================== ROTAS E TECLADO ===================== */
 function route(){var h=decodeURIComponent(location.hash.slice(1)).split('/');stopPlayer();session.key=null;window.scrollTo(0,0);
-  switch(h[0]){case 'v':return videoteca(h[1]);case 'play':return play(h[1],h[2],+h[3]||0);case 'met':return metodos(h[1]);case 'mm':return mapa(h[1]);case 'esq':return esquemas(h[1],h[2]);case 'fc':return flash();default:return home();}}
+  switch(h[0]){case 'v':return videoteca(h[1]);case 'play':return play(h[1],h[2],+h[3]||0);case 'met':return metodos(h[1]);case 'mm':return mapa(h[1]);case 'esq':return esquemas(h[1],h[2]);case 'fc':return flash();case 'geo':return geo();case 'lab':return lab();case 'radar':return radar();case 'gem':return gemini();default:return home();}}
 addEventListener('hashchange',route);
 document.addEventListener('keydown',function(e){if(e.metaKey||e.ctrlKey||e.altKey||/INPUT|SELECT|TEXTAREA/.test(e.target.tagName))return;
   if(P){if(e.key===' '){e.preventDefault();P.toggle();}else if(e.key==='ArrowRight'){e.preventDefault();P.seekCue(Math.min(P.b.cues.length-1,P.i+1));}else if(e.key==='ArrowLeft'){e.preventDefault();P.seekCue(Math.max(0,P.i-1));}else if(e.key==='f'||e.key==='F'){var r=P.root;if(document.fullscreenElement)document.exitFullscreen();else if(r.requestFullscreen)r.requestFullscreen();}return;}

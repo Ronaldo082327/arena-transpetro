@@ -1,0 +1,53 @@
+"""Gera inteligencia/padroes.json a partir de questoes.json e dos guias (expedicao/*.json).
+Rode: python3 inteligencia/gerar.py"""
+import json,re,collections,pathlib
+R=pathlib.Path(__file__).resolve().parent.parent
+Q=[q for q in json.load(open(R/'questoes.json')) if q.get('gabarito') in list('ABCDE') and len(q.get('alternativas',{}))==5]
+N=len(Q);DL={'BI_CienciaDados':'BI e Ciência de Dados','Seguranca':'Segurança','EngSoftware_UX':'Eng. Software e UX','Dados':'Dados','Governanca':'Governança','Projetos':'Projetos'}
+out={'n':N,'fonte':'questoes.json (1.000 questões reais Cesgranrio, cadernos do TecConcursos)'}
+out['letras']=dict(sorted(collections.Counter(q['gabarito'] for q in Q).items()))
+rk=collections.Counter()
+for q in Q:
+    a=q['alternativas'];o=sorted(a,key=lambda k:-len(a[k]));rk[o.index(q['gabarito'])+1]+=1
+out['tamanho']={str(k):rk[k] for k in sorted(rk)}
+def taxa(pat):
+    c=t=0
+    for q in Q:
+        for k,v in q['alternativas'].items():
+            if re.search(pat,v,re.I): t+=1; c+=(k==q['gabarito'])
+    return {'alts':t,'certas':c,'taxa':round(100*c/t,1) if t else None}
+W={'somente/apenas/unicamente':r'\b(somente|apenas|unicamente)\b','exclusivamente':r'\bexclusivamente\b','necessariamente/obrigatoriamente':r'\b(necessariamente|obrigatoriamente)\b','sempre':r'\bsempre\b','nunca/jamais':r'\b(nunca|jamais)\b','todo(s)/toda(s)':r'\b(todos?|todas?)\b','qualquer':r'\bqualquer\b','nenhum(a)':r'\bnenhuma?\b',
+   'pode/podem/poderá':r'\b(pode|podem|poderá|poderão|possível)\b','geralmente/em regra/normalmente':r'\b(geralmente|em regra|normalmente|tipicamente|frequentemente)\b','não (na alternativa)':r'\bnão\b'}
+out['palavras']={k:taxa(v) for k,v in W.items()}
+out['base']=20.0
+neg=[q for q in Q if re.search(r'\b(NÃO|INCORRET|EXCETO|ERRAD)',q['enunciado'])]
+out['negativos']=len(neg)
+pre=[q for q in Q if q['ano']<2023];pos=[q for q in Q if q['ano']>=2023]
+def ass(q): return re.sub(r'^(TI - [^-]+ - |Gestão de Projetos \(PMBOK\) - )','',q['assunto']).strip()
+cp=collections.Counter((q['disc'],ass(q)) for q in pre);cq=collections.Counter((q['disc'],ass(q)) for q in pos)
+tr=[]
+for k in set(cp)|set(cq):
+    a,b=cp[k],cq[k]
+    if a+b<5: continue
+    sa,sb=100*a/len(pre),100*b/len(pos)
+    tr.append({'disc':DL.get(k[0],k[0]),'assunto':k[1],'antes':a,'depois':b,'pp':round(sb-sa,2)})
+tr.sort(key=lambda x:-x['pp'])
+out['tendencia']={'nAntes':len(pre),'nDepois':len(pos),'sobe':tr[:14],'desce':tr[-10:][::-1]}
+T=[q for q in Q if 'TRANSPETRO' in q['concurso'].upper()]
+out['transpetro']={'n':len(T),'top':[{'disc':DL.get(d,d),'assunto':a,'n':n} for (d,a),n in collections.Counter((q['disc'],ass(q)) for q in T).most_common(15)]}
+out['porAno']=dict(sorted(collections.Counter(str(q['ano']) for q in Q).items()))
+out['porDisc']={DL.get(k,k):v for k,v in collections.Counter(q['disc'] for q in Q).most_common()}
+# lacunas a partir dos guias
+lac=[]
+for f in sorted((R/'expedicao').glob('*.json')):
+    if f.name=='indice.json': continue
+    o=json.load(open(f))
+    for i,t in enumerate(o['topicos']):
+        p=t.get('peso','');m=re.search(r'(\d+)\s+quest',p);n=int(m.group(1)) if m else 0
+        tp=bool(re.search(r'Transpetro',p));sem=bool(re.search(r'sem precedente',p,re.I))
+        lac.append({'slug':o['slug'],'disc':o['nome'],'i':i,'t':re.sub(r'^[\d.]+\s*','',t['t']),'n':n,'tp':tp,'sem':sem})
+out['topicos']=lac
+json.dump(out,open(R/'inteligencia'/'padroes.json','w'),ensure_ascii=False,indent=1)
+print(N,len(lac))
+for k,v in out['palavras'].items(): print(k,v)
+print(out['transpetro']['top'][:6])

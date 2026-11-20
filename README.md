@@ -29,3 +29,10 @@ Tudo gerado dos guias (`expedicao/*.json`):
 - **Flashcards** com revisão espaçada: cartões do guia, duelos, métodos e listas.
 
 O progresso fica em `arenaTP.estudio.v1`, e o XP entra no Arena Relâmpago. Para regenerar os dados depois de editar um guia: `python3 expedicao/gerar.py`.
+
+### Inteligência da banca e da empresa (no Estúdio)
+
+- **Mapa Transpetro** (`#geo`): cada disciplina num terminal real, com fato da operação e fonte, pegadinhas, macete, missão de estudo, satélite do Google Maps e rota do dia pelos pontos fracos. Usa Leaflet 1.9.4 (unpkg) e mapa base CARTO/OpenStreetMap.
+- **Laboratório da Banca** (`#lab`): palavras-sinal medidas, letra e tamanho do gabarito, mitos × medido, tendências desde 2023, lacunas e scanner de pegadinhas. Dados em `inteligencia/padroes.json`, gerados por `python3 inteligencia/gerar.py`.
+- **Radar Transpetro** (`#radar`): matriz de convergência entre prioridades da empresa e tendências da banca, fatos com fonte e vocabulário de domínio. Conteúdo curado em `inteligencia/radar.json`.
+- **Gemini** (`#gem`): o usuário cola a própria chave do Google AI Studio, que fica só no `localStorage` do navegador e nunca vai para o repositório. Gera questão inédita no padrão medido, explicação e previsão a partir do guia do tópico.
