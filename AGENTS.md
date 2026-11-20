@@ -93,3 +93,10 @@ Regras: use só variáveis (`--bg --paper --ink --muted --line --accent --accent
 ## Links externos dentro do app (`abrir.js`)
 
 Todo link `http(s)` externo (de qualquer página) abre no visualizador interno (`#vw`, estilo em `tema.css`, barra e cores do tema do app). Embutem: YouTube (via youtube-nocookie), arquivos, pastas, Docs, Planilhas, Apresentações e Formulários do Google (`/preview`, `/embed`), guias `.md` do `raw.githubusercontent.com` (renderizados no próprio app) e sites sem trava. Sites que recusam iframe (lista `BLOQ`: NotebookLM, AI Studio, Gemini, Claude, Anthropic, TecConcursos, GitHub etc.) mostram uma tela-ponte com "janela ao lado", "nova aba" e "copiar link". Não dá para aplicar o tema do app dentro de um site de outra origem: só a moldura é temada. Documentos privados do Google podem pedir login dentro do iframe (cookies de terceiros). Use `data-fora` no `<a>` para abrir fora, `data-titulo` para dar título. Esc e o botão Voltar do navegador fecham o visualizador.
+
+## Navegação do Estúdio (menu lateral, busca e segunda tela)
+
+- Menu lateral esquerdo (`#sb`), gerado de `TOOLS` (ferramentas agrupadas por intenção, cada uma com uma linha dizendo o que faz). No computador recolhe para ícones (`arenaTP.sb`); no celular vira gaveta (☰) com barra de atalhos embaixo (Hoje, Método, Treinar, Assistir, Mais).
+- Barra superior com botões ← e → (histórico), título da ferramenta e do assunto, busca (Ctrl+K ou `/`; lista ferramentas e os 115 tópicos, Enter abre, Shift+Enter abre na segunda tela) e o botão 🎨 Tema (`#thslot`).
+- Segunda tela (`#pn`): painel à direita com a ferramenta carregada num iframe `?embed=1` (esconde menu e barra; o tema vem do `localStorage`). Abre pelo botão ⧉ de cada item, Alt+clique ou qualquer elemento com `data-panel="#rota"`. No computador largo ela fica ao lado da tela principal; no celular ocupa a tela. Esc fecha.
+- "Continuar" no menu guarda o último local (`arenaTP.ultima`). Cada troca de ferramenta tem uma animação curta de entrada e volta ao topo.
