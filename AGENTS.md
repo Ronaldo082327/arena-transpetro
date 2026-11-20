@@ -82,3 +82,8 @@ Veja `docs/antigravity-tarefas.md`: pedidos prontos, com o que conferir antes de
 - Gráfico de evolução do acerto por semana.
 - Modo "revisão relâmpago" com 10 cards e 5 questões dos assuntos de pior acerto.
 - Lembrete diário (notificação) quando o app estiver instalado.
+
+
+## Temas e relevo (Estúdio)
+
+9 temas (Pêssego, Gelo, Menta, Lavanda, Rosa, Noite, Grafite, Petróleo, Aurora) via `:root[data-theme]`, escolhidos no botão 🎨. Relevo 3D plano/suave/forte via `data-depth` (variáveis `--o`, `--b`, `--sh-d`, `--sh-l`). Chaves: `arenaTP.tema` e `arenaTP.relevo`. Ao criar CSS novo, use as variáveis (`--paper`, `--hi`, `--accent-soft`, `--shadow`, `--raise`), nunca cores claras fixas. As telas de videoaula (`.stage`) e os rascunhos em SVG ficam como folha clara de propósito. `expedicao.html` e `jogo.html` ainda usam só claro/escuro.
