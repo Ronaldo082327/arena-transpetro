@@ -346,13 +346,23 @@ mark.sg{border-radius:4px;padding:0 3px} mark.sg.bad{background:var(--bad-soft);
 .rxbox dd{margin:0;font-size:14.5px}
 .rxf{background:var(--accent-soft);color:var(--accent);font-family:var(--mono);font-size:11px;border-radius:99px;padding:3px 10px;text-transform:uppercase;letter-spacing:.06em}
 .chip2{display:inline-block;border:1px solid var(--line);border-radius:99px;padding:2px 10px;margin:2px 2px 0 0;background:var(--paper);font-size:13px}
+
+.decks{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:8px;margin-top:12px}
+.deck{display:grid;grid-template-columns:22px 1fr auto;gap:10px;align-items:center;border:1px solid var(--line);border-radius:12px;padding:10px 12px;background:var(--paper);box-shadow:var(--shadow);cursor:pointer}
+.deck>span{display:grid}
+.gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px;margin-top:10px}
+.gcard{margin:0;cursor:zoom-in;border-radius:18px;overflow:hidden;box-shadow:var(--shadow-lg)}
+.gcard svg,.akimg svg{display:block;width:100%;height:auto}
+.akfront{margin-top:10px;font-size:20px;line-height:1.45;background:linear-gradient(180deg,#fffdf9,var(--paper));border:1px solid var(--line);border-radius:18px;padding:22px;box-shadow:var(--shadow-lg);cursor:pointer}
+.akimg{margin-top:12px;border-radius:18px;overflow:hidden;box-shadow:var(--shadow-lg)}
+.prancha{margin-top:12px;max-width:540px;border-radius:22px;overflow:hidden;box-shadow:var(--shadow-lg)}.prancha svg{display:block;width:100%;height:auto}
 @media (max-width:560px){.vitem{grid-template-columns:56px 1fr}.vitem .d{grid-column:2}.thumb{width:56px}.duels,.lists{grid-template-columns:1fr}.controls .hide-sm{display:none}}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
 </style></head>
 <body>
 <div class="top"><div class="in">
   <a class="brand" href="#">🎬 Estúdio Cesgranrio</a>
-  <nav aria-label="Áreas"><a href="#v" data-nav="v">Videoaulas</a><a href="#met" data-nav="met">Métodos</a><a href="#mm" data-nav="mm">Mapas mentais</a><a href="#esq" data-nav="esq">Esquemas</a><a href="#ref" data-nav="ref">⚡ Reflexo</a><a href="#geo" data-nav="geo">🗺️ Mapa Transpetro</a><a href="#lab" data-nav="lab">🔬 Laboratório</a><a href="#radar" data-nav="radar">📡 Radar</a><a href="#fc" data-nav="fc">Flashcards</a><a href="#gem" data-nav="gem">✨ Gemini</a><a href="expedicao.html">🚢 Expedição</a><a href="jogo.html">⚡ Relâmpago</a></nav>
+  <nav aria-label="Áreas"><a href="#v" data-nav="v">Videoaulas</a><a href="#met" data-nav="met">Métodos</a><a href="#mm" data-nav="mm">Mapas mentais</a><a href="#esq" data-nav="esq">Esquemas</a><a href="#ref" data-nav="ref">⚡ Reflexo</a><a href="#geo" data-nav="geo">🗺️ Mapa Transpetro</a><a href="#lab" data-nav="lab">🔬 Laboratório</a><a href="#radar" data-nav="radar">📡 Radar</a><a href="#anki" data-nav="anki">🎴 Baralhos</a><a href="#fc" data-nav="fc">Flashcards</a><a href="#gem" data-nav="gem">✨ Gemini</a><a href="expedicao.html">🚢 Expedição</a><a href="jogo.html">⚡ Relâmpago</a></nav>
 </div></div>
 <div class="wrap"><main id="app" aria-live="polite"><p class="note" style="padding:40px 0">Abrindo o estúdio…</p></main></div>
 <div class="toast" id="toast" role="status"></div>
@@ -536,6 +546,7 @@ function home(){nav('');var D=IDX.disciplinas,nt=D.reduce(function(a,d){return a
   card('met','🧭','Métodos de resolução',nf+' fluxogramas: como reconhecer, o passo a passo e o erro típico de cada formato de questão.','um por tipo de questão')+
   card('mm','🧠','Mapas mentais','A prova inteira e cada disciplina em mapas que se expandem: o que cobra, como pergunta, onde confunde, macete.','arraste, amplie, baixe')+
   card('esq','🗺️','Esquemas','Duelos "X × Y" que a banca troca, listas que precisam estar decoradas e o checklist de véspera.','duelos, listas, véspera')+
+  card('anki','🎴','Seus baralhos com imagem','Os 2.021 cartões dos seus 47 baralhos do Anki, cada um com imagem-esquema (conceito × vizinho, macete, onde caiu). Baixe em PNG ou exporte de volta para o Anki.','2.021 cartões')+
   card('ref','⚡','Reflexo Cesgranrio','Treinos cronometrados: de quem é esta definição (vizinho), este sinal elimina ou não, e eliminar uma questão real em 30 segundos.','reconhecer em segundos')+
   card('geo','🗺️','Mapa Transpetro','Cada disciplina num terminal real da empresa, com satélite do Google Maps, pegadinhas e a rota do dia pelos seus pontos fracos.','imersão geográfica')+
   card('lab','🔬','Laboratório da Banca','Padrões medidos em 1.000 questões: palavras que nunca são gabarito, mitos derrubados, tendências e lacunas.','dados, não palpite')+
@@ -584,7 +595,7 @@ function esquemas(slug,tab){nav('esq');slug=slug||S.disc;S.disc=slug;save();tab=
   if(tab==='duelos')body='<p class="note" style="margin-top:10px">O distrator da Cesgranrio costuma ser a definição certa do conceito vizinho. Cada duelo mostra o par e a linha que decide.</p><div class="duels">'+o.duelos.map(function(d){var many=d.dist.length===d.lados.length&&d.lados.length>1;return '<div class="duel"><div class="sides'+(d.lados.length===2?' two':'')+'">'+d.lados.map(function(l,k){return '<div class="side"><b>'+inline(l)+'</b>'+(many?'<p>'+inline(d.dist[k])+'</p>':'')+'</div>';}).join('')+(d.lados.length===2?'<span class="vsb">×</span>':'')+'</div>'+(many?'':'<div class="dist">'+inline(d.dist[0])+'</div>')+(d.src?'<div class="src">'+inline(d.src)+'</div>':'')+'</div>';}).join('')+'</div>';
   else if(tab==='listas')body='<div class="lists">'+o.listas.map(function(l){return '<div class="lcard"><h3>'+inline(l.t)+'</h3>'+(l.gat?'<div class="gat"><b>Gatilho na prova</b>'+inline(l.gat)+'</div>':'')+(l.items?'<ol>'+l.items.map(function(x){return '<li>'+inline(x)+'</li>';}).join('')+'</ol>':md(l.md))+'</div>';}).join('')+'</div>';
   else body='<p class="note" style="margin-top:10px">Marque o que já está firme. Fica salvo neste aparelho.</p><ul class="check">'+o.vesperaItens.map(function(x,k){var id=slug+':'+k;return '<li class="'+(S.check[id]?'on':'')+'" data-id="'+id+'"><span class="bx">'+(S.check[id]?'✓':'')+'</span><span>'+inline(x)+'</span></li>';}).join('')+'</ul>';
-  app.innerHTML='<header class="hero"><div class="eyebrow">Esquemas</div><h2>Esquemas de '+esc(o.nome)+'</h2></header>'+discBar(slug,'esq')+'<div class="tabs" role="tablist">'+T.map(function(t){return '<button role="tab" aria-selected="'+(t[0]===tab)+'" data-href="esq/'+slug+'/'+t[0]+'">'+t[1]+'</button>';}).join('')+'</div>'+body;
+  app.innerHTML='<header class="hero"><div class="eyebrow">Esquemas</div><h2>Esquemas de '+esc(o.nome)+'</h2></header>'+discBar(slug,'esq')+'<div class="tabs" role="tablist">'+T.map(function(t){return '<button role="tab" aria-selected="'+(t[0]===tab)+'" data-href="esq/'+slug+'/'+t[0]+'">'+t[1]+'</button>';}).join('')+'<button data-href="prancha/'+slug+'">🖼️ Prancha</button></div>'+body;
   $$('.check li').forEach(function(li){li.onclick=function(){var id=li.dataset.id;S.check[id]=!S.check[id];if(!S.check[id])delete S.check[id];save();li.classList.toggle('on');$('.bx',li).textContent=S.check[id]?'✓':'';};});});}
 
 /* ===================== MAPA MENTAL ===================== */
@@ -870,9 +881,98 @@ function drillElimina(){nav('ref');app.innerHTML=drillShell('✂️ Elimina em 3
         $('#nx2').onclick=function(){i++;step();};}}
     step();});}
 
+/* ===================== BARALHOS ANKI COM IMAGEM-ESQUEMA ===================== */
+var AK=null;function loadAnki(){return AK?Promise.resolve(AK):getJ('anki/baralhos.json').then(function(j){AK=j;return j;});}
+var ICON2=Object.assign({metodo:'🧭'},ICON),COR2=Object.assign({metodo:'#c8641f'},COR);
+function strip(h){var d=document.createElement('div');d.innerHTML=String(h||'').replace(/<br\s*\/?>/gi,' ');return (d.textContent||'').replace(/\s+/g,' ').trim();}
+function xe(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+function wrapL(t,max,lines){var w=t.split(' '),L=[],cur='';w.forEach(function(x){if((cur+' '+x).trim().length>max&&cur){L.push(cur);cur=x;}else cur=(cur+' '+x).trim();});if(cur)L.push(cur);if(L.length>lines){L=L.slice(0,lines);L[lines-1]=L[lines-1].replace(/\s*\S*$/,'')+'…';}return L;}
+function tsp(lines,x,y,lh,attrs){return '<text x="'+x+'" y="'+y+'" '+attrs+'>'+lines.map(function(l,i){return '<tspan x="'+x+'" dy="'+(i?lh:0)+'">'+xe(l)+'</tspan>';}).join('')+'</text>';}
+function cardSVG(c,deckName){var W=760,H=430,col=COR2[c.s]||'#c8641f',F='IBM Plex Sans, Segoe UI, sans-serif',D='Barlow Condensed, Arial Narrow, sans-serif',M='IBM Plex Mono, monospace';
+  var front=strip(c.f),sig=strip(c.sig||c.extra||''),nc=strip(c.nc||''),dica=strip(c.dica||''),src=strip(c.exSrc||''),trp=/Transpetro/i.test(src);
+  var stars='★★★'.slice(0,4-Math.min(3,Math.max(1,c.n)))+'<tspan fill-opacity=".25">'+'★★★'.slice(0,Math.min(3,Math.max(1,c.n))-1)+'</tspan>';
+  var s='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 '+W+' '+H+'" width="'+W+'" height="'+H+'" role="img" aria-label="'+xe(front)+'">'+
+  '<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fffaf3"/><stop offset="1" stop-color="#fde9d6"/></linearGradient><filter id="sh" x="-5%" y="-5%" width="110%" height="120%"><feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#b06c34" flood-opacity=".18"/></filter></defs>'+
+  '<rect width="'+W+'" height="'+H+'" rx="26" fill="url(#bg)"/><circle cx="'+(W-40)+'" cy="34" r="120" fill="'+col+'" fill-opacity=".10"/>'+
+  '<rect x="0" y="0" width="'+W+'" height="56" rx="26" fill="'+col+'" fill-opacity=".16"/><rect x="0" y="30" width="'+W+'" height="26" fill="'+col+'" fill-opacity=".16"/>'+
+  '<text x="28" y="37" font-family="'+M+'" font-size="15" fill="#7a4a1c" letter-spacing="1">'+xe((ICON2[c.s]||'')+'  '+(deckName||'').toUpperCase().slice(0,52))+'</text>'+
+  '<text x="'+(W-28)+'" y="38" text-anchor="end" font-family="'+F+'" font-size="20" fill="#c8641f">'+stars+'</text>'+
+  (trp?'<g><rect x="'+(W-232)+'" y="66" width="204" height="28" rx="14" fill="#fbefd2" stroke="#9a6a00"/><text x="'+(W-130)+'" y="85" text-anchor="middle" font-family="'+M+'" font-size="13" fill="#9a6a00">★ CAIU NA TRANSPETRO</text></g>':'')+
+  tsp(wrapL(front,trp?40:50,2),28,96,34,'font-family="'+D+'" font-weight="700" font-size="31" fill="#3b2a1d"');
+  var top=166,bh=dica?140:180;
+  if(nc){var bw=(W-56-16)/2;
+    s+='<g filter="url(#sh)"><rect x="28" y="'+top+'" width="'+bw+'" height="'+bh+'" rx="18" fill="#e9f6ec" stroke="#2f7a45" stroke-width="2"/><rect x="'+(44+bw)+'" y="'+top+'" width="'+bw+'" height="'+bh+'" rx="18" fill="#fdeceb" stroke="#b0413a" stroke-width="2"/></g>'+
+      '<text x="48" y="'+(top+30)+'" font-family="'+M+'" font-size="13" fill="#2f7a45" letter-spacing="1">✔ É ISTO</text>'+tsp(wrapL(sig,36,dica?4:5),48,top+58,22,'font-family="'+F+'" font-size="17" fill="#22382a"')+
+      '<text x="'+(64+bw)+'" y="'+(top+30)+'" font-family="'+M+'" font-size="13" fill="#b0413a" letter-spacing="1">✗ NÃO CONFUNDA COM</text>'+tsp(wrapL(nc,36,dica?4:5),64+bw,top+58,22,'font-family="'+F+'" font-size="17" fill="#4a2420"')+
+      '<g><circle cx="'+(36+bw)+'" cy="'+(top+bh/2)+'" r="18" fill="#3b2a1d"/><text x="'+(36+bw)+'" y="'+(top+bh/2+6)+'" text-anchor="middle" font-family="'+D+'" font-weight="700" font-size="18" fill="#fffaf3">VS</text></g>';}
+  else{s+='<g filter="url(#sh)"><rect x="28" y="'+top+'" width="'+(W-56)+'" height="'+bh+'" rx="18" fill="#fffdf9" stroke="'+col+'" stroke-width="2"/></g><text x="48" y="'+(top+30)+'" font-family="'+M+'" font-size="13" fill="#7a4a1c" letter-spacing="1">✔ RESPOSTA</text>'+tsp(wrapL(sig,72,dica?4:5),48,top+60,24,'font-family="'+F+'" font-size="19" fill="#3b2a1d"');}
+  if(dica){var y=top+bh+14;s+='<rect x="28" y="'+y+'" width="'+(W-56)+'" height="62" rx="16" fill="#fbefd2" stroke="#e0b44e"/><text x="46" y="'+(y+38)+'" font-family="'+F+'" font-size="22">💡</text>'+tsp(wrapL(dica,74,2),82,y+27,22,'font-family="'+D+'" font-weight="600" font-size="20" fill="#5a3d10"');}
+  if(src)s+='<text x="28" y="'+(H-14)+'" font-family="'+M+'" font-size="12.5" fill="#9a7b62">CAIU ASSIM · '+xe(src.slice(0,86))+'</text>';
+  return s+'</svg>';}
+function svgPng(svg,name){var img=new Image();img.onload=function(){var c=document.createElement('canvas');c.width=1520;c.height=860;var x=c.getContext('2d');x.drawImage(img,0,0,1520,860);c.toBlob(function(b){var a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=name+'.png';a.click();});};img.src='data:image/svg+xml;charset=utf-8,'+encodeURIComponent(svg);}
+function deckName(id){var d=AK.decks.find(function(x){return x.id===id;});return d?d.nome:'';}
+function backHTML(c){return (c.sig?'<p class="q">'+c.sig+'</p>':'')+(c.extra?'<p class="note">'+c.extra+'</p>':'')+(c.dica?'<p class="mac-mini" style="margin-top:8px">💡 '+c.dica+'</p>':'')+(c.ex?'<p style="margin-top:8px"><i>Caiu assim:</i> '+c.ex+(c.exSrc?' <span class="note mono">('+esc(strip(c.exSrc))+')</span>':'')+'</p>':'')+(c.nc?'<p style="margin-top:8px;color:var(--bad)"><b>Não confunda com:</b> '+c.nc+'</p>':'');}
+function baralhos(slug){nav('anki');loadAnki().then(function(A){S.ak=S.ak||{n1:true};var discs=Array.from(new Set(A.decks.map(function(d){return d.s;})));
+  var now=Date.now(),due=function(c){var b=S.box['k'+c.id];return !b||b.due<=now;};
+  var sel=A.decks.filter(function(d){return !slug||d.s===slug;});
+  app.innerHTML='<header class="hero"><div class="eyebrow">Seus baralhos do Anki · '+A.n+' cartões em '+A.decks.length+' baralhos</div><h2>Cartões com imagem-esquema</h2><p class="note" style="max-width:72ch">Os seus 47 baralhos, revisados contra os capítulos e os gabaritos oficiais. Cada cartão vira um esquema visual: o conceito ✔ contra o vizinho ✗ que a banca troca, o macete em destaque e o trecho real em que caiu. ★★★ = o que mais cai. Baixe qualquer imagem em PNG ou exporte o baralho de volta para o seu Anki com as imagens.</p></header>'+
+  '<div class="discs"><button aria-pressed="'+(!slug)+'" data-href="anki">Todos</button>'+discs.map(function(s){return '<button aria-pressed="'+(s===slug)+'" data-href="anki/'+s+'">'+(ICON2[s]||'')+' '+esc(s==='metodo'?'Método':dname(s))+'</button>';}).join('')+'</div>'+
+  '<div class="row" style="margin-top:12px"><label class="toggles"><label><input type="checkbox" id="n1"'+(S.ak.n1?' checked':'')+'> Nível 1 primeiro (o que mais cai)</label></label><button class="primary" id="gosel">Estudar 20 dos selecionados</button><button id="exp">⬇ Exportar para o Anki (com imagens)</button></div>'+
+  '<div class="decks">'+sel.map(function(d){var cs=A.cards.filter(function(c){return c.d===d.id;}),dd=cs.filter(due).length;return '<label class="deck"><input type="checkbox" class="dk" value="'+d.id+'" checked><span><b>'+(ICON2[d.s]||'')+' '+esc(d.nome)+'</b><span class="note">'+cs.length+' cartões · '+dd+' para hoje</span></span><button class="ghost" data-prev="'+d.id+'">Ver</button></label>';}).join('')+'</div><div id="az"></div>';
+  $('#n1').onchange=function(){S.ak.n1=this.checked;save();};
+  var chosen=function(){var ids=$$('.dk').filter(function(x){return x.checked;}).map(function(x){return x.value;});return A.cards.filter(function(c){return ids.indexOf(c.d)>=0;});};
+  $('#gosel').onclick=function(){var cs=chosen().filter(due);cs=shuffle(cs);if(S.ak.n1)cs.sort(function(a,b){return a.n-b.n;});akSession(cs.slice(0,20));};
+  $$('[data-prev]').forEach(function(b){b.onclick=function(e){e.preventDefault();var cs=A.cards.filter(function(c){return c.d===b.dataset.prev;});$('#az').innerHTML='<h3 style="margin-top:16px">'+esc(deckName(b.dataset.prev))+'</h3><div class="gallery">'+cs.slice(0,60).map(function(c){return '<figure class="gcard" data-id="'+c.id+'">'+cardSVG(c,deckName(c.d))+'</figure>';}).join('')+'</div>'+(cs.length>60?'<p class="note">Mostrando 60 de '+cs.length+'. Estude o baralho para ver todos.</p>':'');$('#az').scrollIntoView({behavior:'smooth'});
+    $$('.gcard').forEach(function(g){g.onclick=function(){var c=A.cards.find(function(x){return x.id===g.dataset.id;});svgPng(cardSVG(c,deckName(c.d)),'cartao-'+c.id);toast('Imagem baixada');};});};});
+  $('#exp').onclick=function(){var cs=chosen();var lines=['#separator:tab','#html:true','#notetype:Basic','#deck:Transpetro 2026 Premium','#tags column:3'];cs.forEach(function(c){var back=cardSVG(c,deckName(c.d)).replace(/\n/g,' ').replace(' width="760" height="430"',' style="width:100%;max-width:760px;height:auto"')+'<br>'+backHTML(c).replace(/class="[^"]*"/g,'');lines.push([c.f.replace(/\t/g,' '),back.replace(/\t/g,' '),'transpetro2026 premium nivel'+c.n+' '+c.s].join('\t'));});
+    var b=new Blob([lines.join('\n')],{type:'text/plain'});var a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='Transpetro-2026-Anki-Premium.txt';a.click();toast(cs.length+' cartões exportados para o Anki');};});}
+function akSession(list){var i=0,ok=0,box=$('#az');if(!list.length){box.innerHTML='<div class="panel">Nada pendente nos baralhos selecionados. Volte amanhã ou escolha outros.</div>';return;}
+  var draw=function(){if(i>=list.length){box.innerHTML='<div class="panel"><h3>Sessão concluída</h3><p class="note">'+ok+' de '+list.length+' certos. +'+(ok*3)+' XP.</p></div>';xp(ok*3);return;}
+    var c=list[i],b=(S.box['k'+c.id]||{}).b||0;
+    box.innerHTML='<div class="spread" style="margin-top:14px"><span class="mono note">'+(i+1)+'/'+list.length+' · '+(ICON2[c.s]||'')+' '+esc(deckName(c.d))+' · caixa '+(b||'nova')+' · nível '+c.n+'</span></div><div class="akfront" tabindex="0">'+c.f+'<p class="note" style="margin-top:10px">Responda em voz alta. Toque ou Espaço para ver o esquema.</p></div><div id="akb" hidden><div class="akimg">'+cardSVG(c,deckName(c.d))+'</div><details class="ex" style="margin-top:8px"><summary>Texto completo do cartão</summary>'+backHTML(c)+'</details><div class="grade"><button data-g="0" style="color:var(--bad)">1 · Errei</button><button data-g="1" style="color:var(--warn)">2 · Difícil</button><button data-g="2" style="color:var(--ok)">3 · Fácil</button></div><div class="row" style="margin-top:6px"><button class="ghost" id="png">⬇ Baixar esta imagem</button></div></div>';
+    var flip=function(){$('#akb').hidden=false;};$('.akfront').onclick=flip;
+    var grade=function(g){var nb=g===0?1:(g===1?Math.max(1,b):Math.min(5,b+1));S.box['k'+c.id]={b:nb,due:Date.now()+IV[nb]*864e5-36e5};save();if(g>0)ok++;i++;draw();};
+    $$('#akb [data-g]').forEach(function(x){x.onclick=function(){grade(+x.dataset.g);};});$('#png').onclick=function(){svgPng(cardSVG(c,deckName(c.d)),'cartao-'+c.id);};
+    session.key=function(k){if($('#akb').hidden){if(k===' ')flip();return;}if(/^[123]$/.test(k))grade(+k-1);};};
+  draw();box.scrollIntoView({behavior:'smooth',block:'start'});}
+
+/* ===================== PRANCHAS (pôster por disciplina) ===================== */
+function pranchaSVG(o,A,P){var W=1080,H=1920,c=COR[o.slug],F='IBM Plex Sans, Segoe UI, sans-serif',D='Barlow Condensed, Arial Narrow, sans-serif',M='IBM Plex Mono, monospace',LIM=H-180;
+  var tp=o.topicos.filter(function(t){return /Transpetro/.test(t.peso||'');}).length;
+  var du2=o.duelos.filter(function(d){return d.lados.length===2&&d.dist.length===2;}).slice(0,6);
+  var du1=o.duelos.filter(function(d){return d.lados.length===2&&d.dist.length===1;}).slice(0,6-du2.length);
+  var ak=A?A.cards.filter(function(k){return k.s===o.slug&&k.dica;}):[];
+  var mac=ak.filter(function(k){return k.bolso;}).concat(ak.filter(function(k){return !k.bolso&&k.n===1;})).slice(0,4).map(function(k){return [strip(k.f),strip(k.dica)];});
+  if(mac.length<3)mac=mac.concat(o.topicos.filter(function(t){return t.macete;}).slice(0,4-mac.length).map(function(t){return [t.t.replace(/^[\d.]+\s*/,''),strip(t.macete)];}));
+  var li=o.listas.filter(function(l){return l.items&&l.items.length>=3&&l.items.length<=8;}).slice(0,2);
+  var s='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 '+W+' '+H+'" width="'+W+'" height="'+H+'"><defs><linearGradient id="pg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff7ee"/><stop offset="1" stop-color="#fde6d0"/></linearGradient><filter id="ps"><feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#b06c34" flood-opacity=".18"/></filter></defs>'+
+   '<rect width="'+W+'" height="'+H+'" fill="url(#pg)"/><circle cx="960" cy="120" r="260" fill="'+c+'" fill-opacity=".14"/><circle cx="80" cy="1840" r="220" fill="'+c+'" fill-opacity=".10"/>'+
+   '<text x="60" y="96" font-family="'+M+'" font-size="22" fill="#9a6a3a" letter-spacing="3">TRANSPETRO 2026 · CESGRANRIO · PRANCHA</text>'+
+   '<text x="60" y="190" font-family="'+D+'" font-weight="700" font-size="92" fill="#3b2a1d">'+xe(ICON[o.slug]+' '+o.nome)+'</text>'+
+   tsp(wrapL(strip(o.intro),70,2),60,240,30,'font-family="'+F+'" font-size="22" fill="#7c6553"');
+  [[o.topicos.length,'tópicos','#c8641f'],[tp,'já na Transpetro','#9a6a00'],[o.duelos.length,'pares trocados','#b0413a']].forEach(function(b,i){var x=60+i*330;s+='<rect x="'+x+'" y="300" width="300" height="96" rx="22" fill="#fffaf4" filter="url(#ps)"/><text x="'+(x+24)+'" y="362" font-family="'+D+'" font-weight="700" font-size="52" fill="'+b[2]+'">'+b[0]+'</text><text x="'+(x+24+String(b[0]).length*28+16)+'" y="358" font-family="'+F+'" font-size="22" fill="#7c6553">'+b[1]+'</text>';});
+  var y=450;
+  if(du2.length+du1.length){s+='<text x="60" y="'+y+'" font-family="'+D+'" font-weight="700" font-size="44" fill="#3b2a1d">⚔ Não confunda</text>';y+=24;var half=(W-120-20)/2;
+    du2.forEach(function(d){s+='<g filter="url(#ps)"><rect x="60" y="'+y+'" width="'+half+'" height="112" rx="18" fill="#e9f6ec"/><rect x="'+(80+half)+'" y="'+y+'" width="'+half+'" height="112" rx="18" fill="#fdeceb"/></g>'+
+      '<text x="82" y="'+(y+38)+'" font-family="'+D+'" font-weight="700" font-size="28" fill="#22382a">'+xe(strip(d.lados[0]).slice(0,30))+'</text>'+tsp(wrapL(strip(d.dist[0]),40,2),82,y+70,24,'font-family="'+F+'" font-size="19" fill="#2f4a37"')+
+      '<text x="'+(102+half)+'" y="'+(y+38)+'" font-family="'+D+'" font-weight="700" font-size="28" fill="#4a2420">'+xe(strip(d.lados[1]).slice(0,30))+'</text>'+tsp(wrapL(strip(d.dist[1]),40,2),102+half,y+70,24,'font-family="'+F+'" font-size="19" fill="#5a2c27"')+
+      '<circle cx="'+(70+half)+'" cy="'+(y+56)+'" r="20" fill="#3b2a1d"/><text x="'+(70+half)+'" y="'+(y+63)+'" text-anchor="middle" font-family="'+D+'" font-weight="700" font-size="18" fill="#fff">VS</text>';y+=128;});
+    du1.forEach(function(d){s+='<rect x="60" y="'+y+'" width="'+(W-120)+'" height="112" rx="18" fill="#fffaf4" filter="url(#ps)"/><text x="82" y="'+(y+40)+'" font-family="'+D+'" font-weight="700" font-size="29" fill="#3b2a1d"><tspan fill="#2f7a45">'+xe(strip(d.lados[0]).slice(0,36))+'</tspan><tspan fill="#9a7b62">  ×  </tspan><tspan fill="#b0413a">'+xe(strip(d.lados[1]).slice(0,36))+'</tspan></text>'+tsp(wrapL(strip(d.dist[0]),84,2),82,y+74,24,'font-family="'+F+'" font-size="19" fill="#4a3628"')+'';y+=128;});
+    y+=34;}
+  if(mac.length){s+='<text x="60" y="'+y+'" font-family="'+D+'" font-weight="700" font-size="44" fill="#3b2a1d">💡 Macetes</text>';y+=24;
+    mac.forEach(function(m){if(y+118>LIM)return;s+='<rect x="60" y="'+y+'" width="'+(W-120)+'" height="112" rx="18" fill="#fbefd2" stroke="#e0b44e" stroke-width="2"/><text x="84" y="'+(y+34)+'" font-family="'+M+'" font-size="17" fill="#9a6a00">'+xe(m[0].slice(0,80).toUpperCase())+'</text>'+tsp(wrapL(m[1],78,3),84,y+64,24,'font-family="'+D+'" font-weight="600" font-size="23" fill="#5a3d10"');y+=124;});y+=34;}
+  li.forEach(function(l,i){});
+  if(li.length){var w=(W-120)/2-10,hmax=0;li.forEach(function(l){hmax=Math.max(hmax,70+Math.min(7,l.items.length)*36);});
+    if(y+hmax<=LIM)li.forEach(function(l,i){var x=60+i*(w+20),it=l.items.slice(0,7);s+='<rect x="'+x+'" y="'+y+'" width="'+w+'" height="'+hmax+'" rx="18" fill="#fffaf4" filter="url(#ps)"/><text x="'+(x+20)+'" y="'+(y+40)+'" font-family="'+D+'" font-weight="700" font-size="27" fill="#c8641f">'+xe(strip(l.t).slice(0,30))+'</text>'+it.map(function(t,k){return '<text x="'+(x+20)+'" y="'+(y+78+k*36)+'" font-family="'+F+'" font-size="19" fill="#3b2a1d">'+(k+1)+'. '+xe(strip(t).slice(0,40))+'</text>';}).join('');});}
+  s+='<rect x="60" y="'+(H-160)+'" width="'+(W-120)+'" height="110" rx="22" fill="#3b2a1d"/><text x="90" y="'+(H-120)+'" font-family="'+M+'" font-size="17" fill="#f6c99a" letter-spacing="2">REGRA CONFIRMADA EM PROVAS REAIS</text>'+tsp(wrapL('Elimine o absoluto forte (exclusivamente, necessariamente, nunca, qualquer), salvo definição literal de norma e Lógica. Depois pergunte: esta é a definição de qual vizinho?',86,2),90,H-88,28,'font-family="'+F+'" font-size="20" fill="#fffaf3"');
+  return s+'</svg>';}
+function pranchas(slug){nav('esq');slug=slug||S.disc;Promise.all([loadDisc(slug),loadAnki().catch(function(){return null;})]).then(function(r){var o=r[0],A=r[1];var svg=pranchaSVG(o,A);
+  app.innerHTML='<header class="hero"><div class="eyebrow">Pranchas</div><h2>Prancha de '+esc(o.nome)+'</h2><p class="note">Um pôster vertical por disciplina, no formato da tela do celular: os pares que a banca troca, os macetes de bolso, as listas e a regra confirmada. Baixe e use como papel de parede ou cole na parede.</p></header>'+discBar(slug,'prancha')+'<div class="row" style="margin-top:12px"><button class="primary" id="pp">⬇ Baixar PNG em alta resolução</button></div><div class="prancha">'+svg+'</div>';
+  $('#pp').onclick=function(){var img=new Image();img.onload=function(){var cv=document.createElement('canvas');cv.width=1080;cv.height=1920;cv.getContext('2d').drawImage(img,0,0);cv.toBlob(function(b){var a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='prancha-'+slug+'.png';a.click();});};img.src='data:image/svg+xml;charset=utf-8,'+encodeURIComponent(svg);};});}
+
 /* ===================== ROTAS E TECLADO ===================== */
 function route(){var h=decodeURIComponent(location.hash.slice(1)).split('/');stopPlayer();session.key=null;window.scrollTo(0,0);
-  switch(h[0]){case 'v':return videoteca(h[1]);case 'play':return play(h[1],h[2],+h[3]||0);case 'met':return metodos(h[1]);case 'mm':return mapa(h[1]);case 'esq':return esquemas(h[1],h[2]);case 'fc':return flash();case 'ref':if(h[1]==='raiox')return drillRaiox(h[2]);return h[1]==='vizinho'?drillVizinho():(h[1]==='sinal'?drillSinal():(h[1]==='elimina'?drillElimina():reflexo()));case 'geo':return geo();case 'lab':return lab();case 'radar':return radar();case 'gem':return gemini();default:return home();}}
+  switch(h[0]){case 'v':return videoteca(h[1]);case 'play':return play(h[1],h[2],+h[3]||0);case 'met':return metodos(h[1]);case 'mm':return mapa(h[1]);case 'esq':return esquemas(h[1],h[2]);case 'fc':return flash();case 'ref':if(h[1]==='raiox')return drillRaiox(h[2]);return h[1]==='vizinho'?drillVizinho():(h[1]==='sinal'?drillSinal():(h[1]==='elimina'?drillElimina():reflexo()));case 'anki':return baralhos(h[1]);case 'prancha':return pranchas(h[1]);case 'geo':return geo();case 'lab':return lab();case 'radar':return radar();case 'gem':return gemini();default:return home();}}
 addEventListener('hashchange',route);
 document.addEventListener('keydown',function(e){if(e.metaKey||e.ctrlKey||e.altKey||/INPUT|SELECT|TEXTAREA/.test(e.target.tagName))return;
   if(P){if(e.key===' '){e.preventDefault();P.toggle();}else if(e.key==='ArrowRight'){e.preventDefault();P.seekCue(Math.min(P.b.cues.length-1,P.i+1));}else if(e.key==='ArrowLeft'){e.preventDefault();P.seekCue(Math.max(0,P.i-1));}else if(e.key==='f'||e.key==='F'){var r=P.root;if(document.fullscreenElement)document.exitFullscreen();else if(r.requestFullscreen)r.requestFullscreen();}return;}
