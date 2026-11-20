@@ -40,12 +40,9 @@ Regra de ouro: **tudo é para a prova da Transpetro (Cesgranrio, 06/12/2026)**. 
 
 **Conferir:** essas questões não entram nas estatísticas do Laboratório (que usa só questões reais). Revise ao menos 1 em cada 5 antes de marcar `revisado: true`.
 
-## 5. Lembrete diário no celular
+## 5. Lembrete diário no celular · ✅ feito pelo Claude em 20/11
 
-**Pedido para colar:**
-> Leia o AGENTS.md. Crie no Google Agenda do Ronaldo um evento diário às 7h30 até 05/12/2026, chamado "Transpetro: plano do dia", com o link https://ronaldo082327.github.io/arena-transpetro/estudio.html#plano na descrição, lembrete 0 minutos. No dia 04/12, troque a descrição para "Simulado completo (330 min)"; em 05/12, para "Véspera: só pranchas e checklist".
-
-**Conferir:** que os eventos não se sobrepõem a compromissos existentes.
+Já estão na Agenda Google: "Transpetro: plano do dia" às 7h30, todo dia de 21/11 a 03/12, com o link do plano; "simulado completo" em 04/12; "véspera" em 05/12. Nada a fazer aqui.
 
 ---
 
