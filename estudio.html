@@ -477,7 +477,31 @@ html.embed .sb,html.embed .bar,html.embed .tb,html.embed .scrim,html.embed #pn,h
 html.pn-open .sq kbd{display:none}.sq{overflow:hidden}
 .tb button,.sb .pb,.sb .mini,#pn .ph .ib{box-shadow:none!important}.tb button{border:0!important;background:transparent!important}.sb .pb{border:0!important;background:transparent!important}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
-</style><link rel="stylesheet" href="tema.css"><script src="tema.js"></script><script src="guilda.js"></script><script src="abrir.js" defer></script></head>
+
+/* ===== Visual Dora Guilda: relevo, vidro, ladrilhos e barra flutuante (tokens de temas.css) ===== */
+.sb{background:var(--vidro);-webkit-backdrop-filter:blur(18px) saturate(1.4);backdrop-filter:blur(18px) saturate(1.4);color:var(--ink);border-right:1px solid var(--vidro-borda);box-shadow:var(--sombra-1)}
+.sb .logo{color:var(--ink)}.sb .gt{color:var(--muted);opacity:1}
+.sb a.it{color:var(--ink);border-radius:var(--raio-p);transition:background var(--mov)}
+.sb a.it .ic{width:38px;height:38px;font-size:19px;flex:0 0 38px}
+.sb a.it .tx small{color:var(--muted);opacity:1}
+.sb a.it:hover,.sb a.it:focus-visible{background:var(--inset)}
+.sb a.it[aria-current="page"]{background:var(--accent-soft);box-shadow:var(--sombra-afundado);color:var(--ink)}.sb a.it[aria-current="page"] small{color:var(--muted);opacity:1}
+.sb .pb{color:var(--muted)}.sb .cont{background:var(--accent-soft);color:var(--ink)}
+.sb .mini{background:var(--grad-btn);color:var(--ink);border:1px solid var(--line)!important;box-shadow:var(--sombra-btn)!important}
+.bar{background:var(--vidro);-webkit-backdrop-filter:blur(16px) saturate(1.4);backdrop-filter:blur(16px) saturate(1.4);border-bottom:1px solid var(--vidro-borda)}
+.ib{background:var(--grad-btn);box-shadow:var(--sombra-btn);border-radius:var(--raio-p)}
+.sq{background:var(--inset);box-shadow:var(--sombra-afundado);border-radius:var(--raio-p)}
+.cpb{border-radius:var(--raio-g)}.cpr[aria-selected="true"]{background:var(--accent-soft)}
+@media (max-width:899px){
+ .sb{background:var(--paper)}
+ .tb{left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));height:var(--barra-h);padding:6px;border-radius:var(--raio-g);background:var(--vidro);-webkit-backdrop-filter:blur(18px) saturate(1.5);backdrop-filter:blur(18px) saturate(1.5);border:1px solid var(--vidro-borda);box-shadow:var(--sombra-2);color:var(--ink);align-items:center;gap:4px}
+ .tb a,.tb button{color:var(--muted);opacity:1;height:100%;align-content:center}
+ .tb a[aria-current="page"]{background:var(--grad-btn-p);color:var(--on-destaque);box-shadow:var(--sombra-btn-p);opacity:1}
+ .wrap{padding-bottom:calc(var(--barra-h) + 44px)}
+ .toast{bottom:calc(var(--barra-h) + 28px + env(safe-area-inset-bottom,0px))}
+ .chip-dias{padding:0 10px;font-size:12px}
+}
+</style><link rel="stylesheet" href="temas.css"><link rel="stylesheet" href="tema.css"><script src="tema.js"></script><script src="guilda.js"></script><script src="abrir.js" defer></script></head>
 <body>
 <div class="shell">
 <aside id="sb" class="sb" aria-label="Menu de ferramentas"></aside>
@@ -489,7 +513,7 @@ html.pn-open .sq kbd{display:none}.sq{overflow:hidden}
   <button type="button" class="ib" id="fw" aria-label="Avançar" title="Avançar">→</button>
   <div class="bt"><span id="bt">Início</span><small id="bs"></small></div>
   <button type="button" class="sq" id="sq" aria-label="Buscar ferramenta ou tópico"><span aria-hidden="true">🔍</span><span class="sqt">Buscar ferramenta ou tópico…</span><kbd>Ctrl K</kbd></button>
-  <span id="thslot"></span>
+  <span class="chip-dias" id="dias" title="Dias até a prova (06/12/2026)"></span><span id="thslot"></span>
  </header>
  <div class="wrap"><main id="app" aria-live="polite"><p class="note" style="padding:40px 0">Abrindo o estúdio…</p></main></div>
 </div>
@@ -1468,18 +1492,24 @@ function menteTopico(s,ti){app.innerHTML='<p class="note" style="padding:30px 0"
       .then(function(x){$('#mtia_o').innerHTML='<div class="panel">'+md(x)+'<p class="note">Gerado por '+iaName()+' a partir do seu guia: confira antes de decorar.</p></div>';}).catch(function(e){$('#mtia_o').innerHTML='<p class="note">Erro da IA: '+esc(e.message)+'</p>';});};
   });});}
 
+/* ===================== MAIS (grade por seção) e contagem regressiva ===================== */
+function mais(){nav('mais');var h='<header class="hero"><div class="eyebrow">Tudo da Dora Guilda</div><h2>Mais</h2><p class="note">Tudo do app, por área. Toque para abrir.</p></header><div class="mais">';
+  TOOLS.forEach(function(g){h+='<h3>'+esc(g[0])+'</h3><div class="grade">';g[1].forEach(function(t){h+='<a class="lad" data-sec="'+g[2]+'" href="'+href(t)+'"><span class="ico" aria-hidden="true">'+t[1]+'</span><span>'+esc(t[2])+'</span></a>';});h+='</div>';});
+  app.innerHTML=h+'</div>';}
+function diasUpd(){var el=$('#dias');if(!el)return;var d=Math.ceil((new Date(2026,11,6)-new Date(new Date().toDateString()))/864e5);el.textContent=d>1?d+' dias':(d===1?'1 dia':(d===0?'Hoje é a prova':'Prova feita'));el.hidden=false;}
+setTimeout(diasUpd,0);setInterval(diasUpd,3600000);
 /* ===================== NAVEGAÇÃO: menu lateral, busca, segunda tela ===================== */
 var TOOLS=window.GUILDA.groups;
 var TKEY={};TOOLS.forEach(function(g){g[1].forEach(function(t){TKEY[t[0]]=t;});});
 var HH=document.documentElement,MOB=window.matchMedia('(max-width:899px)'),ULT='arenaTP.ultima',SBK='arenaTP.sb';
 function href(t){return /^https?:|\.html$/.test(t[0])?t[0]:'#'+t[0];}
 function sbRender(){var h='<a class="logo" href="#" data-nav=""><i>🏰</i><span>Dora Guilda<small>Engenharia Cognitiva para Concursos Públicos</small></span></a><div id="contbox"></div>';
-  TOOLS.forEach(function(g){h+='<div class="gt">'+esc(g[0])+'</div>';g[1].forEach(function(t){h+='<div class="row2"><a class="it" href="'+href(t)+'" data-nav="'+t[0]+'" title="'+esc(t[2])+'"><span class="ic" aria-hidden="true">'+t[1]+'</span><span class="tx"><b>'+esc(t[2])+'</b><small>'+esc(t[3])+'</small></span></a>'+(/^https?:/.test(t[0])?'':'<button type="button" class="pb" data-pn="'+href(t)+'" data-t="'+esc(t[2])+'" aria-label="Abrir '+esc(t[2])+' na segunda tela" title="Abrir na segunda tela">⧉</button>')+'</div>';});});
+  TOOLS.forEach(function(g){h+='<div class="gt">'+esc(g[0])+'</div>';g[1].forEach(function(t){h+='<div class="row2"><a class="it" data-sec="'+g[2]+'" href="'+href(t)+'" data-nav="'+t[0]+'" title="'+esc(t[2])+'"><span class="ic" aria-hidden="true">'+t[1]+'</span><span class="tx"><b>'+esc(t[2])+'</b><small>'+esc(t[3])+'</small></span></a>'+(/^https?:/.test(t[0])?'':'<button type="button" class="pb" data-pn="'+href(t)+'" data-t="'+esc(t[2])+'" aria-label="Abrir '+esc(t[2])+' na segunda tela" title="Abrir na segunda tela">⧉</button>')+'</div>';});});
   h+='<span class="fill"></span><button type="button" class="mini" id="sbm" aria-label="Recolher o menu" title="Recolher ou expandir o menu">«</button>';$('#sb').innerHTML=h;
   var tb='';[['plano','Hoje'],['mt','Método'],['cq','Treinar'],['v','Assistir']].forEach(function(x){var t=TKEY[x[0]];tb+='<a href="#'+x[0]+'" data-nav="'+x[0]+'"><span aria-hidden="true">'+t[1]+'</span>'+x[1]+'</a>';});
-  tb+='<button type="button" id="tbm" aria-label="Abrir o menu completo"><span aria-hidden="true">☰</span>Mais</button>';$('#tb').innerHTML=tb;contUpdate();}
+  tb+='<a href="#mais" data-nav="mais"><span aria-hidden="true">☰</span>Mais</a>';$('#tb').innerHTML=tb;contUpdate();}
 function contUpdate(){var b=$('#contbox');if(!b)return;try{var u=JSON.parse(localStorage.getItem(ULT)||'null');if(u&&u.h&&u.h!==location.hash)b.innerHTML='<a class="cont" href="'+esc(u.h)+'"><b>Continuar</b>'+esc(u.t)+'</a>';else b.innerHTML='';}catch(e){b.innerHTML='';}}
-function navImpl(k){var t=TKEY[k];$$('#sb a.it,#tb a').forEach(function(a){a.setAttribute('aria-current',a.dataset.nav===k?'page':'false');});
+function navImpl(k){var t=TKEY[k]||(k==='mais'?['mais','☰','Mais','']:null);$$('#sb a.it,#tb a').forEach(function(a){a.setAttribute('aria-current',a.dataset.nav===k?'page':'false');});
   $('#bt').textContent=t?t[2]:'Dora Guilda';document.title=(t?t[2]+' · ':'')+'Dora Guilda';
   app.classList.remove('enter');void app.offsetWidth;app.classList.add('enter');closeDrawer();subSet();}
 function subSet(){setTimeout(function(){var h=app.querySelector('h1,h2'),t=h?h.textContent.trim():'',bt=$('#bt').textContent;$('#bs').textContent=(t&&t!==bt&&t.length<90)?t:'';
@@ -1529,7 +1559,7 @@ addEventListener('hashchange',function(){subSet();contUpdate();});
 MOB.addEventListener&&MOB.addEventListener('change',function(){closeDrawer();});
 /* ===================== ROTAS E TECLADO ===================== */
 function route(){var h=decodeURIComponent(location.hash.slice(1)).split('/');stopPlayer();session.key=null;cqSession.key=null;window.scrollTo(0,0);
-  switch(h[0]){case 'v':return videoteca(h[1]);case 'play':return play(h[1],h[2],+h[3]||0);case 'met':return metodos(h[1]);case 'mm':return mapa(h[1]);case 'esq':return esquemas(h[1],h[2]);case 'fc':return flash();case 'ref':if(h[1]==='raiox')return drillRaiox(h[2]);return h[1]==='vizinho'?drillVizinho():(h[1]==='sinal'?drillSinal():(h[1]==='elimina'?drillElimina():reflexo()));case 'anki':return baralhos(h[1]);case 'plano':return plano();case 'cq':return cartoes(h[1]);case 'sim':return simulador();case 'prancha':return pranchas(h[1]);case 'geo':return geo();case 'lab':return lab();case 'radar':return radar();case 'gem':return gemini();case 'mt':return mente(h[1],h[2]);case 'pod':return podcasts();default:return home();}}
+  switch(h[0]){case 'v':return videoteca(h[1]);case 'play':return play(h[1],h[2],+h[3]||0);case 'met':return metodos(h[1]);case 'mm':return mapa(h[1]);case 'esq':return esquemas(h[1],h[2]);case 'fc':return flash();case 'ref':if(h[1]==='raiox')return drillRaiox(h[2]);return h[1]==='vizinho'?drillVizinho():(h[1]==='sinal'?drillSinal():(h[1]==='elimina'?drillElimina():reflexo()));case 'anki':return baralhos(h[1]);case 'plano':return plano();case 'cq':return cartoes(h[1]);case 'sim':return simulador();case 'prancha':return pranchas(h[1]);case 'geo':return geo();case 'lab':return lab();case 'radar':return radar();case 'gem':return gemini();case 'mt':return mente(h[1],h[2]);case 'pod':return podcasts();case 'mais':return mais();default:return home();}}
 addEventListener('hashchange',route);
 document.addEventListener('keydown',function(e){if(e.metaKey||e.ctrlKey||e.altKey||/INPUT|SELECT|TEXTAREA/.test(e.target.tagName))return;
   if(P){if(e.key===' '){e.preventDefault();P.toggle();}else if(e.key==='ArrowRight'){e.preventDefault();P.seekCue(Math.min(P.b.cues.length-1,P.i+1));}else if(e.key==='ArrowLeft'){e.preventDefault();P.seekCue(Math.max(0,P.i-1));}else if(e.key==='f'||e.key==='F'){var r=P.root;if(document.fullscreenElement)document.exitFullscreen();else if(r.requestFullscreen)r.requestFullscreen();}return;}

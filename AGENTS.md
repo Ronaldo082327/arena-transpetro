@@ -86,9 +86,13 @@ Veja `docs/antigravity-tarefas.md`: pedidos prontos, com o que conferir antes de
 
 ## Identidade visual e temas (todos os apps)
 
-Identidade "Reta Final": azul petróleo, verde-cana e laranja (referência de marca: Inter e Itaú). `tema.css` + `tema.js` são carregados por `estudio.html`, `expedicao.html`, `jogo.html` e `index.html` (depois do `<style>` da página) e definem 6 temas via `:root[data-theme]`: `retafinal` (padrão, claro com barra petróleo), `petroleo` (escuro), `laranja` (claro, estilo Inter), `cana` (verde-cana), `itau` (azul e laranja), `noite` (preto e laranja). `light` e `dark` são apelidos de `retafinal` e `petroleo`. Relevo 3D (`data-depth` 0, 1, 2). Chaves: `arenaTP.tema` e `arenaTP.relevo`; nomes antigos (pêssego, gelo etc.) migram para o padrão. Botão "🎨 Tema" flutuante em todas as páginas (`data-th-bottom` no `<html>` sobe o botão quando há barra inferior).
+Design único da Dora Guilda, o mesmo da Dora Central e do Dora Draw (pacote 3D). Arquivos:
+- `temas.css`: **gerado** (não editar à mão) a partir de `fonte-temas.js` do pacote da Central. 17 temas por tokens em `:root[data-theme="<id>"]`: `auto` (padrão, segue o sistema), `claro`, `escuro`, `grafite`, `meia-noite`, `oceano`, `floresta`, `lavanda`, `areia`, `neon`, `alto-contraste` e os da Dora Guilda `retafinal`, `petroleo`, `laranja`, `cana`, `itau`, `noite`. Contraste conferido (texto 4,5:1).
+- `tema.css`: camada de design. Define a compatibilidade com os nomes antigos (`--brand`, `--bar`, `--shadow`...), relevo em botões e cartões (`--grad-btn`, `--sombra-btn`, `--sombra-afundado`), botão principal (`--grad-btn-p`), cabeçalho de vidro (`--vidro`), ladrilhos por seção (`data-sec` treino, memoria, acompanhar, apoio), seletor de tema, menu da Guilda e visualizador de links. Cantos 16/11/22 px, movimento 180 ms, barra inferior de 72 px.
+- `tema.js`: aplica o tema salvo (`arenaTP.tema`, padrão `auto`), "Movimento reduzido" (`arenaTP.movimento`), "Texto grande" (`arenaTP.texto`) e monta o botão 🎨 Tema. Temas antigos (pêssego etc.) voltam para `auto`.
+- Estúdio: menu lateral em vidro (desktop) e barra flutuante de 72 px (celular), tela `#mais` (grade por seção), chip com a contagem de dias até 06/12/2026.
 
-Regras: use só variáveis (`--bg --paper --ink --muted --line --accent --accent-soft --on-accent --brand --on-brand --bar --bar-ink --ok --warn --bad --gold --hi --hi2`), nunca cores fixas. `--accent` serve para texto e controles (contraste mínimo 4,5:1); `--brand` é o laranja vivo (ou verde-cana no tema `cana`) para botões primários, sempre com `--on-brand` escuro. Videoaulas (`.stage`) e rascunhos SVG continuam como folha clara de propósito.
+Regras: componentes só com `var(--token)`, nunca cor literal; botão principal com `--grad-btn-p` e texto `--on-destaque`. Para mudar uma cor de tema, edite `fonte-temas.js` na Central (ou o par de blocos em `temas.css` com o mesmo cuidado de contraste) e rode `contraste.js`. As telas de videoaula (`.stage`) e os rascunhos SVG continuam como folha clara de propósito.
 
 ## Links externos dentro do app (`abrir.js`)
 
