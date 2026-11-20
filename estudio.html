@@ -1,7 +1,6 @@
 <!doctype html>
 <html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#fbf3ea"><link rel="manifest" href="manifest.json"><link rel="icon" href="icon-192.png">
 <title>Estúdio Cesgranrio</title>
-<script>try{var _t=localStorage.getItem("arenaTP.tema"),_d=localStorage.getItem("arenaTP.relevo");if(_t)document.documentElement.setAttribute("data-theme",_t);if(_d)document.documentElement.setAttribute("data-depth",_d)}catch(e){}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
@@ -11,7 +10,7 @@
   --bg:#fbf3ea; --paper:#fffaf4; --ink:#3b2a1d; --muted:#7c6553; --line:#eddcc9;
   --accent:#c8641f; --accent-soft:#fde8d6; --warn:#a96400; --warn-soft:#fbecd4;
   --bad:#b0413a; --bad-soft:#fbe3df; --ok:#2f7a45; --ok-soft:#e3f2e6; --on-accent:#ffffff; --gold:#9a6a00; --gold-soft:#fbefd2;
-  --hi:var(--hi); --hi2:var(--hi2); --glow1:#ffe3c8; --glow2:#ffeedd; --sh-d:rgba(176,108,52,.24); --sh-l:rgba(255,255,255,.95); --o:6px; --b:16px;
+  --hi:#ffffff; --hi2:#f6fafa; --glow1:#ffe3c8; --glow2:#ffeedd; --sh-d:rgba(176,108,52,.24); --sh-l:rgba(255,255,255,.95); --o:6px; --b:16px;
   --shadow:0 1px 0 var(--sh-l) inset,var(--o) var(--o) var(--b) var(--sh-d),calc(var(--o)*-.7) calc(var(--o)*-.7) var(--b) var(--sh-l);
   --shadow-lg:0 1px 0 var(--sh-l) inset,calc(var(--o)*2) calc(var(--o)*2) calc(var(--b)*1.8) var(--sh-d),calc(var(--o)*-1.2) calc(var(--o)*-1.2) calc(var(--b)*1.4) var(--sh-l);
   --raise:0 1px 0 var(--sh-l) inset,calc(var(--o)*.4) calc(var(--o)*.4) calc(var(--b)*.5) var(--sh-d),calc(var(--o)*-.3) calc(var(--o)*-.3) calc(var(--b)*.4) var(--sh-l);
@@ -21,17 +20,6 @@
   color-scheme:light;
 }
 /* Visual pedido pelo Ronaldo: claro, laranja suave, com relevo. O modo escuro só existe se escolhido explicitamente. */
-/* Temas: claros e escuros, todos com relevo (profundidade ajustável em data-depth) */
-:root[data-theme="noite"],:root[data-theme="grafite"],:root[data-theme="petroleo"],:root[data-theme="aurora"]{--warn:#e3a54b;--warn-soft:#3a2c14;--bad:#ec8b81;--bad-soft:#3d1f1c;--ok:#7fc794;--ok-soft:#183324;--gold:#e6b84a;--gold-soft:#3a2c14;color-scheme:dark}
-:root[data-theme="gelo"]{--bg:#eef4fb;--paper:#f8fbff;--ink:#1d2b3a;--muted:#5b6f84;--line:#d5e2f1;--accent:#2f6fc4;--accent-soft:#dce9fa;--on-accent:#fff;--hi:#ffffff;--hi2:#f3f8ff;--glow1:#d6e6fa;--glow2:#e8f1fb;--sh-d:rgba(60,100,160,.24);--sh-l:rgba(255,255,255,.95)}
-:root[data-theme="menta"]{--bg:#eef7f1;--paper:#fafefb;--ink:#1b3328;--muted:#54705f;--line:#d3e8da;--accent:#1f8a5b;--accent-soft:#d9f0e3;--on-accent:#fff;--hi:#ffffff;--hi2:#f3fbf6;--glow1:#cfeedb;--glow2:#e6f6ec;--sh-d:rgba(40,120,80,.22);--sh-l:rgba(255,255,255,.95)}
-:root[data-theme="lavanda"]{--bg:#f3effb;--paper:#fcfaff;--ink:#2a2140;--muted:#6a5f86;--line:#e1d9f2;--accent:#6c4bc4;--accent-soft:#e8e0fa;--on-accent:#fff;--hi:#ffffff;--hi2:#f7f3ff;--glow1:#e0d4f8;--glow2:#efe8fb;--sh-d:rgba(100,70,170,.22);--sh-l:rgba(255,255,255,.95)}
-:root[data-theme="rosa"]{--bg:#fcf0f3;--paper:#fffafb;--ink:#3d2230;--muted:#85606f;--line:#f1d6de;--accent:#c23a67;--accent-soft:#fbdde6;--on-accent:#fff;--hi:#ffffff;--hi2:#fff3f6;--glow1:#fbd3de;--glow2:#fde8ee;--sh-d:rgba(190,80,110,.22);--sh-l:rgba(255,255,255,.95)}
-:root[data-theme="noite"]{--bg:#0f1626;--paper:#172036;--ink:#e8eefc;--muted:#9fb0cf;--line:#26324d;--accent:#6ea8ff;--accent-soft:#1d2d52;--on-accent:#0b1220;--hi:#1c2742;--hi2:#1a243d;--glow1:#1b2a55;--glow2:#14203d;--sh-d:rgba(0,0,0,.55);--sh-l:rgba(110,140,220,.10)}
-:root[data-theme="grafite"]{--bg:#1a1b1e;--paper:#242529;--ink:#f1f1f3;--muted:#aaaab2;--line:#34353b;--accent:#ff9d4d;--accent-soft:#3a2c20;--on-accent:#1a1b1e;--hi:#2b2c31;--hi2:#28292e;--glow1:#2d2a27;--glow2:#222326;--sh-d:rgba(0,0,0,.6);--sh-l:rgba(255,255,255,.05)}
-:root[data-theme="petroleo"]{--bg:#0b1f24;--paper:#112b31;--ink:#e3f4f1;--muted:#8fb8b4;--line:#1d3f45;--accent:#2ec4b6;--accent-soft:#12403f;--on-accent:#04201e;--hi:#15343b;--hi2:#133037;--glow1:#0f3a40;--glow2:#0c2a30;--sh-d:rgba(0,0,0,.55);--sh-l:rgba(80,200,190,.08)}
-:root[data-theme="aurora"]{--bg:#150f26;--paper:#1f1738;--ink:#f3ecff;--muted:#b9a9de;--line:#33265a;--accent:#ff6fb5;--accent-soft:#3d1f4a;--on-accent:#1a0b24;--hi:#261c45;--hi2:#231a3f;--glow1:#3a1d63;--glow2:#1d2a5c;--sh-d:rgba(0,0,0,.55);--sh-l:rgba(200,150,255,.08)}
-:root[data-depth="0"]{--o:0px;--b:0px}:root[data-depth="2"]{--o:11px;--b:28px}
 *{box-sizing:border-box}
 html,body{overflow-x:hidden}
 body{background:radial-gradient(1200px 600px at 10% -10%,var(--glow1) 0,transparent 60%),radial-gradient(900px 500px at 110% 10%,var(--glow2) 0,transparent 55%),var(--bg);background-attachment:fixed;color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.55;margin:0;
@@ -425,22 +413,13 @@ mark.sg{border-radius:4px;padding:0 3px} mark.sg.bad{background:var(--bad-soft);
 .top nav a[aria-current="page"]{box-shadow:inset 2px 2px 5px var(--sh-d),inset -2px -2px 5px var(--sh-l)}
 .discs button[aria-pressed="true"]{box-shadow:inset 2px 2px 5px rgba(0,0,0,.25)}
 .panel,.card,.method,.lcard,.deck{border-color:color-mix(in srgb,var(--line) 70%,transparent)}
-#thbtn{position:fixed;right:max(14px,env(safe-area-inset-right,0px));bottom:max(14px,env(safe-area-inset-bottom,0px));z-index:30;width:48px;height:48px;border-radius:50%;padding:0;font-size:22px;display:grid;place-items:center;background:var(--hi);box-shadow:var(--shadow-lg)}
-#thp{position:fixed;right:max(14px,env(safe-area-inset-right,0px));bottom:calc(max(14px,env(safe-area-inset-bottom,0px)) + 58px);z-index:30;width:min(340px,calc(100vw - 28px));background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:14px;box-shadow:var(--shadow-lg);display:none}
-#thp.on{display:block}#thp h4{margin-bottom:8px}
-.thgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
-.thsw{display:grid;gap:4px;justify-items:center;padding:8px 4px;border-radius:14px;font-size:12px;font-family:var(--mono)}
-.thsw i{display:block;width:34px;height:34px;border-radius:50%;border:3px solid var(--sw-bg);background:var(--sw-ac);box-shadow:0 0 0 1px var(--line)}
-.thsw[aria-pressed="true"]{border-color:var(--accent);box-shadow:inset 2px 2px 5px var(--sh-d),inset -2px -2px 5px var(--sh-l)}
-.threl{display:flex;gap:6px;margin-top:10px}.threl button{flex:1;font-size:12.5px;padding:7px 4px}.threl button[aria-pressed="true"]{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
-</style></head>
+</style><link rel="stylesheet" href="tema.css"><script src="tema.js"></script></head>
 <body>
 <div class="top"><div class="in">
   <a class="brand" href="#">🎬 Estúdio Cesgranrio</a>
   <nav aria-label="Áreas"><a href="#plano" data-nav="plano">🎯 Plano</a><a href="#mt" data-nav="mt">🎓 Mente do examinador</a><a href="#cq" data-nav="cq">🧠 Cartões-questão</a><a href="#pod" data-nav="pod">🎧 Áudios</a><a href="#v" data-nav="v">Videoaulas</a><a href="#met" data-nav="met">Métodos</a><a href="#mm" data-nav="mm">Mapas mentais</a><a href="#esq" data-nav="esq">Esquemas</a><a href="#ref" data-nav="ref">⚡ Reflexo</a><a href="#geo" data-nav="geo">🗺️ Mapa Transpetro</a><a href="#lab" data-nav="lab">🔬 Laboratório</a><a href="#radar" data-nav="radar">📡 Radar</a><a href="#anki" data-nav="anki">🎴 Baralhos</a><a href="#fc" data-nav="fc">Flashcards</a><a href="#gem" data-nav="gem">✨ IA</a><a href="expedicao.html">🚢 Expedição</a><a href="jogo.html">⚡ Relâmpago</a></nav>
 </div></div>
 <div class="wrap"><main id="app" aria-live="polite"><p class="note" style="padding:40px 0">Abrindo o estúdio…</p></main></div>
-<button id="thbtn" aria-label="Temas e relevo" aria-expanded="false">🎨</button><div id="thp" role="dialog" aria-label="Temas"></div>
 <div class="toast" id="toast" role="status"></div>
 
 <script>
@@ -1369,26 +1348,6 @@ function menteTopico(s,ti){app.innerHTML='<p class="note" style="padding:30px 0"
       .then(function(x){$('#mtia_o').innerHTML='<div class="panel">'+md(x)+'<p class="note">Gerado por '+iaName()+' a partir do seu guia: confira antes de decorar.</p></div>';}).catch(function(e){$('#mtia_o').innerHTML='<p class="note">Erro da IA: '+esc(e.message)+'</p>';});};
   });});}
 
-/* --- temas e relevo (guardados só neste aparelho) --- */
-var THEMES=[['pessego','Pêssego','#c8641f','#fbf3ea'],['gelo','Gelo','#2f6fc4','#eef4fb'],['menta','Menta','#1f8a5b','#eef7f1'],['lavanda','Lavanda','#6c4bc4','#f3effb'],['rosa','Rosa','#c23a67','#fcf0f3'],['noite','Noite','#6ea8ff','#0f1626'],['grafite','Grafite','#ff9d4d','#1a1b1e'],['petroleo','Petróleo','#2ec4b6','#0b1f24'],['aurora','Aurora','#ff6fb5','#150f26']];
-function themeGet(){try{return {t:localStorage.getItem('arenaTP.tema')||'pessego',d:localStorage.getItem('arenaTP.relevo')||'1'};}catch(e){return {t:'pessego',d:'1'};}}
-function themeApply(){var c=themeGet(),r=document.documentElement;r.setAttribute('data-theme',c.t);r.setAttribute('data-depth',c.d);var m=document.querySelector('meta[name="theme-color"]');if(m)m.setAttribute('content',(THEMES.find(function(x){return x[0]===c.t;})||THEMES[0])[3]);}
-function themePanel(){var c=themeGet(),p=$('#thp');p.innerHTML='<h4>🎨 Tema</h4><div class="thgrid">'+THEMES.map(function(t){return '<button class="thsw" data-th="'+t[0]+'" aria-pressed="'+(c.t===t[0])+'" style="--sw-bg:'+t[3]+';--sw-ac:'+t[2]+'"><i></i>'+t[1]+'</button>';}).join('')+'</div><h4 style="margin-top:12px">Relevo (profundidade 3D)</h4><div class="threl">'+[['0','Plano'],['1','Suave'],['2','Forte']].map(function(x){return '<button data-rl="'+x[0]+'" aria-pressed="'+(c.d===x[0])+'">'+x[1]+'</button>';}).join('')+'</div>';
-  $$('[data-th]').forEach(function(b){b.onclick=function(){try{localStorage.setItem('arenaTP.tema',b.dataset.th);}catch(e){}themeApply();themePanel();};});
-  $$('[data-rl]').forEach(function(b){b.onclick=function(){try{localStorage.setItem('arenaTP.relevo',b.dataset.rl);}catch(e){}themeApply();themePanel();};});}
-$('#thbtn').onclick=function(e){e.stopPropagation();var p=$('#thp'),on=!p.classList.contains('on');if(on)themePanel();p.classList.toggle('on',on);this.setAttribute('aria-expanded',on);};
-document.addEventListener('click',function(e){var p=$('#thp');if(p.classList.contains('on')&&!p.contains(e.target)){p.classList.remove('on');$('#thbtn').setAttribute('aria-expanded','false');}});
-themeApply();
-/* ===================== ÁUDIOS (NotebookLM) ===================== */
-var PODS=[['01-portugues','📜','Português'],['02-ingles','🌐','Inglês'],['03-dados','🛢️','Dados'],['04-projetos','🧭','Projetos'],['05-governanca','⚓','Governança'],['06-engenharia-software','⚙️','Eng. de Software'],['07-ux','🧩','UX'],['08-bi','📡','BI'],['09-logica','🔦','Lógica'],['10-seguranca','🛡️','Segurança'],['12-sintese-comentarios-tecconcursos','🧠','Síntese dos comentários do TecConcursos'],['13-gabaritos-contestados-analise','⚖️','Gabaritos contestados']];
-var PODP='Personalização do Resumo em Áudio (formato Aprofundamento, português do Brasil): dois apresentadores, tom de professores de cursinho, voz natural e animada. NÃO ensine a teoria inteira. Para cada tópico do documento, diga nesta ordem: (1) o que a Cesgranrio cobra; (2) como a pergunta aparece no enunciado; (3) onde está a pegadinha e qual é a alternativa-isca; (4) o método em 3 passos para resolver. Use os exemplos de questões do documento e termine cada tópico com um macete de uma frase. O objetivo é o ouvinte aprender a RESOLVER a questão, não a decorar matéria.';
-function podcasts(){nav('pod');var RAW='https://raw.githubusercontent.com/Ronaldo082327/arena-transpetro/main/guias/';
-  app.innerHTML='<header class="hero"><div class="eyebrow">Áudios com voz humana</div><h2>🎧 Resumos em áudio (NotebookLM)</h2><p class="note" style="max-width:74ch">O NotebookLM gera conversas em áudio com duas vozes humanas. Eu não consigo abrir o NotebookLM por aqui, então o caminho é: você gera, salva o MP3 na pasta <code>audio/</code> do projeto com o nome indicado abaixo, e o app mostra o player sozinho. Enquanto não houver MP3, o app usa a voz humana do Gemini nas videoaulas (cole a chave em ✨ IA) ou a melhor voz do aparelho.</p></header>'+
-  '<section class="panel"><h3>1. Cole este pedido em "Personalizar" do NotebookLM</h3><p class="note" style="white-space:pre-wrap">'+esc(PODP)+'</p><div class="row" style="margin-top:8px"><button class="primary" id="podcp">Copiar o pedido</button><a href="https://notebooklm.google.com" target="_blank" rel="noopener"><button>Abrir o NotebookLM</button></a></div></section>'+
-  '<section class="panel"><h3>2. Um caderno por disciplina</h3><p class="note">Fonte de cada um: o guia da disciplina (arquivo em <code>guias/</code> deste projeto, ou o link abaixo como "Site" no NotebookLM). Depois de gerar, baixe o áudio e salve com o nome <b>exato</b>.</p><div id="podl" style="display:grid;gap:10px;margin-top:10px"></div></section>';
-  $('#podcp').onclick=function(){try{navigator.clipboard.writeText(PODP);toast('Pedido copiado');}catch(e){toast('Copie manualmente');}};
-  $('#podl').innerHTML=PODS.map(function(x){return '<div class="lcard" data-pod="'+x[0]+'"><div class="spread"><b>'+x[1]+' '+esc(x[2])+'</b><span class="note mono" data-st>procurando áudio…</span></div><p class="note">Fonte: <a href="'+RAW+x[0]+'.md" target="_blank" rel="noopener">'+x[0]+'.md</a> · salvar como <code>audio/'+x[0]+'.mp3</code></p><div data-pl></div></div>';}).join('');
-  PODS.forEach(function(x){var box=$('[data-pod="'+x[0]+'"]');fetch('audio/'+x[0]+'.mp3',{method:'HEAD'}).then(function(r){var ok=r.ok&&/audio|octet/i.test(r.headers.get('content-type')||'');box.querySelector('[data-st]').textContent=ok?'✅ pronto':'ainda não gerado';if(ok)box.querySelector('[data-pl]').innerHTML='<audio controls preload="none" style="width:100%;margin-top:6px" src="audio/'+x[0]+'.mp3"></audio>';}).catch(function(){box.querySelector('[data-st]').textContent='ainda não gerado';});});}
 /* ===================== ROTAS E TECLADO ===================== */
 function route(){var h=decodeURIComponent(location.hash.slice(1)).split('/');stopPlayer();session.key=null;cqSession.key=null;window.scrollTo(0,0);
   switch(h[0]){case 'v':return videoteca(h[1]);case 'play':return play(h[1],h[2],+h[3]||0);case 'met':return metodos(h[1]);case 'mm':return mapa(h[1]);case 'esq':return esquemas(h[1],h[2]);case 'fc':return flash();case 'ref':if(h[1]==='raiox')return drillRaiox(h[2]);return h[1]==='vizinho'?drillVizinho():(h[1]==='sinal'?drillSinal():(h[1]==='elimina'?drillElimina():reflexo()));case 'anki':return baralhos(h[1]);case 'plano':return plano();case 'cq':return cartoes(h[1]);case 'sim':return simulador();case 'prancha':return pranchas(h[1]);case 'geo':return geo();case 'lab':return lab();case 'radar':return radar();case 'gem':return gemini();case 'mt':return mente(h[1],h[2]);case 'pod':return podcasts();default:return home();}}

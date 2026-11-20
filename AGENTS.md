@@ -84,12 +84,8 @@ Veja `docs/antigravity-tarefas.md`: pedidos prontos, com o que conferir antes de
 - Lembrete diário (notificação) quando o app estiver instalado.
 
 
-## Temas e relevo (Estúdio)
+## Identidade visual e temas (todos os apps)
 
-9 temas (Pêssego, Gelo, Menta, Lavanda, Rosa, Noite, Grafite, Petróleo, Aurora) via `:root[data-theme]`, escolhidos no botão 🎨. Relevo 3D plano/suave/forte via `data-depth` (variáveis `--o`, `--b`, `--sh-d`, `--sh-l`). Chaves: `arenaTP.tema` e `arenaTP.relevo`. Ao criar CSS novo, use as variáveis (`--paper`, `--hi`, `--accent-soft`, `--shadow`, `--raise`), nunca cores claras fixas. As telas de videoaula (`.stage`) e os rascunhos em SVG ficam como folha clara de propósito. `expedicao.html` e `jogo.html` ainda usam só claro/escuro.
+Identidade "Reta Final": azul petróleo, verde-cana e laranja (referência de marca: Inter e Itaú). `tema.css` + `tema.js` são carregados por `estudio.html`, `expedicao.html`, `jogo.html` e `index.html` (depois do `<style>` da página) e definem 6 temas via `:root[data-theme]`: `retafinal` (padrão, claro com barra petróleo), `petroleo` (escuro), `laranja` (claro, estilo Inter), `cana` (verde-cana), `itau` (azul e laranja), `noite` (preto e laranja). `light` e `dark` são apelidos de `retafinal` e `petroleo`. Relevo 3D (`data-depth` 0, 1, 2). Chaves: `arenaTP.tema` e `arenaTP.relevo`; nomes antigos (pêssego, gelo etc.) migram para o padrão. Botão "🎨 Tema" flutuante em todas as páginas (`data-th-bottom` no `<html>` sobe o botão quando há barra inferior).
 
-
-## Voz das videoaulas e áudios
-
-- Narração: se houver chave do Gemini (`arenaTP.gemini`), o Estúdio usa Gemini TTS (voz humana, modelo descoberto na conta, cota gratuita), com cache em IndexedDB (`arenaTP.voz`) e fallback automático para a melhor voz `pt-BR` do aparelho (ranking `vscore`: Natural/Online/Google primeiro). Escolha da voz no seletor do player (`S.hv`, `S.hvoice`, `S.vname`).
-- `#pod` (🎧 Áudios): guia para gerar Resumos em Áudio no NotebookLM (o agente não acessa o NotebookLM). MP3 salvos em `audio/<guia>.mp3` (nome do arquivo em `guias/`) aparecem sozinhos como player. O `sw.js` não faz cache de áudio.
+Regras: use só variáveis (`--bg --paper --ink --muted --line --accent --accent-soft --on-accent --brand --on-brand --bar --bar-ink --ok --warn --bad --gold --hi --hi2`), nunca cores fixas. `--accent` serve para texto e controles (contraste mínimo 4,5:1); `--brand` é o laranja vivo (ou verde-cana no tema `cana`) para botões primários, sempre com `--on-brand` escuro. Videoaulas (`.stage`) e rascunhos SVG continuam como folha clara de propósito.
