@@ -630,7 +630,7 @@ function Player(host,b,onEnd){var self=this;this.b=b;this.i=0;this.tIn=0;this.pl
     vs.innerHTML=(g?'<optgroup label="Voz humana (Gemini)">'+TTSV.map(function(x){return '<option value="g:'+x[0]+'">'+esc(x[1])+'</option>';}).join('')+'</optgroup>':'<option value="add">➕ Voz humana: ative em ✨ IA</option>')+'<optgroup label="Voz do aparelho">'+(VOZES.length?VOZES.map(function(x){return '<option value="n:'+esc(x.name)+'">'+esc(x.name.replace(/Microsoft |Google /,''))+'</option>';}).join(''):'<option value="n:">padrão</option>')+'</optgroup>';
     if(!g)vs.value=cur;else vs.value=cur;}
   vfill();if('speechSynthesis' in window){var ov=speechSynthesis.onvoiceschanged;speechSynthesis.onvoiceschanged=function(){if(ov)ov();if(!self.dead)vfill();};}
-  vs.onchange=function(){var v=vs.value;if(v==='add'){location.hash='gem';return;}if(v.slice(0,2)==='g:'){S.hv='gem';S.hvoice=v.slice(2);TTSBAD=false;}else{S.hv='nav';S.vname=v.slice(2);pickVoice();}save();if(self.playing)self.speak();};
+  vs.onchange=function(){var v=vs.value;if(v==='add'){location.hash='gem';return;}if(v.slice(0,2)==='g:'){S.hv='gem';S.hvoice=v.slice(2);TTSBAD=0;}else{S.hv='nav';S.vname=v.slice(2);pickVoice();}save();if(self.playing)self.speak();};
   q('#vo').onclick=function(){S.voice=!S.voice;save();this.textContent=S.voice?'🔊':'🔇';this.setAttribute('aria-pressed',S.voice);if(!S.voice)hush();else if(self.playing)self.speak();};
   q('#cc').onclick=function(){S.cc=!S.cc;save();this.setAttribute('aria-pressed',S.cc);self.render();};
   q('#fs').onclick=function(){var el=self.root;if(document.fullscreenElement)document.exitFullscreen();else if(el.requestFullscreen)el.requestFullscreen();};
@@ -661,7 +661,7 @@ Player.prototype.speak=function(){var self=this;hush();this.speaking=false;if(!S
   this.speaking=true;this.viaAudio=true;
   ttsGet(text).then(function(url){if(self.dead||self.i!==my||tk!==self.tk||!self.playing)return;var a=new Audio(url);a.playbackRate=S.speed;a.onended=a.onerror=done;CURAUDIO=a;var pr=a.play();if(pr&&pr.catch)pr.catch(function(){done();});
     var nx=self.b.cues[my+1];if(nx)ttsGet(nx.text).catch(function(){});})
-  .catch(function(e){if(self.dead||tk!==self.tk)return;TTSBAD=true;toast('Voz humana do Gemini indisponível ('+String(e.message).slice(0,80)+'). Usando a voz do aparelho.');nav();});};
+  .catch(function(e){if(self.dead||tk!==self.tk)return;TTSBAD=Date.now()+300000;toast('Voz humana do Gemini indisponível por 5 min ('+String(e.message).slice(0,80)+'). Usando a voz do aparelho.');nav();});};
 Player.prototype.enter=function(){this.render();if(this.playing)this.speak();};
 Player.prototype.next=function(){this.hold=0;if(this.i>=this.b.cues.length-1){this.finish();return;}this.i++;this.tIn=0;this.enter();};
 Player.prototype.play=function(){if(this.ended){this.ended=false;this.i=0;this.tIn=0;$('#endc',this.root).hidden=true;}this.playing=true;this.stage.classList.remove('paused');$('#bigplay',this.root).hidden=true;$('#pp',this.root).textContent='⏸';$('#pp',this.root).setAttribute('aria-label','Pausar');this.enter();};
@@ -672,23 +672,41 @@ Player.prototype.seekTime=function(t){var k=0;while(k<this.starts.length-1&&this
 Player.prototype.finish=function(){this.pause();this.ended=true;this.tIn=this.d[this.i];this.progress();if(this.onEnd)this.onEnd(this);};
 Player.prototype.kill=function(){this.dead=true;hush();try{this.ro.disconnect();}catch(e){}};
 /* --- voz: Gemini TTS (voz humana, chave do usuário, cota gratuita) ou a melhor voz neural do aparelho --- */
-var voicePT=null,VOZES=[],CURAUDIO=null,TTSBAD=false,TTSMODEL=null,TTSC={};
+var voicePT=null,VOZES=[],CURAUDIO=null,TTSBAD=0,TTSC={};
 var TTSV=[['Kore','Kore · firme'],['Charon','Charon · informativo'],['Sadaltager','Sadaltager · professor'],['Sulafat','Sulafat · caloroso'],['Achird','Achird · amigável'],['Aoede','Aoede · leve'],['Leda','Leda · jovem'],['Puck','Puck · animado']];
 function vscore(x){var n=x.name+' '+x.voiceURI;return (/pt[-_]BR/i.test(x.lang)?100:(/^pt/i.test(x.lang)?40:0))+(/Natural|Online|Neural/i.test(n)?50:0)+(/Google/i.test(n)?30:0)+(/Premium|Enhanced|Aprimorad/i.test(n)?25:0)+(/Francisca|Antonio|Thalita|Luciana|Felipe|Joana|Fernanda|Raquel/i.test(n)?10:0)-(/eSpeak|compact/i.test(n)?40:0);}
 function pickVoice(){try{var v=speechSynthesis.getVoices().filter(function(x){return /^pt/i.test(x.lang);}).sort(function(a,b){return vscore(b)-vscore(a);});VOZES=v;var w=S.vname&&v.find(function(x){return x.name===S.vname;});voicePT=w||v[0]||null;}catch(e){}}
 if('speechSynthesis' in window){pickVoice();speechSynthesis.onvoiceschanged=pickVoice;}
-function useGem(){return !TTSBAD&&gcfg().key&&S.hv!=='nav';}
+function useGem(){return Date.now()>TTSBAD&&gcfg().key&&S.hv!=='nav';}
 function hush(){try{if('speechSynthesis' in window)speechSynthesis.cancel();}catch(e){}try{if(CURAUDIO){CURAUDIO.onended=CURAUDIO.onerror=null;CURAUDIO.pause();CURAUDIO=null;}}catch(e){}}
 function b64buf(b){var s=atob(b),u=new Uint8Array(s.length);for(var i=0;i<s.length;i++)u[i]=s.charCodeAt(i);return u;}
 function wavBlob(pcm,rate){var n=pcm.length,h=new ArrayBuffer(44),d=new DataView(h),w=function(o,t){for(var i=0;i<t.length;i++)d.setUint8(o+i,t.charCodeAt(i));};w(0,'RIFF');d.setUint32(4,36+n,true);w(8,'WAVE');w(12,'fmt ');d.setUint32(16,16,true);d.setUint16(20,1,true);d.setUint16(22,1,true);d.setUint32(24,rate,true);d.setUint32(28,rate*2,true);d.setUint16(32,2,true);d.setUint16(34,16,true);w(36,'data');d.setUint32(40,n,true);return new Blob([h,pcm],{type:'audio/wav'});}
 function idb(op,k,v){return new Promise(function(res){try{var r=indexedDB.open('arenaTP.voz',1);r.onupgradeneeded=function(){r.result.createObjectStore('a');};r.onerror=function(){res(null);};r.onsuccess=function(){try{var tx=r.result.transaction('a',op==='get'?'readonly':'readwrite'),st=tx.objectStore('a'),q=op==='get'?st.get(k):st.put(v,k);q.onsuccess=function(){res(q.result||null);};q.onerror=function(){res(null);};}catch(e){res(null);}};}catch(e){res(null);}});}
-function ttsModel(){if(TTSMODEL)return Promise.resolve(TTSMODEL);var c=gcfg();if(c.tts){TTSMODEL=c.tts;return Promise.resolve(TTSMODEL);}
-  return fetch('https://generativelanguage.googleapis.com/v1beta/models?pageSize=200',{headers:{'x-goog-api-key':c.key}}).then(function(r){return r.json();}).then(function(j){if(j.error)throw new Error(j.error.message);var ms=(j.models||[]).filter(function(m){return /tts/i.test(m.name)&&(m.supportedGenerationMethods||[]).indexOf('generateContent')>=0;}).map(function(m){return m.name.replace('models/','');});
-    var m=ms.find(function(x){return /flash/i.test(x);})||ms[0];if(!m)throw new Error('sua chave não lista modelo de voz (TTS)');TTSMODEL=m;var o=gcfg();o.tts=m;gsave(o);return m;});}
+/* --- escada de modelos: sempre o melhor primeiro; quando o limite acaba, desce; quando volta (a cada 5 h), sobe de novo --- */
+var BLK='arenaTP.blk',H5=5*3600*1000;
+function blkGet(){try{return JSON.parse(localStorage.getItem(BLK)||'{}');}catch(e){return {};}}
+function blkSet(id,ms,why){var b=blkGet();b[id]={t:Date.now()+ms,w:why||''};try{localStorage.setItem(BLK,JSON.stringify(b));}catch(e){}}
+function blkOn(id){var b=blkGet()[id];return b&&b.t>Date.now()?b:null;}
+function hhmm(t){var d=new Date(t);return String(d.getHours()).padStart(2,'0')+':'+String(d.getMinutes()).padStart(2,'0');}
+function classify(st,msg,ra){msg=String(msg||'');var m;
+  if(st===429||/RESOURCE_EXHAUSTED|quota|rate.?limit/i.test(msg)){
+    if(/limit:\s*0\b/.test(msg))return {ms:H5,why:'cota 0 no plano gratuito desta chave'};
+    if(/PerDay|per day|daily/i.test(msg))return {ms:H5,why:'limite diário esgotado'};
+    var sec=ra||((m=msg.match(/retry in ([\d.]+)s/i))&&+m[1])||((m=msg.match(/"retryDelay":\s*"(\d+)s"/))&&+m[1])||60;
+    return {ms:Math.min(H5,Math.ceil(sec)*1000+2000),why:'limite por minuto'};}
+  if(st===503||st===500||st===529||/overloaded|UNAVAILABLE|high demand/i.test(msg))return {ms:120000,why:'modelo sobrecarregado'};
+  if(st===404||/not found|no longer available/i.test(msg))return {ms:24*3600*1000,why:'modelo indisponível nesta conta'};
+  return null;}
+var TTSL=['gemini-3.8-flash-tts','gemini-3.1-flash-tts-preview','gemini-2.5-pro-preview-tts','gemini-2.5-flash-preview-tts','gemini-3.8-flash-lite-tts'];
+function ttsReq(m,text,voice){return fetch('https://generativelanguage.googleapis.com/v1beta/models/'+encodeURIComponent(m)+':generateContent',{method:'POST',headers:{'Content-Type':'application/json','x-goog-api-key':gcfg().key},body:JSON.stringify({contents:[{parts:[{text:'Leia em português do Brasil, em tom de professor claro, caloroso e natural, com pausas curtas, sem pressa: '+text}]}],generationConfig:{responseModalities:['AUDIO'],speechConfig:{voiceConfig:{prebuiltVoiceConfig:{voiceName:voice}}}}})})
+  .then(function(r){return r.json().then(function(j){if(!r.ok){var e=new Error((j.error&&j.error.message)||('HTTP '+r.status));e.st=r.status;e.ra=+r.headers.get('retry-after')||0;throw e;}
+    var part=(((j.candidates||[])[0]||{}).content||{}).parts;part=part&&part.find(function(x){return x.inlineData;});if(!part){var e2=new Error('a resposta veio sem áudio');e2.st=0;e2.sem=1;throw e2;}
+    var rate=+((part.inlineData.mimeType||'').match(/rate=(\d+)/)||[0,24000])[1];return wavBlob(b64buf(part.inlineData.data),rate);});});}
+function ttsLadder(text,voice){var lad=TTSL.filter(function(m){return !blkOn('t:'+m);}),i=0,last=null;if(!lad.length)return Promise.reject(new Error('Nenhum modelo de voz com limite disponível agora.'));
+  function go(){if(i>=lad.length)return Promise.reject(last);var m=lad[i++];return ttsReq(m,text,voice).then(function(b){var o=gcfg();o.tts=m;gsave(o);return b;}).catch(function(e){var k=classify(e.st,e.message,e.ra);if(k||e.sem){blkSet('t:'+m,k?k.ms:600000,k?k.why:'sem áudio');last=e;return go();}throw e;});}
+  return go();}
 function ttsGet(text){var voice=S.hvoice||'Kore',key=voice+'|'+text;if(TTSC[key])return TTSC[key];
-  var p=idb('get',key).then(function(buf){if(buf)return URL.createObjectURL(new Blob([buf],{type:'audio/wav'}));
-    return ttsModel().then(function(m){return fetch('https://generativelanguage.googleapis.com/v1beta/models/'+encodeURIComponent(m)+':generateContent',{method:'POST',headers:{'Content-Type':'application/json','x-goog-api-key':gcfg().key},body:JSON.stringify({contents:[{parts:[{text:'Leia em português do Brasil, em tom de professor claro, caloroso e natural, com pausas curtas, sem pressa: '+text}]}],generationConfig:{responseModalities:['AUDIO'],speechConfig:{voiceConfig:{prebuiltVoiceConfig:{voiceName:voice}}}}})});})
-    .then(function(r){return r.json().then(function(j){if(!r.ok)throw new Error((j.error&&j.error.message)||('HTTP '+r.status));var part=(((j.candidates||[])[0]||{}).content||{}).parts;part=part&&part.find(function(x){return x.inlineData;});if(!part)throw new Error('a resposta veio sem áudio');var rate=+((part.inlineData.mimeType||'').match(/rate=(\d+)/)||[0,24000])[1],b=wavBlob(b64buf(part.inlineData.data),rate);b.arrayBuffer().then(function(ab){idb('put',key,ab);});return URL.createObjectURL(b);});});});
+  var p=idb('get',key).then(function(buf){if(buf)return URL.createObjectURL(new Blob([buf],{type:'audio/wav'}));return ttsLadder(text,voice).then(function(b){b.arrayBuffer().then(function(ab){idb('put',key,ab);});return URL.createObjectURL(b);});});
   TTSC[key]=p;p.catch(function(){delete TTSC[key];});return p;}
 
 /* ===================== TELAS ===================== */
@@ -931,8 +949,19 @@ var GKEY='arenaTP.gemini';
 function gcfg(){try{return JSON.parse(localStorage.getItem(GKEY)||'{}');}catch(e){return {};}}
 function gsave(o){try{localStorage.setItem(GKEY,JSON.stringify(o));}catch(e){}}
 function gpick(key){return fetch('https://generativelanguage.googleapis.com/v1beta/models?pageSize=200',{headers:{'x-goog-api-key':key}}).then(function(r){return r.json();}).then(function(j){var ms=(j.models||[]).filter(function(m){return (m.supportedGenerationMethods||[]).indexOf('generateContent')>=0;}).map(function(m){return m.name.replace('models/','');});var pref=[/neon/i,/argon/i,/gemini-4.*pro/i,/gemini-4/i,/pro/i,/flash/i];for(var i=0;i<pref.length;i++){var f=ms.filter(function(m){return pref[i].test(m)&&!/embed|vision|tts|image|live/i.test(m);})[0];if(f)return f;}return ms[0];});}
-function gcall(prompt,json,retry){var c=gcfg();if(!c.key)return Promise.reject(new Error('Sem chave'));var body={contents:[{role:'user',parts:[{text:prompt}]}],generationConfig:{temperature:.8}};if(json)body.generationConfig.responseMimeType='application/json';
-  return fetch('https://generativelanguage.googleapis.com/v1beta/models/'+encodeURIComponent(c.model||'gemini-4-neon')+':generateContent',{method:'POST',headers:{'Content-Type':'application/json','x-goog-api-key':c.key},body:JSON.stringify(body)}).then(function(r){return r.json().then(function(j){if(!r.ok)throw new Error((j.error&&j.error.message)||('HTTP '+r.status));var t=((j.candidates||[])[0]||{}).content;t=t&&t.parts?t.parts.map(function(p){return p.text||'';}).join(''):'';return t;});}).catch(function(e){if(!retry&&/not found|not supported|404/i.test(e.message)){return gpick(c.key).then(function(m){if(!m)throw e;var o=gcfg();o.model=m;gsave(o);toast('Modelo trocado para '+m);return gcall(prompt,json,true);});}throw e;});}
+var GLAD=['gemini-4-neon','gemini-4-argon','gemini-4-carbon','gemini-4-hydrogen','gemini-3.8-flash','gemini-3.7-flash','gemini-3.5-flash','gemini-3.1-flash-lite'];
+function gladder(){var c=gcfg();return (c.auto===false&&c.model)?[c.model]:GLAD;}
+function gcall(prompt,json){var c=gcfg();if(!c.key)return Promise.reject(new Error('Sem chave'));
+  var body={contents:[{role:'user',parts:[{text:prompt}]}],generationConfig:{temperature:.8}};if(json)body.generationConfig.responseMimeType='application/json';
+  var all=gladder(),lad=all.filter(function(m){return !blkOn('g:'+m);}),i=0,last=null;
+  if(!lad.length){var nx=Math.min.apply(null,all.map(function(m){return (blkGet()['g:'+m]||{t:Date.now()+60000}).t;}));return Promise.reject(new Error('Todos os modelos Gemini estão sem limite agora. O primeiro volta por volta das '+hhmm(nx)+'.'));}
+  function go(){if(i>=lad.length)return Promise.reject(last||new Error('Sem modelo disponível'));var m=lad[i++];
+    return fetch('https://generativelanguage.googleapis.com/v1beta/models/'+encodeURIComponent(m)+':generateContent',{method:'POST',headers:{'Content-Type':'application/json','x-goog-api-key':gcfg().key},body:JSON.stringify(body)}).then(function(r){return r.json().then(function(j){
+      if(!r.ok){var msg=(j.error&&j.error.message)||('HTTP '+r.status),k=classify(r.status,msg,+r.headers.get('retry-after')||0),e=new Error(msg);if(k){blkSet('g:'+m,k.ms,k.why);last=e;return go();}throw e;}
+      var t=((j.candidates||[])[0]||{}).content;t=t&&t.parts?t.parts.map(function(p){return p.text||'';}).join(''):'';
+      if(!t){last=new Error('resposta vazia de '+m);return go();}
+      var o=gcfg();o.used=m;gsave(o);return t;});});}
+  return go();}
 /* --- Claude (chave do próprio usuário, guardada só neste navegador, com teto de gasto do app) --- */
 var CKEY='arenaTP.claude',IAKEY='arenaTP.ia';
 var CMODELS=[['claude-opus-5-5','Claude Opus 5.5 · melhor qualidade · US$ 4 / 20 por milhão de tokens',4,20],['claude-sonnet-5-5','Claude Sonnet 5.5 · rápido · US$ 2 / 10',2,10],['claude-haiku-5-5','Claude Haiku 5.5 · mais barato · US$ 0,10 / 0,50',.1,.5]];
@@ -941,20 +970,27 @@ function csave(o){try{localStorage.setItem(CKEY,JSON.stringify(o));}catch(e){}}
 function iaProv(){try{var p=localStorage.getItem(IAKEY);if(p)return p;}catch(e){}return ccfg().key&&!gcfg().key?'claude':'gemini';}
 function iaReady(){return iaProv()==='claude'?!!ccfg().key:!!gcfg().key;}
 function iaName(){return iaProv()==='claude'?'Claude':'Gemini';}
+function iaModel(){return iaProv()==='claude'?(ccfg().used||ccfg().model||'claude-opus-5-5'):(gcfg().used||'gemini-4-neon');}
 function cmes(){return new Date().toISOString().slice(0,7);}
 function cgasto(){return ((ccfg().gasto||{})[cmes()])||0;}
-function ccall(prompt,json){var c=ccfg();if(!c.key)return Promise.reject(new Error('Sem chave da Claude'));var cap=c.cap==null?10:+c.cap;
-  if(cgasto()>=cap)return Promise.reject(new Error('Teto mensal do app atingido (US$ '+cap.toFixed(2)+'). Nada foi enviado. Aumente o teto na área ✨ IA se quiser continuar.'));
-  var model=c.model||'claude-opus-5-5',body={model:model,max_tokens:16000,output_config:{effort:'medium'},messages:[{role:'user',content:prompt+(json?'\n\nResponda somente com o objeto JSON, sem nenhum texto antes ou depois.':'')}]};
+var CLAD=['claude-opus-5-5','claude-sonnet-5-5','claude-haiku-5-5'];
+function ccallOne(prompt,json,model){var c=ccfg();
+  var body={model:model,max_tokens:16000,output_config:{effort:'medium'},messages:[{role:'user',content:prompt+(json?'\n\nResponda somente com o objeto JSON, sem nenhum texto antes ou depois.':'')}]};
   var h={'content-type':'application/json','x-api-key':c.key,'anthropic-version':'2026-10-21','anthropic-dangerous-direct-browser-access':'true'};
   if(model!=='claude-haiku-5-5'){body.fallbacks='default';h['anthropic-beta']='server-side-fallback-2026-07-01';}
   return fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:h,body:JSON.stringify(body)}).then(function(r){return r.json().then(function(j){
-    if(!r.ok)throw new Error((j.error&&j.error.message)||('HTTP '+r.status));
+    if(!r.ok){var e=new Error((j.error&&j.error.message)||('HTTP '+r.status));e.st=r.status;e.ra=+r.headers.get('retry-after')||0;throw e;}
     var u=j.usage||{},p=(CMODELS.find(function(m){return m[0]===model;})||CMODELS[0]),inp=(u.input_tokens||0)+(u.cache_creation_input_tokens||0)*1.25+(u.cache_read_input_tokens||0)*.1,cost=(inp*p[2]+(u.output_tokens||0)*p[3])/1e6;
-    var o=ccfg();o.gasto=o.gasto||{};o.gasto[cmes()]=(o.gasto[cmes()]||0)+cost;csave(o);
+    var o=ccfg();o.gasto=o.gasto||{};o.gasto[cmes()]=(o.gasto[cmes()]||0)+cost;o.used=model;csave(o);
     if(j.stop_reason==='refusal')throw new Error('A Claude recusou este pedido.');
     var t=(j.content||[]).filter(function(b){return b.type==='text';}).map(function(b){return b.text;}).join('');
     if(j.stop_reason==='max_tokens')t+='\n\n(resposta cortada no limite de tamanho)';return t;});});}
+function ccall(prompt,json){var c=ccfg();if(!c.key)return Promise.reject(new Error('Sem chave da Claude'));var cap=c.cap==null?10:+c.cap;
+  if(cgasto()>=cap)return Promise.reject(new Error('Teto mensal do app atingido (US$ '+cap.toFixed(2)+'). Nada foi enviado. Aumente o teto na área ✨ IA se quiser continuar.'));
+  var st=Math.max(0,CLAD.indexOf(c.model||CLAD[0])),lad=CLAD.slice(st).filter(function(m){return !blkOn('c:'+m);}),i=0,last=null;
+  if(!lad.length)return Promise.reject(new Error('Todos os modelos Claude estão com limite agora. Tente em alguns minutos.'));
+  function go(){if(i>=lad.length)return Promise.reject(last);var m=lad[i++];return ccallOne(prompt,json,m).catch(function(e){var k=classify(e.st,e.message,e.ra);if(k){blkSet('c:'+m,k.ms,k.why);last=e;return go();}throw e;});}
+  return go();}
 function aicall(prompt,json){return iaProv()==='claude'?ccall(prompt,json):gcall(prompt,json);}
 function pjson(t){t=String(t||'');var a=t.indexOf('{'),b=t.lastIndexOf('}');return JSON.parse(a>=0&&b>a?t.slice(a,b+1):t);}
 function claudePanel(){var c=ccfg(),cap=c.cap==null?10:+c.cap,g=cgasto(),prov=iaProv();
@@ -963,17 +999,24 @@ function claudePanel(){var c=ccfg(),cap=c.cap==null?10:+c.cap,g=cgasto(),prov=ia
   '<section class="panel"><h3>Claude</h3><p class="note" style="max-width:74ch">Crie a chave no <a href="https://console.anthropic.com/settings/keys" target="_blank" rel="noopener">Console da Anthropic</a> (é outra conta, separada da assinatura do claude.ai) e cole abaixo. A chave fica <b>só neste navegador</b>. O app tem um <b>teto mensal próprio</b>: ao chegar nele, nada mais é enviado. Para garantir de verdade, defina também o limite mensal em <a href="https://console.anthropic.com/settings/limits" target="_blank" rel="noopener">Console → Settings → Limits</a>.</p>'+
   '<div class="row" style="margin-top:8px"><input id="ck" type="password" autocomplete="off" placeholder="Chave da Claude (sk-ant-…)" value="'+esc(c.key||'')+'" style="flex:1;min-width:220px"><select id="cm">'+CMODELS.map(function(m){return '<option value="'+m[0]+'"'+(m[0]===(c.model||'claude-opus-5-5')?' selected':'')+'>'+esc(m[1])+'</option>';}).join('')+'</select></div>'+
   '<div class="row" style="margin-top:8px"><label class="note">Teto do app por mês (US$) <input id="ccap" type="number" min="0" step="1" value="'+cap+'" style="width:90px"></label><button class="primary" id="cs">Salvar</button>'+(c.key?'<button class="ghost" id="cx">Apagar chave</button>':'')+'</div>'+
-  '<p class="note" style="margin-top:6px">Gasto estimado neste mês, neste aparelho: <b>US$ '+g.toFixed(3)+'</b> de US$ '+cap.toFixed(2)+'. Uma explicação custa em média de US$ 0,02 a 0,10 no Opus 5.5.</p></section>';}
+  '<p class="note" style="margin-top:6px">Gasto estimado neste mês, neste aparelho: <b>US$ '+g.toFixed(3)+'</b> de US$ '+cap.toFixed(2)+'. Uma explicação custa em média de US$ 0,02 a 0,10 no Opus 5.5. Se a Claude limitar o uso, o app desce de Opus para Sonnet e Haiku e volta ao melhor quando o limite renova.</p></section>';}
 function claudeBind(){$$('[data-prov]').forEach(function(b){b.onclick=function(){try{localStorage.setItem(IAKEY,b.dataset.prov);}catch(e){}gemini();};});
   $('#cs').onclick=function(){var o=ccfg();o.key=$('#ck').value.trim();o.model=$('#cm').value;var v=parseFloat($('#ccap').value);o.cap=isNaN(v)||v<0?10:v;csave(o);if(o.key){try{localStorage.setItem(IAKEY,'claude');}catch(e){}}toast(o.key?'Claude salva neste aparelho':'Chave removida');gemini();};
   var cx=$('#cx');if(cx)cx.onclick=function(){var o=ccfg();delete o.key;csave(o);try{localStorage.setItem(IAKEY,'gemini');}catch(e){}gemini();};}
 function topicCtx(o,t){var q=t.qs.find(function(x){return x.alts&&Object.keys(x.alts).length===5;});return 'Disciplina: '+o.nome+'\nTópico do edital: '+t.t+'\nPeso: '+(t.peso||'')+'\nO que a banca cobra: '+(t.cobra||'')+'\nComo ela pergunta: '+(t.pergunta||'')+'\nOnde ela confunde: '+(t.confunde||'')+'\nMacete: '+(t.macete||'')+(q?'\nQuestão real de referência: '+q.stem+' '+JSON.stringify(q.alts)+' Gabarito '+q.gab+'. '+q.expl:'');}
 function gemini(){nav('gem');var c=gcfg();
   app.innerHTML='<header class="hero"><div class="eyebrow">Gemini no Arena</div><h2>Banca sintética com Gemini ou Claude</h2><p class="note" style="max-width:72ch">Use a sua conta Google: crie uma chave gratuita no <a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener">Google AI Studio</a> e cole abaixo. A chave fica <b>só neste navegador</b>; nunca vai para o repositório. O padrão é o <b>Gemini 4 Neon</b> (<code>gemini-4-neon</code>); se a sua chave ainda não tiver acesso, o app troca sozinho para o melhor modelo disponível. Sem cobrança: no AI Studio, use um projeto <b>sem faturamento ativado</b>; assim só existe a cota gratuita e, quando ela acaba, o Google responde "limite atingido" em vez de cobrar.</p></header>'+claudePanel()+'<h3 style="margin:14px 0 6px">Gemini</h3>'+
-  '<section class="panel"><div class="row"><input id="gk" type="password" autocomplete="off" placeholder="Chave do Google AI Studio" value="'+esc(c.key||'')+'" style="flex:1;min-width:220px"><select id="gm"><option>'+esc(c.model||'gemini-4-neon')+'</option></select><button id="gl">Listar modelos</button><button class="primary" id="gs">Salvar</button>'+(c.key?'<button class="ghost" id="gx">Apagar chave</button>':'')+'</div><p class="note" id="gst" style="margin-top:6px">'+(c.key?'Chave salva neste aparelho.':'Sem chave: as ferramentas abaixo ficam bloqueadas.')+'</p></section>'+
+  '<section class="panel"><div class="row"><input id="gk" type="password" autocomplete="off" placeholder="Chave do Google AI Studio" value="'+esc(c.key||'')+'" style="flex:1;min-width:220px"><select id="gm"><option>'+esc(c.model||'gemini-4-neon')+'</option></select><button id="gl">Listar modelos</button><button class="primary" id="gs">Salvar</button>'+(c.key?'<button class="ghost" id="gx">Apagar chave</button>':'')+'</div><p class="note" id="gst" style="margin-top:6px">'+(c.key?'Chave salva neste aparelho.':'Sem chave: as ferramentas abaixo ficam bloqueadas.')+'</p>'+
+  '<label class="note" style="display:flex;gap:8px;align-items:flex-start;margin-top:8px"><input type="checkbox" id="gauto" '+(c.auto!==false?'checked':'')+'> <span><b>Modo automático:</b> usar sempre o melhor modelo (Gemini 4 Neon) e descer para um menos potente quando o limite acabar; voltar ao melhor quando o limite renovar (a cada 5 horas).</span></label><div id="gladd"></div>'+
+  '<div class="row" style="margin-top:8px"><button id="gtv">🔊 Testar voz humana</button><button id="gres">Testar o Neon de novo agora</button></div><p class="note" id="gtvo" style="margin-top:6px"></p></section>'+
   '<section class="panel"><h3>🧬 Gerar questão inédita no estilo Cesgranrio</h3><div class="row" style="margin-top:8px"><select id="gd">'+IDX.disciplinas.map(function(d){return '<option value="'+d.slug+'"'+(d.slug===S.disc?' selected':'')+'>'+ICON[d.slug]+' '+esc(d.nome)+'</option>';}).join('')+'</select><select id="gt" style="max-width:100%;flex:1"></select></div><div class="row" style="margin-top:10px"><button class="primary" id="gq">Gerar questão</button><button id="ge">Explicar como professor</button><button id="gp2">Prever como a banca cobraria em 2026</button></div><div id="gout" style="margin-top:12px"></div></section>';
+  function gLad(){var el=$('#gladd');if(!el)return;var cur=gcfg().used;el.innerHTML='<ol class="mini" style="margin:8px 0 0 18px">'+GLAD.map(function(m){var b=blkOn('g:'+m);return '<li><code>'+esc(m)+'</code> · '+(b?'⏳ volta às '+hhmm(b.t)+' ('+esc(b.w)+')':(m===cur?'✅ respondeu por último':'pronto para tentar'))+'</li>';}).join('')+'</ol><p class="note">O app testa o melhor primeiro e desce sozinho. Um modelo com "cota 0" é um que a sua chave não pode usar no plano atual; ele é testado de novo depois de 5 horas.</p>';}
+  gLad();$('#gauto').onchange=function(){var o=gcfg();o.auto=this.checked;gsave(o);};
+  $('#gres').onclick=function(){try{localStorage.removeItem(BLK);}catch(e){}TTSBAD=0;toast('Bloqueios apagados: vou testar o Neon na próxima chamada');gLad();};
+  $('#gtv').onclick=function(){var o=gcfg(),out=$('#gtvo');if(!o.key){out.textContent='Cole e salve a chave do Google primeiro.';return;}out.textContent='Gerando a voz…';TTSBAD=0;
+    ttsLadder('Olá, eu sou a voz da Dora Guilda. Vamos resolver a prova juntos.',S.hvoice||'Kore').then(function(b){out.textContent='Funcionou com o modelo '+gcfg().tts+'. Tocando…';var a=new Audio(URL.createObjectURL(b));a.play().catch(function(){out.textContent+=' (toque em qualquer lugar e tente de novo se o som não saiu)';});gLad();}).catch(function(e){out.textContent='Não deu: '+String(e.message).slice(0,200);});};
   claudeBind();var fillT=function(){loadDisc($('#gd').value).then(function(o){$('#gt').innerHTML=o.topicos.map(function(t,i){return '<option value="'+i+'">'+esc(t.t)+'</option>';}).join('');});};$('#gd').onchange=fillT;fillT();
-  $('#gs').onclick=function(){var o=gcfg();o.key=$('#gk').value.trim();o.model=$('#gm').value;gsave(o);toast(o.key?'Chave salva neste aparelho':'Chave removida');gemini();};
+  $('#gs').onclick=function(){var o=gcfg();o.key=$('#gk').value.trim();o.model=$('#gm').value;o.auto=$('#gauto').checked;gsave(o);toast(o.key?'Chave salva neste aparelho':'Chave removida');gemini();};
   var gx=$('#gx');if(gx)gx.onclick=function(){gsave({});gemini();};
   $('#gl').onclick=function(){var k=$('#gk').value.trim();if(!k)return toast('Cole a chave primeiro');$('#gst').textContent='Consultando modelos…';
     fetch('https://generativelanguage.googleapis.com/v1beta/models?pageSize=200',{headers:{'x-goog-api-key':k}}).then(function(r){return r.json();}).then(function(j){if(j.error)throw new Error(j.error.message);var ms=(j.models||[]).filter(function(m){return (m.supportedGenerationMethods||[]).indexOf('generateContent')>=0;}).map(function(m){return m.name.replace('models/','');});
@@ -981,7 +1024,7 @@ function gemini(){nav('gem');var c=gcfg();
   var run=function(kind){var c=gcfg();if(!iaReady())return toast('Configure uma IA (Gemini ou Claude) primeiro');loadDisc($('#gd').value).then(function(o){var t=o.topicos[+$('#gt').value];var ctx=topicCtx(o,t);var out=$('#gout');out.innerHTML='<p class="note">'+iaName()+' pensando…</p>';
     var regras='Regras medidas da Cesgranrio: 5 alternativas A a E; enunciado direto; o distrator é a definição correta de um conceito vizinho; nunca use "exclusivamente", "necessariamente", "nunca" ou "qualquer" na alternativa correta; a correta é moderada e abrangente; as erradas podem usar absolutos e inversões; inclua um par espelho (duas alternativas que dizem o contrário). Português do Brasil.';
     if(kind==='q'){aicall('Você é um examinador da banca Cesgranrio criando uma questão INÉDITA para Transpetro 2026, Analista de Sistemas, Ênfase Processos de Negócios. Baseie-se APENAS no material abaixo. '+regras+'\nResponda em JSON: {"enunciado":"","alternativas":{"A":"","B":"","C":"","D":"","E":""},"gabarito":"A-E","comentarios":{"A":"por que certa ou errada",...},"pegadinha":"qual armadilha foi usada","padrao":"qual formato de questão da banca foi imitado"}\n\nMATERIAL:\n'+ctx,true).then(function(txt){var q=pjson(txt);
-      out.innerHTML='<div class="gq"><span class="eyebrow">Questão inédita gerada por '+iaName()+' · '+esc(iaProv()==='claude'?(ccfg().model||'claude-opus-5-5'):gcfg().model)+'</span><p style="margin:8px 0;font-size:16px">'+esc(q.enunciado)+'</p><div class="galts">'+'ABCDE'.split('').map(function(k){return '<button class="galt" data-k="'+k+'"><b>'+k+'</b> '+esc(q.alternativas[k])+'</button>';}).join('')+'</div><div id="gfb"></div></div>';
+      out.innerHTML='<div class="gq"><span class="eyebrow">Questão inédita gerada por '+iaName()+' · '+esc(iaModel())+'</span><p style="margin:8px 0;font-size:16px">'+esc(q.enunciado)+'</p><div class="galts">'+'ABCDE'.split('').map(function(k){return '<button class="galt" data-k="'+k+'"><b>'+k+'</b> '+esc(q.alternativas[k])+'</button>';}).join('')+'</div><div id="gfb"></div></div>';
       $$('.galt').forEach(function(b){b.onclick=function(){if($('.galts').classList.contains('done'))return;$('.galts').classList.add('done');var k=b.dataset.k;$$('.galt').forEach(function(x){x.classList.add(x.dataset.k===q.gabarito?'ok':(x===b?'bad':'dim'));});if(k===q.gabarito)xp(10);
         $('#gfb').innerHTML='<div class="panel" style="margin-top:10px"><b>'+(k===q.gabarito?'Certo!':'Gabarito: '+esc(q.gabarito))+'</b><ul class="mini">'+'ABCDE'.split('').map(function(x){return '<li><b>'+x+'</b>: '+esc((q.comentarios||{})[x]||'')+'</li>';}).join('')+'</ul><p class="note">🪤 Pegadinha: '+esc(q.pegadinha||'')+'<br>🧩 Padrão imitado: '+esc(q.padrao||'')+'</p><p class="note">Questão gerada por IA a partir do seu guia: confira com o material antes de decorar.</p></div>';};});}).catch(function(e){out.innerHTML='<p class="note">Erro da IA: '+esc(e.message)+'</p>';});}
     else{var ask=kind==='e'?'Explique este tópico como um professor brilhante para quem faz a prova em duas semanas: uma analogia do dia a dia de uma empresa de logística de petróleo, os 3 pontos que a banca mais cobra, a pegadinha principal e um mnemônico novo. Seja curto, em tópicos.':'Com base no material e na tendência da banca, escreva 3 formas prováveis de a Cesgranrio cobrar este tópico em 2026 (enunciado resumido + onde estará a pegadinha) e diga o que estudar em 20 minutos para cobrir as 3.';

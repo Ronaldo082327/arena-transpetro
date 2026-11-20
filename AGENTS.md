@@ -104,3 +104,10 @@ Todo link `http(s)` externo (de qualquer página) abre no visualizador interno (
 ## Dora Guilda (nome do app final)
 
 O app se chama **Dora Guilda · Engenharia Cognitiva para Concursos Públicos** (manifest, títulos e cabeçalhos). Catálogo de módulos com nome próprio em `guilda.js` (`window.GUILDA.groups`), usado pelo menu lateral do Estúdio e pelo "Menu da Guilda" das demais páginas. Nomes, regra de nomenclatura, nomes reservados para a Central e o Dora Draw, estrutura final e fases: `docs/dora-guilda.md`. Rotas e chaves técnicas não mudam; só o texto na tela. Todo recurso novo precisa de nome com "Dora" ou do mundo da guilda e entrar em `guilda.js`.
+
+## Escada de modelos (Gemini, voz e Claude)
+
+`estudio.html` chama a IA por uma escada: tenta sempre o melhor primeiro e, quando um modelo dá limite (429), sobrecarga (503) ou "não existe" (404), grava o bloqueio em `arenaTP.blk` e desce para o próximo; quando o bloqueio vence (cota esgotada: 5 h; por minuto: o tempo que a API informar; sobrecarga: 2 min), volta ao melhor.
+- Gemini texto (`GLAD`): `gemini-4-neon` → `gemini-4-argon` → `gemini-4-carbon` → `gemini-4-hydrogen` → `gemini-3.8-flash` → `gemini-3.7-flash` → `gemini-3.5-flash` → `gemini-3.1-flash-lite`. Voz (`TTSL`): `gemini-3.8-flash-tts` → `gemini-3.1-flash-tts-preview` → `gemini-2.5-pro-preview-tts` → `gemini-2.5-flash-preview-tts` → `gemini-3.8-flash-lite-tts`. Claude (`CLAD`): Opus 5.5 → Sonnet 5.5 → Haiku 5.5. A voz cai para a voz do aparelho se nenhum modelo de voz responder.
+- Observado em 20/11/2026 com a chave do AI Studio do Ronaldo (plano gratuito, pelo endpoint compatível com OpenAI): Neon, Argon, Carbon e Gemini 3.1 Pro responderam 429 com `limit: 0` (a chave não tem cota gratuita neles); Hydrogen, 3.7 Flash, 3.5 Flash e 3.1 Flash-Lite responderam; os modelos 2.5 retornam 404 ("no longer available to new users"). A voz (TTS) não foi testada com chave real. O botão "Testar voz humana" em ✨ Dora Mentora mostra o modelo que funcionou ou o erro.
+- Nunca ative faturamento no projeto do Google para "destravar" o Neon sem o Ronaldo pedir: ele quer ficar só na cota gratuita.
