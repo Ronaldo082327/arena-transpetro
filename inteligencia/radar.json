@@ -1,0 +1,433 @@
+{
+ "atualizado": "2026-11-20",
+ "aviso": "Fatos de imprensa e de documentos públicos, com link. Números variam entre fontes; o que importa para a prova é o TEMA, não a cifra.",
+ "fatos": [
+  {
+   "id": "lucro",
+   "t": "Lucro de R$ 1,06 bilhão em 2025 (+22% sobre 2024)",
+   "area": "Negócio",
+   "src": "https://cenarioenergia.com.br/2026/03/06/transpetro-lucra-mais-de-r-1-bilhao-em-2025-e-amplia-estrategia-logistica-para-atender-expansao-do-sistema-petrobras/"
+  },
+  {
+   "id": "frota",
+   "t": "Programa Mar Aberto: frota própria de 26 para 42 navios e capacidade de cabotagem +83%; dezenas de embarcações encomendadas até 2030",
+   "area": "Projetos",
+   "src": "https://timesbrasil.com.br/empresas-e-negocios/transpetro-aposta-em-expansao-de-servicos-logisticos-com-operacoes-ship-to-ship-a-partir-de-2027/"
+  },
+  {
+   "id": "sts",
+   "t": "Ship-to-ship em navegação a partir de janeiro de 2027; 775 operações ship-to-ship em 2025",
+   "area": "Operação",
+   "src": "https://www.canalrural.com.br/economia/transpetro-anuncia-servico-ship-to-ship-em-navegacao-para-janeiro-de-2027/"
+  },
+  {
+   "id": "malha",
+   "t": "46 terminais e cerca de 8,5 mil km de dutos; movimentação crescendo pelo quarto ano seguido, puxada por Angra dos Reis e São Sebastião",
+   "area": "Operação",
+   "src": "https://monitormercantil.com.br/transpetro-amplia-movimentacao-de-petroleo-e-derivados-pelo-quarto-ano-seguido/"
+  },
+  {
+   "id": "ti4",
+   "t": "Prioridades de TI declaradas pela CIO: conectividade, cibersegurança, integração de processos e inteligência artificial",
+   "area": "TI",
+   "src": "https://itforum.com.br/?p=9580805"
+  },
+  {
+   "id": "iaduto",
+   "t": "IA combinada a inspeção por ultrassom para achar falhas no revestimento de dutos (parceria com o IFBA, em teste)",
+   "area": "TI",
+   "src": "https://brasilenergia.com.br/brasilenergia/bahia-oil-gas-energy-2025/transpetro-desenvolve-ia-para-reforcar-seguranca-de-dutos"
+  },
+  {
+   "id": "telemetria",
+   "t": "IA, IoT e telemetria para eficiência energética e segurança; desafio de governança de dados em operações remotas (IT Forum Trancoso 2026)",
+   "area": "TI",
+   "src": "https://itforum.com.br/videos/marcia-costa-ia-fisica-drones-e-telemetria/"
+  },
+  {
+   "id": "monoboia",
+   "t": "Monoboias modernizadas com IA, GPS e ROVs para amarração de navios",
+   "area": "TI",
+   "src": "https://inspenet.com/en/?p=285690"
+  },
+  {
+   "id": "carbono",
+   "t": "Plano Estratégico 2050 / PN 2025-2029: frente 'Baixo carbono e bioprodutos' e descarbonização da frota com o Cenpes",
+   "area": "ESG",
+   "src": "https://transpetro.com.br/data/files/E7/12/EF/71/C5D64910FAF08249C8098204/PE2050_PN2025-2029.pdf"
+  },
+  {
+   "id": "amazonas",
+   "t": "Petrobras acelera investimento no Amazonas (gás de Urucu) com expansão logística da Transpetro",
+   "area": "Negócio",
+   "src": "https://cenarioenergia.com.br/2026/05/27/petrobras-acelera-investimentos-no-amazonas-com-foco-em-gas-natural-de-urucu-e-expansao-logistica-da-transpetro/"
+  }
+ ],
+ "convergencia": [
+  {
+   "prioridade": "Inteligência artificial e analytics",
+   "fatos": [
+    "ti4",
+    "iaduto",
+    "telemetria",
+    "monoboia"
+   ],
+   "edital": "BI e Ciência de Dados: machine learning, redes neurais, PLN, Python",
+   "tendencia": "ML conceitos de 1 para 14 questões; Python de 10 para 20; PLN e redes neurais estrearam em 2023+",
+   "slug": "bi",
+   "forca": 3
+  },
+  {
+   "prioridade": "Governança de dados em operação remota",
+   "fatos": [
+    "telemetria"
+   ],
+   "edital": "Qualidade de dados, DAMA-DMBOK, dados mestres, metadados",
+   "tendencia": "Governança e qualidade de dados (DMBOK): de 0 para 5 questões em 2023+",
+   "slug": "dados",
+   "forca": 3
+  },
+  {
+   "prioridade": "Cibersegurança",
+   "fatos": [
+    "ti4"
+   ],
+   "edital": "Segurança: malware, engenharia social e phishing, SIEM, IDS/IPS",
+   "tendencia": "Malware de 3 para 9; engenharia social e phishing de 0 para 5",
+   "slug": "seguranca",
+   "forca": 3
+  },
+  {
+   "prioridade": "Integração de processos",
+   "fatos": [
+    "ti4"
+   ],
+   "edital": "ERP/SAP, BPM, sistemas de informação",
+   "tendencia": "ERP e SAP é o assunto nº 1 nas provas Transpetro do banco (31 questões, muitas da ênfase SAP)",
+   "slug": "governanca",
+   "forca": 2
+  },
+  {
+   "prioridade": "Expansão da frota e novos serviços",
+   "fatos": [
+    "frota",
+    "sts",
+    "amazonas"
+   ],
+   "edital": "Gestão de projetos: ciclo de vida, PMBOK, ágil híbrido, riscos",
+   "tendencia": "Ciclo de vida de projetos de 0 para 12 questões em 2023+",
+   "slug": "projetos",
+   "forca": 2
+  },
+  {
+   "prioridade": "Software confiável na operação",
+   "fatos": [
+    "iaduto",
+    "monoboia"
+   ],
+   "edital": "Testes de software, qualidade, DevOps",
+   "tendencia": "Tipos de testes de 6 para 14 questões",
+   "slug": "engsoft",
+   "forca": 2
+  },
+  {
+   "prioridade": "Transição energética e descarbonização",
+   "fatos": [
+    "carbono"
+   ],
+   "edital": "Inglês: textos sobre energia, emissões, tecnologia (vocabulário de domínio)",
+   "tendencia": "Os textos reais de Inglês da Transpetro 2023 tratam de transporte e emissões",
+   "slug": "ingles",
+   "forca": 2
+  }
+ ],
+ "vocabulario": [
+  [
+   "ship-to-ship (STS)",
+   "transbordo entre navios"
+  ],
+  [
+   "cabotage",
+   "cabotagem (navegação na costa do país)"
+  ],
+  [
+   "pipeline",
+   "duto, oleoduto"
+  ],
+  [
+   "pipeline integrity",
+   "integridade de dutos"
+  ],
+  [
+   "monobuoy / single point mooring",
+   "monoboia"
+  ],
+  [
+   "fleet",
+   "frota"
+  ],
+  [
+   "decarbonization",
+   "descarbonização"
+  ],
+  [
+   "greenhouse gas (GHG) emissions",
+   "emissões de gases de efeito estufa"
+  ],
+  [
+   "throughput",
+   "vazão, capacidade de movimentação"
+  ],
+  [
+   "telemetry",
+   "telemetria"
+  ],
+  [
+   "remote operations",
+   "operações remotas"
+  ],
+  [
+   "bunker fuel",
+   "combustível marítimo"
+  ],
+  [
+   "tanker",
+   "navio-tanque, petroleiro"
+  ],
+  [
+   "offshore",
+   "em alto-mar"
+  ],
+  [
+   "downstream / upstream",
+   "refino e distribuição / exploração e produção"
+  ]
+ ],
+ "terminais": [
+  {
+   "slug": "portugues",
+   "nome": "Terminal Ilha d'Água",
+   "uf": "RJ",
+   "lat": -22.808,
+   "lng": -43.159,
+   "nota": "Baía de Guanabara; exportação de óleo combustível",
+   "src": "https://transpetro.com.br/en_us/transpetro-institucional/business-areas/terminals-and-pipelines/waterway-terminals.htm"
+  },
+  {
+   "slug": "ingles",
+   "nome": "Terminal de São Sebastião",
+   "uf": "SP",
+   "lat": -23.805,
+   "lng": -45.398,
+   "nota": "Um dos que puxam o crescimento da movimentação; porta de importação e exportação",
+   "src": "https://monitormercantil.com.br/transpetro-amplia-movimentacao-de-petroleo-e-derivados-pelo-quarto-ano-seguido/"
+  },
+  {
+   "slug": "dados",
+   "nome": "Terminal Baía da Ilha Grande (Angra dos Reis)",
+   "uf": "RJ",
+   "lat": -23.042,
+   "lng": -44.247,
+   "nota": "Recorde de 506 navios em 2023; abastece refinarias de Duque de Caxias e Gabriel Passos",
+   "src": "https://transpetro.com.br/en_us/transpetro-institucional/noticias/transpetro-terminal-in-angra-dos-reis-closes-out-2023-with-historic-records.htm"
+  },
+  {
+   "slug": "projetos",
+   "nome": "Terminal de Suape",
+   "uf": "PE",
+   "lat": -8.394,
+   "lng": -34.962,
+   "nota": "Recorde de movimentação de óleo combustível com Angra",
+   "src": "https://clickpetroleoegas.com.br/transpetro-bate-recorde-historico-nos-terminais-de-angra-dos-reis-e-suape-movimentando-111-milhao-de-toneladas-de-oleo-combustivel-da-petrobras/"
+  },
+  {
+   "slug": "governanca",
+   "nome": "Sede da Transpetro",
+   "uf": "RJ",
+   "lat": -22.903,
+   "lng": -43.176,
+   "nota": "Rio de Janeiro: estratégia, governança e TI corporativa",
+   "src": "https://transpetro.com.br/data/files/E7/12/EF/71/C5D64910FAF08249C8098204/PE2050_PN2025-2029.pdf"
+  },
+  {
+   "slug": "engsoft",
+   "nome": "Terminal de Santos",
+   "uf": "SP",
+   "lat": -23.93,
+   "lng": -46.32,
+   "nota": "Exportação de óleo combustível pelo porto de Santos",
+   "src": "https://petrobras.com.br/pt/nossas-atividades/principais-operacoes/terminais-e-oleodutos/terminal-santos.htm"
+  },
+  {
+   "slug": "ux",
+   "nome": "Terminal Madre de Deus",
+   "uf": "BA",
+   "lat": -12.741,
+   "lng": -38.619,
+   "nota": "Origem de dutos para o Recôncavo baiano",
+   "src": "https://transpetro.com.br/en_us/transpetro-institucional/business-areas/terminals-and-pipelines/waterway-terminals.htm"
+  },
+  {
+   "slug": "bi",
+   "nome": "Amazonas: Coari e Urucu",
+   "uf": "AM",
+   "lat": -4.085,
+   "lng": -63.141,
+   "nota": "Expansão logística ligada ao gás de Urucu; operações remotas e telemetria",
+   "src": "https://cenarioenergia.com.br/2026/05/27/petrobras-acelera-investimentos-no-amazonas-com-foco-em-gas-natural-de-urucu-e-expansao-logistica-da-transpetro/"
+  },
+  {
+   "slug": "logica",
+   "nome": "Terminal de Osório (Tramandaí)",
+   "uf": "RS",
+   "lat": -29.975,
+   "lng": -50.13,
+   "nota": "Monoboias no litoral gaúcho",
+   "src": "https://petrobras.com.br/pt/nossas-atividades/principais-operacoes/terminais-e-oleodutos/terminal-osorio.htm"
+  },
+  {
+   "slug": "seguranca",
+   "nome": "Terminal de Rio Grande",
+   "uf": "RS",
+   "lat": -32.05,
+   "lng": -52.1,
+   "nota": "Um dos 21 terminais aquaviários citados pela Transpetro ao MME",
+   "src": "https://www.gov.br/mme/pt-br/assuntos/secretarias/petroleo-gas-natural-e-biocombustiveis/gt-rcnpe-10-2024/subgrupos/subgt04/2025-03-21_gt-combustiveis-aquaviarios-transpetro.pdf"
+  }
+ ],
+ "mitos": [
+  {
+   "m": "A alternativa mais longa costuma ser a certa",
+   "v": "fraco",
+   "d": "Medido: a mais longa é gabarito em 22% das 1.000 questões; o acaso dá 20%. Não decida por tamanho."
+  },
+  {
+   "m": "A Cesgranrio tem uma letra preferida",
+   "v": "falso",
+   "d": "Medido: A 19,4%, B 20,3%, C 20,4%, D 21,1%, E 18,8%. Equilíbrio quase perfeito."
+  },
+  {
+   "m": "As questões 21 a 35 formam um bloco de SQL (pico de dificuldade)",
+   "v": "falso",
+   "d": "Nas provas reais as específicas vêm misturadas por tema (guia 00, anatomia da Cesgranrio). Transpetro 2023: Q21 e Q22 de MER, Q23 de testes, Q24 de requisitos."
+  },
+  {
+   "m": "A nota usa TRI de 3 parâmetros",
+   "v": "falso",
+   "d": "Edital: 1 ponto por questão, sem desconto por erro; habilitação por nota mínima (25/50 nas específicas). Não há TRI."
+  },
+  {
+   "m": "86% dos blocos de 10 têm distribuição 2-2-2-2-2",
+   "v": "falso",
+   "d": "Medido pela Central Reta Final: 3,4%. Não use a 'cota de letras' para mudar resposta."
+  },
+  {
+   "m": "Absolutos (exclusivamente, nunca, qualquer) indicam alternativa errada",
+   "v": "verdadeiro",
+   "d": "Em 1.413 questões: exclusivamente, necessariamente, nunca e qualquer foram gabarito 4 vezes em 70 (5,7%); no teste rigoroso da Central, 3 de 85, igual em 6 de 6 concursos. As 4 exceções são previsíveis: definição literal de norma ou modelo (mudança no ITIL, composição na UML) e Lógica, onde \"nunca\" é o próprio conteúdo."
+  },
+  {
+   "m": "'Nenhum' é absoluto, logo errado",
+   "v": "cuidado",
+   "d": "Com amostra maior (1.413 questões), 'nenhum(a)' foi gabarito 9 vezes em 40 (22,5%), praticamente o acaso. Os 6 de 10 de antes eram efeito de amostra pequena. Não elimine nem escolha por 'nenhum': é neutro."
+  },
+  {
+   "m": "Duas alternativas quase iguais: uma é o gabarito",
+   "v": "falso",
+   "d": "Duas alternativas iguais com uma palavra oposta NÃO entregam o gabarito: acertam cerca de 40%, igual ao chute. Dois medidores independentes da Central (detector congelado antes de ver os gabaritos, 1.324 questões): 44% e 42%; pares só parecidos, 43%. Os 75% a 81% medidos antes no Estúdio vinham de um erro de método: quando havia vários pares, eles cobriam 3,3 letras em média. Elimine pelo conteúdo, não pelo espelho."
+  },
+  {
+   "m": "Somando vários sinais dá para acertar sem saber o conteúdo",
+   "v": "falso",
+   "d": "Modelo com todos os sinais, testado em concurso que ele não viu: 24,2% contra 20% do acaso (Central Reta Final). Sinal serve para eliminar uma ou duas; o conteúdo decide."
+  }
+ ],
+ "montagem": {
+  "processo": [
+   [
+    "Quem escreve",
+    "Elaboradores anônimos, contratados sob sigilo, recebem só o edital, o cargo e a escolaridade. Não há fonte oficial da Cesgranrio descrevendo o fluxo; isto vem de reportagens sobre o setor.",
+    "https://www.jusbrasil.com.br/noticias/saiba-como-sao-elaboradas-as-provas-em-concursos/49372"
+   ],
+   [
+    "Revisão",
+    "Revisão de língua, de técnica de formulação e de aderência ao edital antes da montagem do caderno.",
+    "https://www.jusbrasil.com.br/noticias/saiba-como-sao-elaboradas-as-provas-em-concursos/49372"
+   ],
+   [
+    "Banco de itens",
+    "A banca reaproveita formatos e conjuntos-base: itens muito parecidos com os do próprio banco. Por isso prova antiga da Cesgranrio é o treino mais preditivo.",
+    "https://www.aprovaconcursos.com.br/blog/cesgranrio-perfil-da-banca/"
+   ],
+   [
+    "Cobertura",
+    "Tende a cobrir o edital inteiro; o peso de cada bloco segue o edital, não um sorteio livre.",
+    "https://blog.grancursosonline.com.br/concurso-caixa-banca-cesgranrio-2025/"
+   ],
+   [
+    "Partes comuns",
+    "Português e Inglês são iguais para todas as ênfases do mesmo nível (no gabarito oficial de 2011, as questões 1 a 20 valem para as 18 provas de nível superior); só as específicas mudam por ênfase.",
+    ""
+   ],
+   [
+    "Ordem das específicas",
+    "Misturadas por tema, sem bloco fixo por disciplina (Transpetro 2023: Q21 e Q22 MER, Q23 testes, Q24 requisitos).",
+    ""
+   ],
+   [
+    "Depois da prova",
+    "O gabarito pode mudar após os recursos (Transpetro 2023: alteração em 09/01/2024; em 2011 houve várias anulações). Anulada vale ponto para todos.",
+    ""
+   ]
+  ],
+  "gabarito": {
+   "acaso": {
+    "max4mais": 56.8,
+    "exato22222": 1.2
+   },
+   "medido": "Equilíbrio por dezena confirmado: em 203 gabaritos oficiais completos de 38 concursos, na ordem do caderno, cada bloco de 10 questões (1 a 10, 11 a 20...) tem letras mais equilibradas que o acaso. Nenhum assunto, tipo, ano ou órgão tem letra preferida (p = 0,68). Não é cota exata: o bloco de Português de 2011 (AACBBBCAEE) não tem D.",
+   "regra": "Regra do chute por dezena: nas questões que você vai chutar, entre as alternativas que sobraram, marque a letra MENOS usada nas suas certezas (✔) daquela dezena; vete a letra que já apareceu 3 ou mais vezes. Leva o chute de 20% para cerca de 29% a 30% nas provas da Transpetro (no BNDES 2024 não funcionou), cerca de 1,5 ponto em 15 chutes. Só desempata chute: nunca troque uma resposta de conteúdo."
+  },
+  "portugues": {
+   "textos": [
+    [
+     "Lygia Fagundes Telles",
+     "crônica memorialista",
+     "Transpetro 2023, nível superior (\"Durante aquele estranho chá\", Rocco, 2002): a filha, o pai, a língua portuguesa e o soneto de Olavo Bilac"
+    ],
+    [
+     "Texto jornalístico de meio ambiente",
+     "artigo argumentativo",
+     "Transpetro 2023, nível médio (\"Brasil, paraíso dos agrotóxicos\"); também \"lixo marinho\""
+    ],
+    [
+     "Carlos Heitor Cony",
+     "crônica",
+     "BNB 2024 (\"A Bela e a Fera\", adaptado)"
+    ],
+    [
+     "Lima Barreto",
+     "crônica",
+     "questões Cesgranrio com coletânea de crônicas reeditada em 2024"
+    ],
+    [
+     "Olavo Bilac",
+     "crônica e soneto",
+     "Petrobras (crônicas) e citado no texto da Transpetro 2023"
+    ],
+    [
+     "Imprensa (O Globo) e portais institucionais",
+     "reportagem e notícia",
+     "Petrobras (O Globo, 2018, adaptado); IPEA 2024 (portal do Ipea, com intervenções para a prova)"
+    ]
+   ],
+   "padrao": [
+    "Nível superior: crônica literária de autor canônico brasileiro, muitas vezes memorialista e falando da própria língua ou da leitura.",
+    "Nível médio e outras provas: texto jornalístico expositivo ou argumentativo sobre meio ambiente, sociedade ou tecnologia.",
+    "Quase sempre \"adaptado\": a banca reescreve trechos para caber nas questões.",
+    "As perguntas nunca pedem opinião nem conhecimento externo: tudo está no texto (guia 01).",
+    "Leitura útil até 06/12: crônicas curtas de Lygia, Cony, Rubem Braga, Drummond e Lima Barreto, e editoriais de meio ambiente e energia. Rubem Braga e Drummond são sugestão de leitura, sem registro nas provas analisadas."
+   ]
+  }
+ }
+}

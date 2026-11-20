@@ -1,0 +1,429 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#071a22"><link rel="manifest" href="manifest.json"><link rel="icon" href="icon-192.png">
+<title>Expedição Cesgranrio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Expedição Cesgranrio: viagem noturna de petroleiro por 10 terminais (disciplinas). Cada estação (tópico) ensina como a banca cobra, a partir dos guias em guias/. */
+:root{
+  --sea:#071a22; --sea2:#0b2833; --bg:#071a22; --paper:rgba(13,36,45,.86); --paper-solid:#0d242d; --ink:#e6f0f2; --muted:#9db3ba; --line:rgba(157,179,186,.22);
+  --accent:#5fd0e0; --accent-soft:rgba(95,208,224,.14); --gold:#f2c14e; --gold-soft:rgba(242,193,78,.14); --bad:#ff8f84; --bad-soft:rgba(255,143,132,.13); --ok:#7fdc9c; --ok-soft:rgba(127,220,156,.13); --on-accent:#05161c;
+  --wave:rgba(95,208,224,.10); --star:#dff6ff;
+  --display:"Barlow Condensed","Arial Narrow",Arial,sans-serif;
+  --body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+  color-scheme:dark;
+}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]){
+  --sea:#cfe6ec; --sea2:#e9f4f6; --bg:#e3f0f3; --paper:rgba(255,255,255,.9); --paper-solid:#ffffff; --ink:#10252c; --muted:#4f6870; --line:rgba(16,37,44,.16);
+  --accent:#0b6475; --accent-soft:rgba(11,100,117,.10); --gold:#9a6a00; --gold-soft:rgba(154,106,0,.10); --bad:#a3322a; --bad-soft:rgba(163,50,42,.09); --ok:#2c6e3f; --ok-soft:rgba(44,110,63,.10); --on-accent:#ffffff;
+  --wave:rgba(11,100,117,.10); --star:rgba(11,100,117,.0); color-scheme:light}}
+:root[data-theme="light"]{
+  --sea:#cfe6ec; --sea2:#e9f4f6; --bg:#e3f0f3; --paper:rgba(255,255,255,.9); --paper-solid:#ffffff; --ink:#10252c; --muted:#4f6870; --line:rgba(16,37,44,.16);
+  --accent:#0b6475; --accent-soft:rgba(11,100,117,.10); --gold:#9a6a00; --gold-soft:rgba(154,106,0,.10); --bad:#a3322a; --bad-soft:rgba(163,50,42,.09); --ok:#2c6e3f; --ok-soft:rgba(44,110,63,.10); --on-accent:#ffffff;
+  --wave:rgba(11,100,117,.10); --star:rgba(11,100,117,.0); color-scheme:light}
+*{box-sizing:border-box}
+html,body{overflow-x:hidden}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15.5px;line-height:1.6;min-height:100vh}
+canvas#sea{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+.shell{position:relative;z-index:1;padding:0 max(16px,env(safe-area-inset-right,0px)) 80px max(16px,env(safe-area-inset-left,0px))}
+.wrap{max-width:880px;margin:0 auto}
+h1,h2,h3,h4{font-family:var(--display);font-weight:600;line-height:1.1;margin:0;text-wrap:balance}
+h1{font-size:clamp(34px,7vw,58px);letter-spacing:.01em} h2{font-size:clamp(26px,4.5vw,34px)} h3{font-size:21px} h4{font-size:17px}
+p{margin:0}
+a{color:var(--accent)}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+.note{font-size:13.5px;color:var(--muted)}
+.mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+button{font-family:var(--body);font-size:14.5px;cursor:pointer;border-radius:10px;border:1px solid var(--line);background:var(--paper);color:var(--ink);padding:10px 16px;touch-action:manipulation;backdrop-filter:blur(6px)}
+button.primary{background:var(--accent);border-color:var(--accent);color:var(--on-accent);font-weight:600}
+button.ghost{background:transparent;backdrop-filter:none}
+button:disabled{opacity:.45;cursor:default}
+button:focus-visible,a:focus-visible,[tabindex]:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.spread{display:flex;justify-content:space-between;gap:10px;align-items:center;flex-wrap:wrap}
+
+/* Barra do passadiço (bridge) */
+.bridge{position:sticky;top:0;z-index:6;margin:0 calc(-1*max(16px,env(safe-area-inset-right,0px))) 0 calc(-1*max(16px,env(safe-area-inset-left,0px)));
+  padding:calc(8px + env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) 8px max(16px,env(safe-area-inset-left,0px));
+  background:linear-gradient(var(--sea),color-mix(in srgb,var(--sea) 70%,transparent));backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.bridge .in{max-width:880px;margin:0 auto;display:flex;gap:10px;align-items:center}
+.brand{font-family:var(--display);font-weight:700;font-size:20px;color:var(--ink);text-decoration:none;white-space:nowrap;display:flex;gap:8px;align-items:center}
+.brand .dot{width:9px;height:9px;border-radius:50%;background:var(--gold);box-shadow:0 0 12px var(--gold);animation:blink 2.4s infinite}
+@keyframes blink{50%{opacity:.35}}
+.bridge .crumbs{font-family:var(--mono);font-size:12px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;flex:1;min-width:0}
+.bridge .tools{display:flex;gap:6px}
+.bridge .tools button{padding:6px 10px;font-size:13px;border-radius:99px}
+
+/* Prólogo */
+.intro{min-height:calc(100vh - 60px);display:grid;align-content:center;gap:18px;padding:40px 0}
+.intro .lead{font-size:clamp(17px,2.6vw,20px);max-width:56ch;color:var(--ink)}
+.type::after{content:"▍";color:var(--accent);animation:blink 1s infinite}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}
+.fact{border:1px solid var(--line);border-radius:12px;padding:14px;background:var(--paper);backdrop-filter:blur(6px);opacity:0;transform:translateY(12px);animation:rise .6s forwards}
+.fact b{display:block;font-family:var(--display);font-size:30px;color:var(--gold);line-height:1}
+@keyframes rise{to{opacity:1;transform:none}}
+
+/* Carta náutica */
+.chart{position:relative;margin-top:14px;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:radial-gradient(ellipse at 30% 20%,var(--sea2),transparent 70%)}
+.chart svg{display:block;width:100%;height:auto}
+.port{cursor:pointer}
+.port circle.ring{fill:none;stroke:var(--accent);stroke-width:2;opacity:.5}
+.port circle.core{fill:var(--paper-solid);stroke:var(--accent);stroke-width:2.5;transition:r .2s}
+.port.done circle.core{fill:var(--gold);stroke:var(--gold)}
+.port:hover circle.core,.port:focus circle.core{r:15}
+.port text{font-family:var(--display);font-size:19px;fill:var(--ink);font-weight:600}
+.port text.sub{font-family:var(--mono);font-size:12px;fill:var(--muted);font-weight:400}
+.port:focus{outline:none}
+.port:focus-visible circle.ring{stroke:var(--gold);opacity:1;stroke-width:3}
+.pulse{animation:pulse 2.2s infinite;transform-box:fill-box;transform-origin:center}
+@keyframes pulse{0%{transform:scale(1);opacity:.6}100%{transform:scale(2.4);opacity:0}}
+.route{fill:none;stroke:var(--accent);stroke-width:2;stroke-dasharray:6 8;opacity:.55;animation:flow 30s linear infinite}
+@keyframes flow{to{stroke-dashoffset:-560}}
+.coast{fill:color-mix(in srgb,var(--sea2) 60%,var(--muted) 12%);stroke:var(--line)}
+.ship{transition:transform .9s cubic-bezier(.5,0,.3,1)}
+.ports-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:10px;margin-top:14px}
+.tile{all:unset;cursor:pointer;display:grid;gap:6px;border:1px solid var(--line);border-radius:14px;padding:14px;background:var(--paper);backdrop-filter:blur(6px);transition:border-color .15s,transform .15s}
+.tile:hover{border-color:var(--accent);transform:translateY(-2px)}
+.tile:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.prog{height:6px;border-radius:99px;background:var(--line);overflow:hidden}
+.prog i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),var(--gold));width:0;transition:width .6s}
+
+/* Painéis */
+.panel{border:1px solid var(--line);border-radius:16px;padding:20px;background:var(--paper);backdrop-filter:blur(8px);margin-top:14px}
+.hero{padding:26px 0 6px;display:grid;gap:10px}
+.tabs{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;margin-top:16px;padding-bottom:2px}
+.tabs button{flex:0 0 auto;border-radius:99px;font-family:var(--mono);font-size:12.5px;padding:7px 13px;color:var(--muted)}
+.tabs button[aria-selected="true"]{color:var(--on-accent);background:var(--accent);border-color:var(--accent)}
+.st-list{display:grid;gap:8px;margin-top:12px}
+.st{all:unset;cursor:pointer;display:grid;grid-template-columns:34px 1fr auto;gap:12px;align-items:center;border:1px solid var(--line);border-radius:12px;padding:12px 14px;background:var(--paper);backdrop-filter:blur(6px)}
+.st:hover{border-color:var(--accent)}
+.st:focus-visible{outline:2px solid var(--accent)}
+.st .n{font-family:var(--mono);font-size:12px;color:var(--muted);text-align:center;border:1px solid var(--line);border-radius:8px;padding:4px 0}
+.st.done .n{background:var(--gold);color:var(--on-accent);border-color:var(--gold)}
+.st .w{font-family:var(--mono);font-size:11.5px;color:var(--muted)}
+.tp{font-family:var(--mono);font-size:11px;border-radius:99px;padding:2px 8px;white-space:nowrap}
+.tp.yes{background:var(--gold-soft);color:var(--gold);border:1px solid var(--gold)}
+.tp.no{color:var(--muted);border:1px solid var(--line)}
+
+/* Markdown */
+.md{display:grid;gap:10px}
+.md h3,.md h4{margin-top:10px;color:var(--accent)}
+.md ul,.md ol{margin:0;padding-left:20px;display:grid;gap:4px}
+.md table{border-collapse:collapse;width:100%;font-size:13.5px}
+.md .tw{overflow-x:auto;border:1px solid var(--line);border-radius:10px}
+.md th,.md td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+.md th{font-family:var(--mono);font-size:11.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);background:var(--accent-soft)}
+.md code,code{font-family:var(--mono);font-size:.88em;background:var(--accent-soft);padding:1px 5px;border-radius:5px}
+.md blockquote{margin:0;border-left:3px solid var(--gold);padding-left:12px;color:var(--muted)}
+mark.trp{background:var(--gold-soft);color:var(--gold);border-radius:4px;padding:0 4px;font-weight:500}
+.tec{font-family:var(--mono);font-size:.78em;color:var(--muted);white-space:nowrap}
+
+/* Estação: missão em etapas */
+.mission{position:relative}
+.rail{display:flex;gap:4px;margin:14px 0 4px}
+.rail i{flex:1;height:5px;border-radius:99px;background:var(--line);cursor:pointer;transition:background .3s}
+.rail i.on{background:var(--accent)} .rail i.cur{background:var(--gold)}
+.stage{animation:stagein .45s ease}
+@keyframes stagein{from{opacity:0;transform:translateX(18px)}to{opacity:1;transform:none}}
+.stage-h{display:flex;gap:12px;align-items:center;margin:8px 0 14px}
+.stage-h .ic{font-size:30px;line-height:1;width:52px;height:52px;display:grid;place-items:center;border-radius:14px;background:var(--accent-soft);border:1px solid var(--line);flex:0 0 auto}
+.big{font-size:17px;line-height:1.65}
+.list{display:grid;gap:8px;margin:0;padding:0;list-style:none}
+.list li{position:relative;padding-left:22px}
+.list li::before{content:"";position:absolute;left:4px;top:.65em;width:8px;height:8px;border-radius:2px;background:var(--accent);transform:rotate(45deg)}
+.gauge{display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:center}
+.gauge svg{width:132px;height:132px}
+.bubbles{display:grid;gap:10px;margin-bottom:14px}
+.bubble{position:relative;align-self:start;justify-self:start;max-width:92%;background:var(--paper-solid);border:1px solid var(--accent);border-radius:14px 14px 14px 4px;padding:10px 14px;font-style:italic;animation:rise .5s both}
+.bubble::before{content:"BANCA";font-style:normal;font-family:var(--mono);font-size:10px;letter-spacing:.12em;color:var(--accent);display:block}
+.alert{border:1px solid var(--bad);background:var(--bad-soft);border-radius:14px;padding:16px;position:relative;overflow:hidden}
+.alert::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(-45deg,transparent 0 14px,var(--bad-soft) 14px 28px);opacity:.5;pointer-events:none}
+.alert>*{position:relative;z-index:1}
+.macete{border:1px solid var(--gold);background:var(--gold-soft);border-radius:16px;padding:22px;font-family:var(--display);font-size:clamp(22px,4vw,28px);line-height:1.25;color:var(--ink);box-shadow:0 0 40px var(--gold-soft)}
+.q-src{font-family:var(--mono);font-size:12px;color:var(--gold)}
+.alts{display:grid;gap:8px;margin-top:12px}
+.alt{all:unset;cursor:pointer;display:flex;gap:10px;align-items:flex-start;border:1px solid var(--line);border-radius:10px;padding:10px 12px;background:var(--paper-solid)}
+.alt:hover{border-color:var(--accent)}
+.alt:focus-visible{outline:2px solid var(--accent)}
+.alt .k{font-family:var(--mono);font-weight:500;color:var(--accent);min-width:1.2em}
+.alt.ok{border-color:var(--ok);background:var(--ok-soft)} .alt.bad{border-color:var(--bad);background:var(--bad-soft)} .alt.dim{opacity:.5}
+.alts.locked .alt{cursor:default}
+.fb{margin-top:12px;border-radius:12px;padding:14px;border:1px solid var(--line);display:grid;gap:6px;animation:rise .4s both}
+.fb.ok{border-color:var(--ok);background:var(--ok-soft)} .fb.bad{border-color:var(--bad);background:var(--bad-soft)}
+.flip{perspective:1000px;cursor:pointer;margin-top:6px}
+.flip .inner{position:relative;min-height:170px;transition:transform .5s;transform-style:preserve-3d}
+.flip.on .inner{transform:rotateY(180deg)}
+.flip .face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border:1px solid var(--line);border-radius:14px;padding:18px;display:grid;align-content:center;gap:8px;background:var(--paper-solid);font-size:17px}
+.flip .back{transform:rotateY(180deg);border-color:var(--accent);background:linear-gradient(var(--accent-soft),var(--accent-soft)),var(--paper-solid)}
+.steps{counter-reset:s;display:grid;gap:8px;margin:0;padding:0;list-style:none}
+.steps li{counter-increment:s;display:grid;grid-template-columns:28px 1fr;gap:10px}
+.steps li::before{content:counter(s);font-family:var(--mono);font-size:12px;width:26px;height:26px;border-radius:50%;display:grid;place-items:center;background:var(--accent);color:var(--on-accent)}
+.fmt{border:1px solid var(--line);border-radius:14px;padding:16px;background:var(--paper);display:grid;gap:10px;margin-top:12px}
+.fmt dt{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
+.fmt dd{margin:0 0 6px}
+.fmt dt.err{color:var(--bad)}
+.nav{display:flex;justify-content:space-between;gap:8px;margin-top:18px}
+.stamp{position:fixed;left:50%;top:42%;z-index:30;transform:translate(-50%,-50%) rotate(-12deg) scale(2.4);opacity:0;pointer-events:none;border:5px double var(--gold);color:var(--gold);border-radius:16px;padding:14px 22px;font-family:var(--display);font-weight:700;font-size:34px;text-transform:uppercase;letter-spacing:.06em;text-align:center;background:color-mix(in srgb,var(--sea) 80%,transparent)}
+.stamp.on{animation:stamp 1.8s ease forwards}
+.stamp small{display:block;font-family:var(--mono);font-size:12px;letter-spacing:.1em}
+@keyframes stamp{15%{opacity:1;transform:translate(-50%,-50%) rotate(-12deg) scale(1)}80%{opacity:1;transform:translate(-50%,-50%) rotate(-12deg) scale(1)}100%{opacity:0;transform:translate(-50%,-50%) rotate(-12deg) scale(1)}}
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%) translateY(100px);opacity:0;background:var(--ink);color:var(--sea);padding:10px 16px;border-radius:99px;font-family:var(--mono);font-size:13px;transition:transform .3s,opacity .3s;z-index:31;max-width:calc(100vw - 32px);text-align:center}
+.toast.on{transform:translateX(-50%) translateY(0);opacity:1}
+.passport{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px;margin-top:12px}
+.passport div{aspect-ratio:1;border:2px dashed var(--line);border-radius:50%;display:grid;place-items:center;text-align:center;padding:10px;font-family:var(--display);font-size:16px;color:var(--muted)}
+.passport div.on{border:3px double var(--gold);color:var(--gold);transform:rotate(-8deg);background:var(--gold-soft)}
+.kbd{font-family:var(--mono);font-size:11px;border:1px solid var(--line);border-radius:4px;padding:0 5px}
+@media (max-width:560px){.gauge{grid-template-columns:1fr;justify-items:start}.port text{font-size:24px}.port text.sub{display:none}.flip .face{font-size:16px}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.fact{opacity:1;transform:none}}
+</style></head>
+<body>
+<canvas id="sea" aria-hidden="true"></canvas>
+<div class="shell">
+<div class="bridge"><div class="in">
+  <a class="brand" href="#" data-go="mapa"><span class="dot"></span>Expedição Cesgranrio</a>
+  <span class="crumbs" id="crumbs"></span>
+  <div class="tools"><button id="bVoice" title="Narração do comandante" aria-pressed="false">🔈</button><button id="bSea" title="Som do mar" aria-pressed="false">🌊</button></div>
+</div></div>
+<div class="wrap"><main id="app" aria-live="polite"><p class="note" style="padding:60px 0">Preparando a carta náutica…</p></main></div>
+</div>
+<div class="stamp" id="stamp"></div>
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+(function(){
+'use strict';
+var KEY='arenaTP.expedicao.v1', JOGO='arenaTP.jogo.v1';
+var S={done:{},qs:{},last:null,intro:false,voice:false};
+try{var r=localStorage.getItem(KEY);if(r)S=Object.assign(S,JSON.parse(r));}catch(e){}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(S));}catch(e){}}
+var $=function(s,r){return (r||document).querySelector(s);};
+var app=$('#app');
+var IDX=null,DISC={},QUEST=null;
+var ICON={portugues:'📜',ingles:'🌐',dados:'🛢️',projetos:'🧭',governanca:'⚓',engsoft:'⚙️',ux:'🧩',bi:'📡',logica:'🔦',seguranca:'🛡️'};
+var QDISC={dados:'Dados',projetos:'Projetos',governanca:'Governanca',engsoft:'EngSoftware_UX',ux:'EngSoftware_UX',bi:'BI_CienciaDados',seguranca:'Seguranca'};
+/* posições dos 10 terminais na carta (viewBox 1000x640) */
+var POS=[[120,520],[250,420],[200,270],[330,150],[500,210],[620,330],[560,480],[720,560],[840,420],[860,230]];
+
+function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+function today(){var d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');}
+function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;}
+var tt;function toast(m){var t=$('#toast');t.textContent=m;t.classList.add('on');clearTimeout(tt);tt=setTimeout(function(){t.classList.remove('on');},2600);}
+
+/* XP compartilhado com o Arena Relâmpago (jogo.html) */
+function xp(n){try{var j=JSON.parse(localStorage.getItem(JOGO)||'{}');j.xp=(j.xp||0)+n;j.days=j.days||{};var t=today();j.days[t]=(j.days[t]||0)+n;localStorage.setItem(JOGO,JSON.stringify(j));}catch(e){}}
+
+/* ---------- Texto: inline e markdown ---------- */
+function inline(s){
+  s=esc(s);
+  s=s.replace(/`([^`]+)`/g,'<code>$1</code>').replace(/\*\*([^*]+)\*\*/g,'<b>$1</b>').replace(/(^|[\s(])\*([^*\s][^*]*)\*/g,'$1<i>$2</i>');
+  s=s.replace(/\btec (\d{5,8})/g,'<span class="tec">tec $1</span>');
+  s=s.replace(/(Transpetro(?: [A-Za-zÀ-ú.]+)?(?: 20\d\d)(?: NM)?(?:(?: ·)? Q\d+)?)/g,'<mark class="trp">$1</mark>');
+  return s;}
+function md(src){
+  var L=String(src||'').split('\n'),out=[],i=0;
+  while(i<L.length){var l=L[i];
+    if(!l.trim()){i++;continue;}
+    var h=l.match(/^(#{2,4})\s+(.*)/);if(h){out.push('<h'+(h[1].length+1>4?4:h[1].length+1)+'>'+inline(h[2])+'</h'+(h[1].length+1>4?4:h[1].length+1)+'>');i++;continue;}
+    if(/^\|/.test(l)){var rows=[];while(i<L.length&&/^\|/.test(L[i])){rows.push(L[i]);i++;}
+      var cells=function(r){return r.replace(/^\||\|$/g,'').split('|').map(function(c){return c.trim();});};
+      var head=cells(rows[0]),body=rows.slice(1).filter(function(r){return !/^\|[\s:|-]+\|$/.test(r);});
+      out.push('<div class="tw"><table><thead><tr>'+head.map(function(c){return '<th>'+inline(c)+'</th>';}).join('')+'</tr></thead><tbody>'+body.map(function(r){return '<tr>'+cells(r).map(function(c){return '<td>'+inline(c)+'</td>';}).join('')+'</tr>';}).join('')+'</tbody></table></div>');continue;}
+    if(/^\s*[-*] /.test(l)){var it=[];while(i<L.length&&/^\s*[-*] /.test(L[i])){it.push(L[i].replace(/^\s*[-*] /,''));i++;}out.push('<ul>'+it.map(function(x){return '<li>'+inline(x)+'</li>';}).join('')+'</ul>');continue;}
+    if(/^\s*\d+[.)] /.test(l)){var it2=[];while(i<L.length&&/^\s*\d+[.)] /.test(L[i])){it2.push(L[i].replace(/^\s*\d+[.)] /,''));i++;}out.push('<ol>'+it2.map(function(x){return '<li>'+inline(x)+'</li>';}).join('')+'</ol>');continue;}
+    if(/^>/.test(l)){var q=[];while(i<L.length&&/^>/.test(L[i])){q.push(L[i].replace(/^>\s?/,''));i++;}out.push('<blockquote>'+inline(q.join(' '))+'</blockquote>');continue;}
+    var p=[];while(i<L.length&&L[i].trim()&&!/^(#{2,4}\s|\||\s*[-*] |\s*\d+[.)] |>)/.test(L[i])){p.push(L[i]);i++;}out.push('<p>'+inline(p.join(' '))+'</p>');}
+  return '<div class="md">'+out.join('')+'</div>';}
+function sentences(t){ /* quebra o bloco em itens curtos sem cortar dentro de parênteses */
+  var out=[],buf='',depth=0;for(var i=0;i<t.length;i++){var c=t[i];if(c==='('||c==='[')depth++;if(c===')'||c===']')depth=Math.max(0,depth-1);buf+=c;
+    if(depth===0&&(c===';'||(c==='.'&&t[i+1]===' '&&/[A-ZÀ-Ú"“(]/.test(t[i+2]||'')))){if(buf.trim().length>2)out.push(buf.trim().replace(/;$/,''));buf='';}}
+  if(buf.trim())out.push(buf.trim());return out;}
+function plain(s){return String(s||'').replace(/[`*_]/g,'').replace(/\btec \d+/g,'').replace(/→/g,' leva a ').replace(/\s+/g,' ');}
+
+/* ---------- Narração e som do mar ---------- */
+var voicePT=null;function pickVoice(){try{var v=speechSynthesis.getVoices();voicePT=v.find(function(x){return /pt-BR/i.test(x.lang);})||v.find(function(x){return /^pt/i.test(x.lang);})||null;}catch(e){}}
+if('speechSynthesis' in window){pickVoice();speechSynthesis.onvoiceschanged=pickVoice;}
+function say(t){if(!S.voice||!('speechSynthesis' in window))return;try{speechSynthesis.cancel();var u=new SpeechSynthesisUtterance(plain(t).slice(0,1200));u.lang='pt-BR';if(voicePT)u.voice=voicePT;u.rate=1.04;speechSynthesis.speak(u);}catch(e){}}
+function hush(){try{speechSynthesis.cancel();}catch(e){}}
+function syncTools(){var bv=$('#bVoice');bv.textContent=S.voice?'🔊':'🔈';bv.setAttribute('aria-pressed',S.voice);bv.title=S.voice?'Narração ligada':'Narração desligada';
+  if(!('speechSynthesis' in window))bv.hidden=true;var bs=$('#bSea');bs.setAttribute('aria-pressed',!!seaOn);bs.style.borderColor=seaOn?'var(--accent)':'';}
+$('#bVoice').onclick=function(){S.voice=!S.voice;save();syncTools();if(S.voice){say('Narração ligada. Bom estudo, comandante.');}else hush();};
+var AC=null,seaOn=false,seaGain=null;
+function seaSound(on){try{if(on){AC=AC||new (window.AudioContext||window.webkitAudioContext)();var len=AC.sampleRate*4,buf=AC.createBuffer(1,len,AC.sampleRate),d=buf.getChannelData(0),last=0;for(var i=0;i<len;i++){var w=Math.random()*2-1;last=(last+0.02*w)/1.02;d[i]=last*3.5;}
+    var src=AC.createBufferSource();src.buffer=buf;src.loop=true;var f=AC.createBiquadFilter();f.type='lowpass';f.frequency.value=520;seaGain=AC.createGain();seaGain.gain.value=0;
+    var lfo=AC.createOscillator(),lg=AC.createGain();lfo.frequency.value=.11;lg.gain.value=.12;lfo.connect(lg);lg.connect(seaGain.gain);src.connect(f);f.connect(seaGain);seaGain.connect(AC.destination);src.start();lfo.start();seaGain.gain.setTargetAtTime(.16,AC.currentTime,1.5);seaSound.src=[src,lfo];}
+  else if(seaSound.src){seaGain.gain.setTargetAtTime(0,AC.currentTime,.4);var s=seaSound.src;setTimeout(function(){s.forEach(function(n){try{n.stop();}catch(e){}});},1500);seaSound.src=null;}}catch(e){}}
+$('#bSea').onclick=function(){seaOn=!seaOn;seaSound(seaOn);syncTools();};
+function chime(ok){if(!AC&&!seaOn)return;try{AC=AC||new (window.AudioContext||window.webkitAudioContext)();var o=AC.createOscillator(),g=AC.createGain();o.type='sine';o.frequency.value=ok?880:196;g.gain.setValueAtTime(.07,AC.currentTime);g.gain.exponentialRampToValueAtTime(.0001,AC.currentTime+.4);o.connect(g);g.connect(AC.destination);o.start();o.stop(AC.currentTime+.4);}catch(e){}}
+
+/* ---------- Mar noturno no fundo ---------- */
+(function(){var c=$('#sea'),x=c.getContext('2d'),W,H,stars=[],t=0,still=matchMedia('(prefers-reduced-motion: reduce)').matches,dpr=Math.min(2,window.devicePixelRatio||1);
+  function size(){W=innerWidth;H=innerHeight;c.width=W*dpr;c.height=H*dpr;x.setTransform(dpr,0,0,dpr,0,0);stars=[];for(var i=0;i<Math.round(W*H/9000);i++)stars.push([Math.random()*W,Math.random()*H*.55,Math.random()*1.3+.2,Math.random()*6.28]);}
+  function css(v){return getComputedStyle(document.documentElement).getPropertyValue(v).trim();}
+  function frame(){var sea=css('--sea'),sea2=css('--sea2'),wave=css('--wave'),star=css('--star');
+    var g=x.createLinearGradient(0,0,0,H);g.addColorStop(0,sea);g.addColorStop(1,sea2);x.fillStyle=g;x.fillRect(0,0,W,H);
+    x.fillStyle=star;stars.forEach(function(s){x.globalAlpha=.35+.35*Math.sin(t*.02+s[3]);x.beginPath();x.arc(s[0],s[1],s[2],0,6.283);x.fill();});x.globalAlpha=1;
+    for(var k=0;k<6;k++){var y0=H*.62+k*H*.07,amp=6+k*3,sp=.012+k*.004;x.beginPath();x.moveTo(0,H);for(var px=0;px<=W;px+=12){x.lineTo(px,y0+Math.sin(px*.012+t*sp+k)*amp+Math.sin(px*.031-t*sp*1.7)*amp*.4);}x.lineTo(W,H);x.closePath();x.fillStyle=wave;x.fill();}
+    /* farol pulsando no horizonte */
+    var lx=W*.88,ly=H*.6;var a=(t*.012)%6.283;x.save();x.globalAlpha=.10;x.fillStyle=css('--gold');x.beginPath();x.moveTo(lx,ly);x.arc(lx,ly,Math.max(W,H)*.6,a-.12,a+.12);x.closePath();x.fill();x.restore();
+    x.fillStyle=css('--gold');x.beginPath();x.arc(lx,ly,2.5,0,6.283);x.fill();
+    t++;if(!still&&!document.hidden)requestAnimationFrame(frame);}
+  size();addEventListener('resize',function(){size();if(still)frame();});document.addEventListener('visibilitychange',function(){if(!document.hidden&&!still)requestAnimationFrame(frame);});
+  matchMedia('(prefers-color-scheme: light)').addEventListener('change',function(){if(still)frame();});frame();})();
+
+/* ---------- Carga ---------- */
+function getJ(u){return fetch(u).then(function(r){if(!r.ok)throw new Error(u);return r.json();});}
+function loadDisc(slug){return DISC[slug]?Promise.resolve(DISC[slug]):getJ('expedicao/'+slug+'.json').then(function(o){DISC[slug]=o;return o;});}
+function loadQ(){return QUEST?Promise.resolve(QUEST):getJ('questoes.json').then(function(q){QUEST=q;return q;}).catch(function(){QUEST=[];return QUEST;});}
+
+/* ---------- Roteamento por hash ---------- */
+function route(){hush();var h=decodeURIComponent(location.hash.slice(1)).split('/');window.scrollTo(0,0);
+  if(!IDX)return;if(!S.intro&&h[0]!=='mapa'&&!h[0])return prologo();
+  if(h[0]==='t'&&h[1]){if(h[2]==='e'&&h[3]!=null)return estacao(h[1],+h[3],+(h[4]||0));return terminal(h[1],h[2]||'estacoes');}
+  if(h[0]==='prologo')return prologo();if(h[0]==='passaporte')return passaporte();return mapa();}
+addEventListener('hashchange',route);
+document.addEventListener('click',function(e){var g=e.target.closest('[data-go]');if(!g)return;e.preventDefault();var to='#'+g.dataset.go;if(decodeURIComponent(location.hash)===to)route();else location.hash=to;});
+function crumbs(t){$('#crumbs').textContent=t||'';}
+
+/* ---------- Prólogo ---------- */
+function prologo(){crumbs('Prólogo');
+  app.innerHTML='<section class="intro"><div class="eyebrow">Transpetro 2026 · Cesgranrio · Ênfase 5 · 06/12</div><h1>Expedição Cesgranrio</h1><p class="lead type" id="ty"></p><div class="facts" id="facts"></div><div class="row"><button class="primary" id="go">Zarpar ⛴</button><button class="ghost" data-go="t/anatomia">Ler o manual de bordo completo</button></div><p class="note">Dica: ligue a narração 🔈 e o som do mar 🌊 no canto superior. Tudo funciona sem internet depois da primeira visita.</p></section>';
+  var txt='Você comanda um petroleiro por dez terminais. Em cada um, a banca esconde o mesmo truque: o distrator é a definição certa de um conceito vizinho. Aprenda como ela pergunta e você responde antes de terminar de ler.';
+  var i=0,el=$('#ty');(function tp(){if(!el.isConnected)return;el.textContent=txt.slice(0,i);if(i++<txt.length)setTimeout(tp,matchMedia('(prefers-reduced-motion: reduce)').matches?0:18);else el.classList.remove('type');})();
+  var F=[['70','questões, A a E, sem desconto por erro: marque todas'],['25/50','nas específicas para não ser eliminado'],['330','minutos: cerca de 3,5 por questão com folga'],[String(IDX.disciplinas.reduce(function(a,d){return a+d.topicos.length;},0)),'estações de estudo nesta expedição']];
+  $('#facts').innerHTML=F.map(function(f,k){return '<div class="fact" style="animation-delay:'+(1+k*.25)+'s"><b>'+f[0]+'</b>'+esc(f[1])+'</div>';}).join('');
+  say(txt);
+  $('#go').onclick=function(){S.intro=true;save();if(!AC){seaOn=true;seaSound(true);syncTools();}location.hash='mapa';};}
+
+/* ---------- Mapa (carta náutica) ---------- */
+function pct(slug){var d=IDX.disciplinas.find(function(x){return x.slug===slug;});var n=d.topicos.length,k=Object.keys(S.done[slug]||{}).length;return n?k/n:0;}
+function mapa(){crumbs('Carta náutica');
+  var D=IDX.disciplinas,cur=Math.max(0,D.findIndex(function(d){return d.slug===S.last;}));
+  var path='M'+POS.map(function(p){return p.join(',');}).join(' L');
+  var total=D.reduce(function(a,d){return a+d.topicos.length;},0),feito=D.reduce(function(a,d){return a+Object.keys(S.done[d.slug]||{}).length;},0);
+  app.innerHTML='<header class="hero"><div class="eyebrow">Carta náutica · '+feito+' de '+total+' estações</div><h2>Escolha o próximo terminal</h2><div class="prog" style="max-width:420px"><i style="width:'+(100*feito/total)+'%"></i></div></header>'+
+  '<div class="chart"><svg viewBox="0 0 1000 640" role="img" aria-label="Rota pelos dez terminais">'+
+   '<path class="coast" d="M0,0 L1000,0 L1000,90 C900,120 820,60 720,100 C640,130 600,70 520,90 C430,110 400,60 300,80 C200,100 120,60 0,110 Z"/>'+
+   '<path class="route" d="'+path+'"/>'+
+   D.map(function(d,k){var p=POS[k],done=pct(d.slug);var lab=k%2?-26:40;return '<g class="port'+(done>=1?' done':'')+'" tabindex="0" role="button" aria-label="'+esc(d.nome)+', '+Math.round(done*100)+'% concluído" data-slug="'+d.slug+'" data-k="'+k+'">'+
+     (k===cur?'<circle class="ring pulse" cx="'+p[0]+'" cy="'+p[1]+'" r="12"/>':'')+'<circle class="ring" cx="'+p[0]+'" cy="'+p[1]+'" r="20" stroke-dasharray="'+(125.6*done)+' 200" transform="rotate(-90 '+p[0]+' '+p[1]+')" style="opacity:1;stroke:var(--gold)"/>'+
+     '<circle class="core" cx="'+p[0]+'" cy="'+p[1]+'" r="11"/><text x="'+p[0]+'" y="'+(p[1]+lab)+'" text-anchor="middle">'+ICON[d.slug]+' '+esc(d.nome)+'</text><text class="sub" x="'+p[0]+'" y="'+(p[1]+lab+16)+'" text-anchor="middle">'+Object.keys(S.done[d.slug]||{}).length+'/'+d.topicos.length+'</text></g>';}).join('')+
+   '<g class="ship" id="ship" style="transform:translate('+POS[cur][0]+'px,'+(POS[cur][1]-30)+'px)"><text x="0" y="0" text-anchor="middle" font-size="30">🚢</text></g>'+
+  '</svg></div>'+
+  '<div class="ports-list">'+D.map(function(d){var p=pct(d.slug);return '<button class="tile" data-slug="'+d.slug+'"><div class="spread"><h3>'+ICON[d.slug]+' '+esc(d.nome)+'</h3><span class="mono note">'+Object.keys(S.done[d.slug]||{}).length+'/'+d.topicos.length+'</span></div><p class="note">'+esc(d.titulo.replace(/·.*$/,'').trim())+'</p><div class="prog"><i style="width:'+(p*100)+'%"></i></div></button>';}).join('')+'</div>'+
+  '<div class="row" style="margin-top:16px"><button data-go="t/anatomia">📖 Manual de bordo: anatomia da Cesgranrio</button><button data-go="passaporte">🛂 Passaporte</button><a class="note" href="estudio.html" style="align-self:center">🎬 Estúdio: videoaulas, mapas e esquemas</a><a class="note" href="jogo.html" style="align-self:center">⚡ Arena Relâmpago</a><a class="note" href="index.html" style="align-self:center">Arena completo</a></div>';
+  function sail(slug){var k=D.findIndex(function(d){return d.slug===slug;});var sh=$('#ship');if(sh&&k>=0&&!matchMedia('(prefers-reduced-motion: reduce)').matches){sh.style.transform='translate('+POS[k][0]+'px,'+(POS[k][1]-30)+'px)';setTimeout(function(){location.hash='t/'+slug;},850);}else location.hash='t/'+slug;}
+  app.querySelectorAll('[data-slug]').forEach(function(el){el.addEventListener('click',function(){sail(el.dataset.slug);});el.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();sail(el.dataset.slug);}});});
+  if(!S.mapSaid){S.mapSaid=1;say('Carta náutica aberta. Escolha um terminal. Os anéis dourados mostram quanto de cada disciplina você já conquistou.');}
+}
+
+/* ---------- Terminal (disciplina) ---------- */
+function terminal(slug,tab){
+  if(slug==='anatomia'){crumbs('Manual de bordo');app.innerHTML='<header class="hero"><div class="spread"><div class="eyebrow">Manual de bordo</div><button class="ghost" data-go="mapa">← Carta</button></div><h2>Anatomia da Cesgranrio</h2><p class="note">Vale para as 70 questões. Leia antes de zarpar e releia na véspera.</p></header><div class="panel">'+md(IDX.anatomia)+'</div>';say('Manual de bordo. Anatomia da Cesgranrio: como a banca pergunta e como se responde.');return;}
+  app.innerHTML='<p class="note" style="padding:40px 0">Atracando…</p>';
+  loadDisc(slug).then(function(o){S.last=slug;save();crumbs('Terminal '+o.nome);
+    var TABS=[['estacoes','Estações'],['radar','Radar da banca'],['formatos','Formatos de questão'],['pares','Pares e pegadinhas'],['lei','Decorar'],['vespera','Véspera']].filter(function(t){return t[0]!=='pares'||o.pares;});
+    var done=S.done[slug]||{};
+    var head='<header class="hero"><div class="spread"><div class="eyebrow">'+ICON[slug]+' Terminal '+esc(o.nome)+' · '+Object.keys(done).length+'/'+o.topicos.length+' estações</div><button class="ghost" data-go="mapa">← Carta</button></div><h2>'+esc(o.titulo)+'</h2><p class="note">'+inline(o.intro)+'</p><div class="prog"><i style="width:'+(100*pct(slug))+'%"></i></div></header>'+
+      '<div class="tabs" role="tablist">'+TABS.map(function(t){return '<button role="tab" aria-selected="'+(t[0]===tab)+'" data-go="t/'+slug+'/'+t[0]+'">'+t[1]+'</button>';}).join('')+'</div>';
+    var body='';
+    if(tab==='estacoes'){body='<div class="st-list">'+o.topicos.map(function(t,i){var w=(t.peso||'').match(/(\d+)\s+quest/);var trp=/Transpetro/.test(t.peso||'');return '<button class="st'+(done[i]?' done':'')+'" data-go="t/'+slug+'/e/'+i+'"><span class="n">'+(done[i]?'✓':i+1)+'</span><span><b>'+esc(t.t)+'</b><br><span class="w">'+(w?w[1]+' questões no caderno · ':'')+t.qs.length+' comentada(s) · '+(t.cards||[]).length+' cartões</span></span><span class="tp '+(trp?'yes':'no')+'">'+(trp?'caiu na Transpetro':'sem Transpetro')+'</span></button>';}).join('')+'</div>';}
+    else if(tab==='radar'){body=o.radar.map(function(r){return '<div class="panel"><h3>'+inline(r.t)+'</h3><div style="margin-top:10px">'+md(r.md)+'</div></div>';}).join('');}
+    else if(tab==='formatos'){body=o.formatos.length?'<p class="note" style="margin-top:12px">Cada formato é um procedimento. Reconheça o formato no enunciado e aplique os passos antes de ler as alternativas.</p>'+o.formatos.map(fmtCard).join(''):'<div class="panel note">Sem formatos catalogados nesta disciplina.</div>';}
+    else body='<div class="panel">'+md(o[tab])+'</div>';
+    app.innerHTML=head+body;
+    if(tab==='estacoes')say('Terminal '+o.nome+'. '+o.topicos.length+' estações. As marcadas em dourado já caíram na Transpetro.');
+  }).catch(function(e){app.innerHTML='<div class="panel">Não consegui abrir este terminal. '+esc(e.message)+'</div>';});}
+function steps(t){var p=String(t||'').split(/\s*\(\d+\)\s*/).filter(function(x){return x.trim();});if(p.length<2)return '<p>'+inline(t)+'</p>';return '<ol class="steps">'+p.map(function(x){return '<li><span>'+inline(x.replace(/;\s*$/,''))+'</span></li>';}).join('')+'</ol>';}
+function fmtCard(f){if(f.md)return '<div class="fmt"><h3>'+inline(f.t)+'</h3>'+md(f.md)+'</div>';
+  return '<div class="fmt"><h3>'+inline(f.t)+'</h3><dl style="margin:0">'+(f.rec?'<dt>Como reconhecer</dt><dd>'+inline(f.rec)+'</dd>':'')+(f.ex?'<dt>Exemplo real</dt><dd>'+inline(f.ex)+'</dd>':'')+(f.proc?'<dt>Procedimento</dt><dd>'+steps(f.proc)+'</dd>':'')+(f.erro?'<dt class="err">Erro típico</dt><dd>'+inline(f.erro)+'</dd>':'')+'</dl></div>';}
+
+/* ---------- Estação (tópico): missão em etapas ---------- */
+function estacao(slug,ti,si){
+  loadDisc(slug).then(function(o){var t=o.topicos[ti];if(!t)return terminal(slug);
+    crumbs(o.nome+' › '+t.t);
+    var ST=[];
+    ST.push({ic:'📡',h:'Radar',k:'radar'});
+    if(t.cobra)ST.push({ic:'🎯',h:'O que a banca cobra',k:'cobra'});
+    if(t.pergunta)ST.push({ic:'🗣️',h:'Como ela pergunta',k:'pergunta'});
+    if(t.confunde)ST.push({ic:'⚠️',h:'Onde ela confunde',k:'confunde'});
+    if(t.macete||t.decorar)ST.push({ic:'💡',h:'Macete',k:'macete'});
+    t.qs.forEach(function(q,qi){ST.push({ic:'📝',h:(q.auto?'Questão-modelo':'Questão comentada')+(t.qs.length>1?' '+(qi+1):''),k:'q',qi:qi});});
+    if(t.extra)ST.push({ic:'📚',h:'Aprofundamento',k:'extra'});
+    if((t.cards||[]).length)ST.push({ic:'🃏',h:'Cartões de fixação',k:'cards'});
+    if(QDISC[slug])ST.push({ic:'🏁',h:'Desafio real',k:'real'});
+    si=Math.max(0,Math.min(si,ST.length-1));var s=ST[si];
+    var rail='<div class="rail" aria-hidden="true">'+ST.map(function(x,i){return '<i class="'+(i<si?'on':(i===si?'cur':''))+'" data-go="t/'+slug+'/e/'+ti+'/'+i+'" title="'+esc(x.h)+'"></i>';}).join('')+'</div>';
+    var nav='<div class="nav"><button '+(si?'data-go="t/'+slug+'/e/'+ti+'/'+(si-1)+'"':'data-go="t/'+slug+'"')+'>← '+(si?'Voltar':'Terminal')+'</button>'+(si<ST.length-1?'<button class="primary" id="nx" data-go="t/'+slug+'/e/'+ti+'/'+(si+1)+'">'+esc(ST[si+1].h)+' →</button>':'<button class="primary" id="fim">Carimbar estação ✓</button>')+'</div>';
+    var hdr='<header class="hero" style="padding-bottom:0"><div class="spread"><div class="eyebrow">'+ICON[slug]+' '+esc(o.nome)+' · estação '+(ti+1)+'/'+o.topicos.length+'</div><span class="row"><a class="note" href="estudio.html#play/'+slug+'/t/'+ti+'">🎬 Videoaula</a><button class="ghost" data-go="t/'+slug+'">✕ Sair</button></span></div><h2>'+esc(t.t.replace(/^[\d.]+\s*/,''))+'</h2>'+rail+'</header>';
+    var body='',speech='';
+    if(s.k==='radar'){var n=(t.peso||'').match(/(\d+)\s+quest/),pc=(t.peso||'').match(/(\d+(?:,\d+)?)\s*%/),trp=/Transpetro/.test(t.peso||'');
+      var v=pc?Math.min(1,parseFloat(pc[1].replace(',','.'))/25):(n?Math.min(1,+n[1]/40):.15);var C=2*Math.PI*52;
+      body='<div class="gauge"><svg viewBox="0 0 132 132" role="img" aria-label="Peso no caderno"><circle cx="66" cy="66" r="52" fill="none" stroke="var(--line)" stroke-width="12"/><circle cx="66" cy="66" r="52" fill="none" stroke="var(--gold)" stroke-width="12" stroke-linecap="round" stroke-dasharray="'+(C*v)+' '+C+'" transform="rotate(-90 66 66)"><animate attributeName="stroke-dasharray" from="0 '+C+'" to="'+(C*v)+' '+C+'" dur="1s"/></circle><text x="66" y="64" text-anchor="middle" font-family="Barlow Condensed" font-weight="700" font-size="34" fill="var(--ink)">'+(n?n[1]:'—')+'</text><text x="66" y="84" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="var(--muted)">'+(pc?pc[1]+'%':'questões')+'</text></svg><div><span class="tp '+(trp?'yes':'no')+'">'+(trp?'⭐ Já caiu na Transpetro':'Sem precedente na Transpetro')+'</span><p class="big" style="margin-top:10px">'+inline(t.peso||'Peso não informado.')+'</p></div></div>';
+      speech=t.t+'. Peso: '+(t.peso||'');}
+    else if(s.k==='cobra'){body='<ul class="list big">'+sentences(t.cobra).map(function(x){return '<li>'+inline(x)+'</li>';}).join('')+'</ul>';speech='O que a banca cobra. '+t.cobra;}
+    else if(s.k==='pergunta'){var qt=(t.pergunta.match(/"[^"]{6,160}"/g)||[]).slice(0,4);body=(qt.length?'<div class="bubbles">'+qt.map(function(x,i){return '<div class="bubble" style="animation-delay:'+(i*.35)+'s">'+esc(x.replace(/"/g,''))+'</div>';}).join('')+'</div>':'')+'<p class="big">'+inline(t.pergunta)+'</p>';speech='Como ela pergunta. '+t.pergunta;}
+    else if(s.k==='confunde'){body='<div class="alert"><div class="eyebrow" style="color:var(--bad)">Zona de risco · onde o candidato erra</div><ul class="list big" style="margin-top:10px">'+sentences(t.confunde).map(function(x){return '<li>'+inline(x)+'</li>';}).join('')+'</ul></div>';speech='Atenção. Onde ela confunde. '+t.confunde;}
+    else if(s.k==='macete'){body=(t.macete?'<div class="macete">'+inline(t.macete)+'</div>':'')+(t.decorar?'<div class="panel"><h4>O que decorar</h4><p style="margin-top:6px">'+inline(t.decorar)+'</p></div>':'');speech='Macete. '+(t.macete||t.decorar);}
+    else if(s.k==='extra'){body='<div class="panel">'+md(t.extra)+'</div>';}
+    else if(s.k==='q'){var q=t.qs[s.qi],key=slug+':'+ti+':'+s.qi,prev=S.qs[key];
+      if(q.alts&&Object.keys(q.alts).length===5){body='<div class="panel"><div class="q-src">'+(q.auto?'Questão-modelo autoral · ':'')+esc(q.src||'Cesgranrio')+'</div><p class="big" style="margin-top:8px">'+inline(q.stem)+'</p><div class="alts" id="alts">'+'ABCDE'.split('').map(function(k){return '<button class="alt" data-k="'+k+'"><span class="k">'+k+'</span><span>'+inline(q.alts[k])+'</span></button>';}).join('')+'</div><div id="fbq"></div></div>';}
+      else body='<div class="panel"><div class="q-src">'+esc(q.src)+'</div><p class="big" style="margin-top:8px">'+inline(q.raw||q.stem)+'</p><div class="row" style="margin-top:12px"><button id="rv">Revelar gabarito</button></div><div id="fbq"></div></div>';
+      speech='Questão. '+q.stem;}
+    else if(s.k==='cards'){body='<p class="note">Tente responder em voz alta antes de virar. Toque no cartão ou use <span class="kbd">Espaço</span>.</p><div id="cz"></div>';}
+    else if(s.k==='real'){body='<div id="rz"><p class="note">Buscando questão real da Cesgranrio sobre este tópico…</p></div>';}
+    app.innerHTML=hdr+'<section class="stage panel mission"><div class="stage-h"><span class="ic">'+s.ic+'</span><div><div class="eyebrow">Etapa '+(si+1)+' de '+ST.length+'</div><h3>'+esc(s.h)+'</h3></div></div>'+body+nav+'</section>';
+    if(speech)say(speech);
+    if(s.k==='q')bindQ(t.qs[s.qi],slug+':'+ti+':'+s.qi);
+    if(s.k==='cards')cards(t.cards);
+    if(s.k==='real')real(slug,t);
+    var fim=$('#fim');if(fim)fim.onclick=function(){finish(slug,ti,o);};
+  });}
+function bindQ(q,key){
+  var fb=function(ok,pick){return '<div class="fb '+(ok?'ok':'bad')+'"><b>'+(ok?'Certo! ':'Você marcou '+pick+'. ')+'Gabarito: '+esc(q.gab||'?')+'</b><p>'+inline(q.expl)+'</p></div>';};
+  var box=$('#alts');
+  if(box){var prev=S.qs[key];var lock=function(k){box.classList.add('locked');box.querySelectorAll('.alt').forEach(function(b){b.classList.add(b.dataset.k===q.gab?'ok':(b.dataset.k===k?'bad':'dim'));});$('#fbq').innerHTML=fb(k===q.gab,k);};
+    if(prev){lock(prev);return;}
+    box.onclick=function(e){var b=e.target.closest('.alt');if(!b||box.classList.contains('locked'))return;var k=b.dataset.k;S.qs[key]=k;save();lock(k);var ok=k===q.gab;chime(ok);if(ok){xp(15);toast('+15 XP');}say((ok?'Certo. ':'Não. O gabarito é '+q.gab+'. ')+q.expl);};}
+  var rv=$('#rv');if(rv)rv.onclick=function(){$('#fbq').innerHTML='<div class="fb ok"><b>Gabarito: '+esc(q.gab||'?')+'</b><p>'+inline(q.expl)+'</p></div>';rv.remove();say('Gabarito '+q.gab+'. '+q.expl);};}
+function cards(list){var i=0,know=0,box=$('#cz');
+  function draw(){if(i>=list.length){box.innerHTML='<div class="fb ok"><b>'+know+' de '+list.length+' na ponta da língua.</b><p>'+(know===list.length?'Estação dominada. Pode carimbar.':'Os que você errou vale rever no Arena Relâmpago.')+'</p></div>';xp(know*3);return;}
+    var c=list[i];box.innerHTML='<div class="spread"><span class="mono note">'+(i+1)+'/'+list.length+'</span></div><div class="flip" id="fc" tabindex="0" role="button" aria-label="Virar cartão"><div class="inner"><div class="face">'+inline(c[0])+'<span class="note">→ ?</span></div><div class="face back">'+inline(c[1])+'</div></div></div><div class="row" id="gr" style="margin-top:10px" hidden><button id="no">Errei</button><button class="primary" id="yes">Sabia ✓</button></div>';
+    var fc=$('#fc');var flip=function(){fc.classList.add('on');$('#gr').hidden=false;say(c[1]);};fc.onclick=flip;fc.onkeydown=function(e){if(e.key===' '||e.key==='Enter'){e.preventDefault();flip();}};
+    $('#no').onclick=function(){chime(false);i++;draw();};$('#yes').onclick=function(){chime(true);know++;i++;draw();};say(c[0]);}
+  draw();}
+function norm(s){return String(s).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'');}
+var STOP={'de':1,'da':1,'do':1,'das':1,'dos':1,'e':1,'em':1,'para':1,'com':1,'a':1,'o':1,'os':1,'as':1,'na':1,'no':1,'suas':1,'seus':1,'por':1,'entre':1,'sistemas':1,'conceitos':1,'gerais':1,'tecnicas':1,'dados':0};
+function real(slug,t){loadQ().then(function(Q){var pool=Q.filter(function(q){return q.disc===QDISC[slug]&&q.gabarito&&q.alternativas&&q.alternativas[q.gabarito];});
+  var words=norm(t.t.replace(/^[\d.]+\s*/,'')+' '+(t.macete||'').slice(0,80)).split(/[^a-z0-9]+/).filter(function(w){return w.length>3&&!STOP[w];});
+  var sc=pool.map(function(q){var a=norm(q.assunto+' '+q.enunciado.slice(0,200));var s=0;words.forEach(function(w){if(a.indexOf(w)>=0)s+=(norm(q.assunto).indexOf(w)>=0?3:1);});return [s,q];}).filter(function(x){return x[0]>=3;}).sort(function(a,b){return b[0]-a[0];});
+  var top=sc.slice(0,8).map(function(x){return x[1];});var q=top.length?shuffle(top)[0]:shuffle(pool)[0];var box=$('#rz');if(!q){box.innerHTML='<p class="note">Sem questões desta disciplina no banco.</p>';return;}
+  box.innerHTML='<div class="q-src">'+(top.length?'Questão real sobre o tópico':'Questão real da disciplina')+' · '+esc(q.concurso)+' · '+esc(q.ano)+'</div><div class="note mono" style="font-size:11.5px">'+esc(q.assunto)+'</div><p class="big" style="margin-top:8px;white-space:pre-line;max-height:46vh;overflow:auto">'+esc(q.enunciado)+'</p><div class="alts" id="alts">'+'ABCDE'.split('').filter(function(k){return q.alternativas[k]!=null;}).map(function(k){return '<button class="alt" data-k="'+k+'"><span class="k">'+k+'</span><span>'+esc(q.alternativas[k])+'</span></button>';}).join('')+'</div><div id="fbq"></div><div class="row" style="margin-top:10px"><button class="ghost" id="other">Outra questão ↻</button></div>';
+  var al=$('#alts');al.onclick=function(e){var b=e.target.closest('.alt');if(!b||al.classList.contains('locked'))return;al.classList.add('locked');var k=b.dataset.k,ok=k===q.gabarito;al.querySelectorAll('.alt').forEach(function(x){x.classList.add(x.dataset.k===q.gabarito?'ok':(x===b?'bad':'dim'));});chime(ok);if(ok){xp(20);toast('+20 XP');}
+    $('#fbq').innerHTML='<div class="fb '+(ok?'ok':'bad')+'"><b>'+(ok?'Certo!':'Gabarito: '+q.gabarito)+'</b><p class="note">Releia o “Onde ela confunde” desta estação: o distrator costuma ser exatamente um daqueles pares.</p></div>';};
+  $('#other').onclick=function(){real(slug,t);};});}
+function finish(slug,ti,o){S.done[slug]=S.done[slug]||{};var first=!S.done[slug][ti];S.done[slug][ti]=today();save();if(first)xp(40);
+  var all=Object.keys(S.done[slug]).length===o.topicos.length;var st=$('#stamp');st.innerHTML=(all?'Terminal '+esc(o.nome)+'<small>conquistado</small>':'Estação carimbada<small>'+(first?'+40 XP':'revisão feita')+'</small>');st.classList.remove('on');void st.offsetWidth;st.classList.add('on');chime(true);
+  say(all?'Terminal '+o.nome+' conquistado. Parabéns, comandante.':'Estação carimbada.');
+  setTimeout(function(){var nx=ti+1<o.topicos.length?ti+1:null;location.hash=nx!=null?'t/'+slug+'/e/'+nx:'t/'+slug;},1700);}
+
+/* ---------- Passaporte ---------- */
+function passaporte(){crumbs('Passaporte');var D=IDX.disciplinas;
+  app.innerHTML='<header class="hero"><div class="spread"><div class="eyebrow">Passaporte do comandante</div><button class="ghost" data-go="mapa">← Carta</button></div><h2>Carimbos da expedição</h2><p class="note">Um carimbo por terminal com todas as estações concluídas. Cada estação vale 40 XP, cada questão comentada certa 15 e cada desafio real 20, somados ao seu nível no Arena Relâmpago.</p></header>'+
+  '<div class="passport">'+D.map(function(d){var on=pct(d.slug)>=1;return '<div class="'+(on?'on':'')+'"><span>'+ICON[d.slug]+'<br>'+esc(d.nome)+'<br><span class="mono" style="font-size:11px">'+Math.round(pct(d.slug)*100)+'%</span></span></div>';}).join('')+'</div>'+
+  '<div class="panel"><h3>Recomeçar</h3><p class="note" style="margin:6px 0 10px">Apaga só o progresso da Expedição (carimbos e respostas). O XP já ganho continua.</p><button id="rst">Zerar a Expedição</button></div>';
+  $('#rst').onclick=function(){if(confirm('Zerar carimbos e respostas da Expedição?')){S.done={};S.qs={};save();toast('Expedição zerada');passaporte();}};}
+
+/* ---------- Teclado ---------- */
+document.addEventListener('keydown',function(e){if(e.metaKey||e.ctrlKey||e.altKey||/INPUT|SELECT|TEXTAREA/.test(e.target.tagName))return;
+  var al=$('#alts');var k=e.key.toUpperCase();if(al&&!al.classList.contains('locked')&&/^[A-E]$/.test(k)){var b=al.querySelector('.alt[data-k="'+k+'"]');if(b){e.preventDefault();b.click();}return;}
+  if(e.key==='ArrowRight'){var nx=$('#nx')||$('#fim');if(nx){e.preventDefault();nx.click();}}
+  if(e.key==='ArrowLeft'){var bk=app.querySelector('.nav button:first-child');if(bk){e.preventDefault();bk.click();}}
+  if(e.key===' '&&$('#fc')&&!$('#fc').classList.contains('on')){e.preventDefault();$('#fc').click();}});
+
+getJ('expedicao/indice.json').then(function(i){IDX=i;syncTools();route();}).catch(function(e){app.innerHTML='<div class="panel"><h3>Não consegui carregar a expedição</h3><p class="note">Abra pelo servidor do Arena (GitHub Pages), não direto do arquivo. '+esc(e.message)+'</p></div>';});
+if('serviceWorker' in navigator&&location.protocol==='https:')navigator.serviceWorker.register('sw.js').catch(function(){});
+})();
+</script>
+</body></html>

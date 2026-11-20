@@ -1,0 +1,1514 @@
+{
+ "n": 1413,
+ "fonte": "questoes.json + cadernos por incidência (1413 questões reais Cesgranrio do TecConcursos, sem repetição)",
+ "letras": {
+  "A": 285,
+  "B": 290,
+  "C": 273,
+  "D": 290,
+  "E": 275
+ },
+ "tamanho": {
+  "1": 303,
+  "2": 287,
+  "3": 306,
+  "4": 267,
+  "5": 250
+ },
+ "palavras": {
+  "somente/apenas/unicamente": {
+   "alts": 230,
+   "certas": 28,
+   "taxa": 12.2
+  },
+  "exclusivamente": {
+   "alts": 17,
+   "certas": 0,
+   "taxa": 0.0
+  },
+  "necessariamente/obrigatoriamente": {
+   "alts": 12,
+   "certas": 1,
+   "taxa": 8.3
+  },
+  "sempre": {
+   "alts": 38,
+   "certas": 1,
+   "taxa": 2.6
+  },
+  "nunca/jamais": {
+   "alts": 13,
+   "certas": 2,
+   "taxa": 15.4
+  },
+  "todo(s)/toda(s)": {
+   "alts": 203,
+   "certas": 29,
+   "taxa": 14.3
+  },
+  "qualquer": {
+   "alts": 28,
+   "certas": 1,
+   "taxa": 3.6
+  },
+  "nenhum(a)": {
+   "alts": 40,
+   "certas": 9,
+   "taxa": 22.5
+  },
+  "pode/podem/poderá": {
+   "alts": 155,
+   "certas": 38,
+   "taxa": 24.5
+  },
+  "geralmente/em regra/normalmente": {
+   "alts": 6,
+   "certas": 3,
+   "taxa": 50.0
+  },
+  "não (na alternativa)": {
+   "alts": 458,
+   "certas": 89,
+   "taxa": 19.4
+  }
+ },
+ "base": 20.0,
+ "negativos": 40,
+ "tendencia": {
+  "nAntes": 822,
+  "nDepois": 591,
+  "sobe": [
+   {
+    "disc": "BI e Ciência de Dados",
+    "assunto": "Conceitos Gerais de Machine Learning",
+    "antes": 1,
+    "depois": 14,
+    "pp": 2.25
+   },
+   {
+    "disc": "BI e Ciência de Dados",
+    "assunto": "Python (Conceitos Gerais e Códigos)",
+    "antes": 10,
+    "depois": 20,
+    "pp": 2.17
+   },
+   {
+    "disc": "Projetos",
+    "assunto": "Ciclo de Vida de Projetos",
+    "antes": 0,
+    "depois": 12,
+    "pp": 2.03
+   },
+   {
+    "disc": "Eng. Software e UX",
+    "assunto": "Conceitos e Tipos de Testes de Software",
+    "antes": 6,
+    "depois": 14,
+    "pp": 1.64
+   },
+   {
+    "disc": "Dados",
+    "assunto": "Otimização (Tuning) em Banco de Dados",
+    "antes": 0,
+    "depois": 8,
+    "pp": 1.35
+   },
+   {
+    "disc": "Governança",
+    "assunto": "Direito Digital - Disposições Preliminares (arts. 1º a 6º da Lei nº 13.709/2018 - LGPD)",
+    "antes": 3,
+    "depois": 10,
+    "pp": 1.33
+   },
+   {
+    "disc": "Segurança",
+    "assunto": "Malware (Vírus, Worms, Trojans, etc.)",
+    "antes": 3,
+    "depois": 9,
+    "pp": 1.16
+   },
+   {
+    "disc": "BI e Ciência de Dados",
+    "assunto": "Processamento de Linguagem Natural (IA)",
+    "antes": 0,
+    "depois": 6,
+    "pp": 1.02
+   },
+   {
+    "disc": "BI e Ciência de Dados",
+    "assunto": "Algoritmos de Machine Learning (Classificação, Regressão e Clusterização)",
+    "antes": 7,
+    "depois": 11,
+    "pp": 1.01
+   },
+   {
+    "disc": "Eng. Software e UX",
+    "assunto": "Padrões de Projeto (Engenharia de Software)",
+    "antes": 6,
+    "depois": 10,
+    "pp": 0.96
+   },
+   {
+    "disc": "Segurança",
+    "assunto": "Protocolos Seguros para Redes Sem Fio e Controle de Acesso (WPA, WPA2, WEP, EAP, 802.1X)",
+    "antes": 2,
+    "depois": 7,
+    "pp": 0.94
+   },
+   {
+    "disc": "Segurança",
+    "assunto": "TLS, SSL e HTTPS",
+    "antes": 1,
+    "depois": 6,
+    "pp": 0.89
+   },
+   {
+    "disc": "Governança",
+    "assunto": "ITIL v4",
+    "antes": 0,
+    "depois": 5,
+    "pp": 0.85
+   },
+   {
+    "disc": "Segurança",
+    "assunto": "Ameaças Técnicas Relacionadas a Redes e Criptografia",
+    "antes": 0,
+    "depois": 5,
+    "pp": 0.85
+   }
+  ],
+  "desce": [
+   {
+    "disc": "Governança",
+    "assunto": "Gestão e Governança de TI - ITIL v3 e anteriores",
+    "antes": 98,
+    "depois": 0,
+    "pp": -11.92
+   },
+   {
+    "disc": "Eng. Software e UX",
+    "assunto": "Engenharia de Software - UML",
+    "antes": 74,
+    "depois": 0,
+    "pp": -9.0
+   },
+   {
+    "disc": "Dados",
+    "assunto": "Banco de Dados - Consultas e Comandos em SQL",
+    "antes": 63,
+    "depois": 0,
+    "pp": -7.66
+   },
+   {
+    "disc": "Lógica",
+    "assunto": "Equivalências Lógicas (Inclui Negação de Proposições Compostas)",
+    "antes": 62,
+    "depois": 1,
+    "pp": -7.37
+   },
+   {
+    "disc": "Lógica",
+    "assunto": "Diagramas Lógicos, Proposições Categóricas, Negação de Quantificadores",
+    "antes": 45,
+    "depois": 1,
+    "pp": -5.31
+   },
+   {
+    "disc": "Segurança",
+    "assunto": "Segurança da Informação - Conceitos de Firewall, Proxy e DMZ",
+    "antes": 32,
+    "depois": 0,
+    "pp": -3.89
+   },
+   {
+    "disc": "Segurança",
+    "assunto": "Segurança da Informação - Conceitos de Criptografia (Chaves, Simetria, etc.)",
+    "antes": 29,
+    "depois": 0,
+    "pp": -3.53
+   },
+   {
+    "disc": "Segurança",
+    "assunto": "Segurança da Informação - Conceitos, Princípios e Atributos da Segurança da Informação",
+    "antes": 7,
+    "depois": 0,
+    "pp": -0.85
+   },
+   {
+    "disc": "Dados",
+    "assunto": "Normalização",
+    "antes": 11,
+    "depois": 4,
+    "pp": -0.66
+   },
+   {
+    "disc": "Dados",
+    "assunto": "Consultas e Comandos em SQL",
+    "antes": 29,
+    "depois": 17,
+    "pp": -0.65
+   }
+  ]
+ },
+ "transpetro": {
+  "n": 288,
+  "top": [
+   {
+    "disc": "Governança",
+    "assunto": "ERP (Enterprise Resource Planning) e SAP",
+    "n": 31
+   },
+   {
+    "disc": "Eng. Software e UX",
+    "assunto": "UML",
+    "n": 11
+   },
+   {
+    "disc": "Dados",
+    "assunto": "Consultas e Comandos em SQL",
+    "n": 8
+   },
+   {
+    "disc": "Dados",
+    "assunto": "Modelo Entidade-Relacionamento (MER)",
+    "n": 7
+   },
+   {
+    "disc": "Projetos",
+    "assunto": "Ciclo de Vida de Projetos",
+    "n": 7
+   },
+   {
+    "disc": "Eng. Software e UX",
+    "assunto": "RUP (Rational Unified Process) - Processo Unificado",
+    "n": 7
+   },
+   {
+    "disc": "Segurança",
+    "assunto": "Conceitos de Criptografia (Chaves, Simetria, etc.)",
+    "n": 7
+   },
+   {
+    "disc": "Projetos",
+    "assunto": "SCRUM",
+    "n": 6
+   },
+   {
+    "disc": "Eng. Software e UX",
+    "assunto": "SCRUM",
+    "n": 6
+   },
+   {
+    "disc": "Eng. Software e UX",
+    "assunto": "Engenharia de Requisitos",
+    "n": 6
+   },
+   {
+    "disc": "BI e Ciência de Dados",
+    "assunto": "Definições e Funções de Data Warehouse e Data Mart",
+    "n": 6
+   },
+   {
+    "disc": "Segurança",
+    "assunto": "Malware (Vírus, Worms, Trojans, etc.)",
+    "n": 5
+   },
+   {
+    "disc": "Segurança",
+    "assunto": "ICP e Autoridades Certificadoras",
+    "n": 5
+   },
+   {
+    "disc": "Segurança",
+    "assunto": "Conceitos de Firewall, Proxy e DMZ",
+    "n": 5
+   },
+   {
+    "disc": "Lógica",
+    "assunto": "Equivalências Lógicas (Inclui Negação de Proposições Compostas)",
+    "n": 5
+   }
+  ]
+ },
+ "porAno": {
+  "2005": 2,
+  "2006": 13,
+  "2007": 8,
+  "2008": 26,
+  "2009": 38,
+  "2010": 76,
+  "2011": 31,
+  "2012": 111,
+  "2013": 31,
+  "2014": 55,
+  "2015": 8,
+  "2016": 30,
+  "2018": 236,
+  "2019": 42,
+  "2021": 50,
+  "2022": 65,
+  "2023": 220,
+  "2024": 319,
+  "2025": 41,
+  "2026": 11
+ },
+ "porDisc": {
+  "Eng. Software e UX": 267,
+  "Segurança": 266,
+  "Dados": 255,
+  "Governança": 218,
+  "BI e Ciência de Dados": 200,
+  "Lógica": 109,
+  "Projetos": 98
+ },
+ "topicos": [
+  {
+   "slug": "bi",
+   "disc": "BI",
+   "i": 0,
+   "t": "Dado, informação, conhecimento e inteligência",
+   "n": 2,
+   "tp": true,
+   "sem": false
+  },
+  {
+   "slug": "bi",
+   "disc": "BI",
+   "i": 1,
+   "t": "Conceitos, fundamentos, características, técnicas e métodos de BI",
+   "n": 5,
+   "tp": true,
+   "sem": false
+  },
+  {
+   "slug": "bi",
+   "disc": "BI",
+   "i": 2,
+   "t": "Mapeamento de fontes de dados",
+   "n": 8,
+   "tp": true,
+   "sem": false
+  },
+  {
+   "slug": "bi",
+   "disc": "BI",
+   "i": 3,
+   "t": "Dados estruturados e não estruturados",
+   "n": 1,
+   "tp": true,
+   "sem": false
+  },
+  {
+   "slug": "bi",
+   "disc": "BI",
+   "i": 4,
+   "t": "Conceitos de OLAP e suas operações",
+   "n": 13,
+   "tp": true,
+   "sem": false
+  },
+  {
+   "slug": "bi",
+   "disc": "BI",
+   "i": 5,
+   "t": "Conceitos de data warehouse",
+   "n": 12,
+   "tp": true,
+   "sem": false
+  },
+  {
+   "slug": "bi",
+   "disc": "BI",
+   "i": 6,
+   "t": "Técnicas de modelagem e otimização de bases multidimensionais",
+   "n": 20,
+   "tp": true,
+   "sem": false
+  },
+  {
+   "slug": "bi",
+   "disc": "BI",
+   "i": 7,
+   "t": "Construção de relatórios e dashboards interativos em ferramentas de BI",
+   "n": 2,
+   "tp": true,
+   "sem": false
+  },
+  {
+   "slug": "bi",
+   "disc": "BI",
+   "i": 8,
+   "t": "Manipulação de dados em planilhas",
+   "n": 0,
+   "tp": true,
+   "sem": true
+  },
+  {
+   "slug": "bi",
+   "disc": "BI",
+   "i": 9,
+   "t": "Geração de insights a partir de relatórios e dashboards",
+   "n": 0,
+   "tp": true,
+   "sem": true
+  },
+  {
+   "slug": "bi",
+   "disc": "BI",
+   "i": 10,
+   "t": "BI como suporte a processos de tomada de decisão",
+   "n": 0,
+   "tp": true,
+   "sem": false
+  },
+  {
+   "slug": "dados",
+   "disc": "Dados",
+   "i": 0,
+   "t": "Modelagem de dados (conceitual, lógica e física)",
+   "n": 3,
+   "tp": true,
+   "sem": false
+  },
+  {
+   "slug": "dados",
+   "disc": "Dados",
+   "i": 1,
+   "t": "Criação e alteração dos modelos lógico e físico de dados",
+   "n": 15,
+   "tp": true,
+   "sem": false
+  },
+  {
+   "slug": "dados",
+   "disc": "Dados",
+   "i": 2,
+   "t": "O modelo relacional",
+   "n": 0,
+   "tp": true,
+   "sem": false
+  },
+  {
+   "slug": "dados",
+   "disc": "Dados",
+   "i": 3,
+   "t": "Normalização das estruturas de dados",
+   "n": 16,
+   "tp": true,
+   "sem": false
+  },
+  {
+   "slug": "dados",
+   "disc": "Dados",
+   "i": 4,
+   "t": "Integridade referencial",
+   "n": 0,
+   "tp": true,
+   "sem": false
+  },
+  {
+   "slug": "dados",
+   "disc": "Dados",
+   "i": 5,
+   "t": "Metadados",
+   "n": 0,
+   "tp": true,
+   "sem": false
+  },
+  {
+   "slug": "dados",
+   "disc": "Dados",
+   "i": 6,
+   "t": "Modelagem dimensional",
+   "n": 0,
+   "tp": true,
+   "sem": false
+  },
+  {
+   "slug": "dados",
+   "disc": "Dados",
+   "i": 7,
+   "t": "Avaliação de modelos de dados",
+   "n": 16,
+   "tp": false,
+   "sem": true
+  },
+  {
+   "slug": "dados",
+   "disc": "Dados",
+   "i": 8,
+   "t": "Técnicas de engenharia reversa para criação e atualização de modelos de dados",
+   "n": 0,
+   "tp": false,
+   "sem": true
+  },
+  {
+   "slug": "dados",
+   "disc": "Dados",
+   "i": 9,
+   "t": "Linguagem de consulta estruturada (SQL)",
+   "n": 46,
+   "tp": true,
+   "sem": false
+  },
+  {
+   "slug": "dados",
+   "disc": "Dados",
+   "i": 10,
+   "t": "Linguagem de definição de dados (DDL)",
+   "n": 22,
+   "tp": false,
+   "sem": false
+  },
+  {
+   "slug": "dados",
+   "disc": "Dados",
+   "i": 11,
+   "t": "Linguagem de manipulação de dados (DML)",
+   "n": 0,
+   "tp": false,
+   "sem": false
+  },
+  {
+   "slug": "dados",
+   "disc": "Dados",
+   "i": 12,
+   "t": "Sistema Gerenciador de Banco de Dados (SGBD)",
+   "n": 0,
+   "tp": true,
+   "sem": false
+  },
+  {
+   "slug": "dados",
+   "disc": "Dados",
+   "i": 13,
+   "t": "Propriedades de banco de dados: atomicidade, consistência, isolamento e durabilidade",
+   "n": 0,
+   "tp": true,
+   "sem": false
+  },
+  {
+   "slug": "dados",
+   "disc": "Dados",
+   "i": 14,
+   "t": "Independência de dados",
+   "n": 0,
+   "tp": true,
+   "sem": false
+  },
+  {
+   "slug": "dados",
+   "disc": "Dados",
+   "i": 15,
+   "t": "Transações de bancos de dados",
+   "n": 0,
+   "tp": true,
+   "sem": false
+  },
+  {
+   "slug": "dados",
+   "disc": "Dados",
+   "i": 16,
+   "t": "Melhoria de performance de banco de dados",
+   "n": 0,
+   "tp": true,
+   "sem": false
+  },
+  {
+   "slug": "dados",
+   "disc": "Dados",
+   "i": 17,
+   "t": "Bancos de dados NoSQL",
+   "n": 0,
+   "tp": true,
+   "sem": false
+  },
+  {
+   "slug": "dados",
+   "disc": "Dados",
+   "i": 18,
+   "t": "Integração dos dados (ETL, transferência de arquivos e integração via base de dados)",
+   "n": 0,
+   "tp": true,
+   "sem": false
+  },
+  {
+   "slug": "dados",
+   "disc": "Dados",
+   "i": 19,
+   "t": "Banco de dados em memória",
+   "n": 0,
+   "tp": false,
+   "sem": true
+  },
+  {
+   "slug": "dados",
+   "disc": "Dados",
+   "i": 20,
+   "t": "Qualidade de dados e gestão de dados mestres e de referência",
+   "n": 0,
+   "tp": false,
+   "sem": false
+  },
+  {
+   "slug": "dados",
+   "disc": "Dados",
+   "i": 21,
+   "t": "Data Lakes e soluções para Big Data",
+   "n": 0,
+   "tp": true,
+   "sem": false
+  },
+  {
+   "slug": "dados",
+   "disc": "Dados",
+   "i": 22,
+   "t": "Diferenciação entre bancos relacionais, multidimensionais, documentos e grafos",
+   "n": 0,
+   "tp": true,
+   "sem": false
+  },
+  {
+   "slug": "engsoft",
+   "disc": "Eng. Software",
+   "i": 0,
+   "t": "Levantamento, análise e gerenciamento de requisitos",
+   "n": 15,
+   "tp": true,
+   "sem": false
+  },
+  {
+   "slug": "engsoft",
+   "disc": "Eng. Software",
+   "i": 1,
+   "t": "Ciclo de vida de sistemas e seus paradigmas",
+   "n": 15,
+   "tp": true,
+   "sem": false
+  },
+  {
+   "slug": "engsoft",
+   "disc": "Eng. Software",
+   "i": 2,
+   "t": "Modelos, metodologias, técnicas e ferramentas de análise e projeto (estruturado e orientado a objetos)",
+   "n": 7,
+   "tp": true,
+   "sem": false
+  },
+  {
+   "slug": "engsoft",
+   "disc": "Eng. Software",
+   "i": 3,
+   "t": "Verificação, validação e teste",
+   "n": 21,
+   "tp": true,
+   "sem": false
+  },
+  {
+   "slug": "engsoft",
+   "disc": "Eng. Software",
+   "i": 4,
+   "t": "Ambientes de desenvolvimento de software",
+   "n": 10,
+   "tp": true,
+   "sem": true
+  },
+  {
+   "slug": "governanca",
+   "disc": "Governança",
+   "i": 0,
+   "t": "Conceitos, segmentos e mercado de tecnologia da informação",
+   "n": 2,
+   "tp": true,
+   "sem": false
+  },
+  {
+   "slug": "governanca",
+   "disc": "Governança",
+   "i": 1,
+   "t": "(lastro 2018 e 2023) Sistemas de informação por nível: SPT, SIG, SAD, EIS",
+   "n": 11,
+   "tp": true,
+   "sem": false
+  },
+  {
+   "slug": "governanca",
+   "disc": "Governança",
+   "i": 2,
+   "t": "Princípios de economia da inovação",
+   "n": 0,
+   "tp": true,
+   "sem": false
+  },
+  {
+   "slug": "governanca",
+   "disc": "Governança",
+   "i": 3,
+   "t": "Conceitos e perspectivas da tecnologia",
+   "n": 0,
+   "tp": true,
+   "sem": false
+  },
+  {
+   "slug": "governanca",
+   "disc": "Governança",
+   "i": 4,
+   "t": "Ciência, pesquisa, desenvolvimento e indústria",
+   "n": 0,
+   "tp": false,
+   "sem": true
+  },
+  {
+   "slug": "governanca",
+   "disc": "Governança",
+   "i": 5,
+   "t": "Conceitos, disciplinas, técnicas e ferramentas de gerenciamento de serviços de TI",
+   "n": 10,
+   "tp": true,
+   "sem": false
+  },
+  {
+   "slug": "governanca",
+   "disc": "Governança",
+   "i": 6,
+   "t": "LGPD (Lei 13.709/2018 e alterações)",
+   "n": 22,
+   "tp": true,
+   "sem": false
+  },
+  {
+   "slug": "ingles",
+   "disc": "Inglês",
+   "i": 0,
+   "t": "Compreensão de texto escrito em língua inglesa",
+   "n": 10,
+   "tp": true,
+   "sem": false
+  },
+  {
+   "slug": "ingles",
+   "disc": "Inglês",
+   "i": 1,
+   "t": "Itens gramaticais relevantes para a compreensão dos conteúdos semânticos",
+   "n": 10,
+   "tp": true,
+   "sem": false
+  },
+  {
+   "slug": "logica",
+   "disc": "Lógica",
+   "i": 0,
+   "t": "Sentido lógico-matemático convencional dos conectivos",
+   "n": 30,
+   "tp": false,
+   "sem": false
+  },
+  {
+   "slug": "logica",
+   "disc": "Lógica",
+   "i": 1,
+   "t": "Argumentos",
+   "n": 13,
+   "tp": true,
+   "sem": false
+  },
+  {
+   "slug": "logica",
+   "disc": "Lógica",
+   "i": 2,
+   "t": "A lógica sentencial",
+   "n": 30,
+   "tp": true,
+   "sem": false
+  },
+  {
+   "slug": "logica",
+   "disc": "Lógica",
+   "i": 3,
+   "t": "A lógica de predicados de primeira ordem",
+   "n": 0,
+   "tp": true,
+   "sem": false
+  },
+  {
+   "slug": "logica",
+   "disc": "Lógica",
+   "i": 4,
+   "t": "Regras de formação de fórmulas",
+   "n": 0,
+   "tp": false,
+   "sem": true
+  },
+  {
+   "slug": "logica",
+   "disc": "Lógica",
+   "i": 5,
+   "t": "Sistemas dedutivos",
+   "n": 0,
+   "tp": false,
+   "sem": true
+  },
+  {
+   "slug": "logica",
+   "disc": "Lógica",
+   "i": 6,
+   "t": "Decidibilidade da lógica sentencial",
+   "n": 0,
+   "tp": false,
+   "sem": true
+  },
+  {
+   "slug": "logica",
+   "disc": "Lógica",
+   "i": 7,
+   "t": "Valores-verdade das proposições",
+   "n": 0,
+   "tp": true,
+   "sem": false
+  },
+  {
+   "slug": "logica",
+   "disc": "Lógica",
+   "i": 8,
+   "t": "Funções de avaliação (valoração)",
+   "n": 0,
+   "tp": false,
+   "sem": false
+  },
+  {
+   "slug": "logica",
+   "disc": "Lógica",
+   "i": 9,
+   "t": "Raciocínio lógico aplicado (associação, ordenação, verdade e mentira, sequências)",
+   "n": 0,
+   "tp": true,
+   "sem": false
+  },
+  {
+   "slug": "portugues",
+   "disc": "Português",
+   "i": 0,
+   "t": "Compreensão de textos",
+   "n": 236,
+   "tp": true,
+   "sem": false
+  },
+  {
+   "slug": "portugues",
+   "disc": "Português",
+   "i": 1,
+   "t": "Ortografia oficial",
+   "n": 56,
+   "tp": true,
+   "sem": false
+  },
+  {
+   "slug": "portugues",
+   "disc": "Português",
+   "i": 2,
+   "t": "Mecanismos de coesão textual",
+   "n": 0,
+   "tp": true,
+   "sem": false
+  },
+  {
+   "slug": "portugues",
+   "disc": "Português",
+   "i": 3,
+   "t": "Significação das palavras",
+   "n": 79,
+   "tp": true,
+   "sem": false
+  },
+  {
+   "slug": "portugues",
+   "disc": "Português",
+   "i": 4,
+   "t": "Emprego de tempos e modos verbais",
+   "n": 27,
+   "tp": true,
+   "sem": false
+  },
+  {
+   "slug": "portugues",
+   "disc": "Português",
+   "i": 5,
+   "t": "Emprego das classes de palavras",
+   "n": 80,
+   "tp": true,
+   "sem": false
+  },
+  {
+   "slug": "portugues",
+   "disc": "Português",
+   "i": 6,
+   "t": "Coordenação e subordinação",
+   "n": 0,
+   "tp": true,
+   "sem": false
+  },
+  {
+   "slug": "portugues",
+   "disc": "Português",
+   "i": 7,
+   "t": "Emprego dos sinais de pontuação",
+   "n": 68,
+   "tp": true,
+   "sem": false
+  },
+  {
+   "slug": "portugues",
+   "disc": "Português",
+   "i": 8,
+   "t": "Concordância verbal e nominal",
+   "n": 82,
+   "tp": true,
+   "sem": false
+  },
+  {
+   "slug": "portugues",
+   "disc": "Português",
+   "i": 9,
+   "t": "Regência verbal e nominal",
+   "n": 0,
+   "tp": true,
+   "sem": false
+  },
+  {
+   "slug": "portugues",
+   "disc": "Português",
+   "i": 10,
+   "t": "Emprego do sinal indicativo de crase",
+   "n": 52,
+   "tp": true,
+   "sem": false
+  },
+  {
+   "slug": "portugues",
+   "disc": "Português",
+   "i": 11,
+   "t": "Colocação dos pronomes átonos",
+   "n": 31,
+   "tp": true,
+   "sem": false
+  },
+  {
+   "slug": "projetos",
+   "disc": "Projetos",
+   "i": 0,
+   "t": "Scrum e Kanban",
+   "n": 20,
+   "tp": true,
+   "sem": false
+  },
+  {
+   "slug": "projetos",
+   "disc": "Projetos",
+   "i": 1,
+   "t": "Gestão de projeto versus gestão de produto",
+   "n": 0,
+   "tp": true,
+   "sem": true
+  },
+  {
+   "slug": "projetos",
+   "disc": "Projetos",
+   "i": 2,
+   "t": "Práticas ágeis em escala, portfólio alinhado à estratégia e entregas incrementais com SAFe",
+   "n": 2,
+   "tp": true,
+   "sem": false
+  },
+  {
+   "slug": "projetos",
+   "disc": "Projetos",
+   "i": 3,
+   "t": "PMBOK 7ª edição",
+   "n": 168,
+   "tp": false,
+   "sem": true
+  },
+  {
+   "slug": "projetos",
+   "disc": "Projetos",
+   "i": 4,
+   "t": "Projetos e a organização",
+   "n": 0,
+   "tp": true,
+   "sem": false
+  },
+  {
+   "slug": "projetos",
+   "disc": "Projetos",
+   "i": 5,
+   "t": "Escritório de projetos",
+   "n": 1,
+   "tp": true,
+   "sem": false
+  },
+  {
+   "slug": "projetos",
+   "disc": "Projetos",
+   "i": 6,
+   "t": "Modelos e características (ciclos de vida)",
+   "n": 12,
+   "tp": true,
+   "sem": false
+  },
+  {
+   "slug": "projetos",
+   "disc": "Projetos",
+   "i": 7,
+   "t": "Processos, grupos de processos e áreas de conhecimento",
+   "n": 33,
+   "tp": true,
+   "sem": false
+  },
+  {
+   "slug": "projetos",
+   "disc": "Projetos",
+   "i": 8,
+   "t": "· Escopo e EAP",
+   "n": 0,
+   "tp": true,
+   "sem": false
+  },
+  {
+   "slug": "projetos",
+   "disc": "Projetos",
+   "i": 9,
+   "t": "· Cronograma, rede, caminho crítico, folgas, PERT e Gantt",
+   "n": 11,
+   "tp": true,
+   "sem": false
+  },
+  {
+   "slug": "projetos",
+   "disc": "Projetos",
+   "i": 10,
+   "t": "· Custos e valor agregado",
+   "n": 9,
+   "tp": true,
+   "sem": false
+  },
+  {
+   "slug": "projetos",
+   "disc": "Projetos",
+   "i": 11,
+   "t": "· Riscos",
+   "n": 7,
+   "tp": true,
+   "sem": false
+  },
+  {
+   "slug": "projetos",
+   "disc": "Projetos",
+   "i": 12,
+   "t": "· Aquisições, qualidade e partes interessadas",
+   "n": 0,
+   "tp": true,
+   "sem": false
+  },
+  {
+   "slug": "seguranca",
+   "disc": "Segurança",
+   "i": 0,
+   "t": "Segurança física e lógica",
+   "n": 10,
+   "tp": true,
+   "sem": false
+  },
+  {
+   "slug": "seguranca",
+   "disc": "Segurança",
+   "i": 1,
+   "t": "Operação de segurança (firewall, proxy, IPS/IDS, DLP, CASB, SIEM, antivírus, EDR, WAF, gestão de vulnerabilidades, monitoração, backup)",
+   "n": 0,
+   "tp": true,
+   "sem": false
+  },
+  {
+   "slug": "seguranca",
+   "disc": "Segurança",
+   "i": 2,
+   "t": "Softwares maliciosos",
+   "n": 0,
+   "tp": true,
+   "sem": false
+  },
+  {
+   "slug": "seguranca",
+   "disc": "Segurança",
+   "i": 3,
+   "t": "Ataques (DDoS, SQL injection, XSS, CSRF, path traversal etc.)",
+   "n": 28,
+   "tp": true,
+   "sem": false
+  },
+  {
+   "slug": "seguranca",
+   "disc": "Segurança",
+   "i": 4,
+   "t": "Desenvolvimento seguro, SAST/DAST/IAST",
+   "n": 0,
+   "tp": true,
+   "sem": false
+  },
+  {
+   "slug": "seguranca",
+   "disc": "Segurança",
+   "i": 5,
+   "t": "VPN",
+   "n": 7,
+   "tp": true,
+   "sem": false
+  },
+  {
+   "slug": "seguranca",
+   "disc": "Segurança",
+   "i": 6,
+   "t": "MDM",
+   "n": 0,
+   "tp": true,
+   "sem": true
+  },
+  {
+   "slug": "seguranca",
+   "disc": "Segurança",
+   "i": 7,
+   "t": "SSO",
+   "n": 0,
+   "tp": true,
+   "sem": false
+  },
+  {
+   "slug": "seguranca",
+   "disc": "Segurança",
+   "i": 8,
+   "t": "MFA",
+   "n": 0,
+   "tp": true,
+   "sem": true
+  },
+  {
+   "slug": "seguranca",
+   "disc": "Segurança",
+   "i": 9,
+   "t": "Gestão de identidade e acesso (autenticação, autorização, auditoria), RBAC e ABAC",
+   "n": 0,
+   "tp": true,
+   "sem": false
+  },
+  {
+   "slug": "seguranca",
+   "disc": "Segurança",
+   "i": 10,
+   "t": "Gerenciamento de resposta a incidente (NIST SP 800-61)",
+   "n": 0,
+   "tp": true,
+   "sem": false
+  },
+  {
+   "slug": "seguranca",
+   "disc": "Segurança",
+   "i": 11,
+   "t": "Threat intel, threat hunting",
+   "n": 0,
+   "tp": false,
+   "sem": true
+  },
+  {
+   "slug": "seguranca",
+   "disc": "Segurança",
+   "i": 12,
+   "t": "Testes de penetração",
+   "n": 0,
+   "tp": false,
+   "sem": true
+  },
+  {
+   "slug": "seguranca",
+   "disc": "Segurança",
+   "i": 13,
+   "t": "Modelagem de ameaças (STRIDE etc.)",
+   "n": 0,
+   "tp": true,
+   "sem": true
+  },
+  {
+   "slug": "seguranca",
+   "disc": "Segurança",
+   "i": 14,
+   "t": "Táticas do framework MITRE ATT&CK",
+   "n": 0,
+   "tp": true,
+   "sem": false
+  },
+  {
+   "slug": "seguranca",
+   "disc": "Segurança",
+   "i": 15,
+   "t": "Gestão de riscos (ISO 31000), continuidade (ISO 22301) e Sarbanes-Oxley",
+   "n": 0,
+   "tp": true,
+   "sem": true
+  },
+  {
+   "slug": "seguranca",
+   "disc": "Segurança",
+   "i": 16,
+   "t": "Políticas de segurança da informação",
+   "n": 0,
+   "tp": true,
+   "sem": false
+  },
+  {
+   "slug": "seguranca",
+   "disc": "Segurança",
+   "i": 17,
+   "t": "Classificação de informações",
+   "n": 0,
+   "tp": true,
+   "sem": false
+  },
+  {
+   "slug": "seguranca",
+   "disc": "Segurança",
+   "i": 18,
+   "t": "Norma ISO 27002, criptografia, certificação digital e assinatura digital",
+   "n": 0,
+   "tp": true,
+   "sem": false
+  },
+  {
+   "slug": "seguranca",
+   "disc": "Segurança",
+   "i": 19,
+   "t": "Conceitos de segurança em nuvem",
+   "n": 0,
+   "tp": false,
+   "sem": true
+  },
+  {
+   "slug": "seguranca",
+   "disc": "Segurança",
+   "i": 20,
+   "t": "Segurança em IoT",
+   "n": 0,
+   "tp": true,
+   "sem": true
+  },
+  {
+   "slug": "ux",
+   "disc": "UX",
+   "i": 0,
+   "t": "Conceitos de acessibilidade e usabilidade",
+   "n": 7,
+   "tp": true,
+   "sem": false
+  },
+  {
+   "slug": "ux",
+   "disc": "UX",
+   "i": 1,
+   "t": "Histórias do usuário",
+   "n": 3,
+   "tp": true,
+   "sem": true
+  },
+  {
+   "slug": "ux",
+   "disc": "UX",
+   "i": 2,
+   "t": "Desenho e planejamento de interação em aplicações web",
+   "n": 0,
+   "tp": false,
+   "sem": true
+  },
+  {
+   "slug": "ux",
+   "disc": "UX",
+   "i": 3,
+   "t": "Projeto centrado no usuário",
+   "n": 0,
+   "tp": false,
+   "sem": true
+  },
+  {
+   "slug": "ux",
+   "disc": "UX",
+   "i": 4,
+   "t": "Storytelling com dados",
+   "n": 1,
+   "tp": false,
+   "sem": true
+  },
+  {
+   "slug": "ux",
+   "disc": "UX",
+   "i": 5,
+   "t": "Organização e apresentação de dados em relatórios e dashboards",
+   "n": 2,
+   "tp": false,
+   "sem": true
+  },
+  {
+   "slug": "ux",
+   "disc": "UX",
+   "i": 6,
+   "t": "Interoperabilidade de interfaces web entre navegadores",
+   "n": 0,
+   "tp": true,
+   "sem": true
+  },
+  {
+   "slug": "ux",
+   "disc": "UX",
+   "i": 7,
+   "t": "Mínimo Produto Viável (MVP)",
+   "n": 1,
+   "tp": true,
+   "sem": false
+  },
+  {
+   "slug": "ux",
+   "disc": "UX",
+   "i": 8,
+   "t": "Prototipação",
+   "n": 3,
+   "tp": true,
+   "sem": false
+  },
+  {
+   "slug": "ux",
+   "disc": "UX",
+   "i": 9,
+   "t": "Design thinking",
+   "n": 2,
+   "tp": false,
+   "sem": true
+  },
+  {
+   "slug": "ux",
+   "disc": "UX",
+   "i": 10,
+   "t": "Análise de personas de usuários de software",
+   "n": 0,
+   "tp": false,
+   "sem": true
+  }
+ ],
+ "heuristicas": [
+  {
+   "nome": "Marcar a mais longa",
+   "n": 1413,
+   "acertos": 303,
+   "taxa": 21.4,
+   "como": "Comprimento da alternativa",
+   "uso": "não use"
+  },
+  {
+   "nome": "Marcar a mais curta",
+   "n": 1413,
+   "acertos": 274,
+   "taxa": 19.4,
+   "como": "Comprimento da alternativa",
+   "uso": "não use"
+  },
+  {
+   "nome": "Marcar a mais parecida com as outras (convergência)",
+   "n": 504,
+   "acertos": 105,
+   "taxa": 20.8,
+   "como": "Palavras em comum com as demais alternativas",
+   "uso": "não use"
+  },
+  {
+   "nome": "Marcar a mais diferente das outras",
+   "n": 645,
+   "acertos": 112,
+   "taxa": 17.4,
+   "como": "Palavras em comum com as demais alternativas",
+   "uso": "não use"
+  },
+  {
+   "nome": "Marcar a que mais repete termos do enunciado",
+   "n": 332,
+   "acertos": 72,
+   "taxa": 21.7,
+   "como": "Termos do enunciado na alternativa",
+   "uso": "sinal fraco"
+  },
+  {
+   "nome": "A que menos repete termos do enunciado (para ELIMINAR)",
+   "n": 180,
+   "acertos": 19,
+   "taxa": 10.6,
+   "como": "Alternativa que foge do vocabulário do enunciado",
+   "uso": "eliminar"
+  },
+  {
+   "nome": "Par espelho por antônimo (um único par): o gabarito está no par",
+   "n": 14,
+   "acertos": 8,
+   "taxa": 57.1,
+   "como": "Duas alternativas quase iguais trocando um antônimo",
+   "uso": "mito: Central mediu 42% a 44% (acaso 40%)",
+   "base": 40,
+   "exemplos": [
+    "2695425",
+    "2779792",
+    "836016",
+    "2780856",
+    "356222",
+    "1390195",
+    "356279",
+    "2308112"
+   ]
+  }
+ ],
+ "absPorDisc": [
+  {
+   "disc": "BI e Ciência de Dados",
+   "alts": 51,
+   "certas": 1,
+   "taxa": 2.0
+  },
+  {
+   "disc": "Governança",
+   "alts": 44,
+   "certas": 4,
+   "taxa": 9.1
+  },
+  {
+   "disc": "Projetos",
+   "alts": 20,
+   "certas": 2,
+   "taxa": 10.0
+  },
+  {
+   "disc": "Dados",
+   "alts": 63,
+   "certas": 7,
+   "taxa": 11.1
+  },
+  {
+   "disc": "Segurança",
+   "alts": 72,
+   "certas": 8,
+   "taxa": 11.1
+  },
+  {
+   "disc": "Lógica",
+   "alts": 32,
+   "certas": 4,
+   "taxa": 12.5
+  },
+  {
+   "disc": "Eng. Software e UX",
+   "alts": 48,
+   "certas": 7,
+   "taxa": 14.6
+  }
+ ]
+}

@@ -1,8 +1,10 @@
 // Service worker do Doroxandria: abre offline e atualiza em segundo plano.
-const CACHE = 'arena-202611030903';
+const CACHE = 'arena-202611201900';
 const SHELL = ['./', 'index.html', 'manifest.json', 'icon-192.png', 'icon-512.png',
   'questoes.json', 'cards.json', 'banca.json', 'videos.json', 'links.json',
-  'cadernos.json', 'biblioteca.json', 'concursos/indice.json', 'concursos/transpetro-2026-enfase5.json'];
+  'cadernos.json', 'biblioteca.json', 'concursos/indice.json', 'concursos/transpetro-2026-enfase5.json', 'jogo.html', 'macetes.json',
+  'expedicao.html', 'estudio.html', 'inteligencia/padroes.json', 'anki/baralhos.json', 'inteligencia/incidencia.json', 'inteligencia/radar.json', 'expedicao/indice.json', 'expedicao/portugues.json', 'expedicao/ingles.json', 'expedicao/dados.json', 'expedicao/projetos.json',
+  'expedicao/governanca.json', 'expedicao/engsoft.json', 'expedicao/ux.json', 'expedicao/bi.json', 'expedicao/logica.json', 'expedicao/seguranca.json'];
 self.addEventListener('install', e => {
   e.waitUntil(caches.open(CACHE).then(c => c.addAll(SHELL.map(u => new Request(u, {cache: 'reload'})))).then(() => self.skipWaiting()));
 });
@@ -15,7 +17,7 @@ self.addEventListener('fetch', e => {
   if (req.method !== 'GET') return;
   const url = new URL(req.url);
   const sameOrigin = url.origin === self.location.origin;
-  const cdn = /(^|\.)cdn\.jsdelivr\.net$|(^|\.)fonts\.(googleapis|gstatic)\.com$/.test(url.hostname);
+  const cdn = /(^|\.)cdn\.jsdelivr\.net$|(^|\.)unpkg\.com$|(^|\.)fonts\.(googleapis|gstatic)\.com$/.test(url.hostname);
   if (!sameOrigin && !cdn) return;
   e.respondWith(caches.open(CACHE).then(async cache => {
     const key = sameOrigin ? new Request(url.origin + url.pathname) : req;
