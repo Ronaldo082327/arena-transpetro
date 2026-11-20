@@ -283,9 +283,9 @@
   "d": "UX",
   "t": "Usabilidade (ISO 9241-11)",
   "m": "\"EES\": Eficácia (consegue?), Eficiência (com quanto esforço?), Satisfação (gostou?) num contexto de uso",
-  "e": "Contraste com acessibilidade (WCAG: perceptível, operável, compreensível, robusto = POCR).",
-  "p": "Os quatro princípios da WCAG formam ___",
-  "r": "POCR (perceptível, operável, compreensível, robusto)"
+  "e": "Contraste com acessibilidade: WCAG tem 4 princípios, POUR em inglês (perceptível, operável, compreensível, robusto), que em português dá POCR.",
+  "p": "Os quatro princípios da WCAG formam a sigla ___",
+  "r": "POUR (perceptível, operável, compreensível, robusto)"
  },
  {
   "id": "m33",
@@ -345,8 +345,8 @@
   "id": "m39",
   "d": "Inglês",
   "t": "Falsos cognatos",
-  "m": "\"Actually é de fato · Eventually é finalmente · Pretend é fingir · Realize é perceber · Push é empurrar · Library é biblioteca\"",
-  "e": "Atual = current; eventualmente = occasionally; livraria = bookstore.",
+  "m": "\"Actually é de fato · Eventually é finalmente · Pretend é fingir · Realize é perceber · Support é apoiar · Policy é política (diretriz)\"",
+  "e": "Atual = current; eventualmente = occasionally; suportar (tolerar) = stand/bear. Segundo o guia de Inglês, falso cognato raramente é o gabarito: a banca o usa como isca.",
   "p": "'Eventually' significa ___",
   "r": "finalmente / com o tempo"
  },
