@@ -1,11 +1,11 @@
 <!doctype html>
 <html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#fbf3ea"><link rel="manifest" href="manifest.json"><link rel="icon" href="icon-192.png">
-<title>Estúdio Cesgranrio</title>
+<title>Dora Guilda · Engenharia Cognitiva para Concursos Públicos</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
-/* Estúdio Cesgranrio: videoaulas animadas, métodos, mapas mentais, esquemas e flashcards gerados dos guias (expedicao/*.json). */
+/* Dora Estúdio (Dora Guilda): videoaulas animadas, métodos, mapas mentais, esquemas e flashcards gerados dos guias (expedicao/*.json). */
 :root{
   --bg:#fbf3ea; --paper:#fffaf4; --ink:#3b2a1d; --muted:#7c6553; --line:#eddcc9;
   --accent:#c8641f; --accent-soft:#fde8d6; --warn:#a96400; --warn-soft:#fbecd4;
@@ -422,7 +422,7 @@ html.sb-min .shell{--sbw:72px}
 .wrap{max-width:1040px;margin:0 auto;padding:0 max(16px,env(safe-area-inset-right,0px)) 80px max(16px,env(safe-area-inset-left,0px))}
 .sb{position:sticky;top:0;height:100vh;overflow:auto;background:var(--bar);color:var(--bar-ink);padding:12px 10px 18px;z-index:50;display:flex;flex-direction:column;gap:2px;scrollbar-width:thin}
 .sb .logo{display:flex;align-items:center;gap:10px;padding:6px 8px 10px;font:700 21px var(--display);color:var(--bar-ink);text-decoration:none;white-space:nowrap}
-.sb .logo i{font-style:normal;font-size:24px}
+.sb .logo i{font-style:normal;font-size:26px}.sb .logo span{line-height:1.05}.sb .logo small{display:block;font:500 10.5px var(--body);opacity:.75;white-space:normal;margin-top:3px}
 .sb .gt{font:600 10.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;opacity:.62;margin:14px 10px 4px;white-space:nowrap}
 .sb .row2{display:flex;align-items:center;gap:2px}
 .sb a.it{flex:1;min-width:0;display:flex;gap:12px;align-items:center;padding:8px 10px;border-radius:12px;color:var(--bar-ink);text-decoration:none;border:1px solid transparent}
@@ -477,7 +477,7 @@ html.embed .sb,html.embed .bar,html.embed .tb,html.embed .scrim,html.embed #pn,h
 html.pn-open .sq kbd{display:none}.sq{overflow:hidden}
 .tb button,.sb .pb,.sb .mini,#pn .ph .ib{box-shadow:none!important}.tb button{border:0!important;background:transparent!important}.sb .pb{border:0!important;background:transparent!important}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
-</style><link rel="stylesheet" href="tema.css"><script src="tema.js"></script><script src="abrir.js" defer></script></head>
+</style><link rel="stylesheet" href="tema.css"><script src="tema.js"></script><script src="guilda.js"></script><script src="abrir.js" defer></script></head>
 <body>
 <div class="shell">
 <aside id="sb" class="sb" aria-label="Menu de ferramentas"></aside>
@@ -697,7 +697,7 @@ function discBar(cur,base){return '<div class="discs" role="group" aria-label="D
 document.addEventListener('click',function(e){var b=e.target.closest('[data-href]');if(b){e.preventDefault();if(b.hasAttribute('data-autoplay'))sessionStorage.setItem('estudio.autoplay','1');location.hash=b.dataset.href;}});
 
 function home(){nav('');var D=IDX.disciplinas,nt=D.reduce(function(a,d){return a+d.topicos.length;},0),nf=D.reduce(function(a,d){return a+d.nformatos;},0),seen=Object.keys(S.seen).length;
-  app.innerHTML='<header class="hero"><div class="eyebrow">Transpetro 2026 · Cesgranrio · Ênfase 5</div><h1>Estúdio Cesgranrio</h1><p class="note" style="max-width:68ch">Tudo gerado dos seus guias de estudo: videoaulas animadas e narradas, um método para cada tipo de questão, mapas mentais, esquemas de contraste e flashcards. Cada peça mostra como a banca cobra o assunto e onde ela tenta te derrubar.</p></header>'+
+  app.innerHTML='<header class="hero"><div class="eyebrow">Engenharia Cognitiva para Concursos Públicos · Transpetro 2026 · Ênfase 5</div><h1>Dora Guilda</h1><p class="note" style="max-width:68ch">Tudo gerado dos seus guias de estudo: videoaulas animadas e narradas, um método para cada tipo de questão, mapas mentais, esquemas de contraste e flashcards. Cada peça mostra como a banca cobra o assunto e onde ela tenta te derrubar.</p></header>'+
   '<div class="grid">'+
   card('plano','🎯','Plano da prova','Previsão de questões por disciplina × o seu acerto: onde estão os pontos que você ainda pode ganhar, e o dia a dia até 06/12.','comece por aqui')+
   card('cq','🧠','Cartões-questão','Frente: a questão como na prova. Verso: cada alternativa explicada, árvore do conceito × vizinhos, metacognição, rascunho para a prova. Caderno de erros integrado ao Doroxandria. Trilha de Inglês do zero.','responda e aprenda')+
@@ -713,7 +713,7 @@ function home(){nav('');var D=IDX.disciplinas,nt=D.reduce(function(a,d){return a
   card('gem','✨','Gemini','Com a sua chave do Google AI Studio: questões inéditas no padrão da banca, explicações e previsões a partir dos guias.','sua conta Google')+
   card('fc','🃏','Flashcards','Cartões dos guias, dos duelos, dos métodos e das listas, com revisão espaçada.',Object.keys(S.box).length+' em revisão')+
   '</div><section class="panel"><h3>🧩 Seu ecossistema de estudo</h3><p class="note">Os outros sistemas que você montou, num só lugar. Os links do claude.ai e do Notebook abrem na sua conta.</p><div class="facts2" style="margin-top:10px">'+
-  [['🚢 Expedição Cesgranrio','expedicao.html','Viagem por 115 estações com questões comentadas'],['⚡ Arena Relâmpago','jogo.html','Missão do dia, chefões, XP e conquistas'],['📚 Arena completo','index.html','1.000 questões, simulados e a aba Banca'],['🏁 Central Reta Final','https://claude.ai/artifact/RM3deSQtfLSBqJ5yBAgUMP','Hoje, treinar, erros, simulados, painel com projeção de nota'],['📖 Leitor do método (17 capítulos)','https://claude.ai/artifact/MpC3nWU3bvUMg8DqeFfNZD','Central Reta Final, artefato no claude.ai'],['🎯 Treinador de Tipos','https://claude.ai/artifact/87e5edAZBHgQofTxyLoGDD','636 questões reais classificadas por tipo'],['🎧 Notebook do Gemini','https://notebook.google.com/notebook/577727ea-53df-4c47-ad8a-b7d152a92030','Áudios, mapa, flashcards e teste no Google']].map(function(x){var ext=/^https/.test(x[1]);return '<a class="fact2" href="'+x[1]+'"'+(ext?' target="_blank" rel="noopener"':'')+'><b>'+x[0]+'</b><span class="note">'+x[2]+'</span>'+(ext?'<span class="note">abre em nova aba ↗</span>':'')+'</a>';}).join('')+'</div></section><p class="note" style="margin-top:16px">Atalhos no player: <span class="kbd">Espaço</span> pausa, <span class="kbd">←</span> <span class="kbd">→</span> trechos, <span class="kbd">F</span> tela cheia. A narração usa a voz em português do seu aparelho.</p>';}
+  [['🚢 Dora Expedição','expedicao.html','Viagem por 115 estações com questões comentadas'],['⚡ Arena Relâmpago','jogo.html','Missão do dia, chefões, XP e conquistas'],['📚 Doroxandria','index.html','1.000 questões, simulados e a aba Banca'],['🏰 Dora Central','https://claude.ai/artifact/RM3deSQtfLSBqJ5yBAgUMP','Hoje, treinar, erros, simulados, painel com projeção de nota'],['📖 Leitor do método (17 capítulos)','https://claude.ai/artifact/MpC3nWU3bvUMg8DqeFfNZD','Central Reta Final, artefato no claude.ai'],['🎯 Treinador de Tipos','https://claude.ai/artifact/87e5edAZBHgQofTxyLoGDD','636 questões reais classificadas por tipo'],['🎧 Notebook do Gemini','https://notebook.google.com/notebook/577727ea-53df-4c47-ad8a-b7d152a92030','Áudios, mapa, flashcards e teste no Google']].map(function(x){var ext=/^https/.test(x[1]);return '<a class="fact2" href="'+x[1]+'"'+(ext?' target="_blank" rel="noopener"':'')+'><b>'+x[0]+'</b><span class="note">'+x[2]+'</span>'+(ext?'<span class="note">abre em nova aba ↗</span>':'')+'</a>';}).join('')+'</div></section><p class="note" style="margin-top:16px">Atalhos no player: <span class="kbd">Espaço</span> pausa, <span class="kbd">←</span> <span class="kbd">→</span> trechos, <span class="kbd">F</span> tela cheia. A narração usa a voz em português do seu aparelho.</p>';}
 function card(h,ic,t,d,tag){return '<button class="card big" data-href="'+h+'"><span class="ic">'+ic+'</span><h3>'+t+'</h3><p class="note">'+d+'</p><span class="tag">'+tag+'</span></button>';}
 
 /* Videoteca */
@@ -1426,25 +1426,18 @@ function menteTopico(s,ti){app.innerHTML='<p class="note" style="padding:30px 0"
   });});}
 
 /* ===================== NAVEGAÇÃO: menu lateral, busca, segunda tela ===================== */
-var TOOLS=[
- ['Começar',[['plano','🎯','Hoje','O que estudar agora e seu plano até a prova'],['sim','🎲','Simulador','Sua chance de passar, em 10.000 provas simuladas']]],
- ['Aprender a resolver',[['mt','🎓','Mente do examinador','Como a banca cobra cada tópico e onde ela pega'],['met','🧭','Métodos','Passo a passo para cada tipo de questão'],['ref','⚡','Reflexo','Treinos rápidos de 6 segundos'],['mm','🧠','Mapas mentais','O assunto inteiro numa imagem'],['esq','🗺️','Esquemas','Duelos, listas e desenhos para a prova']]],
- ['Treinar',[['cq','🧩','Cartões-questão','Questão como na prova e explicação de cada alternativa'],['fc','🃏','Flashcards','Memorização com repetição espaçada'],['anki','🎴','Baralhos','Seus baralhos do Anki, com imagem']]],
- ['Assistir e ouvir',[['v','🎬','Videoaulas','Aulas animadas e narradas'],['pod','🎧','Áudios','Resumos em áudio do NotebookLM']]],
- ['Inteligência da prova',[['lab','🔬','Laboratório','O que é mito e o que foi medido na banca'],['radar','📡','Radar','Tendências da Transpetro e da prova'],['geo','📍','Mapa Transpetro','Onde a empresa atua']]],
- ['Inteligência artificial',[['gem','✨','IA','Gemini ou Claude: crie questões e explicações']]],
- ['Outros apps',[['expedicao.html','🚢','Expedição','Jornada por 115 estações'],['jogo.html','🏁','Relâmpago','Jogo de questões com XP'],['index.html','📚','Doroxandria','1.000 questões e caderno de erros']]]];
+var TOOLS=window.GUILDA.groups;
 var TKEY={};TOOLS.forEach(function(g){g[1].forEach(function(t){TKEY[t[0]]=t;});});
 var HH=document.documentElement,MOB=window.matchMedia('(max-width:899px)'),ULT='arenaTP.ultima',SBK='arenaTP.sb';
-function href(t){return /\.html$/.test(t[0])?t[0]:'#'+t[0];}
-function sbRender(){var h='<a class="logo" href="#" data-nav=""><i>🎬</i><span>Estúdio Cesgranrio</span></a><div id="contbox"></div>';
-  TOOLS.forEach(function(g){h+='<div class="gt">'+esc(g[0])+'</div>';g[1].forEach(function(t){h+='<div class="row2"><a class="it" href="'+href(t)+'" data-nav="'+t[0]+'" title="'+esc(t[2])+'"><span class="ic" aria-hidden="true">'+t[1]+'</span><span class="tx"><b>'+esc(t[2])+'</b><small>'+esc(t[3])+'</small></span></a><button type="button" class="pb" data-pn="'+href(t)+'" data-t="'+esc(t[2])+'" aria-label="Abrir '+esc(t[2])+' na segunda tela" title="Abrir na segunda tela">⧉</button></div>';});});
+function href(t){return /^https?:|\.html$/.test(t[0])?t[0]:'#'+t[0];}
+function sbRender(){var h='<a class="logo" href="#" data-nav=""><i>🏰</i><span>Dora Guilda<small>Engenharia Cognitiva para Concursos Públicos</small></span></a><div id="contbox"></div>';
+  TOOLS.forEach(function(g){h+='<div class="gt">'+esc(g[0])+'</div>';g[1].forEach(function(t){h+='<div class="row2"><a class="it" href="'+href(t)+'" data-nav="'+t[0]+'" title="'+esc(t[2])+'"><span class="ic" aria-hidden="true">'+t[1]+'</span><span class="tx"><b>'+esc(t[2])+'</b><small>'+esc(t[3])+'</small></span></a>'+(/^https?:/.test(t[0])?'':'<button type="button" class="pb" data-pn="'+href(t)+'" data-t="'+esc(t[2])+'" aria-label="Abrir '+esc(t[2])+' na segunda tela" title="Abrir na segunda tela">⧉</button>')+'</div>';});});
   h+='<span class="fill"></span><button type="button" class="mini" id="sbm" aria-label="Recolher o menu" title="Recolher ou expandir o menu">«</button>';$('#sb').innerHTML=h;
   var tb='';[['plano','Hoje'],['mt','Método'],['cq','Treinar'],['v','Assistir']].forEach(function(x){var t=TKEY[x[0]];tb+='<a href="#'+x[0]+'" data-nav="'+x[0]+'"><span aria-hidden="true">'+t[1]+'</span>'+x[1]+'</a>';});
   tb+='<button type="button" id="tbm" aria-label="Abrir o menu completo"><span aria-hidden="true">☰</span>Mais</button>';$('#tb').innerHTML=tb;contUpdate();}
 function contUpdate(){var b=$('#contbox');if(!b)return;try{var u=JSON.parse(localStorage.getItem(ULT)||'null');if(u&&u.h&&u.h!==location.hash)b.innerHTML='<a class="cont" href="'+esc(u.h)+'"><b>Continuar</b>'+esc(u.t)+'</a>';else b.innerHTML='';}catch(e){b.innerHTML='';}}
 function navImpl(k){var t=TKEY[k];$$('#sb a.it,#tb a').forEach(function(a){a.setAttribute('aria-current',a.dataset.nav===k?'page':'false');});
-  $('#bt').textContent=t?t[2]:'Estúdio Cesgranrio';document.title=(t?t[2]+' · ':'')+'Estúdio Cesgranrio';
+  $('#bt').textContent=t?t[2]:'Dora Guilda';document.title=(t?t[2]+' · ':'')+'Dora Guilda';
   app.classList.remove('enter');void app.offsetWidth;app.classList.add('enter');closeDrawer();subSet();}
 function subSet(){setTimeout(function(){var h=app.querySelector('h1,h2'),t=h?h.textContent.trim():'',bt=$('#bt').textContent;$('#bs').textContent=(t&&t!==bt&&t.length<90)?t:'';
   var hs=location.hash;if(hs&&hs!=='#'){try{localStorage.setItem(ULT,JSON.stringify({h:hs,t:bt+($('#bs').textContent?' › '+$('#bs').textContent:'')}));}catch(e){}}contUpdate();$('#bk').disabled=history.length<=1;},350);}

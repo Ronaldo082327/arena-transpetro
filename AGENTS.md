@@ -100,3 +100,7 @@ Todo link `http(s)` externo (de qualquer página) abre no visualizador interno (
 - Barra superior com botões ← e → (histórico), título da ferramenta e do assunto, busca (Ctrl+K ou `/`; lista ferramentas e os 115 tópicos, Enter abre, Shift+Enter abre na segunda tela) e o botão 🎨 Tema (`#thslot`).
 - Segunda tela (`#pn`): painel à direita com a ferramenta carregada num iframe `?embed=1` (esconde menu e barra; o tema vem do `localStorage`). Abre pelo botão ⧉ de cada item, Alt+clique ou qualquer elemento com `data-panel="#rota"`. No computador largo ela fica ao lado da tela principal; no celular ocupa a tela. Esc fecha.
 - "Continuar" no menu guarda o último local (`arenaTP.ultima`). Cada troca de ferramenta tem uma animação curta de entrada e volta ao topo.
+
+## Dora Guilda (nome do app final)
+
+O app se chama **Dora Guilda · Engenharia Cognitiva para Concursos Públicos** (manifest, títulos e cabeçalhos). Catálogo de módulos com nome próprio em `guilda.js` (`window.GUILDA.groups`), usado pelo menu lateral do Estúdio e pelo "Menu da Guilda" das demais páginas. Nomes, regra de nomenclatura, nomes reservados para a Central e o Dora Draw, estrutura final e fases: `docs/dora-guilda.md`. Rotas e chaves técnicas não mudam; só o texto na tela. Todo recurso novo precisa de nome com "Dora" ou do mundo da guilda e entrar em `guilda.js`.
