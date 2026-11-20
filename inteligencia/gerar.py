@@ -3,8 +3,12 @@ Rode: python3 inteligencia/gerar.py"""
 import json,re,collections,pathlib
 R=pathlib.Path(__file__).resolve().parent.parent
 Q=[q for q in json.load(open(R/'questoes.json')) if q.get('gabarito') in list('ABCDE') and len(q.get('alternativas',{}))==5]
-N=len(Q);DL={'BI_CienciaDados':'BI e Ciência de Dados','Seguranca':'Segurança','EngSoftware_UX':'Eng. Software e UX','Dados':'Dados','Governanca':'Governança','Projetos':'Projetos'}
-out={'n':N,'fonte':'questoes.json (1.000 questões reais Cesgranrio, cadernos do TecConcursos)'}
+_inc=R/'inteligencia'/'incidencia.json'
+if _inc.exists():
+    _ids={str(q['id']) for q in Q}
+    Q+=[q for q in json.load(open(_inc))['questoes'] if not q['noBanco'] and q['id'] not in _ids and len(q['alternativas'])==5]
+N=len(Q);DL={'Logica':'Lógica','BI_CienciaDados':'BI e Ciência de Dados','Seguranca':'Segurança','EngSoftware_UX':'Eng. Software e UX','Dados':'Dados','Governanca':'Governança','Projetos':'Projetos'}
+out={'n':N,'fonte':'questoes.json + cadernos por incidência ('+str(N)+' questões reais Cesgranrio do TecConcursos, sem repetição)'}
 out['letras']=dict(sorted(collections.Counter(q['gabarito'] for q in Q).items()))
 rk=collections.Counter()
 for q in Q:
@@ -88,7 +92,7 @@ for q in Q:
     if ps:
         n+=1;ok=any(q['gabarito'] in p for p in ps);h+=ok
         if len(ex)<8: ex.append(q['id'])
-H.append({'nome':'Par espelho por antônimo: o gabarito está no par','n':n,'acertos':h,'taxa':round(100*h/n,1) if n else None,'base':40,'como':'Duas alternativas quase iguais trocando um antônimo (aumenta/diminui, detecta/bloqueia, total/parcial)','uso':'não confirmado (teste cego da Central: 37%, acaso 40%)','exemplos':ex})
+H.append({'nome':'Par espelho por antônimo: o gabarito está no par','n':n,'acertos':h,'taxa':round(100*h/n,1) if n else None,'como':'Duas alternativas quase iguais trocando um antônimo (aumenta/diminui, detecta/bloqueia, total/parcial)','uso':'só antônimo explícito (replicou fora da amostra: 12 de 16)','base':40,'exemplos':ex})
 out['heuristicas']=H
 ABS=r'\b(exclusivamente|necessariamente|obrigatoriamente|nunca|jamais|qualquer|sempre|somente|apenas|unicamente)\b'
 pd=collections.defaultdict(lambda:[0,0])

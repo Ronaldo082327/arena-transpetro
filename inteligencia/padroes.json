@@ -1,65 +1,65 @@
 {
- "n": 1000,
- "fonte": "questoes.json (1.000 questões reais Cesgranrio, cadernos do TecConcursos)",
+ "n": 1413,
+ "fonte": "questoes.json + cadernos por incidência (1413 questões reais Cesgranrio do TecConcursos, sem repetição)",
  "letras": {
-  "A": 194,
-  "B": 203,
-  "C": 204,
-  "D": 211,
-  "E": 188
+  "A": 285,
+  "B": 290,
+  "C": 273,
+  "D": 290,
+  "E": 275
  },
  "tamanho": {
-  "1": 221,
-  "2": 199,
-  "3": 213,
-  "4": 179,
-  "5": 188
+  "1": 303,
+  "2": 287,
+  "3": 306,
+  "4": 267,
+  "5": 250
  },
  "palavras": {
   "somente/apenas/unicamente": {
-   "alts": 138,
-   "certas": 15,
-   "taxa": 10.9
+   "alts": 230,
+   "certas": 28,
+   "taxa": 12.2
   },
   "exclusivamente": {
-   "alts": 14,
+   "alts": 17,
    "certas": 0,
    "taxa": 0.0
   },
   "necessariamente/obrigatoriamente": {
-   "alts": 7,
-   "certas": 0,
-   "taxa": 0.0
+   "alts": 12,
+   "certas": 1,
+   "taxa": 8.3
   },
   "sempre": {
+   "alts": 38,
+   "certas": 1,
+   "taxa": 2.6
+  },
+  "nunca/jamais": {
+   "alts": 13,
+   "certas": 2,
+   "taxa": 15.4
+  },
+  "todo(s)/toda(s)": {
+   "alts": 203,
+   "certas": 29,
+   "taxa": 14.3
+  },
+  "qualquer": {
    "alts": 28,
    "certas": 1,
    "taxa": 3.6
   },
-  "nunca/jamais": {
-   "alts": 6,
-   "certas": 0,
-   "taxa": 0.0
-  },
-  "todo(s)/toda(s)": {
-   "alts": 129,
-   "certas": 20,
-   "taxa": 15.5
-  },
-  "qualquer": {
-   "alts": 19,
-   "certas": 0,
-   "taxa": 0.0
-  },
   "nenhum(a)": {
-   "alts": 10,
-   "certas": 6,
-   "taxa": 60.0
+   "alts": 40,
+   "certas": 9,
+   "taxa": 22.5
   },
   "pode/podem/poderá": {
-   "alts": 114,
-   "certas": 29,
-   "taxa": 25.4
+   "alts": 155,
+   "certas": 38,
+   "taxa": 24.5
   },
   "geralmente/em regra/normalmente": {
    "alts": 6,
@@ -67,37 +67,65 @@
    "taxa": 50.0
   },
   "não (na alternativa)": {
-   "alts": 200,
-   "certas": 32,
-   "taxa": 16.0
+   "alts": 458,
+   "certas": 89,
+   "taxa": 19.4
   }
  },
  "base": 20.0,
- "negativos": 18,
+ "negativos": 40,
  "tendencia": {
-  "nAntes": 411,
-  "nDepois": 589,
+  "nAntes": 822,
+  "nDepois": 591,
   "sobe": [
    {
     "disc": "BI e Ciência de Dados",
     "assunto": "Conceitos Gerais de Machine Learning",
     "antes": 1,
     "depois": 14,
-    "pp": 2.13
+    "pp": 2.25
+   },
+   {
+    "disc": "BI e Ciência de Dados",
+    "assunto": "Python (Conceitos Gerais e Códigos)",
+    "antes": 10,
+    "depois": 20,
+    "pp": 2.17
    },
    {
     "disc": "Projetos",
     "assunto": "Ciclo de Vida de Projetos",
     "antes": 0,
     "depois": 12,
-    "pp": 2.04
+    "pp": 2.03
+   },
+   {
+    "disc": "Eng. Software e UX",
+    "assunto": "Conceitos e Tipos de Testes de Software",
+    "antes": 6,
+    "depois": 14,
+    "pp": 1.64
    },
    {
     "disc": "Dados",
     "assunto": "Otimização (Tuning) em Banco de Dados",
     "antes": 0,
     "depois": 8,
-    "pp": 1.36
+    "pp": 1.35
+   },
+   {
+    "disc": "Governança",
+    "assunto": "Direito Digital - Disposições Preliminares (arts. 1º a 6º da Lei nº 13.709/2018 - LGPD)",
+    "antes": 3,
+    "depois": 10,
+    "pp": 1.33
+   },
+   {
+    "disc": "Segurança",
+    "assunto": "Malware (Vírus, Worms, Trojans, etc.)",
+    "antes": 3,
+    "depois": 9,
+    "pp": 1.16
    },
    {
     "disc": "BI e Ciência de Dados",
@@ -107,46 +135,32 @@
     "pp": 1.02
    },
    {
-    "disc": "Governança",
-    "assunto": "Direito Digital - Disposições Preliminares (arts. 1º a 6º da Lei nº 13.709/2018 - LGPD)",
-    "antes": 3,
-    "depois": 10,
-    "pp": 0.97
-   },
-   {
     "disc": "BI e Ciência de Dados",
-    "assunto": "Python (Conceitos Gerais e Códigos)",
-    "antes": 10,
-    "depois": 20,
-    "pp": 0.96
+    "assunto": "Algoritmos de Machine Learning (Classificação, Regressão e Clusterização)",
+    "antes": 7,
+    "depois": 11,
+    "pp": 1.01
    },
    {
     "disc": "Eng. Software e UX",
-    "assunto": "Conceitos e Tipos de Testes de Software",
+    "assunto": "Padrões de Projeto (Engenharia de Software)",
     "antes": 6,
-    "depois": 14,
-    "pp": 0.92
+    "depois": 10,
+    "pp": 0.96
    },
    {
-    "disc": "Governança",
-    "assunto": "ITIL v4",
-    "antes": 0,
-    "depois": 5,
-    "pp": 0.85
+    "disc": "Segurança",
+    "assunto": "Protocolos Seguros para Redes Sem Fio e Controle de Acesso (WPA, WPA2, WEP, EAP, 802.1X)",
+    "antes": 2,
+    "depois": 7,
+    "pp": 0.94
    },
    {
-    "disc": "BI e Ciência de Dados",
-    "assunto": "Governança e Qualidade de Dados (DAMA-DMBOK e Conceitos Relacionados)",
-    "antes": 0,
-    "depois": 5,
-    "pp": 0.85
-   },
-   {
-    "disc": "BI e Ciência de Dados",
-    "assunto": "Redes Neurais",
-    "antes": 0,
-    "depois": 5,
-    "pp": 0.85
+    "disc": "Segurança",
+    "assunto": "TLS, SSL e HTTPS",
+    "antes": 1,
+    "depois": 6,
+    "pp": 0.89
    },
    {
     "disc": "Segurança",
@@ -156,102 +170,88 @@
     "pp": 0.85
    },
    {
-    "disc": "Segurança",
-    "assunto": "Engenharia Social e Phishing",
+    "disc": "Governança",
+    "assunto": "ITIL v4",
     "antes": 0,
     "depois": 5,
     "pp": 0.85
-   },
-   {
-    "disc": "Segurança",
-    "assunto": "Malware (Vírus, Worms, Trojans, etc.)",
-    "antes": 3,
-    "depois": 9,
-    "pp": 0.8
-   },
-   {
-    "disc": "Segurança",
-    "assunto": "TLS, SSL e HTTPS",
-    "antes": 1,
-    "depois": 6,
-    "pp": 0.78
    }
   ],
   "desce": [
    {
-    "disc": "Dados",
-    "assunto": "Consultas e Comandos em SQL",
-    "antes": 29,
-    "depois": 17,
-    "pp": -4.17
+    "disc": "Governança",
+    "assunto": "Gestão e Governança de TI - ITIL v3 e anteriores",
+    "antes": 98,
+    "depois": 0,
+    "pp": -11.92
    },
    {
     "disc": "Eng. Software e UX",
-    "assunto": "UML",
-    "antes": 23,
-    "depois": 13,
-    "pp": -3.39
+    "assunto": "Engenharia de Software - UML",
+    "antes": 74,
+    "depois": 0,
+    "pp": -9.0
    },
    {
     "disc": "Dados",
-    "assunto": "Modelo Entidade-Relacionamento (MER)",
-    "antes": 18,
-    "depois": 14,
-    "pp": -2.0
+    "assunto": "Banco de Dados - Consultas e Comandos em SQL",
+    "antes": 63,
+    "depois": 0,
+    "pp": -7.66
+   },
+   {
+    "disc": "Lógica",
+    "assunto": "Equivalências Lógicas (Inclui Negação de Proposições Compostas)",
+    "antes": 62,
+    "depois": 1,
+    "pp": -7.37
+   },
+   {
+    "disc": "Lógica",
+    "assunto": "Diagramas Lógicos, Proposições Categóricas, Negação de Quantificadores",
+    "antes": 45,
+    "depois": 1,
+    "pp": -5.31
+   },
+   {
+    "disc": "Segurança",
+    "assunto": "Segurança da Informação - Conceitos de Firewall, Proxy e DMZ",
+    "antes": 32,
+    "depois": 0,
+    "pp": -3.89
+   },
+   {
+    "disc": "Segurança",
+    "assunto": "Segurança da Informação - Conceitos de Criptografia (Chaves, Simetria, etc.)",
+    "antes": 29,
+    "depois": 0,
+    "pp": -3.53
+   },
+   {
+    "disc": "Segurança",
+    "assunto": "Segurança da Informação - Conceitos, Princípios e Atributos da Segurança da Informação",
+    "antes": 7,
+    "depois": 0,
+    "pp": -0.85
    },
    {
     "disc": "Dados",
     "assunto": "Normalização",
     "antes": 11,
     "depois": 4,
-    "pp": -2.0
+    "pp": -0.66
    },
    {
-    "disc": "BI e Ciência de Dados",
-    "assunto": "Modelagem Dimensional",
-    "antes": 13,
-    "depois": 7,
-    "pp": -1.97
-   },
-   {
-    "disc": "Governança",
-    "assunto": "ERP (Enterprise Resource Planning) e SAP",
-    "antes": 19,
-    "depois": 16,
-    "pp": -1.91
-   },
-   {
-    "disc": "Eng. Software e UX",
-    "assunto": "Engenharia de Requisitos",
-    "antes": 10,
-    "depois": 5,
-    "pp": -1.58
-   },
-   {
-    "disc": "BI e Ciência de Dados",
-    "assunto": "OLAP e suas diferenças com OLTP",
-    "antes": 9,
-    "depois": 4,
-    "pp": -1.51
-   },
-   {
-    "disc": "Segurança",
-    "assunto": "VPN",
-    "antes": 6,
-    "depois": 1,
-    "pp": -1.29
-   },
-   {
-    "disc": "BI e Ciência de Dados",
-    "assunto": "Definições e Funções de Data Warehouse e Data Mart",
-    "antes": 8,
-    "depois": 4,
-    "pp": -1.27
+    "disc": "Dados",
+    "assunto": "Consultas e Comandos em SQL",
+    "antes": 29,
+    "depois": 17,
+    "pp": -0.65
    }
   ]
  },
  "transpetro": {
-  "n": 273,
+  "n": 288,
   "top": [
    {
     "disc": "Governança",
@@ -324,29 +324,41 @@
     "n": 5
    },
    {
-    "disc": "Dados",
-    "assunto": "Modelagem e Mapeamento ER-relacional",
-    "n": 4
+    "disc": "Lógica",
+    "assunto": "Equivalências Lógicas (Inclui Negação de Proposições Compostas)",
+    "n": 5
    }
   ]
  },
  "porAno": {
-  "2016": 29,
-  "2018": 228,
+  "2005": 2,
+  "2006": 13,
+  "2007": 8,
+  "2008": 26,
+  "2009": 38,
+  "2010": 76,
+  "2011": 31,
+  "2012": 111,
+  "2013": 31,
+  "2014": 55,
+  "2015": 8,
+  "2016": 30,
+  "2018": 236,
   "2019": 42,
   "2021": 50,
-  "2022": 62,
-  "2023": 218,
+  "2022": 65,
+  "2023": 220,
   "2024": 319,
   "2025": 41,
   "2026": 11
  },
  "porDisc": {
+  "Eng. Software e UX": 267,
+  "Segurança": 266,
+  "Dados": 255,
+  "Governança": 218,
   "BI e Ciência de Dados": 200,
-  "Segurança": 198,
-  "Eng. Software e UX": 193,
-  "Dados": 192,
-  "Governança": 119,
+  "Lógica": 109,
   "Projetos": 98
  },
  "topicos": [
@@ -1389,60 +1401,60 @@
  "heuristicas": [
   {
    "nome": "Marcar a mais longa",
-   "n": 1000,
-   "acertos": 221,
-   "taxa": 22.1,
+   "n": 1413,
+   "acertos": 303,
+   "taxa": 21.4,
    "como": "Comprimento da alternativa",
    "uso": "não use"
   },
   {
    "nome": "Marcar a mais curta",
-   "n": 1000,
-   "acertos": 199,
-   "taxa": 19.9,
+   "n": 1413,
+   "acertos": 274,
+   "taxa": 19.4,
    "como": "Comprimento da alternativa",
    "uso": "não use"
   },
   {
    "nome": "Marcar a mais parecida com as outras (convergência)",
-   "n": 384,
-   "acertos": 79,
-   "taxa": 20.6,
+   "n": 504,
+   "acertos": 105,
+   "taxa": 20.8,
    "como": "Palavras em comum com as demais alternativas",
    "uso": "não use"
   },
   {
    "nome": "Marcar a mais diferente das outras",
-   "n": 459,
-   "acertos": 80,
+   "n": 645,
+   "acertos": 112,
    "taxa": 17.4,
    "como": "Palavras em comum com as demais alternativas",
    "uso": "não use"
   },
   {
    "nome": "Marcar a que mais repete termos do enunciado",
-   "n": 239,
-   "acertos": 57,
-   "taxa": 23.8,
+   "n": 332,
+   "acertos": 72,
+   "taxa": 21.7,
    "como": "Termos do enunciado na alternativa",
    "uso": "sinal fraco"
   },
   {
    "nome": "A que menos repete termos do enunciado (para ELIMINAR)",
-   "n": 129,
-   "acertos": 15,
-   "taxa": 11.6,
+   "n": 180,
+   "acertos": 19,
+   "taxa": 10.6,
    "como": "Alternativa que foge do vocabulário do enunciado",
    "uso": "eliminar"
   },
   {
    "nome": "Par espelho por antônimo: o gabarito está no par",
-   "n": 16,
-   "acertos": 13,
-   "taxa": 81.2,
-   "base": 40,
+   "n": 32,
+   "acertos": 25,
+   "taxa": 78.1,
    "como": "Duas alternativas quase iguais trocando um antônimo (aumenta/diminui, detecta/bloqueia, total/parcial)",
-   "uso": "não confirmado (teste cego da Central: 37%, acaso 40%)",
+   "uso": "só antônimo explícito (replicou fora da amostra: 12 de 16)",
+   "base": 40,
    "exemplos": [
     "2694739",
     "634012",
@@ -1464,21 +1476,9 @@
   },
   {
    "disc": "Governança",
-   "alts": 22,
-   "certas": 1,
-   "taxa": 4.5
-  },
-  {
-   "disc": "Segurança",
-   "alts": 36,
-   "certas": 3,
-   "taxa": 8.3
-  },
-  {
-   "disc": "Dados",
-   "alts": 53,
-   "certas": 5,
-   "taxa": 9.4
+   "alts": 44,
+   "certas": 4,
+   "taxa": 9.1
   },
   {
    "disc": "Projetos",
@@ -1487,10 +1487,28 @@
    "taxa": 10.0
   },
   {
-   "disc": "Eng. Software e UX",
-   "alts": 24,
+   "disc": "Dados",
+   "alts": 63,
+   "certas": 7,
+   "taxa": 11.1
+  },
+  {
+   "disc": "Segurança",
+   "alts": 72,
+   "certas": 8,
+   "taxa": 11.1
+  },
+  {
+   "disc": "Lógica",
+   "alts": 32,
    "certas": 4,
-   "taxa": 16.7
+   "taxa": 12.5
+  },
+  {
+   "disc": "Eng. Software e UX",
+   "alts": 48,
+   "certas": 7,
+   "taxa": 14.6
   }
  ]
 }

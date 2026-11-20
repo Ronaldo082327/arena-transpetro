@@ -324,17 +324,17 @@
   {
    "m": "Absolutos (exclusivamente, nunca, qualquer) indicam alternativa errada",
    "v": "verdadeiro",
-   "d": "Medido: exclusivamente, necessariamente, nunca e qualquer foram gabarito 0 vezes em 46 alternativas aqui; no teste rigoroso da Central, 3 de 85 (3,5%; intervalo de 1,2% a 9,9%), na mesma direção nos 6 concursos testados. É o único sinal que passou no rigor. Exceção: lei e norma citadas literalmente."
+   "d": "Em 1.413 questões: exclusivamente, necessariamente, nunca e qualquer foram gabarito 4 vezes em 70 (5,7%); no teste rigoroso da Central, 3 de 85, igual em 6 de 6 concursos. As 4 exceções são previsíveis: definição literal de norma ou modelo (mudança no ITIL, composição na UML) e Lógica, onde \"nunca\" é o próprio conteúdo."
   },
   {
    "m": "'Nenhum' é absoluto, logo errado",
    "v": "cuidado",
-   "d": "Medido: 'nenhum(a)' foi gabarito 6 vezes em 10 aqui e 6 em 11 na Central. Não elimine por isso."
+   "d": "Com amostra maior (1.413 questões), 'nenhum(a)' foi gabarito 9 vezes em 40 (22,5%), praticamente o acaso. Os 6 de 10 de antes eram efeito de amostra pequena. Não elimine nem escolha por 'nenhum': é neutro."
   },
   {
    "m": "Duas alternativas quase iguais: uma é o gabarito",
-   "v": "falso",
-   "d": "Não confirmado com rigor. Detectado às cegas (sem ver o gabarito) em 70 questões, o gabarito estava no par em 37%, abaixo do acaso (40%). Os 89% e 75% anteriores tinham viés de quem marcou o par vendo a resposta (Central Reta Final, validação por concurso). Não use para escolher."
+   "v": "depende",
+   "d": "Só a versão estreita funciona: duas alternativas quase iguais que trocam um ANTÔNIMO explícito (aumenta/diminui, detecta/bloqueia, total/parcial). Detectada automaticamente, sem ver o gabarito, acertou 13 de 16 no banco original e repetiu 12 de 16 em questões novas, de 10 órgãos (p = 0,005; acaso 40%). A versão ampla (duas alternativas apenas parecidas) não funciona: 37% no teste cego da Central."
   },
   {
    "m": "Somando vários sinais dá para acertar sem saber o conteúdo",
