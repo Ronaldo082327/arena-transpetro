@@ -56,3 +56,8 @@ html.vw-open{overflow:hidden}
 #vw .vmd code{background:var(--accent-soft);border-radius:6px;padding:1px 5px;font-family:var(--mono,monospace);font-size:.92em}#vw .vmd pre code{background:none;padding:0}
 #vw .vmd blockquote{margin:10px 0;padding:6px 14px;border-left:4px solid var(--brand);background:var(--paper)}
 #vw .vmd a{color:var(--accent)}#vw .vtab{overflow:auto;margin:10px 0}#vw .vmd table{border-collapse:collapse;font-size:14px}#vw .vmd th,#vw .vmd td{border:1px solid var(--line);padding:6px 10px;text-align:left;vertical-align:top}#vw .vmd th{background:var(--accent-soft)}
+
+#thbtn.th-inline{position:static;height:40px;padding:0 14px;box-shadow:none;border:1px solid var(--brand)}
+html.th-slotted #thp{bottom:auto;top:64px}
+@media (max-width:899px){#thbtn.th-inline .tl{display:none}#thbtn.th-inline{width:40px;padding:0;justify-content:center}}
+html.embed #thbtn,html.embed #thp{display:none!important}
