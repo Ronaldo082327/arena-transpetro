@@ -69,6 +69,60 @@ def fmt(t,lines):
         if m: d[key]=m.group(1).strip()
     if len(d)==1: d['md']=txt.strip()
     return d
+
+def duelos(md):
+    out=[]
+    for l in md.split('\n'):
+        if not l.startswith('|') or re.match(r'^\|[\s:|-]+\|$',l): continue
+        c=[x.strip() for x in l.strip().strip('|').split('|')]
+        if len(c)<2 or c[0].lower().startswith('o par'): continue
+        lados=[x.strip() for x in re.split(r'\s+×\s+',c[0])]
+        dist=[x.strip() for x in re.split(r'\s+×\s+',c[1])]
+        out.append({'lados':lados,'dist':dist if len(dist)==len(lados) and len(lados)>1 else [c[1]],'src':c[2] if len(c)>2 else ''})
+    return out
+def listas(md):
+    out=[];head=None;buf=[]
+    def flush():
+        if buf and head: out.append({'t':head,'md':'\n'.join(buf).strip()})
+    for bl in re.split(r'\n\s*\n',md):
+        b=bl.strip()
+        if not b: continue
+        m=re.match(r'^###\s+([^\n]*)\n?(.*)$',b,re.S)
+        if m:
+            flush();buf=[];head=m.group(1).strip()
+            if m.group(2).strip(): buf.append(m.group(2).strip())
+            continue
+        m=re.match(r'^\*\*(.+?)\*\*\s*(.*)$',b,re.S)
+        if m and not b.startswith('|'):
+            flush();buf=[];head=None
+            t=m.group(1).strip().rstrip('.')
+            g=re.search(r'\(gatilho:\s*(.*)\)$',t)
+            gat=g.group(1).strip().strip('"“”') if g else ''
+            if g: t=t[:g.start()].strip()
+            body=m.group(2).strip()
+            items=[x.strip() for x in body.split(' · ')] if body.count(' · ')>=2 else []
+            if not items:
+                items=[x.strip() for x in re.split(r'(?<=[.;])\s+(?=[A-ZÀ-Ú0-9"“])',body) if x.strip()]
+            out.append({'t':t,'gat':gat,'items':items})
+            continue
+        if all(re.match(r'^- ',x) for x in b.split('\n') if x.strip()):
+            flush();buf=[];head=None
+            for x in b.split('\n'):
+                x=x[2:].strip()
+                if not x: continue
+                gat='';g=re.search(r'Gatilho:\s*(.+)$',x)
+                if g: gat=g.group(1).strip().strip('"“”'); x=(x[:g.start()]+x[g.end():]).strip()
+                t,body=(x.split(':',1) if ':' in x[:70] else (x[:60],x))
+                body=body.strip()
+                items=[y.strip() for y in body.split('; ')] if body.count('; ')>=2 else [y.strip() for y in re.split(r'(?<=[.;])\s+(?=[A-ZÀ-Ú0-9"“])',body) if y.strip()]
+                if len(items)==1 and items[0].count(', ')>=3 and all(len(z)<60 for z in items[0].rstrip('.').split(', ')): items=[z.strip() for z in items[0].rstrip('.').split(', ')]
+                out.append({'t':t.strip(),'gat':gat.rstrip('.'),'items':items})
+            continue
+        buf.append(b)
+    flush()
+    return out
+def itens(md):
+    return [re.sub(r'^\s*(?:\d+[.)]|[-*])\s+','',l).strip() for l in md.split('\n') if re.match(r'^\s*(?:\d+[.)]|[-*])\s+',l)]
 idx=[];os.makedirs(OUT,exist_ok=True);tot=0;st={'alts5':0,'q':0,'cards':0}
 for f,nome,slug in DISC:
     md=open(f'{G}/{f}.md').read()
@@ -91,6 +145,8 @@ for f,nome,slug in DISC:
        'pares':'\n'.join(secs[4]['body']).strip() if 4 in secs else '',
        'lei':'\n'.join(secs[5]['body']).strip() if 5 in secs else '',
        'vespera':'\n'.join(secs[6]['body']).strip() if 6 in secs else ''}
+    o['duelos']=duelos(o['pares']);o['listas']=listas(o['lei']);o['vesperaItens']=itens(o['vespera'])
+    st.setdefault('duelos',0);st['duelos']+=len(o['duelos']);st.setdefault('listas',0);st['listas']+=len(o['listas'])
     for t in o['topicos']:
         for q in t['qs']:
             st['q']+=1; st['alts5']+=bool(q['alts'])
