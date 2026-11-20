@@ -333,8 +333,8 @@
   },
   {
    "m": "Duas alternativas quase iguais: uma é o gabarito",
-   "v": "depende",
-   "d": "Só a versão estreita funciona: duas alternativas quase iguais que trocam um ANTÔNIMO explícito (aumenta/diminui, detecta/bloqueia, total/parcial). Detectada automaticamente, sem ver o gabarito, acertou 13 de 16 no banco original e repetiu 12 de 16 em questões novas, de 10 órgãos (p = 0,005; acaso 40%). A versão ampla (duas alternativas apenas parecidas) não funciona: 37% no teste cego da Central."
+   "v": "falso",
+   "d": "Duas alternativas iguais com uma palavra oposta NÃO entregam o gabarito: acertam cerca de 40%, igual ao chute. Dois medidores independentes da Central (detector congelado antes de ver os gabaritos, 1.324 questões): 44% e 42%; pares só parecidos, 43%. Os 75% a 81% medidos antes no Estúdio vinham de um erro de método: quando havia vários pares, eles cobriam 3,3 letras em média. Elimine pelo conteúdo, não pelo espelho."
   },
   {
    "m": "Somando vários sinais dá para acertar sem saber o conteúdo",

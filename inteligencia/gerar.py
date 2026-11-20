@@ -89,10 +89,10 @@ def espelho(q):
 n=h=0;ex=[]
 for q in Q:
     ps=espelho(q)
-    if ps:
-        n+=1;ok=any(q['gabarito'] in p for p in ps);h+=ok
+    if len(ps)==1:  # só um par: senão os pares cobrem mais de 2 letras e a taxa infla
+        n+=1;h+=q['gabarito'] in next(iter(ps))
         if len(ex)<8: ex.append(q['id'])
-H.append({'nome':'Par espelho por antônimo: o gabarito está no par','n':n,'acertos':h,'taxa':round(100*h/n,1) if n else None,'como':'Duas alternativas quase iguais trocando um antônimo (aumenta/diminui, detecta/bloqueia, total/parcial)','uso':'só antônimo explícito (replicou fora da amostra: 12 de 16)','base':40,'exemplos':ex})
+H.append({'nome':'Par espelho por antônimo (um único par): o gabarito está no par','n':n,'acertos':h,'taxa':round(100*h/n,1) if n else None,'como':'Duas alternativas quase iguais trocando um antônimo','uso':'mito: Central mediu 42% a 44% (acaso 40%)','base':40,'exemplos':ex})
 out['heuristicas']=H
 ABS=r'\b(exclusivamente|necessariamente|obrigatoriamente|nunca|jamais|qualquer|sempre|somente|apenas|unicamente)\b'
 pd=collections.defaultdict(lambda:[0,0])

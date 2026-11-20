@@ -163,15 +163,15 @@
     "pp": 0.89
    },
    {
-    "disc": "Segurança",
-    "assunto": "Ameaças Técnicas Relacionadas a Redes e Criptografia",
+    "disc": "Governança",
+    "assunto": "ITIL v4",
     "antes": 0,
     "depois": 5,
     "pp": 0.85
    },
    {
-    "disc": "Governança",
-    "assunto": "ITIL v4",
+    "disc": "Segurança",
+    "assunto": "Ameaças Técnicas Relacionadas a Redes e Criptografia",
     "antes": 0,
     "depois": 5,
     "pp": 0.85
@@ -1448,22 +1448,22 @@
    "uso": "eliminar"
   },
   {
-   "nome": "Par espelho por antônimo: o gabarito está no par",
-   "n": 32,
-   "acertos": 25,
-   "taxa": 78.1,
-   "como": "Duas alternativas quase iguais trocando um antônimo (aumenta/diminui, detecta/bloqueia, total/parcial)",
-   "uso": "só antônimo explícito (replicou fora da amostra: 12 de 16)",
+   "nome": "Par espelho por antônimo (um único par): o gabarito está no par",
+   "n": 14,
+   "acertos": 8,
+   "taxa": 57.1,
+   "como": "Duas alternativas quase iguais trocando um antônimo",
+   "uso": "mito: Central mediu 42% a 44% (acaso 40%)",
    "base": 40,
    "exemplos": [
-    "2694739",
-    "634012",
-    "2696023",
-    "1721035",
-    "2838606",
     "2695425",
     "2779792",
-    "2695542"
+    "836016",
+    "2780856",
+    "356222",
+    "1390195",
+    "356279",
+    "2308112"
    ]
   }
  ],
