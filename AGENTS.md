@@ -1,5 +1,7 @@
 # Guia para agentes (Antigravity, Gemini, Claude)
 
+> Atualizado em 20/11/2026 com o Estúdio, a Expedição, o Relâmpago e a camada de inteligência.
+
 ## O projeto
 
 Arena Transpetro Processos de Negócios: app de estudo para a prova Transpetro 2026, banca Cesgranrio, cargo Analista de Sistemas, Ênfase 5 Processos de Negócios. Prova em domingo, 06/12/2026, com 330 minutos (tempo adicional PcD). Usuário: Ronaldo. Tudo em português do Brasil.
@@ -39,6 +41,37 @@ Publicado em https://ronaldo082327.github.io/arena-transpetro/ (GitHub Pages, br
 - Relatório do simulado por bloco, calibração da margem (certeza, dúvida, chute) e tipos de erro.
 
 Ao mudar arquivos servidos, o `sw.js` precisa de uma versão nova (o script `pwa_github.py` gera pela data).
+
+
+## Já implementado (20/11/2026): Estúdio, Expedição e Relâmpago
+
+Três páginas novas, sem build, no mesmo padrão do `index.html`. O visual é claro, laranja suave e com relevo, pedido do Ronaldo.
+
+| Arquivo | O que é |
+|---|---|
+| `estudio.html` | Hub: Plano da prova, Simulador de aprovação (Monte Carlo), 197 videoaulas animadas e narradas, Métodos, Mapas mentais, Esquemas e Pranchas, Baralhos Anki com imagem-esquema, Flashcards, Reflexo (Vizinho em 6 s, Caça-sinal, Elimina em 30 s, Raio-X), Mapa Transpetro, Laboratório da Banca, Radar Transpetro, Gemini (chave do usuário, só no `localStorage`) |
+| `expedicao.html` | Imersão: 10 terminais (disciplinas) e 115 estações (subitens), com questões comentadas |
+| `jogo.html` | Arena Relâmpago: missão do dia, chefões, XP, conquistas, 40 macetes (`macetes.json`, conferidos contra os guias) |
+| `expedicao/*.json` | Gerado de `guias/*.md` por `python3 expedicao/gerar.py` (tópicos, formatos, duelos, listas, véspera) |
+| `inteligencia/padroes.json` | Padrões medidos em 1.413 questões, gerado por `python3 inteligencia/gerar.py` |
+| `inteligencia/incidencia.json` | 546 questões dos cadernos por incidência (349 com raio-x), gerado por `inteligencia/importar_incidencia.py` |
+| `inteligencia/radar.json` | Fatos da Transpetro com fonte, convergência, mitos × medido, como a banca monta a prova |
+| `anki/baralhos.json` | 2.021 cartões dos 47 baralhos do Ronaldo, gerado por `anki/importar.py` |
+
+Chaves de progresso: `arenaTP.jogo.v1`, `arenaTP.expedicao.v1`, `arenaTP.estudio.v1` e `arenaTP.gemini` (chave do usuário). Nunca reutilize `arenaTP.v2`.
+
+### Regras de conteúdo da inteligência (validadas com rigor)
+
+- **Confirmados:**
+  - absoluto forte (exclusivamente, necessariamente, nunca, qualquer) quase nunca é gabarito: 4/70 aqui e 3/85 no teste da Central, com exceção de definição literal de norma e de Lógica;
+  - equilíbrio de letras por dezena (203 gabaritos oficiais): chute de cerca de 20% para cerca de 29–30%.
+- **Mitos:** par espelho, alternativa mais longa, letra preferida, TRI, "bloco de SQL nas questões 21 a 35", "senoides". Não reintroduza nenhum deles como regra.
+- **Neutros:** "nenhum" (22,5%), "pode", "apenas" (desconfie, não risque).
+- Toda nova "regra" precisa de teste cego (detector definido antes de ver o gabarito), número de casos e comparação com o acaso. Sem isso, entra como hipótese, não como regra.
+
+## Tarefas para o Antigravity
+
+Veja `docs/antigravity-tarefas.md`: pedidos prontos, com o que conferir antes de enviar.
 
 ## Próximas ideias (até 27/11/2026, depois só correções)
 
