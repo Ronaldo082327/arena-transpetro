@@ -75,3 +75,22 @@ e, ao lado, uma linha simples dizendo o que faz. Quem usa não precisa adivinhar
 2. Incluir `legado/LEIA-ME-INTEGRACAO.md` com: arquivos de entrada, arquivos de dados e tamanhos, como cada artifact grava dados, comandos de teste e onde estão a extensão e a versão Windows.
 3. Não editar `index.html`, `estudio.html`, `expedicao.html`, `jogo.html`, `tema.css`, `tema.js`, `guilda.js` e `abrir.js` no `main` até a união.
 4. Adotar a marca e os nomes deste documento na Central e no Dora Draw.
+
+## Acompanhamento do estudo (vem do Dora Draw, edição geral)
+
+Ideias gerais de organizadores de concurso (ficha do concurso, cobertura do edital, ciclo e agenda, cronômetros, revisões agendadas, simulados com análise, estruturas em JSON, perfis e cópias de segurança) estão sendo implementadas **do zero** no Dora Draw, edição geral. A Dora Guilda **integra** esse código quando ele chegar à pasta privada do Drive; não duplica.
+
+**Origem e licença:** a referência foi a descrição pública do app Track Concursos (michel-softwares/track-concursos, licença proprietária que proíbe modificar e redistribuir). Nenhum código, tela, texto, imagem, marca ou nome dele foi copiado nem submetido a engenharia reversa. Não faça isso: só ideias gerais de funcionalidade, com código, design e nomes próprios.
+
+Nomes reservados no catálogo (rotas a criar na integração):
+
+| Rota | Nome |
+|---|---|
+| `#foco` | Dora Foco (regressivo, foco e pausa, livre, lançamento manual) |
+| `#rev` | Dora Revisões (agendadas e reforçadas) |
+| `#simu` | Diário de Simulados (nota por pesos e mínimos, análise por disciplina) |
+| `#ciclo` | Dora Ciclo (ciclo de estudos por peso × fraqueza) |
+| `#agenda` | Dora Agenda (semanal, com estimativa de cobertura do edital) |
+| `#edital` | Dora Edital (ficha do concurso, cobertura, quadro da prova, materiais por tópico) |
+| `#estruturas` | Estruturas da Guilda (concursos prontos em JSON) |
+| `#cofre` | Dora Cofre (perfis e cópias de segurança) |
