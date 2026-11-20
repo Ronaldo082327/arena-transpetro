@@ -58,7 +58,11 @@ Três páginas novas, sem build, no mesmo padrão do `index.html`. O visual é c
 | `inteligencia/radar.json` | Fatos da Transpetro com fonte, convergência, mitos × medido, como a banca monta a prova |
 | `anki/baralhos.json` | 2.021 cartões dos 47 baralhos do Ronaldo, gerado por `anki/importar.py` |
 
-Chaves de progresso: `arenaTP.jogo.v1`, `arenaTP.expedicao.v1`, `arenaTP.estudio.v1` e `arenaTP.gemini` (chave do usuário). Nunca reutilize `arenaTP.v2`.
+Chaves de progresso: `arenaTP.jogo.v1`, `arenaTP.expedicao.v1`, `arenaTP.estudio.v1`, `arenaTP.gemini` e `arenaTP.claude` (chaves do usuário; a da Claude guarda também o teto mensal e o gasto estimado) e `arenaTP.ia` (qual IA usar).
+
+**Mente do examinador** (`estudio.html#mt/<disciplina>/<índice>`): método por tópico. Cruza o guia (cobra, pergunta, confunde, macete), o raio-x de `inteligencia/incidencia.json` pelo subitem e as questões de `questoes.json` atribuídas ao tópico por palavra-chave do assunto. Mostra formatos medidos, armadilhas, vizinhos, sinais, método por formato (`FMT`), rascunho e treino filtrado. Amostra menor que 5 aparece como pista, não regra.
+
+**IA**: Gemini ou Claude, escolhida em `#gem`. A Claude é chamada do navegador (`anthropic-dangerous-direct-browser-access`), modelo padrão `claude-opus-5-5`, e o app bloqueia o envio quando o gasto estimado do mês passa do teto definido pelo usuário. Nunca coloque chave no repositório. Nunca reutilize `arenaTP.v2`.
 
 ### Regras de conteúdo da inteligência (validadas com rigor)
 
