@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#071a22"><link rel="manifest" href="manifest.json"><link rel="icon" href="icon-192.png">
-<title>Expedição Cesgranrio</title>
+<title>Dora Expedição · Dora Guilda</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
@@ -177,12 +177,12 @@ mark.trp{background:var(--gold-soft);color:var(--gold);border-radius:4px;padding
 .kbd{font-family:var(--mono);font-size:11px;border:1px solid var(--line);border-radius:4px;padding:0 5px}
 @media (max-width:560px){.gauge{grid-template-columns:1fr;justify-items:start}.port text{font-size:24px}.port text.sub{display:none}.flip .face{font-size:16px}}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.fact{opacity:1;transform:none}}
-</style><link rel="stylesheet" href="tema.css"><script src="tema.js"></script><script src="abrir.js" defer></script></head>
+</style><link rel="stylesheet" href="tema.css"><script src="tema.js"></script><script src="guilda.js"></script><script src="abrir.js" defer></script></head>
 <body>
 <canvas id="sea" aria-hidden="true"></canvas>
 <div class="shell">
 <div class="bridge"><div class="in">
-  <a class="brand" href="#" data-go="mapa"><span class="dot"></span>Expedição Cesgranrio</a>
+  <a class="brand" href="#" data-go="mapa"><span class="dot"></span>Dora Expedição</a>
   <span class="crumbs" id="crumbs"></span>
   <div class="tools"><button id="bVoice" title="Narração do comandante" aria-pressed="false">🔈</button><button id="bSea" title="Som do mar" aria-pressed="false">🌊</button></div>
 </div></div>
@@ -288,7 +288,7 @@ function crumbs(t){$('#crumbs').textContent=t||'';}
 
 /* ---------- Prólogo ---------- */
 function prologo(){crumbs('Prólogo');
-  app.innerHTML='<section class="intro"><div class="eyebrow">Transpetro 2026 · Cesgranrio · Ênfase 5 · 06/12</div><h1>Expedição Cesgranrio</h1><p class="lead type" id="ty"></p><div class="facts" id="facts"></div><div class="row"><button class="primary" id="go">Zarpar ⛴</button><button class="ghost" data-go="t/anatomia">Ler o manual de bordo completo</button></div><p class="note">Dica: ligue a narração 🔈 e o som do mar 🌊 no canto superior. Tudo funciona sem internet depois da primeira visita.</p></section>';
+  app.innerHTML='<section class="intro"><div class="eyebrow">Transpetro 2026 · Cesgranrio · Ênfase 5 · 06/12</div><h1>Dora Expedição</h1><p class="lead type" id="ty"></p><div class="facts" id="facts"></div><div class="row"><button class="primary" id="go">Zarpar ⛴</button><button class="ghost" data-go="t/anatomia">Ler o manual de bordo completo</button></div><p class="note">Dica: ligue a narração 🔈 e o som do mar 🌊 no canto superior. Tudo funciona sem internet depois da primeira visita.</p></section>';
   var txt='Você comanda um petroleiro por dez terminais. Em cada um, a banca esconde o mesmo truque: o distrator é a definição certa de um conceito vizinho. Aprenda como ela pergunta e você responde antes de terminar de ler.';
   var i=0,el=$('#ty');(function tp(){if(!el.isConnected)return;el.textContent=txt.slice(0,i);if(i++<txt.length)setTimeout(tp,matchMedia('(prefers-reduced-motion: reduce)').matches?0:18);else el.classList.remove('type');})();
   var F=[['70','questões, A a E, sem desconto por erro: marque todas'],['25/50','nas específicas para não ser eliminado'],['330','minutos: cerca de 3,5 por questão com folga'],[String(IDX.disciplinas.reduce(function(a,d){return a+d.topicos.length;},0)),'estações de estudo nesta expedição']];
