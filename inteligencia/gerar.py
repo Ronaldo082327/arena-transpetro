@@ -47,6 +47,55 @@ for f in sorted((R/'expedicao').glob('*.json')):
         tp=bool(re.search(r'Transpetro',p));sem=bool(re.search(r'sem precedente',p,re.I))
         lac.append({'slug':o['slug'],'disc':o['nome'],'i':i,'t':re.sub(r'^[\d.]+\s*','',t['t']),'n':n,'tp':tp,'sem':sem})
 out['topicos']=lac
+
+# ---------- heurísticas medidas (cada uma escolhe ou marca alternativas; taxa = acerto) ----------
+import unicodedata
+def nrm(x): return unicodedata.normalize('NFD',x.lower()).encode('ascii','ignore').decode()
+STOP=set('a o e de da do das dos em no na nos nas um uma uns umas que se para por com ao aos as os ou como mais menos sua seu suas seus sao esta este isso essa esse ser foi ha nao entre sobre pela pelo pelas pelos ja'.split())
+def tk(x): return set(w for w in re.findall(r'[a-z0-9]+',nrm(x)) if w not in STOP and len(w)>2)
+def escolhe(nome,f,como,uso):
+    n=h=0
+    for q in Q:
+        k=f(q)
+        if k: n+=1;h+=(k==q['gabarito'])
+    return {'nome':nome,'n':n,'acertos':h,'taxa':round(100*h/n,1) if n else None,'como':como,'uso':uso}
+def unico(sc,fn):
+    m=fn(sc.values());ks=[k for k in sc if sc[k]==m];return ks[0] if len(ks)==1 else None
+H=[]
+H.append(escolhe('Marcar a mais longa',lambda q:max(q['alternativas'],key=lambda k:len(q['alternativas'][k])),'Comprimento da alternativa','não use'))
+H.append(escolhe('Marcar a mais curta',lambda q:min(q['alternativas'],key=lambda k:len(q['alternativas'][k])),'Comprimento da alternativa','não use'))
+def cent(q,fn):
+    T={k:tk(v) for k,v in q['alternativas'].items()};return unico({k:sum(len(T[k]&T[j])/(len(T[k]|T[j]) or 1) for j in T if j!=k) for k in T},fn)
+H.append(escolhe('Marcar a mais parecida com as outras (convergência)',lambda q:cent(q,max),'Palavras em comum com as demais alternativas','não use'))
+H.append(escolhe('Marcar a mais diferente das outras',lambda q:cent(q,min),'Palavras em comum com as demais alternativas','não use'))
+def sov(q,fn):
+    S=tk(q['enunciado']);return unico({k:len(S&tk(v)) for k,v in q['alternativas'].items()},fn)
+H.append(escolhe('Marcar a que mais repete termos do enunciado',lambda q:sov(q,max),'Termos do enunciado na alternativa','sinal fraco'))
+H.append(escolhe('A que menos repete termos do enunciado (para ELIMINAR)',lambda q:sov(q,min),'Alternativa que foge do vocabulário do enunciado','eliminar'))
+ANT=[('aumenta','diminui'),('aumentar','diminuir'),('maior','menor'),('antes','depois'),('permite','impede'),('normalizado','desnormalizado'),('sincrono','assincrono'),('simetrica','assimetrica'),('publica','privada'),('interno','externo'),('verificacao','validacao'),('eficacia','eficiencia'),('total','parcial'),('ativo','passivo'),('estatico','dinamico'),('estatica','dinamica'),('qualitativa','quantitativa'),('entrada','saida'),('detecta','bloqueia'),('fisico','logico'),('dependente','independente'),('alta','baixa'),('positiva','negativa'),('verdadeira','falsa'),('controlador','operador'),('cliente','servidor')]
+def espelho(q):
+    al={k:nrm(v) for k,v in q['alternativas'].items()};ks=list(al);ps=set()
+    for i in range(5):
+        for j in range(i+1,5):
+            a,b=al[ks[i]],al[ks[j]]
+            for x,y in ANT:
+                if (re.search(r'\b'+x+r'\b',a) and re.search(r'\b'+y+r'\b',b)) or (re.search(r'\b'+y+r'\b',a) and re.search(r'\b'+x+r'\b',b)):
+                    if len(tk(a)&tk(b))/(len(tk(a)|tk(b)) or 1)>=.4: ps.add((ks[i],ks[j]))
+    return ps
+n=h=0;ex=[]
+for q in Q:
+    ps=espelho(q)
+    if ps:
+        n+=1;ok=any(q['gabarito'] in p for p in ps);h+=ok
+        if len(ex)<8: ex.append(q['id'])
+H.append({'nome':'Par espelho por antônimo: o gabarito está no par','n':n,'acertos':h,'taxa':round(100*h/n,1) if n else None,'base':40,'como':'Duas alternativas quase iguais trocando um antônimo (aumenta/diminui, detecta/bloqueia, total/parcial)','uso':'concentrar','exemplos':ex})
+out['heuristicas']=H
+ABS=r'\b(exclusivamente|necessariamente|obrigatoriamente|nunca|jamais|qualquer|sempre|somente|apenas|unicamente)\b'
+pd=collections.defaultdict(lambda:[0,0])
+for q in Q:
+    for k,v in q['alternativas'].items():
+        if re.search(ABS,v,re.I): pd[q['disc']][0]+=1;pd[q['disc']][1]+=(k==q['gabarito'])
+out['absPorDisc']=[{'disc':DL.get(d,d),'alts':t,'certas':c,'taxa':round(100*c/t,1)} for d,(t,c) in sorted(pd.items(),key=lambda x:x[1][1]/max(1,x[1][0]))]
 json.dump(out,open(R/'inteligencia'/'padroes.json','w'),ensure_ascii=False,indent=1)
 print(N,len(lac))
 for k,v in out['palavras'].items(): print(k,v)

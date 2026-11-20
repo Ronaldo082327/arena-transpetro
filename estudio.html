@@ -329,13 +329,23 @@ mark.sg{border-radius:4px;padding:0 3px} mark.sg.bad{background:var(--bad-soft);
 .galt.ok{border-color:var(--ok);background:var(--ok-soft)} .galt.bad{border-color:var(--bad);background:var(--bad-soft)} .galt.dim{opacity:.55}
 @media (max-width:900px){.geo-grid{grid-template-columns:1fr}.geo-panel{max-height:none}.convrow{grid-template-columns:1fr}.convrow .arrowr{transform:rotate(90deg)}.force{justify-items:start}}
 @media (max-width:560px){.sigrow{grid-template-columns:1fr 64px}.sigrow .sigbar{grid-column:1/-1;grid-row:2}}
+
+.timer2{height:6px;border-radius:99px;background:var(--line);overflow:hidden;margin:10px 0}
+.timer2 i{display:block;height:100%;width:100%;background:linear-gradient(90deg,var(--accent),#f2a066);border-radius:99px}
+.defcard{font-size:18px;line-height:1.5;background:linear-gradient(180deg,#fffdf9,var(--paper));border:1px solid var(--line);border-radius:14px;padding:14px 16px;box-shadow:var(--shadow);margin:6px 0 12px}
+.optgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:8px}
+.optgrid.two{grid-template-columns:1fr 1fr}.optgrid.one{grid-template-columns:1fr}
+.opt{padding:14px;font-size:15px;text-align:left;border-radius:12px;box-shadow:var(--shadow)}
+.opt.ok{border-color:var(--ok);background:var(--ok-soft)}.opt.bad{border-color:var(--bad);background:var(--bad-soft)}.opt.dim{opacity:.5}
+.opt.cut{opacity:.45}.opt.cut .t{text-decoration:line-through}
+.opt.mirror{outline:2px dashed var(--accent);outline-offset:2px}
 @media (max-width:560px){.vitem{grid-template-columns:56px 1fr}.vitem .d{grid-column:2}.thumb{width:56px}.duels,.lists{grid-template-columns:1fr}.controls .hide-sm{display:none}}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
 </style></head>
 <body>
 <div class="top"><div class="in">
   <a class="brand" href="#">🎬 Estúdio Cesgranrio</a>
-  <nav aria-label="Áreas"><a href="#v" data-nav="v">Videoaulas</a><a href="#met" data-nav="met">Métodos</a><a href="#mm" data-nav="mm">Mapas mentais</a><a href="#esq" data-nav="esq">Esquemas</a><a href="#geo" data-nav="geo">🗺️ Mapa Transpetro</a><a href="#lab" data-nav="lab">🔬 Laboratório</a><a href="#radar" data-nav="radar">📡 Radar</a><a href="#fc" data-nav="fc">Flashcards</a><a href="#gem" data-nav="gem">✨ Gemini</a><a href="expedicao.html">🚢 Expedição</a><a href="jogo.html">⚡ Relâmpago</a></nav>
+  <nav aria-label="Áreas"><a href="#v" data-nav="v">Videoaulas</a><a href="#met" data-nav="met">Métodos</a><a href="#mm" data-nav="mm">Mapas mentais</a><a href="#esq" data-nav="esq">Esquemas</a><a href="#ref" data-nav="ref">⚡ Reflexo</a><a href="#geo" data-nav="geo">🗺️ Mapa Transpetro</a><a href="#lab" data-nav="lab">🔬 Laboratório</a><a href="#radar" data-nav="radar">📡 Radar</a><a href="#fc" data-nav="fc">Flashcards</a><a href="#gem" data-nav="gem">✨ Gemini</a><a href="expedicao.html">🚢 Expedição</a><a href="jogo.html">⚡ Relâmpago</a></nav>
 </div></div>
 <div class="wrap"><main id="app" aria-live="polite"><p class="note" style="padding:40px 0">Abrindo o estúdio…</p></main></div>
 <div class="toast" id="toast" role="status"></div>
@@ -519,6 +529,7 @@ function home(){nav('');var D=IDX.disciplinas,nt=D.reduce(function(a,d){return a
   card('met','🧭','Métodos de resolução',nf+' fluxogramas: como reconhecer, o passo a passo e o erro típico de cada formato de questão.','um por tipo de questão')+
   card('mm','🧠','Mapas mentais','A prova inteira e cada disciplina em mapas que se expandem: o que cobra, como pergunta, onde confunde, macete.','arraste, amplie, baixe')+
   card('esq','🗺️','Esquemas','Duelos "X × Y" que a banca troca, listas que precisam estar decoradas e o checklist de véspera.','duelos, listas, véspera')+
+  card('ref','⚡','Reflexo Cesgranrio','Treinos cronometrados: de quem é esta definição (vizinho), este sinal elimina ou não, e eliminar uma questão real em 30 segundos.','reconhecer em segundos')+
   card('geo','🗺️','Mapa Transpetro','Cada disciplina num terminal real da empresa, com satélite do Google Maps, pegadinhas e a rota do dia pelos seus pontos fracos.','imersão geográfica')+
   card('lab','🔬','Laboratório da Banca','Padrões medidos em 1.000 questões: palavras que nunca são gabarito, mitos derrubados, tendências e lacunas.','dados, não palpite')+
   card('radar','📡','Radar Transpetro','Estratégia e tecnologia da empresa cruzadas com o que a banca passou a cobrar mais.','matriz de convergência')+
@@ -765,9 +776,79 @@ function gemini(){nav('gem');var c=gcfg();
       gcall(ask+' Use apenas o material abaixo; se algo não estiver nele, diga "não consta no guia".\n\nMATERIAL:\n'+ctx).then(function(txt){out.innerHTML='<div class="panel">'+md(txt)+'<p class="note">Texto gerado pelo Gemini a partir do seu guia.</p></div>';}).catch(function(e){out.innerHTML='<p class="note">Erro do Gemini: '+esc(e.message)+'</p>';});}});};
   $('#gq').onclick=function(){run('q');};$('#ge').onclick=function(){run('e');};$('#gp2').onclick=function(){run('p');};}
 
+/* ===================== REFLEXO CESGRANRIO ===================== */
+var QB=null;function loadQB(){return QB?Promise.resolve(QB):getJ('questoes.json').then(function(q){QB=q.filter(function(x){return x.gabarito&&x.alternativas&&Object.keys(x.alternativas).length===5;});return QB;});}
+var RSIG=[[/\b(exclusivamente)\b/i,'exclusivamente','x'],[/\b(necessariamente|obrigatoriamente)\b/i,'necessariamente/obrigatoriamente','x'],[/\b(nunca|jamais)\b/i,'nunca/jamais','x'],[/\b(qualquer)\b/i,'qualquer','x'],[/\b(sempre)\b/i,'sempre','x'],[/\b(somente|apenas|unicamente)\b/i,'somente/apenas/unicamente','x'],[/\b(nenhuma?)\b/i,'nenhum(a)','k'],[/\b(pode|podem|poderá|poderão|possível)\b/i,'pode/podem/poderá','k'],[/\b(geralmente|em regra|normalmente|tipicamente|frequentemente)\b/i,'geralmente/em regra/normalmente','k']];
+var RANT=[['aumenta','diminui'],['aumentar','diminuir'],['maior','menor'],['antes','depois'],['permite','impede'],['normalizado','desnormalizado'],['síncrono','assíncrono'],['simétrica','assimétrica'],['pública','privada'],['interno','externo'],['verificação','validação'],['eficácia','eficiência'],['total','parcial'],['ativo','passivo'],['estático','dinâmico'],['estática','dinâmica'],['qualitativa','quantitativa'],['entrada','saída'],['detecta','bloqueia'],['físico','lógico'],['dependente','independente'],['alta','baixa'],['positiva','negativa'],['verdadeira','falsa'],['controlador','operador'],['cliente','servidor']];
+function sigOf(v){for(var i=0;i<RSIG.length;i++){var m=v.match(RSIG[i][0]);if(m)return {w:m[0],k:RSIG[i][1],acao:RSIG[i][2]};}return null;}
+function hlSig(v){var h=esc(v);RSIG.forEach(function(s){h=h.replace(new RegExp(s[0].source,'gi'),function(m){return '<mark class="sg '+(s[2]==='x'?'bad':'ok')+'">'+m+'</mark>';});});return h;}
+function mirrorPairs(al){var ks=Object.keys(al),out=[];for(var i=0;i<5;i++)for(var j=i+1;j<5;j++){var a=al[ks[i]].toLowerCase(),b=al[ks[j]].toLowerCase();RANT.forEach(function(p){var re1=new RegExp('(^|[^a-zà-ú])'+p[0]+'([^a-zà-ú]|$)'),re2=new RegExp('(^|[^a-zà-ú])'+p[1]+'([^a-zà-ú]|$)');if((re1.test(a)&&re2.test(b))||(re2.test(a)&&re1.test(b)))out.push([ks[i],ks[j],p.join('/')]);});}return out;}
+function rstat(k){S.reflexo=S.reflexo||{};return S.reflexo[k]||(S.reflexo[k]={n:0,ok:0,ms:0,best:0});}
+function reflexo(){nav('ref');loadInt().then(function(I){var P=I.p,R=['vizinho','sinal','elimina'].map(rstat);
+  var H=P.heuristicas||[];
+  app.innerHTML='<header class="hero"><div class="eyebrow">Reflexo Cesgranrio</div><h2>Reconhecer em segundos</h2><p class="note" style="max-width:72ch">Treinos curtos e cronometrados para transformar os padrões medidos da banca em reflexo. A meta é bater o olho e saber: <b>de quem é esta definição</b>, <b>este sinal elimina ou não</b>, <b>onde está o par espelho</b>.</p></header>'+
+  '<div class="grid">'+
+  '<button class="card big" data-href="ref/vizinho"><span class="ic">🎯</span><h3>Vizinho em 6 s</h3><p class="note">A Cesgranrio põe a definição certa de um conceito vizinho como distrator. Veja a definição e diga de quem ela é.</p><span class="tag">'+R[0].ok+'/'+R[0].n+' · recorde '+R[0].best+'</span></button>'+
+  '<button class="card big" data-href="ref/sinal"><span class="ic">🚦</span><h3>Caça-sinal em 4 s</h3><p class="note">Alternativas reais da banca. Elimina pelo sinal ou decide pelo conteúdo? O feedback mostra a taxa medida.</p><span class="tag">'+R[1].ok+'/'+R[1].n+' · recorde '+R[1].best+'</span></button>'+
+  '<button class="card big" data-href="ref/elimina"><span class="ic">✂️</span><h3>Elimina em 30 s</h3><p class="note">Questão real com cronômetro: risque as erradas e marque. No fim, os sinais e o par espelho acendem.</p><span class="tag">'+R[2].ok+'/'+R[2].n+' · recorde '+R[2].best+'</span></button>'+
+  '</div>'+
+  '<section class="panel"><h3>📋 Checklist de 6 segundos (medido)</h3><ol class="mini" style="font-size:15px">'+
+  '<li><b>Absoluto forte?</b> "exclusivamente", "necessariamente", "nunca", "qualquer": <b>0 de 46</b> foram gabarito. Elimine (salvo lei ou norma literal).</li>'+
+  '<li><b>"Sempre" ou "somente/apenas"?</b> 1 de 28 e 11%. Vale até no fim de enumeração ("I e III, apenas": 8,6%). Quase sempre elimina.</li>'+
+  '<li><b>"Nenhum", "pode", "em regra"?</b> 60%, 25% e 50%: <b>não</b> elimine por isso.</li>'+
+  '<li><b>Par espelho?</b> Duas alternativas iguais trocando um antônimo: o gabarito está no par em '+((H.find(function(h){return /espelho/.test(h.nome);})||{}).taxa||75)+'% das vezes (acaso 40%).</li>'+
+  '<li><b>Fugiu do vocabulário do enunciado?</b> A alternativa que menos repete os termos do enunciado acerta só 11,6%.</li>'+
+  '<li><b>Ainda empatou?</b> Pergunte: "esta é a definição de qual vizinho?". É ali que a Cesgranrio decide.</li></ol></section>'+
+  '<section class="panel"><h3>🧪 O que funciona × o que não funciona</h3><p class="note">Cada heurística aplicada às '+P.n+' questões. Acaso = 20%.</p><div class="sig" style="margin-top:10px">'+H.map(function(h){var t=h.taxa||0,base=h.base||20,col=h.uso==='não use'?'var(--muted)':(t>base?'var(--ok)':'var(--bad)');return '<div class="sigrow"><span>'+esc(h.nome)+' <span class="note">· '+esc(h.uso)+'</span></span><span class="sigbar"><i style="width:'+Math.min(100,t)+'%;background:'+col+'"></i><em style="left:'+base+'%"></em></span><span class="mono">'+t+'% <span class="note">n='+h.n+'</span></span></div>';}).join('')+'</div>'+
+  '<h4 style="margin-top:14px">Absolutos por disciplina</h4><div class="sig">'+(P.absPorDisc||[]).map(function(d){return '<div class="sigrow"><span>'+esc(d.disc)+'</span><span class="sigbar"><i style="width:'+Math.min(100,d.taxa*3)+'%;background:var(--bad)"></i><em style="left:60%"></em></span><span class="mono">'+d.taxa+'% <span class="note">'+d.certas+'/'+d.alts+'</span></span></div>';}).join('')+'</div><p class="note" style="margin-top:8px">Lição: truques de superfície (tamanho, semelhança) não vencem a Cesgranrio. O que vence é o sinal de absoluto, o par espelho e, acima de tudo, conhecer o conceito vizinho.</p></section>';});}
+function timerBar(sec,onEnd){var el=$('#tb'),t0=performance.now(),dead=false;(function f(){if(dead||!el.isConnected)return;var p=Math.min(1,(performance.now()-t0)/(sec*1000));el.style.width=(100-100*p)+'%';if(p>=1){dead=true;onEnd();}else requestAnimationFrame(f);})();return {stop:function(){dead=true;},ms:function(){return performance.now()-t0;}};}
+function drillShell(t,sub){return '<header class="hero"><div class="spread"><div class="eyebrow">Reflexo Cesgranrio</div><button class="ghost" data-href="ref">← Treinos</button></div><h2>'+t+'</h2><p class="note">'+sub+'</p></header><div class="panel" id="dz"></div>';}
+function endDrill(key,ok,n,ms){var st=rstat(key);st.n+=n;st.ok+=ok;st.ms=Math.round(ms/Math.max(1,n));if(ok>st.best)st.best=ok;save();xp(ok*2);
+  $('#dz').innerHTML='<h3>'+ok+' de '+n+'</h3><p class="note" style="margin-top:6px">Tempo médio de reconhecimento: '+(ms/Math.max(1,n)/1000).toFixed(1)+' s. +'+(ok*2)+' XP.</p><div class="row" style="margin-top:12px"><button class="primary" data-href="ref/'+key+'" id="again">De novo</button><button data-href="ref">Outros treinos</button></div>';
+  $('#again').onclick=function(e){e.preventDefault();e.stopPropagation();route();};}
+function drillVizinho(){nav('ref');app.innerHTML=drillShell('🎯 Vizinho em 6 s','Leia a definição e toque no conceito dono dela. Os outros botões são exatamente os vizinhos que a banca usa como distrator.');
+  loadAll().then(function(){var items=[];IDX.disciplinas.forEach(function(d){(DISC[d.slug].duelos||[]).forEach(function(du){if(du.dist.length===du.lados.length&&du.lados.length>1)du.lados.forEach(function(l,i){if(du.dist[i].length>6)items.push({s:d.slug,def:du.dist[i],ok:l,opts:du.lados,src:du.src});});});});
+    var list=shuffle(items).slice(0,15),i=0,ok=0,tot=0,lock=false;
+    function step(){if(i>=list.length)return endDrill('vizinho',ok,list.length,tot);var it=list[i];lock=false;
+      $('#dz').innerHTML='<div class="spread"><span class="mono note">'+(i+1)+'/'+list.length+' · '+ICON[it.s]+' '+esc(dname(it.s))+'</span><span class="mono">'+ok+' ✓</span></div><div class="timer2"><i id="tb"></i></div><p class="defcard">'+inline(it.def)+'</p><div class="optgrid">'+shuffle(it.opts).map(function(o){return '<button class="opt" data-o="'+esc(o)+'">'+inline(o)+'</button>';}).join('')+'</div><div id="fbv"></div>';
+      var T=timerBar(6,function(){answer(null);});
+      function answer(o){if(lock)return;lock=true;T.stop();var ms=Math.min(6000,T.ms());tot+=ms;var right=o===it.ok;if(right)ok++;
+        $$('.opt').forEach(function(b){b.disabled=true;b.classList.add(b.dataset.o===it.ok?'ok':(b.dataset.o===o?'bad':'dim'));});
+        $('#fbv').innerHTML='<p class="note" style="margin-top:10px">'+(o===null?'⏱ Tempo esgotado. ':'')+(right?'✓ '+(ms/1000).toFixed(1)+' s':'É de <b>'+inline(it.ok)+'</b>.')+(it.src?' · '+inline(it.src):'')+'</p>';
+        setTimeout(function(){i++;step();},right?700:1900);}
+      $$('.opt').forEach(function(b){b.onclick=function(){answer(b.dataset.o);};});}
+    step();});}
+function drillSinal(){nav('ref');app.innerHTML=drillShell('🚦 Caça-sinal em 4 s','Uma alternativa real da Cesgranrio. Decida rápido: eliminar pelo sinal, ou não há sinal confiável e é preciso decidir pelo conteúdo?');
+  Promise.all([loadQB(),loadInt()]).then(function(){var P=INT.p.palavras,pool=[];QB.forEach(function(q){Object.keys(q.alternativas).forEach(function(k){var v=q.alternativas[k],s=sigOf(v);if(v.length<240&&v.length>=30)pool.push({v:v,s:s,gab:k===q.gabarito,q:q});});});
+    var withS=shuffle(pool.filter(function(x){return x.s;})).slice(0,9),noS=shuffle(pool.filter(function(x){return !x.s;})).slice(0,3),list=shuffle(withS.concat(noS)),i=0,ok=0,tot=0,lock=false;
+    function step(){if(i>=list.length)return endDrill('sinal',ok,list.length,tot);var it=list[i];lock=false;
+      $('#dz').innerHTML='<div class="spread"><span class="mono note">'+(i+1)+'/'+list.length+' · '+esc(it.q.concurso.split('/')[0])+' '+it.q.ano+'</span><span class="mono">'+ok+' ✓</span></div><div class="timer2"><i id="tb"></i></div><p class="defcard">'+esc(it.v)+'</p><div class="optgrid two"><button class="opt" data-a="x">✂️ Eliminar pelo sinal</button><button class="opt" data-a="k">🧠 Decidir pelo conteúdo</button></div><div id="fbv"></div>';
+      var T=timerBar(4,function(){answer(null);});
+      function answer(a){if(lock)return;lock=true;T.stop();var ms=Math.min(4000,T.ms());tot+=ms;var corr=it.s&&it.s.acao==='x'?'x':'k';var right=a===corr;if(right)ok++;
+        $$('.opt').forEach(function(b){b.disabled=true;b.classList.add(b.dataset.a===corr?'ok':(b.dataset.a===a?'bad':'dim'));});
+        var rate=it.s?P[it.s.k]:null;
+        $('#fbv').innerHTML='<p class="defcard" style="margin-top:10px;font-size:15px">'+hlSig(it.v)+'</p><p class="note">'+(it.s?'Sinal: <b>'+esc(it.s.w)+'</b> → gabarito em '+rate.taxa+'% das '+rate.alts+' vezes. ':'Sem palavra-sinal: só o conteúdo decide. ')+'Nesta questão ela '+(it.gab?'<b style="color:var(--ok)">era o gabarito</b>':'<b style="color:var(--bad)">não era o gabarito</b>')+'.</p><div class="row"><button class="primary" id="nx2">Próxima →</button></div>';
+        $('#nx2').onclick=function(){i++;step();};$('#nx2').focus({preventScroll:true});}
+      $$('.opt').forEach(function(b){b.onclick=function(){answer(b.dataset.a);};});}
+    step();});}
+function drillElimina(){nav('ref');app.innerHTML=drillShell('✂️ Elimina em 30 s','Toque para riscar as erradas. Quando sobrar a sua resposta, toque em "Marcar". Riscar o gabarito custa caro.');
+  Promise.all([loadQB(),loadInt()]).then(function(){var list=shuffle(QB.filter(function(q){return q.enunciado.length<700;})).slice(0,6),i=0,ok=0,tot=0;
+    function step(){if(i>=list.length)return endDrill('elimina',ok,list.length,tot);var q=list[i],cut={},done=false;
+      $('#dz').innerHTML='<div class="spread"><span class="mono note">'+(i+1)+'/'+list.length+' · '+esc(q.concurso.split('/')[0])+' '+q.ano+' · '+esc(q.assunto.replace(/^TI - [^-]+ - /,''))+'</span><span class="mono">'+ok+' ✓</span></div><div class="timer2"><i id="tb"></i></div><p style="white-space:pre-line;margin:10px 0;max-height:34vh;overflow:auto">'+esc(q.enunciado)+'</p><div class="optgrid one">'+'ABCDE'.split('').map(function(k){return '<button class="opt elim" data-k="'+k+'"><b>'+k+'</b> <span class="t">'+esc(q.alternativas[k])+'</span></button>';}).join('')+'</div><div class="row" style="margin-top:10px"><button class="primary" id="mk" disabled>Marcar a que sobrou</button><span class="note" id="left">Risque até sobrar uma.</span></div><div id="fbv"></div>';
+      var T=timerBar(30,function(){finish(null);});
+      function rem(){return 'ABCDE'.split('').filter(function(k){return !cut[k];});}
+      $$('.opt.elim').forEach(function(b){b.onclick=function(){if(done)return;var k=b.dataset.k;if(rem().length===1&&!cut[k])return;cut[k]=!cut[k];b.classList.toggle('cut',!!cut[k]);var r=rem();$('#mk').disabled=r.length!==1;$('#left').textContent=r.length===1?'Sobrou '+r[0]+'.':r.length+' restantes.';};});
+      $('#mk').onclick=function(){finish(rem()[0]);};
+      function finish(pick){if(done)return;done=true;T.stop();var ms=Math.min(30000,T.ms());tot+=ms;var right=pick===q.gabarito;if(right)ok++;var mp=mirrorPairs(q.alternativas);
+        $$('.opt.elim').forEach(function(b){var k=b.dataset.k;b.disabled=true;$('.t',b).innerHTML=hlSig(q.alternativas[k]);if(k===q.gabarito)b.classList.add('ok');else if(k===pick)b.classList.add('bad');if(mp.some(function(p){return p[0]===k||p[1]===k;}))b.classList.add('mirror');});
+        var cutG=cut[q.gabarito];
+        $('#fbv').innerHTML='<p class="note" style="margin-top:10px">'+(pick===null?'⏱ Tempo esgotado. ':'')+(right?'✓ Certo em '+(ms/1000).toFixed(0)+' s. ':'Gabarito: <b>'+q.gabarito+'</b>. ')+(cutG?'⚠️ Você riscou o gabarito: reveja o conceito antes de confiar na eliminação. ':'')+(mp.length?'🪞 Par espelho: '+mp.map(function(p){return p[0]+' × '+p[1]+' ('+p[2]+')';}).join(', ')+(mp.some(function(p){return p[0]===q.gabarito||p[1]===q.gabarito;})?' · o gabarito estava no par.':' · desta vez o gabarito estava fora do par.'):'')+'</p><div class="row"><button class="primary" id="nx2">Próxima →</button></div>';
+        $('#nx2').onclick=function(){i++;step();};}}
+    step();});}
+
 /* ===================== ROTAS E TECLADO ===================== */
 function route(){var h=decodeURIComponent(location.hash.slice(1)).split('/');stopPlayer();session.key=null;window.scrollTo(0,0);
-  switch(h[0]){case 'v':return videoteca(h[1]);case 'play':return play(h[1],h[2],+h[3]||0);case 'met':return metodos(h[1]);case 'mm':return mapa(h[1]);case 'esq':return esquemas(h[1],h[2]);case 'fc':return flash();case 'geo':return geo();case 'lab':return lab();case 'radar':return radar();case 'gem':return gemini();default:return home();}}
+  switch(h[0]){case 'v':return videoteca(h[1]);case 'play':return play(h[1],h[2],+h[3]||0);case 'met':return metodos(h[1]);case 'mm':return mapa(h[1]);case 'esq':return esquemas(h[1],h[2]);case 'fc':return flash();case 'ref':return h[1]==='vizinho'?drillVizinho():(h[1]==='sinal'?drillSinal():(h[1]==='elimina'?drillElimina():reflexo()));case 'geo':return geo();case 'lab':return lab();case 'radar':return radar();case 'gem':return gemini();default:return home();}}
 addEventListener('hashchange',route);
 document.addEventListener('keydown',function(e){if(e.metaKey||e.ctrlKey||e.altKey||/INPUT|SELECT|TEXTAREA/.test(e.target.tagName))return;
   if(P){if(e.key===' '){e.preventDefault();P.toggle();}else if(e.key==='ArrowRight'){e.preventDefault();P.seekCue(Math.min(P.b.cues.length-1,P.i+1));}else if(e.key==='ArrowLeft'){e.preventDefault();P.seekCue(Math.max(0,P.i-1));}else if(e.key==='f'||e.key==='F'){var r=P.root;if(document.fullscreenElement)document.exitFullscreen();else if(r.requestFullscreen)r.requestFullscreen();}return;}

@@ -128,15 +128,15 @@
     "pp": 0.92
    },
    {
-    "disc": "Segurança",
-    "assunto": "Engenharia Social e Phishing",
+    "disc": "BI e Ciência de Dados",
+    "assunto": "Governança e Qualidade de Dados (DAMA-DMBOK e Conceitos Relacionados)",
     "antes": 0,
     "depois": 5,
     "pp": 0.85
    },
    {
     "disc": "BI e Ciência de Dados",
-    "assunto": "Governança e Qualidade de Dados (DAMA-DMBOK e Conceitos Relacionados)",
+    "assunto": "Redes Neurais",
     "antes": 0,
     "depois": 5,
     "pp": 0.85
@@ -156,8 +156,8 @@
     "pp": 0.85
    },
    {
-    "disc": "BI e Ciência de Dados",
-    "assunto": "Redes Neurais",
+    "disc": "Segurança",
+    "assunto": "Engenharia Social e Phishing",
     "antes": 0,
     "depois": 5,
     "pp": 0.85
@@ -1384,6 +1384,113 @@
    "n": 0,
    "tp": false,
    "sem": true
+  }
+ ],
+ "heuristicas": [
+  {
+   "nome": "Marcar a mais longa",
+   "n": 1000,
+   "acertos": 221,
+   "taxa": 22.1,
+   "como": "Comprimento da alternativa",
+   "uso": "não use"
+  },
+  {
+   "nome": "Marcar a mais curta",
+   "n": 1000,
+   "acertos": 199,
+   "taxa": 19.9,
+   "como": "Comprimento da alternativa",
+   "uso": "não use"
+  },
+  {
+   "nome": "Marcar a mais parecida com as outras (convergência)",
+   "n": 384,
+   "acertos": 79,
+   "taxa": 20.6,
+   "como": "Palavras em comum com as demais alternativas",
+   "uso": "não use"
+  },
+  {
+   "nome": "Marcar a mais diferente das outras",
+   "n": 459,
+   "acertos": 80,
+   "taxa": 17.4,
+   "como": "Palavras em comum com as demais alternativas",
+   "uso": "não use"
+  },
+  {
+   "nome": "Marcar a que mais repete termos do enunciado",
+   "n": 239,
+   "acertos": 57,
+   "taxa": 23.8,
+   "como": "Termos do enunciado na alternativa",
+   "uso": "sinal fraco"
+  },
+  {
+   "nome": "A que menos repete termos do enunciado (para ELIMINAR)",
+   "n": 129,
+   "acertos": 15,
+   "taxa": 11.6,
+   "como": "Alternativa que foge do vocabulário do enunciado",
+   "uso": "eliminar"
+  },
+  {
+   "nome": "Par espelho por antônimo: o gabarito está no par",
+   "n": 16,
+   "acertos": 13,
+   "taxa": 81.2,
+   "base": 40,
+   "como": "Duas alternativas quase iguais trocando um antônimo (aumenta/diminui, detecta/bloqueia, total/parcial)",
+   "uso": "concentrar",
+   "exemplos": [
+    "2694739",
+    "634012",
+    "2696023",
+    "1721035",
+    "2838606",
+    "2695425",
+    "2779792",
+    "2695542"
+   ]
+  }
+ ],
+ "absPorDisc": [
+  {
+   "disc": "BI e Ciência de Dados",
+   "alts": 51,
+   "certas": 1,
+   "taxa": 2.0
+  },
+  {
+   "disc": "Governança",
+   "alts": 22,
+   "certas": 1,
+   "taxa": 4.5
+  },
+  {
+   "disc": "Segurança",
+   "alts": 36,
+   "certas": 3,
+   "taxa": 8.3
+  },
+  {
+   "disc": "Dados",
+   "alts": 53,
+   "certas": 5,
+   "taxa": 9.4
+  },
+  {
+   "disc": "Projetos",
+   "alts": 20,
+   "certas": 2,
+   "taxa": 10.0
+  },
+  {
+   "disc": "Eng. Software e UX",
+   "alts": 24,
+   "certas": 4,
+   "taxa": 16.7
   }
  ]
 }
