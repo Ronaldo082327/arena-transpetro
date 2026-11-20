@@ -1,9 +1,9 @@
 // Service worker do Doroxandria: abre offline e atualiza em segundo plano.
-const CACHE = 'arena-202611210200';
+const CACHE = 'arena-202611210300';
 const SHELL = ['./', 'index.html', 'manifest.json', 'icon-192.png', 'icon-512.png',
   'questoes.json', 'cards.json', 'banca.json', 'videos.json', 'links.json',
   'cadernos.json', 'biblioteca.json', 'concursos/indice.json', 'concursos/transpetro-2026-enfase5.json', 'jogo.html', 'macetes.json',
-  'expedicao.html', 'estudio.html', 'tema.css', 'tema.js', 'inteligencia/padroes.json', 'anki/baralhos.json', 'ingles/textos.json', 'inteligencia/incidencia.json', 'inteligencia/radar.json', 'expedicao/indice.json', 'expedicao/portugues.json', 'expedicao/ingles.json', 'expedicao/dados.json', 'expedicao/projetos.json',
+  'expedicao.html', 'estudio.html', 'tema.css', 'tema.js', 'abrir.js', 'inteligencia/padroes.json', 'anki/baralhos.json', 'ingles/textos.json', 'inteligencia/incidencia.json', 'inteligencia/radar.json', 'expedicao/indice.json', 'expedicao/portugues.json', 'expedicao/ingles.json', 'expedicao/dados.json', 'expedicao/projetos.json',
   'expedicao/governanca.json', 'expedicao/engsoft.json', 'expedicao/ux.json', 'expedicao/bi.json', 'expedicao/logica.json', 'expedicao/seguranca.json'];
 self.addEventListener('install', e => {
   e.waitUntil(caches.open(CACHE).then(c => c.addAll(SHELL.map(u => new Request(u, {cache: 'reload'})))).then(() => self.skipWaiting()));
