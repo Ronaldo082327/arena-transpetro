@@ -11,3 +11,9 @@ Dados: `questoes.json`, `cards.json`, `banca.json`, `videos.json`, `links.json`.
 ## Arena Relâmpago (`jogo.html`)
 
 Revisão gamificada que usa os mesmos dados: Missão do dia (pontos fracos), Relâmpago de 5 minutos com combo, Chefão por disciplina, flashcards em 5 caixas, Caça-armadilha (`banca.json`) e 40 macetes (`macetes.json`). XP, níveis, sequência de dias e conquistas ficam em `localStorage` na chave `arenaTP.jogo.v1`, separada do `arenaTP.v2`.
+
+## Expedição Cesgranrio (`expedicao.html`)
+
+Experiência imersiva de aprendizagem: uma viagem noturna de petroleiro por 10 terminais (disciplinas) e 115 estações (subitens do edital). Cada estação percorre Radar (peso no caderno e se já caiu na Transpetro), O que a banca cobra, Como ela pergunta, Onde ela confunde, Macete, Questões comentadas interativas, Cartões e um Desafio com questão real de `questoes.json`. Cada terminal também tem Radar da banca, Formatos de questão (com procedimento passo a passo), Pares e pegadinhas, Decorar e Véspera. Narração em voz (pt-BR) e som do mar opcionais.
+
+O conteúdo vem dos guias em `guias/`. Depois de editar um guia, rode `python3 expedicao/gerar.py` para regenerar `expedicao/*.json`. O progresso fica em `arenaTP.expedicao.v1`, e o XP ganho entra no Arena Relâmpago (`arenaTP.jogo.v1`).

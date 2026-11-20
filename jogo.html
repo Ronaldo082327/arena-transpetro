@@ -223,6 +223,7 @@ VIEWS.hub=function(){
   mode('cards','🃏','Flashcards','Revisão espaçada em 5 caixas. Errou, volta para a 1.',due+' para revisar hoje')+
   mode('armadilha','🕵️','Caça-armadilha','A banca preparou a pegadinha. Escolha como desarmar.',(S.armOk||0)+' desarmadas')+
   mode('macetes','🧠','Macetes','Mnemônicos para as listas que a banca adora cobrar.',MAC.filter(function(m){return S.mac[m.id]&&S.mac[m.id].ok;}).length+'/'+MAC.length+' dominados')+
+  mode('expedicao','🚢','Expedição Cesgranrio','Aprenda tópico a tópico como a banca cobra: radar, falas da banca, zona de risco, macete e questões comentadas.','115 estações')+
   mode('placar','📊','Placar','Acerto por disciplina, conquistas e backup do progresso.',Object.keys(S.ach).length+'/'+ACH.length+' conquistas')+
   '</div><p class="note" style="margin-top:18px">Atalhos: <span class="kbd">A</span>–<span class="kbd">E</span> respondem, <span class="kbd">Espaço</span> vira o card, <span class="kbd">1</span>–<span class="kbd">3</span> avaliam, <span class="kbd">Enter</span> avança. <a href="index.html">Voltar ao Arena completo</a>.</p>';
 };
@@ -372,7 +373,7 @@ VIEWS.placar=function(){
 };
 
 /* ---------- Navegação e teclado ---------- */
-document.addEventListener('click',function(e){var g=e.target.closest('[data-go]');if(!g)return;e.preventDefault();cur=null;var a=g.getAttribute('data-arg');go(g.dataset.go,a===null?undefined:a);});
+document.addEventListener('click',function(e){var g=e.target.closest('[data-go]');if(!g)return;e.preventDefault();if(g.dataset.go==='expedicao'){location.href='expedicao.html';return;}cur=null;var a=g.getAttribute('data-arg');go(g.dataset.go,a===null?undefined:a);});
 document.addEventListener('keydown',function(e){if(e.target.tagName==='SELECT'||e.metaKey||e.ctrlKey||e.altKey)return;var k=e.key.toUpperCase();
   var box=$('#alts');if(box&&!box.classList.contains('locked')&&/^[A-E]$/.test(k)){var b=box.querySelector('.alt[data-k="'+k+'"]');if(b){e.preventDefault();b.click();}return;}
   if(e.key==='Enter'){var nx=$('#nx');if(nx){e.preventDefault();nx.click();}return;}
