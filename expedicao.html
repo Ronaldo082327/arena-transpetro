@@ -242,7 +242,7 @@ function sentences(t){ /* quebra o bloco em itens curtos sem cortar dentro de pa
 function plain(s){return String(s||'').replace(/[`*_]/g,'').replace(/\btec \d+/g,'').replace(/→/g,' leva a ').replace(/\s+/g,' ');}
 
 /* ---------- Narração e som do mar ---------- */
-var voicePT=null;function pickVoice(){try{var v=speechSynthesis.getVoices();voicePT=v.find(function(x){return /pt-BR/i.test(x.lang);})||v.find(function(x){return /^pt/i.test(x.lang);})||null;}catch(e){}}
+var voicePT=null;function vscore(x){var n=x.name+' '+x.voiceURI;return (/pt[-_]BR/i.test(x.lang)?100:(/^pt/i.test(x.lang)?40:0))+(/Natural|Online|Neural/i.test(n)?50:0)+(/Google/i.test(n)?30:0)+(/Premium|Enhanced|Aprimorad/i.test(n)?25:0)+(/Francisca|Antonio|Thalita|Luciana|Felipe|Joana|Fernanda|Raquel/i.test(n)?10:0)-(/eSpeak|compact/i.test(n)?40:0);}function pickVoice(){try{voicePT=speechSynthesis.getVoices().filter(function(x){return /^pt/i.test(x.lang);}).sort(function(a,b){return vscore(b)-vscore(a);})[0]||null;}catch(e){}}
 if('speechSynthesis' in window){pickVoice();speechSynthesis.onvoiceschanged=pickVoice;}
 function say(t){if(!S.voice||!('speechSynthesis' in window))return;try{speechSynthesis.cancel();var u=new SpeechSynthesisUtterance(plain(t).slice(0,1200));u.lang='pt-BR';if(voicePT)u.voice=voicePT;u.rate=1.04;speechSynthesis.speak(u);}catch(e){}}
 function hush(){try{speechSynthesis.cancel();}catch(e){}}

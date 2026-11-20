@@ -1,5 +1,5 @@
 // Service worker do Doroxandria: abre offline e atualiza em segundo plano.
-const CACHE = 'arena-202611202330';
+const CACHE = 'arena-202611210100';
 const SHELL = ['./', 'index.html', 'manifest.json', 'icon-192.png', 'icon-512.png',
   'questoes.json', 'cards.json', 'banca.json', 'videos.json', 'links.json',
   'cadernos.json', 'biblioteca.json', 'concursos/indice.json', 'concursos/transpetro-2026-enfase5.json', 'jogo.html', 'macetes.json',
@@ -19,6 +19,7 @@ self.addEventListener('fetch', e => {
   const sameOrigin = url.origin === self.location.origin;
   const cdn = /(^|\.)cdn\.jsdelivr\.net$|(^|\.)unpkg\.com$|(^|\.)fonts\.(googleapis|gstatic)\.com$/.test(url.hostname);
   if (!sameOrigin && !cdn) return;
+  if (/\.(mp3|m4a|wav|ogg)$/i.test(url.pathname)) return;
   e.respondWith(caches.open(CACHE).then(async cache => {
     const key = sameOrigin ? new Request(url.origin + url.pathname) : req;
     const hit = await cache.match(key);
