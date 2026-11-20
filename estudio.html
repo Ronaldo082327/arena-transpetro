@@ -379,13 +379,42 @@ mark.sg{border-radius:4px;padding:0 3px} mark.sg.bad{background:var(--bad-soft);
 .slrow{display:grid;grid-template-columns:minmax(150px,1fr) 2fr 110px;gap:12px;align-items:center;font-size:14px;border-bottom:1px dashed var(--line);padding:6px 0}
 .slrow input{width:100%;accent-color:#c8641f}
 @media (max-width:820px){.simgrid{grid-template-columns:1fr}.slrow{grid-template-columns:1fr 90px}.slrow input{grid-column:1/-1;grid-row:2}}
+
+.enbtn{border-color:var(--accent)!important;font-weight:600}
+.cqcard{margin-top:14px;perspective:1400px}
+.cqinner{background:linear-gradient(180deg,#fffdf9,var(--paper));border:1px solid var(--line);border-radius:20px;padding:18px 20px;box-shadow:var(--shadow-lg)}
+.cqbadges{display:flex;gap:6px;flex-wrap:wrap}
+.cqbadges .b{font-family:var(--mono);font-size:11px;border-radius:99px;padding:2px 9px;border:1px solid var(--line);background:var(--paper)}
+.cqbadges .b.hot{color:#b0413a;border-color:#f3b8ae;background:#fdeceb}.cqbadges .b.emp{color:#9a6a00;border-color:#e0b44e;background:#fbefd2}.cqbadges .b.new{color:var(--accent);border-color:var(--accent)}
+.cqstem{font-size:17px;line-height:1.55;margin:12px 0;white-space:normal}
+.cqalts{display:grid;gap:8px}
+.cqalt{display:grid;grid-template-columns:34px 1fr;gap:10px;align-items:start;text-align:left;padding:12px 14px;border-radius:14px;box-shadow:var(--shadow);font-size:15px;transition:transform .12s}
+.cqalt:hover:not([disabled]){transform:translateX(3px);border-color:var(--accent)}
+.cqalt .k{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:var(--accent-soft);color:var(--accent);font-family:var(--display);font-weight:700}
+.cqalt.ok{border-color:var(--ok);background:var(--ok-soft)}.cqalt.ok .k{background:var(--ok);color:#fff}
+.cqalt.bad{border-color:var(--bad);background:var(--bad-soft)}.cqalt.bad .k{background:var(--bad);color:#fff}
+.cqalt.dim{opacity:.55}
+.cqconf{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:12px;padding:10px 12px;border-radius:14px;background:var(--accent-soft)}
+.cqflip{margin-top:14px;animation:flipin .6s cubic-bezier(.2,.8,.2,1);transform-origin:top;border-top:2px dashed var(--line);padding-top:12px}
+@keyframes flipin{from{opacity:0;transform:rotateX(-70deg)}to{opacity:1;transform:none}}
+.cqflip h4{margin:16px 0 8px;font-size:18px}
+.cqres{padding:12px 14px;border-radius:14px;font-size:17px}.cqres.ok{background:var(--ok-soft);color:var(--ok)}.cqres.bad{background:var(--bad-soft);color:var(--bad)}
+.cqwhy{display:grid;gap:6px}
+.cqwhy>div{border:1px solid var(--line);border-radius:12px;padding:8px 12px;background:var(--paper);font-size:14px}
+.cqwhy>div.ok{border-color:var(--ok);background:var(--ok-soft)}.cqwhy>div.bad{border-color:var(--bad);background:var(--bad-soft)}
+.cqwhy p{margin:4px 0 0;color:var(--ink)}
+.tree,.rasc{display:block;width:100%;height:auto;border-radius:16px;box-shadow:var(--shadow)}
+.meta{margin:0;padding:0;list-style:none;display:grid;gap:6px}
+.meta li{display:grid;grid-template-columns:200px 1fr;gap:10px;border:1px solid var(--line);border-radius:12px;padding:8px 12px;background:var(--paper);font-size:14px}
+.meta li b{color:var(--accent);font-family:var(--display);font-size:16px}
+@media (max-width:620px){.meta li{grid-template-columns:1fr}}
 @media (max-width:560px){.vitem{grid-template-columns:56px 1fr}.vitem .d{grid-column:2}.thumb{width:56px}.duels,.lists{grid-template-columns:1fr}.controls .hide-sm{display:none}}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
 </style></head>
 <body>
 <div class="top"><div class="in">
   <a class="brand" href="#">🎬 Estúdio Cesgranrio</a>
-  <nav aria-label="Áreas"><a href="#plano" data-nav="plano">🎯 Plano</a><a href="#v" data-nav="v">Videoaulas</a><a href="#met" data-nav="met">Métodos</a><a href="#mm" data-nav="mm">Mapas mentais</a><a href="#esq" data-nav="esq">Esquemas</a><a href="#ref" data-nav="ref">⚡ Reflexo</a><a href="#geo" data-nav="geo">🗺️ Mapa Transpetro</a><a href="#lab" data-nav="lab">🔬 Laboratório</a><a href="#radar" data-nav="radar">📡 Radar</a><a href="#anki" data-nav="anki">🎴 Baralhos</a><a href="#fc" data-nav="fc">Flashcards</a><a href="#gem" data-nav="gem">✨ Gemini</a><a href="expedicao.html">🚢 Expedição</a><a href="jogo.html">⚡ Relâmpago</a></nav>
+  <nav aria-label="Áreas"><a href="#plano" data-nav="plano">🎯 Plano</a><a href="#cq" data-nav="cq">🧠 Cartões-questão</a><a href="#v" data-nav="v">Videoaulas</a><a href="#met" data-nav="met">Métodos</a><a href="#mm" data-nav="mm">Mapas mentais</a><a href="#esq" data-nav="esq">Esquemas</a><a href="#ref" data-nav="ref">⚡ Reflexo</a><a href="#geo" data-nav="geo">🗺️ Mapa Transpetro</a><a href="#lab" data-nav="lab">🔬 Laboratório</a><a href="#radar" data-nav="radar">📡 Radar</a><a href="#anki" data-nav="anki">🎴 Baralhos</a><a href="#fc" data-nav="fc">Flashcards</a><a href="#gem" data-nav="gem">✨ Gemini</a><a href="expedicao.html">🚢 Expedição</a><a href="jogo.html">⚡ Relâmpago</a></nav>
 </div></div>
 <div class="wrap"><main id="app" aria-live="polite"><p class="note" style="padding:40px 0">Abrindo o estúdio…</p></main></div>
 <div class="toast" id="toast" role="status"></div>
@@ -566,6 +595,7 @@ function home(){nav('');var D=IDX.disciplinas,nt=D.reduce(function(a,d){return a
   app.innerHTML='<header class="hero"><div class="eyebrow">Transpetro 2026 · Cesgranrio · Ênfase 5</div><h1>Estúdio Cesgranrio</h1><p class="note" style="max-width:68ch">Tudo gerado dos seus guias de estudo: videoaulas animadas e narradas, um método para cada tipo de questão, mapas mentais, esquemas de contraste e flashcards. Cada peça mostra como a banca cobra o assunto e onde ela tenta te derrubar.</p></header>'+
   '<div class="grid">'+
   card('plano','🎯','Plano da prova','Previsão de questões por disciplina × o seu acerto: onde estão os pontos que você ainda pode ganhar, e o dia a dia até 06/12.','comece por aqui')+
+  card('cq','🧠','Cartões-questão','Frente: a questão como na prova. Verso: cada alternativa explicada, árvore do conceito × vizinhos, metacognição, rascunho para a prova. Caderno de erros integrado ao Doroxandria. Trilha de Inglês do zero.','responda e aprenda')+
   card('v','🎬','Videoaulas animadas',(nf+nt)+' aulas narradas: '+nf+' de método (cada tipo de questão) e '+nt+' de tópico, com resolução ao vivo eliminando as erradas.',seen+' assistidas')+
   card('met','🧭','Métodos de resolução',nf+' fluxogramas: como reconhecer, o passo a passo e o erro típico de cada formato de questão.','um por tipo de questão')+
   card('mm','🧠','Mapas mentais','A prova inteira e cada disciplina em mapas que se expandem: o que cobra, como pergunta, onde confunde, macete.','arraste, amplie, baixe')+
@@ -1049,13 +1079,150 @@ function simulador(){nav('plano');var J=jogoState().disc||{};S.sim=S.sim||{chute
   $('#ch').onchange=function(){S.sim.chute=this.checked;save();run();};$('#run').onclick=run;$('#zera').onclick=function(){S.sim.boost={};save();run();};
   sliders();setTimeout(run,60);}
 
+function norm(x){return String(x||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');}
+function jogoRecord(d,ok){try{var j=JSON.parse(localStorage.getItem(JOGO)||'{}');j.disc=j.disc||{};var o=j.disc[d]||(j.disc[d]={ok:0,n:0});o.n++;if(ok)o.ok++;j.ans=(j.ans||0)+1;if(ok)j.ok=(j.ok||0)+1;localStorage.setItem(JOGO,JSON.stringify(j));}catch(e){}}
+/* ===================== CARTÕES-QUESTÃO (frente = questão; verso = explicação, árvore, rascunho) ===================== */
+var CQ=null,ENT=null;
+function enTextos(){return ENT?Promise.resolve(ENT):getJ('ingles/textos.json').then(function(j){ENT=j;return j;}).catch(function(){ENT={textos:[]};return ENT;});}
+var SLUG_INC={Dados:'dados',Governanca:'governanca',EngSoftware_UX:'engsoft',Logica:'logica',Seguranca:'seguranca'};
+function shortMean(s){s=strip(s||'');var i=s.search(/[.(;]/);s=(i>3?s.slice(0,i):s).trim();return s.length>70?s.slice(0,68)+'…':s;}
+function mcq(correct,pool,n){var opts=[correct],seen={};seen[correct.toLowerCase()]=1;shuffle(pool).forEach(function(x){if(opts.length<(n||5)&&x&&!seen[x.toLowerCase()]){seen[x.toLowerCase()]=1;opts.push(x);}});if(opts.length<5)return null;opts=shuffle(opts);var alts={},gab;'ABCDE'.split('').forEach(function(k,i){alts[k]=opts[i];if(opts[i]===correct)gab=k;});return {alts:alts,gab:gab};}
+function buildCQ(){if(CQ)return Promise.resolve(CQ);return Promise.all([loadAll(),loadInc(),loadAnki().catch(function(){return null;}),enTextos(),loadInt()]).then(function(r){var A=r[2],T=r[3],out=[];
+  /* 1. questões comentadas dos guias */
+  IDX.disciplinas.forEach(function(d){var o=DISC[d.slug];o.topicos.forEach(function(t,ti){t.qs.forEach(function(q,qi){if(!q.gab||!q.alts||Object.keys(q.alts).length!==5)return;var m=(q.src||'').match(/tec (\d+)/);
+    out.push({id:'g'+d.slug+ti+'_'+qi,src:'guia',s:d.slug,tema:t.t.replace(/^[\d.]+\s*/,''),stem:q.stem,alts:q.alts,gab:q.gab,rs:reasons(q.expl||''),expl:q.expl,fonte:q.src||'Cesgranrio',auto:q.auto,t:t,tec:m?m[1]:null});});});});
+  /* 2. raio-x dos cadernos por incidência */
+  (r[1]||[]).forEach(function(q){if(!q.rx||q.figura)return;var s=SLUG_INC[q.disc]||'dados',o=DISC[s],tp=o?o.topicos.find(function(t){return q.subitem&&t.t.indexOf(q.subitem+' ')===0;}):null;
+    out.push({id:'x'+q.id,src:'raiox',s:s,tema:(q.subitem||'')+' '+(q.rx.itemDesc||q.assunto||''),stem:q.enunciado,alts:q.alternativas,gab:q.gabarito,rx:q.rx,fonte:q.concurso+' · '+q.ano,t:tp,tec:q.id,assunto:q.assunto,revisar:q.revisar});});
+  /* 3. inglês: textos Transpetro */
+  (T.textos||[]).forEach(function(x){x.qs.forEach(function(q,i){out.push({id:'t'+x.id+'_'+i,src:'texto',s:'ingles',tema:q.tipo,stem:q.q,alts:q.a,gab:q.g,why:q.why,macete:q.macete,texto:x,fonte:'Texto de treino: '+x.titulo});});});
+  /* 4. inglês: cartões do Anki viram questões */
+  if(A){var byDeck={};A.cards.forEach(function(c){(byDeck[c.d]=byDeck[c.d]||[]).push(c);});
+    ['04','05','06','07','08','09','10'].forEach(function(d){var cs=byDeck[d]||[],pool=cs.map(function(c){return shortMean(c.sig);});cs.forEach(function(c){var w=strip(c.f).split(' · ')[0].trim(),mean=shortMean(c.sig);if(!w||w.length>40||!mean)return;var m=mcq(mean,pool);if(!m)return;
+      var ctx=c.ex?strip(c.ex):(strip(c.f).split(' · ')[1]||'');out.push({id:'e'+c.id,src:'en',s:'ingles',tema:'Vocabulário · '+deckName(d),stem:(ctx?'No trecho “'+ctx+'”, a palavra <b>'+esc(w)+'</b> significa:':'A palavra <b>'+esc(w)+'</b> significa:'),stemHtml:true,alts:m.alts,gab:m.gab,en:c,word:w,fonte:c.exSrc?strip(c.exSrc):'Vocabulário medido nas provas'});});});
+    var con=byDeck['02']||[],labels=con.map(function(c){return strip(c.f);});con.forEach(function(c){var fam=(strip(c.sig).match(/Família:\s*([^.]+)/)||[])[1];if(!fam)return;fam.split(/,\s*/).slice(0,6).forEach(function(w){w=w.trim();if(!w)return;var m=mcq(strip(c.f),labels);if(!m)return;
+      out.push({id:'c'+c.id+'_'+w.replace(/\W/g,''),src:'en-con',s:'ingles',tema:'Conectivos (rótulo da banca)',stem:'Na prova, a palavra <b>'+esc(w)+'</b> “can be associated with the idea of”:',stemHtml:true,alts:m.alts,gab:m.gab,en:c,word:w,fonte:c.exSrc?strip(c.exSrc):'Tabela de conectivos da Cesgranrio'});});});
+    var cm=byDeck['01']||[],cpool=cm.map(function(c){return shortMean(c.sig);});cm.forEach(function(c){var m=mcq(shortMean(c.sig),cpool);if(!m)return;out.push({id:'m'+c.id,src:'en-cmd',s:'ingles',tema:'Comandos das questões de Inglês',stem:'O comando <b>“'+esc(strip(c.f))+'”</b> pede:',stemHtml:true,alts:m.alts,gab:m.gab,en:c,fonte:c.exSrc?strip(c.exSrc):'Comandos medidos nas provas'});});}
+  /* tendência e prioridade da empresa */
+  var sobe=(INT.p.tendencia||{}).sobe||[],conv=(INT.r.convergencia||[]);
+  out.forEach(function(c){var txt=norm((c.assunto||'')+' '+c.tema);c.hot=sobe.some(function(x){return norm(x.assunto).split(/\W+/).filter(function(w){return w.length>4;}).some(function(w){return txt.indexOf(w)>=0;});});c.emp=conv.find(function(x){return x.slug===c.s;});});
+  CQ=out;return out;});}
+function cqLog(){S.cq=S.cq||{log:{}};return S.cq.log;}
+function cqCaderno(){var L=cqLog();return Object.keys(L).filter(function(id){var e=L[id];return e.ok===false||e.conf==='duvida'||e.conf==='chute';});}
+var DORO_IDS=null;function doroIds(){return DORO_IDS?Promise.resolve(DORO_IDS):getJ('questoes.json').then(function(q){DORO_IDS={};q.forEach(function(x){DORO_IDS[String(x.id)]=1;});return DORO_IDS;});}
+function doroWrite(tec,ok,l){if(!tec)return;doroIds().then(function(ids){if(!ids[String(tec)])return;try{var st=JSON.parse(localStorage.getItem('arenaTP.v2')||'{}');st.hist=st.hist||{};var prev=st.hist[tec]||{};st.hist[tec]={ok:ok,l:l,w:Date.now(),x:prev.x};localStorage.setItem('arenaTP.v2',JSON.stringify(st));}catch(e){}});}
+/* --- rascunhos (o desenho para fazer na prova) --- */
+function rascunho(c){var tx=norm((c.tema||'')+' '+(c.assunto||'')+' '+strip(c.stem||'')+' '+((c.rx||{}).tipo||'')),F='IBM Plex Sans, sans-serif',D='Barlow Condensed, sans-serif',st='<svg viewBox="0 0 640 260" xmlns="http://www.w3.org/2000/svg" class="rasc">',bg='<rect width="640" height="260" rx="18" fill="#fffaf3" stroke="#eddcc9"/>';
+  var cap=function(t,y){return '<text x="24" y="'+(y||244)+'" font-family="'+F+'" font-size="14" fill="#7c6553">'+xe(t)+'</text>';};
+  if(c.s==='dados'&&/especializ|generaliz|total|parcial|exclusiv|compartilh|sobrepost|uniao|intersec/.test(tx))
+    return {t:'Diagrama de Venn: especialização total/parcial × exclusiva/compartilhada',svg:st+bg+'<rect x="40" y="30" width="330" height="180" rx="16" fill="#fde8d6" stroke="#c8641f" stroke-width="2"/><text x="56" y="56" font-family="'+D+'" font-size="22" fill="#7a4a1c">Genérica (D)</text><circle cx="160" cy="130" r="62" fill="#e9f6ec" fill-opacity=".85" stroke="#2f7a45" stroke-width="2"/><circle cx="245" cy="130" r="62" fill="#e8eefd" fill-opacity=".8" stroke="#3c5aa6" stroke-width="2"/><text x="120" y="135" font-family="'+D+'" font-size="22" fill="#22382a">A</text><text x="275" y="135" font-family="'+D+'" font-size="22" fill="#24305e">B</text><text x="196" y="134" font-family="'+F+'" font-size="13" fill="#3b2a1d">A∩B</text>'+
+      '<g font-family="'+F+'" font-size="15" fill="#3b2a1d"><text x="395" y="70">A ∪ B = D  →  TOTAL</text><text x="395" y="96">sobra elemento em D  →  PARCIAL</text><text x="395" y="134">A ∩ B = ∅  →  EXCLUSIVA</text><text x="395" y="160">A ∩ B ≠ ∅  →  COMPARTILHADA</text><text x="395" y="198" fill="#b0413a">elemento fora de D → inválido</text></g>'+cap('Desenhe o retângulo e os círculos com os elementos do enunciado; responda pelas duas perguntas: cobre tudo? se cruzam?')+'</svg>'};
+  if(c.s==='dados'&&/cardinal|\(0,n\)|\(1,1\)|\(0,1\)|\(1,n\)|entidade|relacionamento|\bder\b|\bmer\b|conjunto/.test(tx))
+    return {t:'Conjuntos com setas: cardinalidade pelo método dos conjuntos',svg:st+bg+'<ellipse cx="140" cy="118" rx="80" ry="92" fill="#e9f6ec" stroke="#2f7a45" stroke-width="2"/><ellipse cx="420" cy="118" rx="80" ry="92" fill="#e8eefd" stroke="#3c5aa6" stroke-width="2"/><text x="125" y="40" font-family="'+D+'" font-size="22" fill="#22382a">A</text><text x="408" y="40" font-family="'+D+'" font-size="22" fill="#24305e">B</text>'+
+      ['a1','a2','a3'].map(function(a,i){return '<text x="120" y="'+(80+i*42)+'" font-family="'+F+'" font-size="17">'+a+'</text>';}).join('')+['b1','b2'].map(function(b,i){return '<text x="405" y="'+(95+i*50)+'" font-family="'+F+'" font-size="17">'+b+'</text>';}).join('')+
+      '<g stroke="#c8641f" stroke-width="2" marker-end="url(#ar)"><line x1="145" y1="75" x2="398" y2="90"/><line x1="145" y1="78" x2="398" y2="140"/><line x1="145" y1="118" x2="398" y2="92"/></g><defs><marker id="ar" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8z" fill="#c8641f"/></marker></defs>'+
+      '<g font-family="'+F+'" font-size="13.5" fill="#3b2a1d"><text x="512" y="70">a1 sai 2× → máx n</text><text x="512" y="94">a3 sem seta → mín 0</text><text x="512" y="118">b1 recebe 2×</text></g>'+cap('Conte quantas setas cada elemento tem: repete → máximo n; algum sem seta → mínimo 0. (0,n) nunca elimina.')+'</svg>'};
+  if(c.s==='dados'&&/normaliz|forma normal|\bfn\b|dependencia funcional|\bdf\b|1fn|2fn|3fn|bcnf/.test(tx))
+    return {t:'Setas de dependência: qual forma normal foi violada',svg:st+bg+'<g font-family="'+D+'" font-size="22"><rect x="40" y="40" width="80" height="44" rx="10" fill="#fde8d6" stroke="#c8641f"/><text x="64" y="70">PK1</text><rect x="130" y="40" width="80" height="44" rx="10" fill="#fde8d6" stroke="#c8641f"/><text x="154" y="70">PK2</text><rect x="300" y="40" width="90" height="44" rx="10" fill="#fff"/><text x="322" y="70">attr X</text><rect x="470" y="40" width="90" height="44" rx="10" fill="#fff"/><text x="492" y="70">attr Y</text></g>'+
+      '<path d="M170,84 C200,150 300,150 340,86" fill="none" stroke="#b0413a" stroke-width="2.5" marker-end="url(#ar2)"/><path d="M345,84 C380,150 470,150 512,86" fill="none" stroke="#3c5aa6" stroke-width="2.5" marker-end="url(#ar2)"/><defs><marker id="ar2" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8z" fill="#3b2a1d"/></marker></defs>'+
+      '<g font-family="'+F+'" font-size="14"><text x="150" y="168" fill="#b0413a">parte da PK → atributo = viola 2FN</text><text x="360" y="168" fill="#3c5aa6">não chave → não chave = viola 3FN</text><text x="40" y="200" fill="#3b2a1d">PK inteira → atributo = correto · determinante não superchave = viola BCNF</text></g>'+cap('Desenhe a PK em caixas e trace cada DF como seta: de onde a seta SAI decide a forma normal.')+'</svg>'};
+  if(c.s==='logica'||/condicional|contrapositiv|reciproc|equivalen|tabela.verdade|→/.test(tx))
+    return {t:'Tabela-verdade do condicional e transformações',svg:st+bg+'<g font-family="'+F+'" font-size="17"><text x="40" y="50" font-weight="600">p</text><text x="90" y="50" font-weight="600">q</text><text x="140" y="50" font-weight="600">p → q</text>'+[['V','V','V'],['V','F','F'],['F','V','V'],['F','F','V']].map(function(r,i){return '<text x="40" y="'+(84+i*32)+'">'+r[0]+'</text><text x="90" y="'+(84+i*32)+'">'+r[1]+'</text><text x="150" y="'+(84+i*32)+'" fill="'+(r[2]==='F'?'#b0413a':'#2f7a45')+'" font-weight="600">'+r[2]+'</text>';}).join('')+'</g><rect x="30" y="92" width="170" height="28" rx="6" fill="none" stroke="#b0413a" stroke-dasharray="4 3"/>'+
+      '<g font-family="'+F+'" font-size="15" fill="#3b2a1d"><text x="250" y="56">Equivale a p → q:</text><text x="270" y="82" fill="#2f7a45">¬q → ¬p  (contrapositiva: inverte E nega)</text><text x="270" y="106" fill="#2f7a45">¬p ∨ q  (nega a 1ª OU mantém a 2ª)</text><text x="250" y="140">NÃO equivale:</text><text x="270" y="164" fill="#b0413a">q → p (recíproca) · ¬p → ¬q (inversa)</text><text x="250" y="196">Negação: p ∧ ¬q (mantém a 1ª E nega a 2ª)</text></g>'+cap('Só é falso em V → F. Escreva p e q, monte a seta e transforme na margem.')+'</svg>'};
+  if(c.s==='dados'&&/select|insert|update|delete|create table|sem erro|executad|join|sql/.test(tx))
+    return {t:'Checklist do "qual executa sem erro"',svg:st+bg+['Nº de valores = nº de colunas?','A coluna existe na tabela?','PK repetida ou NOT NULL vazio?','FK aponta para pai existente?','Apaga ou altera pai que tem filhos?'].map(function(t,i){return '<rect x="40" y="'+(30+i*40)+'" width="26" height="26" rx="6" fill="#fff" stroke="#c8641f" stroke-width="2"/><text x="80" y="'+(49+i*40)+'" font-family="'+F+'" font-size="17" fill="#3b2a1d">'+(i+1)+'. '+xe(t)+'</text>';}).join('')+cap('Passe cada alternativa pelos 5 testes, na ordem. A primeira que reprova sai. DELETE com NOT IN (SELECT FK) costuma ser o seguro.')+'</svg>'};
+  if(c.src==='en-con'||/conectivo/.test(norm(c.tema)))
+    return {t:'Roda dos conectivos: rótulo, não tradução',svg:st+bg+[['OPPOSITION','however · but · although · nevertheless · whereas · yet','#b0413a'],['ADDITION','moreover · furthermore · besides · also · in addition','#2f7a45'],['CONCLUSION','therefore · thus · hence · so · consequently','#3c5aa6'],['CAUSE','because · since · as · due to','#9a6a00'],['EXAMPLE','for example · for instance · such as','#7a4a1c']].map(function(r,i){return '<text x="30" y="'+(44+i*40)+'" font-family="'+D+'" font-weight="700" font-size="20" fill="'+r[2]+'">'+r[0]+'</text><text x="200" y="'+(44+i*40)+'" font-family="'+F+'" font-size="15" fill="#3b2a1d">'+r[1]+'</text>';}).join('')+cap('Não traduza: classifique. Duas alternativas com o mesmo rótulo (contrast = opposition) = nenhuma das duas é a resposta única.')+'</svg>'};
+  if(/referencia|pronom/.test(norm(c.tema)))
+    return {t:'Referência pronominal: olhe para trás',svg:st+bg+'<text x="30" y="80" font-family="'+F+'" font-size="18" fill="#3b2a1d">… the <tspan font-weight="700" fill="#2f7a45">investment</tspan> is large, … <tspan font-weight="700" fill="#c8641f">it</tspan> will make …</text><path d="M330,90 C300,140 180,140 150,92" fill="none" stroke="#c8641f" stroke-width="2.5" marker-end="url(#ar3)"/><defs><marker id="ar3" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8z" fill="#c8641f"/></marker></defs><g font-family="'+F+'" font-size="15" fill="#3b2a1d"><text x="30" y="170">1. Risque tudo DEPOIS do pronome.   2. it = singular; they/them = plural.</text><text x="30" y="196">3. Pegue o substantivo mais próximo que combina e faça o teste da troca.</text></g>'+cap('Distrator típico: o substantivo mais importante do texto, ou o que vem depois do pronome.')+'</svg>'};
+  if(c.src==='texto'||c.src==='en-cmd')
+    return {t:'Gestos de leitura da prova de Inglês',svg:st+bg+[['Main purpose / main idea','Resolva por último; marque a alternativa que cobre TODOS os parágrafos.'],['According to the text','Ache a palavra-âncora; leia a frase inteira e a seguinte.'],['The word X means / refers to','Releia a frase; teste a troca; olhe para trás no pronome.'],['Connective','Classifique o rótulo: opposition, addition, conclusion, cause.']].map(function(r,i){return '<text x="30" y="'+(46+i*48)+'" font-family="'+D+'" font-weight="700" font-size="20" fill="#c8641f">'+xe(r[0])+'</text><text x="30" y="'+(68+i*48)+'" font-family="'+F+'" font-size="15" fill="#3b2a1d">'+xe(r[1])+'</text>';}).join('')+'</svg>'};
+  return null;}
+/* --- árvore mental do verso --- */
+function cqTree(c){var center=short(strip(c.rx?c.rx.conceito:(c.en?c.word||strip(c.en.f):c.tema)),40),nodes=[];
+  nodes.push({t:'✔ '+short(strip(c.alts[c.gab]),58),k:'ok'});
+  if(c.rx&&c.rx.familia){var cor=norm(strip(c.alts[c.gab]));c.rx.familia.forEach(function(f){if(cor.indexOf(norm(f))<0&&norm(f).indexOf(cor.replace(/\W+$/,''))<0)nodes.push({t:'vizinho: '+short(f,48),k:'viz'});});}
+  else 'ABCDE'.split('').forEach(function(k){if(k===c.gab)return;var w=(c.rs&&c.rs.R[k])||(c.why&&c.why[k]);if(w)nodes.push({t:k+' ✗ '+short(strip(w),54),k:'bad'});});
+  if(c.en&&c.en.nc)nodes.push({t:'não confunda: '+short(strip(c.en.nc),50),k:'viz'});
+  var mac=c.rx?c.rx.armadilha:(c.macete||(c.t&&c.t.macete)||(c.en&&c.en.dica));if(mac)nodes.push({t:'💡 '+short(strip(mac),60),k:'mac'});
+  nodes=nodes.slice(0,7);var H=Math.max(200,nodes.length*44+30),W=640,cy=H/2,col={ok:'#2f7a45',viz:'#3c5aa6',bad:'#b0413a',mac:'#9a6a00'},bgc={ok:'#e9f6ec',viz:'#e8eefd',bad:'#fdeceb',mac:'#fbefd2'};
+  var s='<svg viewBox="0 0 '+W+' '+H+'" xmlns="http://www.w3.org/2000/svg" class="tree"><rect width="'+W+'" height="'+H+'" rx="18" fill="#fffaf3" stroke="#eddcc9"/>';
+  nodes.forEach(function(n,i){var y=22+i*44+12;s+='<path d="M196,'+cy+' C240,'+cy+' 230,'+y+' 262,'+y+'" fill="none" stroke="'+col[n.k]+'" stroke-width="2" stroke-opacity=".6"/><rect x="262" y="'+(y-16)+'" width="360" height="32" rx="10" fill="'+bgc[n.k]+'" stroke="'+col[n.k]+'"/><text x="274" y="'+(y+5)+'" font-family="IBM Plex Sans, sans-serif" font-size="13.5" fill="#3b2a1d">'+xe(n.t)+'</text>';});
+  s+='<rect x="18" y="'+(cy-34)+'" width="178" height="68" rx="16" fill="#c8641f"/>'+tsp(wrapL(center,20,3),30,cy-8,18,'font-family="Barlow Condensed, sans-serif" font-weight="700" font-size="18" fill="#fff"');
+  return s+'</svg>';}
+var FMTX={LOGICA_FORMAL:'Lógica formal',DEFINICAO:'Definição canônica com vizinhos',SEM_ERRO:'Qual executa sem erro',CASO:'Caso narrativo',AFIRMATIVAS:'Afirmativas I/II/III',COMPARACAO:'Comparação X × Y',NORMA_LITERAL:'Norma ou guia literal',PERMUTACAO:'Definições permutadas',EXECUCAO:'Executar na mão',CALCULO:'Cálculo',QUEBRA_CABECA:'Quebra-cabeça'};
+function cqBack(c,pick){var ok=pick===c.gab,h='';
+  h+='<div class="cqres '+(ok?'ok':'bad')+'"><b>'+(ok?'✔ Certo':'✗ Você marcou '+pick+' · gabarito '+c.gab)+'</b>'+(c.revisar?'<span class="note"> · questão marcada para revisão; o gabarito é o oficial</span>':'')+'</div>';
+  var armL={};if(c.rx&&c.rx.armadilha){var am=c.rx.armadilha.match(/(?:^|[\s(;,])([A-E])(?=\s*[(:,]|\s+e\s+[A-E]\b)/g)||[];am.forEach(function(x){var L=x.trim().replace(/[(;,]/g,'');if(L&&L!==c.gab)armL[L]=c.rx.armadilha;});}
+  h+='<h4>🧩 Por que cada alternativa</h4><div class="cqwhy">'+'ABCDE'.split('').map(function(k){var w=(c.why&&c.why[k])||(c.rs&&c.rs.R[k])||armL[k]||'';if(!w&&k===c.gab)w=(c.rs&&c.rs.pre)||(c.rx&&c.rx.conceito)||(c.en?strip(c.en.sig):'');
+    if(!w&&c.rx&&k!==c.gab)w='Distrator: não atende ao que o enunciado pede. Compare com o conceito-chave e com a técnica abaixo.';
+    if(!w&&c.en&&k!==c.gab)w='Significa outra coisa: compare com o sentido correto acima.';
+    return '<div class="'+(k===c.gab?'ok':(k===pick?'bad':''))+'"><b>'+k+(k===c.gab?' ✔':(k===pick?' ✗':''))+'</b> <span class="t">'+(c.stemHtml?esc(strip(c.alts[k])):inline(c.alts[k]))+'</span>'+(w?'<p>'+inline(w)+'</p>':'')+'</div>';}).join('')+'</div>';
+  h+='<h4>🌳 Árvore mental</h4>'+cqTree(c);
+  var steps=[];if(c.rx){steps=[['1. Formato',FMTX[c.rx.formato]||c.rx.formato],['2. Gatilho no enunciado',c.rx.gatilho],['3. Técnica',c.rx.tecnica],['4. Armadilha da banca',c.rx.armadilha]];}
+  else if(c.src==='guia'&&c.t){steps=[['1. Como a banca pergunta',short(c.t.pergunta||'',220)],['2. O que ela cobra',short(sentences(c.t.cobra||'')[0]||'',220)],['3. Onde ela confunde',short(sentences(c.t.confunde||'')[0]||'',220)],['4. Macete',short(c.t.macete||'',220)]];}
+  else if(c.en){steps=[['1. O que a palavra significa',strip(c.en.sig)],['2. Como lembrar',strip(c.en.dica||'')],['3. Não confunda',strip(c.en.nc||'')],['4. Caiu assim',strip(c.en.ex||'')+(c.en.exSrc?' ('+strip(c.en.exSrc)+')':'')]];}
+  else if(c.src==='texto'){steps=[['1. Tipo de pergunta',c.tema],['2. Gesto de resolução',c.macete]];}
+  steps=steps.filter(function(s){return s[1];});if(steps.length)h+='<h4>🧠 Metacognição: como pensar nesta questão</h4><ol class="meta">'+steps.map(function(s){return '<li><b>'+esc(s[0])+'</b><span>'+inline(s[1])+'</span></li>';}).join('')+'</ol>';
+  var r=rascunho(c);if(r)h+='<h4>✏️ Rascunho para a prova: '+esc(r.t)+'</h4>'+r.svg;
+  if(c.t&&c.t.cobra)h+='<details class="ex"><summary>📚 Teoria do tópico: '+esc(c.t.t)+'</summary><ul class="mini">'+sentences(c.t.cobra).slice(0,6).map(function(x){return '<li>'+inline(short(x,260))+'</li>';}).join('')+'</ul>'+(c.t.macete?'<p class="mac-mini">💡 '+inline(c.t.macete)+'</p>':'')+'<div class="row" style="margin-top:8px"><a class="btnlink" href="#play/'+c.s+'/t/'+DISC[c.s].topicos.indexOf(c.t)+'">🎬 Videoaula do tópico</a></div></details>';
+  var tags=[];if(c.hot)tags.push('🔥 Assunto em alta na banca desde 2023');if(c.emp)tags.push('🏭 Prioridade da Transpetro: '+c.emp.prioridade);if(c.s==='ingles')tags.push('🌐 Inglês é eliminatório: zero em Inglês elimina');
+  if(tags.length)h+='<p class="note" style="margin-top:10px">'+tags.map(esc).join(' · ')+'</p>';
+  return h;}
+var CQF={disc:'',modo:'mix'};
+function cartoes(arg){nav('cq');app.innerHTML='<p class="note" style="padding:30px 0">Montando os cartões-questão…</p>';
+  buildCQ().then(function(all){var L=cqLog(),cad=cqCaderno(),discs={};all.forEach(function(c){discs[c.s]=(discs[c.s]||0)+1;});
+    if(arg==='caderno')CQF.modo='caderno';
+    var en=all.filter(function(c){return c.s==='ingles';}).length;
+    app.innerHTML='<header class="hero"><div class="eyebrow">Cartões-questão · '+all.length+' cartões · caderno de erros: '+cad.length+'</div><h2>Responda como na prova, aprenda no verso</h2><p class="note" style="max-width:74ch">Frente: a questão como na prova, com as alternativas. Verso: por que cada alternativa está certa ou errada, a árvore do conceito × vizinhos, como pensar (metacognição), o rascunho para fazer na prova e a teoria. Errou ou acertou com dúvida → vai para o caderno de erros (aqui e no "Refazer erros" do Doroxandria).</p></header>'+
+    '<div class="discs"><button aria-pressed="'+(!CQF.disc)+'" data-cqd="">Todas ('+all.length+')</button><button aria-pressed="'+(CQF.disc==='ingles')+'" data-cqd="ingles" class="enbtn">🌐 Inglês do zero ('+en+')</button>'+Object.keys(discs).filter(function(s){return s!=='ingles';}).map(function(s){return '<button aria-pressed="'+(CQF.disc===s)+'" data-cqd="'+s+'">'+ICON[s]+' '+esc(dname(s))+' ('+discs[s]+')</button>';}).join('')+'</div>'+
+    '<div class="tabs"><button aria-selected="'+(CQF.modo==='mix')+'" data-cqm="mix">Mistura inteligente</button><button aria-selected="'+(CQF.modo==='novas')+'" data-cqm="novas">Só novas</button><button aria-selected="'+(CQF.modo==='caderno')+'" data-cqm="caderno">📕 Caderno de erros ('+cad.length+')</button></div>'+
+    (CQF.disc==='ingles'?'<div class="panel" style="border-color:var(--accent)"><h3>🌐 Trilha de Inglês do zero</h3><p class="note">Ordem sugerida para quem está no básico: 1) <b>comandos das questões</b> (entender o que a pergunta pede), 2) <b>conectivos</b> (rótulos que a banca usa), 3) <b>vocabulário</b> medido nas provas (energia, petróleo, tecnologia), 4) <b>textos de treino</b> no contexto da Transpetro. Em toda questão, o verso traduz e explica.</p><div class="row" style="margin-top:8px"><button data-ent="en-cmd">1. Comandos</button><button data-ent="en-con">2. Conectivos</button><button data-ent="en">3. Vocabulário</button><button data-ent="texto">4. Textos Transpetro</button></div></div>':'')+
+    '<div id="cqz"></div>';
+    $$('[data-cqd]').forEach(function(b){b.onclick=function(){CQF.disc=b.dataset.cqd;CQF.src=null;cartoes();};});
+    $$('[data-cqm]').forEach(function(b){b.onclick=function(){CQF.modo=b.dataset.cqm;cartoes();};});
+    $$('[data-ent]').forEach(function(b){b.onclick=function(){CQF.src=b.dataset.ent;start();};});
+    function pool(){var p=all.filter(function(c){return (!CQF.disc||c.s===CQF.disc)&&(!CQF.src||c.src===CQF.src);});
+      if(CQF.modo==='caderno')return shuffle(p.filter(function(c){return cad.indexOf(c.id)>=0;}));
+      if(CQF.modo==='novas')return shuffle(p.filter(function(c){return !L[c.id];}));
+      var now=Date.now();var due=p.filter(function(c){var e=L[c.id];return e&&e.due<=now;}),neu=p.filter(function(c){return !L[c.id];});
+      var pri=function(c){return (c.hot?1:0)+(c.emp?1:0)+(c.src==='guia'||c.src==='raiox'?.5:0);};
+      return shuffle(due).concat(shuffle(neu).sort(function(a,b){return pri(b)-pri(a);}));}
+    function start(){var list=pool().slice(0,12);if(!list.length){$('#cqz').innerHTML='<div class="panel">Nada aqui por enquanto. '+(CQF.modo==='caderno'?'Seu caderno de erros está vazio neste filtro. 🎉':'Troque o filtro ou volte amanhã.')+'</div>';return;}cqSession(list);}
+    start();});}
+function cqSession(list){var i=0,ok=0,box=$('#cqz');
+  function draw(){if(i>=list.length){box.innerHTML='<div class="panel"><h3>Sessão concluída: '+ok+' de '+list.length+'</h3><p class="note">Caderno de erros: '+cqCaderno().length+' cartões. +'+(ok*5)+' XP.</p><div class="row" style="margin-top:8px"><button class="primary" id="mais">Mais 12</button><button data-href="cq/caderno">📕 Refazer o caderno de erros</button></div></div>';xp(ok*5);$('#mais').onclick=function(){cartoes();};return;}
+    var c=list[i],e=cqLog()[c.id];
+    box.innerHTML='<div class="cqcard"><div class="cqinner"><div class="spread"><span class="mono note">'+(i+1)+'/'+list.length+' · '+ICON[c.s]+' '+esc(dname(c.s))+' · '+esc(short(c.tema,60))+'</span><span class="cqbadges">'+(c.hot?'<span class="b hot">🔥 em alta</span>':'')+(c.emp?'<span class="b emp">🏭 Transpetro</span>':'')+(e?'<span class="b">'+(e.ok?'acertou antes':'errou antes')+'</span>':'<span class="b new">nova</span>')+'</span></div>'+
+      '<p class="note mono" style="margin:4px 0 0">'+esc(c.fonte||'')+'</p>'+(c.texto?'<details class="ex" open style="margin-top:8px"><summary>📄 Texto: '+esc(c.texto.titulo)+'</summary><p style="white-space:pre-line;font-family:Georgia,serif;font-size:15.5px;line-height:1.6;margin-top:6px">'+esc(c.texto.texto)+'</p><p class="note">'+esc(c.texto.fonte)+'</p></details>':'')+
+      '<div class="cqstem">'+(c.stemHtml?c.stem:esc(c.stem).replace(/\n/g,'<br>'))+'</div><div class="cqalts">'+'ABCDE'.split('').map(function(k){return '<button class="cqalt" data-k="'+k+'"><span class="k">'+k+'</span><span class="t">'+(c.stemHtml?esc(strip(c.alts[k])):esc(c.alts[k]))+'</span></button>';}).join('')+'</div><div id="cqconf"></div><div id="cqback"></div></div></div>';
+    var done=false,pick=null;
+    $$('.cqalt').forEach(function(b){b.onclick=function(){if(done)return;done=true;pick=b.dataset.k;var right=pick===c.gab;
+      $$('.cqalt').forEach(function(x){x.disabled=true;x.classList.add(x.dataset.k===c.gab?'ok':(x===b?'bad':'dim'));});
+      $('#cqconf').innerHTML='<div class="cqconf"><span>Como foi?</span><button data-cf="certeza">✔ Tinha certeza</button><button data-cf="duvida">🤔 Fiquei em dúvida</button><button data-cf="chute">🎲 Chutei</button></div>';
+      $$('[data-cf]').forEach(function(x){x.onclick=function(){finish(x.dataset.cf);};});
+      cqSession.key=function(k){if(k==='1')finish('certeza');if(k==='2')finish('duvida');if(k==='3')finish('chute');};};});
+    cqSession.key=function(k){if(!done&&/^[A-E]$/.test(k)){var b=$('.cqalt[data-k="'+k+'"]');if(b)b.click();}};
+    function finish(conf){if($('#cqback').innerHTML)return;var right=pick===c.gab,Lg=cqLog(),prev=Lg[c.id]||{n:0,box:0,err:0};var box2=right?(conf==='certeza'?Math.min(5,prev.box+1):Math.max(1,prev.box)):1;
+      Lg[c.id]={n:prev.n+1,ok:right,conf:conf,l:pick,w:Date.now(),box:box2,due:Date.now()+IV[box2]*864e5-36e5,err:prev.err+(right?0:1),s:c.s};save();if(right)ok++;
+      jogoRecord(DQ[c.s]||c.s,right);doroWrite(c.tec,right,pick);
+      $('#cqconf').innerHTML='<p class="note">'+(right&&conf==='certeza'?'Registrado. Volta em '+IV[box2]+' dia(s).':(right?'Acertou com '+(conf==='duvida'?'dúvida':'chute')+': foi para o caderno de erros para você fixar.':'Foi para o caderno de erros (aqui e no "Refazer erros" do Doroxandria).'))+'</p>';
+      var bk=$('#cqback');bk.innerHTML='<div class="cqflip">'+cqBack(c,pick)+'<div class="row" style="margin-top:12px">'+(gcfg().key?'<button id="gx">🤖 Explicar mais com Gemini</button>':'')+'<button class="primary" id="nx3">Próximo cartão →</button></div><div id="gxo"></div></div>';
+      bk.scrollIntoView({behavior:'smooth',block:'start'});
+      $('#nx3').onclick=function(){i++;draw();window.scrollTo({top:box.offsetTop-70,behavior:'smooth'});};
+      var gx=$('#gx');if(gx)gx.onclick=function(){$('#gxo').innerHTML='<p class="note">Gemini pensando…</p>';var ctx=(c.t?topicCtx(DISC[c.s],c.t):'')+'\nQuestão: '+strip(c.stem)+'\n'+JSON.stringify(c.alts)+'\nGabarito: '+c.gab+(c.rx?'\nRaio-x: '+JSON.stringify(c.rx):'')+(c.en?'\nCartão: '+strip(c.en.sig)+' '+strip(c.en.dica||''):'');
+        gcall('Explique para um estudante iniciante, em português simples, por que a alternativa '+c.gab+' é a correta e por que cada uma das outras está errada, qual é a pegadinha da Cesgranrio e um jeito de lembrar. Use só o material abaixo; se faltar algo, diga "não consta no material".\n\n'+ctx).then(function(t){$('#gxo').innerHTML='<div class="panel">'+md(t)+'</div>';}).catch(function(e){$('#gxo').innerHTML='<p class="note">Erro do Gemini: '+esc(e.message)+'</p>';});};
+      cqSession.key=function(k){if(k==='Enter'){$('#nx3').click();}};}}
+  draw();box.scrollIntoView({behavior:'smooth',block:'start'});}
+
 /* ===================== ROTAS E TECLADO ===================== */
-function route(){var h=decodeURIComponent(location.hash.slice(1)).split('/');stopPlayer();session.key=null;window.scrollTo(0,0);
-  switch(h[0]){case 'v':return videoteca(h[1]);case 'play':return play(h[1],h[2],+h[3]||0);case 'met':return metodos(h[1]);case 'mm':return mapa(h[1]);case 'esq':return esquemas(h[1],h[2]);case 'fc':return flash();case 'ref':if(h[1]==='raiox')return drillRaiox(h[2]);return h[1]==='vizinho'?drillVizinho():(h[1]==='sinal'?drillSinal():(h[1]==='elimina'?drillElimina():reflexo()));case 'anki':return baralhos(h[1]);case 'plano':return plano();case 'sim':return simulador();case 'prancha':return pranchas(h[1]);case 'geo':return geo();case 'lab':return lab();case 'radar':return radar();case 'gem':return gemini();default:return home();}}
+function route(){var h=decodeURIComponent(location.hash.slice(1)).split('/');stopPlayer();session.key=null;cqSession.key=null;window.scrollTo(0,0);
+  switch(h[0]){case 'v':return videoteca(h[1]);case 'play':return play(h[1],h[2],+h[3]||0);case 'met':return metodos(h[1]);case 'mm':return mapa(h[1]);case 'esq':return esquemas(h[1],h[2]);case 'fc':return flash();case 'ref':if(h[1]==='raiox')return drillRaiox(h[2]);return h[1]==='vizinho'?drillVizinho():(h[1]==='sinal'?drillSinal():(h[1]==='elimina'?drillElimina():reflexo()));case 'anki':return baralhos(h[1]);case 'plano':return plano();case 'cq':return cartoes(h[1]);case 'sim':return simulador();case 'prancha':return pranchas(h[1]);case 'geo':return geo();case 'lab':return lab();case 'radar':return radar();case 'gem':return gemini();default:return home();}}
 addEventListener('hashchange',route);
 document.addEventListener('keydown',function(e){if(e.metaKey||e.ctrlKey||e.altKey||/INPUT|SELECT|TEXTAREA/.test(e.target.tagName))return;
   if(P){if(e.key===' '){e.preventDefault();P.toggle();}else if(e.key==='ArrowRight'){e.preventDefault();P.seekCue(Math.min(P.b.cues.length-1,P.i+1));}else if(e.key==='ArrowLeft'){e.preventDefault();P.seekCue(Math.max(0,P.i-1));}else if(e.key==='f'||e.key==='F'){var r=P.root;if(document.fullscreenElement)document.exitFullscreen();else if(r.requestFullscreen)r.requestFullscreen();}return;}
-  if(session.key&&(e.key===' '||/^[123]$/.test(e.key))){e.preventDefault();session.key(e.key);}});
+  if(session.key&&(e.key===' '||/^[123]$/.test(e.key))){e.preventDefault();session.key(e.key);return;}
+  if(cqSession.key&&location.hash.indexOf('#cq')===0&&(/^[a-eA-E123]$/.test(e.key)||e.key==='Enter')){e.preventDefault();cqSession.key(e.key.length===1?e.key.toUpperCase():e.key);}});
 document.addEventListener('visibilitychange',function(){if(document.hidden&&P&&P.playing)P.pause();});
 getJ('expedicao/indice.json').then(function(i){IDX=i;route();}).catch(function(e){app.innerHTML='<div class="panel"><h3>Não consegui abrir o estúdio</h3><p class="note">Abra pelo servidor do Arena (GitHub Pages). '+esc(e.message)+'</p></div>';});
 if('serviceWorker' in navigator&&location.protocol==='https:')navigator.serviceWorker.register('sw.js').catch(function(){});
