@@ -87,3 +87,9 @@ Veja `docs/antigravity-tarefas.md`: pedidos prontos, com o que conferir antes de
 ## Temas e relevo (Estúdio)
 
 9 temas (Pêssego, Gelo, Menta, Lavanda, Rosa, Noite, Grafite, Petróleo, Aurora) via `:root[data-theme]`, escolhidos no botão 🎨. Relevo 3D plano/suave/forte via `data-depth` (variáveis `--o`, `--b`, `--sh-d`, `--sh-l`). Chaves: `arenaTP.tema` e `arenaTP.relevo`. Ao criar CSS novo, use as variáveis (`--paper`, `--hi`, `--accent-soft`, `--shadow`, `--raise`), nunca cores claras fixas. As telas de videoaula (`.stage`) e os rascunhos em SVG ficam como folha clara de propósito. `expedicao.html` e `jogo.html` ainda usam só claro/escuro.
+
+
+## Voz das videoaulas e áudios
+
+- Narração: se houver chave do Gemini (`arenaTP.gemini`), o Estúdio usa Gemini TTS (voz humana, modelo descoberto na conta, cota gratuita), com cache em IndexedDB (`arenaTP.voz`) e fallback automático para a melhor voz `pt-BR` do aparelho (ranking `vscore`: Natural/Online/Google primeiro). Escolha da voz no seletor do player (`S.hv`, `S.hvoice`, `S.vname`).
+- `#pod` (🎧 Áudios): guia para gerar Resumos em Áudio no NotebookLM (o agente não acessa o NotebookLM). MP3 salvos em `audio/<guia>.mp3` (nome do arquivo em `guias/`) aparecem sozinhos como player. O `sw.js` não faz cache de áudio.
