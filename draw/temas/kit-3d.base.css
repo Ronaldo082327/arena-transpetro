@@ -1,0 +1,88 @@
+/* ===================== Componentes do kit (só tokens; nenhuma cor literal) ===================== */
+:root {
+  --k3d-raio: 16px; --k3d-raio-p: 11px; --k3d-raio-g: 22px;
+  --k3d-mov: 180ms cubic-bezier(.2, .7, .2, 1);
+}
+html.k3d body { background-color: var(--bg); background-image: var(--fundo-grad); background-attachment: fixed; color: var(--ink); }
+html.k3d[data-texto="grande"] body { font-size: 112%; }
+
+/* superfícies */
+.k3d-cartao { background: linear-gradient(180deg, var(--paper) 0%, var(--paper-2) 100%); color: var(--ink); border: 1px solid var(--line); border-top-color: var(--brilho); border-radius: var(--k3d-raio); box-shadow: var(--sombra-1); padding: 16px; }
+.k3d-cartao.destaque { box-shadow: var(--sombra-2); border-color: var(--destaque-borda); border-top-color: var(--brilho); position: relative; overflow: hidden; }
+.k3d-cartao.destaque::before { content: ""; position: absolute; inset: 0 0 auto 0; height: 4px; background: var(--grad-btn-p); }
+.k3d-inset { background: var(--inset); border-radius: var(--k3d-raio-p); box-shadow: var(--sombra-afundado); padding: 12px; }
+.k3d-vidro { background: var(--vidro); border: 1px solid var(--vidro-borda); -webkit-backdrop-filter: blur(16px) saturate(1.4); backdrop-filter: blur(16px) saturate(1.4); box-shadow: var(--sombra-1); }
+.k3d-barra { background: var(--vidro); border: 1px solid var(--vidro-borda); border-radius: var(--k3d-raio-g); -webkit-backdrop-filter: blur(18px) saturate(1.5); backdrop-filter: blur(18px) saturate(1.5); box-shadow: var(--sombra-2); }
+.k3d-muted { color: var(--muted); }
+.k3d-eyebrow { font-family: var(--mono, ui-monospace, monospace); font-size: 12px; letter-spacing: .07em; text-transform: uppercase; color: var(--muted); }
+
+/* botões em relevo: afundam ao tocar */
+.k3d-btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; padding: 10px 16px; border-radius: var(--k3d-raio-p); border: 1px solid var(--line); background: var(--grad-btn); color: var(--ink); box-shadow: var(--sombra-btn); font: inherit; font-weight: 500; text-decoration: none; cursor: pointer; transition: transform var(--k3d-mov), box-shadow var(--k3d-mov), border-color var(--k3d-mov); }
+.k3d-btn:hover { border-color: var(--destaque-borda); }
+.k3d-btn:active { transform: translateY(1px); box-shadow: var(--sombra-afundado); }
+.k3d-btn-p { background: var(--grad-btn-p); border-color: var(--destaque-borda); color: var(--on-destaque); box-shadow: var(--sombra-btn-p); font-weight: 600; }
+.k3d-btn-p:hover { background: var(--grad-btn-p-hover); }
+.k3d-btn-t { background: transparent; border-color: transparent; box-shadow: none; color: var(--accent); }
+.k3d-btn:focus-visible, .k3d-ladrilho:focus-visible, .k3d-seletor:focus-visible, .k3d-opcao:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.k3d-chip { display: inline-flex; align-items: center; gap: 4px; padding: 4px 10px; border-radius: 999px; font-size: 13px; background: var(--accent-soft); color: var(--accent); box-shadow: inset 0 1px 0 var(--brilho), var(--sombra-ponto); white-space: nowrap; }
+
+/* ladrilhos de ícone (como a grade "Mais") */
+.k3d-grade { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px 8px; }
+.k3d-ladrilho { display: grid; justify-items: center; align-content: start; gap: 7px; padding: 4px 2px; min-height: 92px; text-decoration: none; color: var(--ink); border-radius: var(--k3d-raio); background: none; border: 0; font: inherit; cursor: pointer; transition: transform var(--k3d-mov); }
+.k3d-ladrilho:active { transform: scale(.95); }
+.k3d-ico { display: grid; place-items: center; width: 60px; height: 60px; border-radius: 18px; border: 1px solid var(--vidro-borda); border-top-color: var(--brilho); box-shadow: var(--sombra-btn), var(--sombra-1); background: linear-gradient(160deg, var(--sec-treino-2) 0%, var(--sec-treino) 100%); color: var(--sec-treino-ico); transition: transform var(--k3d-mov), box-shadow var(--k3d-mov); }
+.k3d-ladrilho:hover .k3d-ico { transform: translateY(-2px); box-shadow: var(--sombra-btn), var(--sombra-2); }
+.k3d-ico svg { width: 28px; height: 28px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.k3d-memoria .k3d-ico, .k3d-ico.k3d-memoria { background: linear-gradient(160deg, var(--sec-memoria-2) 0%, var(--sec-memoria) 100%); color: var(--sec-memoria-ico); }
+.k3d-acompanhar .k3d-ico, .k3d-ico.k3d-acompanhar { background: linear-gradient(160deg, var(--sec-acompanhar-2) 0%, var(--sec-acompanhar) 100%); color: var(--sec-acompanhar-ico); }
+.k3d-apoio .k3d-ico, .k3d-ico.k3d-apoio { background: linear-gradient(160deg, var(--sec-apoio-2) 0%, var(--sec-apoio) 100%); color: var(--sec-apoio-ico); }
+.k3d-nome { font-size: 13px; font-weight: 500; text-align: center; line-height: 1.2; }
+
+/* ===================== Seletor de tema flutuante ===================== */
+.k3d-seletor { position: fixed; z-index: 2147483000; right: max(16px, env(safe-area-inset-right, 0px)); bottom: max(16px, env(safe-area-inset-bottom, 0px)); width: 48px; height: 48px; border-radius: 50%; display: grid; place-items: center; cursor: pointer; border: 1px solid var(--vidro-borda); border-top-color: var(--brilho); background: var(--vidro); color: var(--accent); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); box-shadow: var(--sombra-2); transition: transform var(--k3d-mov); }
+.k3d-seletor:active { transform: scale(.94); }
+.k3d-seletor svg { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.k3d-painel { position: fixed; z-index: 2147483001; right: max(16px, env(safe-area-inset-right, 0px)); bottom: calc(max(16px, env(safe-area-inset-bottom, 0px)) + 58px); width: min(320px, calc(100vw - 32px)); max-height: min(70vh, 560px); overflow: auto; padding: 12px; border-radius: var(--k3d-raio-g); background: var(--paper); color: var(--ink); border: 1px solid var(--line); border-top-color: var(--brilho); box-shadow: var(--sombra-2); font-family: var(--body, system-ui, sans-serif); font-size: 15px; }
+.k3d-painel[hidden] { display: none; }
+.k3d-painel h2 { margin: 2px 4px 10px; font-size: 16px; font-weight: 600; font-family: inherit; }
+.k3d-opcoes { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+.k3d-opcao { display: grid; gap: 6px; padding: 6px; border-radius: 14px; border: 1px solid var(--line); background: var(--grad-btn); color: var(--ink); box-shadow: var(--sombra-btn); cursor: pointer; font: inherit; font-size: 13px; text-align: left; min-height: 44px; transition: transform var(--k3d-mov), box-shadow var(--k3d-mov); }
+.k3d-opcao:active { transform: translateY(1px); box-shadow: var(--sombra-afundado); }
+.k3d-opcao[aria-checked="true"] { border-color: var(--accent); box-shadow: var(--sombra-afundado), inset 0 0 0 1px var(--accent); }
+.k3d-opcao[aria-checked="true"] .k3d-opcao-nome::after { content: " ✓"; content: " ✓" / ""; color: var(--accent); }
+/* amostra: um pedacinho do tema (fundo, cartão, botão) desenhado com os tokens dele */
+.k3d-amostra { display: grid; grid-template-columns: 1fr auto; align-items: end; gap: 4px; height: 40px; padding: 6px; border-radius: 10px; background-color: var(--bg); background-image: var(--fundo-grad); border: 1px solid var(--line); box-shadow: var(--sombra-afundado); overflow: hidden; }
+.k3d-amostra i { display: block; height: 18px; border-radius: 6px; background: var(--paper); border-top: 1px solid var(--brilho); box-shadow: var(--sombra-1); }
+.k3d-amostra b { display: block; width: 18px; height: 18px; border-radius: 6px; background: var(--grad-btn-p); box-shadow: var(--sombra-btn-p); }
+.k3d-auto-amostra { display: grid; grid-template-columns: 1fr 1fr; gap: 0; padding: 0; }
+.k3d-auto-amostra > span { display: grid; align-items: end; height: 100%; padding: 6px; background-color: var(--bg); background-image: var(--fundo-grad); }
+
+/* ===================== Adaptação de páginas existentes =====================
+   Só vale com <html class="k3d-adaptar"> (kit-3d.js liga com data-adaptar no <script>).
+   Seletores do leitor (Sistema-de-Resolucao.html) e do Treinador de Tipos. */
+html.k3d-adaptar body { background-color: var(--bg); background-image: var(--fundo-grad); background-attachment: fixed; }
+html.k3d-adaptar nav.top { background: var(--vidro); border-bottom: 1px solid var(--vidro-borda); -webkit-backdrop-filter: blur(16px) saturate(1.4); backdrop-filter: blur(16px) saturate(1.4); box-shadow: var(--sombra-1); }
+html.k3d-adaptar nav.top a { background: var(--grad-btn); box-shadow: var(--sombra-btn); border-color: var(--line); }
+html.k3d-adaptar nav.top a.tr { color: var(--accent); border-color: var(--destaque-borda); }
+html.k3d-adaptar article.cap, html.k3d-adaptar .sheet, html.k3d-adaptar ol.sum, html.k3d-adaptar .score, html.k3d-adaptar .tbl {
+  border-color: var(--line); border-top-color: var(--brilho); border-radius: var(--k3d-raio); box-shadow: var(--sombra-1);
+}
+html.k3d-adaptar article.cap, html.k3d-adaptar .sheet { background: linear-gradient(180deg, var(--paper) 0%, var(--paper-2) 100%); }
+html.k3d-adaptar .cta a, html.k3d-adaptar .btn { border-radius: var(--k3d-raio-p); background: var(--grad-btn-p); border-color: var(--destaque-borda); color: var(--on-destaque); box-shadow: var(--sombra-btn-p); transition: transform var(--k3d-mov), box-shadow var(--k3d-mov); }
+html.k3d-adaptar .cta a:not(.p) { background: var(--grad-btn); color: var(--accent); border-color: var(--line); box-shadow: var(--sombra-btn); }
+html.k3d-adaptar .btn.ghost { background: var(--grad-btn); color: var(--ink); border-color: var(--line); box-shadow: var(--sombra-btn); }
+html.k3d-adaptar .cta a:active, html.k3d-adaptar .btn:active, html.k3d-adaptar .alt:not([disabled]):active, html.k3d-adaptar .type:not([disabled]):active, html.k3d-adaptar .chip:active { transform: translateY(1px); box-shadow: var(--sombra-afundado); }
+html.k3d-adaptar .alt, html.k3d-adaptar .type, html.k3d-adaptar .chip { background: var(--grad-btn); box-shadow: var(--sombra-btn); border-radius: var(--k3d-raio-p); transition: transform var(--k3d-mov), box-shadow var(--k3d-mov); }
+html.k3d-adaptar .chip { border-radius: 999px; }
+html.k3d-adaptar .chip[aria-pressed="true"], html.k3d-adaptar .alt.right, html.k3d-adaptar .type.right, html.k3d-adaptar .alt.wrong, html.k3d-adaptar .type.wrong { box-shadow: var(--sombra-afundado); }
+html.k3d-adaptar .chip[aria-pressed="true"] { background: var(--accent-soft); }
+html.k3d-adaptar .alt.right, html.k3d-adaptar .type.right { background: var(--ok-soft); }
+html.k3d-adaptar .alt.wrong, html.k3d-adaptar .type.wrong { background: var(--bad-soft); }
+html.k3d-adaptar ol.sum a, html.k3d-adaptar .score div { background: linear-gradient(180deg, var(--paper) 0%, var(--paper-2) 100%); }
+html.k3d-adaptar blockquote { box-shadow: var(--sombra-afundado); }
+html.k3d-adaptar .code { background: var(--inset); box-shadow: var(--sombra-afundado); border-radius: var(--k3d-raio-p); }
+
+@media (prefers-reduced-motion: reduce) {
+  .k3d-btn, .k3d-ladrilho, .k3d-ico, .k3d-seletor, .k3d-opcao { transition: none !important; }
+}
+html[data-movimento="reduzido"] *, html[data-movimento="reduzido"] *::before, html[data-movimento="reduzido"] *::after { transition: none !important; animation: none !important; scroll-behavior: auto !important; }

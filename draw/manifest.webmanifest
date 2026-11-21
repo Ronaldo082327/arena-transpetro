@@ -1,0 +1,24 @@
+{
+  "name": "Dora Draw",
+  "short_name": "Dora Draw",
+  "description": "Caderno de estudo para concursos. Dados só no seu aparelho.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#faf6f1",
+  "theme_color": "#e8853a",
+  "lang": "pt-BR",
+  "icons": [
+    {
+      "src": "icones/icone-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icones/icone-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
