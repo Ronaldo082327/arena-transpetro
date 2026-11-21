@@ -169,3 +169,16 @@ Pedido do Ronaldo: toda integração com a sessão local é de mão dupla. Esta 
 - **Privacidade da agenda:** dos compromissos, só ficam início, fim e tipo, nunca o título.
 - **Horizonte da Prova:** `horizonte(n)` limita qualquer intervalo de revisão à metade dos dias até a prova.
 - **Toda IA nova passa pela Rede:** `aicall(prompt, json, {rag:'consulta'})`.
+
+## Começar pelo edital, Motor de Pesos e bancas (21/11)
+- `#comecar` é o assistente da cópia pública, que abre sozinho quando não há concurso. Passos:
+  1. exemplo pronto ou edital em PDF/texto (pdf.js de `draw/lib`);
+  2. conferir banca, cargo, data, questões, pesos e tópicos de 1 a 5, com os motivos;
+  3. domínio por matéria e por tópico;
+  4. horários por dia da semana (`arenaTP.agenda.disp`);
+  5. cadernos (`nome | link | nº`);
+  6. plano pronto.
+- `motor.js` (`DoraMotor`): lê o edital sem IA (formatos Cebraspe, FGV e "Disciplina: texto"; separa o cargo; lê o quadro de provas) e pesa os tópicos. Com `ccGet().motor`, `ccLinhas()` passa a usar `DoraMotor.prioridade`, que calcula questões esperadas × (1 − domínio) × erros.
+- `bancas/perfis.json`: Cebraspe, FGV, FCC, Cesgranrio, Vunesp, Quadrix, IBFC e AOCP, com fontes; hipóteses marcadas. Tela `#banca`. No app principal, ela mostra também o raio-x de `questoes.json`.
+- `exemplos/` (cópia pública): Bacen 2024 TI, Receita 2022 Auditor-Fiscal e SEFAZ-ES 2021, gerados por `node exemplos/gerar.js <pasta dos .txt>` a partir dos PDFs oficiais (`pdftotext -layout`). Não reescreva os tópicos à mão.
+- A Sala do Tópico liga os cadernos do Tec (`cadernos.json` no app principal; `ccGet().cadernos` na cópia pública).

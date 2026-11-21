@@ -48,6 +48,15 @@ Atualizado em 21/11/2026 (à tarde), depois da Onda 1 da visão 360. Regra combi
   - `#bolso` (Rádio de Bolso).
 - **Horizonte da Prova:** os intervalos de revisão do Estúdio ficam limitados à metade dos dias até a prova. Sugestão para o FSRS do Draw: o mesmo teto.
 
+## Rodada seguinte (21/11, tarde)
+- **Assistente `#comecar` e Motor de Pesos (`motor.js`, sem IA):** o edital em PDF vira matérias, tópicos, quadro de provas e pesos. Detalhes no `AGENTS.md`.
+- **Perfis de bancas:** `bancas/perfis.json` (8 bancas).
+- **Exemplos públicos:** Bacen TI, Receita Auditor e SEFAZ-ES, em `exemplos/`.
+- **Disponibilidade por dia da semana:** `arenaTP.agenda.disp = {0..6: [{de, ate}]}`.
+- **Sugestão para o Draw:** o "edital por PDF" do Draw pode usar o mesmo `motor.js` (código próprio, sem dependências).
+- **ANPD:** ainda não tem edital (previsto para dezembro de 2026, banca a confirmar).
+- **TCU:** o edital não estava acessível nesta rede.
+
 ## Pedidos desta sessão à sessão local (Onda 2)
 1. **Legenda Viva no leitor:** gravar `grifos.significado` (conceito, lei, exemplo, pegadinha) junto da cor. A Sala do Tópico já lê a cor como significado. Se a paleta mudar, avise.
 2. **Escudeira no Tec:** confiança antes do resultado, dificuldade, motivo, print e tópico. Exportar as respostas como `dora-guilda-evidencias` v1, ou gravar via content script no domínio do site.
