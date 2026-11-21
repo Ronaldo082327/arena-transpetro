@@ -37,6 +37,11 @@ modelo={"tipo":"doroxandria-pacote-concurso","schemaVersion":2,"geradoEm":"","bi
  "concurso":{"id":"modelo","nome":"Meu concurso","orgao":"","banca":"","cargo":"","enfase":"","polo":"","modalidade":"","edital":{},"datas":{},"status":"modelo","resultado":{}}}
 json.dump(modelo,open(os.path.join(pk,'modelo.json'),'w',encoding='utf-8'),ensure_ascii=False)
 json.dump({"pacotes":[{"arquivo":"modelo.json","nome":"Meu concurso (modelo)","primeiraExecucao":True}]},open(os.path.join(pk,'indice.json'),'w',encoding='utf-8'),ensure_ascii=False)
+# concurso pré-configurado (ex.: PRECONFIG=sefaz-al-auditor): o app abre já com esse edital
+PRE=os.environ.get('PRECONFIG','').strip()
+if PRE:
+    assert os.path.exists(os.path.join(SAIDA,'exemplos',PRE+'.json')), 'exemplo não encontrado: '+PRE
+    est=os.path.join(SAIDA,'estudio.html'); h=open(est,encoding='utf-8').read().replace("var PRECONFIG='';","var PRECONFIG='"+PRE+"';",1); open(est,'w',encoding='utf-8').write(h)
 sw=open(os.path.join(SAIDA,'sw.js'),encoding='utf-8').read().replace('concursos/transpetro-2026-enfase5.json','concursos/modelo.json')
 open(os.path.join(SAIDA,'sw.js'),'w',encoding='utf-8').write(sw)
 

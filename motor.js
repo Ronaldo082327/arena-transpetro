@@ -31,7 +31,7 @@
     });
     return out;
   }
-  function nomeBonito(n) { n = n.replace(/\s+/g, ' ').trim(); if (n === n.toUpperCase()) n = n.toLowerCase().replace(/(^|\s)(\S)/g, function (a, s, c) { return s + c.toUpperCase(); }).replace(/\b(De|Da|Do|Das|Dos|E|Em|A|À|Para|Ao|Aplicada)\b/g, function (w) { return w.toLowerCase(); }); n = n.replace(/\b(Ti|Sql|Lgpd|Itil|Cobit|Afo|Tcu|Bpmn|Ia|Erp|Pmbok)\b/g, function (w) { return w.toUpperCase(); }); return n.charAt(0).toUpperCase() + n.slice(1); }
+  function nomeBonito(n) { n = n.replace(/\s+/g, ' ').trim(); if (n === n.toUpperCase()) n = n.toLowerCase().replace(/(^|\s)(\S)/g, function (a, s, c) { return s + c.toUpperCase(); }).replace(/\b(De|Da|Do|Das|Dos|E|Em|A|À|Para|Ao|Aplicada)\b/g, function (w) { return w.toLowerCase(); }); n = n.replace(/\b(Ti|Tic|Sql|Lgpd|Itil|Cobit|Afo|Tcu|Bpmn|Ia|Erp|Pmbok|Icms|Ipva|Sped)\b/g, function (w) { return w.toUpperCase(); }); return n.charAt(0).toUpperCase() + n.slice(1); }
   // Mantém só os conhecimentos básicos + o bloco do cargo escolhido (texto do cargo, ex.: 'TECNOLOGIA DA INFORMA').
   function doCargo(r, cargo) {
     if (!cargo) return r; var marcas = [], m, rx = /CARGO\s+\d+\s*:[^\n]{0,160}/g; while ((m = rx.exec(r))) marcas.push({ i: m.index, t: m[0] });

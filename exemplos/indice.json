@@ -18,6 +18,15 @@
   "questoes": 140
  },
  {
+  "slug": "sefaz-al-auditor",
+  "nome": "SEFAZ-AL 2026 · Auditor Fiscal da Administração Tributária Estadual",
+  "banca": "Cebraspe (antigo Cespe/UnB)",
+  "banca_id": "cebraspe",
+  "area": "fiscal",
+  "materias": 16,
+  "questoes": 160
+ },
+ {
   "slug": "sefaz-es-auditor",
   "nome": "SEFAZ-ES 2021 · Auditor Fiscal da Receita Estadual",
   "banca": "FGV (Fundação Getulio Vargas)",
