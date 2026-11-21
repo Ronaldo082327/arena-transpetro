@@ -91,3 +91,14 @@ for dp,_,fs in os.walk(SAIDA):
             t=open(os.path.join(dp,f),encoding='utf-8',errors='ignore').read()
             if re.search(r'AIza[0-9A-Za-z_-]{30,}|sk-ant-[0-9A-Za-z_-]{20,}',t): sys.exit('CHAVE ENCONTRADA em '+os.path.join(dp,f))
 print('Versão pública gerada em',SAIDA)
+
+# ---- prefixo próprio das chaves do navegador (a cópia pública não divide dados com o app pessoal no mesmo domínio) ----
+PREFIXO=os.environ.get('PREFIXO','guildaPub').strip()
+if PREFIXO and PREFIXO!='arenaTP':
+    for dp,_,fs in os.walk(SAIDA):
+        if os.sep+'draw'+os.sep in dp+os.sep and not dp.endswith('draw'): continue
+        for f in fs:
+            if not f.endswith(('.html','.js')): continue
+            if os.sep+'draw' in dp and f!='ponte.js': continue
+            q=os.path.join(dp,f); t=open(q,encoding='utf-8').read()
+            if 'arenaTP' in t: open(q,'w',encoding='utf-8').write(t.replace('arenaTP',PREFIXO))
