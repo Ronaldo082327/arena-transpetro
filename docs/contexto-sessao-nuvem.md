@@ -1,6 +1,6 @@
 # Contexto da sessão na nuvem (Estúdio / site) para a sessão local
 
-Atualizado em 22/11/2026. Regra combinada com o Ronaldo: **merge de mão dupla**. Cada sessão entrega à outra o que fez e o que sabe; nenhuma integra só de um lado.
+Atualizado em 21/11/2026 (à tarde), depois da Onda 1 da visão 360. Regra combinada com o Ronaldo: **merge de mão dupla**. Cada sessão entrega à outra o que fez e o que sabe; nenhuma integra só de um lado.
 
 ## O que existe no site (repositório arena-transpetro, branch main, GitHub Pages)
 - **Estúdio** (`estudio.html`): hub da Dora Guilda. Telas próprias desta sessão:
@@ -26,6 +26,36 @@ Atualizado em 22/11/2026. Regra combinada com o Ronaldo: **merge de mão dupla**
 - Nada de NotebookLM por trás (sem API pública; risco à conta; LGPD) → Estante com File Search do Gemini.
 - 12 alunos previstos; teto Claude US$ 150 no porteiro + US$ 200 no console da Anthropic.
 - Nome "Dora Examinadora". Ícone principal do app: girassol escuro.
+
+## Novidades do Estúdio nesta rodada (branch claude/rede-da-dora, PR #29)
+- **Plano geral:** `docs/visao-360.md` (análise 360 feita com o Fable): grafo do concurso, 33 ideias, cinco destinos de navegação (Hoje, Edital, Treinar, Biblioteca, Eu) e plano em ondas. A **Onda 2 é da sessão local**:
+  - Dora Escudeira (modo assistido do Tec completo);
+  - Ampulheta, Legenda Viva e Carimbos no leitor;
+  - `?embed=1` no Draw;
+  - rotas de agenda e push no porteiro.
+- **Rede da Dora** (`rag.js`): BM25 local sobre tudo, inclusive o IndexedDB do Draw (só leitura, só se o banco existir).
+  - `aicall(..., {rag})` cola os trechos antes do pedido e cita [F1].
+  - Tela `#pergunte`.
+  - `DoraRAG.sugerirTopico(texto, lista)` é a Tecelã.
+- **Diário de evidências** (`grafo.js`, `arenaTP.eventos`): `{t (s), k:'resp'|'rev'|'ses'|'erro', top, d, ok, c:1|2|3, m, qn, qok, n, f, r}`.
+  - Proposta: a extensão e o Draw exportam no mesmo formato como **`dora-guilda-evidencias` v1**: `{formato:'dora-guilda-evidencias', versao:1, eventos:[...]}`. O Estúdio passa a aceitar a importação assim que a sessão local confirmar.
+- **Telas novas:**
+  - `#hoje` (rota padrão): blocos nos horários livres, Selo da Sessão, Carta da Manhã, Guarda do Corte, Fila da Memória.
+  - `#agenda` (Agenda Viva): importa .ics, guarda só `{ini, fim, tipo}`, exporta o plano em .ics com alarme. Motor em `rotina.js`.
+  - `#relatorio` (Vitral em SVG/PNG).
+  - `#voo` (Cartão de Voo e Rito da Véspera, com .ics da prova).
+  - `#topico/<d>/<t>` (Sala do Tópico: grifos do Draw agrupados pela cor, legenda amarelo/verde/azul/rosa = conceito/lei seca/exemplo/pegadinha).
+  - `#bolso` (Rádio de Bolso).
+- **Horizonte da Prova:** os intervalos de revisão do Estúdio ficam limitados à metade dos dias até a prova. Sugestão para o FSRS do Draw: o mesmo teto.
+
+## Pedidos desta sessão à sessão local (Onda 2)
+1. **Legenda Viva no leitor:** gravar `grifos.significado` (conceito, lei, exemplo, pegadinha) junto da cor. A Sala do Tópico já lê a cor como significado. Se a paleta mudar, avise.
+2. **Escudeira no Tec:** confiança antes do resultado, dificuldade, motivo, print e tópico. Exportar as respostas como `dora-guilda-evidencias` v1, ou gravar via content script no domínio do site.
+3. **`?embed=1` no Draw:** esconde o menu quando aberto na segunda tela do Estúdio. O `ponte.js` pode fazer isso se preferir; diga.
+4. **Porteiro:**
+   - `POST /agenda/ics {codigo, url}`: proxy do link iCal privado (só https, hosts do Google, Outlook e iCloud, até 1 MB, sem registrar conteúdo).
+   - Depois, push "campainha" (VAPID e cron, sem conteúdo).
+   - E-mail opt-in só na Onda 3 (desenho em `docs/visao-360.md` 3.2).
 
 ## Pendências (dependem do Ronaldo)
 Publicar o porteiro no Cloudflare (chaves só no terminal), criar os 12 códigos, gerar a cópia pública com `PORTEIRO_URL`, conferir no celular, testar a voz humana.

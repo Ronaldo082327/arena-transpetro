@@ -155,3 +155,17 @@ Vídeo de abertura do Google Flow (8 s, 720p, com trilha): `identidade/video/abe
 
 ## Regra: merge de mão dupla com a sessão local (22/11)
 Pedido do Ronaldo: toda integração com a sessão local é de mão dupla. Esta sessão entrega o seu contexto (`docs/contexto-sessao-nuvem.md`, mantido atualizado) e pede o contexto da outra; não basta trazer o pacote dela.
+
+## Onda 1 da visão 360 (21/11, `docs/visao-360.md`)
+- **Novos arquivos:**
+  - `rag.js` (Rede da Dora, BM25, `DoraRAG`);
+  - `grafo.js` (diário `arenaTP.eventos`, `DoraGrafo`);
+  - `rotina.js` (leitor .ics, horários livres, encaixe, gerador .ics; `DoraRotina`).
+  - Os três estão no `SHELL` do `sw.js` e na cópia pública.
+- **Rotas novas no Estúdio:**
+  - `#hoje` (padrão; a tela antiga ficou em `#inicio`);
+  - `#agenda`, `#relatorio[/mes]`, `#voo`, `#topico/<disc>/<tópico>`, `#bolso`, `#pergunte`.
+- **Chaves novas:** `arenaTP.agenda`, `arenaTP.planoSemana`, `arenaTP.sessaoAtiva`, `arenaTP.voo`, `arenaTP.folhas`, `arenaTP.dora`, `arenaTP.eventos` e `arenaTP.eventos.dia`.
+- **Privacidade da agenda:** dos compromissos, só ficam início, fim e tipo, nunca o título.
+- **Horizonte da Prova:** `horizonte(n)` limita qualquer intervalo de revisão à metade dos dias até a prova.
+- **Toda IA nova passa pela Rede:** `aicall(prompt, json, {rag:'consulta'})`.
