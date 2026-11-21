@@ -58,5 +58,28 @@
     Object.keys(dias).forEach(function (d) { var sem = Math.floor((agora - dias[d]) / 86400); if (sem >= 3) out.push(sem + ' dias sem questões de ' + d + '.'); });
     return out.slice(0, 4);
   }
-  raiz.DoraGrafo = { ev: ev, todos: todos, dominio: dominio, faixa: faixa, calibracao: calibracao, porDia: porDia, porDisciplina: porDisciplina, sentinela: sentinela, hoje: hoje, diaDe: diaDe };
+  // Importa 'dora-guilda-evidencias' v1 (Draw/extensão). c em número 1|2|3; r = dificuldade; id = 'draw:<id>'.
+  // Sem duplicar: a chave é o id; sem id, t|k|top|ok. Devolve {novos, repetidos, invalidos}.
+  function importar(o) {
+    if (!o || (o.formato || o.tipo) !== 'dora-guilda-evidencias' || !Array.isArray(o.eventos)) throw new Error('não é um arquivo de evidências da Dora Guilda');
+    var CONF = { certeza: 3, duvida: 2, 'dúvida': 2, chute: 1 }, L = todos(), visto = {}, r = { novos: 0, repetidos: 0, invalidos: 0 };
+    function chave(e) { return e.id ? 'i:' + e.id : 't:' + e.t + '|' + e.k + '|' + (e.top || '') + '|' + (e.ok ? 1 : 0); }
+    L.forEach(function (e) { visto[chave(e)] = 1; });
+    o.eventos.forEach(function (x) {
+      if (!x || typeof x.t !== 'number' || !/^(resp|rev|ses|erro|sim)$/.test(x.k)) { r.invalidos++; return; }
+      var e = { t: x.t > 1e12 ? Math.round(x.t / 1000) : Math.round(x.t), k: x.k, f: x.f || 'draw' };
+      ['top', 'd', 'm', 'n', 'r', 'id'].forEach(function (c) { if (x[c] != null && x[c] !== '') e[c] = typeof x[c] === 'string' ? x[c].slice(0, 200) : x[c]; });
+      if (x.ok != null) e.ok = x.ok ? 1 : 0;
+      var c = typeof x.c === 'string' ? CONF[x.c.toLowerCase()] : x.c; if (c === 1 || c === 2 || c === 3) e.c = c;
+      ['qn', 'qok', 's'].forEach(function (c) { if (typeof x[c] === 'number') e[c] = x[c]; });
+      if (visto[chave(e)]) { r.repetidos++; return; }
+      visto[chave(e)] = 1; L.push(e); r.novos++;
+    });
+    L.sort(function (a, b) { return a.t - b.t; });
+    if (L.length > TETO) { var velhos = L.splice(0, L.length - TETO), acc = ler(KD, '{}'); velhos.forEach(function (x) { somaNoDia(acc, x); }); try { localStorage.setItem(KD, JSON.stringify(acc)); } catch (x) { } }
+    try { localStorage.setItem(K, JSON.stringify(L)); } catch (x) { throw new Error('sem espaço no aparelho'); }
+    if (raiz.DoraRAG) raiz.DoraRAG.sujar();
+    return r;
+  }
+  raiz.DoraGrafo = { ev: ev, importar: importar, todos: todos, dominio: dominio, faixa: faixa, calibracao: calibracao, porDia: porDia, porDisciplina: porDisciplina, sentinela: sentinela, hoje: hoje, diaDe: diaDe };
 })(typeof window !== 'undefined' ? window : globalThis);
