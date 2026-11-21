@@ -1,5 +1,5 @@
 // Service worker do Doroxandria: abre offline e atualiza em segundo plano.
-const CACHE = 'arena-202611212130';
+const CACHE = 'arena-202611212200';
 const SHELL = ['./', 'index.html', 'manifest.json', 'icon-192.png', 'icon-512.png',
   'questoes.json', 'cards.json', 'banca.json', 'videos.json', 'links.json',
   'cadernos.json', 'biblioteca.json', 'concursos/indice.json', 'concursos/transpetro-2026-enfase5.json', 'jogo.html', 'macetes.json',
