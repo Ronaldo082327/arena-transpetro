@@ -10,6 +10,9 @@ Pedido do Ronaldo (21/11): elevar as animações do Gêmeo Digital e dos agentes
   - a gravação em vídeo pelo botão "🎬 Gravar em vídeo" (MediaRecorder) captura tudo junto.
 - **Sem os clipes, a animação continua só com o canvas.** Nada quebra.
 
+## Modelo para os artefatos no Google (pedido do Ronaldo)
+Todo artefato criado no ecossistema Google (prompts, roteiros, imagens, vídeos, documentos, páginas pelo Antigravity) usa o **Gemini 4 Neon** como orquestrador, com raciocínio alto (thinkingLevel HIGH). O Veo e o Flow geram o vídeo, mas o pedido, a revisão e a escolha das tomadas passam pelo Neon. Se a cota do Neon acabar, pare e avise; não troque de modelo sem o Ronaldo saber.
+
 ## Clipes pedidos (gerar no Veo/Flow pelo Antigravity, no computador do Ronaldo)
 **Regras de todos os clipes:**
 - sem texto, sem pessoas reais, sem marcas;
@@ -56,3 +59,7 @@ Pedido do Ronaldo (21/11): elevar as animações do Gêmeo Digital e dos agentes
 
 ## Opção sem o Google (feita aqui)
 O botão "🎬 Gravar em vídeo" já gera um vídeo (WebM, ~5 MB por 20 s) da jornada real do aluno, para compartilhar. Ele é a versão "feita pelo app" e funciona com ou sem os clipes do Veo.
+
+## Constelação da Guilda (21/11)
+- O mesmo pedido vale para a galáxia de conhecimento (`constelacao.js`, rota `#constelacao`): um clipe de fundo cósmico com nebulosa em espiral de Fibonacci (`constelacao-fundo.webm`, loop de 10 s, sem texto) pode entrar como camada, como no Gêmeo.
+- O cofre exportado (Meus Dados → .zip Markdown) abre no Obsidian com a visão de grafo nativa.
