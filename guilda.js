@@ -41,3 +41,12 @@ function ui(){
 }
 if(document.body)ui();else document.addEventListener('DOMContentLoaded',ui);
 })();
+
+(function(){var GG=window.GUILDA,G=GG;
+/* Figuras da identidade (molduras, selos, estados vazios). Mapas: patente->moldura, conquista->selo. Selo não conquistado fica cinza e opaco. */
+GG.PATENTES=['aprendiz','estudante','praticante','veterano','estrategista','mestre','grao-mestre','lenda'];
+GG.fig=function(pasta,nome,w,extra){return '<img src="'+GG.BASE+'identidade/'+pasta+'/'+nome+'.svg" width="'+(w||96)+'" alt="'+(extra&&extra.alt||'')+'" style="'+(extra&&extra.off?'filter:grayscale(1);opacity:.4;':'')+'max-width:100%;height:auto">';};
+GG.vazio=function(nome,texto,w){return '<div style="text-align:center;padding:18px 8px">'+GG.fig('estados-vazios',nome,w||220)+'<p class="note" style="margin-top:8px">'+(texto||'')+'</p></div>';};
+GG.selo=function(nome,on,w){return GG.fig('selos',nome,w||72,{off:!on,alt:nome});};
+GG.moldura=function(i,w){return GG.fig('molduras',GG.PATENTES[Math.min(GG.PATENTES.length-1,Math.max(0,i|0))],w||96);};
+})();

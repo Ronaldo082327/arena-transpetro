@@ -478,6 +478,8 @@ html.pn-open .sq kbd{display:none}.sq{overflow:hidden}
 .tb button,.sb .pb,.sb .mini,#pn .ph .ib{box-shadow:none!important}.tb button{border:0!important;background:transparent!important}.sb .pb{border:0!important;background:transparent!important}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 
+/* capas 3x1 da identidade, no topo de cada tela */
+#app[data-capa]::before{content:'';display:block;height:clamp(96px,15vw,190px);width:100%;margin:14px 0 6px;border-radius:var(--raio-g);box-shadow:var(--sombra-2);background:var(--capa) center/cover no-repeat}
 /* ===== Visual Dora Guilda: relevo, vidro, ladrilhos e barra flutuante (tokens de temas.css) ===== */
 .sb{background:var(--vidro);-webkit-backdrop-filter:blur(18px) saturate(1.4);backdrop-filter:blur(18px) saturate(1.4);color:var(--ink);border-right:1px solid var(--vidro-borda);box-shadow:var(--sombra-1)}
 .sb .logo{color:var(--ink)}.sb .gt{color:var(--muted);opacity:1}
@@ -1613,7 +1615,7 @@ function cpRender(){var q=norm($('#cpq').value.trim()),toks=q.split(/\s+/).filte
   if(a.length)h+='<div class="cpg">Ferramentas</div>'+a.map(function(x,i){return cpRow(x,i);}).join('');
   if(b.length)h+='<div class="cpg">Tópicos do edital (Mente do examinador)</div>'+b.map(function(x,i){return cpRow(x,a.length+i);}).join('');
   if(!toks.length&&Array.isArray(CPT))h+='<div class="cpg">Dica</div><div class="cpr" style="cursor:default"><span class="ic">💡</span><span class="tx"><small>Digite o nome de um tópico (ex.: normalização, SQL, crase) para abrir a Mente do examinador dele.</small></span></div>';
-  if(!CPI.length)h='<div class="cpr" style="cursor:default"><span class="ic">🤷</span><span class="tx"><b>Nada encontrado</b><small>Tente outra palavra.</small></span></div>';
+  if(!CPI.length)h='<div class="cpr" style="cursor:default"><span class="ic"><img src="identidade/estados-vazios/sem-resultados.svg" width="64" alt=""></span><span class="tx"><b>Nada encontrado</b><small>Tente outra palavra.</small></span></div>';
   $('#cpl').innerHTML=h;$$('.cpr[data-i]').forEach(function(e){e.onclick=function(ev){if(ev.target.closest('.pb2'))return cpGo(+e.dataset.i,true);cpGo(+e.dataset.i,ev.shiftKey);};e.onmouseenter=function(){CPS=+e.dataset.i;cpSel();};});cpSel();}
 function cpRow(x,i){return '<div class="cpr" role="option" data-i="'+i+'" aria-selected="false"><span class="ic" aria-hidden="true">'+x.ic+'</span><span class="tx"><b>'+esc(x.t)+(x.n?' <small style="display:inline">· '+esc(x.n)+'</small>':'')+'</b><small>'+esc(x.s)+'</small></span><button type="button" class="pb2" title="Abrir na segunda tela">⧉</button></div>';}
 function cpSel(){$$('.cpr[data-i]').forEach(function(e){var on=+e.dataset.i===CPS;e.setAttribute('aria-selected',String(on));if(on&&e.scrollIntoView)e.scrollIntoView({block:'nearest'});});}
@@ -1635,7 +1637,8 @@ document.addEventListener('keydown',function(e){var k=e.key,typing=/INPUT|SELECT
 addEventListener('hashchange',function(){subSet();contUpdate();});
 MOB.addEventListener&&MOB.addEventListener('change',function(){closeDrawer();});
 /* ===================== ROTAS E TECLADO ===================== */
-function route(){var h=decodeURIComponent(location.hash.slice(1)).split('/');stopPlayer();session.key=null;cqSession.key=null;window.scrollTo(0,0);
+function route(){var h=decodeURIComponent(location.hash.slice(1)).split('/');var CAPAS={plano:'edital',mt:'examinador',sim:'simulados',gem:'mentora',mm:'estudar',met:'estudar',esq:'estudar',ref:'estudar',geo:'atlas',radar:'atlas',lab:'atlas',v:'galeria',play:'galeria',pod:'galeria',mira:'edital'};var cp=CAPAS[h[0]];if(cp){app.dataset.capa=cp;app.style.setProperty('--capa','url(identidade/capas/capa-'+cp+'-3x1.svg)');}else{delete app.dataset.capa;}
+stopPlayer();session.key=null;cqSession.key=null;window.scrollTo(0,0);
   switch(h[0]){case 'v':return videoteca(h[1]);case 'play':return play(h[1],h[2],+h[3]||0);case 'met':return metodos(h[1]);case 'mm':return mapa(h[1]);case 'esq':return esquemas(h[1],h[2]);case 'fc':return flash();case 'ref':if(h[1]==='raiox')return drillRaiox(h[2]);return h[1]==='vizinho'?drillVizinho():(h[1]==='sinal'?drillSinal():(h[1]==='elimina'?drillElimina():reflexo()));case 'anki':return baralhos(h[1]);case 'plano':return plano();case 'cq':return cartoes(h[1]);case 'sim':return simulador();case 'prancha':return pranchas(h[1]);case 'geo':return geo();case 'lab':return lab();case 'radar':return radar();case 'gem':return gemini();case 'mt':return mente(h[1],h[2],h[3]);case 'pod':return podcasts();case 'mira':return mira();case 'mais':return mais();default:return home();}}
 addEventListener('hashchange',route);
 document.addEventListener('keydown',function(e){if(e.metaKey||e.ctrlKey||e.altKey||/INPUT|SELECT|TEXTAREA/.test(e.target.tagName))return;
