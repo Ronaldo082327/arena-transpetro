@@ -152,3 +152,6 @@ Vídeo de abertura do Google Flow (8 s, 720p, com trilha): `identidade/video/abe
 
 ## Dora Draw 1.2.0 no site (22/11)
 `draw/` agora é a edição geral 1.2.0 (pacote `dora-draw-web-1.2.0.zip` da sessão local): Dora Pena, identidade do girassol, FSRS, Anki TSV, estudo reverso, edital por PDF, tela Hoje, Gêmeo digital, Agentes sintéticos, Dora Estúdio com RAG local e página interativa em `src/estudio-caixa.html` (sandbox, CSP no próprio HTML), troca de erros com o Estúdio (`dora-guilda-erros` v1), IndexedDB v6 com migração aditiva. Mantidos `draw/ponte.js` (também no cache do `draw/sw.js`) e o favicon do girassol.
+
+## Regra: merge de mão dupla com a sessão local (22/11)
+Pedido do Ronaldo: toda integração com a sessão local é de mão dupla. Esta sessão entrega o seu contexto (`docs/contexto-sessao-nuvem.md`, mantido atualizado) e pede o contexto da outra; não basta trazer o pacote dela.
