@@ -147,5 +147,14 @@
     }).catch(function () { return null; });
   }
 
-  raiz.DoraRAG = { registrar: registrar, sujar: sujar, buscar: buscar, contexto: contexto, stats: stats, pronto: pronto, lerDraw: lerDraw, norm: norm, tokens: tokens, pedacos: pedacos, _buscarSync: buscarSync };
+  // Tecelã: sugere o tópico do edital para um texto (enunciado, captura, grifo). lista: [{disc, topico, extra}]
+  function sugerirTopico(texto, lista, k) {
+    var docs = (lista || []).map(function (t) { return { t: t, tk: tokens(t.disc + ' ' + t.topico + ' ' + t.topico + ' ' + (t.extra || '')) }; });
+    var N = docs.length, df = {}; if (!N) return [];
+    docs.forEach(function (d) { var vis = {}; d.tk.forEach(function (w) { if (!vis[w]) { vis[w] = 1; df[w] = (df[w] || 0) + 1; } }); });
+    var q = {}; tokens(texto).forEach(function (w) { q[w] = 1; });
+    return docs.map(function (d) { var sc = 0, tf = {}; d.tk.forEach(function (w) { tf[w] = (tf[w] || 0) + 1; }); for (var w in q) if (tf[w]) sc += Math.log(1 + N / df[w]) * (1 + Math.log(tf[w])); return { disc: d.t.disc, topico: d.t.topico, score: +sc.toFixed(2), ref: d.t.ref }; })
+      .filter(function (x) { return x.score > 0; }).sort(function (a, b) { return b.score - a.score; }).slice(0, k || 3);
+  }
+  raiz.DoraRAG = { registrar: registrar, sugerirTopico: sugerirTopico, sujar: sujar, buscar: buscar, contexto: contexto, stats: stats, pronto: pronto, lerDraw: lerDraw, norm: norm, tokens: tokens, pedacos: pedacos, _buscarSync: buscarSync };
 })(typeof window !== 'undefined' ? window : globalThis);

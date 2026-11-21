@@ -68,7 +68,7 @@ if a in t:
     open(p,'w',encoding='utf-8').write(t)
 # catálogo: esconde módulos que só fazem sentido para a Transpetro
 p=os.path.join(SAIDA,'guilda.js'); t=open(p,encoding='utf-8').read()
-t+="\n(function(){var G=window.GUILDA;if(!G||!G.groups)return;var fica=['hoje','agenda','relatorio','voo','plano','mira','mt','mapaia','pergunte','estante','fc','erros','gem','draw/index.html','identidade/index.html'];G.groups.forEach(function(g){g[1]=g[1].filter(function(i){return fica.indexOf(i[0])>=0;});});G.groups[0][1].unshift(['config','⚙️','Meu concurso','Nome, banca, data da prova e edital']);G.groups=G.groups.filter(function(g){return g[1].length;});})();\n"
+t+="\n(function(){var G=window.GUILDA;if(!G||!G.groups)return;var fica=['hoje','agenda','relatorio','voo','topico','plano','mira','mt','mapaia','pergunte','estante','fc','erros','gem','draw/index.html','identidade/index.html'];G.groups.forEach(function(g){g[1]=g[1].filter(function(i){return fica.indexOf(i[0])>=0;});});G.groups[0][1].unshift(['config','⚙️','Meu concurso','Nome, banca, data da prova e edital']);G.groups=G.groups.filter(function(g){return g[1].length;});})();\n"
 open(p,'w',encoding='utf-8').write(t)
 
 # modo público: Mira e Plano usam as matérias do aluno
