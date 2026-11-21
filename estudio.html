@@ -535,6 +535,7 @@ var S={seen:{},box:{},voice:true,speed:1,cc:true,check:{},auto:true,disc:'dados'
 try{var r=localStorage.getItem(KEY);if(r)S=Object.assign(S,JSON.parse(r));}catch(e){}
 function save(){try{localStorage.setItem(KEY,JSON.stringify(S));}catch(e){}}
 var $=function(s,r){return (r||document).querySelector(s);},$$=function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s));};
+var MODO_PUBLICO=false;/* a cópia pública (publico/construir.py) troca por true */
 var app=$('#app'),IDX=null,DISC={};try{var gs0=document.getElementById('gsp0');if(gs0)gs0.innerHTML=window.GUILDA.giro(30);}catch(e){}
 var ICON={erros:'🧾',portugues:'📜',ingles:'🌐',dados:'🛢️',projetos:'🧭',governanca:'⚓',engsoft:'⚙️',ux:'🧩',bi:'📡',logica:'🔦',seguranca:'🛡️'};
 var COR={portugues:'#e8916f',ingles:'#7fc8a0',dados:'#5fd0e0',projetos:'#f2c14e',governanca:'#b9a3ff',engsoft:'#7cc4ec',ux:'#ff9fb6',bi:'#62e3c4',logica:'#ffd166',seguranca:'#ff7b8a'};
@@ -891,7 +892,7 @@ function session(list){var i=0,ok=0,box=$('#fz');
   var draw=function(){if(i>=list.length){box.innerHTML='<div class="panel"><h3>Sessão concluída</h3><p class="note" style="margin-top:6px">'+ok+' de '+list.length+' certos. +'+(ok*4)+' XP no Arena Relâmpago.</p></div>';xp(ok*4);return;}
     var c=list[i],b=(S.box[c.id]||{}).b||0;box.innerHTML='<div class="spread" style="margin-top:14px"><span class="mono note">'+(i+1)+'/'+list.length+' · '+ICON[c.s]+' '+c.tipo+' · caixa '+(b||'nova')+'</span></div><div class="fcard" id="fcd" tabindex="0" role="button" aria-label="Virar cartão"><div class="inner"><div class="face">'+c.f+'<span class="note">toque ou Espaço para virar</span></div><div class="face back">'+c.b+(c.tag?'<p class="note" style="margin-top:8px">'+inline(short(c.tag,120))+'</p>':'')+'</div></div></div><div class="grade" id="gr" hidden><button data-g="0" style="color:var(--bad)">1 · Errei</button><button data-g="1" style="color:var(--warn)">2 · Difícil</button><button data-g="2" style="color:var(--ok)">3 · Fácil</button></div>';
     var fc=$('#fcd');var flip=function(){fc.classList.add('on');$('#gr').hidden=false;};fc.onclick=flip;fc.onkeydown=function(e){if(e.key===' '||e.key==='Enter'){e.preventDefault();flip();}};
-    var grade=function(g){var nb=g===0?1:(g===1?Math.max(1,b):Math.min(5,b+1));S.box[c.id]={b:nb,due:Date.now()+IV[nb]*864e5-36e5};save();if(g>0)ok++;i++;draw();};
+    var grade=function(g){var nb=g===0?1:(g===1?Math.max(1,b):Math.min(5,b+1));S.box[c.id]={b:nb,due:Date.now()+IV[nb]*864e5-36e5};save();if(g===0&&/^er/.test(c.id)){try{var eid=c.id.slice(2).replace(/_\d+$/,''),ea=erGet(),ei=ea.findIndex(function(x){return x.id===eid;});if(ei>=0){ea[ei].rev={n:0,prox:erSoma(erHoje(),1)};ea[ei].reincidiu=(ea[ei].reincidiu||0)+1;erPut(ea);}}catch(x){}}if(g>0)ok++;i++;draw();};
     $('#gr').onclick=function(e){var bt=e.target.closest('[data-g]');if(bt)grade(+bt.dataset.g);};
     session.key=function(k){if(!fc.classList.contains('on')){if(k===' ')flip();return;}if(/^[123]$/.test(k))grade(+k-1);};};
   draw();box.scrollIntoView({behavior:'smooth',block:'start'});}
@@ -1322,7 +1323,7 @@ function pranchas(slug){nav('esq');slug=slug||S.disc;Promise.all([loadDisc(slug)
 
 /* ===================== PLANO DA PROVA (previsão medida × seu acerto) ===================== */
 var PREV=[{s:'portugues',q:10,nota:'questões 1 a 10 · zero elimina'},{s:'ingles',q:10,nota:'questões 11 a 20 · zero elimina'},{s:'dados',q:13},{s:'seguranca',q:8},{s:'projetos',q:7.5},{s:'engsoft',q:6},{s:'governanca',q:5,nota:'inclui LGPD'},{s:'logica',q:4},{s:'ux',q:4},{s:'bi',q:2.5}];
-function plano(){nav('plano');var J=jogoState().disc||{},hoje=new Date(),prova=new Date('2026-12-06T13:00:00-03:00'),dias=Math.max(0,Math.ceil((prova-hoje)/864e5));
+function plano(){if(MODO_PUBLICO)return planoConcurso();nav('plano');var J=jogoState().disc||{},hoje=new Date(),prova=new Date('2026-12-06T13:00:00-03:00'),dias=Math.max(0,Math.ceil((prova-hoje)/864e5));
   var rows=PREV.map(function(p){var o=J[DQ[p.s]],a=o&&o.n>=10?o.ok/o.n:null,base=a==null?.5:a;return Object.assign({},p,{a:a,n:o?o.n:0,ganho:p.q*(1-base)});});
   var tot=rows.reduce(function(x,r){return x+r.ganho;},0),esp=rows.reduce(function(x,r){return x+r.q*(r.a==null?.5:r.a);},0);
   var ord=rows.slice().sort(function(a,b){return b.ganho-a.ganho;});
@@ -1624,7 +1625,7 @@ function menteTopico(s,ti){app.innerHTML='<p class="note" style="padding:30px 0"
 
 /* ===================== MIRA DA GUILDA (onde mirar: o que mais vale × onde você mais erra) ===================== */
 function miraHist(){try{return (JSON.parse(localStorage.getItem('arenaTP.v2')||'{}').hist)||{};}catch(e){return {};}}
-function mira(){nav('mira');app.innerHTML='<p class="note carregando">'+window.GUILDA.giro(30)+'Calculando onde mirar…</p>';
+function mira(){if(MODO_PUBLICO)return miraConcurso();nav('mira');app.innerHTML='<p class="note carregando">'+window.GUILDA.giro(30)+'Calculando onde mirar…</p>';
   var sl=IDX.disciplinas.map(function(d){return d.slug;});
   loadAll().then(function(){return Promise.all([0,loadInc(),Promise.all(sl.map(function(x){return loadDossie(x);})),Promise.all(sl.map(function(x){return topicQB(x,DISC[x]);}))]);}).then(function(r){
     var inc=r[1]||[],dz=r[2],qb=r[3],H=miraHist(),L=cqLog(),rows=[],incId={},topIdx={},cnt={},dcnt={},seenF={};
@@ -1633,16 +1634,33 @@ function mira(){nav('mira');app.innerHTML='<p class="note carregando">'+window.G
     Object.keys(L).forEach(function(id){var e=L[id];if(!e||e.ok==null)return;var m=id.match(/^g([a-z]+)(\d+)_/),k=null,d=e.s||null;
       if(m){k=m[1]+':'+m[2];d=d||m[1];}else if(id.charAt(0)==='x'&&incId[id.slice(1)]){var q=incId[id.slice(1)],x=SLUG_INC[q.disc];if(x&&topIdx[x]&&topIdx[x][q.subitem]!=null){k=x+':'+topIdx[x][q.subitem];d=d||x;}}
       if(k){cnt[k]=cnt[k]||{n:0,c:0};cnt[k].n++;if(e.ok)cnt[k].c++;}if(d){dcnt[d]=dcnt[d]||{n:0,c:0};dcnt[d].n++;if(e.ok)dcnt[d].c++;}});
+    var ER=erGet(),erT={},erD={};ER.forEach(function(e){var sg=Object.keys(DQ).find(function(k){return DQ[k].toLowerCase()===String(e.disc||'').toLowerCase()||k===String(e.disc||'').toLowerCase();});if(!sg)return;erD[sg]=(erD[sg]||0)+1;var m=String(e.topico||'').match(/^\d+(?:\.\d+)*/);if(m){var k2=sg+':'+m[0];erT[k2]=(erT[k2]||0)+1;}});
     sl.forEach(function(x,si){var o=DISC[x],d=dz[si];
       o.topicos.forEach(function(t,ti){var n=tnum(t),f=d&&d.byId[n];if(!f||seenF[x+':'+n])return;seenF[x+':'+n]=1;var c=cnt[x+':'+ti]||{n:0,c:0},n0=c.n,c0=c.c;
         (qb[si][ti]||[]).forEach(function(q){var h=H[String(q.id)];if(h&&h.ok!=null){n0++;if(h.ok)c0++;}});
-        var ac=(c0+1)/(n0+2);rows.push({s:x,nome:short(t.t.replace(/^[\d.]+\s*/,''),64),num:n,esp:f.esperado||0,ch:f.chance||0,n:n0,ac:ac,prio:(f.esperado||0)*(1-ac),h:'#mt/'+x+'/'+ti});});
+        var ac=(c0+1)/(n0+2);var ne=erT[x+':'+n]||0;rows.push({s:x,nome:short(t.t.replace(/^[\d.]+\s*/,''),64),num:n,esp:f.esperado||0,ch:f.chance||0,n:n0,ac:ac,er:ne,prio:(f.esperado||0)*(1-ac)*(1+0.25*Math.min(4,ne)),h:'#mt/'+x+'/'+ti});});
       if((x==='portugues'||x==='ingles')&&d){var c=dcnt[x]||{n:0,c:0},ac=(c.c+1)/(c.n+2);d.subitens.forEach(function(f){rows.push({s:x,nome:short(f.edital,64),num:'',esp:f.esperado||0,ch:f.chance||0,n:c.n,ac:ac,prio:(f.esperado||0)*(1-ac),h:'#mt/'+x+'/f/'+encodeURIComponent(f.id)});});}});
     rows.sort(function(a,b){return b.prio-a.prio;});var max=rows.length?rows[0].prio||1:1;
-    var row=function(x){return '<a class="mirarow" href="'+x.h+'"><span class="mt1"><b>'+ICON[x.s]+' '+(x.num?esc(x.num)+' ':'')+esc(x.nome)+'</b><span class="note mono">≈'+x.esp+' questões · chance '+Math.round(x.ch)+'% · '+(x.n?x.n+' respondidas · acerto '+Math.round(x.ac*100)+'%':'sem respostas ainda (palpite de 50%)')+'</span></span><i style="width:'+Math.max(4,Math.round(100*x.prio/max))+'%"></i></a>';};
+    var row=function(x){return '<a class="mirarow" href="'+x.h+'"><span class="mt1"><b>'+ICON[x.s]+' '+(x.num?esc(x.num)+' ':'')+esc(x.nome)+'</b><span class="note mono">≈'+x.esp+' questões · chance '+Math.round(x.ch)+'% · '+(x.n?x.n+' respondidas · acerto '+Math.round(x.ac*100)+'%':'sem respostas ainda (palpite de 50%)')+(x.er?' · '+x.er+' no caderno de erros':'')+'</span></span><i style="width:'+Math.max(4,Math.round(100*x.prio/max))+'%"></i></a>';};
     app.innerHTML='<header class="hero"><div class="eyebrow">Mira da Guilda · onde mirar até a prova</div><h2>O que mais vale × onde você mais erra</h2><p class="note" style="max-width:74ch">Prioridade = questões esperadas do tópico (dossiê do examinador) × chance de você errar. Quanto mais você responde em Dora Cartas, Reflexo e Doroxandria, mais exato fica. Sem respostas, vale o palpite neutro de 50%.</p></header>'+
       '<section class="panel mtcore"><h3>🎯 Mire nestes 10 primeiro</h3>'+rows.slice(0,10).map(row).join('')+'</section>'+
       '<details class="ex" style="margin-top:12px"><summary>Ver os '+rows.length+' tópicos e tipos</summary>'+rows.slice(10).map(row).join('')+'</details>';});}
+
+/* ===================== VERSÃO PÚBLICA: Mira e Plano a partir de "Meu concurso" ===================== */
+function ccLinhas(){var c=ccGet(),er=erGet(),rows=[];(c.disc||[]).forEach(function(d){var pesoD=+d.peso||1;(d.topicos||[]).forEach(function(t,j){var rel=(d.rel&&d.rel[j])||3,ne=er.filter(function(e){var tt=String(e.topico||'').toLowerCase(),tn=t.toLowerCase();return (tt&&(tt.indexOf(tn)>=0||tn.indexOf(tt)>=0))||(!tt&&String(e.disc||'').toLowerCase()===d.nome.toLowerCase());}).length;
+  rows.push({disc:d.nome,topico:t,rel:rel,er:ne,prio:pesoD*(rel/5)*(1+0.5*Math.min(6,ne))});});});rows.sort(function(a,b){return b.prio-a.prio;});return rows;}
+function ccSemConfig(tit){app.innerHTML='<header class="hero"><div class="eyebrow">'+tit+'</div><h2>Falta dizer qual é a sua prova</h2><p class="note" style="max-width:70ch">Informe o concurso, a data e cole o edital. Depois disso esta tela mostra onde mirar.</p><p><a class="primary" href="#config" style="display:inline-block;padding:10px 18px;border-radius:12px;text-decoration:none">Configurar o meu concurso</a></p></header>';}
+function miraConcurso(){nav('mira');var rows=ccLinhas();if(!rows.length)return ccSemConfig('Mira da Guilda');var max=rows[0].prio||1;
+  var row=function(x){return '<div class="mirarow"><span class="mt1"><b>'+esc(x.disc)+' · '+esc(x.topico)+'</b><span class="note mono">relevância '+x.rel+'/5'+(x.er?' · '+x.er+' no caderno de erros':'')+'</span></span><i style="width:'+Math.max(4,Math.round(100*x.prio/max))+'%"></i></div>';};
+  app.innerHTML='<header class="hero"><div class="eyebrow">Mira da Guilda · onde mirar até a prova</div><h2>O que mais vale × onde você mais erra</h2><p class="note" style="max-width:74ch">Prioridade = peso da matéria × relevância do tópico (1 a 5) × seus erros no Caderno de Erros. Cadastre mais erros e a ordem se ajusta.</p></header><section class="panel mtcore"><h3>🎯 Mire nestes 10 primeiro</h3>'+rows.slice(0,10).map(row).join('')+'</section>'+(rows.length>10?'<details class="ex" style="margin-top:12px"><summary>Ver os '+rows.length+' tópicos</summary>'+rows.slice(10).map(row).join('')+'</details>':'');}
+function planoConcurso(){nav('plano');var c=ccGet(),rows=ccLinhas();if(!rows.length)return ccSemConfig('Dora Missão do Dia');
+  var dias=null;if(c.prova){dias=Math.ceil((new Date(c.prova+'T12:00:00')-new Date(new Date().toDateString()))/864e5);}
+  var horas=+c.horas||2,venc=erGet().filter(function(e){return e.rev&&e.rev.prox<=erHoje();}).length,top=rows.slice(0,3),soma=top.reduce(function(a,x){return a+x.prio;},0)||1;
+  app.innerHTML='<header class="hero"><div class="eyebrow">Dora Missão do Dia'+(c.nome?' · '+esc(c.nome):'')+(dias!=null?' · faltam '+Math.max(0,dias)+' dias':'')+'</div><h2>O que estudar agora</h2><p class="note" style="max-width:72ch">Plano simples: revisões vencidas primeiro, depois os 3 tópicos de maior prioridade, divididos pelo tempo que você tem hoje.</p></header>'+
+  '<section class="panel"><h3>1. Revisar o que venceu</h3><p>'+(venc?'<b>'+venc+'</b> erros para revisar hoje.':'Nenhum erro vencido hoje.')+'</p><p><a href="#erros">Abrir o Caderno de Erros</a> · <a href="#fc">Fazer as cartas (Dora Memória)</a></p></section>'+
+  '<section class="panel"><h3>2. Estudar hoje ('+horas+' h)</h3><label class="note">Horas por dia <input id="pc_h" type="number" min="0.5" step="0.5" value="'+horas+'" style="width:70px"></label>'+top.map(function(x){var min=Math.round(horas*60*0.7*x.prio/soma);return '<div class="mirarow"><span class="mt1"><b>'+esc(x.disc)+' · '+esc(x.topico)+'</b><span class="note mono">'+min+' min · relevância '+x.rel+'/5'+(x.er?' · '+x.er+' erros':'')+'</span></span><i style="width:'+Math.round(100*x.prio/soma)+'%"></i></div>';}).join('')+'<p class="note">70% do tempo em tópicos novos e 30% fica para revisão e questões.</p></section>'+
+  '<section class="panel"><h3>3. Registrar o que errou</h3><p>Errou uma questão? <a href="#erros">Registre no Caderno de Erros</a>: a IA escreve a causa e as cartas.</p></section>';
+  $('#pc_h').onchange=function(){var cc=ccGet();cc.horas=+this.value||2;ccPut(cc);planoConcurso();};}
 /* ===================== MAIS (grade por seção) e contagem regressiva ===================== */
 function mais(){nav('mais');var h='<header class="hero"><div class="eyebrow">Tudo da Dora Guilda</div><h2>Mais</h2><p class="note">Tudo do app, por área. Toque para abrir.</p></header><div class="mais">';
   TOOLS.forEach(function(g){h+='<h3>'+esc(g[0])+'</h3><div class="grade">';g[1].forEach(function(t){h+='<a class="lad" data-sec="'+g[2]+'" href="'+href(t)+'"><span class="ico" aria-hidden="true">'+window.GUILDA.ico(t,32)+'</span><span>'+esc(t[2])+'</span></a>';});h+='</div>';});

@@ -70,6 +70,9 @@ if a in t:
 p=os.path.join(SAIDA,'guilda.js'); t=open(p,encoding='utf-8').read()
 t+="\n(function(){var G=window.GUILDA;if(!G||!G.groups)return;var fora=['geo','radar','lab'];G.groups.forEach(function(g){g[1]=g[1].filter(function(i){return fora.indexOf(i[0])<0&&!/artifact\\/RM3d/.test(i[0]);});});G.groups[0][1].unshift(['config','⚙️','Meu concurso','Nome, banca, data da prova e edital']);})();\n"
 open(p,'w',encoding='utf-8').write(t)
+
+# modo público: Mira e Plano usam as matérias do aluno
+p2=os.path.join(SAIDA,'estudio.html');t2=open(p2,encoding='utf-8').read();t2=t2.replace('var MODO_PUBLICO=false;','var MODO_PUBLICO=true;',1);open(p2,'w',encoding='utf-8').write(t2)
 # garantia: nenhuma chave de API
 import re
 for dp,_,fs in os.walk(SAIDA):

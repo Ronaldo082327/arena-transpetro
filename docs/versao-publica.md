@@ -32,3 +32,6 @@ Qualquer chave dentro de HTML/JS/APK é pública em minutos; alguém esgota a co
 
 ## Tela "Meu concurso" (21/11)
 Rota `estudio.html#config`: concurso, banca, cargo, data da prova, edital colado (matérias e tópicos) e peso/nº de questões por matéria. Grava em `arenaTP.concurso` e `arenaTP.prova`; a contagem regressiva usa essa data na versão pública. Fica no topo do menu "Começar" da cópia pública. Ainda não alimenta Mira/Plano/Examinador com as matérias do aluno.
+
+## Mira e Plano do aluno (22/11)
+Na cópia pública (`MODO_PUBLICO=true` pelo `construir.py`) a Mira e a Dora Missão do Dia usam as matérias de "Meu concurso": prioridade = peso da matéria × relevância (1 a 5) × erros do Caderno de Erros; o plano divide as horas do dia entre os 3 tópicos de maior prioridade e lembra as revisões vencidas. No app principal a Mira também soma os erros do caderno por tópico. Erros de cartas da Dora Memória voltam ao caderno como reincidência.
