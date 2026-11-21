@@ -519,7 +519,7 @@ html.pn-open .sq kbd{display:none}.sq{overflow:hidden}
   <button type="button" class="sq" id="sq" aria-label="Buscar ferramenta ou tópico"><span aria-hidden="true">🔍</span><span class="sqt">Buscar ferramenta ou tópico…</span><kbd>Ctrl K</kbd></button>
   <span class="chip-dias" id="dias" title="Dias até a prova (06/12/2026)"></span><span id="thslot"></span>
  </header>
- <div class="wrap"><main id="app" aria-live="polite"><p class="note" style="padding:40px 0">Abrindo o estúdio…</p></main></div>
+ <div class="wrap"><main id="app" aria-live="polite"><p class="note carregando"><span id="gsp0"></span>Abrindo o estúdio…</p></main></div>
 </div>
 </div>
 <nav class="tb" id="tb" aria-label="Atalhos"></nav>
@@ -535,7 +535,7 @@ var S={seen:{},box:{},voice:true,speed:1,cc:true,check:{},auto:true,disc:'dados'
 try{var r=localStorage.getItem(KEY);if(r)S=Object.assign(S,JSON.parse(r));}catch(e){}
 function save(){try{localStorage.setItem(KEY,JSON.stringify(S));}catch(e){}}
 var $=function(s,r){return (r||document).querySelector(s);},$$=function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s));};
-var app=$('#app'),IDX=null,DISC={};
+var app=$('#app'),IDX=null,DISC={};try{var gs0=document.getElementById('gsp0');if(gs0)gs0.innerHTML=window.GUILDA.giro(30);}catch(e){}
 var ICON={portugues:'📜',ingles:'🌐',dados:'🛢️',projetos:'🧭',governanca:'⚓',engsoft:'⚙️',ux:'🧩',bi:'📡',logica:'🔦',seguranca:'🛡️'};
 var COR={portugues:'#e8916f',ingles:'#7fc8a0',dados:'#5fd0e0',projetos:'#f2c14e',governanca:'#b9a3ff',engsoft:'#7cc4ec',ux:'#ff9fb6',bi:'#62e3c4',logica:'#ffd166',seguranca:'#ff7b8a'};
 function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
@@ -1586,7 +1586,7 @@ function menteTopico(s,ti){app.innerHTML='<p class="note" style="padding:30px 0"
 
 /* ===================== MIRA DA GUILDA (onde mirar: o que mais vale × onde você mais erra) ===================== */
 function miraHist(){try{return (JSON.parse(localStorage.getItem('arenaTP.v2')||'{}').hist)||{};}catch(e){return {};}}
-function mira(){nav('mira');app.innerHTML='<p class="note" style="padding:30px 0">Calculando onde mirar…</p>';
+function mira(){nav('mira');app.innerHTML='<p class="note carregando">'+window.GUILDA.giro(30)+'Calculando onde mirar…</p>';
   var sl=IDX.disciplinas.map(function(d){return d.slug;});
   loadAll().then(function(){return Promise.all([0,loadInc(),Promise.all(sl.map(function(x){return loadDossie(x);})),Promise.all(sl.map(function(x){return topicQB(x,DISC[x]);}))]);}).then(function(r){
     var inc=r[1]||[],dz=r[2],qb=r[3],H=miraHist(),L=cqLog(),rows=[],incId={},topIdx={},cnt={},dcnt={},seenF={};
@@ -1616,7 +1616,7 @@ var TOOLS=window.GUILDA.groups;
 var TKEY={};TOOLS.forEach(function(g){g[1].forEach(function(t){TKEY[t[0]]=t;});});
 var HH=document.documentElement,MOB=window.matchMedia('(max-width:899px)'),ULT='arenaTP.ultima',SBK='arenaTP.sb';
 function href(t){return /^https?:|\.html$/.test(t[0])?t[0]:'#'+t[0];}
-function sbRender(){var h='<a class="logo" href="#" data-nav=""><i>'+window.GUILDA.svg('marca',38)+'</i><span>Dora Guilda<small>Engenharia Cognitiva para Concursos Públicos</small></span></a><div id="contbox"></div>';
+function sbRender(){var h='<a class="logo" href="#" data-nav=""><i>'+window.GUILDA.svg('marca',38,'lento')+'</i><span>Dora Guilda<small>Engenharia Cognitiva para Concursos Públicos</small></span></a><div id="contbox"></div>';
   TOOLS.forEach(function(g){h+='<div class="gt">'+esc(g[0])+'</div>';g[1].forEach(function(t){h+='<div class="row2"><a class="it" data-sec="'+g[2]+'" href="'+href(t)+'" data-nav="'+t[0]+'" title="'+esc(t[2])+'"><span class="ic" aria-hidden="true">'+window.GUILDA.ico(t,22)+'</span><span class="tx"><b>'+esc(t[2])+'</b><small>'+esc(t[3])+'</small></span></a>'+(/^https?:/.test(t[0])?'':'<button type="button" class="pb" data-pn="'+href(t)+'" data-t="'+esc(t[2])+'" aria-label="Abrir '+esc(t[2])+' na segunda tela" title="Abrir na segunda tela">⧉</button>')+'</div>';});});
   h+='<span class="fill"></span><button type="button" class="mini" id="sbm" aria-label="Recolher o menu" title="Recolher ou expandir o menu">«</button>';$('#sb').innerHTML=h;
   var tb='';[['plano','Hoje'],['mt','Método'],['cq','Treinar'],['v','Assistir']].forEach(function(x){var t=TKEY[x[0]];tb+='<a href="#'+x[0]+'" data-nav="'+x[0]+'"><span aria-hidden="true">'+window.GUILDA.ico(t,24)+'</span>'+x[1]+'</a>';});
