@@ -38,3 +38,6 @@ Na cópia pública (`MODO_PUBLICO=true` pelo `construir.py`) a Mira e a Dora Mis
 
 ## Catálogo da cópia pública (22/11)
 A cópia pública mostra só o que funciona sem conteúdo pronto: Meu concurso, Dora Missão do Dia, Mira da Guilda, Dora Memória, Caderno de Erros, Dora Mentora (IA), Dora Draw e a galeria da identidade. Ficam fora (dependem do conteúdo da Transpetro e voltam quando houver como o aluno gerar o próprio): Dora Oráculo, Dora Examinadora, Grimório de Métodos, Dora Reflexo, Mapas, Pergaminhos de Esquemas, Dora Cartas, Baralhos, Aulas, Rádio, Expedição, Arena e Doroxandria. Recomendação: gerar fichas e mapas por IA a partir de "Meu concurso" (próxima fase).
+
+## Dora Examinadora na cópia pública (22/11)
+`#mt` na cópia pública lista os tópicos de "Meu concurso" e gera a ficha com a IA do aluno (cobra, pergunta, armadilhas, sinais, método, macete e 4 a 6 cartas), guardada em `arenaTP.fichas`. As cartas entram na Dora Memória e a Mira mostra "ficha pronta". O prompt proíbe inventar dados de prova (usa [VERIFICAR]). Não testado com IA real, só com resposta simulada.
