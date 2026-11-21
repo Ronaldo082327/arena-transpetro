@@ -104,5 +104,5 @@ html.embed #gdb,html.embed #gd,html.embed #gds{display:none!important}
 
 @media (max-width:520px){#fw{display:none}.bt small{display:none}}
 /* ícones da constelação */
-.gi{display:block}.gi .nd{fill:var(--destaque,#FF7A00);stroke:none}
+.gi{display:block;fill:currentColor;fill-opacity:.13;filter:drop-shadow(0 1px 0 rgba(255,255,255,.9)) drop-shadow(0 2px 1.4px rgba(92,56,26,.3))}.gi .nd{fill:var(--destaque);fill-opacity:1;stroke:#fff;stroke-width:1.2;paint-order:stroke}
 #gd .gdl i svg,.sb .logo i svg{width:34px;height:34px}.sb .logo i,#gd .gdl i{display:grid;place-items:center}
