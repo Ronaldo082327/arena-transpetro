@@ -15,7 +15,7 @@ e, ao lado, uma linha simples dizendo o que faz. Quem usa não precisa adivinhar
 |---|---|---|
 | `estudio.html#plano` | Dora Missão do Dia | O que estudar agora e o plano até a prova |
 | `estudio.html#sim` | Dora Oráculo | Chance de passar em 10.000 provas simuladas |
-| `estudio.html#mt` | Dora Examinador | Como a banca cobra cada tópico e onde pega |
+| `estudio.html#mt` | Dora Examinadora | Como a banca cobra cada tópico e onde pega |
 | `estudio.html#met` | Grimório de Métodos | Passo a passo por tipo de questão |
 | `estudio.html#ref` | Dora Reflexo | Treinos de 6 segundos |
 | `estudio.html#mm` | Mapas da Guilda | Mapas mentais |
@@ -43,7 +43,7 @@ e, ao lado, uma linha simples dizendo o que faz. Quem usa não precisa adivinhar
 | Caderno de erros | **Diário de Batalha** |
 | Rascunhos de prova interativos | **Dora Rascunho** |
 | Inglês do zero | **Dora Babel** |
-| Tela Examinador, 118 fichas | **Dora Examinador** (une com o `#mt`) |
+| Tela Examinador, 118 fichas | **Dora Examinadora** (une com o `#mt`) |
 | Ficha do dia | **Ficha do Mestre** |
 | Atlas (69 SVG) | **Atlas da Guilda** |
 | Galeria (vídeos Veo e infográficos) | **Galeria da Guilda** |
