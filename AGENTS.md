@@ -132,3 +132,9 @@ Ainda não integrados do pacote `legado/`: Provas Previstas e Calibradas (14 MB)
 
 - `#mira` (Estúdio): ordena os tópicos (fichas do dossiê) por prioridade = questões esperadas × (1 − acerto estimado), com acerto suavizado `(acertos+1)/(tentativas+2)` (50% sem respostas). Fontes de acerto: log das Dora Cartas (`S.cq.log`: cartas `g<bloco><índice>_…` e `x<id>` do raio-x) e `arenaTP.v2.hist` do Doroxandria (questões atribuídas ao tópico por palavra-chave). Português e Inglês usam o acerto do bloco inteiro. Dedupe: tópicos que dividem a mesma ficha aparecem uma vez.
 - "🛡️ Defenda o gabarito": botão no verso de cada carta (quando há IA): o aluno escreve por que a certa é certa; a IA avalia o raciocínio, o sinal ignorado, a pegadinha e dá uma frase de método.
+
+
+## Identidade gráfica "Constelação da Guilda" (21/11)
+- `identidade/gerar.py` gera marca, logo, capa e avatares por patente (SVG). `identidade/gerar-png.js` gera os PNGs do app (PWA e Dora Draw).
+- `guilda.js` tem 24 ícones próprios (`G.ICONS`, `G.svg`, `G.ico`) em traço `currentColor` com nós em `var(--destaque)`: seguem os 17 temas. Não mudar cores/tokens de tema.
+- Galeria: `identidade/index.html`.

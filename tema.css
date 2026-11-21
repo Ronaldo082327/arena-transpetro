@@ -103,3 +103,6 @@ html.vw-open{overflow:hidden}
 html.embed #gdb,html.embed #gd,html.embed #gds{display:none!important}
 
 @media (max-width:520px){#fw{display:none}.bt small{display:none}}
+/* ícones da constelação */
+.gi{display:block}.gi .nd{fill:var(--destaque,#FF7A00);stroke:none}
+#gd .gdl i svg,.sb .logo i svg{width:34px;height:34px}.sb .logo i,#gd .gdl i{display:grid;place-items:center}

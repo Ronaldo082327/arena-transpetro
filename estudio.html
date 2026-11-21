@@ -503,7 +503,7 @@ html.pn-open .sq kbd{display:none}.sq{overflow:hidden}
 }
 .mirarow{display:grid;gap:6px;padding:10px 12px;margin:8px 0;border-radius:var(--raio-p);border:1px solid var(--line);border-top-color:var(--brilho);background:linear-gradient(180deg,var(--paper),var(--paper-2));box-shadow:var(--sombra-btn);text-decoration:none;color:var(--ink)}
 .mirarow:hover{border-color:var(--destaque)}.mirarow .mt1{display:grid;gap:2px}.mirarow i{display:block;height:8px;border-radius:6px;background:var(--grad-btn-p);box-shadow:var(--sombra-afundado)}
-</style><link rel="stylesheet" href="temas.css"><link rel="stylesheet" href="tema.css"><script src="tema.js"></script><script src="guilda.js"></script><script src="abrir.js" defer></script></head>
+</style><link rel="icon" type="image/svg+xml" href="identidade/marca.svg"><link rel="stylesheet" href="temas.css"><link rel="stylesheet" href="tema.css"><script src="tema.js"></script><script src="guilda.js"></script><script src="abrir.js" defer></script></head>
 <body>
 <div class="shell">
 <aside id="sb" class="sb" aria-label="Menu de ferramentas"></aside>
@@ -741,7 +741,7 @@ function discBar(cur,base){return '<div class="discs" role="group" aria-label="D
 document.addEventListener('click',function(e){var b=e.target.closest('[data-href]');if(b){e.preventDefault();if(b.hasAttribute('data-autoplay'))sessionStorage.setItem('estudio.autoplay','1');location.hash=b.dataset.href;}});
 
 function home(){nav('');var D=IDX.disciplinas,nt=D.reduce(function(a,d){return a+d.topicos.length;},0),nf=D.reduce(function(a,d){return a+d.nformatos;},0),seen=Object.keys(S.seen).length;
-  app.innerHTML='<header class="hero"><div class="eyebrow">Engenharia Cognitiva para Concursos Públicos · Transpetro 2026 · Ênfase 5</div><h1>Dora Guilda</h1><p class="note" style="max-width:68ch">Tudo gerado dos seus guias de estudo: videoaulas animadas e narradas, um método para cada tipo de questão, mapas mentais, esquemas de contraste e flashcards. Cada peça mostra como a banca cobra o assunto e onde ela tenta te derrubar.</p></header>'+
+  app.innerHTML='<img class="capa" src="identidade/capa.svg" alt="Dora Guilda · Engenharia Cognitiva para Concursos Públicos" style="width:100%;height:auto;border-radius:var(--raio-g);box-shadow:var(--sombra-2);margin-top:14px"><header class="hero"><div class="eyebrow">Engenharia Cognitiva para Concursos Públicos · Transpetro 2026 · Ênfase 5</div><h1>Dora Guilda</h1><p class="note" style="max-width:68ch">Tudo gerado dos seus guias de estudo: videoaulas animadas e narradas, um método para cada tipo de questão, mapas mentais, esquemas de contraste e flashcards. Cada peça mostra como a banca cobra o assunto e onde ela tenta te derrubar.</p></header>'+
   '<div class="grid">'+
   card('plano','🎯','Plano da prova','Previsão de questões por disciplina × o seu acerto: onde estão os pontos que você ainda pode ganhar, e o dia a dia até 06/12.','comece por aqui')+
   card('cq','🧠','Cartões-questão','Frente: a questão como na prova. Verso: cada alternativa explicada, árvore do conceito × vizinhos, metacognição, rascunho para a prova. Caderno de erros integrado ao Doroxandria. Trilha de Inglês do zero.','responda e aprenda')+
@@ -1558,7 +1558,7 @@ function mira(){nav('mira');app.innerHTML='<p class="note" style="padding:30px 0
       '<details class="ex" style="margin-top:12px"><summary>Ver os '+rows.length+' tópicos e tipos</summary>'+rows.slice(10).map(row).join('')+'</details>';});}
 /* ===================== MAIS (grade por seção) e contagem regressiva ===================== */
 function mais(){nav('mais');var h='<header class="hero"><div class="eyebrow">Tudo da Dora Guilda</div><h2>Mais</h2><p class="note">Tudo do app, por área. Toque para abrir.</p></header><div class="mais">';
-  TOOLS.forEach(function(g){h+='<h3>'+esc(g[0])+'</h3><div class="grade">';g[1].forEach(function(t){h+='<a class="lad" data-sec="'+g[2]+'" href="'+href(t)+'"><span class="ico" aria-hidden="true">'+t[1]+'</span><span>'+esc(t[2])+'</span></a>';});h+='</div>';});
+  TOOLS.forEach(function(g){h+='<h3>'+esc(g[0])+'</h3><div class="grade">';g[1].forEach(function(t){h+='<a class="lad" data-sec="'+g[2]+'" href="'+href(t)+'"><span class="ico" aria-hidden="true">'+window.GUILDA.ico(t,32)+'</span><span>'+esc(t[2])+'</span></a>';});h+='</div>';});
   app.innerHTML=h+'</div>';}
 function diasUpd(){var el=$('#dias');if(!el)return;var d=Math.ceil((new Date(2026,11,6)-new Date(new Date().toDateString()))/864e5);el.textContent=d>1?d+' dias':(d===1?'1 dia':(d===0?'Hoje é a prova':'Prova feita'));el.hidden=false;}
 setTimeout(diasUpd,0);setInterval(diasUpd,3600000);
@@ -1567,11 +1567,11 @@ var TOOLS=window.GUILDA.groups;
 var TKEY={};TOOLS.forEach(function(g){g[1].forEach(function(t){TKEY[t[0]]=t;});});
 var HH=document.documentElement,MOB=window.matchMedia('(max-width:899px)'),ULT='arenaTP.ultima',SBK='arenaTP.sb';
 function href(t){return /^https?:|\.html$/.test(t[0])?t[0]:'#'+t[0];}
-function sbRender(){var h='<a class="logo" href="#" data-nav=""><i>🏰</i><span>Dora Guilda<small>Engenharia Cognitiva para Concursos Públicos</small></span></a><div id="contbox"></div>';
-  TOOLS.forEach(function(g){h+='<div class="gt">'+esc(g[0])+'</div>';g[1].forEach(function(t){h+='<div class="row2"><a class="it" data-sec="'+g[2]+'" href="'+href(t)+'" data-nav="'+t[0]+'" title="'+esc(t[2])+'"><span class="ic" aria-hidden="true">'+t[1]+'</span><span class="tx"><b>'+esc(t[2])+'</b><small>'+esc(t[3])+'</small></span></a>'+(/^https?:/.test(t[0])?'':'<button type="button" class="pb" data-pn="'+href(t)+'" data-t="'+esc(t[2])+'" aria-label="Abrir '+esc(t[2])+' na segunda tela" title="Abrir na segunda tela">⧉</button>')+'</div>';});});
+function sbRender(){var h='<a class="logo" href="#" data-nav=""><i>'+window.GUILDA.svg('marca',38)+'</i><span>Dora Guilda<small>Engenharia Cognitiva para Concursos Públicos</small></span></a><div id="contbox"></div>';
+  TOOLS.forEach(function(g){h+='<div class="gt">'+esc(g[0])+'</div>';g[1].forEach(function(t){h+='<div class="row2"><a class="it" data-sec="'+g[2]+'" href="'+href(t)+'" data-nav="'+t[0]+'" title="'+esc(t[2])+'"><span class="ic" aria-hidden="true">'+window.GUILDA.ico(t,22)+'</span><span class="tx"><b>'+esc(t[2])+'</b><small>'+esc(t[3])+'</small></span></a>'+(/^https?:/.test(t[0])?'':'<button type="button" class="pb" data-pn="'+href(t)+'" data-t="'+esc(t[2])+'" aria-label="Abrir '+esc(t[2])+' na segunda tela" title="Abrir na segunda tela">⧉</button>')+'</div>';});});
   h+='<span class="fill"></span><button type="button" class="mini" id="sbm" aria-label="Recolher o menu" title="Recolher ou expandir o menu">«</button>';$('#sb').innerHTML=h;
-  var tb='';[['plano','Hoje'],['mt','Método'],['cq','Treinar'],['v','Assistir']].forEach(function(x){var t=TKEY[x[0]];tb+='<a href="#'+x[0]+'" data-nav="'+x[0]+'"><span aria-hidden="true">'+t[1]+'</span>'+x[1]+'</a>';});
-  tb+='<a href="#mais" data-nav="mais"><span aria-hidden="true">☰</span>Mais</a>';$('#tb').innerHTML=tb;contUpdate();}
+  var tb='';[['plano','Hoje'],['mt','Método'],['cq','Treinar'],['v','Assistir']].forEach(function(x){var t=TKEY[x[0]];tb+='<a href="#'+x[0]+'" data-nav="'+x[0]+'"><span aria-hidden="true">'+window.GUILDA.ico(t,24)+'</span>'+x[1]+'</a>';});
+  tb+='<a href="#mais" data-nav="mais"><span aria-hidden="true"><svg class="gi" viewBox="0 0 48 48" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><circle class="nd" cx="12" cy="12" r="4"/><circle class="nd" cx="36" cy="12" r="4"/><circle class="nd" cx="12" cy="36" r="4"/><circle class="nd" cx="36" cy="36" r="4"/></svg></span>Mais</a>';$('#tb').innerHTML=tb;contUpdate();}
 function contUpdate(){var b=$('#contbox');if(!b)return;try{var u=JSON.parse(localStorage.getItem(ULT)||'null');if(u&&u.h&&u.h!==location.hash)b.innerHTML='<a class="cont" href="'+esc(u.h)+'"><b>Continuar</b>'+esc(u.t)+'</a>';else b.innerHTML='';}catch(e){b.innerHTML='';}}
 function navImpl(k){var t=TKEY[k]||(k==='mais'?['mais','☰','Mais','']:null);$$('#sb a.it,#tb a').forEach(function(a){a.setAttribute('aria-current',a.dataset.nav===k?'page':'false');});
   $('#bt').textContent=t?t[2]:'Dora Guilda';document.title=(t?t[2]+' · ':'')+'Dora Guilda';
@@ -1593,7 +1593,7 @@ var CPI=[],CPS=0,CPT=null;
 function cpOpen(){closeDrawer();$('#cp').hidden=false;$('#cpq').value='';cpRender();$('#cpq').focus();if(!CPT)CPT=loadAll().then(function(){var t=[];IDX.disciplinas.forEach(function(d){DISC[d.slug].topicos.forEach(function(x,i){t.push({ic:ICON[d.slug]||'📘',t:x.t.replace(/^[\d.]+\s*/,''),n:(x.t.match(/^([\d.]+)/)||['',''])[1],s:d.nome,h:'#mt/'+d.slug+'/'+i,ttl:'Mente do examinador'});});});CPT=t;if(!$('#cp').hidden)cpRender();}).catch(function(){CPT=[];});}
 function closePalette(){$('#cp').hidden=true;}
 function cpRender(){var q=norm($('#cpq').value.trim()),toks=q.split(/\s+/).filter(Boolean),items=[];
-  var tools=[];TOOLS.forEach(function(g){g[1].forEach(function(t){tools.push({ic:t[1],t:t[2],s:t[3],h:href(t),g:g[0],ttl:t[2]});});});
+  var tools=[];TOOLS.forEach(function(g){g[1].forEach(function(t){tools.push({ic:window.GUILDA.ico(t,22),t:t[2],s:t[3],h:href(t),g:g[0],ttl:t[2]});});});
   var ok=function(x){var tx=norm(x.t+' '+x.s+' '+(x.n||'')+' '+(x.g||''));return toks.every(function(w){return tx.indexOf(w)>=0;});};
   var a=tools.filter(ok),b=(Array.isArray(CPT)&&toks.length)?CPT.filter(ok).slice(0,24):[];
   CPI=a.concat(b);if(CPS>=CPI.length)CPS=0;var h='';
