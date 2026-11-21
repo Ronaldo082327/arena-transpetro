@@ -505,7 +505,7 @@ html.pn-open .sq kbd{display:none}.sq{overflow:hidden}
 }
 .mirarow{display:grid;gap:6px;padding:10px 12px;margin:8px 0;border-radius:var(--raio-p);border:1px solid var(--line);border-top-color:var(--brilho);background:linear-gradient(180deg,var(--paper),var(--paper-2));box-shadow:var(--sombra-btn);text-decoration:none;color:var(--ink)}
 .mirarow:hover{border-color:var(--destaque)}.mirarow .mt1{display:grid;gap:2px}.mirarow i{display:block;height:8px;border-radius:6px;background:var(--grad-btn-p);box-shadow:var(--sombra-afundado)}
-</style><link rel="icon" type="image/svg+xml" href="identidade/marca.svg"><link rel="stylesheet" href="temas.css"><link rel="stylesheet" href="tema.css"><script src="tema.js"></script><script src="guilda.js"></script><script src="abrir.js" defer></script></head>
+</style><link rel="icon" type="image/svg+xml" href="favicon.svg"><link rel="apple-touch-icon" href="apple-touch-icon-180.png"><meta property="og:image" content="identidade/premium/oficial/og-1200x630-escuro.png"><meta name="theme-color" content="#211a16"><link rel="stylesheet" href="temas.css"><link rel="stylesheet" href="tema.css"><script src="tema.js"></script><script src="guilda.js"></script><script src="abrir.js" defer></script></head>
 <body>
 <div class="shell">
 <aside id="sb" class="sb" aria-label="Menu de ferramentas"></aside>
@@ -1075,6 +1075,15 @@ function gemini(){nav('gem');var c=gcfg();
   $('#gq').onclick=function(){run('q');};$('#ge').onclick=function(){run('e');};$('#gp2').onclick=function(){run('p');};}
 
 
+
+/* abertura animada no primeiro acesso (identidade/abertura-logo.svg, respeita Movimento reduzido) */
+(function(){try{if(localStorage.getItem('arenaTP.abertura')==='1')return;}catch(e){}
+  var d=document.createElement('div');d.id='abt';d.setAttribute('role','dialog');d.setAttribute('aria-label','Abertura da Dora Guilda');
+  d.style.cssText='position:fixed;inset:0;z-index:99999;display:grid;place-items:center;background:radial-gradient(circle at 50% 40%,#3a2e26,#161110);cursor:pointer';
+  d.innerHTML='<div style="text-align:center"><img src="identidade/abertura-logo.svg" alt="Dora Guilda" style="width:min(86vw,560px);height:auto;display:block;margin:auto;border-radius:32px;box-shadow:0 20px 60px rgba(0,0,0,.45)"><button type="button" id="abtb" style="margin-top:18px;padding:12px 28px;border-radius:14px;border:1px solid rgba(255,184,120,.5);background:linear-gradient(180deg,#f4a463,#e8853a);color:#2a1a0c;font:700 16px system-ui;cursor:pointer">Entrar</button></div>';
+  document.body.appendChild(d);
+  var fim=function(){try{localStorage.setItem('arenaTP.abertura','1');}catch(e){}d.remove();document.removeEventListener('keydown',kk);};
+  var kk=function(e){if(e.key==='Escape'||e.key==='Enter')fim();};document.addEventListener('keydown',kk);d.onclick=fim;setTimeout(fim,9000);})();
 /* ===================== MEU CONCURSO (configuração) ===================== */
 var CCKEY='arenaTP.concurso';
 function ccGet(){try{return JSON.parse(localStorage.getItem(CCKEY)||'{}');}catch(e){return {};}}
