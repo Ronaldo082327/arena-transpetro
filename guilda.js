@@ -10,8 +10,9 @@ G.groups=[
  ['Assistir e ouvir',[['v','🎬','Dora Aulas','Aulas animadas e narradas'],['pod','🎧','Dora Rádio','Resumos em áudio do NotebookLM']],'apoio'],
  ['Inteligência da prova',[['lab','🔬','Laboratório da Banca','O que é mito e o que foi medido na banca'],['radar','📡','Radar da Guilda','Tendências da Transpetro e da prova'],['geo','📍','Mapa-Mundi Transpetro','Onde a empresa atua']],'acompanhar'],
  ['Inteligência artificial',[['gem','✨','Dora Mentora (IA)','Gemini ou Claude: crie questões e explicações']],'apoio'],
+ ['Acompanhar seu estudo',[['draw/index.html','✏️','Dora Draw','Edital, foco, ciclo, agenda, revisões, simulados, cartas e cofre']],'acompanhar'],
  ['Outros módulos',[['expedicao.html','🚢','Dora Expedição','Jornada por 115 estações'],['jogo.html','🏁','Arena Relâmpago','Jogo de questões com XP'],['index.html','📚','Doroxandria','Biblioteca de 1.000 questões e caderno de erros']],'acompanhar'],
- ['Em integração (online)',[['https://claude.ai/artifact/Ukc2e8Wdttg6PzLZDGgxVo','✏️','Dora Draw','Cartas v2, rascunhos de prova e Inglês do zero'],['https://claude.ai/artifact/RM3deSQtfLSBqJ5yBAgUMP','🏰','Dora Central','Fichas do examinador, simulados e atlas']],'apoio']];
+ ['Em integração (online)',[['https://claude.ai/artifact/RM3deSQtfLSBqJ5yBAgUMP','🏰','Dora Central','Fichas do examinador, simulados e atlas']],'apoio']];
 G.href=function(t){var k=t[0];if(/^https?:/.test(k))return k;if(/\.html$/.test(k))return k;return 'estudio.html#'+k;};
 function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
 function ui(){
