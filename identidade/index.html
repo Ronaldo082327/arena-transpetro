@@ -14,15 +14,15 @@ h1,h2{font-family:"Barlow Condensed","Arial Narrow",sans-serif;margin:.2em 0}h1{
 img.capa{width:100%;height:auto;border-radius:var(--raio-g);box-shadow:var(--sombra-2)}a.dl{font-size:13px;color:var(--accent)}p.n{color:var(--muted);max-width:70ch}</style></head>
 <body><main>
 <div style="font:600 12px 'IBM Plex Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)">Dora Guilda · identidade visual</div>
-<h1>Constelação da Guilda</h1>
-<p class="n">Nós ligados por linhas, como um grafo de conhecimento: cada tópico do edital é um nó, cada conexão é um jeito de a banca trocar um conceito pelo vizinho. O escudo é a guilda; o D é feito de nós; a faísca marrom é a IA. Cores e relevo iguais aos do Dora Draw. Os ícones herdam a cor do tema; os nós em laranja mudam com ele.</p>
+<h1>D-Grafo</h1>
+<p class="n">Um D feito de nós e arestas de grafo, com um cérebro orgânico no centro de onde saem as conexões: estudo como rede de ideias. Cores e relevo iguais aos do Dora Draw. Os ícones herdam a cor do tema.</p>
 <h2>Marca e logo</h2>
-<div class="row"><div class="card"><img src="marca.svg" width="150" alt="Marca"></div><div class="card"><img src="logo.svg" width="420" alt="Logo"></div><div class="card" style="background:#3a2e26"><img src="logo-claro.svg" width="360" alt="Logo claro"></div></div>
+<div class="row"><div class="card"><img src="marca.svg" width="150" alt="Marca"></div><div class="card"><img src="logo.svg" width="420" alt="Logo"></div><div class="card" style="background:none;padding:0"><img src="logo-claro.svg" width="360" alt="Logo claro"></div></div>
 <p><a class="dl" href="marca.svg" download>marca.svg</a> · <a class="dl" href="logo.svg" download>logo.svg</a> · <a class="dl" href="logo-claro.svg" download>logo-claro.svg</a></p>
 <h2>Capa</h2><img class="capa" src="capa.svg" alt="Capa"><p><a class="dl" href="capa.svg" download>capa.svg (1500 × 500)</a></p>
 <h2>Ícones dos módulos</h2><div class="icons" id="ic"></div>
-<h2>Avatares das patentes</h2><div class="av">
-<img src="avatar-1-aprendiz.svg" alt="Aprendiz"><img src="avatar-2-escudeiro.svg" alt="Escudeiro"><img src="avatar-3-cavaleiro.svg" alt="Cavaleiro"><img src="avatar-4-mestre.svg" alt="Mestre"><img src="avatar-5-arquimestre.svg" alt="Arquimestre"><img src="avatar-6-lenda.svg" alt="Lenda"></div>
+<h2>Mascotes das patentes</h2><div class="av">
+<img src="avatares/aprendiz-coruja.svg" alt="Aprendiz"><img src="avatares/escudeiro-raposa.svg" alt="Escudeiro"><img src="avatares/cavaleiro-lobo.svg" alt="Cavaleiro"><img src="avatares/mestre-leao.svg" alt="Mestre"><img src="avatares/arquimestre-fenix.svg" alt="Arquimestre"><img src="avatares/lenda-dragao.svg" alt="Lenda"></div>
 <p class="n">Aprendiz, Escudeiro, Cavaleiro, Mestre, Arquimestre e Lenda: quanto mais alta a patente, mais nós e conexões no brasão.</p>
 </main>
 <script>(function(){var G=window.GUILDA,box=document.getElementById('ic'),seen={};G.groups.forEach(function(g){g[1].forEach(function(t){var k=t[0];if(seen[k])return;seen[k]=1;var s=G.svg(k,36);if(!s)return;box.insertAdjacentHTML('beforeend','<div class="t" data-sec="'+g[2]+'"><span class="ico">'+s+'</span><b>'+t[2]+'</b></div>');});});box.insertAdjacentHTML('beforeend','<div class="t" data-sec="apoio"><span class="ico">'+G.svg('marca',36)+'</span><b>Marca</b></div>');})();</script>

@@ -138,3 +138,6 @@ Ainda não integrados do pacote `legado/`: Provas Previstas e Calibradas (14 MB)
 - `identidade/gerar.py` gera marca, logo, capa e avatares por patente (SVG). `identidade/gerar-png.js` gera os PNGs do app (PWA e Dora Draw).
 - `guilda.js` tem 24 ícones próprios (`G.ICONS`, `G.svg`, `G.ico`) em traço `currentColor` com nós em `var(--destaque)`: seguem os 17 temas. Não mudar cores/tokens de tema.
 - Galeria: `identidade/index.html`.
+
+## Identidade B "D-Grafo" aplicada (21/11)
+Substitui a proposta A: `identidade/` agora tem marca/logo/capa/sprites/mascotes da proposta B (feita na sessão local). `guilda.js` usa `identidade/sprite.svg` (`G.MAPA` liga as chaves antigas aos nomes `dg-*`); `G.BASE` resolve o caminho. Não mudar cores/tokens. Ícones de app: `icon-192/512/maskable-512.png`. Ícones do Dora Draw (`draw/icones/`) ficam com a sessão local.
