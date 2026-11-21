@@ -39,6 +39,37 @@ json.dump(modelo,open(os.path.join(pk,'modelo.json'),'w',encoding='utf-8'),ensur
 json.dump({"pacotes":[{"arquivo":"modelo.json","nome":"Meu concurso (modelo)","primeiraExecucao":True}]},open(os.path.join(pk,'indice.json'),'w',encoding='utf-8'),ensure_ascii=False)
 sw=open(os.path.join(SAIDA,'sw.js'),encoding='utf-8').read().replace('concursos/transpetro-2026-enfase5.json','concursos/modelo.json')
 open(os.path.join(SAIDA,'sw.js'),'w',encoding='utf-8').write(sw)
+
+# ---- personalização: tira Transpetro/Cesgranrio dos textos e esconde módulos específicos ----
+import re as _re
+TROCAS=[
+ ('Prova Transpetro 2026 · Ênfase 5','Prova do seu concurso'),('Engenharia Cognitiva para Concursos Públicos · Transpetro 2026 · Ênfase 5','Engenharia Cognitiva para Concursos Públicos'),
+ ('TRANSPETRO 2026 · CESGRANRIO · ÊNFASE 5 · 06/12','SEU CONCURSO'),('TRANSPETRO 2026 · CESGRANRIO · ÊNFASE 5','SEU CONCURSO'),('TRANSPETRO 2026 · CESGRANRIO · PRANCHA','SEU CONCURSO · PRANCHA'),
+ ('Transpetro 2026 · Ênfase 5','Seu concurso'),('Transpetro 2026 Premium','Seu concurso Premium'),('Transpetro-2026-Anki-Premium','Anki-Premium'),('Transpetro 06/12','Seu concurso'),
+ ('Reflexo Cesgranrio','Reflexo da Banca'),('Cesgranrio','banca'),('CESGRANRIO','BANCA'),
+ ('Mapa-Mundi Transpetro','Mapa do seu concurso'),('Radar Transpetro','Radar do seu concurso'),('CAIU NA TRANSPETRO','JÁ CAIU NA PROVA'),
+ ('Transpetro','seu concurso'),('TRANSPETRO','SEU CONCURSO'),('Ênfase 5','sua área'),('06/12/2026','data da prova'),('06/12','data da prova'),('Dias até a prova (data da prova)','Dias até a prova'),
+]
+def personaliza(t):
+    for a,b in TROCAS: t=t.replace(a,b)
+    t=_re.sub(r'\b(a|da|na|pela|à|A|Da|Na) banca',lambda m:m.group(1)+' banca',t)
+    return t
+for dp,_,fs in os.walk(SAIDA):
+    if os.sep+'identidade' in dp or os.sep+'draw' in dp: continue
+    for f in fs:
+        if f.endswith(('.html','.js')) and f not in ('sw.js',):
+            p=os.path.join(dp,f); t=open(p,encoding='utf-8').read(); n=personaliza(t)
+            if n!=t: open(p,'w',encoding='utf-8').write(n)
+# contagem regressiva configurável (arenaTP.prova = AAAA-MM-DD); sem data, o chip some
+p=os.path.join(SAIDA,'estudio.html'); t=open(p,encoding='utf-8').read()
+a="var el=$('#dias');if(!el)return;var d=Math.ceil((new Date(2026,11,6)-"
+if a in t:
+    t=t.replace(a,"var el=$('#dias');if(!el)return;var pv=null;try{pv=localStorage.getItem('arenaTP.prova');}catch(e){}if(!pv){el.hidden=true;return;}var d=Math.ceil((new Date(pv+'T12:00:00')-")
+    open(p,'w',encoding='utf-8').write(t)
+# catálogo: esconde módulos que só fazem sentido para a Transpetro
+p=os.path.join(SAIDA,'guilda.js'); t=open(p,encoding='utf-8').read()
+t+="\n(function(){var G=window.GUILDA;if(!G||!G.groups)return;var fora=['geo','radar','lab'];G.groups.forEach(function(g){g[1]=g[1].filter(function(i){return fora.indexOf(i[0])<0&&!/artifact\\/RM3d/.test(i[0]);});});})();\n"
+open(p,'w',encoding='utf-8').write(t)
 # garantia: nenhuma chave de API
 import re
 for dp,_,fs in os.walk(SAIDA):

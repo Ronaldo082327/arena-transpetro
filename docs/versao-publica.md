@@ -25,3 +25,7 @@ Qualquer chave dentro de HTML/JS/APK é pública em minutos; alguém esgota a co
 ## Estado (21/11)
 - `python3 publico/construir.py` gera `publico/dist/` (ignorada pelo git): copia o motor e troca questões, cartas, dossiê, bancos, guias, áudio e o edital por esqueletos vazios + `concursos/modelo.json` ("Meu concurso"). Aborta se achar chave de API. Teste no Chromium: 9 páginas abrem sem erro.
 - **Falta** (próximas etapas): textos fixos "Transpetro/Cesgranrio/ENFASE 5/06-12" nas telas (contagem de dias, jogo, expedição, Estúdio), importar materiais e edital pelo app, trocar estações da Expedição por trilha configurável, proxy de IA com cota, empacotar Windows/Android.
+
+## Atualização (21/11, noite)
+`construir.py` agora também: troca "Transpetro/Cesgranrio/Ênfase 5/06-12" por textos neutros, esconde Mapa-Mundi, Radar, Laboratório e Dora Central do catálogo e deixa a contagem regressiva configurável (`localStorage arenaTP.prova` = AAAA-MM-DD; sem data o chip some). Teste: 9 páginas sem erro; zero ocorrências de Transpetro/Cesgranrio nos HTML/JS do Estúdio, Doroxandria, Arena e Expedição.
+**Ainda falta:** tela para o aluno informar concurso e data (hoje só via localStorage), importar edital/materiais pelo app, trilha da Expedição configurável, onboarding de 3 telas, o conteúdo em si (o aluno traz o dele), proxy de IA já pronto (porteiro) mas ainda não publicado.
