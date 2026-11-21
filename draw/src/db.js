@@ -1,20 +1,22 @@
 /* Dora Draw — banco local (IndexedDB). Funciona na página do app, no painel lateral e no service worker. */
 (function (raiz) {
-  const perfil = () => { try { return (typeof localStorage !== 'undefined' && localStorage.getItem('doraDraw.perfil')) || ''; } catch (e) { return ''; } };
-  const NOME = 'dora-draw' + (perfil() ? '-p-' + perfil() : ''), VERSAO = 3;
+  const perfil = () => { try { return (typeof localStorage !== 'undefined' && localStorage.getItem('doraDraw.perfil')) || raiz.__doraPerfil || ''; } catch (e) { return raiz.__doraPerfil || ''; } }; // no service worker não há localStorage: o perfil ativo vem de self.__doraPerfil
+  const nomeDb = () => 'dora-draw' + (perfil() ? '-p-' + perfil() : ''), VERSAO = 6; // 6 = Dora Estúdio (lojas rag e artefatos; a atualização só cria as lojas novas, sem tocar nos dados)
   // loja: [chave, índices...]
   const LOJAS = {
     concursos: ['id'], disciplinas: ['id', 'concursoId'], topicos: ['id', 'concursoId', 'disciplinaId'], cartoes: ['id', 'concursoId', 'topicoId'],
     questoes: ['id', 'concursoId', 'topicoId'], cadernos: ['id', 'concursoId'], respostas: ['id', 'concursoId', 'topicoId'], erros: ['id', 'concursoId', 'topicoId'],
     materiais: ['id', 'concursoId', 'topicoId'], grifos: ['id', 'materialId', 'topicoId'], sessoes: ['id', 'concursoId', 'topicoId'], capturas: ['id', 'concursoId'],
-    simulados: ['id', 'concursoId'], mural: ['id', 'concursoId'], copias: ['id'], config: ['chave'], arquivos: ['id']
+    simulados: ['id', 'concursoId'], penas: ['id', 'concursoId', 'alvoId'], marcacoes: ['id', 'concursoId', 'url'], mural: ['id', 'concursoId'], copias: ['id'], config: ['chave'], arquivos: ['id'],
+    // Dora Estúdio: rag = índice BM25 (um registro por fonte; é refeito a partir do material, por isso fica FORA do backup); artefatos = infográficos e páginas interativas salvos
+    rag: ['id', 'concursoId'], artefatos: ['id', 'concursoId', 'topicoId']
   };
   const SEGREDOS = ['ia-chaves']; // nunca entram no backup
   let abrindo = null;
   function abrir() {
     if (abrindo) return abrindo;
     abrindo = new Promise((res, rej) => {
-      const rq = indexedDB.open(NOME, VERSAO);
+      const rq = indexedDB.open(nomeDb(), VERSAO);
       rq.onupgradeneeded = () => { const db = rq.result; for (const nome in LOJAS) { const [chave, ...idx] = LOJAS[nome]; if (!db.objectStoreNames.contains(nome)) { const st = db.createObjectStore(nome, { keyPath: chave }); idx.forEach(i => st.createIndex(i, i)); } } };
       rq.onsuccess = () => { rq.result.onversionchange = () => rq.result.close(); res(rq.result); };
       rq.onerror = () => { abrindo = null; rej(rq.error); };
@@ -55,5 +57,5 @@
   };
   function blobParaB64(blob) { return new Promise((res) => { if (!blob) return res(''); const fr = new FileReader(); fr.onload = () => res(String(fr.result).split(',')[1] || ''); fr.readAsDataURL(blob); }); }
   function b64ParaBlob(b64, tipo) { const bin = atob(b64 || ''); const u = new Uint8Array(bin.length); for (let i = 0; i < bin.length; i++) u[i] = bin.charCodeAt(i); return new Blob([u], { type: tipo || 'application/pdf' }); }
-  DB.nome = NOME; raiz.DoraDB = DB;
+  Object.defineProperty(DB, 'nome', { get: nomeDb }); raiz.DoraDB = DB;
 })(typeof self !== 'undefined' ? self : this);
