@@ -1,9 +1,9 @@
 // Service worker do Doroxandria: abre offline e atualiza em segundo plano.
-const CACHE = 'arena-202611211500';
+const CACHE = 'arena-202611211600';
 const SHELL = ['./', 'index.html', 'manifest.json', 'icon-192.png', 'icon-512.png',
   'questoes.json', 'cards.json', 'banca.json', 'videos.json', 'links.json',
   'cadernos.json', 'biblioteca.json', 'concursos/indice.json', 'concursos/transpetro-2026-enfase5.json', 'jogo.html', 'macetes.json',
-  'expedicao.html', 'estudio.html', 'temas.css', 'tema.css', 'tema.js', 'guilda.js', 'rag.js', 'grafo.js', 'rotina.js', 'motor.js', 'bancas/perfis.json', 'exemplos/indice.json', 'abrir.js', 'identidade/marca.svg', 'identidade/capa.svg', 'identidade/sprite.svg', 'favicon.svg', 'apple-touch-icon-180.png', 'identidade/abertura-logo.svg', 'icon-maskable-512.png', 'inteligencia/padroes.json', 'anki/baralhos.json', 'ingles/textos.json', 'inteligencia/incidencia.json', 'inteligencia/radar.json', 'expedicao/indice.json', 'expedicao/portugues.json', 'expedicao/ingles.json', 'expedicao/dados.json', 'expedicao/projetos.json',
+  'expedicao.html', 'estudio.html', 'temas.css', 'tema.css', 'tema.js', 'guilda.js', 'rag.js', 'grafo.js', 'rotina.js', 'motor.js', 'gemeo.js', 'bancas/perfis.json', 'exemplos/indice.json', 'abrir.js', 'identidade/marca.svg', 'identidade/capa.svg', 'identidade/sprite.svg', 'favicon.svg', 'apple-touch-icon-180.png', 'identidade/abertura-logo.svg', 'icon-maskable-512.png', 'inteligencia/padroes.json', 'anki/baralhos.json', 'ingles/textos.json', 'inteligencia/incidencia.json', 'inteligencia/radar.json', 'expedicao/indice.json', 'expedicao/portugues.json', 'expedicao/ingles.json', 'expedicao/dados.json', 'expedicao/projetos.json',
   'expedicao/governanca.json', 'expedicao/engsoft.json', 'expedicao/ux.json', 'expedicao/bi.json', 'expedicao/logica.json', 'expedicao/seguranca.json'];
 self.addEventListener('install', e => {
   e.waitUntil(caches.open(CACHE).then(c => c.addAll(SHELL.map(u => new Request(u, {cache: 'reload'})))).then(() => self.skipWaiting()));
