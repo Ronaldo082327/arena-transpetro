@@ -112,7 +112,11 @@
   function gerarICS(blocos, nome) {
     var agora = fmt(new Date()), l = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//Dora Guilda//Dora Rotina//PT-BR', 'CALSCALE:GREGORIAN', 'METHOD:PUBLISH', 'X-WR-CALNAME:' + esc(nome || 'Estudos · Dora Guilda')];
     blocos.forEach(function (b, i) {
-      l.push('BEGIN:VEVENT', 'UID:dora-' + (+b.inicio) + '-' + i + '@dora-guilda', 'DTSTAMP:' + agora, 'DTSTART:' + fmt(b.inicio), 'DTEND:' + fmt(b.fim), 'SUMMARY:' + esc('🌻 ' + b.titulo), 'DESCRIPTION:' + esc((b.tipo ? 'Tipo: ' + b.tipo + '. ' : '') + (b.ref ? 'Abrir: ' + b.ref : 'Plano da Dora Guilda')), 'BEGIN:VALARM', 'TRIGGER:-PT5M', 'ACTION:DISPLAY', 'DESCRIPTION:Hora de estudar', 'END:VALARM', 'END:VEVENT');
+      var desc = b.descricao || ((b.tipo ? 'Tipo: ' + b.tipo + '. ' : '') + (b.ref ? 'Abrir: ' + b.ref : 'Plano da Dora Guilda'));
+      l.push('BEGIN:VEVENT', 'UID:' + (b.uid || ('dora-' + (+b.inicio) + '-' + i)) + '@dora-guilda', 'DTSTAMP:' + agora, 'DTSTART:' + fmt(b.inicio), 'DTEND:' + fmt(b.fim), 'SUMMARY:' + esc((b.semFlor ? '' : '🌻 ') + b.titulo), 'DESCRIPTION:' + esc(desc));
+      (b.alarmes || ['-PT5M']).forEach(function (al) { l.push('BEGIN:VALARM', 'TRIGGER:' + al, 'ACTION:DISPLAY', 'DESCRIPTION:' + esc(b.aviso || 'Hora de estudar'), 'END:VALARM'); });
+      if (b.local) l.push('LOCATION:' + esc(b.local)); if (b.url) l.push('URL:' + b.url);
+      l.push('END:VEVENT');
     });
     l.push('END:VCALENDAR');
     return l.map(function (x) { var o = [], s = x; while (s.length > 74) { o.push(s.slice(0, 74)); s = ' ' + s.slice(74); } o.push(s); return o.join('\r\n'); }).join('\r\n') + '\r\n';
