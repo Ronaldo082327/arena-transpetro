@@ -153,13 +153,14 @@
   function pesar(conc, perfis, op) {
     op = op || {}; var area = areaDe(conc), cads = conc.cadernos || [];
     (conc.disc || []).forEach(function (d) {
-      var nuc = nucleoDe(perfis, d.nome), ba = bancaArea(perfis, conc.banca_id, area, d.nome), brutos = [];
+      var aD = /intelig[eê]ncia artificial|ci[eê]ncia de dados|desenvolvimento de sistemas|infraestrutura|seguran[cç]a da informa|banco[s]? de dados|engenharia de software|tecnologia da informa|\bti[ck]?\b|redes de computadores|governan[cç]a de ti/i.test(d.nome) ? 'ti' : area;
+      d.area = aD; var nuc = nucleoDe(perfis, d.nome), ba = bancaArea(perfis, conc.banca_id, aD, d.nome), brutos = [];
       d.motivos = []; d.sub = d.sub || [];
       d.topicos.forEach(function (t, j) {
         var s = 1, mot = [], sub = (d.sub[j] || []).join(' '), txt = t + ' ' + sub;
         var nn = nuc.find(function (x) { return casa(txt, x.palavras || [x.topico]); });
         if (nn) { s += nn.nivel === 'alto' ? 2 : 1; mot.push('núcleo de alta incidência' + (nn.nivel === 'alto' ? '' : ' (médio)') + (nn.hipotese ? ' [hipótese]' : '')); }
-        if (ba && (ba.topicos_frequentes || []).some(function (x) { return casa(txt, norm(x).split(' ').filter(function (w) { return w.length > 4; }).slice(0, 3)); })) { s += 1.5; mot.push('a ' + (conc.banca || 'banca') + ' cobra muito isso em ' + (area || 'provas da área')); }
+        if (ba && (ba.topicos_frequentes || []).some(function (x) { return casa(txt, norm(x).split(' ').filter(function (w) { return w.length > 4; }).slice(0, 3)); })) { s += 1.5; mot.push('a ' + (conc.banca || 'banca').split(' (')[0] + ' cobra muito isso em ' + ({ ti: 'TI', fiscal: 'provas fiscais', controle: 'controle' }[aD] || 'provas da área')); }
         var tam = (d.sub[j] || []).length; if (tam >= 3) { s += Math.min(1, tam / 8); mot.push(tam + ' subitens no edital'); }
         var nc = 0; cads.forEach(function (c) { if (casa(c.nome, norm(t).split(' ').filter(function (w) { return w.length > 4; }).slice(0, 4))) nc += (+c.n || 10); });
         if (nc) { s += Math.min(2, Math.log10(1 + nc)); mot.push('seus cadernos: ' + nc + ' questões'); }
@@ -170,9 +171,10 @@
       d.rel = brutos.map(function (s) { if (ord[ord.length - 1] === ord[0]) return 3; var q = (ord.indexOf(s) + ord.lastIndexOf(s)) / 2 / Math.max(1, ord.length - 1); return q >= .85 ? 5 : q >= .65 ? 4 : q >= .3 ? 3 : q >= .12 ? 2 : 1; });
       var Q = +d.questoes || 0, soma = d.rel.reduce(function (a, r) { return a + r; }, 0) || 1;
       d.esperadas = d.rel.map(function (r) { return Q ? Math.round(10 * Q * r / soma) / 10 : null; });
-      if (ba && ba.disciplina) d.motivoDisc = 'Entre as mais cobradas pela ' + (conc.banca || 'banca') + ' em ' + area;
+      if (ba && ba.disciplina) d.motivoDisc = 'Entre as mais cobradas pela ' + (conc.banca || 'banca').split(' (')[0] + ' em ' + aD;
     });
-    conc.area = area; conc.motor = { versao: 1, quando: new Date().toISOString().slice(0, 10) };
+    var tiQ = (conc.disc || []).filter(function (d) { return d.area === 'ti'; }).reduce(function (a2, d) { return a2 + (+d.questoes || 0); }, 0), totQ = (conc.disc || []).reduce(function (a2, d) { return a2 + (+d.questoes || 0); }, 0);
+    conc.area = area; conc.areas = tiQ && area !== 'ti' ? [area, 'ti'] : [area]; conc.pesoTI = totQ ? Math.round(100 * tiQ / totQ) : 0; conc.motor = { versao: 1, quando: new Date().toISOString().slice(0, 10) };
     return conc;
   }
   var PDOM = { 1: .15, 2: .3, 3: .5, 4: .68, 5: .82 };

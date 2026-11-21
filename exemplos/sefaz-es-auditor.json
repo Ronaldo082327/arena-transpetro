@@ -33,6 +33,7 @@
     "Características básicas dos textos",
     "Uso do dicionário"
    ],
+   "area": "fiscal",
    "motivos": [
     [
      "núcleo de alta incidência"
@@ -137,6 +138,7 @@
     "Valor atual",
     "Taxa interna de retorno"
    ],
+   "area": "fiscal",
    "motivos": [
     [
      "núcleo de alta incidência [hipótese]"
@@ -260,6 +262,7 @@
     "Lei nº 11.101/2005, que regula a recuperação judicial, a extrajudicial e a falência do empresário e da sociedade empresária",
     "Parcelamento de débitos de devedor em recuperação judicial"
    ],
+   "area": "fiscal",
    "motivos": [
     [],
     [],
@@ -365,7 +368,7 @@
     0.2,
     0.2
    ],
-   "motivoDisc": "Entre as mais cobradas pela FGV (Fundação Getulio Vargas) em fiscal"
+   "motivoDisc": "Entre as mais cobradas pela FGV em fiscal"
   },
   {
    "nome": "Direito Constitucional",
@@ -414,6 +417,7 @@
     "Ordem social",
     "Constituição do Estado do Espírito Santo"
    ],
+   "area": "fiscal",
    "motivos": [
     [],
     [],
@@ -555,7 +559,7 @@
     0.1,
     0.1
    ],
-   "motivoDisc": "Entre as mais cobradas pela FGV (Fundação Getulio Vargas) em fiscal"
+   "motivoDisc": "Entre as mais cobradas pela FGV em fiscal"
   },
   {
    "nome": "Direito Administrativo",
@@ -591,6 +595,7 @@
     "Lei de acesso à informação (Lei n° 12.527/2011)",
     "Regime Jurídico dos Servidores Públicos Civis do Estado do Espírito Santo – Lei Complementar 46, de 31 de janeiro de 1994"
    ],
+   "area": "fiscal",
    "motivos": [
     [],
     [
@@ -701,7 +706,7 @@
     0.2,
     0.2
    ],
-   "motivoDisc": "Entre as mais cobradas pela FGV (Fundação Getulio Vargas) em fiscal"
+   "motivoDisc": "Entre as mais cobradas pela FGV em fiscal"
   },
   {
    "nome": "Direito Civil e Penal",
@@ -737,6 +742,7 @@
     "Decreto-Lei nº 2.848/1940, Código Penal",
     "Lei nº 8.137/1990, que define crimes contra a ordem tributária"
    ],
+   "area": "fiscal",
    "motivos": [
     [],
     [],
@@ -831,7 +837,7 @@
     0.2,
     0.2
    ],
-   "motivoDisc": "Entre as mais cobradas pela FGV (Fundação Getulio Vargas) em fiscal"
+   "motivoDisc": "Entre as mais cobradas pela FGV em fiscal"
   },
   {
    "nome": "Contabilidade Geral",
@@ -858,6 +864,7 @@
     "Apuração do custo das mercadorias vendidas",
     "Tratamento contábil dos tributos incidentes em operações de compras e vendas"
    ],
+   "area": "fiscal",
    "motivos": [
     [],
     [],
@@ -981,6 +988,7 @@
     "Lei Complementar Federal nº 160/17",
     "Simples Nacional (Lei Complementar nº 123/2006)"
    ],
+   "area": "fiscal",
    "motivos": [
     [
      "núcleo de alta incidência"
@@ -1134,7 +1142,7 @@
     0.3,
     0.3
    ],
-   "motivoDisc": "Entre as mais cobradas pela FGV (Fundação Getulio Vargas) em fiscal"
+   "motivoDisc": "Entre as mais cobradas pela FGV em fiscal"
   },
   {
    "nome": "Legislação Tributária do Espírito Santo",
@@ -1148,6 +1156,7 @@
     "Lei Complementar Estadual nº 884/2018, de 08 de janeiro de 2018, que institui o Código de Direitos, Garantias e Obrigações do Contribuinte no Estado do Espírito Santo",
     "Decreto Estadual n.º 1.353-R/ 2004, que aprova o Regimento Interno do Conselho Estadual de Recursos Fiscais"
    ],
+   "area": "fiscal",
    "motivos": [
     [],
     [],
@@ -1174,7 +1183,7 @@
     2.3,
     3.8
    ],
-   "motivoDisc": "Entre as mais cobradas pela FGV (Fundação Getulio Vargas) em fiscal"
+   "motivoDisc": "Entre as mais cobradas pela FGV em fiscal"
   },
   {
    "nome": "Contabilidade Avançada e de Custos",
@@ -1215,6 +1224,7 @@
     "Custeio baseado em atividades",
     "ABC - Activity Based Costing"
    ],
+   "area": "fiscal",
    "motivos": [
     [],
     [
@@ -1359,6 +1369,7 @@
     "Noções de Criptografia, Assinatura Digital, Certificação Digital e Autenticação",
     "Lei Geral de Proteção de Dados Pessoais (LGPD), Lei 13.709/2018"
    ],
+   "area": "ti",
    "motivos": [
     [],
     [],
@@ -1383,7 +1394,9 @@
     [],
     [],
     [],
-    [],
+    [
+     "a FGV cobra muito isso em TI"
+    ],
     [],
     []
    ],
@@ -1411,7 +1424,7 @@
     3,
     3,
     3,
-    3,
+    5,
     3,
     3
    ],
@@ -1439,11 +1452,11 @@
     0.4,
     0.4,
     0.4,
-    0.4,
+    0.6,
     0.4,
     0.4
    ],
-   "motivoDisc": "Entre as mais cobradas pela FGV (Fundação Getulio Vargas) em fiscal"
+   "motivoDisc": "Entre as mais cobradas pela FGV em ti"
   },
   {
    "nome": "Auditoria Tributária",
@@ -1494,6 +1507,7 @@
     "Cotejamento do ICMS devido nas operações submetidas à substituição tributária e o declarado no documento fiscal",
     "Auditoria em operações de importação"
    ],
+   "area": "fiscal",
    "motivos": [
     [],
     [
@@ -1633,9 +1647,14 @@
     0.2,
     0.2
    ],
-   "motivoDisc": "Entre as mais cobradas pela FGV (Fundação Getulio Vargas) em fiscal"
+   "motivoDisc": "Entre as mais cobradas pela FGV em fiscal"
   }
  ],
+ "areas": [
+  "fiscal",
+  "ti"
+ ],
+ "pesoTI": 9,
  "motor": {
   "versao": 1,
   "quando": "2026-11-21"

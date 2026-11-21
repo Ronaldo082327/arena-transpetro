@@ -25,6 +25,7 @@
     "9 Taxas de retorno e taxas internas de retorno"
    ],
    "bloco": "P1 · Conhecimentos básicos",
+   "area": "fiscal",
    "motivos": [
     [],
     [],
@@ -80,6 +81,7 @@
     "12 Finanças públicas"
    ],
    "bloco": "P1 · Conhecimentos básicos",
+   "area": "fiscal",
    "motivos": [
     [],
     [],
@@ -136,7 +138,7 @@
     0.3,
     0.3
    ],
-   "motivoDisc": "Entre as mais cobradas pela Cebraspe (antigo Cespe/UnB) em fiscal"
+   "motivoDisc": "Entre as mais cobradas pela Cebraspe em fiscal"
   },
   {
    "nome": "Direito Administrativo",
@@ -160,6 +162,7 @@
     "16 de setembro de 2026, disponível no endereço eletrônico http://www.cebraspe.org.br/concursos/sefaz_al_26)"
    ],
    "bloco": "P1 · Conhecimentos básicos",
+   "area": "fiscal",
    "motivos": [
     [],
     [
@@ -232,7 +235,7 @@
     0.2,
     0.2
    ],
-   "motivoDisc": "Entre as mais cobradas pela Cebraspe (antigo Cespe/UnB) em fiscal"
+   "motivoDisc": "Entre as mais cobradas pela Cebraspe em fiscal"
   },
   {
    "nome": "Contabilidade Geral",
@@ -252,6 +255,7 @@
     "11 Normas Brasileiras de Contabilidade"
    ],
    "bloco": "P1 · Conhecimentos básicos",
+   "area": "fiscal",
    "motivos": [
     [],
     [],
@@ -315,6 +319,7 @@
     "12 Crimes contra a ordem tributária (Lei nº 8.137/1990 e suas alterações)"
    ],
    "bloco": "P1 · Conhecimentos básicos",
+   "area": "fiscal",
    "motivos": [
     [
      "núcleo de alta incidência"
@@ -369,7 +374,7 @@
     0.6,
     0.6
    ],
-   "motivoDisc": "Entre as mais cobradas pela Cebraspe (antigo Cespe/UnB) em fiscal"
+   "motivoDisc": "Entre as mais cobradas pela Cebraspe em fiscal"
   },
   {
    "nome": "Estatística e Probabilidade",
@@ -382,6 +387,7 @@
     "4 Amostragem"
    ],
    "bloco": "P1 · Conhecimentos básicos",
+   "area": "fiscal",
    "motivos": [
     [],
     [],
@@ -421,6 +427,7 @@
     "13 Regime contábil"
    ],
    "bloco": "P1 · Conhecimentos básicos",
+   "area": "fiscal",
    "motivos": [
     [],
     [
@@ -495,6 +502,7 @@
     "3 Macroeconomia: contas nacionais; produto e renda; agregados macroeconômicos; consumo, poupança e investimento; multiplicador; setor público; políticas de estabilização"
    ],
    "bloco": "P1 · Conhecimentos básicos",
+   "area": "fiscal",
    "motivos": [
     [],
     [],
@@ -530,6 +538,7 @@
     "12 Mercado financeiro brasileiro"
    ],
    "bloco": "P2 · Conhecimentos específicos",
+   "area": "fiscal",
    "motivos": [
     [
      "4 subitens no edital"
@@ -603,6 +612,7 @@
     "5 Lei Estadual nº 8.085/2018 (Programa Contribuinte Arretado), e suas alterações"
    ],
    "bloco": "P2 · Conhecimentos específicos",
+   "area": "fiscal",
    "motivos": [
     [],
     [],
@@ -624,7 +634,7 @@
     2,
     2
    ],
-   "motivoDisc": "Entre as mais cobradas pela Cebraspe (antigo Cespe/UnB) em fiscal"
+   "motivoDisc": "Entre as mais cobradas pela Cebraspe em fiscal"
   },
   {
    "nome": "Inteligência Artificial",
@@ -639,6 +649,7 @@
     "6 Inteligência artificial generativa"
    ],
    "bloco": "P2 · Conhecimentos específicos",
+   "area": "ti",
    "motivos": [
     [],
     [],
@@ -681,6 +692,7 @@
     "10 Conceitos avançados em engenharia e arquitetura de software"
    ],
    "bloco": "P2 · Conhecimentos específicos",
+   "area": "ti",
    "motivos": [
     [
      "3 subitens no edital"
@@ -737,6 +749,7 @@
     "6 Segurança da informação"
    ],
    "bloco": "P2 · Conhecimentos específicos",
+   "area": "ti",
    "motivos": [
     [
      "3 subitens no edital"
@@ -801,6 +814,7 @@
     "21 Novas obrigações acessórias: DeRE, Nota Fiscal de Alienação de Bens Imóveis (NF-ABI), Nota Fiscal de Água e Saneamento (NFAg), Bilhete de Passagem Eletrônico Aéreo (BP-e Aéreo), Nota Fiscal de Gás (NF-e Gás) e declarações e documentos fiscais das plataformas digitais"
    ],
    "bloco": "P2 · Conhecimentos específicos",
+   "area": "fiscal",
    "motivos": [
     [],
     [],
@@ -870,7 +884,7 @@
     0.7,
     0.7
    ],
-   "motivoDisc": "Entre as mais cobradas pela Cebraspe (antigo Cespe/UnB) em fiscal"
+   "motivoDisc": "Entre as mais cobradas pela Cebraspe em fiscal"
   },
   {
    "nome": "Auditoria Fiscal",
@@ -887,6 +901,7 @@
     "8 Identificação de omissão de receitas, divergências de escrituração, créditos indevidos e inconsistências fiscais"
    ],
    "bloco": "P2 · Conhecimentos específicos",
+   "area": "fiscal",
    "motivos": [
     [],
     [],
@@ -917,7 +932,7 @@
     1.9,
     1.9
    ],
-   "motivoDisc": "Entre as mais cobradas pela Cebraspe (antigo Cespe/UnB) em fiscal"
+   "motivoDisc": "Entre as mais cobradas pela Cebraspe em fiscal"
   },
   {
    "nome": "Ciência de Dados",
@@ -970,18 +985,30 @@
     "22 de outubro de 2026, disponíveis no endereço eletrônico http://www.cebraspe.org.br/concursos/sefaz_al_26) * As datas e os períodos estabelecidos no cronograma são passíveis de alteração, conforme necessidade e conveniência da Seplag/AL e do Cebraspe. Caso haja alteração, esta será previamente comunicada por meio de edital. ** As demais datas serão informadas por meio dos editais subsequentes a serem publicados no Diário Oficial do Estado de Alagoas e(ou) divulgados na internet, no endereço eletrônico http://www.cebraspe.org.br/concursos/sefaz_al_26. ANEXO II MODELO DE LAUDO CARACTERIZADOR DE DEFICIÊNCIA PARA FINS DE SOLICITAÇÃO DE INSCRIÇÃO PARA CONCORRER COMO PESSOA COM DEFICIÊNCIA, PARA A SOLICITAÇÃO DE ATENDIMENTO ESPECIALIZADO E PARA A AVALIAÇÃO BIOPSICOSSOCIAL (Candidatos que se declararam com deficiência) Atesto, para fins de participação em concurso público, que o(a) Senhor(a)____________________________________________________________________________, portador(a) do documento de identidade nº ______________________, é considerado(a) pessoa com deficiência à luz da legislação brasileira por apresentar o(s) seguinte(s) impedimento(s) físico(s), auditivo(s), visual(is), intelectual(is) ou psicossocial(is)/mental(is)________________________________________________________________ _____________________________________________________________________________________ ___________________________________________________________, CID-10 ________________, que resulta(m) no comprometimento das seguintes funções/funcionalidades _____________________________________________________________________________________ _____________________________________________________________________________________ _____. Informo, ainda, a provável causa do comprometimento_____________________________________________________________________ _____________________________________________________________________________________ ____________________________________________________________________________________. Cidade/UF, ____ de _________ de 20__. Assinatura e carimbo do(a) Profissional Médico ou de Saúde de Nível Superior atuante na área de deficiência do candidato (fisioterapeuta, fonoaudiólogo, terapeuta ocupacional e psicólogo)"
    ],
    "bloco": "P2 · Conhecimentos específicos",
+   "area": "ti",
    "motivos": [
-    [],
-    [],
-    [],
+    [
+     "a Cebraspe cobra muito isso em TI"
+    ],
+    [
+     "a Cebraspe cobra muito isso em TI"
+    ],
+    [
+     "a Cebraspe cobra muito isso em TI"
+    ],
     [],
     [
      "núcleo de alta incidência"
     ],
-    [],
-    [],
+    [
+     "a Cebraspe cobra muito isso em TI"
+    ],
+    [
+     "a Cebraspe cobra muito isso em TI"
+    ],
     [
      "núcleo de alta incidência",
+     "a Cebraspe cobra muito isso em TI",
      "6 subitens no edital"
     ],
     [],
@@ -1026,13 +1053,13 @@
     []
    ],
    "rel": [
-    3,
-    3,
-    3,
-    3,
+    5,
+    5,
     5,
     3,
-    3,
+    5,
+    5,
+    5,
     5,
     3,
     5,
@@ -1072,13 +1099,13 @@
     3
    ],
    "esperadas": [
-    0.4,
-    0.4,
-    0.4,
-    0.4,
+    0.7,
+    0.7,
     0.7,
     0.4,
-    0.4,
+    0.7,
+    0.7,
+    0.7,
     0.7,
     0.4,
     0.7,
@@ -1116,7 +1143,8 @@
     0.4,
     0.4,
     0.4
-   ]
+   ],
+   "motivoDisc": "Entre as mais cobradas pela Cebraspe em ti"
   }
  ],
  "quadro": [
@@ -1138,6 +1166,11 @@
  ],
  "duracao_min": 270,
  "formato": "certo-errado",
+ "areas": [
+  "fiscal",
+  "ti"
+ ],
+ "pesoTI": 31,
  "motor": {
   "versao": 1,
   "quando": "2026-11-21"
@@ -1151,6 +1184,7 @@
   "Itens certo/errado: cada item errado desconta (fórmula do subitem 8.11 do edital); em branco não pontua.",
   "Provas objetivas em 20/12/2026 (4h30); discursiva em 10/1/2027; datas sujeitas a alteração pelo Cebraspe.",
   "Quantidade de itens por disciplina conferida no quadro do item 7.1 do edital.",
+  "Edital atípico para a área fiscal: na P2, 50 dos 100 itens são de TI (Ciência de Dados 20, Inteligência Artificial 10, Desenvolvimento de Sistemas 10, Infraestrutura de TIC e Segurança 10), e a discursiva cobra ciência de dados.",
   "Matérias, tópicos e quadro lidos do edital pelo motor do app; pesos dos tópicos (1–5) calculados sem IA a partir do perfil da banca, do núcleo de alta incidência e do tamanho de cada item. Não é previsão de prova."
  ],
  "exemplo": true

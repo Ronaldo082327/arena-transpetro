@@ -25,6 +25,7 @@
     "Reescrita de frases: substituição, deslocamento, paralelismo; variação linguística: norma culta",
     "Observação: os itens deste programa serão considerados sob o ponto de vista textual, ou seja, deverão ser estudados sob o foco de sua participação na estruturação significativa dos textos"
    ],
+   "area": "fiscal",
    "motivos": [
     [],
     [
@@ -83,6 +84,7 @@
     "Palavras e expressões equivalentes",
     "Elementos de referência"
    ],
+   "area": "fiscal",
    "motivos": [
     [],
     [
@@ -128,6 +130,7 @@
     "Plano cartesiano: sistema de coordenadas, distância",
     "Problemas de lógica e raciocínio"
    ],
+   "area": "fiscal",
    "motivos": [
     [
      "núcleo de alta incidência [hipótese]"
@@ -192,6 +195,7 @@
     "Predição: abordagens; séries temporais; regressão linear simples e múltipla",
     "Regressão logística"
    ],
+   "area": "fiscal",
    "motivos": [
     [],
     [],
@@ -254,6 +258,7 @@
     "Carga tributária: conceito, composição, evolução no Brasil",
     "Princípios de descentralização fiscal: transferências intergovernamentais: classificação e critérios"
    ],
+   "area": "fiscal",
    "motivos": [
     [],
     [],
@@ -393,6 +398,7 @@
     "Planejamento financeiro de curto e longo prazo",
     "Conceitos básicos de análise de balanços e demonstrações financeiras"
    ],
+   "area": "fiscal",
    "motivos": [
     [],
     [],
@@ -534,6 +540,7 @@
     "Lei Federal nº 12.527/2011 e suas alterações (Lei de Acesso à Informação)",
     "Lei Complementar nº 131/2009 (Lei da Transparência)"
    ],
+   "area": "fiscal",
    "motivos": [
     [],
     [],
@@ -676,6 +683,7 @@
     "35 Auditoria em operações de importação",
     "36 Lei Complementar nº 105/2001 (dispõe sobre sigilo das operações de instituições financeiras e dá outras providências)"
    ],
+   "area": "fiscal",
    "motivos": [
     [
      "núcleo de alta incidência [hipótese]"
@@ -814,7 +822,7 @@
     0.2,
     0.2
    ],
-   "motivoDisc": "Entre as mais cobradas pela FGV (Fundação Getulio Vargas) em fiscal"
+   "motivoDisc": "Entre as mais cobradas pela FGV em fiscal"
   },
   {
    "nome": "Contabilidade Geral e Pública",
@@ -874,6 +882,7 @@
     "5.7 Manual de Informações de Custos do Governo Federal, aprovado pela Portaria STN nº 518/2018",
     "7 Trabalho de asseguração (NBC TA Estrutura Conceitual – Estrutura Conceitual para Trabalhos de Asseguração)"
    ],
+   "area": "fiscal",
    "motivos": [
     [],
     [],
@@ -1096,6 +1105,7 @@
     "Principais SGBD’s",
     "Soluções para Big Data"
    ],
+   "area": "fiscal",
    "motivos": [
     [],
     [],
@@ -1220,6 +1230,7 @@
     "Terceiro Setor: Entes paraestatais",
     "Lei Geral de Proteção a Dados (Lei nº 13.709/2018)"
    ],
+   "area": "fiscal",
    "motivos": [
     [],
     [
@@ -1296,7 +1307,7 @@
     0.4,
     0.4
    ],
-   "motivoDisc": "Entre as mais cobradas pela FGV (Fundação Getulio Vargas) em fiscal"
+   "motivoDisc": "Entre as mais cobradas pela FGV em fiscal"
   },
   {
    "nome": "Direito Constitucional",
@@ -1374,6 +1385,7 @@
     "Da ordem social",
     "Das disposições gerais e das disposições constitucionais transitórias"
    ],
+   "area": "fiscal",
    "motivos": [
     [],
     [],
@@ -1610,7 +1622,7 @@
     0.1,
     0.1
    ],
-   "motivoDisc": "Entre as mais cobradas pela FGV (Fundação Getulio Vargas) em fiscal"
+   "motivoDisc": "Entre as mais cobradas pela FGV em fiscal"
   },
   {
    "nome": "Direito Previdenciário",
@@ -1683,6 +1695,7 @@
     "Questão do equilíbrio financeiro da Previdência Social",
     "Problemas estruturais da Previdência Social"
    ],
+   "area": "fiscal",
    "motivos": [
     [],
     [],
@@ -1884,7 +1897,7 @@
     0.1,
     0.1
    ],
-   "motivoDisc": "Entre as mais cobradas pela FGV (Fundação Getulio Vargas) em fiscal"
+   "motivoDisc": "Entre as mais cobradas pela FGV em fiscal"
   },
   {
    "nome": "Direito Tributário",
@@ -1958,6 +1971,7 @@
     "Abuso de formas",
     "29.2 Interpretação econômica do Direito Tributário"
    ],
+   "area": "fiscal",
    "motivos": [
     [
      "núcleo de alta incidência"
@@ -2188,7 +2202,7 @@
     0.1,
     0.1
    ],
-   "motivoDisc": "Entre as mais cobradas pela FGV (Fundação Getulio Vargas) em fiscal"
+   "motivoDisc": "Entre as mais cobradas pela FGV em fiscal"
   },
   {
    "nome": "Legislação Tributária",
@@ -2379,6 +2393,7 @@
     "10.5",
     "Apuração"
    ],
+   "area": "fiscal",
    "motivos": [
     [],
     [],
@@ -2934,7 +2949,7 @@
     0,
     0
    ],
-   "motivoDisc": "Entre as mais cobradas pela FGV (Fundação Getulio Vargas) em fiscal"
+   "motivoDisc": "Entre as mais cobradas pela FGV em fiscal"
   },
   {
    "nome": "Comércio Internacional",
@@ -3008,6 +3023,7 @@
     "6.2 Tarifa Externa Comum",
     "6.3. – Regime de Origem do Mercosul"
    ],
+   "area": "fiscal",
    "motivos": [
     [],
     [],
@@ -3346,6 +3362,7 @@
     "7.3.3 Atividades relacionadas aos serviços aduaneiros",
     "7.4 Fundo Especial de Desenvolvimento e Aperfeiçoamento das Atividades de Fiscalização"
    ],
+   "area": "fiscal",
    "motivos": [
     [],
     [],
@@ -3733,9 +3750,13 @@
     0.1,
     0.1
    ],
-   "motivoDisc": "Entre as mais cobradas pela FGV (Fundação Getulio Vargas) em fiscal"
+   "motivoDisc": "Entre as mais cobradas pela FGV em fiscal"
   }
  ],
+ "areas": [
+  "fiscal"
+ ],
+ "pesoTI": 0,
  "motor": {
   "versao": 1,
   "quando": "2026-11-21"
