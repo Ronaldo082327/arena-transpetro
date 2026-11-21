@@ -147,3 +147,5 @@ Símbolo escolhido pelo Ronaldo: sementes pelo ângulo de ouro ligadas em braço
 
 ## Kit premium do girassol aplicado (22/11)
 Vindo da sessão local (Drive `identidade-premium`): `identidade/marca.svg` = símbolo-mestre com volume e tokens de tema (`G.SIMBOLO` em `guilda.js` usa o mesmo desenho inline); `icon-192/512.png`, `icon-maskable-512.png` (escuros) e `apple-touch-icon-180.png`; `favicon.svg`; `identidade/abertura-logo.svg` abre no primeiro acesso do Estúdio (flag `arenaTP.abertura`, fecha com Entrar/Esc/9 s); OG e capa de redes em `identidade/premium/oficial/`. Regra do kit: até 32 px usar a versão de 21 sementes e 48-64 px a de 34 (não baixadas aqui; só o favicon vem pronto). Não baixados do Drive: logotipos, pecas/, android/, vídeos.
+
+Vídeo de abertura do Google Flow (8 s, 720p, com trilha): `identidade/video/abertura-girassol.webm/.mp4`, exibido na galeria `identidade/index.html` (muted, preload none). Símbolos de 34 sementes para 48 px: `identidade/pequeno/`. A 1ª tela do Estúdio continua sendo o `abertura-logo.svg` (mais leve).
