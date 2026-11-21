@@ -32,12 +32,12 @@
       var fimB = tops.length ? tops[tops.length - 1] : d; d.lx = fimB.x * 1.1 + (fimB === d ? 30 * Math.cos(a0) : 0); d.ly = fimB.y * 1.1 + 14 + (fimB === d ? 30 * Math.sin(a0) : 0); (filhos[d.id] || []).filter(function (n) { return n.tipo !== 'topico'; }).forEach(function (o, k) { var ang = k * AUREO, rr = 14 + 6 * Math.sqrt(k + 1); o.x = fimB.x + rr * Math.cos(ang); o.y = fimB.y + rr * Math.sin(ang); o.r = 2.4; o.hue = d.hue; });
     });
     G.nos.forEach(function (n) {
-      if (n.x != null || !porId[n.pai] || porId[n.pai].tipo === 'concurso') return; var p = porId[n.pai]; if (p.x == null) return;
+      if (n.x != null || !porId[n.pai] || (porId[n.pai].tipo === 'concurso' && !G.mini)) return; var p = porId[n.pai]; if (p.x == null) return;
       var irm = filhos[n.pai], k = irm.indexOf(n), ang = k * AUREO, rr = 10 + 5.2 * Math.sqrt(k + 1); n.x = p.x + rr * Math.cos(ang); n.y = p.y + rr * Math.sin(ang); n.r = n.tipo === 'pdf' ? 3.6 : 2.4; n.hue = p.hue;
     });
     // sem pai posicionado: anel externo
     var soltos = G.nos.filter(function (n) { return n.x == null; }); var ext0 = 0; G.nos.forEach(function (n) { if (n.x != null) ext0 = Math.max(ext0, Math.hypot(n.x, n.y)); }); soltos.forEach(function (n, i) { var ang = i * AUREO, rr = ext0 + 40 + 4 * Math.sqrt(i + 1); n.x = rr * Math.cos(ang); n.y = rr * Math.sin(ang); n.r = 2; });
-    var arestas = []; G.nos.forEach(function (n) { if (n.braco && porId[n.braco]) arestas.push([n.braco, n.id]); else if (porId[n.pai] && !(porId[n.pai].tipo === 'concurso' && n.tipo !== 'disciplina')) arestas.push([n.pai, n.id]); }); (G.arestas || []).forEach(function (e) { if (porId[e[0]] && porId[e[1]]) arestas.push(e); });
+    var arestas = []; G.nos.forEach(function (n) { if (n.braco && porId[n.braco]) arestas.push([n.braco, n.id]); else if (porId[n.pai] && (G.mini || !(porId[n.pai].tipo === 'concurso' && n.tipo !== 'disciplina'))) arestas.push([n.pai, n.id]); }); (G.arestas || []).forEach(function (e) { if (porId[e[0]] && porId[e[1]]) arestas.push(e); });
     G.porId = porId; G.todas = arestas; return G;
   }
   function tocar(canvas, G, op) {
