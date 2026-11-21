@@ -1,0 +1,38 @@
+[
+ {
+  "slug": "bacen-analista-ti",
+  "nome": "Banco Central 2024 · Analista · Tecnologia da Informação",
+  "banca": "Cebraspe (antigo Cespe/UnB)",
+  "banca_id": "cebraspe",
+  "area": "ti",
+  "materias": 11,
+  "questoes": 110
+ },
+ {
+  "slug": "receita-auditor",
+  "nome": "Receita Federal 2022 · Auditor-Fiscal",
+  "banca": "FGV (Fundação Getulio Vargas)",
+  "banca_id": "fgv",
+  "area": "fiscal",
+  "materias": 17,
+  "questoes": 140
+ },
+ {
+  "slug": "sefaz-al-auditor",
+  "nome": "SEFAZ-AL 2026 · Auditor Fiscal da Administração Tributária Estadual",
+  "banca": "Cebraspe (antigo Cespe/UnB)",
+  "banca_id": "cebraspe",
+  "area": "fiscal",
+  "materias": 16,
+  "questoes": 160
+ },
+ {
+  "slug": "sefaz-es-auditor",
+  "nome": "SEFAZ-ES 2021 · Auditor Fiscal da Receita Estadual",
+  "banca": "FGV (Fundação Getulio Vargas)",
+  "banca_id": "fgv",
+  "area": "fiscal",
+  "materias": 12,
+  "questoes": 110
+ }
+]
