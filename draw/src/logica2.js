@@ -220,6 +220,15 @@
     selos: [['nenhum', 'Sem selo', 1], ['chama', 'Chama', 2], ['escudo', 'Escudo', 5], ['livro', 'Livro aberto', 8], ['coroa', 'Coroa', 14], ['estrela', 'Estrela', 22]],
     fundos: [['liso', 'Liso', 1], ['faixas', 'Faixas', 4], ['pontos', 'Pontos', 9], ['ondas', 'Ondas', 15], ['rede', 'Rede de brasões', 24]]
   };
+
+  // ---------- identidade visual: moldura por patente e selo por conquista (lógica pura) ----------
+  // 8 molduras para 6 patentes: cada patente puxa a sua; Aprendiz e Grão-mestre/Lenda se dividem por nível. Ordem: aprendiz, estudante, praticante, veterano, estrategista, mestre, grao-mestre, lenda.
+  const MOLDURAS_NIVEL = [[1, 'aprendiz'], [3, 'estudante'], [5, 'praticante'], [10, 'veterano'], [16, 'estrategista'], [23, 'mestre'], [30, 'grao-mestre'], [45, 'lenda']];
+  const molduraDoNivel = (nivel) => { let r = MOLDURAS_NIVEL[0][1]; MOLDURAS_NIVEL.forEach(([n, id]) => { if (nivel >= n) r = id; }); return r; };
+  // Cada conquista (brasão) usa um dos 12 selos novos. Selo não conquistado aparece cinza/opaco na tela.
+  const SELO_POR_GRUPO = { horas: 'maratona-de-foco', questoes: '100-questoes', revisoes: 'revisor-de-ferro', simulados: 'chegada-na-prova', chama: 'sequencia-7' };
+  const SELO_ESPECIAL = { 'questoes-50': 'primeira-questao', 'revisoes-100': 'mestre-das-cartas', 'revisoes-250': 'mestre-das-cartas', 'simulados-5': 'gabaritou-materia', 'simulados-10': 'gabaritou-materia', 'simulados-25': 'simulado-perfeito' };
+  const seloDaConquista = (id) => SELO_ESPECIAL[id] || SELO_POR_GRUPO[String(id).split('-')[0]] || 'primeira-questao';
   const desbloqueado = (grupo, id, nivel) => { const it = SALAO[grupo].find(x => x[0] === id); return !!it && nivel >= it[2]; };
   function iniciais(nome) { const p = String(nome || '').trim().split(/\s+/).filter(Boolean); if (!p.length) return 'EU'; return ((p[0][0] || '') + (p.length > 1 ? p[p.length - 1][0] : (p[0][1] || ''))).toUpperCase(); }
 
@@ -250,5 +259,5 @@
   // meta é considerada feita se o tópico foi estudado no dia da meta ou depois
   function aplicarFeitas(metas, topicos) { const mapa = {}; topicos.forEach(t => mapa[t.id] = t); return metas.map(m => m.feita ? m : Object.assign({}, m, { feita: !!(mapa[m.topicoId] && mapa[m.topicoId].ultEstudo && mapa[m.topicoId].ultEstudo >= m.dia) })); }
 
-  return { quebrarItem, refinarEdital, parseEditalVertical, editalParaTexto, montarVertical, verticalParaCSV, CAIXAS, raioX, tipoDeQuestao, dificuldadeDe, diagnosticoRajada, normalizaAvaliacao, letra, consenso, julgarTribunal, rodarTribunal, normalizaCorrecao, contarLinhas, REGRAS, PATENTES, xpParaNivel, nivelDe, agregarDias, chama, calcularGuilda, conquistas, mapaCalor, xpDaSemana, placarSemanal, SALAO, desbloqueado, iniciais, segunda, replanejar, aplicarFeitas };
+  return { quebrarItem, refinarEdital, parseEditalVertical, editalParaTexto, montarVertical, verticalParaCSV, CAIXAS, raioX, tipoDeQuestao, dificuldadeDe, diagnosticoRajada, normalizaAvaliacao, letra, consenso, julgarTribunal, rodarTribunal, normalizaCorrecao, contarLinhas, REGRAS, PATENTES, xpParaNivel, nivelDe, agregarDias, chama, calcularGuilda, conquistas, mapaCalor, xpDaSemana, placarSemanal, SALAO, desbloqueado, iniciais, molduraDoNivel, MOLDURAS_NIVEL, seloDaConquista, segunda, replanejar, aplicarFeitas };
 });

@@ -28,7 +28,7 @@
       id = L.uid('c'); await DB.put('cartoes', { id, concursoId, topicoId: topicoId || null, tipo: 'basico', frente: (c.titulo && !c.texto ? c.titulo : c.texto || '').slice(0, 1500), verso: c.comentario || '', fonte: c.url || '', origem: 'captura', criado: agora });
     } else if (como === 'questao') {
       const q = await questaoDeCaptura(c); id = L.uid('c');
-      await DB.put('cartoes', { id, concursoId, topicoId: topicoId || null, tipo: 'questao', enunciado: q.enunciado, alternativas: q.alternativas, gabarito: q.gabarito || '', explicacao: q.comentario || '', banca: q.banca || '', ano: q.ano || null, fonte: c.url || '', origem: 'captura', criado: agora });
+      await DB.put('cartoes', Object.assign({ id, concursoId, topicoId: topicoId || null, tipo: 'questao', enunciado: q.enunciado, alternativas: q.alternativas, gabarito: q.gabarito || '', explicacao: q.comentario || '', banca: q.banca || '', ano: q.ano || null, fonte: c.url || '', origem: 'captura', criado: agora }, c.imagem ? { imagem: c.imagem } : {}));
     } else throw new Error('Escolha o que fazer com a captura.');
     if (c.id && await DB.get('capturas', c.id)) await DB.del('capturas', c.id);
     return id;

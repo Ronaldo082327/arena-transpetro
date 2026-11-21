@@ -205,3 +205,78 @@ dialog.larga { width: min(980px, calc(100vw - 24px)); }
 .postit-sel { font-size: .78rem; width: 100%; max-width: 100%; } .postit-pe { display: flex; gap: 6px; justify-content: space-between; } .postit-link { text-decoration: none; align-self: flex-start; }
 .cor-amarelo { background: var(--warn-soft); } .cor-laranja { background: var(--accent-soft); } .cor-azul { background: var(--azul-soft); } .cor-verde { background: var(--ok-soft); } .cor-rosa { background: var(--bad-soft); }
 .vt-tit { min-width: 190px; }
+
+/* ---------- Dora Pena (camada de anotação) ---------- */
+.pena-bloco { position: relative; }
+.pena-camada { position: absolute; inset: 0; z-index: 5; pointer-events: none; overflow: hidden; }
+.pena-camada canvas { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; touch-action: none; }
+.pena-camada.ativa canvas { pointer-events: auto; }
+.pena-camada.oculta .pena-fita { display: none; }
+.pena-fita { position: absolute; display: grid; place-items: center; box-sizing: border-box; border-radius: 6px; background: var(--accent); color: var(--paper); box-shadow: var(--sombra-btn); border: 1px solid var(--line); pointer-events: auto; cursor: pointer; font-size: .8rem; font-weight: 650; overflow: hidden; }
+.pena-fita.aberta { background: transparent; color: transparent; box-shadow: none; outline: 2px dashed var(--accent); outline-offset: -2px; }
+.pena-camada.ativa .pena-fita { pointer-events: none; }
+.pena-texto-campo { position: absolute; width: 190px; min-height: 36px; z-index: 2; pointer-events: auto; }
+.pena-barra { display: flex; flex-direction: column; gap: 4px; padding: 10px; margin: 8px 0; border-radius: var(--raio-p); background: var(--inset); box-shadow: var(--sombra-afundado); max-width: 100%; min-width: 0; }
+.pena-barra .ferr { margin-bottom: 0; align-items: center; }
+.pena-barra .cores { display: flex; gap: 6px; flex-wrap: wrap; }
+.pena-barra .cor { width: 30px; height: 30px; }
+.pena-barra select { width: auto; min-height: 38px; }
+.pena-barra [hidden] { display: none !important; }
+.pena-relogio { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.pena-relogio .tempo { font-variant-numeric: tabular-nums; font-weight: 700; font-size: 1.1rem; min-width: 64px; padding: 4px 10px; border-radius: 10px; background: var(--paper); box-shadow: var(--sombra-afundado); text-align: center; }
+.pena-relogio .tempo.estourou { color: var(--bad); }
+.pena-relogio input[type=number] { width: 72px; min-height: 36px; }
+.pena-audio { display: flex; flex-direction: column; gap: 6px; }
+.pena-audio audio { width: 100%; max-width: 100%; }
+.pena-audio .item { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+
+/* ---------- identidade visual nova (só figuras; sem cor literal) ---------- */
+.dg-fig { display: block; line-height: 0; } .dg-fig svg { display: block; width: 100%; height: auto; }
+.marca .dg-marca { width: 38px; height: 38px; flex: none; } .marca .dg-marca svg { width: 38px; height: 38px; }
+.dg-vazio-fig { width: min(220px, 70%); margin: 0 auto 10px; }
+.dg-capa { width: 100%; height: clamp(84px, 13vw, 140px); border-radius: var(--raio, 14px); overflow: hidden; margin-bottom: 14px; box-shadow: var(--sombra-1); } .dg-capa svg { width: 100%; height: 100%; }
+.dg-onb-fig { width: min(320px, 80%); margin: 0 auto; } .dg-onb-pontos { display: flex; gap: 6px; justify-content: center; margin-bottom: 12px; } .dg-onb-pontos i { width: 8px; height: 8px; border-radius: 50%; background: var(--line-forte); } .dg-onb-pontos i.on { background: var(--accent); }
+.av.av-fig { box-shadow: none; background: transparent; } .av.av-fig .av-miolo { position: absolute; inset: 11%; border-radius: 50%; display: grid; place-items: center; background: var(--accent-soft); color: var(--accent); overflow: hidden; }
+.av.av-fig .dg-moldura { position: absolute; inset: 0; z-index: 1; pointer-events: none; } .av.av-fig .dg-avatar-img { position: absolute; inset: 11%; width: auto; border-radius: 50%; overflow: hidden; } .av.av-fig .dg-avatar-img svg { width: 100%; height: 100%; }
+.av.av-fig .av-selo { z-index: 2; }
+.dg-selo { width: 56px; height: 56px; margin: 0 auto; } .dg-selo-off { filter: grayscale(1); opacity: .45; }
+.g-brasao .dg-selo { margin-bottom: 4px; }
+.dg-moldura-lista { display: grid; grid-template-columns: repeat(auto-fill, minmax(84px, 1fr)); gap: 10px; } .dg-moldura-item { text-align: center; font-size: .82rem; } .dg-moldura-item .dg-fig { width: 64px; margin: 0 auto 4px; } .dg-moldura-item.trancado { filter: grayscale(1); opacity: .5; }
+.g-opcao .dg-avatar-img { width: 48px; }
+
+/* ---------- Mural: Kanban e calendário; mapa mental em modo teste ---------- */
+.mural-quadro.mural-outra { background: none; border: 0; box-shadow: none; padding: 0; min-height: 0; }
+.kb { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; align-items: start; } @media (max-width: 640px) { .kb { grid-template-columns: minmax(0, 1fr); } }
+.kb-col { background: var(--inset); border-radius: var(--raio-p); padding: 8px; min-height: 90px; border: 2px dashed transparent; } .kb-col.alvo { border-color: var(--accent); } .kb-col h3 { margin: 0 0 8px; font-size: .95rem; }
+.kb-card { border: 1px solid var(--line-forte); border-radius: 8px; padding: 8px; margin-bottom: 8px; color: var(--ink); box-shadow: var(--sombra-1); cursor: grab; display: grid; gap: 6px; } .kb-txt { white-space: pre-wrap; overflow-wrap: anywhere; } .kb-acoes { gap: 4px; } .kb-acoes input[type=date] { min-width: 0; flex: 1; font-size: .8rem; }
+.cal-mes { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 3px; } .cal-cab { text-align: center; font-size: .8rem; color: var(--muted); font-weight: 600; }
+.cal-dia { min-width: 0; min-height: 58px; padding: 3px; border: 1px solid var(--line); background: var(--paper); border-radius: 8px; display: flex; flex-direction: column; gap: 2px; align-items: stretch; text-align: left; cursor: pointer; font: inherit; color: var(--ink); overflow: hidden; }
+.cal-dia.fora { opacity: .45; } .cal-dia.hoje { outline: 2px solid var(--accent); } .cal-dia.sel { background: var(--accent-soft); } .cal-n { font-size: .8rem; font-weight: 700; }
+.cal-chip { font-size: .65rem; line-height: 1.2; border-radius: 4px; padding: 1px 3px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; } .cal-mais { font-size: .65rem; color: var(--muted); }
+.mapa .no.mascara rect { stroke-dasharray: 5 4; } .mapa .no.mascara text { opacity: .0; } .mapa .no.mascara .interroga { opacity: 1; font-weight: 700; }
+.mapa .no.sabia rect { stroke: var(--ok); stroke-width: 3.5; } .mapa .no.nao rect { stroke: var(--bad); stroke-width: 3.5; }
+.teste-barra { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 8px; }
+
+/* girassol que gira: logo do menu (48 s, 7 s com o mouse) e indicador de carregando (4,5 s). Não gira o ícone do app nem o favicon. */
+@keyframes dg-girar { to { transform: rotate(360deg); } }
+.marca .dg-marca svg { transform-origin: 50% 50%; animation: dg-girar 48s linear infinite; }
+.marca:hover .dg-marca svg { animation-duration: 7s; }
+.dg-girando { display: inline-flex; width: 1.25em; height: 1.25em; vertical-align: -0.25em; margin-right: 6px; flex: none; }
+.dg-girando svg { width: 100%; height: 100%; transform-origin: 50% 50%; animation: dg-girar 4.5s linear infinite; }
+@media (prefers-reduced-motion: reduce) { .marca .dg-marca svg, .dg-girando svg { animation: none; } }
+html[data-movimento="reduzido"] .marca .dg-marca svg, html[data-movimento="reduzido"] .dg-girando svg { animation: none; }
+
+/* quinta leva: Gêmeo digital (girassol, faixa por disciplina) e Agentes sintéticos. Só usa os tokens que já existem. */
+.gm-palco { max-width: 460px; margin: 0 auto 10px; } .gm-girassol { width: 100%; height: auto; display: block; }
+.gm-semente { fill: var(--accent); stroke: var(--accent); stroke-opacity: .55; stroke-width: 1; cursor: pointer; outline: none; }
+.gm-semente.gm-pouco { stroke-dasharray: 2 2; stroke-opacity: .8; } .gm-semente:hover, .gm-semente:focus-visible, .gm-semente.sel { stroke: var(--ink); stroke-opacity: 1; stroke-width: 2; }
+.gm-faixa-svg { width: 100%; height: auto; display: block; max-width: 520px; } .gm-trilho { fill: var(--inset); } .gm-barra { fill: var(--accent); } .gm-bigode { stroke: var(--ink); stroke-width: 2; stroke-linecap: round; opacity: .8; }
+@keyframes gm-nasce { from { opacity: 0; transform: scale(.2); } to { opacity: 1; transform: scale(1); } }
+@media (prefers-reduced-motion: no-preference) { html:not([data-movimento="reduzido"]) .gm-semente { transform-box: fill-box; transform-origin: center; animation: gm-nasce .45s ease-out both; animation-delay: calc(var(--i) * 6ms); } }
+
+/* Dora Estúdio: escolha do tipo, infográfico desenhado pelo app e caixa isolada da página interativa. Só tokens que já existem. */
+.est-tipo { display: flex; flex-direction: column; gap: 4px; align-items: flex-start; text-align: left; font: inherit; color: var(--ink); cursor: pointer; min-width: 0; }
+.est-tipo[aria-checked="true"] { outline: 3px solid var(--accent); outline-offset: -3px; background: var(--accent-soft); }
+.est-tipo:disabled { cursor: not-allowed; opacity: .6; }
+.est-info { border-radius: 16px; overflow: hidden; box-shadow: var(--sombra-afundado); } .est-info svg { width: 100%; height: auto; display: block; }
+.est-caixa { width: 100%; height: min(70vh, 640px); min-height: 360px; border: 1px solid var(--line); border-radius: 14px; background: var(--paper); display: block; }

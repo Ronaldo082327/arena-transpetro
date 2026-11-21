@@ -35,8 +35,13 @@
     ajustes: 'M4 6h10M18 6h2M4 12h4M12 12h8M4 18h12M14 4v4M8 10v4M16 16v4', mais: 'M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h6v6h-6z', discursivas: 'M4 20l4-1L20 7l-3-3L5 16zM14 6l3 3', revisoes: 'M3 12a9 9 0 0 1 15-6.7L21 8M21 3v5h-5M21 12a9 9 0 0 1-15 6.7L3 16M3 21v-5h5', ciclo: 'M17 2l4 4-4 4M3 11V9a3 3 0 0 1 3-3h15M7 22l-4-4 4-4M21 13v2a3 3 0 0 1-3 3H3', cofre: 'M6 11V8a6 6 0 0 1 12 0v3M4 11h16v10H4zM12 15v2', estruturas: 'M3 8l9-5 9 5-9 5zM3 8v8l9 5 9-5V8', mural: 'M3 4h18v12H3zM8 20h8M12 16v4'
   };
   Object.assign(ICO, { vertical: 'M5 3v18M5 6h6M5 12h10M5 18h8M15 6h6M19 12h2M17 18h4', raiox: 'M3 12s3.5-7 9-7 9 7 9 7-3.5 7-9 7-9-7-9-7zM12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z', rajada: 'M13 2L4 14h7l-1 8 9-12h-7z', escriba: 'M4 20l4-1L20 7l-3-3L5 16zM14 6l3 3M4 22h16', guilda: 'M12 2l8 3v6c0 5-3.5 9-8 11-4.5-2-8-6-8-11V5zM12 8v6M9 11h6', salao: 'M3 21h18M5 21V9l7-5 7 5v12M10 21v-6h4v6', radio: 'M4 9h16v11H4zM8 9l8-5M8 14h2M14 13a2 2 0 1 0 4 0 2 2 0 0 0-4 0z', mural: 'M4 4h16v13l-5 5H4zM15 22v-5h5M8 9h8M8 13h5' });
-  const svgIco = (n) => { const s = document.createElementNS('http://www.w3.org/2000/svg', 'svg'); s.setAttribute('viewBox', '0 0 24 24'); s.setAttribute('aria-hidden', 'true'); const p = document.createElementNS('http://www.w3.org/2000/svg', 'path'); p.setAttribute('d', ICO[n] || ICO.mais); s.append(p); return s; };
+  // Ícones de interface: figuras da identidade nova (sprite). O desenho antigo (ICO) fica só como reserva se a identidade não carregar.
+  const svgIco = (n) => { if (window.DoraIdentidade) return window.DoraIdentidade.ico(n); const s = document.createElementNS('http://www.w3.org/2000/svg', 'svg'); s.setAttribute('viewBox', '0 0 24 24'); s.setAttribute('aria-hidden', 'true'); const p = document.createElementNS('http://www.w3.org/2000/svg', 'path'); p.setAttribute('d', ICO[n] || ICO.mais); s.append(p); return s; };
   App.ico = svgIco;
+  // figura de estado vazio da identidade nova (sem-cartas, sem-questoes, sem-revisoes, sem-anotacoes, sem-estatisticas, sem-resultados); null se não carregou
+  App.vazioFig = (nome) => window.DoraIdentidade ? window.DoraIdentidade.vazio(nome) : null;
+  // botão ocupado: girassol girando (4,5 s por volta) + texto; sem a identidade, só o texto
+  App.rodando = (el, texto) => { const g = window.DoraIdentidade && window.DoraIdentidade.dados.marca.simbolo ? window.DoraIdentidade.figura('marca', 'simbolo', 'dg-girando') : null; el.disabled = true; el.replaceChildren(...(g ? [g] : []), document.createTextNode(texto)); };
   App.tile = (n, cls = '') => h('span', { class: 'ico-tile ' + cls }, svgIco(n));
 
   // ---------- dados ----------
@@ -73,14 +78,14 @@
   App.errosAtivos = () => App.S.erros.filter(e => !e.resolvido);
 
   // registra a resposta a uma questão/Dora Carta: histórico, diário de erros, repetição espaçada e nota do tópico
-  App.registrarResposta = async ({ refTipo, item, escolha, confianca, ms }) => {
-    const hoje = App.hoje(); const correta = !!item.gabarito && escolha === item.gabarito; const topicoId = item.topicoId || null; const concursoId = App.S.conc.id;
+  App.registrarResposta = async ({ refTipo, item, escolha, confianca, ms, forcarErro, lote }) => {
+    const hoje = App.hoje(); const correta = !forcarErro && !!item.gabarito && escolha === item.gabarito; const topicoId = item.topicoId || null; const concursoId = App.S.conc.id;
     const r = { id: L.uid('r'), concursoId, topicoId, refTipo, refId: item.id, ts: Date.now(), dia: hoje, correta, confianca, ms, escolha }; await App.salvar('respostas', r);
     const ref = { id: L.uid('er'), refTipo, refId: item.id, topicoId, concursoId, resumo: String(item.enunciado || item.frente || '').slice(0, 140) };
     const antes = App.S.erros; const res = L.atualizarDiario(antes, ref, { correta, confianca, ms, alvoMs: 120000 }, hoje); App.S.erros = res.entradas;
     for (const e of res.entradas) if (!antes.includes(e)) await DB.put('erros', e);
     let novo = Object.assign({}, item); novo.feitas = (item.feitas || 0) + 1; novo.acertos = (item.acertos || 0) + (correta ? 1 : 0); novo.ult = hoje;
-    if (refTipo === 'cartao') novo = L.sm2(novo, L.respostaDeQuestao(correta, confianca, ms > 180000), hoje);
+    if (refTipo === 'cartao') { const resp = L.respostaDeQuestao(correta, confianca, ms > 180000); novo = App.agendar ? App.agendar(novo, resp, hoje) : L.sm2(novo, resp, hoje); if (App.confirmarIntervalo) novo = await App.confirmarIntervalo(novo, resp, hoje, { lote }); }
     await App.salvar(refTipo === 'cartao' ? 'cartoes' : 'questoes', novo);
     if (topicoId) await App.marcarEstudo(topicoId);
     return { correta, evento: res.evento, item: novo };
@@ -108,14 +113,16 @@
       if (!op.semGabarito) fim.append(h('div', { class: 'afundado' }, h('p', {}, h('b', {}, !item.gabarito ? 'Esta questão está sem gabarito. Edite-a para conferir.' : acertou ? 'Você acertou.' : 'Você marcou ' + escolha + '. O gabarito é ' + item.gabarito + '.')), item.pegadinha ? h('p', {}, h('span', { class: 'pegadinha' }, 'Pegadinha'), ' ', item.pegadinha) : null, expl ? h('div', { class: 'verso' }, expl) : null));
       const ac = h('div', { class: 'linha', style: 'margin-top:10px' });
       if (op.rascunhoLoja) ac.append(h('button', { class: 'btn mini', onclick: () => App.abrirRascunho(item, op.rascunhoLoja) }, 'Dora Rascunho'));
-      if (!op.semGabarito && App.ia && (App.ia.temChave('gemini') || App.ia.temChave('claude'))) ac.append(h('button', { class: 'btn mini', onclick: async (ev) => { ev.target.disabled = true; ev.target.textContent = 'Pensando...'; try { const r = await App.ia.tarefas.explicarQuestao(item); fim.append(App.cartaoExplicacao(r.dados, r.modelo)); ev.target.remove(); } catch (er) { App.toast(er.message, true); ev.target.disabled = false; ev.target.textContent = 'Explicar com a IA'; } } }, 'Explicar com a IA'));
-      if (op.aoContinuar) ac.append(h('button', { class: 'btn p', onclick: op.aoContinuar }, op.rotuloContinuar || 'Continuar'));
+      if (!op.semGabarito && App.ia && App.ia.temIA()) ac.append(h('button', { class: 'btn mini', onclick: async (ev) => { App.rodando(ev.target, 'Pensando...'); try { const r = await App.ia.tarefas.explicarQuestao(item); fim.append(App.cartaoExplicacao(r.dados, r.modelo)); ev.target.remove(); } catch (er) { App.toast(er.message, true); ev.target.disabled = false; ev.target.textContent = 'Explicar com a IA'; } } }, 'Explicar com a IA'));
+      if (op.aoContinuar) ac.append(h('button', { class: 'btn p', 'data-continuar': '1', onclick: op.aoContinuar }, op.rotuloContinuar || 'Continuar'));
       fim.append(ac);
     }
     const meta = [item.banca, item.ano, item.orgao, item.assunto].filter(Boolean); if (op.titulo) raiz.append(h('div', { class: 'rotulo' }, op.titulo));
     if (meta.length) raiz.append(h('div', { class: 'linha' }, meta.map(x => h('span', { class: 'chip azul' }, String(x)))));
-    raiz.append(h('div', { class: 'q-enunciado' }, item.enunciado || ''), h('div', {}, altBtns));
-    confBox.append(h('div', { class: 'rotulo', style: 'margin-bottom:6px' }, 'Como você se sentiu?'), h('div', { class: 'linha' }, [['certeza', 'Tenho certeza'], ['duvida', 'Fiquei em dúvida'], ['chute', 'Foi chute']].map(([k, n]) => h('button', { class: 'btn' + (k === 'certeza' ? ' p' : ''), onclick: () => enviar(k) }, n))));
+    const bloco = h('div', { class: 'pena-bloco' }, h('div', { class: 'q-enunciado' }, item.enunciado || ''), item.imagem ? h('img', { src: item.imagem, alt: 'Imagem da questão', style: 'max-width:100%;border-radius:10px;margin-bottom:8px' }) : null, h('div', {}, altBtns));
+    const barraPena = h('div', { class: 'oculto' }); if (op.pena !== false && App.pena) raiz.append(h('div', { class: 'linha' }, App.pena.botaoQuestao(bloco, barraPena, item)), barraPena);
+    raiz.append(bloco);
+    confBox.append(h('div', { class: 'rotulo', style: 'margin-bottom:6px' }, 'Como você se sentiu?'), h('div', { class: 'linha' }, [['certeza', 'Tenho certeza'], ['duvida', 'Fiquei em dúvida'], ['chute', 'Foi chute']].map(([k, n]) => h('button', { class: 'btn' + (k === 'certeza' ? ' p' : ''), 'data-conf': k, onclick: () => enviar(k) }, n))));
     raiz.append(confBox, fim); return raiz;
   };
   App.cartaoExplicacao = (d, modelo) => {
@@ -124,8 +131,9 @@
   };
 
   // ---------- rotas e menu ----------
-  const MENU = [['inicio', 'Início'], ['concursos', 'Concursos'], ['edital', 'Dora Edital'], ['vertical', 'Dora Vertical'], ['estudar', 'Estudar'], ['erros', 'Diário de Batalha'], ['questoes', 'Questões'], ['raiox', 'Raio-X da Banca'], ['rajada', 'Rajada'], ['estante', 'Estante'], ['foco', 'Dora Foco'], ['radio', 'Rádio Foco'], ['revisoes', 'Dora Revisões'], ['ciclo', 'Dora Ciclo'], ['agenda', 'Dora Agenda'], ['simulados', 'Diário de Simulados'], ['estatisticas', 'Estatísticas'], ['discursivas', 'Discursivas'], ['escriba', 'Dora Escriba'], ['mural', 'Mural da Guilda'], ['guilda', 'Guilda'], ['salao', 'Salão da Guilda'], ['estruturas', 'Estruturas da Guilda'], ['ia', 'Dora Mentora'], ['cofre', 'Dora Cofre'], ['ajustes', 'Ajustes']];
-  const ICONE_DE = { estatisticas: 'stats', concursos: 'conc', foco: 'simulados', agenda: 'plano' };
+  const MENU = [['inicio', 'Início'], ['hoje', 'Hoje'], ['concursos', 'Concursos'], ['edital', 'Dora Edital'], ['vertical', 'Dora Vertical'], ['estudar', 'Estudar'], ['erros', 'Diário de Batalha'], ['questoes', 'Questões'], ['raiox', 'Raio-X da Banca'], ['rajada', 'Rajada'], ['estante', 'Estante'], ['foco', 'Dora Foco'], ['radio', 'Rádio Foco'], ['revisoes', 'Dora Revisões'], ['ciclo', 'Dora Ciclo'], ['agenda', 'Dora Agenda'], ['simulados', 'Diário de Simulados'], ['estatisticas', 'Estatísticas'], ['discursivas', 'Discursivas'], ['escriba', 'Dora Escriba'], ['mural', 'Mural da Guilda'], ['guilda', 'Guilda'], ['salao', 'Salão da Guilda'], ['estruturas', 'Estruturas da Guilda'], ['ia', 'Dora Mentora'], ['cofre', 'Dora Cofre'], ['ajustes', 'Ajustes']];
+  MENU.splice(MENU.findIndex(m => m[0] === 'estudar') + 1, 0, ['cartas', 'Dora Cartas'], ['evolucao', 'Evolução']); App.MENU = MENU; // quarta leva: tela de cartas e de evolução
+  const ICONE_DE = { evolucao: 'estatisticas', gemeo: 'atlas', agentes: 'examinador', estudio: 'galeria' }; // a identidade nova tem ícone próprio para cada tela (foco, agenda, estatísticas...)
   const RAPIDO = [['inicio', 'Início'], ['edital', 'Edital'], ['estudar', 'Estudar'], ['erros', 'Erros'], ['mais', 'Mais']];
   App.rota = () => { const [cam, q] = (location.hash.replace(/^#\/?/, '') || 'inicio').split('?'); const [nome, ...args] = cam.split('/'); const query = {}; (q || '').split('&').filter(Boolean).forEach(p => { const [k, v] = p.split('='); query[k] = decodeURIComponent(v || ''); }); return { nome: nome || 'inicio', args, query }; };
   App.ir = (hash) => { if (location.hash === '#/' + hash) App.render(); else location.hash = '#/' + hash; };
@@ -136,10 +144,12 @@
     const r = App.rota(); const nome = r.nome; const alvo = $('#principal'); const sup = alvo.scrollTop; alvo.replaceChildren();
     const v = App.views[nome] || App.views.inicio; menu(nome === 'topico' ? 'edital' : nome === 'leitor' ? 'estante' : nome);
     try { await v(alvo, r); } catch (e) { console.error(e); alvo.append(h('div', { class: 'cartao' }, h('h2', {}, 'Algo deu errado nesta tela'), h('p', {}, e.message), h('button', { class: 'btn', onclick: () => App.ir('inicio') }, 'Voltar ao início'))); }
+    try { const I = window.DoraIdentidade; const cp = I && I.capa(nome); if (cp && !alvo.querySelector('.dg-capa')) alvo.prepend(cp); } catch (e) { /* capa é enfeite */ }
     window.scrollTo(0, 0);
   };
   function menu(atual) {
-    const lat = $('#lateral'); lat.replaceChildren(h('div', { class: 'marca' }, h('img', { src: 'icones/icone-48.png', alt: '' }), h('span', {}, 'Dora Draw')));
+    const lat = $('#lateral'); App.marcaEl = App.marcaEl || h('div', { class: 'marca' }, (window.DoraIdentidade && window.DoraIdentidade.dados.marca.simbolo ? window.DoraIdentidade.marca() : h('img', { src: 'icones/icone-48.png', alt: '' })), h('span', {}, 'Dora Draw')); // criado uma vez só: recriar a <img> a cada tela cancelava o carregamento
+    lat.replaceChildren(App.marcaEl);
     lat.append(App.seletorConcurso()); if (App.seletorPerfil) lat.append(App.seletorPerfil());
     MENU.filter(m => !App.escondido || !App.escondido(m[0])).forEach(([k, n]) => lat.append(h('a', { class: 'nav-item', href: '#/' + k, 'aria-current': atual === k ? 'page' : null }, svgIco(ICONE_DE[k] || k), n)));
     const bx = $('#baixo'); bx.replaceChildren(...RAPIDO.map(([k, n]) => h('button', { type: 'button', 'aria-current': (atual === k || (k === 'mais' && !RAPIDO.some(x => x[0] === atual))) ? 'page' : null, onclick: () => App.ir(k) }, svgIco(k), n)));

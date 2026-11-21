@@ -340,7 +340,7 @@
 
   // ---------- backup ----------
   const VERSAO_BACKUP = 1;
-  const LOJAS = ['concursos', 'disciplinas', 'topicos', 'cartoes', 'questoes', 'cadernos', 'respostas', 'erros', 'materiais', 'grifos', 'sessoes', 'capturas', 'simulados', 'mural', 'config'];
+  const LOJAS = ['concursos', 'disciplinas', 'topicos', 'cartoes', 'questoes', 'cadernos', 'respostas', 'erros', 'materiais', 'grifos', 'sessoes', 'capturas', 'simulados', 'mural', 'penas', 'marcacoes', 'artefatos', 'config']; // 'artefatos' = criações salvas da Dora Estúdio; o índice 'rag' fica fora (é refeito)
   function montarBackup(dados, extra = {}) { const out = { app: 'dora-draw', versao: VERSAO_BACKUP, criadoEm: new Date().toISOString() }; Object.assign(out, extra); LOJAS.forEach(l => { out[l] = (dados[l] || []).slice(); }); return out; }
   function validarBackup(o) {
     if (!o || typeof o !== 'object') return { ok: false, erro: 'O arquivo não é um backup do Dora Draw.' };
@@ -385,8 +385,10 @@
 
   // ---------- Dora Ciclo ----------
   // meta de cada disciplina no ciclo = horas do ciclo × (peso × fraqueza média) / soma; a próxima é a primeira, na ordem do ciclo, que ainda não bateu a meta
-  function ciclo({ disciplinas, topicos, notas = {}, feitos = {}, horasCiclo = 20 }) {
-    const folhas = folhasDe(topicos); const base = disciplinas.map(d => { const ts = folhas.filter(t => t.disciplinaId === d.id); if (!ts.length) return null; const fr = ts.reduce((a, t) => a + (notas[t.id] == null ? 0.85 : 1 - notas[t.id] / 100), 0) / ts.length; return { id: d.id, nome: d.nome, w: Math.max(0.01, (d.peso == null ? 10 : +d.peso) * fr) }; }).filter(Boolean);
+  // niveis: {idDaDisciplina: 1 a 5} (1 = estou começando, pede mais horas; 5 = muito bom, pede menos)
+  const FATOR_NIVEL = { 1: 1.5, 2: 1.25, 3: 1, 4: 0.8, 5: 0.6 };
+  function ciclo({ disciplinas, topicos, notas = {}, feitos = {}, horasCiclo = 20, niveis = {} }) {
+    const folhas = folhasDe(topicos); const base = disciplinas.map(d => { const ts = folhas.filter(t => t.disciplinaId === d.id); if (!ts.length) return null; const fr = ts.reduce((a, t) => a + (notas[t.id] == null ? 0.85 : 1 - notas[t.id] / 100), 0) / ts.length; return { id: d.id, nome: d.nome, w: Math.max(0.01, (d.peso == null ? 10 : +d.peso) * fr * (FATOR_NIVEL[niveis[d.id]] || 1)) }; }).filter(Boolean);
     const soma = base.reduce((a, b) => a + b.w, 0) || 1; const itens = base.sort((a, b) => b.w - a.w).map(b => { const meta = Math.round(horasCiclo * 60 * b.w / soma); const feito = Math.round(feitos[b.id] || 0); return { id: b.id, nome: b.nome, meta, feito, falta: Math.max(0, meta - feito), pct: meta ? Math.min(100, Math.round(100 * feito / meta)) : 100 }; });
     const pend = itens.find(i => i.falta > 0); return { itens, proxima: pend || itens[0] || null, completo: itens.length > 0 && !pend, minutosFeitos: itens.reduce((a, i) => a + Math.min(i.feito, i.meta), 0), minutosMeta: itens.reduce((a, i) => a + i.meta, 0) };
   }
@@ -407,7 +409,9 @@
   }
 
   // ---------- revisões ----------
-  const datasRevisao = (base, dias = [1, 7, 30]) => dias.map(n => somaDias(base, n));
+  // dias padrão das revisões de um tópico concluído (e do modo "Dias fixos" dos cartões, em logica3.js)
+  const DIAS_REVISAO_PADRAO = [1, 7, 30];
+  const datasRevisao = (base, dias = DIAS_REVISAO_PADRAO) => dias.map(n => somaDias(base, n));
   function revisaoReforcada({ topicos, respostas, hoje, janela = 30, minResp = 4, limiar = 0.6 }) {
     const porT = {}; respostas.filter(r => r.topicoId && diasEntre(r.dia || diaLocal(r.ts), hoje) <= janela).forEach(r => { const a = porT[r.topicoId] = porT[r.topicoId] || { n: 0, ok: 0 }; a.n += r.qtd || 1; a.ok += r.acertos != null ? r.acertos : (r.correta ? 1 : 0); });
     return Object.keys(porT).filter(id => porT[id].n >= minResp && porT[id].ok / porT[id].n < limiar && topicos.some(t => t.id === id)).map(id => ({ topicoId: id, pct: Math.round(100 * porT[id].ok / porT[id].n), n: porT[id].n })).sort((a, b) => a.pct - b.pct);
@@ -454,5 +458,5 @@
     return { concurso: c, disciplinas, topicos, simulados };
   }
 
-  return { agendaAteProva, coberturaEdital, ritmo, estimativaCobertura, ciclo, notaSimulado, compararSimulados, datasRevisao, revisaoReforcada, rotacionarCopias, montarEstrutura, validarEstrutura, instanciarEstrutura, VERSAO_ESTRUTURA, diaLocal, paraData, somaDias, diasEntre, rotuloDia, uid, parseEdital, sm2, QUAL, cartaoDevido, respostaDeQuestao, TIPOS_ERRO, classificarResposta, novaEntradaErro, atualizarDiario, notaTopico, intervaloRevisao, proximaRevisao, urgencia, prioridades, prioridadeCartao, planoSemanal, sequenciaDias, paraCSV, lerCSV, paraICS, parseQuestoesTexto, normalizaQuestao, questoesDeCSV, questoesDeJSON, extrairAlternativas, extrairJSON, novaEscada, liberarTudo, ESCADA_GEMINI, ESCADA_CLAUDE, modeloAtivo, bloqueados, esperaDoErro, registrarFalha, mesclarEscada, ordenarGemini, custoUSD, dentroDoTeto, montarBackup, validarBackup, mesclarDados, LOJAS, VERSAO_BACKUP };
+  return { DIAS_REVISAO_PADRAO, agendaAteProva, coberturaEdital, ritmo, estimativaCobertura, ciclo, notaSimulado, compararSimulados, datasRevisao, revisaoReforcada, rotacionarCopias, montarEstrutura, validarEstrutura, instanciarEstrutura, VERSAO_ESTRUTURA, diaLocal, paraData, somaDias, diasEntre, rotuloDia, uid, parseEdital, sm2, QUAL, cartaoDevido, respostaDeQuestao, TIPOS_ERRO, classificarResposta, novaEntradaErro, atualizarDiario, notaTopico, intervaloRevisao, proximaRevisao, urgencia, prioridades, prioridadeCartao, planoSemanal, sequenciaDias, paraCSV, lerCSV, paraICS, parseQuestoesTexto, normalizaQuestao, questoesDeCSV, questoesDeJSON, extrairAlternativas, extrairJSON, novaEscada, liberarTudo, ESCADA_GEMINI, ESCADA_CLAUDE, modeloAtivo, bloqueados, esperaDoErro, registrarFalha, mesclarEscada, ordenarGemini, custoUSD, dentroDoTeto, montarBackup, validarBackup, mesclarDados, LOJAS, VERSAO_BACKUP };
 });

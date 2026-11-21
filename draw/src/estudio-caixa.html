@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<!-- Dora Estúdio — CAIXA ISOLADA da página interativa criada pela IA.
+     Esta página não tem nenhum dado do aluno e roda num <iframe sandbox="allow-scripts"> SEM allow-same-origin
+     (origem opaca: não alcança o IndexedDB, os cookies, o localStorage nem o app). Ela só recebe o HTML já saneado
+     do app (postMessage) e o mostra num segundo <iframe sandbox="allow-scripts"> via srcdoc, que herda esta CSP
+     (sem rede: default-src 'none'). Na extensão, o manifesto declara esta página como "sandbox" com a mesma CSP,
+     porque a CSP das páginas da extensão não deixa rodar script dentro de um srcdoc. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; media-src data:; connect-src 'none'; form-action 'none'; base-uri 'none'">
+<meta name="referrer" content="no-referrer">
+<title>Página da Dora</title>
+<style>html,body{margin:0;height:100%;background:#fffaf5}iframe{border:0;width:100%;height:100%;display:block}</style>
+</head>
+<body>
+<script>
+(function () {
+  var MAX = 200000, mostrou = false;
+  window.addEventListener('message', function (e) {
+    // só aceita do app que abriu esta caixa, uma vez só, e só texto de tamanho limitado
+    if (e.source !== window.parent || mostrou) return;
+    var d = e.data; if (!d || d.tipo !== 'dora-estudio-html' || typeof d.html !== 'string' || d.html.length > MAX) return;
+    mostrou = true;
+    var f = document.createElement('iframe');
+    f.setAttribute('sandbox', 'allow-scripts');
+    f.setAttribute('referrerpolicy', 'no-referrer');
+    f.setAttribute('title', 'Página interativa criada pela Dora');
+    f.srcdoc = d.html;
+    // se a página tentar sair dela mesma (navegar para outro endereço), a caixa some com ela
+    var cargas = 0; f.addEventListener('load', function () { cargas++; if (cargas > 1) { f.remove(); document.body.textContent = 'A página tentou abrir outro endereço e foi fechada pela Dora.'; } });
+    document.body.replaceChildren(f);
+  });
+  window.parent.postMessage({ tipo: 'dora-estudio-caixa-pronta' }, '*');
+})();
+</script>
+</body>
+</html>

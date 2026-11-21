@@ -52,6 +52,8 @@
   function editorMapa(alvo, dados, titulo, aoMudar) {
     const m = dados && dados.nos && dados.nos.length ? JSON.parse(JSON.stringify(dados)) : { nos: [{ id: 'r', pai: null, t: titulo, x: 0, y: 0, cor: 0 }], z: 1, px: 0, py: 0 };
     let sel = m.nos[0].id; let seq = Date.now() % 100000;
+    let teste = null; // modo "Testar": { est, foco } (lógica em logica3.js: testeNovo/testeVisiveis/testeRevelar/testeMarcar/testeResumo)
+    const L3 = () => window.DoraLogica3;
     const svg = sv('svg', { class: 'mapa', role: 'img', 'aria-label': 'Mapa mental' }); const g = sv('g'); svg.append(g);
     const entrada = h('input', { type: 'text', 'aria-label': 'Texto do nó selecionado', maxlength: '90' });
     const salvar = () => aoMudar(JSON.parse(JSON.stringify(m)));
@@ -60,11 +62,12 @@
     function desenha() {
       g.innerHTML = ''; const W = svg.clientWidth || 600, H = svg.clientHeight || 460;
       g.setAttribute('transform', `translate(${W / 2 + m.px},${H / 2 + m.py}) scale(${m.z})`);
-      m.nos.forEach(n => { if (n.pai == null) return; const p = no(n.pai); if (!p) return; const mx = (p.x + n.x) / 2;
+      const vis = teste ? L3().testeVisiveis(m.nos, teste.est) : null;
+      m.nos.forEach(n => { if (n.pai == null) return; if (vis && !vis[n.id]) return; const p = no(n.pai); if (!p) return; const mx = (p.x + n.x) / 2;
         g.append(sv('path', { d: `M${p.x},${p.y} C${mx},${p.y} ${mx},${n.y} ${n.x},${n.y}`, fill: 'none', stroke: BORDA_NO[n.cor || 0], 'stroke-width': 2.2, opacity: .7 })); });
-      m.nos.forEach(n => { const { ls, w, hh } = tam(n); const gr = sv('g', { class: 'no' + (n.id === sel ? ' sel' : ''), transform: `translate(${n.x},${n.y})`, 'data-id': n.id });
+      m.nos.forEach(n => { if (vis && !vis[n.id]) return; const mask = vis && vis[n.id] === 'mascarado'; const mk = teste && teste.est.marca[n.id]; const { ls, w, hh } = tam(mask ? Object.assign({}, n, { t: '? ? ?' }) : n); const gr = sv('g', { class: 'no' + (n.id === sel && !teste ? ' sel' : '') + (mask ? ' mascara' : '') + (mk === 'sabia' ? ' sabia' : mk === 'nao' ? ' nao' : '') + (teste && teste.foco === n.id ? ' sel' : ''), transform: `translate(${n.x},${n.y})`, 'data-id': n.id });
         gr.append(sv('rect', { x: -w / 2, y: -hh / 2, width: w, height: hh, rx: n.pai == null ? 16 : 11, fill: CORES_NO[n.cor || 0], stroke: BORDA_NO[n.cor || 0] }));
-        ls.forEach((l, i) => { const tx = sv('text', { x: 0, y: -hh / 2 + 22 + i * 18, 'text-anchor': 'middle', 'font-weight': n.pai == null ? 700 : 500 }); tx.textContent = l; gr.append(tx); });
+        ls.forEach((l, i) => { const tx = sv('text', { x: 0, y: -hh / 2 + 22 + i * 18, 'text-anchor': 'middle', 'font-weight': n.pai == null ? 700 : 500, class: mask ? 'interroga' : '' }); tx.textContent = l; gr.append(tx); });
         g.append(gr); });
       const s = no(sel); entrada.value = s ? s.t : '';
     }
@@ -86,7 +89,8 @@
       ajustar(); salvar(); }
     // arrastar nó ou o fundo
     let arr = null;
-    svg.addEventListener('pointerdown', (e) => { const gr = e.target.closest('.no'); svg.setPointerCapture(e.pointerId);
+    svg.addEventListener('pointerdown', (e) => { const gr = e.target.closest('.no'); try { svg.setPointerCapture(e.pointerId); } catch (er) { /* ponteiro sem captura */ }
+      if (teste && gr) { const id = gr.dataset.id; if (!teste.est.rev[id]) { teste.est = L3().testeRevelar(teste.est, id); teste.foco = id; } else teste.foco = id; desenha(); barraTeste(); return; }
       if (gr) { sel = gr.dataset.id; const n = no(sel); arr = { tipo: 'no', n, x: e.clientX, y: e.clientY, ox: n.x, oy: n.y, mov: false }; desenha(); }
       else arr = { tipo: 'fundo', x: e.clientX, y: e.clientY, ox: m.px, oy: m.py }; });
     svg.addEventListener('pointermove', (e) => { if (!arr) return; const dx = e.clientX - arr.x, dy = e.clientY - arr.y;
@@ -101,10 +105,21 @@
     const B = (rot, fn, extra = {}) => h('button', Object.assign({ class: 'btn mini', type: 'button', onclick: fn }, extra), rot);
     const apagar = () => { const n = no(sel); if (!n || n.pai == null) return; const tira = new Set([n.id]); let mudou = true; while (mudou) { mudou = false; m.nos.forEach(x => { if (x.pai && tira.has(x.pai) && !tira.has(x.id)) { tira.add(x.id); mudou = true; } }); } m.nos = m.nos.filter(x => !tira.has(x.id)); sel = n.pai; desenha(); salvar(); };
     const cores = h('div', { class: 'cores', role: 'group', 'aria-label': 'Cor do nó' }, CORES_NO.map((c, i) => h('button', { type: 'button', class: 'cor', style: `background:${c};border-color:${BORDA_NO[i]}`, 'aria-label': 'Cor ' + (i + 1), onclick: () => { const n = no(sel); if (n) { n.cor = i; desenha(); salvar(); } } })));
-    alvo.append(
-      h('div', { class: 'ferr' }, B('+ Filho', () => novo(sel)), B('+ Irmão', () => { const n = no(sel); novo(n && n.pai != null ? n.pai : sel); }), B('Apagar nó', apagar), B('−', () => { m.z = Math.max(0.3, m.z * 0.85); desenha(); }, { 'aria-label': 'Diminuir zoom' }), B('+', () => { m.z = Math.min(2.5, m.z * 1.15); desenha(); }, { 'aria-label': 'Aumentar zoom' }), B('Organizar', organizar), B('Ver tudo', () => { ajustar(); salvar(); })),
-      h('div', { class: 'linha', style: 'margin-bottom:8px' }, h('label', { class: 'campo', style: 'flex:1;min-width:180px' }, h('span', {}, 'Texto do nó selecionado (Enter salva)'), entrada), cores),
-      h('div', { class: 'palco' }, svg));
+    const caixaTeste = h('div', { class: 'teste-barra oculto', 'data-teste': '1' });
+    function barraTeste() {
+      if (!teste) { caixaTeste.classList.add('oculto'); ferrEl.classList.remove('oculto'); linhaEnt.classList.remove('oculto'); return; }
+      ferrEl.classList.add('oculto'); linhaEnt.classList.add('oculto'); caixaTeste.classList.remove('oculto'); const r = L3().testeResumo(m.nos, teste.est); const f = teste.foco && no(teste.foco);
+      const filhosOcultos = m.nos.length > 1; caixaTeste.replaceChildren(
+        h('span', { class: 'muted peq', style: 'flex:1;min-width:200px' }, !filhosOcultos ? 'Este mapa só tem a raiz: crie ideias para testar.' : r.completo ? 'Fim do teste.' : f && teste.est.rev[f.id] && !teste.est.marca[f.id] ? 'Você sabia: ' + f.t + '?' : 'Pense no que vem em cada "?" e clique nele para revelar.'),
+        ...(f && teste.est.rev[f.id] && f.pai != null && !teste.est.marca[f.id] ? [B('Sabia', () => { teste.est = L3().testeMarcar(teste.est, f.id, 'sabia'); desenha(); barraTeste(); }, { 'data-marca': 'sabia' }), B('Não sabia', () => { teste.est = L3().testeMarcar(teste.est, f.id, 'nao'); desenha(); barraTeste(); }, { 'data-marca': 'nao' })] : []),
+        h('span', { class: 'chip', 'data-placar': '1' }, r.marcados + ' de ' + r.total + ' marcados' + (r.pct != null ? ' · ' + r.pct + '% sabia' : '')),
+        r.revisar.length ? h('span', { class: 'chip ruim', title: r.revisar.join(', ') }, 'rever: ' + r.revisar.slice(0, 3).join(', ') + (r.revisar.length > 3 ? '…' : '')) : null,
+        B('Recomeçar', () => { teste = { est: L3().testeNovo(m.nos), foco: null }; desenha(); barraTeste(); }), B('Sair do teste', () => { teste = null; desenha(); barraTeste(); }));
+    }
+    const entrarTeste = () => { if (!L3()) return; teste = { est: L3().testeNovo(m.nos), foco: null }; ajustar(); barraTeste(); };
+    const ferrEl = h('div', { class: 'ferr' }, B('+ Filho', () => novo(sel)), B('+ Irmão', () => { const n = no(sel); novo(n && n.pai != null ? n.pai : sel); }), B('Apagar nó', apagar), B('−', () => { m.z = Math.max(0.3, m.z * 0.85); desenha(); }, { 'aria-label': 'Diminuir zoom' }), B('+', () => { m.z = Math.min(2.5, m.z * 1.15); desenha(); }, { 'aria-label': 'Aumentar zoom' }), B('Organizar', organizar), B('Ver tudo', () => { ajustar(); salvar(); }), L3() ? B('Testar', entrarTeste, { 'data-testar': '1', title: 'Esconde os nós e deixa você revelar um a um' }) : null);
+    const linhaEnt = h('div', { class: 'linha', style: 'margin-bottom:8px' }, h('label', { class: 'campo', style: 'flex:1;min-width:180px' }, h('span', {}, 'Texto do nó selecionado (Enter salva)'), entrada), cores);
+    alvo.append(ferrEl, caixaTeste, linhaEnt, h('div', { class: 'palco' }, svg));
     requestAnimationFrame(() => { desenha(); if (foraDoPalco()) ajustar(); }); const ro = new ResizeObserver(() => desenha()); ro.observe(svg);
     return { sair() { ro.disconnect(); } };
   }

@@ -8,7 +8,7 @@
     for (const p of propostas) {
       const d = { id: L.uid('d'), concursoId, nome: p.nome, peso: p.peso != null ? p.peso : 10, ordem: ordemD++ }; novasD.push(d);
       const pilha = []; let o = 0;
-      p.topicos.forEach(t => { const nivel = Math.max(1, t.nivel); pilha.length = nivel - 1; const pai = pilha[nivel - 2] || null; const nt = { id: L.uid('t'), concursoId, disciplinaId: d.id, paiId: pai ? pai.id : null, titulo: t.titulo, ordem: o++, relevancia: 3, dificuldade: 3, dominio: null, nota: null, notaHtml: '', mapa: null, quadro: null, comoBanca: '', ultEstudo: null, proxRev: null, criado: Date.now() }; pilha[nivel - 1] = nt; novosT.push(nt); });
+      p.topicos.forEach(t => { const nivel = Math.max(1, t.nivel); pilha.length = nivel - 1; const pai = pilha[nivel - 2] || null; const nt = { id: L.uid('t'), concursoId, disciplinaId: d.id, paiId: pai ? pai.id : null, titulo: t.titulo, ordem: o++, relevancia: t.relevancia || 3, relevanciaOrigem: t.relevancia ? 'edital' : null, dificuldade: 3, dominio: null, nota: null, notaHtml: '', mapa: null, quadro: null, comoBanca: '', ultEstudo: null, proxRev: null, criado: Date.now() }; pilha[nivel - 1] = nt; novosT.push(nt); });
     }
     await DB.putMuitos('disciplinas', novasD); await DB.putMuitos('topicos', novosT);
     if (concursoId === (App.S.conc && App.S.conc.id)) { App.S.disciplinas.push(...novasD); App.S.topicos.push(...novosT); }
@@ -66,11 +66,11 @@ INFORMÁTICA
   };
   App.cartaoCaixa = (caixa) => {
     const el = h('div', { class: 'cartao destaque' }, h('h2', {}, 'Caixa de entrada (' + caixa.length + ')'), h('p', { class: 'muted peq' }, 'Coisas que você capturou e ainda não guardou em um tópico.'));
-    caixa.slice(0, 6).forEach(c => el.append(h('div', { class: 'no-t', style: 'margin-bottom:6px' }, h('div', { style: 'min-width:0' }, h('div', { class: 'rotulo' }, { nota: 'Nota rápida', pagina: 'Página', minuto: 'Minuto de vídeo', selecao: 'Seleção', questao: 'Questão', imagem: 'Recorte' }[c.tipo] || 'Captura'), h('div', { class: 'tit', style: 'font-weight:500' }, (c.titulo || c.texto || '(imagem)').slice(0, 110))), h('div', { class: 'linha' }, h('button', { class: 'btn mini p', onclick: () => App.classificarCaptura(c) }, 'Guardar'), h('button', { class: 'btn mini perigo', 'aria-label': 'Descartar', onclick: async () => { await DB.del('capturas', c.id); App.S.capturas = App.S.capturas.filter(x => x.id !== c.id); App.render(); } }, 'Descartar')))));
+    caixa.slice(0, 6).forEach(c => el.append(h('div', { class: 'no-t', style: 'margin-bottom:6px' }, h('div', { style: 'min-width:0' }, h('div', { class: 'rotulo' }, { nota: 'Nota rápida', pagina: 'Página', minuto: 'Minuto de vídeo', selecao: 'Seleção', questao: 'Questão', imagem: 'Recorte', pena: 'Anotação da página' }[c.tipo] || 'Captura'), h('div', { class: 'tit', style: 'font-weight:500' }, (c.titulo || c.texto || '(imagem)').slice(0, 110))), h('div', { class: 'linha' }, h('button', { class: 'btn mini p', onclick: () => App.classificarCaptura(c) }, 'Guardar'), h('button', { class: 'btn mini perigo', 'aria-label': 'Descartar', onclick: async () => { await DB.del('capturas', c.id); App.S.capturas = App.S.capturas.filter(x => x.id !== c.id); App.render(); } }, 'Descartar')))));
     return el;
   };
   App.classificarCaptura = (c) => {
-    if (!App.exigeConcursoSilencioso()) return; let topicoId = c.topicoId || null; let como = c.tipo === 'questao' ? 'questao' : c.tipo === 'imagem' ? 'imagem' : 'nota';
+    if (!App.exigeConcursoSilencioso()) return; let topicoId = c.topicoId || null; let como = c.tipo === 'questao' || (c.tipo === 'pena' && c.questao) ? 'questao' : c.tipo === 'imagem' || c.tipo === 'pena' ? 'imagem' : 'nota';
     const seg = h('div', { class: 'seg' }); const rot = { nota: 'Nota', cartao: 'Cartão', questao: 'Dora Carta', imagem: 'Imagem no quadro' };
     const pinta = () => [...seg.children].forEach(b => b.setAttribute('aria-pressed', String(b.dataset.k === como)));
     Object.keys(rot).filter(k => k !== 'imagem' || c.imagem).forEach(k => seg.append(h('button', { type: 'button', 'data-k': k, onclick: () => { como = k; pinta(); } }, rot[k]))); pinta();
