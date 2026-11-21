@@ -35,3 +35,6 @@ Rota `estudio.html#config`: concurso, banca, cargo, data da prova, edital colado
 
 ## Mira e Plano do aluno (22/11)
 Na cópia pública (`MODO_PUBLICO=true` pelo `construir.py`) a Mira e a Dora Missão do Dia usam as matérias de "Meu concurso": prioridade = peso da matéria × relevância (1 a 5) × erros do Caderno de Erros; o plano divide as horas do dia entre os 3 tópicos de maior prioridade e lembra as revisões vencidas. No app principal a Mira também soma os erros do caderno por tópico. Erros de cartas da Dora Memória voltam ao caderno como reincidência.
+
+## Catálogo da cópia pública (22/11)
+A cópia pública mostra só o que funciona sem conteúdo pronto: Meu concurso, Dora Missão do Dia, Mira da Guilda, Dora Memória, Caderno de Erros, Dora Mentora (IA), Dora Draw e a galeria da identidade. Ficam fora (dependem do conteúdo da Transpetro e voltam quando houver como o aluno gerar o próprio): Dora Oráculo, Dora Examinadora, Grimório de Métodos, Dora Reflexo, Mapas, Pergaminhos de Esquemas, Dora Cartas, Baralhos, Aulas, Rádio, Expedição, Arena e Doroxandria. Recomendação: gerar fichas e mapas por IA a partir de "Meu concurso" (próxima fase).
