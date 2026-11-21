@@ -155,3 +155,30 @@ Vídeo de abertura do Google Flow (8 s, 720p, com trilha): `identidade/video/abe
 
 ## Regra: merge de mão dupla com a sessão local (22/11)
 Pedido do Ronaldo: toda integração com a sessão local é de mão dupla. Esta sessão entrega o seu contexto (`docs/contexto-sessao-nuvem.md`, mantido atualizado) e pede o contexto da outra; não basta trazer o pacote dela.
+
+## Onda 1 da visão 360 (21/11, `docs/visao-360.md`)
+- **Novos arquivos:**
+  - `rag.js` (Rede da Dora, BM25, `DoraRAG`);
+  - `grafo.js` (diário `arenaTP.eventos`, `DoraGrafo`);
+  - `rotina.js` (leitor .ics, horários livres, encaixe, gerador .ics; `DoraRotina`).
+  - Os três estão no `SHELL` do `sw.js` e na cópia pública.
+- **Rotas novas no Estúdio:**
+  - `#hoje` (padrão; a tela antiga ficou em `#inicio`);
+  - `#agenda`, `#relatorio[/mes]`, `#voo`, `#topico/<disc>/<tópico>`, `#bolso`, `#pergunte`.
+- **Chaves novas:** `arenaTP.agenda`, `arenaTP.planoSemana`, `arenaTP.sessaoAtiva`, `arenaTP.voo`, `arenaTP.folhas`, `arenaTP.dora`, `arenaTP.eventos` e `arenaTP.eventos.dia`.
+- **Privacidade da agenda:** dos compromissos, só ficam início, fim e tipo, nunca o título.
+- **Horizonte da Prova:** `horizonte(n)` limita qualquer intervalo de revisão à metade dos dias até a prova.
+- **Toda IA nova passa pela Rede:** `aicall(prompt, json, {rag:'consulta'})`.
+
+## Começar pelo edital, Motor de Pesos e bancas (21/11)
+- `#comecar` é o assistente da cópia pública, que abre sozinho quando não há concurso. Passos:
+  1. exemplo pronto ou edital em PDF/texto (pdf.js de `draw/lib`);
+  2. conferir banca, cargo, data, questões, pesos e tópicos de 1 a 5, com os motivos;
+  3. domínio por matéria e por tópico;
+  4. horários por dia da semana (`arenaTP.agenda.disp`);
+  5. cadernos (`nome | link | nº`);
+  6. plano pronto.
+- `motor.js` (`DoraMotor`): lê o edital sem IA (formatos Cebraspe, FGV e "Disciplina: texto"; separa o cargo; lê o quadro de provas) e pesa os tópicos. Com `ccGet().motor`, `ccLinhas()` passa a usar `DoraMotor.prioridade`, que calcula questões esperadas × (1 − domínio) × erros.
+- `bancas/perfis.json`: Cebraspe, FGV, FCC, Cesgranrio, Vunesp, Quadrix, IBFC e AOCP, com fontes; hipóteses marcadas. Tela `#banca`. No app principal, ela mostra também o raio-x de `questoes.json`.
+- `exemplos/` (cópia pública): Bacen 2024 TI, Receita 2022 Auditor-Fiscal e SEFAZ-ES 2021, gerados por `node exemplos/gerar.js <pasta dos .txt>` a partir dos PDFs oficiais (`pdftotext -layout`). Não reescreva os tópicos à mão.
+- A Sala do Tópico liga os cadernos do Tec (`cadernos.json` no app principal; `ccGet().cadernos` na cópia pública).

@@ -37,6 +37,11 @@ modelo={"tipo":"doroxandria-pacote-concurso","schemaVersion":2,"geradoEm":"","bi
  "concurso":{"id":"modelo","nome":"Meu concurso","orgao":"","banca":"","cargo":"","enfase":"","polo":"","modalidade":"","edital":{},"datas":{},"status":"modelo","resultado":{}}}
 json.dump(modelo,open(os.path.join(pk,'modelo.json'),'w',encoding='utf-8'),ensure_ascii=False)
 json.dump({"pacotes":[{"arquivo":"modelo.json","nome":"Meu concurso (modelo)","primeiraExecucao":True}]},open(os.path.join(pk,'indice.json'),'w',encoding='utf-8'),ensure_ascii=False)
+# concurso pré-configurado (ex.: PRECONFIG=sefaz-al-auditor): o app abre já com esse edital
+PRE=os.environ.get('PRECONFIG','').strip()
+if PRE:
+    assert os.path.exists(os.path.join(SAIDA,'exemplos',PRE+'.json')), 'exemplo não encontrado: '+PRE
+    est=os.path.join(SAIDA,'estudio.html'); h=open(est,encoding='utf-8').read().replace("var PRECONFIG='';","var PRECONFIG='"+PRE+"';",1); open(est,'w',encoding='utf-8').write(h)
 sw=open(os.path.join(SAIDA,'sw.js'),encoding='utf-8').read().replace('concursos/transpetro-2026-enfase5.json','concursos/modelo.json')
 open(os.path.join(SAIDA,'sw.js'),'w',encoding='utf-8').write(sw)
 
@@ -68,7 +73,7 @@ if a in t:
     open(p,'w',encoding='utf-8').write(t)
 # catálogo: esconde módulos que só fazem sentido para a Transpetro
 p=os.path.join(SAIDA,'guilda.js'); t=open(p,encoding='utf-8').read()
-t+="\n(function(){var G=window.GUILDA;if(!G||!G.groups)return;var fica=['plano','mira','mt','mapaia','estante','fc','erros','gem','draw/index.html','identidade/index.html'];G.groups.forEach(function(g){g[1]=g[1].filter(function(i){return fica.indexOf(i[0])>=0;});});G.groups[0][1].unshift(['config','⚙️','Meu concurso','Nome, banca, data da prova e edital']);G.groups=G.groups.filter(function(g){return g[1].length;});})();\n"
+t+="\n(function(){var G=window.GUILDA;if(!G||!G.groups)return;var fica=['comecar','banca','hoje','gemeo','agenda','relatorio','voo','topico','plano','mira','mt','mapaia','pergunte','estante','fc','bolso','erros','gem','draw/index.html','identidade/index.html'];G.groups.forEach(function(g){g[1]=g[1].filter(function(i){return fica.indexOf(i[0])>=0;});});G.groups[0][1].unshift(['config','⚙️','Meu concurso','Nome, banca, data da prova e edital']);G.groups=G.groups.filter(function(g){return g[1].length;});})();\n"
 open(p,'w',encoding='utf-8').write(t)
 
 # modo público: Mira e Plano usam as matérias do aluno

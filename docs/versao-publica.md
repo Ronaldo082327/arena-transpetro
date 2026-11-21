@@ -55,3 +55,12 @@ A tela Dora Mentora da cópia pública mostra só o código de acesso (sem chave
 
 ## Estante: contrato final do worker (22/11)
 Envio binário com content-length (o fetch com body=File manda); erros 411/415/413 {maximoMB}/409 (20 arquivos ou 25 MB)/429 (30 envios no dia)/503 {tenteEm} (estante sendo criada: o app tenta de novo até 3 vezes)/502/422. listar traz `pronto` (o app mostra "preparando…" e atualiza a cada 20 s). apagar pode dar 409 {tenteEm:60} enquanto indexa. /ia com estante devolve `fontes` (até 6) e `semEstante`; os Mapas da Dora mostram os trechos usados e avisam quando o mapa saiu sem a estante.
+
+## Cópia pré-configurada para um concurso (ex.: SEFAZ-AL 2026)
+```
+PORTEIRO_URL=https://<seu-porteiro> PRECONFIG=sefaz-al-auditor python3 publico/construir.py [pasta]
+```
+- **Primeiro acesso:** o app carrega `exemplos/sefaz-al-auditor.json` e abre direto no passo de domínio do assistente, com o aviso "Seu app já veio pronto". O aluno só informa o que domina e quando pode estudar.
+- **Exemplos disponíveis:** `sefaz-al-auditor` (Cebraspe, prova em 20/12/2026), `bacen-analista-ti`, `receita-auditor` e `sefaz-es-auditor`. Para gerar um novo, ponha o texto do edital (`pdftotext -layout`) na pasta e acrescente-o à lista de `exemplos/gerar.js`.
+- **IA:** continua pelo porteiro, com a chave do Ronaldo e o código de acesso do aluno.
+- **App principal (Transpetro):** o assistente "Começar" e as outras bancas ficam escondidos. O Perfil da Banca mostra só a Cesgranrio.

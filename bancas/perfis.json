@@ -1,0 +1,425 @@
+{
+  "atualizado": "2026-11-21",
+  "aviso": "Perfil qualitativo de fontes públicas; frequências só quando a fonte publica números. Não é previsão.",
+  "bancas": [
+    {
+      "id": "cebraspe",
+      "nome": "Cebraspe (antigo Cespe/UnB)",
+      "apelidos": ["cespe", "cebraspe", "unb", "cespe/unb"],
+      "formato": {
+        "tipo": "certo-errado",
+        "alternativas": null,
+        "penalidade": "Em muitos editais, cada item errado anula um item certo; item em branco não pontua nem desconta. Não é regra universal: confira o edital (há provas de múltipla escolha).",
+        "discursiva": "Frequente em cargos de nível superior (peça técnica, parecer, dissertação ou questões discursivas), conforme o edital."
+      },
+      "estilo": [
+        {"traco": "Itens de julgamento certo/errado", "como_aparece": "Cada afirmação deve ser julgada como um todo; se uma parte estiver incorreta, o item é errado.", "como_estudar": "Treine com itens da própria banca e aprenda a achar a palavra ou o detalhe que torna o item falso.", "fonte": "https://blogs.correiobraziliense.com.br/papodeconcurseiro/so-o-cebraspe-aplica-o-temido-criterio-uma-errada-anula-uma-certa-em-concursos/amp/"},
+        {"traco": "Penalidade por erro (uma errada anula uma certa)", "como_aparece": "O chute tem custo esperado negativo quando o edital prevê a anulação.", "como_estudar": "Defina antes da prova sua política de chute e só marque item em que tenha confiança acima de 50%.", "fonte": "https://blogs.correiobraziliense.com.br/papodeconcurseiro/so-o-cebraspe-aplica-o-temido-criterio-uma-errada-anula-uma-certa-em-concursos/amp/"},
+        {"traco": "Itens baseados em textos e interpretação", "como_aparece": "Em Português, interpretação de texto e tipologia dominam; em amostra de 2017 (nível superior) foram 38,3% das questões.", "como_estudar": "Priorize interpretação, semântica e classes de palavras antes de gramática pura.", "fonte": "https://www.estrategiaconcursos.com.br/blog/o-que-mais-cai-nas-questoes-de-portugues-para-concursos/"},
+        {"traco": "Cobrança de jurisprudência e doutrina", "como_aparece": "Em Direito, Cebraspe e FGV exigem jurisprudência para resolver parte das questões.", "como_estudar": "Acompanhe informativos e súmulas do STF e STJ ligados ao edital.", "fonte": "https://www.direcaoconcursos.com.br/artigos/direito-tributario-concurso-o-que-cai-em-provas"},
+        {"traco": "Itens mais subjetivos em TI", "como_aparece": "Em TI a banca tende a aprofundar conceitos e comparações (ex.: COBIT x ITIL, domínios do COBIT 2019).", "como_estudar": "Estude conceitos e relações entre frameworks, não só definições decoradas.", "fonte": "https://www.estrategiaconcursos.com.br/blog/ti-controle-cebraspe-cespe/amp/"},
+        {"traco": "Espelho de gabarito e recursos públicos", "como_aparece": "A banca publica provas, gabaritos e justificativas de alterações no seu CDN.", "como_estudar": "Leia as justificativas de alteração de gabarito para entender a lógica de correção.", "fonte": "https://cdn.cebraspe.org.br/concursos/MPU2010/arquivos/MPU_10_JUSTIFICATIVAS_DE_ALTERAES_DE_GABARITO_FINAL___18.10.2010.PDF"}
+      ],
+      "areas": {
+        "fiscal": {
+          "disciplinas_mais_cobradas": [
+            {"disciplina": "Auditoria Fiscal", "topicos_frequentes": [], "obs": "Em análise de Sefaz AL e SE (concurso anterior), Auditoria Fiscal e Legislação Tributária estadual chegaram a 19% cada.", "fonte": "https://www.direcaoconcursos.com.br/noticias/concurso-receita-federal-conteudo-cebraspe/", "hipotese": false},
+            {"disciplina": "Legislação Tributária estadual", "topicos_frequentes": [], "obs": "Ver nota de Auditoria Fiscal (19% em AL e SE na análise citada).", "fonte": "https://www.direcaoconcursos.com.br/noticias/concurso-receita-federal-conteudo-cebraspe/", "hipotese": false},
+            {"disciplina": "Direito Tributário", "topicos_frequentes": [], "obs": "Cerca de 16% na análise de AL e SE citada; amostra antiga.", "fonte": "https://www.direcaoconcursos.com.br/noticias/concurso-receita-federal-conteudo-cebraspe/", "hipotese": false}
+          ]
+        },
+        "controle": {
+          "disciplinas_mais_cobradas": [
+            {"disciplina": "Governança e Gestão de TI (cargos de TI)", "topicos_frequentes": ["COBIT 2019 (domínios, ex.: DSS)", "ITIL 4", "Planejamento estratégico e alinhamento negócio-TI"], "fonte": "https://www.estrategiaconcursos.com.br/blog/ti-controle-cebraspe-cespe/amp/", "hipotese": false}
+          ]
+        },
+        "ti": {
+          "disciplinas_mais_cobradas": [
+            {"disciplina": "Banco de Dados", "topicos_frequentes": ["Banco de dados relacionais", "Noções de mineração de dados"], "obs": "Apontados como mais cobrados em análise de concursos da área Fiscal (certames não identificados no trecho).", "fonte": "https://www.estrategiaconcursos.com.br/blog/ti-quentes-cebraspe-fiscal/amp/", "hipotese": false},
+            {"disciplina": "Governança de TI", "topicos_frequentes": ["COBIT 2019", "ITIL 4", "PMBOK", "Ciclo PDCA"], "fonte": "https://www.estrategiaconcursos.com.br/blog/ti-controle-cebraspe-cespe/amp/", "hipotese": false}
+          ]
+        }
+      },
+      "palavras_chave_edital": ["Cebraspe", "CEBRASPE", "Centro Brasileiro de Pesquisa em Avaliação e Seleção e de Promoção de Eventos", "Cespe", "CESPE/UnB", "cdn.cebraspe.org.br", "Certo ou Errado", "itens"],
+      "orgaos_frequentes": ["TCU e tribunais de contas (ex.: TCE-AC, TCE-RN, TCE-MS, TCE-PB)", "Banco Central", "Polícia Federal", "polícias civis e militares estaduais (ex.: PC-DF, PM-MA)", "Câmara dos Deputados, FNDE, FUNPRESP-EXE, CAPES"],
+      "dicas_prova": [
+        "Leia o edital para saber se há penalidade (uma errada anula uma certa) antes de definir quantos itens chutar.",
+        "Em item longo, procure absolutos (sempre, somente, nunca) e trocas de conceito; julgue o item inteiro.",
+        "Deixe em branco o item sobre o qual não tem ao menos confiança moderada quando houver penalidade.",
+        "Treine com provas anteriores do mesmo cargo no site da banca, incluindo as justificativas de alteração de gabarito.",
+        "Na discursiva, siga o número de linhas e o padrão de correção do edital; desconto por desvio de tema."
+      ],
+      "fontes": [
+        "https://blogs.correiobraziliense.com.br/papodeconcurseiro/so-o-cebraspe-aplica-o-temido-criterio-uma-errada-anula-uma-certa-em-concursos/amp/",
+        "https://folha.qconcursos.com/n/cebraspe",
+        "https://www.estrategiaconcursos.com.br/blog/ti-controle-cebraspe-cespe/amp/",
+        "https://www.estrategiaconcursos.com.br/blog/ti-quentes-cebraspe-fiscal/amp/",
+        "https://www.direcaoconcursos.com.br/noticias/concurso-receita-federal-conteudo-cebraspe/",
+        "https://www.estrategiaconcursos.com.br/blog/o-que-mais-cai-nas-questoes-de-portugues-para-concursos/",
+        "https://valorfinal.com.br/concursos/banca/cebraspe",
+        "https://www.novaconcursos.com.br/banca/cebraspe"
+      ]
+    },
+    {
+      "id": "fgv",
+      "nome": "FGV (Fundação Getulio Vargas)",
+      "apelidos": ["fgv", "fgv conhecimento", "getulio vargas"],
+      "formato": {
+        "tipo": "multipla",
+        "alternativas": 5,
+        "penalidade": "Sem penalidade por erro na objetiva, conforme padrão de múltipla escolha (confira o edital).",
+        "discursiva": "Comum em cargos jurídicos e de nível superior (peça ou questões discursivas), conforme o edital."
+      },
+      "estilo": [
+        {"traco": "Enunciados extensos e detalhados", "como_aparece": "Questões de 5 alternativas com enunciados longos e informações secundárias.", "como_estudar": "Treine leitura rápida e separe o comando da questão do contexto.", "fonte": "https://www.novaconcursos.com.br/portal/artigos/concurso-alerj-perfil-da-banca-fgv/"},
+        {"traco": "Alternativas longas e próximas", "como_aparece": "Gabarito e distrator podem diferir por uma palavra.", "como_estudar": "Compare as alternativas lado a lado e marque as diferenças antes de decidir.", "fonte": "https://folha.qconcursos.com/n/fundacao-getulio-vargas-fgv-concursos"},
+        {"traco": "Jurisprudência em Direito", "como_aparece": "Cobra lei seca, doutrina e jurisprudência, muitas vezes de forma consolidada.", "como_estudar": "Estude súmulas e teses repetitivas dos tribunais superiores ligadas ao edital.", "fonte": "https://www.direcaoconcursos.com.br/artigos/direito-tributario-concurso-o-que-cai-em-provas"},
+        {"traco": "Português com inferência", "como_aparece": "Ênfase em interpretação e informações implícitas; fontes divergem sobre o tamanho dos textos.", "como_estudar": "Pratique inferência e reescrita; não conte com textos curtos nem com textos longos.", "fonte": "https://www.estrategiaconcursos.com.br/blog/vencer-a-fgv-5-passos/"},
+        {"traco": "Banca camaleão", "como_aparece": "Adapta o estilo ao órgão contratante.", "como_estudar": "Resolva provas anteriores da FGV para o mesmo órgão e cargo.", "fonte": "https://folha.qconcursos.com/n/fundacao-getulio-vargas-fgv-concursos"},
+        {"traco": "Provas publicadas no repositório da banca", "como_aparece": "FGV Conhecimento publica cadernos de prova por cargo e tipo.", "como_estudar": "Baixe os cadernos do mesmo cargo para mapear a estrutura por disciplina.", "fonte": "https://conhecimento.fgv.br/sites/default/files/concursos/b6602.pdf"}
+      ],
+      "areas": {
+        "fiscal": {
+          "disciplinas_mais_cobradas": [
+            {"disciplina": "Direito Tributário", "topicos_frequentes": [], "obs": "Na prova da Receita Federal (FGV), 14 questões de peso 2, cerca de 13% da prova, segundo análise do Direção Concursos.", "fonte": "https://www.direcaoconcursos.com.br/noticias/concurso-receita-federal-fgv-analise/", "hipotese": false},
+            {"disciplina": "Auditoria Fiscal", "topicos_frequentes": [], "obs": "Em Sefaz-AM, segundo a Estratégia, perde em relevância apenas para Direito Tributário e legislação estadual.", "fonte": "https://www.estrategiaconcursos.com.br/blog/auditoria-fiscal-sefaz-am/", "hipotese": false},
+            {"disciplina": "Legislação Tributária estadual", "topicos_frequentes": ["EFD ICMS/IPI (cobrança excepcional em Sefaz-AM e Sefaz-BA)"], "fonte": "https://www.estrategiaconcursos.com.br/blog/tecnologia-da-informacao-temas-quentes-da-fgv-para-area-fiscal/amp/", "hipotese": false}
+          ]
+        },
+        "ti": {
+          "disciplinas_mais_cobradas": [
+            {"disciplina": "Segurança da Informação", "topicos_frequentes": ["Confidencialidade, integridade, disponibilidade, autenticidade, não repúdio", "ISO/IEC 27001 e SGSI", "ISO 27002", "Classificação da informação", "Hardening"], "fonte": "https://www.estrategiaconcursos.com.br/blog/?p=1095718", "hipotese": false},
+            {"disciplina": "Governança de TI", "topicos_frequentes": ["COBIT", "ITIL", "Planejamento estratégico de TI", "Gestão de riscos de TI"], "fonte": "https://blog.grancursosonline.com.br/concurseiro-iniciante-concursos-de-ti-como-se-preparar/amp/", "hipotese": false}
+          ]
+        },
+        "controle": {
+          "disciplinas_mais_cobradas": [
+            {"disciplina": "Observação sobre TI", "topicos_frequentes": [], "obs": "Segundo a Estratégia, em concursos de Controle a FGV tende a não cobrar TI, salvo cargos específicos de TI.", "fonte": "https://www.estrategiaconcursos.com.br/blog/?p=1095718", "hipotese": false}
+          ]
+        }
+      },
+      "palavras_chave_edital": ["Fundação Getulio Vargas", "FGV Conhecimento", "conhecimento.fgv.br", "FGV Projetos", "Fundação Getulio Vargas - FGV"],
+      "orgaos_frequentes": ["Receita Federal (último edital com a FGV, 2022/2023)", "Sefaz estaduais (ex.: AM, BA, MG, ES)", "TJs, TCEs, Alerj, CVM, CGE-SP", "OAB (Exame de Ordem)"],
+      "dicas_prova": [
+        "Leia o comando antes do texto e sublinhe verbos como 'incorreta' e 'exceto'.",
+        "Compare as alternativas por diferenças de uma palavra; elimine por contradição com a lei ou a jurisprudência.",
+        "Reserve tempo para enunciados longos; faça primeiro as disciplinas em que você é mais rápido.",
+        "Estude jurisprudência consolidada, não só lei seca, nas disciplinas jurídicas.",
+        "Resolva cadernos anteriores da FGV para o mesmo órgão, pois o estilo muda conforme o contratante."
+      ],
+      "fontes": [
+        "https://www.novaconcursos.com.br/portal/artigos/concurso-alerj-perfil-da-banca-fgv/",
+        "https://folha.qconcursos.com/n/fundacao-getulio-vargas-fgv-concursos",
+        "https://www.estrategiaconcursos.com.br/blog/vencer-a-fgv-5-passos/",
+        "https://www.direcaoconcursos.com.br/noticias/concurso-receita-federal-fgv-analise/",
+        "https://www.estrategiaconcursos.com.br/blog/auditoria-fiscal-sefaz-am/",
+        "https://www.estrategiaconcursos.com.br/blog/tecnologia-da-informacao-temas-quentes-da-fgv-para-area-fiscal/amp/",
+        "https://www.estrategiaconcursos.com.br/blog/?p=1095718",
+        "https://www.direcaoconcursos.com.br/artigos/direito-tributario-concurso-o-que-cai-em-provas",
+        "https://conhecimento.fgv.br/sites/default/files/concursos/b6602.pdf"
+      ]
+    },
+    {
+      "id": "fcc",
+      "nome": "FCC (Fundação Carlos Chagas)",
+      "apelidos": ["fcc", "carlos chagas"],
+      "formato": {
+        "tipo": "multipla",
+        "alternativas": 5,
+        "penalidade": "Sem penalidade por erro na objetiva (múltipla escolha com 5 alternativas); confira o edital.",
+        "discursiva": "Presente em parte dos concursos (ex.: cargos jurídicos e de nível superior), conforme o edital."
+      },
+      "estilo": [
+        {"traco": "Letra da lei", "como_aparece": "Em Direito, cobra o texto literal dos dispositivos.", "como_estudar": "Leia a lei seca do edital e resolva questões da FCC logo em seguida.", "fonte": "https://folha.qconcursos.com/n/perfil-da-banca-fcc"},
+        {"traco": "Múltipla escolha de 5 alternativas", "como_aparece": "Uma correta; frequentemente pede a alternativa incorreta.", "como_estudar": "Marque no enunciado se o comando pede certa ou errada antes de ler as opções.", "fonte": "https://www.estrategiaconcursos.com.br/blog/banca-fcc-analise-completa-e-estrategias-de-prova/amp/"},
+        {"traco": "Provas longas", "como_aparece": "Segundo uma fonte, provas geralmente extensas (80 a 120 questões).", "como_estudar": "Treine resistência e gestão de tempo com simulados do tamanho real.", "fonte": "https://folha.qconcursos.com/n/concurso-trt-sp-fcc-perfil"},
+        {"traco": "Gramática em Português", "como_aparece": "Prioriza concordância verbal e nominal, correção gramatical, pontuação e voz ativa/passiva.", "como_estudar": "Foque nesses quatro tópicos e em reescrita de frases.", "fonte": "https://www.estrategiaconcursos.com.br/blog/o-que-mais-cai-nas-questoes-de-portugues-para-concursos/"},
+        {"traco": "Casos práticos em Auditoria e Contabilidade", "como_aparece": "Em Auditoria explora procedimentos adequados em casos; provisões e passivos contingentes são recorrentes.", "como_estudar": "Resolva questões de caso e treine os critérios dos pronunciamentos técnicos (CPC).", "fonte": "https://blog.grancursosonline.com.br/analise-comparativa-das-bancas-fgv-cebraspe-e-fcc-2020-2025/"}
+      ],
+      "areas": {
+        "controle": {
+          "disciplinas_mais_cobradas": [
+            {"disciplina": "Auditoria", "topicos_frequentes": ["Auditoria interna versus externa", "Controle interno", "Procedimentos de auditoria em casos práticos"], "obs": "Auditoria interna/externa e controle interno lideram, com cerca de 15% a 16% das questões da FCC no ranking citado.", "fonte": "https://blog.grancursosonline.com.br/analise-comparativa-das-bancas-fgv-cebraspe-e-fcc-2020-2025/", "hipotese": false},
+            {"disciplina": "Contabilidade Geral", "topicos_frequentes": ["Balanço patrimonial", "Demonstração dos fluxos de caixa (DFC)", "Provisões e passivos contingentes"], "fonte": "https://blog.grancursosonline.com.br/analise-comparativa-das-bancas-fgv-cebraspe-e-fcc-2020-2025/", "hipotese": false},
+            {"disciplina": "Contabilidade Pública", "topicos_frequentes": ["Classificação de receitas e despesas", "Estágios da receita e da despesa"], "fonte": "https://blog.grancursosonline.com.br/analise-comparativa-das-bancas-fgv-cebraspe-e-fcc-2020-2025/", "hipotese": false}
+          ]
+        }
+      },
+      "palavras_chave_edital": ["Fundação Carlos Chagas", "FCC", "concursosfcc.com.br", "www.concursosfcc.com.br"],
+      "orgaos_frequentes": ["TRTs e tribunais (ex.: TRT-SP)", "Tribunais de contas estaduais (ex.: TCE-GO, TCE-AP, TCE-CE, TCE-AM, TCE-PR)"],
+      "dicas_prova": [
+        "Leia as leis do edital na íntegra e resolva questões FCC por artigo; a literalidade importa.",
+        "Confirme sempre se o comando pede a alternativa incorreta.",
+        "Em Português, priorize concordância, pontuação, correção gramatical e voz verbal.",
+        "Em Auditoria e Contabilidade, treine casos práticos e critérios dos CPCs.",
+        "Faça simulados longos para treinar o ritmo, pois as provas costumam ser extensas."
+      ],
+      "fontes": [
+        "https://folha.qconcursos.com/n/perfil-da-banca-fcc",
+        "https://www.estrategiaconcursos.com.br/blog/banca-fcc-analise-completa-e-estrategias-de-prova/amp/",
+        "https://folha.qconcursos.com/n/concurso-trt-sp-fcc-perfil",
+        "https://blog.grancursosonline.com.br/analise-comparativa-das-bancas-fgv-cebraspe-e-fcc-2020-2025/",
+        "https://www.estrategiaconcursos.com.br/blog/o-que-mais-cai-nas-questoes-de-portugues-para-concursos/",
+        "https://www.pciconcursos.com.br/provas/tce-tribunal-de-contas-do-estado-abrangente/4",
+        "https://noticias.focusconcursos.com.br/organizadoras/fcc"
+      ]
+    },
+    {
+      "id": "cesgranrio",
+      "nome": "Cesgranrio (Fundação Cesgranrio)",
+      "apelidos": ["cesgranrio", "fundacao cesgranrio"],
+      "formato": {
+        "tipo": "multipla",
+        "alternativas": 5,
+        "penalidade": "Em geral sem penalidade por erro, segundo comparação de blog; confira o edital.",
+        "discursiva": "Em concursos como Petrobras e Transpetro o foco é a objetiva; confira o edital para discursiva."
+      },
+      "estilo": [
+        {"traco": "Cinco alternativas, uma correta", "como_aparece": "Alternativas A a E, sem penalidade.", "como_estudar": "Sem penalidade, responda todas as questões; use eliminação.", "fonte": "https://folha.qconcursos.com/n/prova-de-concurso-cesgranrio"},
+        {"traco": "Enunciados diretos, com variação", "como_aparece": "Fontes divergem: uma diz que predominam enunciados curtos e diretos, outras citam questões longas com distratores próximos.", "como_estudar": "Treine com provas recentes do mesmo órgão para calibrar.", "fonte": "https://folha.qconcursos.com/n/concurso-transpetro-2023-perfil-cesgranrio"},
+        {"traco": "Prova previsível", "como_aparece": "Professor entrevistado diz que as provas são bastante previsíveis; recomenda resolver provas anteriores.", "como_estudar": "Resolva provas antigas de Petrobras, Transpetro, BB e Caixa.", "fonte": "https://folha.qconcursos.com/n/concurso-transpetro-2023-perfil-cesgranrio"},
+        {"traco": "Poucas imagens, tabelas e gráficos", "como_aparece": "Fontes dizem que a banca costuma evitar imagens, tabelas e gráficos.", "como_estudar": "Foque em texto e raciocínio; não deixe de ver cálculos em Matemática.", "fonte": "https://www.educamaisbrasil.com.br/educacao/carreira/qual-e-o-estilo-de-prova-da-cesgranrio"},
+        {"traco": "Mesmas disciplinas em Petrobras e BB", "como_aparece": "Reportagem diz que as disciplinas cobradas em Petrobras e Banco do Brasil são praticamente idênticas.", "como_estudar": "Aproveite questões de BB e Caixa para treinar disciplinas comuns.", "fonte": "https://www.itatiaia.com.br/emprego-e-concursos/veja-o-que-realmente-cai-na-prova-da-transpetro-e-como-estudar/"}
+      ],
+      "areas": {
+        "ti": {
+          "disciplinas_mais_cobradas": [
+            {"disciplina": "TI (Petrobras, nível médio)", "topicos_frequentes": ["Segurança e infraestrutura (firewalls)"], "obs": "Gran Cursos cita empate técnico entre quatro pilares com 14,3% cada; só segurança/infraestrutura aparece nomeado no trecho obtido.", "fonte": "https://blog.grancursosonline.com.br/concurso-petrobras-cesgranrio/amp/", "hipotese": false}
+          ]
+        }
+      },
+      "palavras_chave_edital": ["Fundação Cesgranrio", "Cesgranrio", "CESGRANRIO", "www.cesgranrio.org.br", "Petrobras Transporte S.A. - Transpetro"],
+      "orgaos_frequentes": ["Petrobras", "Transpetro", "Banco do Brasil", "Caixa", "BNDES", "Banco Central (ocasional)", "IBGE", "Banrisul"],
+      "dicas_prova": [
+        "Sem penalidade: não deixe questão em branco.",
+        "Resolva provas anteriores de Transpetro (2023), Petrobras e Banco do Brasil.",
+        "Leia todas as cinco alternativas; distratores costumam ser próximos.",
+        "Treine tempo: poucas imagens, mas muitas questões por disciplina.",
+        "Confira o edital para pesos e notas mínimas por bloco."
+      ],
+      "fontes": [
+        "https://folha.qconcursos.com/n/prova-de-concurso-cesgranrio",
+        "https://folha.qconcursos.com/n/concurso-transpetro-2023-perfil-cesgranrio",
+        "https://blog.grancursosonline.com.br/concurso-petrobras-cesgranrio/amp/",
+        "https://www.itatiaia.com.br/emprego-e-concursos/veja-o-que-realmente-cai-na-prova-da-transpetro-e-como-estudar/",
+        "https://noticias.focusconcursos.com.br/organizadoras/cesgranrio",
+        "https://concurseirozero1.com.br/blog/cebraspe-ou-cesgranrio-petrobras/",
+        "https://www.estrategiaconcursos.com.br/blog/concurso-petrobras-banca-cesgranrio-o-que-esperar/"
+      ]
+    },
+    {
+      "id": "vunesp",
+      "nome": "Vunesp (Fundação para o Vestibular da Unesp)",
+      "apelidos": ["vunesp", "fundacao vunesp"],
+      "formato": {
+        "tipo": "multipla",
+        "alternativas": 5,
+        "penalidade": "Sem penalidade por erro na objetiva; confira o edital.",
+        "discursiva": "Redação ou discursiva frequente em concursos estaduais e municipais, conforme o edital."
+      },
+      "estilo": [
+        {"traco": "Cinco alternativas, uma correta", "como_aparece": "Múltipla escolha de A a E.", "como_estudar": "Treine eliminação de alternativas com provas anteriores.", "fonte": "https://www.estrategiaconcursos.com.br/blog/vunesp-saiba-tudo-sobre-a-banca/"},
+        {"traco": "Enunciados objetivos e contextualizados", "como_aparece": "Linguagem acessível, interpretação e questões contextualizadas.", "como_estudar": "Treine interpretação e aplicação de conceitos a situações.", "fonte": "https://folha.qconcursos.com/n/concursos-vunesp-perfil-banca"},
+        {"traco": "Português: interpretação e classes de palavras", "como_aparece": "Segundo a Estratégia, interpretação de textos e classes de palavras somam mais da metade da prova de Português.", "como_estudar": "Priorize interpretação e classes de palavras.", "fonte": "https://www.estrategiaconcursos.com.br/blog/portugues-prf-o-que-deve-cair-na-sua-prova/amp/"},
+        {"traco": "Legislação local", "como_aparece": "Em concursos paulistas cobra estatutos de servidores, leis orgânicas e regimentos internos.", "como_estudar": "Leia a legislação específica do órgão listada no edital.", "fonte": "https://www.estrategiaconcursos.com.br/blog/vunesp-saiba-tudo-sobre-a-banca/"},
+        {"traco": "Literalidade da lei", "como_aparece": "Uma fonte afirma que a banca cobra bastante a literalidade; outra a considera razoavelmente justa.", "como_estudar": "Combine lei seca e questões da banca.", "fonte": "https://folha.qconcursos.com/n/caracteristicas-da-banca-vunesp"}
+      ],
+      "areas": {},
+      "palavras_chave_edital": ["Fundação VUNESP", "VUNESP", "Fundação para o Vestibular da Universidade Estadual Paulista", "www.vunesp.com.br"],
+      "orgaos_frequentes": ["Prefeituras e câmaras do estado de São Paulo", "TJ-SP", "Ministério Público de SP", "Polícia Militar de SP", "TCE-SP", "Unifesp"],
+      "dicas_prova": [
+        "Estude a legislação local (lei orgânica, estatuto) do órgão.",
+        "Em Português, priorize interpretação de texto e classes de palavras.",
+        "Resolva provas anteriores do mesmo cargo para calibrar o nível.",
+        "Leia atentamente os enunciados contextualizados; há pegadinhas pontuais.",
+        "Se houver discursiva, treine a redação no formato do edital."
+      ],
+      "fontes": [
+        "https://www.estrategiaconcursos.com.br/blog/vunesp-saiba-tudo-sobre-a-banca/",
+        "https://folha.qconcursos.com/n/concursos-vunesp-perfil-banca",
+        "https://folha.qconcursos.com/n/caracteristicas-da-banca-vunesp",
+        "https://www.estrategiaconcursos.com.br/blog/portugues-prf-o-que-deve-cair-na-sua-prova/amp/",
+        "https://noticias.focusconcursos.com.br/organizadoras/vunesp"
+      ]
+    },
+    {
+      "id": "quadrix",
+      "nome": "Instituto Quadrix",
+      "apelidos": ["quadrix", "instituto quadrix"],
+      "formato": {
+        "tipo": "certo-errado",
+        "alternativas": 5,
+        "penalidade": "Varia por edital: uma fonte aponta 0,5 ponto de desconto por item errado; prova do CRQ-4 (2023) traz regra diferente. Confira o edital.",
+        "discursiva": "Depende do edital; não confirmado em fonte."
+      },
+      "estilo": [
+        {"traco": "Dois formatos conforme o concurso", "como_aparece": "Usa certo/errado (como o Cebraspe) e também múltipla escolha de A a E.", "como_estudar": "Leia o edital para saber o formato e a regra de pontuação.", "fonte": "https://www.aprovaconcursos.com.br/blog/banca-quadrix/"},
+        {"traco": "Provas longas, complexidade média", "como_aparece": "Foco em interpretação de texto; considerada menos complexa que o Cebraspe.", "como_estudar": "Treine resistência e interpretação.", "fonte": "https://blog.grancursosonline.com.br/banca-quadrix-perfil-questoes/"},
+        {"traco": "Peso de Ética e legislação específica", "como_aparece": "Em conselhos, ética e a lei de criação do conselho podem ter peso alto.", "como_estudar": "Estude lei de criação, regimento e código de ética do conselho.", "fonte": "https://www.aprovaconcursos.com.br/blog/banca-quadrix/"},
+        {"traco": "Cobrança literal de lei", "como_aparece": "Questões costumam exigir o texto da lei, com pouca jurisprudência complexa.", "como_estudar": "Priorize lei seca e questões da banca.", "fonte": "https://blog.grancursosonline.com.br/banca-quadrix-perfil-questoes/"},
+        {"traco": "Gabarito C/E no cartão", "como_aparece": "Em itens C/E, marca-se C ou E.", "como_estudar": "Treine o formato com provas anteriores.", "fonte": "https://arquivos.qconcursos.com/prova/arquivo_prova/101700/quadrix-2023-crq-4-regiao-sp-profissionais-de-atividade-de-suporte-especialista-comunicacao-social-jornalismo-prova.pdf"}
+      ],
+      "areas": {},
+      "palavras_chave_edital": ["Instituto Quadrix", "Quadrix", "www.quadrix.org.br", "Instituto Quadrix de Seleção"],
+      "orgaos_frequentes": ["Conselhos profissionais (CRQ, CREF, CRM, CRO, CRC, COREN, CRT, CREA)", "CFBM, CFO"],
+      "dicas_prova": [
+        "Confirme no edital o formato e a regra de pontuação antes de definir estratégia de chute.",
+        "Dê peso a Ética e à legislação do conselho, que podem ser decisivas.",
+        "Leia a lei seca com atenção: a cobrança costuma ser literal.",
+        "Treine com provas da Quadrix do mesmo tipo de órgão."
+      ],
+      "fontes": [
+        "https://www.aprovaconcursos.com.br/blog/banca-quadrix/",
+        "https://blog.grancursosonline.com.br/banca-quadrix-perfil-questoes/",
+        "https://noticias.focusconcursos.com.br/organizadoras/instituto-quadrix",
+        "https://valorfinal.com.br/concursos/banca/quadrix",
+        "https://arquivos.qconcursos.com/prova/arquivo_prova/101700/quadrix-2023-crq-4-regiao-sp-profissionais-de-atividade-de-suporte-especialista-comunicacao-social-jornalismo-prova.pdf"
+      ]
+    },
+    {
+      "id": "ibfc",
+      "nome": "IBFC (Instituto Brasileiro de Formação e Capacitação)",
+      "apelidos": ["ibfc"],
+      "formato": {
+        "tipo": "multipla",
+        "alternativas": 4,
+        "penalidade": "Sem penalidade por erro; confira o edital.",
+        "discursiva": "Não confirmado em fonte; confira o edital."
+      },
+      "estilo": [
+        {"traco": "Múltipla escolha com 4 ou 5 alternativas", "como_aparece": "Fontes divergem: 4 ou 5; uma indica predominância de 4.", "como_estudar": "Confira o número de alternativas do edital e das provas anteriores.", "fonte": "https://www.proximosconcursos.com/banca-ibfc-saiba-tudo/"},
+        {"traco": "Itens de julgamento (1 a 4 afirmações)", "como_aparece": "O candidato julga afirmações e escolhe a combinação correta.", "como_estudar": "Julgue cada afirmação separadamente antes de olhar as combinações.", "fonte": "https://blog.grancursosonline.com.br/banca-ibfc-perfil-questoes/amp/"},
+        {"traco": "Pede a alternativa incorreta", "como_aparece": "Com frequência o comando pede a incorreta.", "como_estudar": "Sublinhe o comando antes de ler as opções.", "fonte": "https://www.direcaoconcursos.com.br/noticias/concurso-ibfc"},
+        {"traco": "Enunciados diretos e alternativas parecidas", "como_aparece": "Alternativas se diferenciam por detalhes, com pegadinhas pontuais.", "como_estudar": "Compare as alternativas palavra por palavra.", "fonte": "https://folha.qconcursos.com/n/banca-ibfc-concursos"},
+        {"traco": "Atuação em prefeituras e órgãos municipais", "como_aparece": "Aparece em concursos municipais (ex.: Feira de Santana/BA, 2024) e em tribunais, conforme listagens.", "como_estudar": "Estude a legislação municipal do edital.", "fonte": "https://www.proximosconcursos.com/banca-ibfc-saiba-tudo/"}
+      ],
+      "areas": {},
+      "palavras_chave_edital": ["IBFC", "Instituto Brasileiro de Formação e Capacitação", "www.ibfc.org.br"],
+      "orgaos_frequentes": ["Prefeituras (ex.: Feira de Santana/BA)", "Tribunais e órgãos estaduais (ex.: TJMG, conforme prova publicada)"],
+      "dicas_prova": [
+        "Veja se a prova tem 4 ou 5 alternativas.",
+        "Em questões de 1 a 4 afirmações, julgue item a item.",
+        "Atenção ao comando 'incorreta'.",
+        "Resolva provas antigas da IBFC para o mesmo cargo."
+      ],
+      "fontes": [
+        "https://www.proximosconcursos.com/banca-ibfc-saiba-tudo/",
+        "https://blog.grancursosonline.com.br/banca-ibfc-perfil-questoes/amp/",
+        "https://www.direcaoconcursos.com.br/noticias/concurso-ibfc",
+        "https://folha.qconcursos.com/n/banca-ibfc-concursos",
+        "https://noticias.focusconcursos.com.br/organizadoras/ibfc"
+      ]
+    },
+    {
+      "id": "aocp",
+      "nome": "Instituto AOCP",
+      "apelidos": ["aocp", "instituto aocp"],
+      "formato": {
+        "tipo": "multipla",
+        "alternativas": 5,
+        "penalidade": "Sem penalidade na múltipla escolha; há relatos de itens certo/errado em alguns concursos; confira o edital.",
+        "discursiva": "Em alguns concursos há segunda etapa classificatória com prova discursiva ou redação."
+      },
+      "estilo": [
+        {"traco": "Cinco alternativas, uma correta", "como_aparece": "Em alguns certames há itens de 4 alternativas.", "como_estudar": "Confira o formato nas provas anteriores do cargo.", "fonte": "https://folha.qconcursos.com/n/concursos-instituto-aocp-perfil-banca"},
+        {"traco": "Nível médio, edital extenso", "como_aparece": "Questões de complexidade moderada, com conteúdo programático extenso.", "como_estudar": "Cubra o edital com amplitude e treine questões.", "fonte": "https://estudocerteiro.com.br/como-sao-as-provas-do-instituto-aocp/"},
+        {"traco": "Textos longos em Português", "como_aparece": "Provas cansativas por causa de textos grandes.", "como_estudar": "Treine leitura rápida e interpretação.", "fonte": "https://www.novaconcursos.com.br/portal/artigos/conheca-perfil-banca-instituto-aocp-gabarite-prova/"},
+        {"traco": "Direito literal", "como_aparece": "Cobrança bastante literal nas disciplinas jurídicas; outra fonte cita jurisprudência e doutrina.", "como_estudar": "Priorize lei seca e questões da banca.", "fonte": "https://folha.qconcursos.com/n/concursos-instituto-aocp-perfil-banca"},
+        {"traco": "Não confundir com AOCP Concursos", "como_aparece": "Fontes dizem tratar-se de organizadoras diferentes, com estilos distintos.", "como_estudar": "Confira o nome da banca no edital antes de escolher as provas de treino.", "fonte": "https://estudocerteiro.com.br/como-sao-as-provas-do-instituto-aocp/"}
+      ],
+      "areas": {},
+      "palavras_chave_edital": ["Instituto AOCP", "AOCP", "www.institutoaocp.org.br", "Instituto AOCP - Concursos"],
+      "orgaos_frequentes": ["Companhia das Docas (Codeba 2026)", "ISS Manaus (2026)", "Polícia Militar de SC (2025)", "Unirio (2025)", "PC-BA"],
+      "dicas_prova": [
+        "Treine leitura de textos longos para não perder tempo em Português.",
+        "Em Direito, priorize lei seca e questões da banca.",
+        "Confirme o formato (múltipla ou certo/errado) no edital.",
+        "Resolva provas anteriores do Instituto AOCP do mesmo cargo."
+      ],
+      "fontes": [
+        "https://folha.qconcursos.com/n/concursos-instituto-aocp-perfil-banca",
+        "https://estudocerteiro.com.br/como-sao-as-provas-do-instituto-aocp/",
+        "https://www.novaconcursos.com.br/portal/artigos/conheca-perfil-banca-instituto-aocp-gabarite-prova/",
+        "https://noticias.focusconcursos.com.br/organizadoras/instituto-aocp",
+        "https://www.proximosconcursos.com/banca-aocp/"
+      ]
+    }
+  ],
+  "topicos_nucleo": {
+    "Língua Portuguesa": [
+      {"topico": "Interpretação de texto e tipologia textual", "palavras": ["interpretação de texto", "compreensão", "tipologia textual", "gêneros textuais", "inferência"], "nivel": "alto", "fonte": "https://www.estrategiaconcursos.com.br/blog/o-que-mais-cai-nas-questoes-de-portugues-para-concursos/", "hipotese": false, "obs": "38,3% das questões de Português em amostra Cespe/nível superior 2017; Vunesp: interpretação e classes de palavras somam mais de 50%."},
+      {"topico": "Semântica e classes de palavras", "palavras": ["semântica", "sentido das palavras", "classes de palavras", "emprego de pronomes", "conjunções"], "nivel": "alto", "fonte": "https://www.estrategiaconcursos.com.br/blog/o-que-mais-cai-nas-questoes-de-portugues-para-concursos/", "hipotese": false, "obs": "Semântica 22,1% e classes de palavras 13,3% na amostra Cespe 2017."},
+      {"topico": "Concordância verbal e nominal", "palavras": ["concordância verbal", "concordância nominal", "concordância"], "nivel": "alto", "fonte": "https://www.estrategiaconcursos.com.br/blog/o-que-mais-cai-nas-questoes-de-portugues-para-concursos/", "hipotese": false},
+      {"topico": "Pontuação (vírgula) e crase", "palavras": ["pontuação", "emprego da vírgula", "crase", "regência verbal e nominal"], "nivel": "alto", "fonte": "https://www.estrategiaconcursos.com.br/blog/o-que-mais-cai-nas-questoes-de-portugues-para-concursos/", "hipotese": false},
+      {"topico": "Reescrita e correção gramatical", "palavras": ["reescrita de frases", "correção gramatical", "voz ativa e passiva", "colocação pronominal"], "nivel": "medio", "fonte": "https://www.estrategiaconcursos.com.br/blog/o-que-mais-cai-nas-questoes-de-portugues-para-concursos/", "hipotese": false}
+    ],
+    "Direito Constitucional": [
+      {"topico": "Direitos e garantias fundamentais", "palavras": ["direitos e garantias fundamentais", "direitos individuais e coletivos", "remédios constitucionais", "habeas corpus", "mandado de segurança"], "nivel": "alto", "fonte": "curadoria", "hipotese": true},
+      {"topico": "Organização do Estado e dos Poderes", "palavras": ["organização do estado", "união, estados e municípios", "poder legislativo", "poder executivo", "poder judiciário"], "nivel": "alto", "fonte": "curadoria", "hipotese": true},
+      {"topico": "Administração pública (art. 37) e controle externo (arts. 70 a 75)", "palavras": ["administração pública", "art. 37", "fiscalização contábil, financeira e orçamentária", "tribunal de contas"], "nivel": "alto", "fonte": "curadoria", "hipotese": true},
+      {"topico": "Controle de constitucionalidade", "palavras": ["controle de constitucionalidade", "ADI", "ADC", "ADPF"], "nivel": "medio", "fonte": "curadoria", "hipotese": true}
+    ],
+    "Direito Administrativo": [
+      {"topico": "Princípios e poderes da administração", "palavras": ["princípios da administração pública", "poderes administrativos", "poder de polícia", "poder disciplinar"], "nivel": "alto", "fonte": "curadoria", "hipotese": true},
+      {"topico": "Licitações e contratos (Lei 14.133/2021)", "palavras": ["licitações", "contratos administrativos", "14.133", "dispensa", "inexigibilidade", "modalidades"], "nivel": "alto", "fonte": "curadoria", "hipotese": true},
+      {"topico": "Atos administrativos e improbidade", "palavras": ["atos administrativos", "improbidade administrativa", "8.429", "anulação e revogação"], "nivel": "alto", "fonte": "curadoria", "hipotese": true},
+      {"topico": "Agentes públicos e responsabilidade civil do Estado", "palavras": ["agentes públicos", "responsabilidade civil do estado", "serviços públicos", "regime jurídico dos servidores"], "nivel": "medio", "fonte": "curadoria", "hipotese": true}
+    ],
+    "Raciocínio Lógico": [
+      {"topico": "Lógica proposicional e equivalências", "palavras": ["lógica proposicional", "proposições", "tabela-verdade", "equivalência lógica", "negação"], "nivel": "alto", "fonte": "curadoria", "hipotese": true},
+      {"topico": "Porcentagem, razão e proporção", "palavras": ["porcentagem", "regra de três", "razão e proporção", "juros simples e compostos"], "nivel": "alto", "fonte": "curadoria", "hipotese": true},
+      {"topico": "Análise combinatória e probabilidade", "palavras": ["análise combinatória", "probabilidade", "permutação", "arranjo", "combinação"], "nivel": "medio", "fonte": "curadoria", "hipotese": true}
+    ],
+    "Contabilidade": [
+      {"topico": "Balanço patrimonial e demonstrações contábeis", "palavras": ["balanço patrimonial", "demonstrações contábeis", "DRE", "DMPL", "demonstração do resultado"], "nivel": "alto", "fonte": "https://blog.grancursosonline.com.br/analise-comparativa-das-bancas-fgv-cebraspe-e-fcc-2020-2025/", "hipotese": false, "obs": "Balanço patrimonial e DFC aparecem entre os temas mais cobrados pela FCC no estudo citado."},
+      {"topico": "Demonstração dos fluxos de caixa (DFC)", "palavras": ["fluxos de caixa", "DFC", "CPC 03"], "nivel": "alto", "fonte": "https://blog.grancursosonline.com.br/analise-comparativa-das-bancas-fgv-cebraspe-e-fcc-2020-2025/", "hipotese": false},
+      {"topico": "Provisões, passivos e ativos contingentes", "palavras": ["provisões", "passivos contingentes", "CPC 25", "ativos contingentes"], "nivel": "alto", "fonte": "https://blog.grancursosonline.com.br/analise-comparativa-das-bancas-fgv-cebraspe-e-fcc-2020-2025/", "hipotese": false},
+      {"topico": "Contabilidade Pública: receitas, despesas e seus estágios", "palavras": ["contabilidade pública", "estágios da receita", "estágios da despesa", "MCASP", "NBC TSP"], "nivel": "alto", "fonte": "https://blog.grancursosonline.com.br/analise-comparativa-das-bancas-fgv-cebraspe-e-fcc-2020-2025/", "hipotese": false},
+      {"topico": "Estoques, imobilizado e intangível (CPCs)", "palavras": ["estoques", "ativo imobilizado", "intangível", "depreciação", "redução ao valor recuperável", "CPC 16", "CPC 27"], "nivel": "medio", "fonte": "curadoria", "hipotese": true}
+    ],
+    "Auditoria": [
+      {"topico": "Auditoria interna e externa; controle interno", "palavras": ["auditoria interna", "auditoria externa", "controle interno", "COSO"], "nivel": "alto", "fonte": "https://blog.grancursosonline.com.br/analise-comparativa-das-bancas-fgv-cebraspe-e-fcc-2020-2025/", "hipotese": false, "obs": "Cerca de 15% a 16% das questões de Auditoria da FCC no ranking citado."},
+      {"topico": "Normas de auditoria (NBC TA), planejamento, risco e materialidade", "palavras": ["NBC TA", "materialidade", "risco de auditoria", "planejamento de auditoria", "evidências de auditoria", "relatório do auditor"], "nivel": "alto", "fonte": "curadoria", "hipotese": true},
+      {"topico": "Auditoria governamental e controle externo", "palavras": ["auditoria governamental", "controle externo", "NBASP", "tribunal de contas", "ISSAI"], "nivel": "medio", "fonte": "curadoria", "hipotese": true}
+    ],
+    "AFO (Administração Financeira e Orçamentária)": [
+      {"topico": "Orçamento público: princípios, ciclo e instrumentos (PPA, LDO, LOA)", "palavras": ["PPA", "LDO", "LOA", "princípios orçamentários", "ciclo orçamentário", "processo orçamentário"], "nivel": "alto", "fonte": "curadoria", "hipotese": true},
+      {"topico": "Receita e despesa públicas: classificação e estágios", "palavras": ["receita pública", "despesa pública", "classificação orçamentária", "empenho", "liquidação", "pagamento", "créditos adicionais"], "nivel": "alto", "fonte": "curadoria", "hipotese": true},
+      {"topico": "Lei de Responsabilidade Fiscal", "palavras": ["responsabilidade fiscal", "LRF", "101/2000", "limites de despesa com pessoal", "restos a pagar"], "nivel": "alto", "fonte": "curadoria", "hipotese": true}
+    ],
+    "Direito Tributário": [
+      {"topico": "Sistema Tributário Nacional, limitações ao poder de tributar e princípios", "palavras": ["sistema tributário nacional", "limitações ao poder de tributar", "imunidades", "princípios tributários", "competência tributária"], "nivel": "alto", "fonte": "https://www.direcaoconcursos.com.br/noticias/concurso-receita-federal-fgv-analise/", "hipotese": false, "obs": "Direito Tributário foi a disciplina de maior peso na prova da Receita Federal (FGV), cerca de 13%, segundo a fonte; os subtópicos são curadoria."},
+      {"topico": "Obrigação, crédito tributário, lançamento, suspensão e extinção", "palavras": ["obrigação tributária", "crédito tributário", "lançamento", "suspensão da exigibilidade", "extinção do crédito", "prescrição e decadência"], "nivel": "alto", "fonte": "curadoria", "hipotese": true},
+      {"topico": "Impostos em espécie (ICMS, ISS, IPI, IR) e jurisprudência", "palavras": ["ICMS", "ISS", "IPI", "imposto de renda", "jurisprudência tributária", "súmulas STF STJ"], "nivel": "alto", "fonte": "https://www.direcaoconcursos.com.br/artigos/direito-tributario-concurso-o-que-cai-em-provas", "hipotese": false, "obs": "Fonte indica que FGV e Cebraspe exigem jurisprudência em tributário."}
+    ],
+    "Legislação": [
+      {"topico": "Legislação específica do órgão (estatutos, leis orgânicas, regimentos)", "palavras": ["estatuto dos servidores", "lei orgânica", "regimento interno", "legislação específica", "lei de criação"], "nivel": "alto", "fonte": "https://www.estrategiaconcursos.com.br/blog/vunesp-saiba-tudo-sobre-a-banca/", "hipotese": false, "obs": "Vunesp e Quadrix (conselhos) dão peso a legislação local e específica; Sefaz AL e SE tinham Legislação Tributária estadual em torno de 19% em análise antiga."},
+      {"topico": "Ética no serviço público e código de ética do órgão", "palavras": ["ética no serviço público", "código de ética", "decreto 1.171", "conduta"], "nivel": "medio", "fonte": "https://www.aprovaconcursos.com.br/blog/banca-quadrix/", "hipotese": false}
+    ],
+    "Informática/TI: Banco de Dados": [
+      {"topico": "Banco de dados relacionais e SQL", "palavras": ["banco de dados relacional", "SQL", "modelo entidade-relacionamento", "normalização", "SGBD", "transações"], "nivel": "alto", "fonte": "https://www.estrategiaconcursos.com.br/blog/ti-quentes-cebraspe-fiscal/amp/", "hipotese": false},
+      {"topico": "Mineração de dados, data warehouse e BI", "palavras": ["mineração de dados", "data warehouse", "business intelligence", "ETL", "OLAP", "big data"], "nivel": "alto", "fonte": "https://www.estrategiaconcursos.com.br/blog/ti-quentes-cebraspe-fiscal/amp/", "hipotese": false}
+    ],
+    "Informática/TI: Engenharia de Software": [
+      {"topico": "Arquitetura de software, MVC, REST, SOA e metodologias ágeis", "palavras": ["MVC", "REST", "SOA", "microsserviços", "XP", "Scrum", "metodologias ágeis", "UML", "engenharia de requisitos"], "nivel": "alto", "fonte": "https://blog.grancursosonline.com.br/concurseiro-iniciante-concursos-de-ti-como-se-preparar/amp/", "hipotese": false},
+      {"topico": "Teste de software, DevOps e CI/CD", "palavras": ["teste de software", "DevOps", "integração contínua", "CI/CD", "TDD", "qualidade de software"], "nivel": "medio", "fonte": "curadoria", "hipotese": true}
+    ],
+    "Informática/TI: Segurança": [
+      {"topico": "Princípios da segurança da informação e ISO 27001/27002", "palavras": ["confidencialidade", "integridade", "disponibilidade", "autenticidade", "não repúdio", "ISO 27001", "ISO 27002", "SGSI", "classificação da informação"], "nivel": "alto", "fonte": "https://www.estrategiaconcursos.com.br/blog/?p=1095718", "hipotese": false},
+      {"topico": "Criptografia, certificação digital e controle de acesso", "palavras": ["criptografia", "certificado digital", "assinatura digital", "PKI", "controle de acesso", "autenticação"], "nivel": "alto", "fonte": "curadoria", "hipotese": true},
+      {"topico": "Ataques, malwares, firewalls e hardening", "palavras": ["malware", "ataques", "firewall", "IDS", "IPS", "hardening", "segurança de redes"], "nivel": "alto", "fonte": "https://blog.grancursosonline.com.br/concurso-petrobras-cesgranrio/amp/", "hipotese": false, "obs": "Segurança e infraestrutura (firewalls) aparecem entre pilares de TI da Petrobras com 14,3% cada segundo a fonte."}
+    ],
+    "Informática/TI: Redes": [
+      {"topico": "Modelos OSI e TCP/IP, protocolos e endereçamento", "palavras": ["modelo OSI", "TCP/IP", "endereçamento IP", "DNS", "DHCP", "HTTP", "roteamento"], "nivel": "alto", "fonte": "curadoria", "hipotese": true},
+      {"topico": "Redes locais, VLAN, wi-fi e infraestrutura", "palavras": ["VLAN", "Ethernet", "redes sem fio", "switch", "roteador", "infraestrutura de redes"], "nivel": "medio", "fonte": "curadoria", "hipotese": true}
+    ],
+    "Informática/TI: Governança/ITIL/COBIT": [
+      {"topico": "COBIT 2019 (domínios e princípios)", "palavras": ["COBIT", "COBIT 2019", "domínios", "EDM", "APO", "BAI", "DSS", "MEA"], "nivel": "alto", "fonte": "https://www.estrategiaconcursos.com.br/blog/ti-controle-cebraspe-cespe/amp/", "hipotese": false},
+      {"topico": "ITIL 4 e gestão de serviços de TI", "palavras": ["ITIL", "ITIL 4", "gestão de serviços", "gerenciamento de incidentes", "gerenciamento de mudanças", "cadeia de valor de serviço"], "nivel": "alto", "fonte": "https://www.estrategiaconcursos.com.br/blog/ti-controle-cebraspe-cespe/amp/", "hipotese": false},
+      {"topico": "Planejamento estratégico de TI, gestão de riscos e projetos", "palavras": ["planejamento estratégico de TI", "alinhamento estratégico", "gestão de riscos de TI", "PMBOK", "PDCA", "gerenciamento de projetos"], "nivel": "alto", "fonte": "https://www.estrategiaconcursos.com.br/blog/?p=1095718", "hipotese": false}
+    ],
+    "Informática/TI: Análise de dados": [
+      {"topico": "Análise e ciência de dados, estatística aplicada e visualização", "palavras": ["análise de dados", "ciência de dados", "machine learning", "estatística", "visualização de dados", "power bi", "python"], "nivel": "medio", "fonte": "curadoria", "hipotese": true}
+    ]
+  }
+}

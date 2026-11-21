@@ -1,0 +1,1191 @@
+{
+ "slug": "sefaz-al-auditor",
+ "nome": "SEFAZ-AL 2026 · Auditor Fiscal da Administração Tributária Estadual",
+ "orgao": "Secretaria de Estado da Fazenda de Alagoas",
+ "banca": "Cebraspe (antigo Cespe/UnB)",
+ "banca_id": "cebraspe",
+ "cargo": "Auditor Fiscal da Administração Tributária Estadual",
+ "area": "fiscal",
+ "ano": 2026,
+ "prova": "2026-12-20",
+ "disc": [
+  {
+   "nome": "Matemática Financeira",
+   "questoes": 5,
+   "peso": 1,
+   "topicos": [
+    "1 Regra de três simples e composta, proporcionalidades e porcentagens",
+    "2 Juros simples e compostos",
+    "3 Capitalização e desconto",
+    "4 Taxas de juros nominal, efetiva, equivalente, real e aparente",
+    "5 Rendas uniformes e variáveis",
+    "6 Planos de amortização de empréstimos e financiamentos",
+    "7 Cálculo financeiro",
+    "8 Avaliação econômica de projetos",
+    "9 Taxas de retorno e taxas internas de retorno"
+   ],
+   "bloco": "P1 · Conhecimentos básicos",
+   "area": "fiscal",
+   "motivos": [
+    [],
+    [],
+    [],
+    [],
+    [],
+    [
+     "3 subitens no edital"
+    ],
+    [],
+    [],
+    []
+   ],
+   "rel": [
+    3,
+    3,
+    3,
+    3,
+    3,
+    5,
+    3,
+    3,
+    3
+   ],
+   "esperadas": [
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.9,
+    0.5,
+    0.5,
+    0.5
+   ]
+  },
+  {
+   "nome": "Direito Constitucional",
+   "questoes": 5,
+   "peso": 1,
+   "topicos": [
+    "1 Constituição da República Federativa do Brasil de 1988",
+    "2 Aplicabilidade das normas constitucionais",
+    "3 Direitos e garantias fundamentais",
+    "4 Organização político-administrativa do Estado",
+    "5 Administração pública",
+    "6 Poder Executivo",
+    "7 Poder Legislativo",
+    "8 Poder Judiciário",
+    "9 Funções essenciais à justiça",
+    "10 Controle de constitucionalidade",
+    "11 Ordem econômica e financeira",
+    "12 Finanças públicas"
+   ],
+   "bloco": "P1 · Conhecimentos básicos",
+   "area": "fiscal",
+   "motivos": [
+    [],
+    [],
+    [
+     "núcleo de alta incidência [hipótese]"
+    ],
+    [],
+    [
+     "núcleo de alta incidência [hipótese]"
+    ],
+    [
+     "núcleo de alta incidência [hipótese]"
+    ],
+    [
+     "núcleo de alta incidência [hipótese]",
+     "7 subitens no edital"
+    ],
+    [
+     "núcleo de alta incidência [hipótese]"
+    ],
+    [],
+    [
+     "núcleo de alta incidência (médio) [hipótese]",
+     "5 subitens no edital"
+    ],
+    [],
+    []
+   ],
+   "rel": [
+    2,
+    2,
+    4,
+    2,
+    4,
+    4,
+    5,
+    4,
+    2,
+    3,
+    2,
+    2
+   ],
+   "esperadas": [
+    0.3,
+    0.3,
+    0.6,
+    0.3,
+    0.6,
+    0.6,
+    0.7,
+    0.6,
+    0.3,
+    0.4,
+    0.3,
+    0.3
+   ],
+   "motivoDisc": "Entre as mais cobradas pela Cebraspe em fiscal"
+  },
+  {
+   "nome": "Direito Administrativo",
+   "questoes": 5,
+   "peso": 1,
+   "topicos": [
+    "1 Estado, governo e administração pública",
+    "2 Direito administrativo",
+    "3 Ato administrativo",
+    "4 Agentes públicos",
+    "5 Poderes da administração pública",
+    "6 Regime jurídico administrativo",
+    "7 Responsabilidade civil do Estado",
+    "8 Serviços públicos",
+    "9 Organização administrativa",
+    "10 Controle da administração pública",
+    "11 Processo administrativo",
+    "12 Licitações e contratos administrativos",
+    "13 Crimes contra a Administração Pública previstos no Código Penal. (Retificado por meio do Edital nº",
+    "2 SEFAZ/AL, de",
+    "16 de setembro de 2026, disponível no endereço eletrônico http://www.cebraspe.org.br/concursos/sefaz_al_26)"
+   ],
+   "bloco": "P1 · Conhecimentos básicos",
+   "area": "fiscal",
+   "motivos": [
+    [],
+    [
+     "3 subitens no edital"
+    ],
+    [
+     "4 subitens no edital"
+    ],
+    [
+     "núcleo de alta incidência (médio) [hipótese]",
+     "12 subitens no edital"
+    ],
+    [],
+    [],
+    [
+     "núcleo de alta incidência (médio) [hipótese]",
+     "8 subitens no edital"
+    ],
+    [
+     "núcleo de alta incidência (médio) [hipótese]",
+     "7 subitens no edital"
+    ],
+    [
+     "5 subitens no edital"
+    ],
+    [
+     "núcleo de alta incidência [hipótese]",
+     "5 subitens no edital"
+    ],
+    [],
+    [
+     "núcleo de alta incidência [hipótese]",
+     "11 subitens no edital"
+    ],
+    [],
+    [],
+    []
+   ],
+   "rel": [
+    2,
+    3,
+    3,
+    4,
+    2,
+    2,
+    4,
+    4,
+    3,
+    5,
+    2,
+    5,
+    2,
+    2,
+    2
+   ],
+   "esperadas": [
+    0.2,
+    0.3,
+    0.3,
+    0.4,
+    0.2,
+    0.2,
+    0.4,
+    0.4,
+    0.3,
+    0.6,
+    0.2,
+    0.6,
+    0.2,
+    0.2,
+    0.2
+   ],
+   "motivoDisc": "Entre as mais cobradas pela Cebraspe em fiscal"
+  },
+  {
+   "nome": "Contabilidade Geral",
+   "questoes": 5,
+   "peso": 1,
+   "topicos": [
+    "1 Conceitos, objetivos e finalidades da contabilidade",
+    "2 Patrimônio: componentes, equação fundamental do patrimônio, situação líquida, representação gráfica",
+    "3 Atos e fatos administrativos: conceitos, fatos permutativos, modificativos e mistos",
+    "4 Contas: conceitos, contas de débitos, contas de créditos e saldos",
+    "5 Plano de contas: conceitos, elenco de contas, função e funcionamento das contas",
+    "6 Escrituração: conceitos, lançamentos contábeis, elementos essenciais, fórmulas de lançamentos, livros de escrituração, métodos e processos, regime de competência e regime de caixa",
+    "7 Contabilização de operações contábeis diversas: juros, descontos, tributos, aluguéis, variação monetária/cambial, folha de pagamento, compras, vendas e provisões, depreciações e baixa de bens",
+    "8 Balancete de verificação: conceitos, modelos e técnicas de elaboração",
+    "9 Balanço patrimonial: conceitos, objetivo, composição",
+    "10 Demonstração de resultado de exercício: conceito, objetivo, composição",
+    "11 Normas Brasileiras de Contabilidade"
+   ],
+   "bloco": "P1 · Conhecimentos básicos",
+   "area": "fiscal",
+   "motivos": [
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [
+     "núcleo de alta incidência"
+    ],
+    [],
+    [
+     "núcleo de alta incidência"
+    ],
+    [],
+    []
+   ],
+   "rel": [
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    5,
+    3,
+    5,
+    3,
+    3
+   ],
+   "esperadas": [
+    0.4,
+    0.4,
+    0.4,
+    0.4,
+    0.4,
+    0.4,
+    0.7,
+    0.4,
+    0.7,
+    0.4,
+    0.4
+   ]
+  },
+  {
+   "nome": "Direito Tributário",
+   "questoes": 10,
+   "peso": 1,
+   "topicos": [
+    "1 Sistema Tributário Nacional. Princípios Gerais. Limitações do Poder de Tributar",
+    "2 Direito tributário. Conceito e princípios",
+    "3 Tributos: conceito e espécies. Impostos. Taxas. Contribuição de Melhoria. Imunidades. Impostos da União. Impostos dos estados e do Distrito Federal. Impostos dos municípios",
+    "4 Repartição das receitas tributárias",
+    "5 Código Tributário Nacional. Competência tributária e suas limitações. Normas gerais de direito tributário. Norma tributária: espécies; vigência e aplicação; interpretação e integração; natureza",
+    "6 Obrigação tributária: conceito; espécies; fato gerador (hipótese de incidência); sujeitos ativo e passivo; solidariedade; capacidade tributária; domicílio tributário",
+    "7 Responsabilidade tributária. Responsabilidade dos Sucessores. Solidariedade e sucessão. Responsabilidade pessoal e de terceiros. Responsabilidade por infrações. Responsabilidade supletiva",
+    "8 Crédito tributário: conceito; natureza; lançamento e suas modalidades; revisão, suspensão, extinção e exclusão; prescrição e decadência; repetição do indébito",
+    "9 Garantias e privilégios do crédito tributário",
+    "10 Administração Tributária. Fiscalização. Sigilo Fiscal. Dívida Ativa. Certidões Negativas",
+    "11 Lei Complementar nº 118, de 2005",
+    "12 Crimes contra a ordem tributária (Lei nº 8.137/1990 e suas alterações)"
+   ],
+   "bloco": "P1 · Conhecimentos básicos",
+   "area": "fiscal",
+   "motivos": [
+    [
+     "núcleo de alta incidência"
+    ],
+    [],
+    [
+     "núcleo de alta incidência"
+    ],
+    [],
+    [
+     "núcleo de alta incidência"
+    ],
+    [
+     "núcleo de alta incidência [hipótese]"
+    ],
+    [],
+    [
+     "núcleo de alta incidência [hipótese]"
+    ],
+    [
+     "núcleo de alta incidência [hipótese]"
+    ],
+    [],
+    [],
+    []
+   ],
+   "rel": [
+    4,
+    2,
+    4,
+    2,
+    4,
+    4,
+    2,
+    4,
+    4,
+    2,
+    2,
+    2
+   ],
+   "esperadas": [
+    1.1,
+    0.6,
+    1.1,
+    0.6,
+    1.1,
+    1.1,
+    0.6,
+    1.1,
+    1.1,
+    0.6,
+    0.6,
+    0.6
+   ],
+   "motivoDisc": "Entre as mais cobradas pela Cebraspe em fiscal"
+  },
+  {
+   "nome": "Estatística e Probabilidade",
+   "questoes": 10,
+   "peso": 1,
+   "topicos": [
+    "1 Estatística descritiva",
+    "2 Análise exploratória de dados",
+    "3 Probabilidade",
+    "4 Amostragem"
+   ],
+   "bloco": "P1 · Conhecimentos básicos",
+   "area": "fiscal",
+   "motivos": [
+    [],
+    [],
+    [],
+    []
+   ],
+   "rel": [
+    3,
+    3,
+    3,
+    3
+   ],
+   "esperadas": [
+    2.5,
+    2.5,
+    2.5,
+    2.5
+   ]
+  },
+  {
+   "nome": "Contabilidade Pública",
+   "questoes": 10,
+   "peso": 1,
+   "topicos": [
+    "1 Conceituação, objeto e campo de aplicação",
+    "2 Patrimônio público",
+    "3 Variações patrimoniais",
+    "4 Mensuração de ativos",
+    "5 Mensuração de passivos",
+    "6 Tratamento contábil aplicável aos impostos e contribuições",
+    "7 Sistema de custos",
+    "8 Plano de Contas Aplicado ao Setor Público – PCASP",
+    "9 Demonstrações Contábeis Aplicadas ao Setor Público – DCASP",
+    "10 Transações no setor público",
+    "11 Normas Brasileiras de Contabilidade Aplicadas ao Setor Público – NBC TSP",
+    "12 Manual de Contabilidade Aplicada ao Setor Público – MCASP, 11ª edição",
+    "13 Regime contábil"
+   ],
+   "bloco": "P1 · Conhecimentos básicos",
+   "area": "fiscal",
+   "motivos": [
+    [],
+    [
+     "3 subitens no edital"
+    ],
+    [
+     "5 subitens no edital"
+    ],
+    [
+     "núcleo de alta incidência (médio) [hipótese]",
+     "4 subitens no edital"
+    ],
+    [
+     "núcleo de alta incidência"
+    ],
+    [],
+    [
+     "4 subitens no edital"
+    ],
+    [],
+    [
+     "núcleo de alta incidência",
+     "8 subitens no edital"
+    ],
+    [],
+    [
+     "núcleo de alta incidência"
+    ],
+    [
+     "núcleo de alta incidência"
+    ],
+    []
+   ],
+   "rel": [
+    2,
+    3,
+    3,
+    4,
+    4,
+    2,
+    3,
+    2,
+    5,
+    2,
+    4,
+    4,
+    2
+   ],
+   "esperadas": [
+    0.5,
+    0.8,
+    0.8,
+    1,
+    1,
+    0.5,
+    0.8,
+    0.5,
+    1.3,
+    0.5,
+    1,
+    1,
+    0.5
+   ]
+  },
+  {
+   "nome": "Economia",
+   "questoes": 10,
+   "peso": 1,
+   "topicos": [
+    "1 Introdução aos problemas econômicos: escassez e escolha; curva de possibilidades de produção; fatores de produção; produtividade e remuneração dos fatores; livre mercado; papel do governo em uma economia em desenvolvimento",
+    "2 Microeconomia: oferta e demanda; elasticidades; teoria da produção; custos; concorrência perfeita; monopólio; eficiência econômica; bens públicos e falhas de mercado",
+    "3 Macroeconomia: contas nacionais; produto e renda; agregados macroeconômicos; consumo, poupança e investimento; multiplicador; setor público; políticas de estabilização"
+   ],
+   "bloco": "P1 · Conhecimentos básicos",
+   "area": "fiscal",
+   "motivos": [
+    [],
+    [],
+    []
+   ],
+   "rel": [
+    3,
+    3,
+    3
+   ],
+   "esperadas": [
+    3.3,
+    3.3,
+    3.3
+   ]
+  },
+  {
+   "nome": "Finanças Públicas",
+   "questoes": 10,
+   "peso": 1,
+   "topicos": [
+    "1 Finanças públicas: conceitos, objetivos, metas e abrangência",
+    "2 Política econômica e fiscal",
+    "3 Orçamento público",
+    "4 Orçamento público no Brasil",
+    "5 Programação e execução orçamentária e financeira",
+    "6 Receita pública: conceito, classificações, estágios, fontes e dívida ativa",
+    "7 Despesa pública: conceito, classificações e estágios",
+    "8 Responsabilidade e controle fiscal",
+    "9 Fluxo de caixa",
+    "10 Moeda, crédito e Sistema Financeiro Nacional",
+    "11 Setor externo: balanço de pagamentos, equilíbrio e desequilíbrio, taxas de câmbio e regimes cambiais fixos e flexíveis",
+    "12 Mercado financeiro brasileiro"
+   ],
+   "bloco": "P2 · Conhecimentos específicos",
+   "area": "fiscal",
+   "motivos": [
+    [
+     "4 subitens no edital"
+    ],
+    [
+     "6 subitens no edital"
+    ],
+    [],
+    [
+     "5 subitens no edital"
+    ],
+    [
+     "4 subitens no edital"
+    ],
+    [],
+    [
+     "5 subitens no edital"
+    ],
+    [
+     "3 subitens no edital"
+    ],
+    [
+     "4 subitens no edital"
+    ],
+    [
+     "4 subitens no edital"
+    ],
+    [],
+    [
+     "3 subitens no edital"
+    ]
+   ],
+   "rel": [
+    3,
+    5,
+    1,
+    5,
+    3,
+    1,
+    5,
+    3,
+    3,
+    3,
+    1,
+    3
+   ],
+   "esperadas": [
+    0.8,
+    1.4,
+    0.3,
+    1.4,
+    0.8,
+    0.3,
+    1.4,
+    0.8,
+    0.8,
+    0.8,
+    0.3,
+    0.8
+   ]
+  },
+  {
+   "nome": "Legislação Tributária Estadual",
+   "questoes": 10,
+   "peso": 1,
+   "topicos": [
+    "1 Lei Estadual nº 5.900/1996 (ICMS), e suas alterações",
+    "2 Lei Estadual nº 6.555/2004 (IPVA), e suas alterações",
+    "3 Lei Estadual nº 5.077/1989 (ITCD), e suas alterações",
+    "4 Lei Estadual nº 6.771/2006 (Processo Administrativo Tributário), e suas alterações",
+    "5 Lei Estadual nº 8.085/2018 (Programa Contribuinte Arretado), e suas alterações"
+   ],
+   "bloco": "P2 · Conhecimentos específicos",
+   "area": "fiscal",
+   "motivos": [
+    [],
+    [],
+    [],
+    [],
+    []
+   ],
+   "rel": [
+    3,
+    3,
+    3,
+    3,
+    3
+   ],
+   "esperadas": [
+    2,
+    2,
+    2,
+    2,
+    2
+   ],
+   "motivoDisc": "Entre as mais cobradas pela Cebraspe em fiscal"
+  },
+  {
+   "nome": "Inteligência Artificial",
+   "questoes": 10,
+   "peso": 1,
+   "topicos": [
+    "1 Fundamentos de inteligência artificial",
+    "2 Redes neurais artificiais",
+    "3 Deep learning",
+    "4 Processamento de linguagem natural",
+    "5 Visão computacional",
+    "6 Inteligência artificial generativa"
+   ],
+   "bloco": "P2 · Conhecimentos específicos",
+   "area": "ti",
+   "motivos": [
+    [],
+    [],
+    [],
+    [],
+    [],
+    []
+   ],
+   "rel": [
+    3,
+    3,
+    3,
+    3,
+    3,
+    3
+   ],
+   "esperadas": [
+    1.7,
+    1.7,
+    1.7,
+    1.7,
+    1.7,
+    1.7
+   ]
+  },
+  {
+   "nome": "Desenvolvimento de Sistemas",
+   "questoes": 10,
+   "peso": 1,
+   "topicos": [
+    "1 Modelagem de processos de negócio",
+    "2 Metodologias ágeis de desenvolvimento de software: XP, Scrum e Kanban",
+    "3 Integração contínua e entrega contínua",
+    "4 Arquitetura de software",
+    "5 Soluções de integração entre sistemas",
+    "6 Testes de software: testes unitários, testes de integração e TDD",
+    "7 Desenvolvimento",
+    "8 Ferramentas de versionamento Git",
+    "9 Segurança no desenvolvimento",
+    "10 Conceitos avançados em engenharia e arquitetura de software"
+   ],
+   "bloco": "P2 · Conhecimentos específicos",
+   "area": "ti",
+   "motivos": [
+    [
+     "3 subitens no edital"
+    ],
+    [],
+    [],
+    [
+     "4 subitens no edital"
+    ],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [
+     "6 subitens no edital"
+    ]
+   ],
+   "rel": [
+    4,
+    3,
+    3,
+    5,
+    3,
+    3,
+    3,
+    3,
+    3,
+    5
+   ],
+   "esperadas": [
+    1.1,
+    0.9,
+    0.9,
+    1.4,
+    0.9,
+    0.9,
+    0.9,
+    0.9,
+    0.9,
+    1.4
+   ]
+  },
+  {
+   "nome": "Infraestrutura de TIC e Segurança da Informação",
+   "questoes": 10,
+   "peso": 1,
+   "topicos": [
+    "1 Infraestrutura em nuvem",
+    "2 DevOps e DevSecOps: conceitos, práticas e ferramentas",
+    "3 Gestão de serviços",
+    "4 Forense computacional",
+    "5 Redes de computadores",
+    "6 Segurança da informação"
+   ],
+   "bloco": "P2 · Conhecimentos específicos",
+   "area": "ti",
+   "motivos": [
+    [
+     "3 subitens no edital"
+    ],
+    [],
+    [],
+    [
+     "núcleo de alta incidência [hipótese]",
+     "4 subitens no edital"
+    ],
+    [
+     "núcleo de alta incidência",
+     "5 subitens no edital"
+    ],
+    [
+     "núcleo de alta incidência",
+     "10 subitens no edital"
+    ]
+   ],
+   "rel": [
+    3,
+    1,
+    1,
+    3,
+    4,
+    5
+   ],
+   "esperadas": [
+    1.8,
+    0.6,
+    0.6,
+    1.8,
+    2.4,
+    2.9
+   ]
+  },
+  {
+   "nome": "Reforma Tributária",
+   "questoes": 15,
+   "peso": 1,
+   "topicos": [
+    "1 Emenda Constitucional nº 132/2023",
+    "2 Lei Complementar nº 214/2025",
+    "3 Lei Complementar nº 227/2026",
+    "4 Resolução CGIBS nº 6/2026, alterada pela Resolução CGIBS nº 13/2026 (Regulamento do IBS)",
+    "5 IBS, CBS e Imposto Seletivo",
+    "6 Princípio do destino",
+    "7 Incidência, não incidência, imunidades, fato gerador, base de cálculo, alíquotas e sujeição passiva",
+    "8 Não cumulatividade e apropriação de créditos",
+    "9 Extinção dos débitos, ressarcimento e pagamento indevido",
+    "10 Importação e exportação",
+    "11 Cashback e Cesta Básica Nacional",
+    "12 Regimes diferenciados e específicos",
+    "13 Administração Tributária e Comitê Gestor do IBS",
+    "14 Processo Administrativo Tributário do IBS",
+    "15 Distribuição do produto da arrecadação do IBS",
+    "16 Regras de transição do IBS, CBS e ICMS",
+    "17 Split payment",
+    "18 Apuração assistida",
+    "19 Sistema Nacional de Gestão de Informações Territoriais (Sinter) e Cadastro Imobiliário Brasileiro (CIB)",
+    "20 Tabela de Código de Crédito Presumido do IBS e CBS (cCredPres)",
+    "21 Novas obrigações acessórias: DeRE, Nota Fiscal de Alienação de Bens Imóveis (NF-ABI), Nota Fiscal de Água e Saneamento (NFAg), Bilhete de Passagem Eletrônico Aéreo (BP-e Aéreo), Nota Fiscal de Gás (NF-e Gás) e declarações e documentos fiscais das plataformas digitais"
+   ],
+   "bloco": "P2 · Conhecimentos específicos",
+   "area": "fiscal",
+   "motivos": [
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    []
+   ],
+   "rel": [
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3
+   ],
+   "esperadas": [
+    0.7,
+    0.7,
+    0.7,
+    0.7,
+    0.7,
+    0.7,
+    0.7,
+    0.7,
+    0.7,
+    0.7,
+    0.7,
+    0.7,
+    0.7,
+    0.7,
+    0.7,
+    0.7,
+    0.7,
+    0.7,
+    0.7,
+    0.7,
+    0.7
+   ],
+   "motivoDisc": "Entre as mais cobradas pela Cebraspe em fiscal"
+  },
+  {
+   "nome": "Auditoria Fiscal",
+   "questoes": 15,
+   "peso": 1,
+   "topicos": [
+    "1 Sistema Público de Escrituração Digital (SPED)",
+    "2 Manual de Orientação ao Contribuinte da NF-e e NFC-e (MOC – versão 7.0)",
+    "3 Guia Prático da EFD ICMS/IPI (versão 3.2.2)",
+    "4 Manual de Orientação ao Contribuinte do CT-e e CT-e OS (versão 4.0)",
+    "5 Manual de Orientação ao Contribuinte do MDF-e (versão 3.0b)",
+    "6 Tabelas nacionais CFOP, CST, CSOSN e cBenef",
+    "7 Cruzamento e consistência entre documentos fiscais eletrônicos e EFD ICMS/IPI",
+    "8 Identificação de omissão de receitas, divergências de escrituração, créditos indevidos e inconsistências fiscais"
+   ],
+   "bloco": "P2 · Conhecimentos específicos",
+   "area": "fiscal",
+   "motivos": [
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    []
+   ],
+   "rel": [
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3
+   ],
+   "esperadas": [
+    1.9,
+    1.9,
+    1.9,
+    1.9,
+    1.9,
+    1.9,
+    1.9,
+    1.9
+   ],
+   "motivoDisc": "Entre as mais cobradas pela Cebraspe em fiscal"
+  },
+  {
+   "nome": "Ciência de Dados",
+   "questoes": 20,
+   "peso": 1,
+   "topicos": [
+    "1 Dado, informação, conhecimento e inteligência",
+    "2 Coleta, tratamento, armazenamento, integração e recuperação de dados",
+    "3 Bancos de dados relacionais",
+    "4 Modelagem relacional, dimensional e multidimensional",
+    "5 Planilhas e SQL",
+    "6 Processo de ciência de dados",
+    "7 Visualização e análise exploratória de dados",
+    "8 Mineração de dados",
+    "9 Aprendizado de máquina: fundamentos, principais algoritmos e métricas de desempenho",
+    "10 Big Data: conceitos, premissas e aplicações",
+    "11 Business Intelligence. PAULA CINTRA DANTAS Secretária Interina de Estado do Planejamento, Gestão e Patrimônio do Estado de Alagoas ANEXO I CRONOGRAMA PREVISTO Atividade Datas previstas 26/8 a 1º/9/2026 Período de impugnação ao edital Das",
+    "10 horas do primeiro dia às",
+    "18 horas do último dia (horário oficial de Brasília/DF) Divulgação das respostas às impugnações ao edital 16/9/2026 de abertura",
+    "17 a 24/9/2026 Período de solicitação de inscrição com isenção de Das",
+    "10 horas do primeiro dia às",
+    "18 horas do taxa de inscrição último dia (horário oficial de Brasília/DF) 17/9 a 21/10/2026 Período de solicitação de inscrições Das",
+    "10 horas do primeiro dia às",
+    "18 horas do último dia (horário oficial de Brasília/DF) Divulgação do edital com a relação provisória dos candidatos com a solicitação de isenção de taxa de 7/10/2026 inscrição deferida Prazo para a interposição de recursos contra o",
+    "8 e 9/10/2026 indeferimento da solicitação de isenção de taxa de Das",
+    "10 horas do primeiro dia às",
+    "18 horas do inscrição último dia (horário oficial de Brasília/DF) Divulgação do edital com a relação final dos candidatos com a solicitação de isenção de taxa de 22/10/2026 inscrição deferida Disponibilização do link para verificação do",
+    "22 e 23/10/2026 deferimento da foto encaminhada na inscrição e Das",
+    "10 horas do primeiro dia às",
+    "18 horas do prazo para novo envio de foto que atenda às último dia (horário oficial de Brasília/DF) determinações do sistema Data final para o pagamento da taxa de inscrição 26/10/2026 Relação provisória de candidatas que tiveram a solicitação de atendimento especializado para lactantes deferida e relação provisória dos 9/11/2026 candidatos com a inscrição deferida para concorrer às vagas reservadas às pessoas com deficiência",
+    "9 a 11/11/2026 Consulta à situação provisória da solicitação de Das",
+    "10 horas do primeiro dia às",
+    "18 horas do atendimento especializado último dia (horário oficial de Brasília/DF) Prazo para a interposição de recursos contra o indeferimento da inscrição para concorrer às",
+    "10 e 11/11/2026 vagas reservadas às pessoas com deficiência e Das",
+    "10 horas do primeiro dia às",
+    "18 horas do contra o indeferimento da solicitação de último dia (horário oficial de Brasília/DF) atendimento especializado Atividade Datas previstas Relação final de candidatas que tiveram a solicitação de atendimento especializado para lactantes deferida e relação final dos candidatos 25/11/2026 com a inscrição deferida para concorrer às vagas reservadas às pessoas com deficiência Consulta à situação final da solicitação de 25/11/2026 atendimento especializado Divulgação do edital que informará a 4/12/2026 disponibilização da consulta aos locais de provas Aplicação das provas objetivas 20/12/2026",
+    "22 a 30/12/2026 Consulta individual aos gabaritos oficiais Das",
+    "19 horas do primeiro dia às",
+    "18 horas do preliminares das provas objetivas último dia (horário oficial de Brasília/DF) Prazo para a interposição de recursos quanto às",
+    "23 a 30/12/2026 questões formuladas e aos gabaritos oficiais Das",
+    "10 horas do primeiro dia às",
+    "18 horas do preliminares divulgados último dia (horário oficial de Brasília/DF) 30/12/2026 Divulgação dos gabaritos oficiais preliminares das A partir das",
+    "19 horas (horário oficial de provas objetivas Brasília/DF) Aplicação da prova discursiva 10/1/2027 Divulgação do padrão preliminar de respostas da 12/1/2027 prova discursiva",
+    "13 a 19/1/2027 Prazo para a interposição de recursos quanto ao Das",
+    "10 horas do primeiro dia às",
+    "18 horas do padrão de respostas da prova discursiva último dia (horário oficial de Brasília/DF) Divulgação do edital de resultado final nas provas objetivas e de resultado provisório na prova 5/2/2027 discursiva (Retificado por meio do Edital nº",
+    "4 SEFAZ/AL, de",
+    "14 de outubro de 2026, e do Edital nº",
+    "5 SEFAZ/AL, de",
+    "22 de outubro de 2026, disponíveis no endereço eletrônico http://www.cebraspe.org.br/concursos/sefaz_al_26) * As datas e os períodos estabelecidos no cronograma são passíveis de alteração, conforme necessidade e conveniência da Seplag/AL e do Cebraspe. Caso haja alteração, esta será previamente comunicada por meio de edital. ** As demais datas serão informadas por meio dos editais subsequentes a serem publicados no Diário Oficial do Estado de Alagoas e(ou) divulgados na internet, no endereço eletrônico http://www.cebraspe.org.br/concursos/sefaz_al_26. ANEXO II MODELO DE LAUDO CARACTERIZADOR DE DEFICIÊNCIA PARA FINS DE SOLICITAÇÃO DE INSCRIÇÃO PARA CONCORRER COMO PESSOA COM DEFICIÊNCIA, PARA A SOLICITAÇÃO DE ATENDIMENTO ESPECIALIZADO E PARA A AVALIAÇÃO BIOPSICOSSOCIAL (Candidatos que se declararam com deficiência) Atesto, para fins de participação em concurso público, que o(a) Senhor(a)____________________________________________________________________________, portador(a) do documento de identidade nº ______________________, é considerado(a) pessoa com deficiência à luz da legislação brasileira por apresentar o(s) seguinte(s) impedimento(s) físico(s), auditivo(s), visual(is), intelectual(is) ou psicossocial(is)/mental(is)________________________________________________________________ _____________________________________________________________________________________ ___________________________________________________________, CID-10 ________________, que resulta(m) no comprometimento das seguintes funções/funcionalidades _____________________________________________________________________________________ _____________________________________________________________________________________ _____. Informo, ainda, a provável causa do comprometimento_____________________________________________________________________ _____________________________________________________________________________________ ____________________________________________________________________________________. Cidade/UF, ____ de _________ de 20__. Assinatura e carimbo do(a) Profissional Médico ou de Saúde de Nível Superior atuante na área de deficiência do candidato (fisioterapeuta, fonoaudiólogo, terapeuta ocupacional e psicólogo)"
+   ],
+   "bloco": "P2 · Conhecimentos específicos",
+   "area": "ti",
+   "motivos": [
+    [
+     "a Cebraspe cobra muito isso em TI"
+    ],
+    [
+     "a Cebraspe cobra muito isso em TI"
+    ],
+    [
+     "a Cebraspe cobra muito isso em TI"
+    ],
+    [],
+    [
+     "núcleo de alta incidência"
+    ],
+    [
+     "a Cebraspe cobra muito isso em TI"
+    ],
+    [
+     "a Cebraspe cobra muito isso em TI"
+    ],
+    [
+     "núcleo de alta incidência",
+     "a Cebraspe cobra muito isso em TI",
+     "6 subitens no edital"
+    ],
+    [],
+    [
+     "núcleo de alta incidência"
+    ],
+    [
+     "núcleo de alta incidência"
+    ],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    []
+   ],
+   "rel": [
+    5,
+    5,
+    5,
+    3,
+    5,
+    5,
+    5,
+    5,
+    3,
+    5,
+    5,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3
+   ],
+   "esperadas": [
+    0.7,
+    0.7,
+    0.7,
+    0.4,
+    0.7,
+    0.7,
+    0.7,
+    0.7,
+    0.4,
+    0.7,
+    0.7,
+    0.4,
+    0.4,
+    0.4,
+    0.4,
+    0.4,
+    0.4,
+    0.4,
+    0.4,
+    0.4,
+    0.4,
+    0.4,
+    0.4,
+    0.4,
+    0.4,
+    0.4,
+    0.4,
+    0.4,
+    0.4,
+    0.4,
+    0.4,
+    0.4,
+    0.4,
+    0.4,
+    0.4,
+    0.4,
+    0.4,
+    0.4,
+    0.4,
+    0.4,
+    0.4,
+    0.4,
+    0.4,
+    0.4
+   ],
+   "motivoDisc": "Entre as mais cobradas pela Cebraspe em ti"
+  }
+ ],
+ "quadro": [
+  {
+   "bloco": "P1 · Conhecimentos básicos",
+   "questoes": 60,
+   "minimo": "nota mínima M1 (item 8.11.5 do edital)"
+  },
+  {
+   "bloco": "P2 · Conhecimentos específicos",
+   "questoes": 100,
+   "minimo": "nota mínima M2; conjunto das objetivas M3"
+  },
+  {
+   "bloco": "P3 · Discursiva",
+   "questoes": 4,
+   "minimo": "quatro questões abertas (10/1/2027)"
+  }
+ ],
+ "duracao_min": 270,
+ "formato": "certo-errado",
+ "areas": [
+  "fiscal",
+  "ti"
+ ],
+ "pesoTI": 31,
+ "motor": {
+  "versao": 1,
+  "quando": "2026-11-21"
+ },
+ "questoes_total": 160,
+ "fontes": [
+  "https://cdn.cebraspe.org.br/concursos/SEFAZ_AL_26/arquivos/2B5730DDD358C0CDBDC1FB3C376F3E90E50A11D503FA6742A63289214E9CD983.pdf"
+ ],
+ "observacoes": [
+  "Edital nº 1 – SEFAZ/AL, de 24/8/2026, consolidado até a retificação do Edital nº 5, de 22/10/2026 (Cebraspe).",
+  "Itens certo/errado: cada item errado desconta (fórmula do subitem 8.11 do edital); em branco não pontua.",
+  "Provas objetivas em 20/12/2026 (4h30); discursiva em 10/1/2027; datas sujeitas a alteração pelo Cebraspe.",
+  "Quantidade de itens por disciplina conferida no quadro do item 7.1 do edital.",
+  "Edital atípico para a área fiscal: na P2, 50 dos 100 itens são de TI (Ciência de Dados 20, Inteligência Artificial 10, Desenvolvimento de Sistemas 10, Infraestrutura de TIC e Segurança 10), e a discursiva cobra ciência de dados.",
+  "Matérias, tópicos e quadro lidos do edital pelo motor do app; pesos dos tópicos (1–5) calculados sem IA a partir do perfil da banca, do núcleo de alta incidência e do tamanho de cada item. Não é previsão de prova."
+ ],
+ "exemplo": true
+}
