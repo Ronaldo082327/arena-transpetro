@@ -11,6 +11,14 @@
   var AUREO = 137.50776 * Math.PI / 180;
   var COR_TIPO = { concurso: '#fff6e8', disciplina: '#f2b544', topico: '#e07a2e', erro: '#ff6b5e', ficha: '#7fd3a8', mapa: '#8fb8ff', grifo: '#ffe36e', pdf: '#c9a7ff', pergunta: '#5fd7e8', sessao: '#ffffff', carta: '#ffa94d', caderno: '#b8f27a' };
   var ROT_TIPO = { concurso: 'Concurso', disciplina: 'Disciplina', topico: 'Tópico do edital', erro: 'Erro', ficha: 'Ficha', mapa: 'Mapa mental', grifo: 'Grifo', pdf: 'PDF', pergunta: 'Pergunta à Dora', sessao: 'Sessão de estudo', carta: 'Cartas', caderno: 'Caderno de questões' };
+  var TEMAS = {
+    girassol: { nome: 'Girassol', bg: ['#2a1b12', '#140d09', '#070504'], estrela: '#fff3d6', aresta: function (h) { return 'hsla(' + h + ',70%,70%,'; }, rotulo: '#fff6e8', hueBase: null },
+    nebulosa: { nome: 'Nebulosa', bg: ['#1d1236', '#0d0a1f', '#04030a'], estrela: '#dcd6ff', aresta: function (h) { return 'hsla(' + (250 + h % 90) + ',80%,72%,'; }, rotulo: '#ece8ff', hueBase: 250 },
+    aurora: { nome: 'Aurora', bg: ['#0c2a2a', '#071615', '#020707'], estrela: '#d6fff4', aresta: function (h) { return 'hsla(' + (150 + h % 80) + ',75%,65%,'; }, rotulo: '#e6fff9', hueBase: 150 },
+    obsidiana: { nome: 'Obsidiana', bg: ['#262626', '#1b1b1b', '#111111'], estrela: '#9a9a9a', aresta: function () { return 'hsla(0,0%,70%,'; }, rotulo: '#dcddde', hueBase: 265, nodeCor: '#a88bfa' },
+    papel: { nome: 'Papel (claro)', bg: ['#fffaf3', '#f6ecdf', '#eadbc8'], estrela: '#c9b59c', aresta: function (h) { return 'hsla(' + h + ',45%,40%,'; }, rotulo: '#2b2420', hueBase: null, claro: true },
+    contraste: { nome: 'Alto contraste', bg: ['#000000', '#000000', '#000000'], estrela: '#ffffff', aresta: function () { return 'hsla(55,100%,60%,'; }, rotulo: '#ffffff', hueBase: 55 }
+  };
   function layout(G) {
     var porId = {}, filhos = {}; G.nos.forEach(function (n) { porId[n.id] = n; (filhos[n.pai] = filhos[n.pai] || []).push(n); });
     var raizN = G.nos.find(function (n) { return n.tipo === 'concurso'; }) || G.nos[0]; if (!raizN) return G;
@@ -21,31 +29,31 @@
       d.lx = 112 * Math.cos(a0 - 0.18); d.ly = 112 * Math.sin(a0 - 0.18);
       var tops = (filhos[d.id] || []).filter(function (n) { return n.tipo === 'topico'; }), passo = Math.min(0.42, 5.2 / Math.max(1, tops.length));
       tops.forEach(function (t, j) { var th = (j + 1) * passo, ang = a0 + th, rad = r0 * Math.exp(0.33 * th) + 6 * j; t.braco = j ? tops[j - 1].id : d.id; t.x = rad * Math.cos(ang); t.y = rad * Math.sin(ang); t.r = 4 + 1.3 * (t.peso || 3) / 3; t.hue = d.hue; });
-      (filhos[d.id] || []).filter(function (n) { return n.tipo !== 'topico'; }).forEach(function (o, k) { var ang = a0 - 0.5 + k * AUREO * 0.15, rr = r0 * 0.9 + 5 * Math.sqrt(k + 1); o.x = rr * Math.cos(ang); o.y = rr * Math.sin(ang); o.r = 2.4; o.hue = d.hue; });
+      var fimB = tops.length ? tops[tops.length - 1] : d; d.lx = fimB.x * 1.1 + (fimB === d ? 30 * Math.cos(a0) : 0); d.ly = fimB.y * 1.1 + 14 + (fimB === d ? 30 * Math.sin(a0) : 0); (filhos[d.id] || []).filter(function (n) { return n.tipo !== 'topico'; }).forEach(function (o, k) { var ang = k * AUREO, rr = 14 + 6 * Math.sqrt(k + 1); o.x = fimB.x + rr * Math.cos(ang); o.y = fimB.y + rr * Math.sin(ang); o.r = 2.4; o.hue = d.hue; });
     });
     G.nos.forEach(function (n) {
-      if (n.x != null || !porId[n.pai]) return; var p = porId[n.pai]; if (p.x == null) return;
+      if (n.x != null || !porId[n.pai] || (porId[n.pai].tipo === 'concurso' && !G.mini)) return; var p = porId[n.pai]; if (p.x == null) return;
       var irm = filhos[n.pai], k = irm.indexOf(n), ang = k * AUREO, rr = 10 + 5.2 * Math.sqrt(k + 1); n.x = p.x + rr * Math.cos(ang); n.y = p.y + rr * Math.sin(ang); n.r = n.tipo === 'pdf' ? 3.6 : 2.4; n.hue = p.hue;
     });
     // sem pai posicionado: anel externo
-    var soltos = G.nos.filter(function (n) { return n.x == null; }); soltos.forEach(function (n, i) { var ang = i * AUREO, rr = 22 + 3.2 * Math.sqrt(i + 1); n.x = rr * Math.cos(ang); n.y = rr * Math.sin(ang); n.r = 2; });
-    var arestas = []; G.nos.forEach(function (n) { if (n.braco && porId[n.braco]) arestas.push([n.braco, n.id]); else if (porId[n.pai]) arestas.push([n.pai, n.id]); }); (G.arestas || []).forEach(function (e) { if (porId[e[0]] && porId[e[1]]) arestas.push(e); });
+    var soltos = G.nos.filter(function (n) { return n.x == null; }); var ext0 = 0; G.nos.forEach(function (n) { if (n.x != null) ext0 = Math.max(ext0, Math.hypot(n.x, n.y)); }); soltos.forEach(function (n, i) { var ang = i * AUREO, rr = ext0 + 40 + 4 * Math.sqrt(i + 1); n.x = rr * Math.cos(ang); n.y = rr * Math.sin(ang); n.r = 2; });
+    var arestas = []; G.nos.forEach(function (n) { if (n.braco && porId[n.braco]) arestas.push([n.braco, n.id]); else if (porId[n.pai] && (G.mini || !(porId[n.pai].tipo === 'concurso' && n.tipo !== 'disciplina'))) arestas.push([n.pai, n.id]); }); (G.arestas || []).forEach(function (e) { if (porId[e[0]] && porId[e[1]]) arestas.push(e); });
     G.porId = porId; G.todas = arestas; return G;
   }
   function tocar(canvas, G, op) {
     op = op || {}; layout(G); var ctx = canvas.getContext('2d'), dpr = Math.min(2, window.devicePixelRatio || 1), W, H, vivo = true, raf = 0, t0 = 0;
-    var ordem = G.nos.slice().sort(function (a, b) { return (a.t || 0) - (b.t || 0); }), nT = ordem.length, DUR = op.reduzido ? 1 : Math.min(18000, 4000 + nT * 18), visto = {};
+    var TM = TEMAS[op.tema] || TEMAS.girassol, ordem = G.nos.slice().sort(function (a, b) { return (a.t || 0) - (b.t || 0); }), nT = ordem.length, DUR = op.reduzido ? 1 : Math.min(18000, 4000 + nT * 18), visto = {};
     ordem.forEach(function (n, i) { n.ord = i; });
     var cam = { x: 0, y: 0, z: 1, rot: 0 }, alvoZ = 1, arrasto = null, sobre = null, filtro = op.filtro || null, part = [], estrelas = [];
     for (var i = 0; i < 260; i++) estrelas.push({ x: Math.random() * 2 - 1, y: Math.random() * 2 - 1, s: Math.random() * 1.4 + .2, f: Math.random() * 6 });
     function tam() { W = canvas.clientWidth || 800; H = canvas.clientHeight || 520; canvas.width = W * dpr; canvas.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0); var ext = 0; G.nos.forEach(function (n) { ext = Math.max(ext, Math.abs(n.x || 0), Math.abs(n.y || 0)); }); alvoZ = Math.min(W, H) / 2 / Math.max(200, ext + 30); cam.z = cam.z === 1 && !tam.ok ? alvoZ * 0.35 : cam.z; tam.ok = 1; }
     tam(); var onR = function () { tam(); }; window.addEventListener('resize', onR);
-    function tela(n) { var c = Math.cos(cam.rot), s = Math.sin(cam.rot), x = n.x * c - n.y * s, y = n.x * s + n.y * c; return { x: W / 2 + (x - cam.x) * cam.z, y: H / 2 + (y - cam.y) * cam.z }; }
+    function tela(n) { var fl = n.ord != null && !op.reduzido ? Math.sin(performance.now() / 1900 + n.ord * 1.7) * (n.tipo === 'topico' ? 1.6 : n.tipo === 'disciplina' || n.tipo === 'concurso' ? 0.4 : 2.6) : 0, nx = n.x + fl, ny = n.y + (n.ord != null && !op.reduzido ? Math.cos(performance.now() / 2300 + n.ord) * (n.tipo === 'topico' ? 1.6 : 2.2) : 0), c = Math.cos(cam.rot), s = Math.sin(cam.rot), x = nx * c - ny * s, y = nx * s + ny * c; return { x: W / 2 + (x - cam.x) * cam.z, y: H / 2 + (y - cam.y) * cam.z }; }
     function mundo(px, py) { var x = (px - W / 2) / cam.z + cam.x, y = (py - H / 2) / cam.z + cam.y, c = Math.cos(-cam.rot), s = Math.sin(-cam.rot); return { x: x * c - y * s, y: x * s + y * c }; }
     function vizinhos(id) { var v = {}; v[id] = 1; G.todas.forEach(function (e) { if (e[0] === id) v[e[1]] = 1; if (e[1] === id) v[e[0]] = 1; }); return v; }
     var viz = null;
-    canvas.addEventListener('wheel', function (e) { e.preventDefault(); cam.z *= e.deltaY < 0 ? 1.12 : 0.89; cam.z = Math.max(0.05, Math.min(12, cam.z)); }, { passive: false });
-    canvas.addEventListener('pointerdown', function (e) { arrasto = { x: e.clientX, y: e.clientY, cx: cam.x, cy: cam.y, mov: 0 }; canvas.setPointerCapture(e.pointerId); });
+    canvas.addEventListener('wheel', function (e) { e.preventDefault(); op._zoomLivre = 1; var rc = canvas.getBoundingClientRect(), px = e.clientX - rc.left, py = e.clientY - rc.top, antes = mundo(px, py); cam.z *= e.deltaY < 0 ? 1.15 : 0.87; cam.z = Math.max(0.05, Math.min(14, cam.z)); var depois = mundo(px, py), c = Math.cos(cam.rot), s2 = Math.sin(cam.rot), dx = antes.x - depois.x, dy = antes.y - depois.y; cam.x += dx * c - dy * s2; cam.y += dx * s2 + dy * c; }, { passive: false });
+    canvas.addEventListener('pointerdown', function (e) { op._zoomLivre = 1; arrasto = { x: e.clientX, y: e.clientY, cx: cam.x, cy: cam.y, mov: 0 }; canvas.setPointerCapture(e.pointerId); });
     canvas.addEventListener('pointermove', function (e) {
       var rc = canvas.getBoundingClientRect(), px = e.clientX - rc.left, py = e.clientY - rc.top;
       if (arrasto) { var dx = e.clientX - arrasto.x, dy = e.clientY - arrasto.y; arrasto.mov += Math.abs(dx) + Math.abs(dy); cam.x = arrasto.cx - dx / cam.z; cam.y = arrasto.cy - dy / cam.z; return; }
@@ -59,27 +67,28 @@
       if (!t0) t0 = agora; var tt = agora - t0, prog = Math.min(1, tt / DUR), lim = Math.floor(prog * nT);
       if (!arrasto) { cam.z += (alvoZ * (0.55 + 0.45 * Math.min(1, prog * 1.3)) - cam.z) * (op.reduzido ? 1 : 0.02) * (op._zoomLivre ? 0 : 1); cam.rot += op.reduzido ? 0 : 0.00025; }
       for (var k = 0; k < lim; k++) { var n = ordem[k]; if (!visto[n.id]) { visto[n.id] = agora; if (!op.reduzido && n.tipo !== 'topico' && n.tipo !== 'disciplina' && part.length < 400) { var p0 = tela(n); for (var q = 0; q < 6; q++) { var a = Math.random() * 6.283, v = .5 + Math.random() * 1.8; part.push({ x: p0.x, y: p0.y, vx: Math.cos(a) * v, vy: Math.sin(a) * v, vida: 1, c: COR_TIPO[n.tipo] || '#fff' }); } } } }
-      var g = ctx.createRadialGradient(W / 2, H / 2, 0, W / 2, H / 2, Math.max(W, H) * .7); g.addColorStop(0, '#2a1b12'); g.addColorStop(.55, '#140d09'); g.addColorStop(1, '#070504'); ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
-      estrelas.forEach(function (e) { ctx.globalAlpha = .25 + .45 * Math.abs(Math.sin(tt / 1500 + e.f)); ctx.fillStyle = '#fff3d6'; ctx.fillRect(W / 2 + e.x * W * .6, H / 2 + e.y * H * .6, e.s, e.s); }); ctx.globalAlpha = 1;
+      var g = ctx.createRadialGradient(W / 2, H / 2, 0, W / 2, H / 2, Math.max(W, H) * .7); g.addColorStop(0, TM.bg[0]); g.addColorStop(.55, TM.bg[1]); g.addColorStop(1, TM.bg[2]); ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
+      estrelas.forEach(function (e) { ctx.globalAlpha = .25 + .45 * Math.abs(Math.sin(tt / 1500 + e.f)); ctx.fillStyle = TM.estrela; ctx.fillRect(W / 2 + e.x * W * .6, H / 2 + e.y * H * .6, e.s, e.s); }); ctx.globalAlpha = 1;
       // nebulosas dos braços
-      G.nos.forEach(function (n) { if (n.tipo !== 'disciplina' || !visto[n.id]) return; var p = tela(n), rr = 140 * cam.z; var gn = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, rr); gn.addColorStop(0, 'hsla(' + n.hue + ',85%,60%,.16)'); gn.addColorStop(1, 'hsla(' + n.hue + ',85%,60%,0)'); ctx.fillStyle = gn; ctx.beginPath(); ctx.arc(p.x, p.y, rr, 0, 6.283); ctx.fill(); });
+      G.nos.forEach(function (n) { if (n.tipo !== 'disciplina' || !visto[n.id]) return; var p = tela(n), rr = 140 * cam.z; var gn = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, rr); var hh = TM.hueBase != null ? TM.hueBase + n.hue % 60 : n.hue; gn.addColorStop(0, 'hsla(' + hh + ',85%,' + (TM.claro ? '45%,.10)' : '60%,.16)')); gn.addColorStop(1, 'hsla(' + hh + ',85%,60%,0)'); ctx.fillStyle = gn; ctx.beginPath(); ctx.arc(p.x, p.y, rr, 0, 6.283); ctx.fill(); });
       // arestas: escritas do pai ao filho ao longo de 700 ms
       ctx.lineCap = 'round';
       G.todas.forEach(function (e) { var a = G.porId[e[0]], b = G.porId[e[1]]; if (!visto[a.id] || !visto[b.id]) return; if (filtro && ((!filtro[b.tipo] && b.tipo !== 'disciplina' && b.tipo !== 'topico') || (!filtro[a.tipo] && a.tipo !== 'disciplina' && a.tipo !== 'topico' && a.tipo !== 'concurso'))) return;
         var f = op.reduzido ? 1 : Math.min(1, (agora - Math.max(visto[a.id], visto[b.id])) / 700), pa = tela(a), pb = tela(b), x2 = pa.x + (pb.x - pa.x) * f, y2 = pa.y + (pb.y - pa.y) * f, real = viz && viz[a.id] && viz[b.id];
-        ctx.strokeStyle = real ? 'rgba(255,230,170,.95)' : 'hsla(' + (b.hue || 35) + ',70%,70%,' + (viz ? .06 : .22) + ')'; ctx.lineWidth = real ? 1.8 : (b.tipo === 'topico' ? 1.1 : .7); ctx.beginPath(); ctx.moveTo(pa.x, pa.y); ctx.lineTo(x2, y2); ctx.stroke();
+        ctx.strokeStyle = real ? (TM.claro ? 'rgba(179,70,0,.9)' : 'rgba(255,230,170,.95)') : TM.aresta(b.hue || 35) + (viz ? .06 : (TM.claro ? .35 : .22)) + ')'; ctx.lineWidth = real ? 1.8 : (b.tipo === 'topico' ? 1.1 : .7); ctx.beginPath(); ctx.moveTo(pa.x, pa.y); ctx.lineTo(x2, y2); ctx.stroke();
         if (f < 1) { ctx.fillStyle = '#fff6e8'; ctx.shadowColor = '#f2b544'; ctx.shadowBlur = 10; ctx.beginPath(); ctx.arc(x2, y2, 2.2, 0, 6.283); ctx.fill(); ctx.shadowBlur = 0; } });
       // nós
+      var ocup = [], livre = function (x, y, w) { for (var q = 0; q < ocup.length; q++) { var o = ocup[q]; if (x < o[0] + o[2] && x + w > o[0] && Math.abs(y - o[1]) < 13) return false; } ocup.push([x, y, w]); return true; };
       G.nos.forEach(function (n) { if (!visto[n.id]) return; if (filtro && !filtro[n.tipo] && n.tipo !== 'concurso' && n.tipo !== 'disciplina' && n.tipo !== 'topico') return;
-        var p = tela(n), idade = op.reduzido ? 1 : Math.min(1, (agora - visto[n.id]) / 500), r = Math.max(1.2, n.r * Math.sqrt(cam.z) * (0.3 + 0.7 * idade)) * (sobre === n ? 1.8 : 1), dim = viz && !viz[n.id];
-        var c = n.tipo === 'topico' && n.dom != null ? 'hsl(' + Math.round(10 + 110 * n.dom) + ',80%,58%)' : (COR_TIPO[n.tipo] || '#fff');
-        ctx.globalAlpha = dim ? .18 : 1; ctx.fillStyle = c; ctx.shadowColor = c; ctx.shadowBlur = dim ? 0 : (n.tipo === 'concurso' || n.tipo === 'disciplina' ? 22 : 9); ctx.beginPath(); ctx.arc(p.x, p.y, r, 0, 6.283); ctx.fill(); ctx.shadowBlur = 0;
-        if ((n.tipo === 'disciplina' || n.tipo === 'concurso' || (n.tipo === 'topico' && cam.z > 1.6) || sobre === n || (viz && viz[n.id] && cam.z > .8)) && !dim) { var lp = n.tipo === 'disciplina' && n.lx != null ? tela({ x: n.lx, y: n.ly }) : { x: p.x + r + 4, y: p.y + 4 }; ctx.fillStyle = n.tipo === 'disciplina' ? 'hsl(' + n.hue + ',90%,78%)' : '#fff6e8'; ctx.font = (n.tipo === 'disciplina' || n.tipo === 'concurso' ? '700 13px' : '11px') + ' system-ui'; if (n.tipo === 'disciplina') ctx.textAlign = 'center'; ctx.fillText(String(n.rot).slice(0, 42), lp.x, lp.y); ctx.textAlign = 'left'; }
+        var p = tela(n), idade = op.reduzido ? 1 : Math.min(1, (agora - visto[n.id]) / 500), r = Math.min(n.tipo === 'concurso' ? 18 : n.tipo === 'disciplina' ? 11 : 9, Math.max(1.2, n.r * Math.sqrt(cam.z) * (0.3 + 0.7 * idade))) * (sobre === n ? 1.8 : 1), dim = viz && !viz[n.id];
+        var c = TM.nodeCor && n.tipo !== 'topico' && n.tipo !== 'concurso' ? TM.nodeCor : n.tipo === 'topico' && n.dom != null ? 'hsl(' + Math.round(10 + 110 * n.dom) + ',80%,58%)' : (COR_TIPO[n.tipo] || '#fff');
+        ctx.globalAlpha = dim ? .18 : 1; ctx.fillStyle = c; ctx.shadowColor = c; ctx.shadowBlur = dim ? 0 : (n.tipo === 'concurso' || n.tipo === 'disciplina' ? 22 : 9) * (op.reduzido ? 1 : 0.75 + 0.35 * Math.sin(agora / 600 + n.ord)); ctx.beginPath(); ctx.arc(p.x, p.y, r, 0, 6.283); ctx.fill(); ctx.shadowBlur = 0;
+        if ((n.tipo === 'disciplina' || n.tipo === 'concurso' || (n.tipo === 'topico' && cam.z > 1.6) || sobre === n || (viz && viz[n.id] && cam.z > .8)) && !dim) { var lp = n.tipo === 'disciplina' && n.lx != null ? tela({ x: n.lx, y: n.ly }) : n.tipo === 'concurso' ? { x: p.x - ctx.measureText(String(n.rot)).width / 2, y: p.y + r + 18 } : { x: p.x + r + 4, y: p.y + 4 }; ctx.fillStyle = n.tipo === 'disciplina' ? 'hsl(' + (TM.hueBase != null ? TM.hueBase + n.hue % 60 : n.hue) + ',' + (TM.claro ? '70%,32%)' : '90%,78%)') : TM.rotulo; ctx.font = (n.tipo === 'disciplina' || n.tipo === 'concurso' ? '700 13px' : '11px') + ' system-ui'; var txt = String(n.rot).slice(0, 42), tw = ctx.measureText(txt).width, x0 = n.tipo === 'disciplina' ? lp.x - tw / 2 : lp.x; if (n.tipo === 'concurso' || sobre === n || livre(x0, lp.y, tw)) { ctx.fillText(txt, x0, lp.y); } }
         ctx.globalAlpha = 1; });
       part = part.filter(function (p) { p.x += p.vx; p.y += p.vy; p.vida -= .025; if (p.vida <= 0) return false; ctx.globalAlpha = p.vida; ctx.fillStyle = p.c; ctx.fillRect(p.x, p.y, 2, 2); return true; }); ctx.globalAlpha = 1;
       // contador de evolução
       var vis = Object.keys(visto).length, ult = ordem[Math.max(0, lim - 1)];
-      ctx.fillStyle = 'rgba(0,0,0,.35)'; ctx.fillRect(10, H - 44, Math.min(W - 20, 420), 34); ctx.fillStyle = '#f2b544'; ctx.font = '700 14px system-ui'; ctx.fillText((prog < 1 ? 'Formando a galáxia… ' : 'Sua galáxia hoje · ') + vis + ' estrelas · ' + G.todas.filter(function (e) { return visto[e[0]] && visto[e[1]]; }).length + ' conexões', 20, H - 22);
+      ctx.fillStyle = TM.claro ? 'rgba(255,255,255,.7)' : 'rgba(0,0,0,.35)'; ctx.fillRect(10, H - 44, Math.min(W - 20, 420), 34); ctx.fillStyle = '#f2b544'; ctx.font = '700 14px system-ui'; ctx.fillText((prog < 1 ? 'Formando a galáxia… ' : 'Sua galáxia hoje · ') + vis + ' estrelas · ' + G.todas.filter(function (e) { return visto[e[0]] && visto[e[1]]; }).length + ' conexões', 20, H - 22);
       if (ult && ult.t && prog < 1) { ctx.fillStyle = 'rgba(255,240,220,.75)'; ctx.font = '12px system-ui'; ctx.textAlign = 'right'; ctx.fillText(new Date(ult.t).toLocaleDateString('pt-BR'), W - 16, 24); ctx.textAlign = 'left'; }
       if (prog >= 1 && !op._fim) { op._fim = 1; if (op.aoFim) op.aoFim(); }
       raf = requestAnimationFrame(quadro);
@@ -87,5 +96,5 @@
     raf = requestAnimationFrame(quadro);
     return { parar: function () { vivo = false; cancelAnimationFrame(raf); }, filtrar: function (f) { filtro = f; }, rever: function () { visto = {}; t0 = 0; op._fim = 0; }, focar: function (id) { var n = G.porId[id]; if (n) { cam.x = n.x; cam.y = n.y; cam.z = Math.max(cam.z, 2.2); } } };
   }
-  raiz.DoraConstelacao = { layout: layout, tocar: tocar, COR_TIPO: COR_TIPO, ROT_TIPO: ROT_TIPO };
+  raiz.DoraConstelacao = { TEMAS: TEMAS, layout: layout, tocar: tocar, COR_TIPO: COR_TIPO, ROT_TIPO: ROT_TIPO };
 })(typeof window !== 'undefined' ? window : globalThis);

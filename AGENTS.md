@@ -194,3 +194,15 @@ Pedido do Ronaldo: toda integração com a sessão local é de mão dupla. Esta 
   - importa o backup e apaga os dados do Estúdio;
   - chaves de IA e código do porteiro nunca são exportados.
 - **Regra do Ronaldo:** artefatos criados no ecossistema Google (Antigravity, Veo, Flow, Docs, imagens) são orquestrados pelo **Gemini 4 Neon** com raciocínio alto.
+
+## Recursos inspirados no Obsidian (21/11)
+- **`canvas.js` (`DoraCanvas`), rota `#canvas/<id>`:** quadro infinito no formato aberto JSON Canvas (`.canvas`, que abre no Obsidian).
+  - Cartões de texto (markdown), tópico, erro, ficha, página de PDF do Draw e grupos.
+  - Setas com rótulo, cores 1–6, grade, zoom no cursor, pinça e Delete.
+  - Modelos: Esquema de tópico, Comparativo X × Y, Linha do tempo e Autópsia de um erro.
+  - "Esboço com IA" passa pela Rede da Dora.
+  - Os quadros ficam em `arenaTP.canvas`.
+- **Grafo local** na Sala do Tópico: `grafoLocal`, uma mini galáxia com `G.mini`.
+- **Ctrl+K com ações** (`cpAcoes`): começar bloco, registrar erro, replanejar, novo quadro, exportar cofre, Rádio de Bolso, Constelação e Consultas. A busca também oferece "Perguntar à Dora: …" e, na cópia pública, os tópicos do edital.
+- **`#consultas`:** tabelas filtráveis de erros e sessões, com agrupamento e CSV.
+- **Modelos de anotação** no Caderno de Erros (`ER_MODELOS`).
