@@ -47,3 +47,8 @@ Contrato final: POST {url}/ia {codigo, prompt, sistema?, json?} -> {texto, model
 
 ## IA na cópia pública (22/11)
 A tela Dora Mentora da cópia pública mostra só o código de acesso (sem chave própria, sem escolha de modelo, sem teto de gasto). O endereço do porteiro pode vir embutido: `PORTEIRO_URL=https://... python3 publico/construir.py` (sem a variável, o aluno também cola o endereço). O servidor escolhe: Gemini sempre primeiro (Neon para pedidos pesados, Hydrogen para leves, pensamento alto) e Opus 5.5 médio só quando todo o Gemini está sem cota.
+
+## Estante inteligente e Mapas da Dora (22/11)
+- `#estante`: o aluno envia PDF/TXT/MD (até 10 MB cada). Contrato com o porteiro: POST {url}/estante/enviar com o ARQUIVO no corpo (binário) e cabeçalhos `x-codigo`, `x-nome` (encodeURIComponent) e `content-type`; POST /estante/listar {codigo}; /estante/apagar {codigo,id}; /estante/apagar-tudo {codigo} (LGPD). Aviso de guarda antes do 1º envio (`arenaTP.estanteAviso`).
+- `/ia` aceita `estante:true` (File Search do Gemini com a store do código; se cair para a Claude, responde sem a estante).
+- `#mapaia` (Mapas da Dora): a IA devolve a árvore em JSON e o app desenha o mapa em SVG com as cores do tema; salva os 30 últimos (`arenaTP.mapas`), baixa SVG e vira cartas na Dora Memória. Funciona no app principal (chave própria) e na cópia pública (porteiro, com opção "usar minha estante").
