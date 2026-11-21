@@ -73,6 +73,11 @@ open(p,'w',encoding='utf-8').write(t)
 
 # modo público: Mira e Plano usam as matérias do aluno
 p2=os.path.join(SAIDA,'estudio.html');t2=open(p2,encoding='utf-8').read();t2=t2.replace('var MODO_PUBLICO=false;','var MODO_PUBLICO=true;',1);open(p2,'w',encoding='utf-8').write(t2)
+
+# porteiro padrão (opcional): PORTEIRO_URL=https://... python3 publico/construir.py
+_pu=os.environ.get('PORTEIRO_URL','').strip()
+if _pu:
+    p3=os.path.join(SAIDA,'estudio.html');t3=open(p3,encoding='utf-8').read();t3=t3.replace("var PORTEIRO_PADRAO='';","var PORTEIRO_PADRAO='"+_pu.replace("'","")+"';",1);open(p3,'w',encoding='utf-8').write(t3)
 # garantia: nenhuma chave de API
 import re
 for dp,_,fs in os.walk(SAIDA):

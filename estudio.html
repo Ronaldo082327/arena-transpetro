@@ -535,7 +535,7 @@ var S={seen:{},box:{},voice:true,speed:1,cc:true,check:{},auto:true,disc:'dados'
 try{var r=localStorage.getItem(KEY);if(r)S=Object.assign(S,JSON.parse(r));}catch(e){}
 function save(){try{localStorage.setItem(KEY,JSON.stringify(S));}catch(e){}}
 var $=function(s,r){return (r||document).querySelector(s);},$$=function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s));};
-var MODO_PUBLICO=false;/* a cópia pública (publico/construir.py) troca por true */
+var MODO_PUBLICO=false;var PORTEIRO_PADRAO='';/* a cópia pública (publico/construir.py) troca por true */
 var app=$('#app'),IDX=null,DISC={};try{var gs0=document.getElementById('gsp0');if(gs0)gs0.innerHTML=window.GUILDA.giro(30);}catch(e){}
 var ICON={erros:'🧾',portugues:'📜',ingles:'🌐',dados:'🛢️',projetos:'🧭',governanca:'⚓',engsoft:'⚙️',ux:'🧩',bi:'📡',logica:'🔦',seguranca:'🛡️'};
 var COR={portugues:'#e8916f',ingles:'#7fc8a0',dados:'#5fd0e0',projetos:'#f2c14e',governanca:'#b9a3ff',engsoft:'#7cc4ec',ux:'#ff9fb6',bi:'#62e3c4',logica:'#ffd166',seguranca:'#ff7b8a'};
@@ -1011,9 +1011,9 @@ var CKEY='arenaTP.claude',IAKEY='arenaTP.ia';
 var CMODELS=[['claude-opus-5-5','Claude Opus 5.5 · melhor qualidade · US$ 4 / 20 por milhão de tokens',4,20],['claude-sonnet-5-5','Claude Sonnet 5.5 · rápido · US$ 2 / 10',2,10],['claude-haiku-5-5','Claude Haiku 5.5 · mais barato · US$ 0,10 / 0,50',.1,.5]];
 function ccfg(){try{return JSON.parse(localStorage.getItem(CKEY)||'{}');}catch(e){return {};}}
 function csave(o){try{localStorage.setItem(CKEY,JSON.stringify(o));}catch(e){}}
-function iaProv(){try{var p=localStorage.getItem(IAKEY);if(p)return p;}catch(e){}return ccfg().key&&!gcfg().key?'claude':'gemini';}
+function iaProv(){if(MODO_PUBLICO)return 'porteiro';try{var p=localStorage.getItem(IAKEY);if(p)return p;}catch(e){}return ccfg().key&&!gcfg().key?'claude':'gemini';}
 var PKEY='arenaTP.porteiro';
-function pcfg(){try{return JSON.parse(localStorage.getItem(PKEY)||'{}');}catch(e){return {};}}
+function pcfg(){var o={};try{o=JSON.parse(localStorage.getItem(PKEY)||'{}');}catch(e){}if(MODO_PUBLICO&&PORTEIRO_PADRAO)o.url=PORTEIRO_PADRAO;return o;}
 function psave(o){try{localStorage.setItem(PKEY,JSON.stringify(o));}catch(e){}}
 function iaReady(){return iaProv()==='porteiro'?!!(pcfg().url&&pcfg().codigo):iaProv()==='claude'?!!ccfg().key:!!gcfg().key;}
 function iaName(){return iaProv()==='porteiro'?'IA da Guilda':iaProv()==='claude'?'Claude':'Gemini';}
@@ -1061,7 +1061,14 @@ function claudeBind(){$$('[data-prov]').forEach(function(b){b.onclick=function()
   $('#cs').onclick=function(){var o=ccfg();o.key=$('#ck').value.trim();o.model=$('#cm').value;var v=parseFloat($('#ccap').value);o.cap=isNaN(v)||v<0?10:v;csave(o);if(o.key){try{localStorage.setItem(IAKEY,'claude');}catch(e){}}toast(o.key?'Claude salva neste aparelho':'Chave removida');gemini();};
   var cx=$('#cx');if(cx)cx.onclick=function(){var o=ccfg();delete o.key;csave(o);try{localStorage.setItem(IAKEY,'gemini');}catch(e){}gemini();};}
 function topicCtx(o,t){var q=t.qs.find(function(x){return x.alts&&Object.keys(x.alts).length===5;});return 'Disciplina: '+o.nome+'\nTópico do edital: '+t.t+'\nPeso: '+(t.peso||'')+'\nO que a banca cobra: '+(t.cobra||'')+'\nComo ela pergunta: '+(t.pergunta||'')+'\nOnde ela confunde: '+(t.confunde||'')+'\nMacete: '+(t.macete||'')+(q?'\nQuestão real de referência: '+q.stem+' '+JSON.stringify(q.alts)+' Gabarito '+q.gab+'. '+q.expl:'');}
-function gemini(){nav('gem');var c=gcfg();
+function iaPublica(){nav('gem');var c=pcfg();
+  app.innerHTML='<header class="hero"><div class="eyebrow">Dora Mentora (IA)</div><h2>Sua IA da Guilda</h2><p class="note" style="max-width:72ch">A IA já está configurada. Você só precisa do <b>código de acesso</b> que recebeu. Cada código tem um limite de uso por dia e por mês. Nada de chaves nem de escolher modelo: o servidor decide.</p></header>'+
+  '<section class="panel"><h3>Código de acesso</h3><div class="row" style="margin-top:8px">'+(PORTEIRO_PADRAO?'':'<input id="pu" placeholder="Endereço do servidor (https://…)" value="'+esc(c.url||'')+'" style="flex:1;min-width:220px">')+'<input id="pc" type="password" autocomplete="off" placeholder="Código de acesso" value="'+esc(c.codigo||'')+'" style="min-width:200px"><button class="primary" id="ps">Salvar</button><button class="ghost" id="pt">Testar código</button></div><p class="note" id="pr" style="margin-top:6px">'+(c.codigo?'Código salvo neste aparelho.':'Cole o código para ligar a IA.')+'</p></section>';
+  $('#ps').onclick=function(){var o={url:($('#pu')?$('#pu').value.trim():c.url||''),codigo:$('#pc').value.trim()};psave(o);toast(o.codigo?'Código salvo neste aparelho':'Código removido');iaPublica();};
+  $('#pt').onclick=function(){var u=String(pcfg().url||($('#pu')?$('#pu').value.trim():'')).replace(/\/+$/,''),k=$('#pc').value.trim(),o=$('#pr');if(!u||!k){o.textContent='Preencha o código de acesso.';return;}o.textContent='Testando…';
+    fetch(u+'/conta',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({codigo:k})}).then(function(r){return r.json().catch(function(){return {};}).then(function(j){
+      if(!r.ok)o.textContent=j.msg||('Não deu certo (HTTP '+r.status+').');else{var g=j.gemini||{};o.textContent=(j.ativo===false?'Código desativado. ':'Código válido'+(j.nome?' · '+j.nome:'')+'. ')+(g.limite!=null?'Uso de hoje: '+g.usado+' de '+g.limite+'.':'');}});}).catch(function(){o.textContent='Não consegui falar com o servidor. Confira a conexão.';});};}
+function gemini(){if(MODO_PUBLICO)return iaPublica();nav('gem');var c=gcfg();
   app.innerHTML='<header class="hero"><div class="eyebrow">Gemini no Arena</div><h2>Banca sintética com Gemini ou Claude</h2><p class="note" style="max-width:72ch">Use a sua conta Google: crie uma chave gratuita no <a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener">Google AI Studio</a> e cole abaixo. A chave fica <b>só neste navegador</b>; nunca vai para o repositório. O padrão é o <b>Gemini 4 Neon</b> (<code>gemini-4-neon</code>); se a sua chave ainda não tiver acesso, o app troca sozinho para o melhor modelo disponível. Sem cobrança: no AI Studio, use um projeto <b>sem faturamento ativado</b>; assim só existe a cota gratuita e, quando ela acaba, o Google responde "limite atingido" em vez de cobrar.</p></header>'+claudePanel()+'<h3 style="margin:14px 0 6px">Gemini</h3>'+
   '<section class="panel"><div class="row"><input id="gk" type="password" autocomplete="off" placeholder="Chave do Google AI Studio" value="'+esc(c.key||'')+'" style="flex:1;min-width:220px"><select id="gm"><option>'+esc(c.model||'gemini-4-neon')+'</option></select><button id="gl">Listar modelos</button><button class="primary" id="gs">Salvar</button>'+(c.key?'<button class="ghost" id="gx">Apagar chave</button>':'')+'</div><p class="note" id="gst" style="margin-top:6px">'+(c.key?'Chave salva neste aparelho.':'Sem chave: as ferramentas abaixo ficam bloqueadas.')+'</p>'+
   '<label class="note" style="display:flex;gap:8px;align-items:flex-start;margin-top:8px"><input type="checkbox" id="gauto" '+(c.auto!==false?'checked':'')+'> <span><b>Modo automático:</b> usar sempre o melhor modelo (Gemini 4 Neon) e descer para um menos potente quando o limite acabar; voltar ao melhor quando o limite renovar (a cada 5 horas).</span></label><div id="gladd"></div>'+
