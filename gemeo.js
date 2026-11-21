@@ -52,6 +52,7 @@
     var onR = function () { tam(); }; window.addEventListener('resize', onR);
     function explosao(x, y, c, n) { for (var k = 0; k < (n || 46); k++) { var a = r() * 6.283, v = 1.2 + r() * 3.6; part.push({ x: x, y: y, vx: Math.cos(a) * v, vy: Math.sin(a) * v - 1, vida: 1, c: c, s: 1.5 + r() * 2.5 }); } }
     var feitos = {}, legenda = null, legT = 0;
+    function capa(v, alfa, modo) { var vw = v.videoWidth || 16, vh = v.videoHeight || 9, k = Math.max(W / vw, H / vh), dw = vw * k, dh = vh * k; ctx.save(); ctx.globalAlpha = alfa; if (modo) ctx.globalCompositeOperation = modo; ctx.drawImage(v, (W - dw) / 2, (H - dh) / 2, dw, dh); ctx.restore(); }
     function girassol(cx, cy, R, frac, tt) {
       var aur = 137.50776 * Math.PI / 180, luz = Math.round(55 * frac);
       var g = ctx.createRadialGradient(cx, cy, 0, cx, cy, R * 1.6); g.addColorStop(0, 'rgba(255,200,90,' + (0.18 + 0.25 * frac) + ')'); g.addColorStop(1, 'rgba(255,200,90,0)'); ctx.fillStyle = g; ctx.beginPath(); ctx.arc(cx, cy, R * 1.6, 0, 6.283); ctx.fill();
@@ -63,7 +64,8 @@
     }
     function quadro(agora) {
       if (!vivo || !canvas.isConnected) { window.removeEventListener('resize', onR); return; } if (!t0) t0 = agora; var tt = agora - t0, prog = Math.min(1, tt / DUR), ease = prog < .5 ? 2 * prog * prog : 1 - Math.pow(-2 * prog + 2, 2) / 2, idx = Math.max(0, Math.min(N - 1, Math.floor(ease * (N - 1) + 0.0001))), D = S.dias[idx];
-      ctx.clearRect(0, 0, W, H); var bg = ctx.createLinearGradient(0, 0, W, H); bg.addColorStop(0, '#1b1410'); bg.addColorStop(1, '#2b1d14'); ctx.fillStyle = bg; ctx.fillRect(0, 0, W, H);
+      ctx.clearRect(0, 0, W, H); var V = op.videos || {}, fv = W < H && V.fundoV ? V.fundoV : V.fundo;
+      if (fv && fv.readyState >= 2) { capa(fv, 1); ctx.fillStyle = 'rgba(20,14,10,.38)'; ctx.fillRect(0, 0, W, H); } else { var bg = ctx.createLinearGradient(0, 0, W, H); bg.addColorStop(0, '#1b1410'); bg.addColorStop(1, '#2b1d14'); ctx.fillStyle = bg; ctx.fillRect(0, 0, W, H); }
       estrelas.forEach(function (e) { e.y -= e.v / 600 * 16; if (e.y < 0) e.y = 1; ctx.globalAlpha = 0.3 + 0.5 * Math.abs(Math.sin(tt / 900 + e.f)); ctx.fillStyle = '#fff3d6'; ctx.fillRect(e.x * W, e.y * H, e.s, e.s); }); ctx.globalAlpha = 1;
       var narrow = W < 640, gx = narrow ? 16 : W * 0.36, gw = narrow ? W - 32 : W * 0.5, gy = narrow ? H * 0.44 : 70, gh = narrow ? H * 0.38 : H - 150;
       // girassol cresce com o volume de questões (55 sementes)
@@ -81,7 +83,8 @@
       var ax = narrow ? W - 22 : gx + gw + 46, acima = 0; ag.forEach(function (v, i) { var yy = y(v) + Math.sin(tt / 700 + i) * 1.5, xx = ax + ((i * 37) % 23) - 11; ctx.globalAlpha = .55; ctx.fillStyle = v <= D.med ? C.ok : 'rgba(255,240,220,.6)'; ctx.beginPath(); ctx.arc(xx, yy, 2.3, 0, 6.283); ctx.fill(); if (v <= D.med) acima++; }); ctx.globalAlpha = 1;
       if (ag.length) { ctx.beginPath(); ctx.arc(ax, hy, 7, 0, 6.283); ctx.fillStyle = C.ac; ctx.shadowColor = C.ac; ctx.shadowBlur = 16; ctx.fill(); ctx.shadowBlur = 0; }
       // marcos com explosões
-      M.forEach(function (m, mi) { if (m.i <= idx && !feitos[mi]) { feitos[mi] = 1; explosao(hx, hy, m.tipo === 'r' ? C.ok : C.de, op.reduzido ? 0 : 50); legenda = m.txt; legT = tt; } });
+      M.forEach(function (m, mi) { if (m.i <= idx && !feitos[mi]) { feitos[mi] = 1; explosao(hx, hy, m.tipo === 'r' ? C.ok : C.de, op.reduzido ? 0 : 50); legenda = m.txt; legT = tt; var mv = (op.videos || {}).marco; if (mv && !op.reduzido) { try { mv.currentTime = 0; mv.play(); } catch (e) { } } } });
+      var mv2 = (op.videos || {}).marco; if (mv2 && !mv2.paused && !mv2.ended && mv2.readyState >= 2) capa(mv2, .9, 'screen');
       part = part.filter(function (p) { p.x += p.vx; p.y += p.vy; p.vy += 0.06; p.vida -= 0.016; if (p.vida <= 0) return false; ctx.globalAlpha = p.vida; ctx.fillStyle = p.c; ctx.beginPath(); ctx.arc(p.x, p.y, p.s, 0, 6.283); ctx.fill(); return true; }); ctx.globalAlpha = 1;
       // painel de números
       var ac = D.Q ? Math.round(100 * D.OK / D.Q) : 0, dataTxt = new Date(D.dia + 'T12:00:00').toLocaleDateString('pt-BR', { day: '2-digit', month: 'short', year: 'numeric' }), txt = [[D.Q.toLocaleString('pt-BR'), 'questões'], [ac + '%', 'acerto'], [D.med.toFixed(1) + ' / ' + total, 'gêmeo (mediana)'], [Math.round(D.lo) + '–' + Math.round(D.hi), 'faixa 80%']];
@@ -92,11 +95,15 @@
       // título e legenda de marco
       ctx.fillStyle = '#fff6e8'; ctx.font = '700 ' + (narrow ? 15 : 18) + 'px system-ui'; ctx.fillText(prog < 1 ? 'Sua jornada até aqui…' : 'Hoje, o seu gêmeo digital', narrow ? 16 : 24, 30); ctx.fillStyle = C.de; ctx.font = '700 ' + (narrow ? 13 : 16) + 'px system-ui'; ctx.textAlign = 'right'; ctx.fillText(dataTxt, W - (narrow ? 16 : 24), 30); ctx.textAlign = 'left';
       if (legenda && tt - legT < 2400) { var al = Math.min(1, (2400 - (tt - legT)) / 500); ctx.globalAlpha = al; ctx.font = '700 ' + (narrow ? 16 : 22) + 'px system-ui'; ctx.textAlign = 'center'; ctx.fillStyle = C.de; ctx.shadowColor = C.de; ctx.shadowBlur = 14; ctx.fillText('✦ ' + legenda + ' ✦', W / 2, narrow ? H * 0.40 : 46); ctx.shadowBlur = 0; ctx.textAlign = 'left'; ctx.globalAlpha = 1; }
-      if (prog >= 1 && !op._fim) { op._fim = 1; explosao(hx, hy, C.ac, op.reduzido ? 0 : 90); if (op.aoFim) op.aoFim(D); }
+      var fimV = (op.videos || {}).final; if (op._fim && fimV && !fimV.ended && fimV.readyState >= 2) capa(fimV, .85, 'screen');
+      if (prog >= 1 && !op._fim) { op._fim = 1; if (fimV && !op.reduzido) { try { fimV.currentTime = 0; fimV.play(); } catch (e) { } } explosao(hx, hy, C.ac, op.reduzido ? 0 : 90); if (op.aoFim) op.aoFim(D); }
       if (prog < 1 || part.length || !op.reduzido) raf = requestAnimationFrame(quadro);
     }
     raf = requestAnimationFrame(quadro);
-    return { parar: function () { vivo = false; cancelAnimationFrame(raf); window.removeEventListener('resize', onR); }, pular: function () { t0 = performance.now() - DUR; } };
+    function gravar(cb) { if (!canvas.captureStream || !window.MediaRecorder) return false; var st = canvas.captureStream(30), tipo = ['video/webm;codecs=vp9', 'video/webm;codecs=vp8', 'video/webm', 'video/mp4'].find(function (t) { return MediaRecorder.isTypeSupported(t); }), rec = new MediaRecorder(st, tipo ? { mimeType: tipo, videoBitsPerSecond: 6e6 } : undefined), pedacos = [];
+      rec.ondataavailable = function (e) { if (e.data && e.data.size) pedacos.push(e.data); }; rec.onstop = function () { cb(new Blob(pedacos, { type: rec.mimeType || 'video/webm' })); };
+      t0 = 0; op._fim = 0; feitos = {}; part = []; legenda = null; rec.start(200); var ant = op.aoFim; op.aoFim = function (D) { setTimeout(function () { try { rec.stop(); } catch (e) { } }, 2500); op.aoFim = ant; if (ant) ant(D); }; return true; }
+    return { gravar: gravar, parar: function () { vivo = false; cancelAnimationFrame(raf); window.removeEventListener('resize', onR); }, pular: function () { t0 = performance.now() - DUR; } };
   }
   raiz.DoraGemeo = { serie: serie, agentes: agentes, marcos: marcos, tocar: tocar, dia: dia };
 })(typeof window !== 'undefined' ? window : globalThis);

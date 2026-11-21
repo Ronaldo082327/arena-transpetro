@@ -182,3 +182,15 @@ Pedido do Ronaldo: toda integração com a sessão local é de mão dupla. Esta 
 - `bancas/perfis.json`: Cebraspe, FGV, FCC, Cesgranrio, Vunesp, Quadrix, IBFC e AOCP, com fontes; hipóteses marcadas. Tela `#banca`. No app principal, ela mostra também o raio-x de `questoes.json`.
 - `exemplos/` (cópia pública): Bacen 2024 TI, Receita 2022 Auditor-Fiscal e SEFAZ-ES 2021, gerados por `node exemplos/gerar.js <pasta dos .txt>` a partir dos PDFs oficiais (`pdftotext -layout`). Não reescreva os tópicos à mão.
 - A Sala do Tópico liga os cadernos do Tec (`cadernos.json` no app principal; `ccGet().cadernos` na cópia pública).
+
+## Constelação, Meus Dados e regra do Gemini Neon (21/11)
+- `constelacao.js` (`DoraConstelacao`), rota `#constelacao`: grafo de conhecimento em galáxia de Fibonacci.
+  - Cada disciplina é um braço em espiral logarítmica com os tópicos encadeados.
+  - Erros, fichas, mapas, perguntas, sessões, cadernos, PDFs e grifos do Draw orbitam o tópico achado pela Tecelã (`DoraRAG.sugerirTopico`).
+  - A galáxia se forma na ordem do tempo, com as conexões "escritas" do pai ao filho.
+  - Tem zoom, arraste, realce dos vizinhos, clique para abrir e filtros por tipo.
+- `cofre.js` (`DoraCofre.zip`, ZIP sem dependências) e a rota `#dados` (Meus Dados):
+  - exporta um cofre Markdown compatível com o Obsidian (`[[links]]`, frontmatter) mais `_dados/backup-dora-guilda.json`;
+  - importa o backup e apaga os dados do Estúdio;
+  - chaves de IA e código do porteiro nunca são exportados.
+- **Regra do Ronaldo:** artefatos criados no ecossistema Google (Antigravity, Veo, Flow, Docs, imagens) são orquestrados pelo **Gemini 4 Neon** com raciocínio alto.

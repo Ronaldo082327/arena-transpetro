@@ -2,6 +2,8 @@
 
 Estas tarefas rodam no computador do Ronaldo, com a conta Google dele. A sessão do Claude na nuvem não alcança o computador nem o Antigravity. Cada tarefa traz o pedido pronto para colar e o que conferir antes de aceitar.
 
+**Modelo:** use o **Gemini 4 Neon** (raciocínio alto) para orquestrar todas as tarefas abaixo, inclusive os pedidos ao Veo/Flow e ao Gemini Image.
+
 **Antes de qualquer tarefa:**
 1. Abra a pasta do repositório `arena-transpetro` no Antigravity.
 2. Faça `git pull` para ficar com o `main` atualizado.
