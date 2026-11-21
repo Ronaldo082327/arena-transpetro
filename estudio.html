@@ -501,6 +501,8 @@ html.pn-open .sq kbd{display:none}.sq{overflow:hidden}
  .toast{bottom:calc(var(--barra-h) + 28px + env(safe-area-inset-bottom,0px))}
  .chip-dias{padding:0 10px;font-size:12px}
 }
+.mirarow{display:grid;gap:6px;padding:10px 12px;margin:8px 0;border-radius:var(--raio-p);border:1px solid var(--line);border-top-color:var(--brilho);background:linear-gradient(180deg,var(--paper),var(--paper-2));box-shadow:var(--sombra-btn);text-decoration:none;color:var(--ink)}
+.mirarow:hover{border-color:var(--destaque)}.mirarow .mt1{display:grid;gap:2px}.mirarow i{display:block;height:8px;border-radius:6px;background:var(--grad-btn-p);box-shadow:var(--sombra-afundado)}
 </style><link rel="stylesheet" href="temas.css"><link rel="stylesheet" href="tema.css"><script src="tema.js"></script><script src="guilda.js"></script><script src="abrir.js" defer></script></head>
 <body>
 <div class="shell">
@@ -1413,9 +1415,13 @@ function cqSession(list){var i=0,ok=0,box=$('#cqz');
       Lg[c.id]={n:prev.n+1,ok:right,conf:conf,l:pick,w:Date.now(),box:box2,due:Date.now()+IV[box2]*864e5-36e5,err:prev.err+(right?0:1),s:c.s};save();if(right)ok++;
       jogoRecord(DQ[c.s]||c.s,right);doroWrite(c.tec,right,pick);
       $('#cqconf').innerHTML='<p class="note">'+(right&&conf==='certeza'?'Registrado. Volta em '+IV[box2]+' dia(s).':(right?'Acertou com '+(conf==='duvida'?'dúvida':'chute')+': foi para o caderno de erros para você fixar.':'Foi para o caderno de erros (aqui e no "Refazer erros" do Doroxandria).'))+'</p>';
-      var bk=$('#cqback');bk.innerHTML='<div class="cqflip">'+cqBack(c,pick)+'<div class="row" style="margin-top:12px">'+(iaReady()?'<button id="gx">🤖 Explicar mais com '+iaName()+'</button>':'')+'<button class="primary" id="nx3">Próximo cartão →</button></div><div id="gxo"></div></div>';
+      var bk=$('#cqback');bk.innerHTML='<div class="cqflip">'+cqBack(c,pick)+'<div class="row" style="margin-top:12px">'+(iaReady()?'<button id="gx">🤖 Explicar mais com '+iaName()+'</button><button id="gdf">🛡️ Defenda o gabarito</button>':'')+'<button class="primary" id="nx3">Próximo cartão →</button></div><div id="gxo"></div></div>';
       bk.scrollIntoView({behavior:'smooth',block:'start'});
       $('#nx3').onclick=function(){i++;draw();window.scrollTo({top:box.offsetTop-70,behavior:'smooth'});};
+      var gdf=$('#gdf');if(gdf)gdf.onclick=function(){$('#gxo').innerHTML='<div class="panel"><h3>🛡️ Defenda o gabarito</h3><p class="note">Escreva, com as suas palavras, por que a alternativa <b>'+c.gab+'</b> é a certa e por que as outras erram. A IA avalia o seu <b>raciocínio</b>, não só a letra.</p><textarea id="gdt" rows="5" style="width:100%" placeholder="A certa é '+c.gab+' porque…"></textarea><div class="row" style="margin-top:8px"><button class="primary" id="gdv">Avaliar meu raciocínio</button></div><div id="gdo"></div></div>';
+        $('#gdv').onclick=function(){var txt=$('#gdt').value.trim();if(txt.length<15)return toast('Escreva pelo menos uma frase completa');$('#gdo').innerHTML='<p class="note">'+iaName()+' avaliando…</p>';
+          var ctx=(c.t?topicCtx(DISC[c.s],c.t):'')+'\nQuestão: '+strip(c.stem)+'\n'+JSON.stringify(c.alts)+'\nGabarito: '+c.gab+(c.rx?'\nRaio-x: '+JSON.stringify(c.rx):'');
+          aicall('Você é o examinador da Cesgranrio corrigindo o RACIOCÍNIO de um candidato. Responda em português simples, em tópicos curtos: (1) nota do raciocínio de 0 a 10, com uma frase; (2) o que ele acertou; (3) qual SINAL do enunciado ou das alternativas ele ignorou ou leu errado; (4) qual pegadinha da banca está nesta questão e como desarmá-la; (5) uma frase de método para a próxima vez. Seja honesto: se ele chegaria à letra certa por um motivo errado, diga. Use só o material abaixo.\n\nMATERIAL:\n'+ctx+'\n\nRACIOCÍNIO DO CANDIDATO:\n'+txt).then(function(t){S.defesas=(S.defesas||0)+1;save();$('#gdo').innerHTML='<div class="panel" style="margin-top:10px">'+md(t)+'<p class="note">Avaliação feita por '+iaName()+' ('+esc(iaModel())+'): confira com o material antes de decorar.</p></div>';}).catch(function(e){$('#gdo').innerHTML='<p class="note">Erro da IA: '+esc(e.message)+'</p>';});};};
       var gx=$('#gx');if(gx)gx.onclick=function(){$('#gxo').innerHTML='<p class="note">'+iaName()+' pensando…</p>';var ctx=(c.t?topicCtx(DISC[c.s],c.t):'')+'\nQuestão: '+strip(c.stem)+'\n'+JSON.stringify(c.alts)+'\nGabarito: '+c.gab+(c.rx?'\nRaio-x: '+JSON.stringify(c.rx):'')+(c.en?'\nCartão: '+strip(c.en.sig)+' '+strip(c.en.dica||''):'');
         aicall('Explique para um estudante iniciante, em português simples, por que a alternativa '+c.gab+' é a correta e por que cada uma das outras está errada, qual é a pegadinha da Cesgranrio e um jeito de lembrar. Use só o material abaixo; se faltar algo, diga "não consta no material".\n\n'+ctx).then(function(t){$('#gxo').innerHTML='<div class="panel">'+md(t)+'</div>';}).catch(function(e){$('#gxo').innerHTML='<p class="note">Erro da IA: '+esc(e.message)+'</p>';});};
       cqSession.key=function(k){if(k==='Enter'){$('#nx3').click();}};}}
@@ -1529,6 +1535,27 @@ function menteTopico(s,ti){app.innerHTML='<p class="note" style="padding:30px 0"
       dt.insertAdjacentHTML('beforebegin',fichaHtml(f));bindFicha();}});
   });});}
 
+/* ===================== MIRA DA GUILDA (onde mirar: o que mais vale × onde você mais erra) ===================== */
+function miraHist(){try{return (JSON.parse(localStorage.getItem('arenaTP.v2')||'{}').hist)||{};}catch(e){return {};}}
+function mira(){nav('mira');app.innerHTML='<p class="note" style="padding:30px 0">Calculando onde mirar…</p>';
+  var sl=IDX.disciplinas.map(function(d){return d.slug;});
+  loadAll().then(function(){return Promise.all([0,loadInc(),Promise.all(sl.map(function(x){return loadDossie(x);})),Promise.all(sl.map(function(x){return topicQB(x,DISC[x]);}))]);}).then(function(r){
+    var inc=r[1]||[],dz=r[2],qb=r[3],H=miraHist(),L=cqLog(),rows=[],incId={},topIdx={},cnt={},dcnt={},seenF={};
+    inc.forEach(function(q){incId[q.id]=q;});
+    sl.forEach(function(x){topIdx[x]={};DISC[x].topicos.forEach(function(t,i){var n=tnum(t);if(n&&topIdx[x][n]==null)topIdx[x][n]=i;});});
+    Object.keys(L).forEach(function(id){var e=L[id];if(!e||e.ok==null)return;var m=id.match(/^g([a-z]+)(\d+)_/),k=null,d=e.s||null;
+      if(m){k=m[1]+':'+m[2];d=d||m[1];}else if(id.charAt(0)==='x'&&incId[id.slice(1)]){var q=incId[id.slice(1)],x=SLUG_INC[q.disc];if(x&&topIdx[x]&&topIdx[x][q.subitem]!=null){k=x+':'+topIdx[x][q.subitem];d=d||x;}}
+      if(k){cnt[k]=cnt[k]||{n:0,c:0};cnt[k].n++;if(e.ok)cnt[k].c++;}if(d){dcnt[d]=dcnt[d]||{n:0,c:0};dcnt[d].n++;if(e.ok)dcnt[d].c++;}});
+    sl.forEach(function(x,si){var o=DISC[x],d=dz[si];
+      o.topicos.forEach(function(t,ti){var n=tnum(t),f=d&&d.byId[n];if(!f||seenF[x+':'+n])return;seenF[x+':'+n]=1;var c=cnt[x+':'+ti]||{n:0,c:0},n0=c.n,c0=c.c;
+        (qb[si][ti]||[]).forEach(function(q){var h=H[String(q.id)];if(h&&h.ok!=null){n0++;if(h.ok)c0++;}});
+        var ac=(c0+1)/(n0+2);rows.push({s:x,nome:short(t.t.replace(/^[\d.]+\s*/,''),64),num:n,esp:f.esperado||0,ch:f.chance||0,n:n0,ac:ac,prio:(f.esperado||0)*(1-ac),h:'#mt/'+x+'/'+ti});});
+      if((x==='portugues'||x==='ingles')&&d){var c=dcnt[x]||{n:0,c:0},ac=(c.c+1)/(c.n+2);d.subitens.forEach(function(f){rows.push({s:x,nome:short(f.edital,64),num:'',esp:f.esperado||0,ch:f.chance||0,n:c.n,ac:ac,prio:(f.esperado||0)*(1-ac),h:'#mt/'+x+'/f/'+encodeURIComponent(f.id)});});}});
+    rows.sort(function(a,b){return b.prio-a.prio;});var max=rows.length?rows[0].prio||1:1;
+    var row=function(x){return '<a class="mirarow" href="'+x.h+'"><span class="mt1"><b>'+ICON[x.s]+' '+(x.num?esc(x.num)+' ':'')+esc(x.nome)+'</b><span class="note mono">≈'+x.esp+' questões · chance '+Math.round(x.ch)+'% · '+(x.n?x.n+' respondidas · acerto '+Math.round(x.ac*100)+'%':'sem respostas ainda (palpite de 50%)')+'</span></span><i style="width:'+Math.max(4,Math.round(100*x.prio/max))+'%"></i></a>';};
+    app.innerHTML='<header class="hero"><div class="eyebrow">Mira da Guilda · onde mirar até a prova</div><h2>O que mais vale × onde você mais erra</h2><p class="note" style="max-width:74ch">Prioridade = questões esperadas do tópico (dossiê do examinador) × chance de você errar. Quanto mais você responde em Dora Cartas, Reflexo e Doroxandria, mais exato fica. Sem respostas, vale o palpite neutro de 50%.</p></header>'+
+      '<section class="panel mtcore"><h3>🎯 Mire nestes 10 primeiro</h3>'+rows.slice(0,10).map(row).join('')+'</section>'+
+      '<details class="ex" style="margin-top:12px"><summary>Ver os '+rows.length+' tópicos e tipos</summary>'+rows.slice(10).map(row).join('')+'</details>';});}
 /* ===================== MAIS (grade por seção) e contagem regressiva ===================== */
 function mais(){nav('mais');var h='<header class="hero"><div class="eyebrow">Tudo da Dora Guilda</div><h2>Mais</h2><p class="note">Tudo do app, por área. Toque para abrir.</p></header><div class="mais">';
   TOOLS.forEach(function(g){h+='<h3>'+esc(g[0])+'</h3><div class="grade">';g[1].forEach(function(t){h+='<a class="lad" data-sec="'+g[2]+'" href="'+href(t)+'"><span class="ico" aria-hidden="true">'+t[1]+'</span><span>'+esc(t[2])+'</span></a>';});h+='</div>';});
@@ -1596,7 +1623,7 @@ addEventListener('hashchange',function(){subSet();contUpdate();});
 MOB.addEventListener&&MOB.addEventListener('change',function(){closeDrawer();});
 /* ===================== ROTAS E TECLADO ===================== */
 function route(){var h=decodeURIComponent(location.hash.slice(1)).split('/');stopPlayer();session.key=null;cqSession.key=null;window.scrollTo(0,0);
-  switch(h[0]){case 'v':return videoteca(h[1]);case 'play':return play(h[1],h[2],+h[3]||0);case 'met':return metodos(h[1]);case 'mm':return mapa(h[1]);case 'esq':return esquemas(h[1],h[2]);case 'fc':return flash();case 'ref':if(h[1]==='raiox')return drillRaiox(h[2]);return h[1]==='vizinho'?drillVizinho():(h[1]==='sinal'?drillSinal():(h[1]==='elimina'?drillElimina():reflexo()));case 'anki':return baralhos(h[1]);case 'plano':return plano();case 'cq':return cartoes(h[1]);case 'sim':return simulador();case 'prancha':return pranchas(h[1]);case 'geo':return geo();case 'lab':return lab();case 'radar':return radar();case 'gem':return gemini();case 'mt':return mente(h[1],h[2],h[3]);case 'pod':return podcasts();case 'mais':return mais();default:return home();}}
+  switch(h[0]){case 'v':return videoteca(h[1]);case 'play':return play(h[1],h[2],+h[3]||0);case 'met':return metodos(h[1]);case 'mm':return mapa(h[1]);case 'esq':return esquemas(h[1],h[2]);case 'fc':return flash();case 'ref':if(h[1]==='raiox')return drillRaiox(h[2]);return h[1]==='vizinho'?drillVizinho():(h[1]==='sinal'?drillSinal():(h[1]==='elimina'?drillElimina():reflexo()));case 'anki':return baralhos(h[1]);case 'plano':return plano();case 'cq':return cartoes(h[1]);case 'sim':return simulador();case 'prancha':return pranchas(h[1]);case 'geo':return geo();case 'lab':return lab();case 'radar':return radar();case 'gem':return gemini();case 'mt':return mente(h[1],h[2],h[3]);case 'pod':return podcasts();case 'mira':return mira();case 'mais':return mais();default:return home();}}
 addEventListener('hashchange',route);
 document.addEventListener('keydown',function(e){if(e.metaKey||e.ctrlKey||e.altKey||/INPUT|SELECT|TEXTAREA/.test(e.target.tagName))return;
   if(P){if(e.key===' '){e.preventDefault();P.toggle();}else if(e.key==='ArrowRight'){e.preventDefault();P.seekCue(Math.min(P.b.cues.length-1,P.i+1));}else if(e.key==='ArrowLeft'){e.preventDefault();P.seekCue(Math.max(0,P.i-1));}else if(e.key==='f'||e.key==='F'){var r=P.root;if(document.fullscreenElement)document.exitFullscreen();else if(r.requestFullscreen)r.requestFullscreen();}return;}

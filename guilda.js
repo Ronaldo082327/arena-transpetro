@@ -4,7 +4,7 @@
 var G=window.GUILDA={nome:'Dora Guilda',sub:'Engenharia Cognitiva para Concursos Públicos'};
 /* item: [chave ou endereço, ícone, nome, o que faz]. Chave simples = rota do Dora Estúdio (estudio.html#chave) */
 G.groups=[
- ['Começar',[['plano','🎯','Dora Missão do Dia','O que estudar agora e seu plano até a prova'],['sim','🎲','Dora Oráculo','Sua chance de passar, em 10.000 provas simuladas']],'treino'],
+ ['Começar',[['plano','🎯','Dora Missão do Dia','O que estudar agora e seu plano até a prova'],['mira','🧭','Mira da Guilda','Onde mirar: o que mais vale × onde você mais erra'],['sim','🎲','Dora Oráculo','Sua chance de passar, em 10.000 provas simuladas']],'treino'],
  ['Aprender a resolver',[['mt','🎓','Dora Examinador','Como a banca cobra cada tópico e onde ela pega'],['met','📜','Grimório de Métodos','Passo a passo para cada tipo de questão'],['ref','⚡','Dora Reflexo','Treinos rápidos de 6 segundos'],['mm','🧠','Mapas da Guilda','O assunto inteiro numa imagem'],['esq','🗺️','Pergaminhos de Esquemas','Duelos, listas e desenhos para a prova']],'treino'],
  ['Treinar',[['cq','🧩','Dora Cartas','Questão como na prova e explicação de cada alternativa'],['fc','🃏','Dora Memória','Flashcards com repetição espaçada'],['anki','🎴','Baralhos da Guilda','Seus baralhos do Anki, com imagem']],'memoria'],
  ['Assistir e ouvir',[['v','🎬','Dora Aulas','Aulas animadas e narradas'],['pod','🎧','Dora Rádio','Resumos em áudio do NotebookLM']],'apoio'],
