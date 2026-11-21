@@ -41,3 +41,9 @@ A cópia pública mostra só o que funciona sem conteúdo pronto: Meu concurso, 
 
 ## Dora Examinadora na cópia pública (22/11)
 `#mt` na cópia pública lista os tópicos de "Meu concurso" e gera a ficha com a IA do aluno (cobra, pergunta, armadilhas, sinais, método, macete e 4 a 6 cartas), guardada em `arenaTP.fichas`. As cartas entram na Dora Memória e a Mira mostra "ficha pronta". O prompt proíbe inventar dados de prova (usa [VERIFICAR]). Não testado com IA real, só com resposta simulada.
+
+## Porteiro (22/11)
+Contrato final: POST {url}/ia {codigo, prompt, sistema?, json?} -> {texto, modelo, prov, restanteHoje}; erro {erro:true, msg, volta?}. O aluno NÃO escolhe o modelo: o porteiro usa sempre o Gemini (Neon para pedidos pesados, Hydrogen para leves, pensamento alto) e só cai para a Claude (Opus 5.5, esforço médio) quando todo o Gemini está sem cota, dentro do teto em dólares. O app avisa quando restam 3 pedidos ou menos no dia. Teto global da Claude e limites por código ficam no worker (ver porteiro/LEIA-ME.md da sessão local); gestão em {url}/admin.
+
+## IA na cópia pública (22/11)
+A tela Dora Mentora da cópia pública mostra só o código de acesso (sem chave própria, sem escolha de modelo, sem teto de gasto). O endereço do porteiro pode vir embutido: `PORTEIRO_URL=https://... python3 publico/construir.py` (sem a variável, o aluno também cola o endereço). O servidor escolhe: Gemini sempre primeiro (Neon para pedidos pesados, Hydrogen para leves, pensamento alto) e Opus 5.5 médio só quando todo o Gemini está sem cota.
