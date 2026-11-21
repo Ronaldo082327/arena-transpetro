@@ -44,7 +44,7 @@ Atualizado em 21/11/2026 (à tarde), depois da Onda 1 da visão 360. Regra combi
   - `#agenda` (Agenda Viva): importa .ics, guarda só `{ini, fim, tipo}`, exporta o plano em .ics com alarme. Motor em `rotina.js`.
   - `#relatorio` (Vitral em SVG/PNG).
   - `#voo` (Cartão de Voo e Rito da Véspera, com .ics da prova).
-  - `#topico/<d>/<t>` (Sala do Tópico: grifos do Draw agrupados pela cor, legenda amarelo/verde/azul/rosa = conceito/lei seca/exemplo/pegadinha).
+  - `#topico/<d>/<t>` (Sala do Tópico: grifos do Draw agrupados pela cor, legenda do plano do Draw (decisão do Ronaldo, 21/11): verde conceito, amarelo prazo/número, vermelho exceção/pegadinha, azul exemplo, roxo jurisprudência, laranja "cai muito"; lê `significado` do grifo e, sem ele, deduz pelo matiz da cor).
   - `#bolso` (Rádio de Bolso).
 - **Horizonte da Prova:** os intervalos de revisão do Estúdio ficam limitados à metade dos dias até a prova. Sugestão para o FSRS do Draw: o mesmo teto.
 
