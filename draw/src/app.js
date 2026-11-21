@@ -34,6 +34,7 @@
     plano: 'M4 6h16v15H4zM4 10h16M8 3v4M16 3v4', stats: 'M4 20V10M10 20V4M16 20v-8M22 20H2', simulados: 'M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20zM12 6v6l4 2', ia: 'M12 3l2 6 6 2-6 2-2 6-2-6-6-2 6-2z',
     ajustes: 'M4 6h10M18 6h2M4 12h4M12 12h8M4 18h12M14 4v4M8 10v4M16 16v4', mais: 'M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h6v6h-6z', discursivas: 'M4 20l4-1L20 7l-3-3L5 16zM14 6l3 3', revisoes: 'M3 12a9 9 0 0 1 15-6.7L21 8M21 3v5h-5M21 12a9 9 0 0 1-15 6.7L3 16M3 21v-5h5', ciclo: 'M17 2l4 4-4 4M3 11V9a3 3 0 0 1 3-3h15M7 22l-4-4 4-4M21 13v2a3 3 0 0 1-3 3H3', cofre: 'M6 11V8a6 6 0 0 1 12 0v3M4 11h16v10H4zM12 15v2', estruturas: 'M3 8l9-5 9 5-9 5zM3 8v8l9 5 9-5V8', mural: 'M3 4h18v12H3zM8 20h8M12 16v4'
   };
+  Object.assign(ICO, { vertical: 'M5 3v18M5 6h6M5 12h10M5 18h8M15 6h6M19 12h2M17 18h4', raiox: 'M3 12s3.5-7 9-7 9 7 9 7-3.5 7-9 7-9-7-9-7zM12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z', rajada: 'M13 2L4 14h7l-1 8 9-12h-7z', escriba: 'M4 20l4-1L20 7l-3-3L5 16zM14 6l3 3M4 22h16', guilda: 'M12 2l8 3v6c0 5-3.5 9-8 11-4.5-2-8-6-8-11V5zM12 8v6M9 11h6', salao: 'M3 21h18M5 21V9l7-5 7 5v12M10 21v-6h4v6', radio: 'M4 9h16v11H4zM8 9l8-5M8 14h2M14 13a2 2 0 1 0 4 0 2 2 0 0 0-4 0z', mural: 'M4 4h16v13l-5 5H4zM15 22v-5h5M8 9h8M8 13h5' });
   const svgIco = (n) => { const s = document.createElementNS('http://www.w3.org/2000/svg', 'svg'); s.setAttribute('viewBox', '0 0 24 24'); s.setAttribute('aria-hidden', 'true'); const p = document.createElementNS('http://www.w3.org/2000/svg', 'path'); p.setAttribute('d', ICO[n] || ICO.mais); s.append(p); return s; };
   App.ico = svgIco;
   App.tile = (n, cls = '') => h('span', { class: 'ico-tile ' + cls }, svgIco(n));
@@ -123,7 +124,7 @@
   };
 
   // ---------- rotas e menu ----------
-  const MENU = [['inicio', 'Início'], ['concursos', 'Concursos'], ['edital', 'Dora Edital'], ['estudar', 'Estudar'], ['erros', 'Diário de Batalha'], ['questoes', 'Questões'], ['estante', 'Estante'], ['foco', 'Dora Foco'], ['revisoes', 'Dora Revisões'], ['ciclo', 'Dora Ciclo'], ['agenda', 'Dora Agenda'], ['simulados', 'Diário de Simulados'], ['estatisticas', 'Estatísticas'], ['discursivas', 'Discursivas'], ['mural', 'Mural'], ['estruturas', 'Estruturas da Guilda'], ['ia', 'Dora Mentora'], ['cofre', 'Dora Cofre'], ['ajustes', 'Ajustes']];
+  const MENU = [['inicio', 'Início'], ['concursos', 'Concursos'], ['edital', 'Dora Edital'], ['vertical', 'Dora Vertical'], ['estudar', 'Estudar'], ['erros', 'Diário de Batalha'], ['questoes', 'Questões'], ['raiox', 'Raio-X da Banca'], ['rajada', 'Rajada'], ['estante', 'Estante'], ['foco', 'Dora Foco'], ['radio', 'Rádio Foco'], ['revisoes', 'Dora Revisões'], ['ciclo', 'Dora Ciclo'], ['agenda', 'Dora Agenda'], ['simulados', 'Diário de Simulados'], ['estatisticas', 'Estatísticas'], ['discursivas', 'Discursivas'], ['escriba', 'Dora Escriba'], ['mural', 'Mural da Guilda'], ['guilda', 'Guilda'], ['salao', 'Salão da Guilda'], ['estruturas', 'Estruturas da Guilda'], ['ia', 'Dora Mentora'], ['cofre', 'Dora Cofre'], ['ajustes', 'Ajustes']];
   const ICONE_DE = { estatisticas: 'stats', concursos: 'conc', foco: 'simulados', agenda: 'plano' };
   const RAPIDO = [['inicio', 'Início'], ['edital', 'Edital'], ['estudar', 'Estudar'], ['erros', 'Erros'], ['mais', 'Mais']];
   App.rota = () => { const [cam, q] = (location.hash.replace(/^#\/?/, '') || 'inicio').split('?'); const [nome, ...args] = cam.split('/'); const query = {}; (q || '').split('&').filter(Boolean).forEach(p => { const [k, v] = p.split('='); query[k] = decodeURIComponent(v || ''); }); return { nome: nome || 'inicio', args, query }; };
@@ -140,7 +141,7 @@
   function menu(atual) {
     const lat = $('#lateral'); lat.replaceChildren(h('div', { class: 'marca' }, h('img', { src: 'icones/icone-48.png', alt: '' }), h('span', {}, 'Dora Draw')));
     lat.append(App.seletorConcurso()); if (App.seletorPerfil) lat.append(App.seletorPerfil());
-    MENU.forEach(([k, n]) => lat.append(h('a', { class: 'nav-item', href: '#/' + k, 'aria-current': atual === k ? 'page' : null }, svgIco(ICONE_DE[k] || k), n)));
+    MENU.filter(m => !App.escondido || !App.escondido(m[0])).forEach(([k, n]) => lat.append(h('a', { class: 'nav-item', href: '#/' + k, 'aria-current': atual === k ? 'page' : null }, svgIco(ICONE_DE[k] || k), n)));
     const bx = $('#baixo'); bx.replaceChildren(...RAPIDO.map(([k, n]) => h('button', { type: 'button', 'aria-current': (atual === k || (k === 'mais' && !RAPIDO.some(x => x[0] === atual))) ? 'page' : null, onclick: () => App.ir(k) }, svgIco(k), n)));
   }
   App.seletorConcurso = () => {
@@ -148,7 +149,7 @@
     return h('label', { class: 'campo seletor-conc' }, h('span', {}, 'Concurso'), h('select', { 'aria-label': 'Concurso atual', onchange: async (e) => { await App.carregarConcurso(e.target.value); App.render(); } }, App.S.concursos.map(c => h('option', Object.assign({ value: c.id }, App.S.conc && c.id === App.S.conc.id ? { selected: true } : {}), c.nome))));
   };
   App.views.mais = (alvo) => {
-    alvo.append(h('h1', {}, 'Mais'), h('div', { class: 'cartao' }, h('ul', { class: 'k3d-grade' }, MENU.filter(m => !['inicio', 'edital', 'estudar', 'erros'].includes(m[0])).map(([k, n], i) => h('li', {}, h('a', { class: 'k3d-ladrilho', href: '#/' + k }, h('span', { class: 'k3d-ico ' + ['', 'k3d-memoria', 'k3d-acompanhar', 'k3d-apoio'][i % 4] }, svgIco(ICONE_DE[k] || k)), h('span', { class: 'k3d-nome' }, n)))))));
+    alvo.append(h('h1', {}, 'Mais'), h('div', { class: 'cartao' }, h('ul', { class: 'k3d-grade' }, MENU.filter(m => !['inicio', 'edital', 'estudar', 'erros'].includes(m[0]) && !(App.escondido && App.escondido(m[0]))).map(([k, n], i) => h('li', {}, h('a', { class: 'k3d-ladrilho', href: '#/' + k }, h('span', { class: 'k3d-ico ' + ['', 'k3d-memoria', 'k3d-acompanhar', 'k3d-apoio'][i % 4] }, svgIco(ICONE_DE[k] || k)), h('span', { class: 'k3d-nome' }, n)))))));
   };
   // exige concurso aberto; senão mostra convite
   App.exigeConcurso = (alvo, texto) => { if (App.S.conc) return true; alvo.append(h('div', { class: 'cartao destaque vazio' }, h('h2', {}, 'Crie ou escolha um concurso'), h('p', {}, texto || 'Tudo no Dora Draw fica dentro de um concurso.'), h('a', { class: 'btn p', href: '#/concursos' }, 'Ir para Concursos'))); return false; };

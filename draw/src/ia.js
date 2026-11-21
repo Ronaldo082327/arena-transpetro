@@ -58,9 +58,11 @@
   }
   const horaDe = (ts) => new Date(ts).toLocaleString('pt-BR', { day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit' });
   I.horaDe = horaDe;
-  async function descer(prov, sistema, prompt, json) {
+  // escolhe o melhor modelo livre, pulando os de `evitar` (usado pelo Tribunal das IAs para ouvir um SEGUNDO modelo)
+  const escolherModelo = (esc, agora, evitar) => evitar && evitar.length ? L.modeloAtivo({ ordem: esc.ordem.filter(id => !evitar.includes(id)), removidos: esc.removidos, bloqueios: esc.bloqueios }, agora) : L.modeloAtivo(esc, agora);
+  async function descer(prov, sistema, prompt, json, evitar) {
     for (let guarda = 0; guarda < 20; guarda++) {
-      const agora = Date.now(); const esc = I.cfg.escada[prov]; const modelo = L.modeloAtivo(esc, agora);
+      const agora = Date.now(); const esc = I.cfg.escada[prov]; const modelo = escolherModelo(esc, agora, evitar);
       if (!modelo) { const bl = L.bloqueados(esc, agora).sort((a, b) => a.ate - b.ate)[0]; return { vazio: true, volta: bl ? bl.ate : null }; }
       const r = prov === 'gemini' ? await chamarGemini(modelo, sistema, prompt, json) : await chamarClaude(modelo, sistema, prompt);
       if (!r.erro) { registrarUso(prov, modelo, r.tin, r.tout); I.ultimo = { prov, modelo, em: agora }; await I.salvar(); return { texto: r.texto, modelo, prov }; }
@@ -70,12 +72,13 @@
     throw new Error('Não consegui um modelo livre agora.');
   }
   // chama o provedor padrão; se toda a escada dele estiver bloqueada, tenta o outro (se houver chave)
-  I.chamar = async ({ sistema = '', prompt, json = false }) => {
-    virarMes(); const ordem = [I.cfg.padrao, I.cfg.padrao === 'gemini' ? 'claude' : 'gemini'].filter(p => I.temChave(p)); if (!ordem.length) throw new Error('Nenhuma chave de IA guardada. Abra a tela Dora Mentora e cole a sua.');
+  // opções extras: `prov` força um provedor ('gemini' ou 'claude', sem cair para o outro); `evitar` lista modelos a não usar
+  I.chamar = async ({ sistema = '', prompt, json = false, prov: soProv = null, evitar = [] }) => {
+    virarMes(); const ordem = (soProv ? [soProv] : [I.cfg.padrao, I.cfg.padrao === 'gemini' ? 'claude' : 'gemini']).filter(p => I.temChave(p)); if (!ordem.length) throw new Error('Nenhuma chave de IA guardada. Abra a tela Dora Mentora e cole a sua.');
     let volta = null; let teto = false;
     for (const prov of ordem) {
       if (!gratis(prov) && !L.dentroDoTeto(I.gastoMesUSD(), I.cfg.tetoUSD)) { teto = true; continue; }
-      const r = await descer(prov, sistema, prompt, json); if (r.texto != null) return r; if (r.volta) volta = Math.min(volta || Infinity, r.volta);
+      const r = await descer(prov, sistema, prompt, json, evitar); if (r.texto != null) return r; if (r.volta) volta = Math.min(volta || Infinity, r.volta);
     }
     if (teto && !volta) throw new Error('O teto de gasto do mês foi atingido (estimado US$ ' + I.gastoMesUSD().toFixed(2) + '). Aumente o teto na tela Dora Mentora ou use o Gemini gratuito.');
     throw new Error('Todos os modelos estão com limite agora.' + (volta ? ' O primeiro volta às ' + horaDe(volta) + '.' : ''));
@@ -95,5 +98,23 @@
     resumoDiario: (erros) => J('Veja o diário de erros de um candidato e responda em JSON: {"resumo":"3 a 5 frases sobre o padrão dos erros","treinarAmanha":["ação concreta 1","ação 2","ação 3"]}.\n\n' + erros.slice(0, 60).map(e => '- ' + (e.topico || '') + ' | motivo: ' + e.motivo + ' | tipo: ' + (e.tipoErro || '-') + ' | ' + (e.resumo || '')).join('\n')),
     comoBancaCobra: ({ banca, topico, questoes }) => I.chamar({ sistema: SIS, prompt: 'Com base nas questões abaixo (banca ' + (banca || 'não informada') + '), escreva em até 8 linhas COMO A BANCA COBRA o tópico "' + topico + '": tipos de cobrança, pegadinhas frequentes e o que decorar. Texto simples, sem JSON.\n\n' + questoes.slice(0, 12).map(textoQ).join('\n---\n') }).then(r => ({ texto: r.texto.trim(), modelo: r.modelo }))
   };
+  // ---------- tarefas da segunda leva: Rajada de 5, Tribunal das IAs, Dora Escriba ----------
+  const JO = async (prompt, opc = {}) => { const r = await I.chamar(Object.assign({ sistema: SIS, prompt, json: true }, opc)); const v = L.extrairJSON(r.texto); if (v == null) throw new Error('A IA respondeu em um formato que não consegui ler. Tente de novo.'); return { dados: v, modelo: r.modelo, prov: r.prov }; };
+  const gerarQuestoesBase = I.tarefas.gerarQuestoes;
+  // com `contexto` (texto de um PDF, grifo ou tópico) as questões se baseiam nele
+  I.tarefas.gerarQuestoes = (args) => {
+    if (!args.contexto) return gerarQuestoesBase(args);
+    return JO('Crie ' + (args.n || 5) + ' questões INÉDITAS de múltipla escolha (A a E) no estilo da banca ' + (args.banca || 'genérica') + ', baseadas SOMENTE no texto abaixo (assunto: ' + (args.assunto || 'o texto') + '). Cada questão testa um ponto diferente e tem uma pegadinha plausível. Responda em JSON: [{"enunciado":"...","alternativas":["A","B","C","D","E"],"gabarito":"C","comentario":"explicação curta","pegadinha":"a armadilha"}]. Não copie questões reais.\n\nTEXTO:\n' + String(args.contexto).slice(0, 6000));
+  };
+  // o segundo modelo responde SEM ver o gabarito. modo: 'gemini' (outro modelo da escada), 'claude' ou 'auto' (Claude se houver chave; senão outro Gemini)
+  I.tarefas.verificarQuestao = async (q, { modo = 'auto', modeloA = '' } = {}) => {
+    const prov = modo === 'claude' || (modo === 'auto' && I.temChave('claude')) ? 'claude' : 'gemini';
+    const sem = (q.enunciado || '') + '\n' + (q.alternativas || []).map(a => a.letra + ') ' + a.texto).join('\n');
+    const r = await JO('Resolva a questão abaixo como candidato experiente de concurso. Responda em JSON: {"resposta":"letra","confianca":"alta, media ou baixa","motivo":"uma frase"}.\n\n' + sem, { prov, evitar: modeloA ? [modeloA] : [] });
+    const d = Array.isArray(r.dados) ? r.dados[0] : r.dados; return { letra: String((d && (d.resposta || d.gabarito)) || '').trim().toUpperCase().slice(0, 1), confianca: d && d.confianca, motivo: d && d.motivo, modelo: r.modelo, prov: r.prov };
+  };
+  // avalia o RACIOCÍNIO do aluno (não só o resultado)
+  I.tarefas.avaliarRaciocinio = (q, escolha, comoPensei) => JO('Um candidato errou uma questão. Avalie o RACIOCÍNIO dele, não só a resposta. Responda em JSON: {"onde":"onde o raciocínio desviou, em 1 a 2 frases","sinal":"qual sinal do enunciado ele perdeu","gesto":"qual gesto de resolução aplicar da próxima vez (curto e prático)","explicacao":"explicação curta de por que a alternativa correta é a correta","tipoErro":"conteudo, reconhecer, execucao ou leitura"}. tipoErro: conteudo = não sabia a matéria; reconhecer = não reconheceu o tipo da questão; execucao = sabia mas errou o passo ou a conta; leitura = leu errado ou faltou tempo.\n\nQUESTÃO:\n' + textoQ(q) + '\nO candidato marcou: ' + escolha + '\nComo ele disse que pensou: ' + comoPensei);
+  I.tarefas.corrigirDiscursiva = ({ banca, linhas, tema, texto }) => JO('Corrija esta resposta discursiva como um corretor da banca ' + (banca || 'genérica') + '. Limite: ' + linhas + ' linhas. Tema: ' + (tema || 'não informado') + '. Use um espelho com 3 critérios: conteúdo, estrutura e linguagem (pesos 5, 3 e 2). Responda em JSON: {"nota":0 a 10,"criterios":[{"nome":"Conteúdo","peso":5,"obtido":0 a 5,"comentario":"..."},{"nome":"Estrutura","peso":3,"obtido":0,"comentario":"..."},{"nome":"Linguagem","peso":2,"obtido":0,"comentario":"..."}],"pontosFortes":["..."],"melhorar":["..."],"versaoComentada":"o texto do candidato reescrito com melhorias, com comentários entre colchetes explicando cada mudança"}.\n\nTEXTO DO CANDIDATO:\n' + String(texto).slice(0, 6000));
   raiz.DoraIA = I;
 })(typeof self !== 'undefined' ? self : this);
