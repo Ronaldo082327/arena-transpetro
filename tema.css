@@ -103,3 +103,15 @@ html.vw-open{overflow:hidden}
 html.embed #gdb,html.embed #gd,html.embed #gds{display:none!important}
 
 @media (max-width:520px){#fw{display:none}.bt small{display:none}}
+/* ícones da constelação */
+.gi{display:block}
+#gd .gdl i svg,.sb .logo i svg{width:34px;height:34px}.sb .logo i,#gd .gdl i{display:grid;place-items:center}
+
+/* girassol que gira (logo e carregando); "Movimento reduzido" desliga tudo pela regra acima */
+@keyframes dgGira{to{transform:rotate(360deg)}}
+.gi.gm{transform-origin:50% 50%}
+.gi.gm.giro-lento{animation:dgGira 48s linear infinite}
+.gi.gm.giro-rapido{animation:dgGira 4.5s linear infinite}
+a:hover>i>.gi.gm.giro-lento,button:hover .gi.gm.giro-lento,.logo:hover .gi.gm.giro-lento{animation-duration:7s}
+@media (prefers-reduced-motion:reduce){.gi.gm.giro-lento,.gi.gm.giro-rapido{animation:none}}
+.carregando{display:flex;align-items:center;gap:12px;padding:34px 0}

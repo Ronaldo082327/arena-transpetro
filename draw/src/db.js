@@ -1,13 +1,13 @@
 /* Dora Draw — banco local (IndexedDB). Funciona na página do app, no painel lateral e no service worker. */
 (function (raiz) {
   const perfil = () => { try { return (typeof localStorage !== 'undefined' && localStorage.getItem('doraDraw.perfil')) || ''; } catch (e) { return ''; } };
-  const NOME = 'dora-draw' + (perfil() ? '-p-' + perfil() : ''), VERSAO = 2;
+  const NOME = 'dora-draw' + (perfil() ? '-p-' + perfil() : ''), VERSAO = 3;
   // loja: [chave, índices...]
   const LOJAS = {
     concursos: ['id'], disciplinas: ['id', 'concursoId'], topicos: ['id', 'concursoId', 'disciplinaId'], cartoes: ['id', 'concursoId', 'topicoId'],
     questoes: ['id', 'concursoId', 'topicoId'], cadernos: ['id', 'concursoId'], respostas: ['id', 'concursoId', 'topicoId'], erros: ['id', 'concursoId', 'topicoId'],
     materiais: ['id', 'concursoId', 'topicoId'], grifos: ['id', 'materialId', 'topicoId'], sessoes: ['id', 'concursoId', 'topicoId'], capturas: ['id', 'concursoId'],
-    simulados: ['id', 'concursoId'], copias: ['id'], config: ['chave'], arquivos: ['id']
+    simulados: ['id', 'concursoId'], mural: ['id', 'concursoId'], copias: ['id'], config: ['chave'], arquivos: ['id']
   };
   const SEGREDOS = ['ia-chaves']; // nunca entram no backup
   let abrindo = null;

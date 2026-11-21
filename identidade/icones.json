@@ -1,0 +1,357 @@
+[
+ {
+  "id": "inicio",
+  "rotulo": "Início",
+  "grupo": "treino"
+ },
+ {
+  "id": "concursos",
+  "rotulo": "Concursos",
+  "grupo": "treino"
+ },
+ {
+  "id": "edital",
+  "rotulo": "Edital",
+  "grupo": "treino"
+ },
+ {
+  "id": "vertical",
+  "rotulo": "Edital verticalizado",
+  "grupo": "treino"
+ },
+ {
+  "id": "estudar",
+  "rotulo": "Estudar",
+  "grupo": "treino"
+ },
+ {
+  "id": "cartas",
+  "rotulo": "Cartas",
+  "grupo": "memoria"
+ },
+ {
+  "id": "diario",
+  "rotulo": "Diário de batalha",
+  "grupo": "treino"
+ },
+ {
+  "id": "questoes",
+  "rotulo": "Questões",
+  "grupo": "treino"
+ },
+ {
+  "id": "estante",
+  "rotulo": "Estante / PDF",
+  "grupo": "apoio"
+ },
+ {
+  "id": "pdf",
+  "rotulo": "PDF",
+  "grupo": "apoio"
+ },
+ {
+  "id": "foco",
+  "rotulo": "Foco",
+  "grupo": "treino"
+ },
+ {
+  "id": "revisoes",
+  "rotulo": "Revisões",
+  "grupo": "memoria"
+ },
+ {
+  "id": "ciclo",
+  "rotulo": "Ciclo",
+  "grupo": "memoria"
+ },
+ {
+  "id": "agenda",
+  "rotulo": "Agenda",
+  "grupo": "acompanhar"
+ },
+ {
+  "id": "simulados",
+  "rotulo": "Simulados",
+  "grupo": "treino"
+ },
+ {
+  "id": "estatisticas",
+  "rotulo": "Estatísticas",
+  "grupo": "acompanhar"
+ },
+ {
+  "id": "mural",
+  "rotulo": "Mural",
+  "grupo": "apoio"
+ },
+ {
+  "id": "discursivas",
+  "rotulo": "Discursivas",
+  "grupo": "memoria"
+ },
+ {
+  "id": "estruturas",
+  "rotulo": "Estruturas",
+  "grupo": "memoria"
+ },
+ {
+  "id": "cofre",
+  "rotulo": "Cofre",
+  "grupo": "acompanhar"
+ },
+ {
+  "id": "mentora",
+  "rotulo": "Mentora",
+  "grupo": "memoria"
+ },
+ {
+  "id": "ia",
+  "rotulo": "IA",
+  "grupo": "memoria"
+ },
+ {
+  "id": "rajada",
+  "rotulo": "Rajada",
+  "grupo": "treino"
+ },
+ {
+  "id": "tribunal",
+  "rotulo": "Tribunal das IAs",
+  "grupo": "acompanhar"
+ },
+ {
+  "id": "escriba",
+  "rotulo": "Escriba",
+  "grupo": "apoio"
+ },
+ {
+  "id": "raiox",
+  "rotulo": "Raio-X da banca",
+  "grupo": "acompanhar"
+ },
+ {
+  "id": "radio",
+  "rotulo": "Rádio foco",
+  "grupo": "apoio"
+ },
+ {
+  "id": "salao",
+  "rotulo": "Salão",
+  "grupo": "apoio"
+ },
+ {
+  "id": "conquistas",
+  "rotulo": "Conquistas",
+  "grupo": "treino"
+ },
+ {
+  "id": "chama",
+  "rotulo": "Chama (sequência)",
+  "grupo": "treino"
+ },
+ {
+  "id": "xp",
+  "rotulo": "XP",
+  "grupo": "treino"
+ },
+ {
+  "id": "patente",
+  "rotulo": "Patente",
+  "grupo": "memoria"
+ },
+ {
+  "id": "examinador",
+  "rotulo": "Examinador",
+  "grupo": "acompanhar"
+ },
+ {
+  "id": "atlas",
+  "rotulo": "Atlas",
+  "grupo": "acompanhar"
+ },
+ {
+  "id": "galeria",
+  "rotulo": "Galeria",
+  "grupo": "apoio"
+ },
+ {
+  "id": "palacio",
+  "rotulo": "Palácio da memória",
+  "grupo": "memoria"
+ },
+ {
+  "id": "babel",
+  "rotulo": "Babel (inglês)",
+  "grupo": "apoio"
+ },
+ {
+  "id": "rascunho",
+  "rotulo": "Rascunho",
+  "grupo": "treino"
+ },
+ {
+  "id": "mapa-mental",
+  "rotulo": "Mapa mental",
+  "grupo": "memoria"
+ },
+ {
+  "id": "quadro",
+  "rotulo": "Quadro",
+  "grupo": "acompanhar"
+ },
+ {
+  "id": "nota",
+  "rotulo": "Nota",
+  "grupo": "treino"
+ },
+ {
+  "id": "cartao",
+  "rotulo": "Cartão de estudo",
+  "grupo": "memoria"
+ },
+ {
+  "id": "timer",
+  "rotulo": "Timer",
+  "grupo": "acompanhar"
+ },
+ {
+  "id": "play",
+  "rotulo": "Play",
+  "grupo": "apoio"
+ },
+ {
+  "id": "pause",
+  "rotulo": "Pause",
+  "grupo": "apoio"
+ },
+ {
+  "id": "configuracoes",
+  "rotulo": "Configurações",
+  "grupo": "acompanhar"
+ },
+ {
+  "id": "tema",
+  "rotulo": "Tema",
+  "grupo": "memoria"
+ },
+ {
+  "id": "busca",
+  "rotulo": "Busca",
+  "grupo": "acompanhar"
+ },
+ {
+  "id": "filtro",
+  "rotulo": "Filtro",
+  "grupo": "acompanhar"
+ },
+ {
+  "id": "exportar",
+  "rotulo": "Exportar",
+  "grupo": "apoio"
+ },
+ {
+  "id": "importar",
+  "rotulo": "Importar",
+  "grupo": "apoio"
+ },
+ {
+  "id": "backup",
+  "rotulo": "Backup",
+  "grupo": "acompanhar"
+ },
+ {
+  "id": "captura",
+  "rotulo": "Captura de tela",
+  "grupo": "acompanhar"
+ },
+ {
+  "id": "selecao-texto",
+  "rotulo": "Seleção de texto",
+  "grupo": "treino"
+ },
+ {
+  "id": "youtube-minuto",
+  "rotulo": "Vídeo em 1 minuto",
+  "grupo": "apoio"
+ },
+ {
+  "id": "pagina-salva",
+  "rotulo": "Página salva",
+  "grupo": "apoio"
+ },
+ {
+  "id": "link",
+  "rotulo": "Link",
+  "grupo": "acompanhar"
+ },
+ {
+  "id": "voz",
+  "rotulo": "Voz",
+  "grupo": "memoria"
+ },
+ {
+  "id": "microfone",
+  "rotulo": "Microfone",
+  "grupo": "memoria"
+ },
+ {
+  "id": "alerta",
+  "rotulo": "Alerta",
+  "grupo": "treino"
+ },
+ {
+  "id": "ok",
+  "rotulo": "Ok",
+  "grupo": "apoio"
+ },
+ {
+  "id": "erro",
+  "rotulo": "Erro",
+  "grupo": "treino"
+ },
+ {
+  "id": "duvida",
+  "rotulo": "Dúvida",
+  "grupo": "memoria"
+ },
+ {
+  "id": "chute",
+  "rotulo": "Chute",
+  "grupo": "treino"
+ },
+ {
+  "id": "certeza",
+  "rotulo": "Certeza",
+  "grupo": "apoio"
+ },
+ {
+  "id": "banca",
+  "rotulo": "Banca",
+  "grupo": "acompanhar"
+ },
+ {
+  "id": "orgao",
+  "rotulo": "Órgão",
+  "grupo": "apoio"
+ },
+ {
+  "id": "prova",
+  "rotulo": "Prova",
+  "grupo": "treino"
+ },
+ {
+  "id": "cronograma",
+  "rotulo": "Cronograma",
+  "grupo": "acompanhar"
+ },
+ {
+  "id": "plano",
+  "rotulo": "Plano",
+  "grupo": "treino"
+ },
+ {
+  "id": "trilha",
+  "rotulo": "Trilha",
+  "grupo": "apoio"
+ }
+]

@@ -132,3 +132,20 @@ Ainda não integrados do pacote `legado/`: Provas Previstas e Calibradas (14 MB)
 
 - `#mira` (Estúdio): ordena os tópicos (fichas do dossiê) por prioridade = questões esperadas × (1 − acerto estimado), com acerto suavizado `(acertos+1)/(tentativas+2)` (50% sem respostas). Fontes de acerto: log das Dora Cartas (`S.cq.log`: cartas `g<bloco><índice>_…` e `x<id>` do raio-x) e `arenaTP.v2.hist` do Doroxandria (questões atribuídas ao tópico por palavra-chave). Português e Inglês usam o acerto do bloco inteiro. Dedupe: tópicos que dividem a mesma ficha aparecem uma vez.
 - "🛡️ Defenda o gabarito": botão no verso de cada carta (quando há IA): o aluno escreve por que a certa é certa; a IA avalia o raciocínio, o sinal ignorado, a pegadinha e dá uma frase de método.
+
+
+## Identidade gráfica "Constelação da Guilda" (21/11)
+- `identidade/gerar.py` gera marca, logo, capa e avatares por patente (SVG). `identidade/gerar-png.js` gera os PNGs do app (PWA e Dora Draw).
+- `guilda.js` tem 24 ícones próprios (`G.ICONS`, `G.svg`, `G.ico`) em traço `currentColor` com nós em `var(--destaque)`: seguem os 17 temas. Não mudar cores/tokens de tema.
+- Galeria: `identidade/index.html`.
+
+## Identidade B "D-Grafo" aplicada (21/11)
+Substitui a proposta A: `identidade/` agora tem marca/logo/capa/sprites/mascotes da proposta B (feita na sessão local). `guilda.js` usa `identidade/sprite.svg` (`G.MAPA` liga as chaves antigas aos nomes `dg-*`); `G.BASE` resolve o caminho. Não mudar cores/tokens. Ícones de app: `icon-192/512/maskable-512.png`. Ícones do Dora Draw (`draw/icones/`) ficam com a sessão local.
+
+## Identidade final: girassol de Fibonacci (22/11)
+Símbolo escolhido pelo Ronaldo: sementes pelo ângulo de ouro ligadas em braços de Fibonacci. `identidade/marca.svg` e `marca-compacta.svg` (mesmo desenho aprovado pelo Ronaldo: 55 sementes, braços de 13 e a espiral áurea fina atravessando; mais pontos foi rejeitado; usado inline em `guilda.js` `G.SIMBOLO`). Cores por token (`--accent`, `--destaque`, `--destaque-2`) com fallback laranja, então seguem os 17 temas. Ícones do app: `node identidade/gerar-png.js` gera `icon-192/512.png`, `icon-maskable-512.png` e `identidade/final/icone-claro-512.png`; o ícone principal do app é o ESCURO. Propostas descartadas ficam em `identidade/propostas*`. Substitui o escudo provisório e o D com cérebro (rejeitado).
+
+## Kit premium do girassol aplicado (22/11)
+Vindo da sessão local (Drive `identidade-premium`): `identidade/marca.svg` = símbolo-mestre com volume e tokens de tema (`G.SIMBOLO` em `guilda.js` usa o mesmo desenho inline); `icon-192/512.png`, `icon-maskable-512.png` (escuros) e `apple-touch-icon-180.png`; `favicon.svg`; `identidade/abertura-logo.svg` abre no primeiro acesso do Estúdio (flag `arenaTP.abertura`, fecha com Entrar/Esc/9 s); OG e capa de redes em `identidade/premium/oficial/`. Regra do kit: até 32 px usar a versão de 21 sementes e 48-64 px a de 34 (não baixadas aqui; só o favicon vem pronto). Não baixados do Drive: logotipos, pecas/, android/, vídeos.
+
+Vídeo de abertura do Google Flow (8 s, 720p, com trilha): `identidade/video/abertura-girassol.webm/.mp4`, exibido na galeria `identidade/index.html` (muted, preload none). Símbolos de 34 sementes para 48 px: `identidade/pequeno/`. A 1ª tela do Estúdio continua sendo o `abertura-logo.svg` (mais leve).

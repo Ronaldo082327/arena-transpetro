@@ -1,0 +1,502 @@
+<svg xmlns="http://www.w3.org/2000/svg" style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true"><defs><linearGradient id="dgt-g-treino" x1=".18" y1="0" x2=".82" y2="1"><stop offset="0" stop-color="var(--sec-treino-2, #fff1e4)"/><stop offset="1" stop-color="var(--sec-treino, #fde3cc)"/></linearGradient><linearGradient id="dgt-g-memoria" x1=".18" y1="0" x2=".82" y2="1"><stop offset="0" stop-color="var(--sec-memoria-2, #f6f1fb)"/><stop offset="1" stop-color="var(--sec-memoria, #ece4f6)"/></linearGradient><linearGradient id="dgt-g-acompanhar" x1=".18" y1="0" x2=".82" y2="1"><stop offset="0" stop-color="var(--sec-acompanhar-2, #eef6f7)"/><stop offset="1" stop-color="var(--sec-acompanhar, #dcecee)"/></linearGradient><linearGradient id="dgt-g-apoio" x1=".18" y1="0" x2=".82" y2="1"><stop offset="0" stop-color="var(--sec-apoio-2, #f1f8f2)"/><stop offset="1" stop-color="var(--sec-apoio, #e2f1e4)"/></linearGradient>
+<linearGradient id="dgt-top" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="var(--brilho, rgba(255, 255, 255, .95))"/><stop offset=".32" stop-color="var(--brilho, rgba(255, 255, 255, .95))" stop-opacity="0"/></linearGradient>
+<filter id="dgt-f1" x="-30%" y="-30%" width="160%" height="170%"><feGaussianBlur stdDeviation="6"/></filter>
+<filter id="dgt-f2" x="-30%" y="-30%" width="160%" height="170%"><feGaussianBlur stdDeviation="2.4"/></filter></defs>
+<symbol id="dg-tile-inicio" viewBox="0 0 128 128"><title>Início</title><rect x="9" y="17" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".16" filter="url(#dgt-f1)"/>
+<rect x="9" y="14" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".22" filter="url(#dgt-f2)"/>
+<rect x="8" y="14" width="112" height="108" rx="36" fill="rgb(150,96,52)" opacity=".2"/>
+<rect x="8" y="8" width="112" height="108" rx="36" fill="url(#dgt-g-treino)"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="var(--vidro-borda, rgba(236, 223, 210, .9))" stroke-width="2.400"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="url(#dgt-top)" stroke-width="2.800"/>
+<g style="color:var(--sec-treino-ico, #b4561a)"><g transform="translate(64 62) scale(3.1) translate(-12 -12)"><g fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11.5 12 4.5l8 7M6 10v9.5h12V10M10 19.5v-4.5h4v4.5"/></g><circle cx="12" cy="11.5" r="1.4" fill="currentColor" stroke="none"/></g></g></symbol>
+<symbol id="dg-tile-concursos" viewBox="0 0 128 128"><title>Concursos</title><rect x="9" y="17" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".16" filter="url(#dgt-f1)"/>
+<rect x="9" y="14" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".22" filter="url(#dgt-f2)"/>
+<rect x="8" y="14" width="112" height="108" rx="36" fill="rgb(150,96,52)" opacity=".2"/>
+<rect x="8" y="8" width="112" height="108" rx="36" fill="url(#dgt-g-treino)"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="var(--vidro-borda, rgba(236, 223, 210, .9))" stroke-width="2.400"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="url(#dgt-top)" stroke-width="2.800"/>
+<g style="color:var(--sec-treino-ico, #b4561a)"><g transform="translate(64 62) scale(3.1) translate(-12 -12)"><g fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4a5 5 0 1 1 0 10 5 5 0 0 1 0-10zM9 13.5 7.5 20.5 12 18.5l4.5 2L15 13.5"/></g><circle cx="12" cy="9" r="1.4" fill="currentColor" stroke="none"/></g></g></symbol>
+<symbol id="dg-tile-edital" viewBox="0 0 128 128"><title>Edital</title><rect x="9" y="17" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".16" filter="url(#dgt-f1)"/>
+<rect x="9" y="14" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".22" filter="url(#dgt-f2)"/>
+<rect x="8" y="14" width="112" height="108" rx="36" fill="rgb(150,96,52)" opacity=".2"/>
+<rect x="8" y="8" width="112" height="108" rx="36" fill="url(#dgt-g-treino)"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="var(--vidro-borda, rgba(236, 223, 210, .9))" stroke-width="2.400"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="url(#dgt-top)" stroke-width="2.800"/>
+<g style="color:var(--sec-treino-ico, #b4561a)"><g transform="translate(64 62) scale(3.1) translate(-12 -12)"><g fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M7.5 3.5h9a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H7.5a2 2 0 0 1-2-2V5.5a2 2 0 0 1 2-2zM9 8h6M9 11.5h6M9 15h3"/></g><circle cx="16" cy="15.5" r="1.2" fill="currentColor" stroke="none"/></g></g></symbol>
+<symbol id="dg-tile-vertical" viewBox="0 0 128 128"><title>Edital verticalizado</title><rect x="9" y="17" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".16" filter="url(#dgt-f1)"/>
+<rect x="9" y="14" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".22" filter="url(#dgt-f2)"/>
+<rect x="8" y="14" width="112" height="108" rx="36" fill="rgb(150,96,52)" opacity=".2"/>
+<rect x="8" y="8" width="112" height="108" rx="36" fill="url(#dgt-g-treino)"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="var(--vidro-borda, rgba(236, 223, 210, .9))" stroke-width="2.400"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="url(#dgt-top)" stroke-width="2.800"/>
+<g style="color:var(--sec-treino-ico, #b4561a)"><g transform="translate(64 62) scale(3.1) translate(-12 -12)"><g fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4v16M5 7.5h2M5 12.5h2M5 17.5h2M17 7.5h2.5M14 12.5h5.5M17 17.5h2.5"/></g><circle cx="19.5" cy="7.5" r="1.2" fill="currentColor" stroke="none"/><circle cx="19.5" cy="12.5" r="1.2" fill="currentColor" stroke="none"/><circle cx="19.5" cy="17.5" r="1.2" fill="currentColor" stroke="none"/></g></g></symbol>
+<symbol id="dg-tile-estudar" viewBox="0 0 128 128"><title>Estudar</title><rect x="9" y="17" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".16" filter="url(#dgt-f1)"/>
+<rect x="9" y="14" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".22" filter="url(#dgt-f2)"/>
+<rect x="8" y="14" width="112" height="108" rx="36" fill="rgb(150,96,52)" opacity=".2"/>
+<rect x="8" y="8" width="112" height="108" rx="36" fill="url(#dgt-g-treino)"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="var(--vidro-borda, rgba(236, 223, 210, .9))" stroke-width="2.400"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="url(#dgt-top)" stroke-width="2.800"/>
+<g style="color:var(--sec-treino-ico, #b4561a)"><g transform="translate(64 62) scale(3.1) translate(-12 -12)"><g fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 7C10 5.5 7 5.1 4 5.5v12.4c3-.4 6 0 8 1.6 2-1.6 5-2 8-1.6V5.5C17 5.1 14 5.5 12 7zM12 7v12.5"/></g><circle cx="16" cy="10.5" r="1.2" fill="currentColor" stroke="none"/></g></g></symbol>
+<symbol id="dg-tile-cartas" viewBox="0 0 128 128"><title>Cartas</title><rect x="9" y="17" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".16" filter="url(#dgt-f1)"/>
+<rect x="9" y="14" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".22" filter="url(#dgt-f2)"/>
+<rect x="8" y="14" width="112" height="108" rx="36" fill="rgb(150,96,52)" opacity=".2"/>
+<rect x="8" y="8" width="112" height="108" rx="36" fill="url(#dgt-g-memoria)"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="var(--vidro-borda, rgba(236, 223, 210, .9))" stroke-width="2.400"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="url(#dgt-top)" stroke-width="2.800"/>
+<g style="color:var(--sec-memoria-ico, #6a4a9c)"><g transform="translate(64 62) scale(3.1) translate(-12 -12)"><g fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M7 8.5h9a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V10.5a2 2 0 0 1 2-2zM8.5 5.5H19a1.5 1.5 0 0 1 1.5 1.5V15"/></g><circle cx="11.5" cy="14" r="1.4" fill="currentColor" stroke="none"/></g></g></symbol>
+<symbol id="dg-tile-diario" viewBox="0 0 128 128"><title>Diário de batalha</title><rect x="9" y="17" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".16" filter="url(#dgt-f1)"/>
+<rect x="9" y="14" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".22" filter="url(#dgt-f2)"/>
+<rect x="8" y="14" width="112" height="108" rx="36" fill="rgb(150,96,52)" opacity=".2"/>
+<rect x="8" y="8" width="112" height="108" rx="36" fill="url(#dgt-g-treino)"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="var(--vidro-borda, rgba(236, 223, 210, .9))" stroke-width="2.400"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="url(#dgt-top)" stroke-width="2.800"/>
+<g style="color:var(--sec-treino-ico, #b4561a)"><g transform="translate(64 62) scale(3.1) translate(-12 -12)"><g fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2zM9.5 4v16M12.5 9h3.5M12.5 12.5h2.5"/></g><circle cx="15.5" cy="16.5" r="1.2" fill="currentColor" stroke="none"/></g></g></symbol>
+<symbol id="dg-tile-questoes" viewBox="0 0 128 128"><title>Questões</title><rect x="9" y="17" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".16" filter="url(#dgt-f1)"/>
+<rect x="9" y="14" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".22" filter="url(#dgt-f2)"/>
+<rect x="8" y="14" width="112" height="108" rx="36" fill="rgb(150,96,52)" opacity=".2"/>
+<rect x="8" y="8" width="112" height="108" rx="36" fill="url(#dgt-g-treino)"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="var(--vidro-borda, rgba(236, 223, 210, .9))" stroke-width="2.400"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="url(#dgt-top)" stroke-width="2.800"/>
+<g style="color:var(--sec-treino-ico, #b4561a)"><g transform="translate(64 62) scale(3.1) translate(-12 -12)"><g fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 4h3.5a1.5 1.5 0 0 1 1.5 1.5v3.5a1.5 1.5 0 0 1-1.5 1.5H5.5a1.5 1.5 0 0 1-1.5-1.5V5.5a1.5 1.5 0 0 1 1.5-1.5zM5.6 7.2l1.3 1.3 2-2.4M13 7h7M13 17h7"/></g><circle cx="7.2" cy="17" r="1.8" fill="currentColor" stroke="none"/></g></g></symbol>
+<symbol id="dg-tile-estante" viewBox="0 0 128 128"><title>Estante / PDF</title><rect x="9" y="17" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".16" filter="url(#dgt-f1)"/>
+<rect x="9" y="14" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".22" filter="url(#dgt-f2)"/>
+<rect x="8" y="14" width="112" height="108" rx="36" fill="rgb(150,96,52)" opacity=".2"/>
+<rect x="8" y="8" width="112" height="108" rx="36" fill="url(#dgt-g-apoio)"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="var(--vidro-borda, rgba(236, 223, 210, .9))" stroke-width="2.400"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="url(#dgt-top)" stroke-width="2.800"/>
+<g style="color:var(--sec-apoio-ico, #2d6b3c)"><g transform="translate(64 62) scale(3.1) translate(-12 -12)"><g fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 5h4v15H5zM9 8h4v12H9zM14.2 6.2l3.8-1 3 13.8-3.8 1zM4 20.5h17"/></g><circle cx="7" cy="9" r="1.1" fill="currentColor" stroke="none"/></g></g></symbol>
+<symbol id="dg-tile-pdf" viewBox="0 0 128 128"><title>PDF</title><rect x="9" y="17" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".16" filter="url(#dgt-f1)"/>
+<rect x="9" y="14" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".22" filter="url(#dgt-f2)"/>
+<rect x="8" y="14" width="112" height="108" rx="36" fill="rgb(150,96,52)" opacity=".2"/>
+<rect x="8" y="8" width="112" height="108" rx="36" fill="url(#dgt-g-apoio)"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="var(--vidro-borda, rgba(236, 223, 210, .9))" stroke-width="2.400"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="url(#dgt-top)" stroke-width="2.800"/>
+<g style="color:var(--sec-apoio-ico, #2d6b3c)"><g transform="translate(64 62) scale(3.1) translate(-12 -12)"><g fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3.5h7l4 4V19a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 6 19V5A1.5 1.5 0 0 1 7.5 3.5zM14 3.5v4h4M9.5 14h5M9.5 17h3"/></g><circle cx="10" cy="11.5" r="1.2" fill="currentColor" stroke="none"/></g></g></symbol>
+<symbol id="dg-tile-foco" viewBox="0 0 128 128"><title>Foco</title><rect x="9" y="17" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".16" filter="url(#dgt-f1)"/>
+<rect x="9" y="14" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".22" filter="url(#dgt-f2)"/>
+<rect x="8" y="14" width="112" height="108" rx="36" fill="rgb(150,96,52)" opacity=".2"/>
+<rect x="8" y="8" width="112" height="108" rx="36" fill="url(#dgt-g-treino)"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="var(--vidro-borda, rgba(236, 223, 210, .9))" stroke-width="2.400"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="url(#dgt-top)" stroke-width="2.800"/>
+<g style="color:var(--sec-treino-ico, #b4561a)"><g transform="translate(64 62) scale(3.1) translate(-12 -12)"><g fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12a8 8 0 1 0 16 0a8 8 0 1 0-16 0zM12 7.5a4.5 4.5 0 1 0 4.5 4.5"/></g><circle cx="12" cy="12" r="1.7" fill="currentColor" stroke="none"/></g></g></symbol>
+<symbol id="dg-tile-revisoes" viewBox="0 0 128 128"><title>Revisões</title><rect x="9" y="17" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".16" filter="url(#dgt-f1)"/>
+<rect x="9" y="14" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".22" filter="url(#dgt-f2)"/>
+<rect x="8" y="14" width="112" height="108" rx="36" fill="rgb(150,96,52)" opacity=".2"/>
+<rect x="8" y="8" width="112" height="108" rx="36" fill="url(#dgt-g-memoria)"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="var(--vidro-borda, rgba(236, 223, 210, .9))" stroke-width="2.400"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="url(#dgt-top)" stroke-width="2.800"/>
+<g style="color:var(--sec-memoria-ico, #6a4a9c)"><g transform="translate(64 62) scale(3.1) translate(-12 -12)"><g fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M19 8.5A7.5 7.5 0 0 0 5.5 10M5 15.5A7.5 7.5 0 0 0 18.5 14M19.2 4v4.5h-4.5M4.8 20v-4.5h4.5"/></g><circle cx="12" cy="12" r="1.5" fill="currentColor" stroke="none"/></g></g></symbol>
+<symbol id="dg-tile-ciclo" viewBox="0 0 128 128"><title>Ciclo</title><rect x="9" y="17" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".16" filter="url(#dgt-f1)"/>
+<rect x="9" y="14" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".22" filter="url(#dgt-f2)"/>
+<rect x="8" y="14" width="112" height="108" rx="36" fill="rgb(150,96,52)" opacity=".2"/>
+<rect x="8" y="8" width="112" height="108" rx="36" fill="url(#dgt-g-memoria)"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="var(--vidro-borda, rgba(236, 223, 210, .9))" stroke-width="2.400"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="url(#dgt-top)" stroke-width="2.800"/>
+<g style="color:var(--sec-memoria-ico, #6a4a9c)"><g transform="translate(64 62) scale(3.1) translate(-12 -12)"><g fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12a7.5 7.5 0 1 0 15 0a7.5 7.5 0 1 0-15 0z"/></g><circle cx="12" cy="4.5" r="1.9" fill="currentColor" stroke="none"/><circle cx="18.5" cy="15.75" r="1.9" fill="currentColor" stroke="none"/><circle cx="5.5" cy="15.75" r="1.9" fill="currentColor" stroke="none"/></g></g></symbol>
+<symbol id="dg-tile-agenda" viewBox="0 0 128 128"><title>Agenda</title><rect x="9" y="17" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".16" filter="url(#dgt-f1)"/>
+<rect x="9" y="14" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".22" filter="url(#dgt-f2)"/>
+<rect x="8" y="14" width="112" height="108" rx="36" fill="rgb(150,96,52)" opacity=".2"/>
+<rect x="8" y="8" width="112" height="108" rx="36" fill="url(#dgt-g-acompanhar)"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="var(--vidro-borda, rgba(236, 223, 210, .9))" stroke-width="2.400"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="url(#dgt-top)" stroke-width="2.800"/>
+<g style="color:var(--sec-acompanhar-ico, #1f6470)"><g transform="translate(64 62) scale(3.1) translate(-12 -12)"><g fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6.5h12a2 2 0 0 1 2 2v9.5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8.5a2 2 0 0 1 2-2zM4 10.5h16M8.5 4v4M15.5 4v4"/></g><circle cx="12" cy="15" r="1.5" fill="currentColor" stroke="none"/></g></g></symbol>
+<symbol id="dg-tile-simulados" viewBox="0 0 128 128"><title>Simulados</title><rect x="9" y="17" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".16" filter="url(#dgt-f1)"/>
+<rect x="9" y="14" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".22" filter="url(#dgt-f2)"/>
+<rect x="8" y="14" width="112" height="108" rx="36" fill="rgb(150,96,52)" opacity=".2"/>
+<rect x="8" y="8" width="112" height="108" rx="36" fill="url(#dgt-g-treino)"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="var(--vidro-borda, rgba(236, 223, 210, .9))" stroke-width="2.400"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="url(#dgt-top)" stroke-width="2.800"/>
+<g style="color:var(--sec-treino-ico, #b4561a)"><g transform="translate(64 62) scale(3.1) translate(-12 -12)"><g fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5h6a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2zM10 3.5h4v3h-4zM9.5 12.5l1.8 1.8 3.2-3.5"/></g><circle cx="9.5" cy="17.5" r="1.2" fill="currentColor" stroke="none"/></g></g></symbol>
+<symbol id="dg-tile-estatisticas" viewBox="0 0 128 128"><title>Estatísticas</title><rect x="9" y="17" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".16" filter="url(#dgt-f1)"/>
+<rect x="9" y="14" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".22" filter="url(#dgt-f2)"/>
+<rect x="8" y="14" width="112" height="108" rx="36" fill="rgb(150,96,52)" opacity=".2"/>
+<rect x="8" y="8" width="112" height="108" rx="36" fill="url(#dgt-g-acompanhar)"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="var(--vidro-borda, rgba(236, 223, 210, .9))" stroke-width="2.400"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="url(#dgt-top)" stroke-width="2.800"/>
+<g style="color:var(--sec-acompanhar-ico, #1f6470)"><g transform="translate(64 62) scale(3.1) translate(-12 -12)"><g fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 11h3.5v9H5zM10.5 5h3.5v15h-3.5zM16 14h3.5v6H16z"/></g><circle cx="18" cy="9" r="1.5" fill="currentColor" stroke="none"/></g></g></symbol>
+<symbol id="dg-tile-mural" viewBox="0 0 128 128"><title>Mural</title><rect x="9" y="17" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".16" filter="url(#dgt-f1)"/>
+<rect x="9" y="14" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".22" filter="url(#dgt-f2)"/>
+<rect x="8" y="14" width="112" height="108" rx="36" fill="rgb(150,96,52)" opacity=".2"/>
+<rect x="8" y="8" width="112" height="108" rx="36" fill="url(#dgt-g-apoio)"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="var(--vidro-borda, rgba(236, 223, 210, .9))" stroke-width="2.400"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="url(#dgt-top)" stroke-width="2.800"/>
+<g style="color:var(--sec-apoio-ico, #2d6b3c)"><g transform="translate(64 62) scale(3.1) translate(-12 -12)"><g fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 4.5h11a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H6.5a2 2 0 0 1-2-2V6.5a2 2 0 0 1 2-2zM8 9h3.5v3.5H8zM13 8.5h3v6h-3z"/></g><circle cx="10" cy="16.5" r="1.2" fill="currentColor" stroke="none"/></g></g></symbol>
+<symbol id="dg-tile-discursivas" viewBox="0 0 128 128"><title>Discursivas</title><rect x="9" y="17" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".16" filter="url(#dgt-f1)"/>
+<rect x="9" y="14" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".22" filter="url(#dgt-f2)"/>
+<rect x="8" y="14" width="112" height="108" rx="36" fill="rgb(150,96,52)" opacity=".2"/>
+<rect x="8" y="8" width="112" height="108" rx="36" fill="url(#dgt-g-memoria)"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="var(--vidro-borda, rgba(236, 223, 210, .9))" stroke-width="2.400"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="url(#dgt-top)" stroke-width="2.800"/>
+<g style="color:var(--sec-memoria-ico, #6a4a9c)"><g transform="translate(64 62) scale(3.1) translate(-12 -12)"><g fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 7h8M5 11h5M5 15h4M13 18.5l6.5-6.5 2 2-6.5 6.5-2.8.8z"/></g><circle cx="6" cy="19.5" r="1.2" fill="currentColor" stroke="none"/></g></g></symbol>
+<symbol id="dg-tile-estruturas" viewBox="0 0 128 128"><title>Estruturas</title><rect x="9" y="17" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".16" filter="url(#dgt-f1)"/>
+<rect x="9" y="14" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".22" filter="url(#dgt-f2)"/>
+<rect x="8" y="14" width="112" height="108" rx="36" fill="rgb(150,96,52)" opacity=".2"/>
+<rect x="8" y="8" width="112" height="108" rx="36" fill="url(#dgt-g-memoria)"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="var(--vidro-borda, rgba(236, 223, 210, .9))" stroke-width="2.400"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="url(#dgt-top)" stroke-width="2.800"/>
+<g style="color:var(--sec-memoria-ico, #6a4a9c)"><g transform="translate(64 62) scale(3.1) translate(-12 -12)"><g fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3.5h6v4H9zM3.5 15h6v4.5h-6zM14.5 15h6v4.5h-6zM12 7.5v3M6.5 15v-4.5h11V15"/></g><circle cx="12" cy="10.5" r="1.4" fill="currentColor" stroke="none"/></g></g></symbol>
+<symbol id="dg-tile-cofre" viewBox="0 0 128 128"><title>Cofre</title><rect x="9" y="17" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".16" filter="url(#dgt-f1)"/>
+<rect x="9" y="14" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".22" filter="url(#dgt-f2)"/>
+<rect x="8" y="14" width="112" height="108" rx="36" fill="rgb(150,96,52)" opacity=".2"/>
+<rect x="8" y="8" width="112" height="108" rx="36" fill="url(#dgt-g-acompanhar)"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="var(--vidro-borda, rgba(236, 223, 210, .9))" stroke-width="2.400"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="url(#dgt-top)" stroke-width="2.800"/>
+<g style="color:var(--sec-acompanhar-ico, #1f6470)"><g transform="translate(64 62) scale(3.1) translate(-12 -12)"><g fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M6 5h12a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2zM7 18v1.5M17 18v1.5M14 12h3.5"/></g><circle cx="10.5" cy="11.5" r="2.2" fill="currentColor" stroke="none"/></g></g></symbol>
+<symbol id="dg-tile-mentora" viewBox="0 0 128 128"><title>Mentora</title><rect x="9" y="17" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".16" filter="url(#dgt-f1)"/>
+<rect x="9" y="14" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".22" filter="url(#dgt-f2)"/>
+<rect x="8" y="14" width="112" height="108" rx="36" fill="rgb(150,96,52)" opacity=".2"/>
+<rect x="8" y="8" width="112" height="108" rx="36" fill="url(#dgt-g-memoria)"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="var(--vidro-borda, rgba(236, 223, 210, .9))" stroke-width="2.400"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="url(#dgt-top)" stroke-width="2.800"/>
+<g style="color:var(--sec-memoria-ico, #6a4a9c)"><g transform="translate(64 62) scale(3.1) translate(-12 -12)"><g fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 5h14a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1h-7l-4.5 4v-4H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zM12 7.5l1 2.2 2.2 1-2.2 1-1 2.2-1-2.2-2.2-1 2.2-1z"/></g><circle cx="12" cy="10.7" r="0.9" fill="currentColor" stroke="none"/></g></g></symbol>
+<symbol id="dg-tile-ia" viewBox="0 0 128 128"><title>IA</title><rect x="9" y="17" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".16" filter="url(#dgt-f1)"/>
+<rect x="9" y="14" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".22" filter="url(#dgt-f2)"/>
+<rect x="8" y="14" width="112" height="108" rx="36" fill="rgb(150,96,52)" opacity=".2"/>
+<rect x="8" y="8" width="112" height="108" rx="36" fill="url(#dgt-g-memoria)"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="var(--vidro-borda, rgba(236, 223, 210, .9))" stroke-width="2.400"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="url(#dgt-top)" stroke-width="2.800"/>
+<g style="color:var(--sec-memoria-ico, #6a4a9c)"><g transform="translate(64 62) scale(3.1) translate(-12 -12)"><g fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M10 5l2 5 5 2-5 2-2 5-2-5-5-2 5-2zM18 4v3M16.5 5.5h3"/></g><circle cx="19" cy="17.5" r="1.5" fill="currentColor" stroke="none"/></g></g></symbol>
+<symbol id="dg-tile-rajada" viewBox="0 0 128 128"><title>Rajada</title><rect x="9" y="17" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".16" filter="url(#dgt-f1)"/>
+<rect x="9" y="14" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".22" filter="url(#dgt-f2)"/>
+<rect x="8" y="14" width="112" height="108" rx="36" fill="rgb(150,96,52)" opacity=".2"/>
+<rect x="8" y="8" width="112" height="108" rx="36" fill="url(#dgt-g-treino)"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="var(--vidro-borda, rgba(236, 223, 210, .9))" stroke-width="2.400"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="url(#dgt-top)" stroke-width="2.800"/>
+<g style="color:var(--sec-treino-ico, #b4561a)"><g transform="translate(64 62) scale(3.1) translate(-12 -12)"><g fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M13 3.5 6 13.5h5.5l-1 7 7.5-10h-5.5z"/></g><circle cx="17.5" cy="5.5" r="1.3" fill="currentColor" stroke="none"/></g></g></symbol>
+<symbol id="dg-tile-tribunal" viewBox="0 0 128 128"><title>Tribunal das IAs</title><rect x="9" y="17" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".16" filter="url(#dgt-f1)"/>
+<rect x="9" y="14" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".22" filter="url(#dgt-f2)"/>
+<rect x="8" y="14" width="112" height="108" rx="36" fill="rgb(150,96,52)" opacity=".2"/>
+<rect x="8" y="8" width="112" height="108" rx="36" fill="url(#dgt-g-acompanhar)"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="var(--vidro-borda, rgba(236, 223, 210, .9))" stroke-width="2.400"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="url(#dgt-top)" stroke-width="2.800"/>
+<g style="color:var(--sec-acompanhar-ico, #1f6470)"><g transform="translate(64 62) scale(3.1) translate(-12 -12)"><g fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6v13.5M7 19.5h10M5 7.5h14M5 7.5 3.2 13M5 7.5 8.8 13M19 7.5 15.2 13M19 7.5l1.8 5.5M3.2 13a2.8 2.8 0 0 0 5.6 0zM15.2 13a2.8 2.8 0 0 0 5.6 0z"/></g><circle cx="12" cy="4.5" r="1.7" fill="currentColor" stroke="none"/></g></g></symbol>
+<symbol id="dg-tile-escriba" viewBox="0 0 128 128"><title>Escriba</title><rect x="9" y="17" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".16" filter="url(#dgt-f1)"/>
+<rect x="9" y="14" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".22" filter="url(#dgt-f2)"/>
+<rect x="8" y="14" width="112" height="108" rx="36" fill="rgb(150,96,52)" opacity=".2"/>
+<rect x="8" y="8" width="112" height="108" rx="36" fill="url(#dgt-g-apoio)"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="var(--vidro-borda, rgba(236, 223, 210, .9))" stroke-width="2.400"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="url(#dgt-top)" stroke-width="2.800"/>
+<g style="color:var(--sec-apoio-ico, #2d6b3c)"><g transform="translate(64 62) scale(3.1) translate(-12 -12)"><g fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M19 5C12.5 5 8 8.5 7 15.5c5 0 10-2.5 12-10.5zM7 15.5 5 20M10.5 12.5l4-2.5"/></g><circle cx="5" cy="20" r="1.1" fill="currentColor" stroke="none"/></g></g></symbol>
+<symbol id="dg-tile-raiox" viewBox="0 0 128 128"><title>Raio-X da banca</title><rect x="9" y="17" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".16" filter="url(#dgt-f1)"/>
+<rect x="9" y="14" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".22" filter="url(#dgt-f2)"/>
+<rect x="8" y="14" width="112" height="108" rx="36" fill="rgb(150,96,52)" opacity=".2"/>
+<rect x="8" y="8" width="112" height="108" rx="36" fill="url(#dgt-g-acompanhar)"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="var(--vidro-borda, rgba(236, 223, 210, .9))" stroke-width="2.400"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="url(#dgt-top)" stroke-width="2.800"/>
+<g style="color:var(--sec-acompanhar-ico, #1f6470)"><g transform="translate(64 62) scale(3.1) translate(-12 -12)"><g fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8V5.5A1.5 1.5 0 0 1 5.5 4H8M16 4h2.5A1.5 1.5 0 0 1 20 5.5V8M20 16v2.5a1.5 1.5 0 0 1-1.5 1.5H16M8 20H5.5A1.5 1.5 0 0 1 4 18.5V16M7.5 14.5l3-3.5 2.5 2 3.5-4"/></g><circle cx="7.5" cy="14.5" r="1.3" fill="currentColor" stroke="none"/><circle cx="10.5" cy="11" r="1.3" fill="currentColor" stroke="none"/><circle cx="13" cy="13" r="1.3" fill="currentColor" stroke="none"/><circle cx="16.5" cy="9" r="1.3" fill="currentColor" stroke="none"/></g></g></symbol>
+<symbol id="dg-tile-radio" viewBox="0 0 128 128"><title>Rádio foco</title><rect x="9" y="17" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".16" filter="url(#dgt-f1)"/>
+<rect x="9" y="14" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".22" filter="url(#dgt-f2)"/>
+<rect x="8" y="14" width="112" height="108" rx="36" fill="rgb(150,96,52)" opacity=".2"/>
+<rect x="8" y="8" width="112" height="108" rx="36" fill="url(#dgt-g-apoio)"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="var(--vidro-borda, rgba(236, 223, 210, .9))" stroke-width="2.400"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="url(#dgt-top)" stroke-width="2.800"/>
+<g style="color:var(--sec-apoio-ico, #2d6b3c)"><g transform="translate(64 62) scale(3.1) translate(-12 -12)"><g fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8.5h12a2 2 0 0 1 2 2v7.5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V10.5a2 2 0 0 1 2-2zM7.5 8.5 16 4M7.5 14h4M7.5 17h4"/></g><circle cx="16.5" cy="14.5" r="2" fill="currentColor" stroke="none"/></g></g></symbol>
+<symbol id="dg-tile-salao" viewBox="0 0 128 128"><title>Salão</title><rect x="9" y="17" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".16" filter="url(#dgt-f1)"/>
+<rect x="9" y="14" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".22" filter="url(#dgt-f2)"/>
+<rect x="8" y="14" width="112" height="108" rx="36" fill="rgb(150,96,52)" opacity=".2"/>
+<rect x="8" y="8" width="112" height="108" rx="36" fill="url(#dgt-g-apoio)"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="var(--vidro-borda, rgba(236, 223, 210, .9))" stroke-width="2.400"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="url(#dgt-top)" stroke-width="2.800"/>
+<g style="color:var(--sec-apoio-ico, #2d6b3c)"><g transform="translate(64 62) scale(3.1) translate(-12 -12)"><g fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M6.2 8.5a2.8 2.8 0 1 0 5.6 0a2.8 2.8 0 1 0-5.6 0zM4 19c0-3 2.2-5 5-5s5 2 5 5M16 6.5a2.6 2.6 0 0 1 0 5M17 14.6c2 .6 3 2.2 3 4.4"/></g><circle cx="19" cy="5" r="1.2" fill="currentColor" stroke="none"/></g></g></symbol>
+<symbol id="dg-tile-conquistas" viewBox="0 0 128 128"><title>Conquistas</title><rect x="9" y="17" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".16" filter="url(#dgt-f1)"/>
+<rect x="9" y="14" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".22" filter="url(#dgt-f2)"/>
+<rect x="8" y="14" width="112" height="108" rx="36" fill="rgb(150,96,52)" opacity=".2"/>
+<rect x="8" y="8" width="112" height="108" rx="36" fill="url(#dgt-g-treino)"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="var(--vidro-borda, rgba(236, 223, 210, .9))" stroke-width="2.400"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="url(#dgt-top)" stroke-width="2.800"/>
+<g style="color:var(--sec-treino-ico, #b4561a)"><g transform="translate(64 62) scale(3.1) translate(-12 -12)"><g fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4.5h8v5a4 4 0 0 1-8 0zM8 6.5H5v1.5a3 3 0 0 0 3 3M16 6.5h3v1.5a3 3 0 0 1-3 3M12 13.5V17M8.5 20h7M10 17h4"/></g><circle cx="12" cy="8.2" r="1.3" fill="currentColor" stroke="none"/></g></g></symbol>
+<symbol id="dg-tile-chama" viewBox="0 0 128 128"><title>Chama (sequência)</title><rect x="9" y="17" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".16" filter="url(#dgt-f1)"/>
+<rect x="9" y="14" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".22" filter="url(#dgt-f2)"/>
+<rect x="8" y="14" width="112" height="108" rx="36" fill="rgb(150,96,52)" opacity=".2"/>
+<rect x="8" y="8" width="112" height="108" rx="36" fill="url(#dgt-g-treino)"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="var(--vidro-borda, rgba(236, 223, 210, .9))" stroke-width="2.400"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="url(#dgt-top)" stroke-width="2.800"/>
+<g style="color:var(--sec-treino-ico, #b4561a)"><g transform="translate(64 62) scale(3.1) translate(-12 -12)"><g fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5c.5 3.5 5.5 5.5 5.5 11a5.5 5.5 0 0 1-11 0c0-2.2 1-3.7 2.3-5 .2 1.4.8 2.2 1.7 2.7C10 9 10.8 6 12 3.5z"/></g><circle cx="12" cy="15.5" r="1.6" fill="currentColor" stroke="none"/></g></g></symbol>
+<symbol id="dg-tile-xp" viewBox="0 0 128 128"><title>XP</title><rect x="9" y="17" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".16" filter="url(#dgt-f1)"/>
+<rect x="9" y="14" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".22" filter="url(#dgt-f2)"/>
+<rect x="8" y="14" width="112" height="108" rx="36" fill="rgb(150,96,52)" opacity=".2"/>
+<rect x="8" y="8" width="112" height="108" rx="36" fill="url(#dgt-g-treino)"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="var(--vidro-borda, rgba(236, 223, 210, .9))" stroke-width="2.400"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="url(#dgt-top)" stroke-width="2.800"/>
+<g style="color:var(--sec-treino-ico, #b4561a)"><g transform="translate(64 62) scale(3.1) translate(-12 -12)"><g fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5l2.4 6.1 6.1 2.4-6.1 2.4L12 20.5l-2.4-6.1L3.5 12l6.1-2.4z"/></g><circle cx="12" cy="12" r="1.5" fill="currentColor" stroke="none"/></g></g></symbol>
+<symbol id="dg-tile-patente" viewBox="0 0 128 128"><title>Patente</title><rect x="9" y="17" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".16" filter="url(#dgt-f1)"/>
+<rect x="9" y="14" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".22" filter="url(#dgt-f2)"/>
+<rect x="8" y="14" width="112" height="108" rx="36" fill="rgb(150,96,52)" opacity=".2"/>
+<rect x="8" y="8" width="112" height="108" rx="36" fill="url(#dgt-g-memoria)"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="var(--vidro-borda, rgba(236, 223, 210, .9))" stroke-width="2.400"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="url(#dgt-top)" stroke-width="2.800"/>
+<g style="color:var(--sec-memoria-ico, #6a4a9c)"><g transform="translate(64 62) scale(3.1) translate(-12 -12)"><g fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5 19 6v6c0 4-3 6.6-7 8.5C8 18.6 5 16 5 12V6zM8.7 11l3.3-2.7 3.3 2.7M8.7 14.5l3.3-2.7 3.3 2.7"/></g><circle cx="12" cy="17.5" r="1.1" fill="currentColor" stroke="none"/></g></g></symbol>
+<symbol id="dg-tile-examinador" viewBox="0 0 128 128"><title>Examinador</title><rect x="9" y="17" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".16" filter="url(#dgt-f1)"/>
+<rect x="9" y="14" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".22" filter="url(#dgt-f2)"/>
+<rect x="8" y="14" width="112" height="108" rx="36" fill="rgb(150,96,52)" opacity=".2"/>
+<rect x="8" y="8" width="112" height="108" rx="36" fill="url(#dgt-g-acompanhar)"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="var(--vidro-borda, rgba(236, 223, 210, .9))" stroke-width="2.400"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="url(#dgt-top)" stroke-width="2.800"/>
+<g style="color:var(--sec-acompanhar-ico, #1f6470)"><g transform="translate(64 62) scale(3.1) translate(-12 -12)"><g fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M8.8 8a3.2 3.2 0 1 0 6.4 0a3.2 3.2 0 1 0-6.4 0zM5.5 20c0-4 2.8-6.5 6.5-6.5s6.5 2.5 6.5 6.5"/></g><circle cx="12" cy="17" r="1.2" fill="currentColor" stroke="none"/></g></g></symbol>
+<symbol id="dg-tile-atlas" viewBox="0 0 128 128"><title>Atlas</title><rect x="9" y="17" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".16" filter="url(#dgt-f1)"/>
+<rect x="9" y="14" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".22" filter="url(#dgt-f2)"/>
+<rect x="8" y="14" width="112" height="108" rx="36" fill="rgb(150,96,52)" opacity=".2"/>
+<rect x="8" y="8" width="112" height="108" rx="36" fill="url(#dgt-g-acompanhar)"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="var(--vidro-borda, rgba(236, 223, 210, .9))" stroke-width="2.400"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="url(#dgt-top)" stroke-width="2.800"/>
+<g style="color:var(--sec-acompanhar-ico, #1f6470)"><g transform="translate(64 62) scale(3.1) translate(-12 -12)"><g fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12a8 8 0 1 0 16 0a8 8 0 1 0-16 0zM4 12h16M12 4c3 2.5 3 13.5 0 16M12 4c-3 2.5-3 13.5 0 16"/></g><circle cx="16.2" cy="8.8" r="1.3" fill="currentColor" stroke="none"/></g></g></symbol>
+<symbol id="dg-tile-galeria" viewBox="0 0 128 128"><title>Galeria</title><rect x="9" y="17" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".16" filter="url(#dgt-f1)"/>
+<rect x="9" y="14" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".22" filter="url(#dgt-f2)"/>
+<rect x="8" y="14" width="112" height="108" rx="36" fill="rgb(150,96,52)" opacity=".2"/>
+<rect x="8" y="8" width="112" height="108" rx="36" fill="url(#dgt-g-apoio)"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="var(--vidro-borda, rgba(236, 223, 210, .9))" stroke-width="2.400"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="url(#dgt-top)" stroke-width="2.800"/>
+<g style="color:var(--sec-apoio-ico, #2d6b3c)"><g transform="translate(64 62) scale(3.1) translate(-12 -12)"><g fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M6 5h12a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2zM4 15l4.5-4.5 4 4 2.5-2.5L20 17"/></g><circle cx="16" cy="9" r="1.4" fill="currentColor" stroke="none"/></g></g></symbol>
+<symbol id="dg-tile-palacio" viewBox="0 0 128 128"><title>Palácio da memória</title><rect x="9" y="17" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".16" filter="url(#dgt-f1)"/>
+<rect x="9" y="14" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".22" filter="url(#dgt-f2)"/>
+<rect x="8" y="14" width="112" height="108" rx="36" fill="rgb(150,96,52)" opacity=".2"/>
+<rect x="8" y="8" width="112" height="108" rx="36" fill="url(#dgt-g-memoria)"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="var(--vidro-borda, rgba(236, 223, 210, .9))" stroke-width="2.400"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="url(#dgt-top)" stroke-width="2.800"/>
+<g style="color:var(--sec-memoria-ico, #6a4a9c)"><g transform="translate(64 62) scale(3.1) translate(-12 -12)"><g fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M6 10.5a6 6 0 0 1 12 0zM12 4.5V3M7.5 10.5v8M12 10.5v8M16.5 10.5v8M4.5 19.5h15"/></g><circle cx="12" cy="3.2" r="1.2" fill="currentColor" stroke="none"/></g></g></symbol>
+<symbol id="dg-tile-babel" viewBox="0 0 128 128"><title>Babel (inglês)</title><rect x="9" y="17" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".16" filter="url(#dgt-f1)"/>
+<rect x="9" y="14" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".22" filter="url(#dgt-f2)"/>
+<rect x="8" y="14" width="112" height="108" rx="36" fill="rgb(150,96,52)" opacity=".2"/>
+<rect x="8" y="8" width="112" height="108" rx="36" fill="url(#dgt-g-apoio)"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="var(--vidro-borda, rgba(236, 223, 210, .9))" stroke-width="2.400"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="url(#dgt-top)" stroke-width="2.800"/>
+<g style="color:var(--sec-apoio-ico, #2d6b3c)"><g transform="translate(64 62) scale(3.1) translate(-12 -12)"><g fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 9V5h5v4M7 13.5V9h10v4.5M5 20V13.5h14V20M3.5 20.5h17M12 3.5v-.5"/></g><circle cx="12" cy="3.8" r="1.2" fill="currentColor" stroke="none"/></g></g></symbol>
+<symbol id="dg-tile-rascunho" viewBox="0 0 128 128"><title>Rascunho</title><rect x="9" y="17" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".16" filter="url(#dgt-f1)"/>
+<rect x="9" y="14" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".22" filter="url(#dgt-f2)"/>
+<rect x="8" y="14" width="112" height="108" rx="36" fill="rgb(150,96,52)" opacity=".2"/>
+<rect x="8" y="8" width="112" height="108" rx="36" fill="url(#dgt-g-treino)"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="var(--vidro-borda, rgba(236, 223, 210, .9))" stroke-width="2.400"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="url(#dgt-top)" stroke-width="2.800"/>
+<g style="color:var(--sec-treino-ico, #b4561a)"><g transform="translate(64 62) scale(3.1) translate(-12 -12)"><g fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 17c2.5-6 4-8.5 5.5-6.5S8.5 16 11 15s3-7.5 5-7 2 4 3.5 3M4 20.5h16"/></g><circle cx="19.5" cy="11" r="1.4" fill="currentColor" stroke="none"/></g></g></symbol>
+<symbol id="dg-tile-mapa-mental" viewBox="0 0 128 128"><title>Mapa mental</title><rect x="9" y="17" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".16" filter="url(#dgt-f1)"/>
+<rect x="9" y="14" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".22" filter="url(#dgt-f2)"/>
+<rect x="8" y="14" width="112" height="108" rx="36" fill="rgb(150,96,52)" opacity=".2"/>
+<rect x="8" y="8" width="112" height="108" rx="36" fill="url(#dgt-g-memoria)"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="var(--vidro-borda, rgba(236, 223, 210, .9))" stroke-width="2.400"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="url(#dgt-top)" stroke-width="2.800"/>
+<g style="color:var(--sec-memoria-ico, #6a4a9c)"><g transform="translate(64 62) scale(3.1) translate(-12 -12)"><g fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M9.4 12a2.6 2.6 0 1 0 5.2 0a2.6 2.6 0 1 0-5.2 0zM10 10.2 7.5 7.5M14 10.2l2.5-2.7M10 13.8l-2.5 2.7M14 13.8l2.5 2.7"/></g><circle cx="6.5" cy="6.5" r="1.9" fill="currentColor" stroke="none"/><circle cx="17.5" cy="6.5" r="1.9" fill="currentColor" stroke="none"/><circle cx="6.5" cy="17.5" r="1.9" fill="currentColor" stroke="none"/><circle cx="17.5" cy="17.5" r="1.9" fill="currentColor" stroke="none"/></g></g></symbol>
+<symbol id="dg-tile-quadro" viewBox="0 0 128 128"><title>Quadro</title><rect x="9" y="17" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".16" filter="url(#dgt-f1)"/>
+<rect x="9" y="14" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".22" filter="url(#dgt-f2)"/>
+<rect x="8" y="14" width="112" height="108" rx="36" fill="rgb(150,96,52)" opacity=".2"/>
+<rect x="8" y="8" width="112" height="108" rx="36" fill="url(#dgt-g-acompanhar)"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="var(--vidro-borda, rgba(236, 223, 210, .9))" stroke-width="2.400"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="url(#dgt-top)" stroke-width="2.800"/>
+<g style="color:var(--sec-acompanhar-ico, #1f6470)"><g transform="translate(64 62) scale(3.1) translate(-12 -12)"><g fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M6 5h12a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2zM12 16v4M8 20h8M7.5 12.5l3-3 2 2 3-3.5"/></g><circle cx="16" cy="8" r="1.2" fill="currentColor" stroke="none"/></g></g></symbol>
+<symbol id="dg-tile-nota" viewBox="0 0 128 128"><title>Nota</title><rect x="9" y="17" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".16" filter="url(#dgt-f1)"/>
+<rect x="9" y="14" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".22" filter="url(#dgt-f2)"/>
+<rect x="8" y="14" width="112" height="108" rx="36" fill="rgb(150,96,52)" opacity=".2"/>
+<rect x="8" y="8" width="112" height="108" rx="36" fill="url(#dgt-g-treino)"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="var(--vidro-borda, rgba(236, 223, 210, .9))" stroke-width="2.400"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="url(#dgt-top)" stroke-width="2.800"/>
+<g style="color:var(--sec-treino-ico, #b4561a)"><g transform="translate(64 62) scale(3.1) translate(-12 -12)"><g fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4.5h14v10l-5 5H5zM14 19.5v-5h5M8 9h8M8 12.5h4"/></g><circle cx="8.5" cy="16.5" r="1.2" fill="currentColor" stroke="none"/></g></g></symbol>
+<symbol id="dg-tile-cartao" viewBox="0 0 128 128"><title>Cartão de estudo</title><rect x="9" y="17" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".16" filter="url(#dgt-f1)"/>
+<rect x="9" y="14" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".22" filter="url(#dgt-f2)"/>
+<rect x="8" y="14" width="112" height="108" rx="36" fill="rgb(150,96,52)" opacity=".2"/>
+<rect x="8" y="8" width="112" height="108" rx="36" fill="url(#dgt-g-memoria)"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="var(--vidro-borda, rgba(236, 223, 210, .9))" stroke-width="2.400"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="url(#dgt-top)" stroke-width="2.800"/>
+<g style="color:var(--sec-memoria-ico, #6a4a9c)"><g transform="translate(64 62) scale(3.1) translate(-12 -12)"><g fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 6h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2zM7 10h6M7 13.5h4"/></g><circle cx="17" cy="12" r="1.7" fill="currentColor" stroke="none"/></g></g></symbol>
+<symbol id="dg-tile-timer" viewBox="0 0 128 128"><title>Timer</title><rect x="9" y="17" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".16" filter="url(#dgt-f1)"/>
+<rect x="9" y="14" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".22" filter="url(#dgt-f2)"/>
+<rect x="8" y="14" width="112" height="108" rx="36" fill="rgb(150,96,52)" opacity=".2"/>
+<rect x="8" y="8" width="112" height="108" rx="36" fill="url(#dgt-g-acompanhar)"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="var(--vidro-borda, rgba(236, 223, 210, .9))" stroke-width="2.400"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="url(#dgt-top)" stroke-width="2.800"/>
+<g style="color:var(--sec-acompanhar-ico, #1f6470)"><g transform="translate(64 62) scale(3.1) translate(-12 -12)"><g fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13.5a7 7 0 1 0 14 0a7 7 0 1 0-14 0zM12 13.5V9.5M10 3.5h4M12 3.5v3M18.5 7l1.2-1.2"/></g><circle cx="12" cy="13.5" r="1.5" fill="currentColor" stroke="none"/></g></g></symbol>
+<symbol id="dg-tile-play" viewBox="0 0 128 128"><title>Play</title><rect x="9" y="17" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".16" filter="url(#dgt-f1)"/>
+<rect x="9" y="14" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".22" filter="url(#dgt-f2)"/>
+<rect x="8" y="14" width="112" height="108" rx="36" fill="rgb(150,96,52)" opacity=".2"/>
+<rect x="8" y="8" width="112" height="108" rx="36" fill="url(#dgt-g-apoio)"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="var(--vidro-borda, rgba(236, 223, 210, .9))" stroke-width="2.400"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="url(#dgt-top)" stroke-width="2.800"/>
+<g style="color:var(--sec-apoio-ico, #2d6b3c)"><g transform="translate(64 62) scale(3.1) translate(-12 -12)"><g fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M8 5.5v13l10.5-6.5z"/></g><circle cx="18.5" cy="12" r="1.2" fill="currentColor" stroke="none"/></g></g></symbol>
+<symbol id="dg-tile-pause" viewBox="0 0 128 128"><title>Pause</title><rect x="9" y="17" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".16" filter="url(#dgt-f1)"/>
+<rect x="9" y="14" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".22" filter="url(#dgt-f2)"/>
+<rect x="8" y="14" width="112" height="108" rx="36" fill="rgb(150,96,52)" opacity=".2"/>
+<rect x="8" y="8" width="112" height="108" rx="36" fill="url(#dgt-g-apoio)"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="var(--vidro-borda, rgba(236, 223, 210, .9))" stroke-width="2.400"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="url(#dgt-top)" stroke-width="2.800"/>
+<g style="color:var(--sec-apoio-ico, #2d6b3c)"><g transform="translate(64 62) scale(3.1) translate(-12 -12)"><g fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M7 5.5h3.5v13H7zM13.5 5.5H17v13h-3.5z"/></g><circle cx="12" cy="12" r="1" fill="currentColor" stroke="none"/></g></g></symbol>
+<symbol id="dg-tile-configuracoes" viewBox="0 0 128 128"><title>Configurações</title><rect x="9" y="17" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".16" filter="url(#dgt-f1)"/>
+<rect x="9" y="14" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".22" filter="url(#dgt-f2)"/>
+<rect x="8" y="14" width="112" height="108" rx="36" fill="rgb(150,96,52)" opacity=".2"/>
+<rect x="8" y="8" width="112" height="108" rx="36" fill="url(#dgt-g-acompanhar)"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="var(--vidro-borda, rgba(236, 223, 210, .9))" stroke-width="2.400"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="url(#dgt-top)" stroke-width="2.800"/>
+<g style="color:var(--sec-acompanhar-ico, #1f6470)"><g transform="translate(64 62) scale(3.1) translate(-12 -12)"><g fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h8M16.5 7H20M4 12h3.5M11.5 12H20M4 17h10M18.5 17H20"/></g><circle cx="14.25" cy="7" r="2.25" fill="currentColor" stroke="none"/><circle cx="9.5" cy="12" r="2.25" fill="currentColor" stroke="none"/><circle cx="16.25" cy="17" r="2.25" fill="currentColor" stroke="none"/></g></g></symbol>
+<symbol id="dg-tile-tema" viewBox="0 0 128 128"><title>Tema</title><rect x="9" y="17" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".16" filter="url(#dgt-f1)"/>
+<rect x="9" y="14" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".22" filter="url(#dgt-f2)"/>
+<rect x="8" y="14" width="112" height="108" rx="36" fill="rgb(150,96,52)" opacity=".2"/>
+<rect x="8" y="8" width="112" height="108" rx="36" fill="url(#dgt-g-memoria)"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="var(--vidro-borda, rgba(236, 223, 210, .9))" stroke-width="2.400"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="url(#dgt-top)" stroke-width="2.800"/>
+<g style="color:var(--sec-memoria-ico, #6a4a9c)"><g transform="translate(64 62) scale(3.1) translate(-12 -12)"><g fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12a8 8 0 1 0 16 0a8 8 0 1 0-16 0zM12 4v16"/></g><circle cx="16" cy="9" r="1.3" fill="currentColor" stroke="none"/></g></g></symbol>
+<symbol id="dg-tile-busca" viewBox="0 0 128 128"><title>Busca</title><rect x="9" y="17" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".16" filter="url(#dgt-f1)"/>
+<rect x="9" y="14" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".22" filter="url(#dgt-f2)"/>
+<rect x="8" y="14" width="112" height="108" rx="36" fill="rgb(150,96,52)" opacity=".2"/>
+<rect x="8" y="8" width="112" height="108" rx="36" fill="url(#dgt-g-acompanhar)"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="var(--vidro-borda, rgba(236, 223, 210, .9))" stroke-width="2.400"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="url(#dgt-top)" stroke-width="2.800"/>
+<g style="color:var(--sec-acompanhar-ico, #1f6470)"><g transform="translate(64 62) scale(3.1) translate(-12 -12)"><g fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 10.5a6 6 0 1 0 12 0a6 6 0 1 0-12 0zM15 15l5 5"/></g><circle cx="10.5" cy="10.5" r="1.4" fill="currentColor" stroke="none"/></g></g></symbol>
+<symbol id="dg-tile-filtro" viewBox="0 0 128 128"><title>Filtro</title><rect x="9" y="17" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".16" filter="url(#dgt-f1)"/>
+<rect x="9" y="14" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".22" filter="url(#dgt-f2)"/>
+<rect x="8" y="14" width="112" height="108" rx="36" fill="rgb(150,96,52)" opacity=".2"/>
+<rect x="8" y="8" width="112" height="108" rx="36" fill="url(#dgt-g-acompanhar)"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="var(--vidro-borda, rgba(236, 223, 210, .9))" stroke-width="2.400"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="url(#dgt-top)" stroke-width="2.800"/>
+<g style="color:var(--sec-acompanhar-ico, #1f6470)"><g transform="translate(64 62) scale(3.1) translate(-12 -12)"><g fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5h16l-6 7.5v5.5l-4 1.5V13z"/></g><circle cx="12" cy="8.7" r="1.2" fill="currentColor" stroke="none"/></g></g></symbol>
+<symbol id="dg-tile-exportar" viewBox="0 0 128 128"><title>Exportar</title><rect x="9" y="17" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".16" filter="url(#dgt-f1)"/>
+<rect x="9" y="14" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".22" filter="url(#dgt-f2)"/>
+<rect x="8" y="14" width="112" height="108" rx="36" fill="rgb(150,96,52)" opacity=".2"/>
+<rect x="8" y="8" width="112" height="108" rx="36" fill="url(#dgt-g-apoio)"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="var(--vidro-borda, rgba(236, 223, 210, .9))" stroke-width="2.400"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="url(#dgt-top)" stroke-width="2.800"/>
+<g style="color:var(--sec-apoio-ico, #2d6b3c)"><g transform="translate(64 62) scale(3.1) translate(-12 -12)"><g fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15V4.5M8 8.5l4-4 4 4M5 14v4.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V14"/></g><circle cx="12" cy="15.5" r="1.3" fill="currentColor" stroke="none"/></g></g></symbol>
+<symbol id="dg-tile-importar" viewBox="0 0 128 128"><title>Importar</title><rect x="9" y="17" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".16" filter="url(#dgt-f1)"/>
+<rect x="9" y="14" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".22" filter="url(#dgt-f2)"/>
+<rect x="8" y="14" width="112" height="108" rx="36" fill="rgb(150,96,52)" opacity=".2"/>
+<rect x="8" y="8" width="112" height="108" rx="36" fill="url(#dgt-g-apoio)"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="var(--vidro-borda, rgba(236, 223, 210, .9))" stroke-width="2.400"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="url(#dgt-top)" stroke-width="2.800"/>
+<g style="color:var(--sec-apoio-ico, #2d6b3c)"><g transform="translate(64 62) scale(3.1) translate(-12 -12)"><g fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4.5V15M8 11l4 4 4-4M5 14v4.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V14"/></g><circle cx="12" cy="4.5" r="1.3" fill="currentColor" stroke="none"/></g></g></symbol>
+<symbol id="dg-tile-backup" viewBox="0 0 128 128"><title>Backup</title><rect x="9" y="17" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".16" filter="url(#dgt-f1)"/>
+<rect x="9" y="14" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".22" filter="url(#dgt-f2)"/>
+<rect x="8" y="14" width="112" height="108" rx="36" fill="rgb(150,96,52)" opacity=".2"/>
+<rect x="8" y="8" width="112" height="108" rx="36" fill="url(#dgt-g-acompanhar)"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="var(--vidro-borda, rgba(236, 223, 210, .9))" stroke-width="2.400"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="url(#dgt-top)" stroke-width="2.800"/>
+<g style="color:var(--sec-acompanhar-ico, #1f6470)"><g transform="translate(64 62) scale(3.1) translate(-12 -12)"><g fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M7.5 18.5a4.2 4.2 0 0 1-.4-8.4 5.6 5.6 0 0 1 10.8 1.5 3.5 3.5 0 0 1-.4 6.9zM12 17v-5M9.8 14l2.2-2.2 2.2 2.2"/></g><circle cx="12" cy="17.2" r="1.2" fill="currentColor" stroke="none"/></g></g></symbol>
+<symbol id="dg-tile-captura" viewBox="0 0 128 128"><title>Captura de tela</title><rect x="9" y="17" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".16" filter="url(#dgt-f1)"/>
+<rect x="9" y="14" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".22" filter="url(#dgt-f2)"/>
+<rect x="8" y="14" width="112" height="108" rx="36" fill="rgb(150,96,52)" opacity=".2"/>
+<rect x="8" y="8" width="112" height="108" rx="36" fill="url(#dgt-g-acompanhar)"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="var(--vidro-borda, rgba(236, 223, 210, .9))" stroke-width="2.400"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="url(#dgt-top)" stroke-width="2.800"/>
+<g style="color:var(--sec-acompanhar-ico, #1f6470)"><g transform="translate(64 62) scale(3.1) translate(-12 -12)"><g fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4H5.5A1.5 1.5 0 0 0 4 5.5V8M16 4h2.5A1.5 1.5 0 0 1 20 5.5V8M20 16v2.5a1.5 1.5 0 0 1-1.5 1.5H16M8 20H5.5A1.5 1.5 0 0 1 4 18.5V16"/></g><circle cx="12" cy="12" r="2.4" fill="currentColor" stroke="none"/></g></g></symbol>
+<symbol id="dg-tile-selecao-texto" viewBox="0 0 128 128"><title>Seleção de texto</title><rect x="9" y="17" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".16" filter="url(#dgt-f1)"/>
+<rect x="9" y="14" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".22" filter="url(#dgt-f2)"/>
+<rect x="8" y="14" width="112" height="108" rx="36" fill="rgb(150,96,52)" opacity=".2"/>
+<rect x="8" y="8" width="112" height="108" rx="36" fill="url(#dgt-g-treino)"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="var(--vidro-borda, rgba(236, 223, 210, .9))" stroke-width="2.400"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="url(#dgt-top)" stroke-width="2.800"/>
+<g style="color:var(--sec-treino-ico, #b4561a)"><g transform="translate(64 62) scale(3.1) translate(-12 -12)"><g fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h10M4 12h7M4 17h10M17 6v12M15.5 6h3M15.5 18h3"/></g><circle cx="11" cy="12" r="1.2" fill="currentColor" stroke="none"/></g></g></symbol>
+<symbol id="dg-tile-youtube-minuto" viewBox="0 0 128 128"><title>Vídeo em 1 minuto</title><rect x="9" y="17" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".16" filter="url(#dgt-f1)"/>
+<rect x="9" y="14" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".22" filter="url(#dgt-f2)"/>
+<rect x="8" y="14" width="112" height="108" rx="36" fill="rgb(150,96,52)" opacity=".2"/>
+<rect x="8" y="8" width="112" height="108" rx="36" fill="url(#dgt-g-apoio)"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="var(--vidro-borda, rgba(236, 223, 210, .9))" stroke-width="2.400"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="url(#dgt-top)" stroke-width="2.800"/>
+<g style="color:var(--sec-apoio-ico, #2d6b3c)"><g transform="translate(64 62) scale(3.1) translate(-12 -12)"><g fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 13.5a7.5 7.5 0 1 0 15 0a7.5 7.5 0 1 0-15 0zM10 3.5h4M10.5 11v5l4-2.5z"/></g><circle cx="18.3" cy="7.2" r="1.2" fill="currentColor" stroke="none"/></g></g></symbol>
+<symbol id="dg-tile-pagina-salva" viewBox="0 0 128 128"><title>Página salva</title><rect x="9" y="17" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".16" filter="url(#dgt-f1)"/>
+<rect x="9" y="14" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".22" filter="url(#dgt-f2)"/>
+<rect x="8" y="14" width="112" height="108" rx="36" fill="rgb(150,96,52)" opacity=".2"/>
+<rect x="8" y="8" width="112" height="108" rx="36" fill="url(#dgt-g-apoio)"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="var(--vidro-borda, rgba(236, 223, 210, .9))" stroke-width="2.400"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="url(#dgt-top)" stroke-width="2.800"/>
+<g style="color:var(--sec-apoio-ico, #2d6b3c)"><g transform="translate(64 62) scale(3.1) translate(-12 -12)"><g fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3.5h7l4 4V19a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 6 19V5A1.5 1.5 0 0 1 7.5 3.5zM14 3.5v4h4M9.5 12h5v6l-2.5-1.7L9.5 18z"/></g><circle cx="12" cy="9.5" r="1.1" fill="currentColor" stroke="none"/></g></g></symbol>
+<symbol id="dg-tile-link" viewBox="0 0 128 128"><title>Link</title><rect x="9" y="17" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".16" filter="url(#dgt-f1)"/>
+<rect x="9" y="14" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".22" filter="url(#dgt-f2)"/>
+<rect x="8" y="14" width="112" height="108" rx="36" fill="rgb(150,96,52)" opacity=".2"/>
+<rect x="8" y="8" width="112" height="108" rx="36" fill="url(#dgt-g-acompanhar)"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="var(--vidro-borda, rgba(236, 223, 210, .9))" stroke-width="2.400"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="url(#dgt-top)" stroke-width="2.800"/>
+<g style="color:var(--sec-acompanhar-ico, #1f6470)"><g transform="translate(64 62) scale(3.1) translate(-12 -12)"><g fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></g><circle cx="12" cy="12" r="1.2" fill="currentColor" stroke="none"/></g></g></symbol>
+<symbol id="dg-tile-voz" viewBox="0 0 128 128"><title>Voz</title><rect x="9" y="17" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".16" filter="url(#dgt-f1)"/>
+<rect x="9" y="14" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".22" filter="url(#dgt-f2)"/>
+<rect x="8" y="14" width="112" height="108" rx="36" fill="rgb(150,96,52)" opacity=".2"/>
+<rect x="8" y="8" width="112" height="108" rx="36" fill="url(#dgt-g-memoria)"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="var(--vidro-borda, rgba(236, 223, 210, .9))" stroke-width="2.400"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="url(#dgt-top)" stroke-width="2.800"/>
+<g style="color:var(--sec-memoria-ico, #6a4a9c)"><g transform="translate(64 62) scale(3.1) translate(-12 -12)"><g fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 10v4M8.5 7v10M12 4.5v15M15.5 8v8M19 10.5v3"/></g><circle cx="12" cy="12" r="1.7" fill="currentColor" stroke="none"/></g></g></symbol>
+<symbol id="dg-tile-microfone" viewBox="0 0 128 128"><title>Microfone</title><rect x="9" y="17" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".16" filter="url(#dgt-f1)"/>
+<rect x="9" y="14" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".22" filter="url(#dgt-f2)"/>
+<rect x="8" y="14" width="112" height="108" rx="36" fill="rgb(150,96,52)" opacity=".2"/>
+<rect x="8" y="8" width="112" height="108" rx="36" fill="url(#dgt-g-memoria)"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="var(--vidro-borda, rgba(236, 223, 210, .9))" stroke-width="2.400"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="url(#dgt-top)" stroke-width="2.800"/>
+<g style="color:var(--sec-memoria-ico, #6a4a9c)"><g transform="translate(64 62) scale(3.1) translate(-12 -12)"><g fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5a3 3 0 0 1 3 3v5a3 3 0 0 1-6 0v-5a3 3 0 0 1 3-3zM6.5 11a5.5 5.5 0 0 0 11 0M12 16.5v3.5M9 20h6"/></g><circle cx="12" cy="8.5" r="1.2" fill="currentColor" stroke="none"/></g></g></symbol>
+<symbol id="dg-tile-alerta" viewBox="0 0 128 128"><title>Alerta</title><rect x="9" y="17" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".16" filter="url(#dgt-f1)"/>
+<rect x="9" y="14" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".22" filter="url(#dgt-f2)"/>
+<rect x="8" y="14" width="112" height="108" rx="36" fill="rgb(150,96,52)" opacity=".2"/>
+<rect x="8" y="8" width="112" height="108" rx="36" fill="url(#dgt-g-treino)"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="var(--vidro-borda, rgba(236, 223, 210, .9))" stroke-width="2.400"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="url(#dgt-top)" stroke-width="2.800"/>
+<g style="color:var(--sec-treino-ico, #b4561a)"><g transform="translate(64 62) scale(3.1) translate(-12 -12)"><g fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4 21 19.5H3zM12 9.5V14"/></g><circle cx="12" cy="16.8" r="1.2" fill="currentColor" stroke="none"/></g></g></symbol>
+<symbol id="dg-tile-ok" viewBox="0 0 128 128"><title>Ok</title><rect x="9" y="17" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".16" filter="url(#dgt-f1)"/>
+<rect x="9" y="14" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".22" filter="url(#dgt-f2)"/>
+<rect x="8" y="14" width="112" height="108" rx="36" fill="rgb(150,96,52)" opacity=".2"/>
+<rect x="8" y="8" width="112" height="108" rx="36" fill="url(#dgt-g-apoio)"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="var(--vidro-borda, rgba(236, 223, 210, .9))" stroke-width="2.400"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="url(#dgt-top)" stroke-width="2.800"/>
+<g style="color:var(--sec-apoio-ico, #2d6b3c)"><g transform="translate(64 62) scale(3.1) translate(-12 -12)"><g fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 12a8.5 8.5 0 1 0 17 0a8.5 8.5 0 1 0-17 0zM8 12.3l2.8 2.8 5-5.6"/></g><circle cx="15.8" cy="9.5" r="1.2" fill="currentColor" stroke="none"/></g></g></symbol>
+<symbol id="dg-tile-erro" viewBox="0 0 128 128"><title>Erro</title><rect x="9" y="17" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".16" filter="url(#dgt-f1)"/>
+<rect x="9" y="14" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".22" filter="url(#dgt-f2)"/>
+<rect x="8" y="14" width="112" height="108" rx="36" fill="rgb(150,96,52)" opacity=".2"/>
+<rect x="8" y="8" width="112" height="108" rx="36" fill="url(#dgt-g-treino)"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="var(--vidro-borda, rgba(236, 223, 210, .9))" stroke-width="2.400"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="url(#dgt-top)" stroke-width="2.800"/>
+<g style="color:var(--sec-treino-ico, #b4561a)"><g transform="translate(64 62) scale(3.1) translate(-12 -12)"><g fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 12a8.5 8.5 0 1 0 17 0a8.5 8.5 0 1 0-17 0zM9 9l6 6M15 9l-6 6"/></g><circle cx="12" cy="12" r="1.2" fill="currentColor" stroke="none"/></g></g></symbol>
+<symbol id="dg-tile-duvida" viewBox="0 0 128 128"><title>Dúvida</title><rect x="9" y="17" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".16" filter="url(#dgt-f1)"/>
+<rect x="9" y="14" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".22" filter="url(#dgt-f2)"/>
+<rect x="8" y="14" width="112" height="108" rx="36" fill="rgb(150,96,52)" opacity=".2"/>
+<rect x="8" y="8" width="112" height="108" rx="36" fill="url(#dgt-g-memoria)"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="var(--vidro-borda, rgba(236, 223, 210, .9))" stroke-width="2.400"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="url(#dgt-top)" stroke-width="2.800"/>
+<g style="color:var(--sec-memoria-ico, #6a4a9c)"><g transform="translate(64 62) scale(3.1) translate(-12 -12)"><g fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 12a8.5 8.5 0 1 0 17 0a8.5 8.5 0 1 0-17 0zM9.7 9.6a2.4 2.4 0 1 1 3.4 2.2c-.8.4-1.1.9-1.1 1.7"/></g><circle cx="12" cy="16.4" r="1.2" fill="currentColor" stroke="none"/></g></g></symbol>
+<symbol id="dg-tile-chute" viewBox="0 0 128 128"><title>Chute</title><rect x="9" y="17" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".16" filter="url(#dgt-f1)"/>
+<rect x="9" y="14" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".22" filter="url(#dgt-f2)"/>
+<rect x="8" y="14" width="112" height="108" rx="36" fill="rgb(150,96,52)" opacity=".2"/>
+<rect x="8" y="8" width="112" height="108" rx="36" fill="url(#dgt-g-treino)"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="var(--vidro-borda, rgba(236, 223, 210, .9))" stroke-width="2.400"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="url(#dgt-top)" stroke-width="2.800"/>
+<g style="color:var(--sec-treino-ico, #b4561a)"><g transform="translate(64 62) scale(3.1) translate(-12 -12)"><g fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4.5h8a3.5 3.5 0 0 1 3.5 3.5v8a3.5 3.5 0 0 1-3.5 3.5H8a3.5 3.5 0 0 1-3.5-3.5V8a3.5 3.5 0 0 1 3.5-3.5z"/></g><circle cx="9" cy="9" r="1.3" fill="currentColor" stroke="none"/><circle cx="15" cy="9" r="1.3" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="1.3" fill="currentColor" stroke="none"/><circle cx="9" cy="15" r="1.3" fill="currentColor" stroke="none"/><circle cx="15" cy="15" r="1.3" fill="currentColor" stroke="none"/></g></g></symbol>
+<symbol id="dg-tile-certeza" viewBox="0 0 128 128"><title>Certeza</title><rect x="9" y="17" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".16" filter="url(#dgt-f1)"/>
+<rect x="9" y="14" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".22" filter="url(#dgt-f2)"/>
+<rect x="8" y="14" width="112" height="108" rx="36" fill="rgb(150,96,52)" opacity=".2"/>
+<rect x="8" y="8" width="112" height="108" rx="36" fill="url(#dgt-g-apoio)"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="var(--vidro-borda, rgba(236, 223, 210, .9))" stroke-width="2.400"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="url(#dgt-top)" stroke-width="2.800"/>
+<g style="color:var(--sec-apoio-ico, #2d6b3c)"><g transform="translate(64 62) scale(3.1) translate(-12 -12)"><g fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5 19 6v6c0 4-3 6.6-7 8.5C8 18.6 5 16 5 12V6zM8.8 12l2.3 2.3 4.2-4.6"/></g><circle cx="15.3" cy="9.7" r="1.2" fill="currentColor" stroke="none"/></g></g></symbol>
+<symbol id="dg-tile-banca" viewBox="0 0 128 128"><title>Banca</title><rect x="9" y="17" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".16" filter="url(#dgt-f1)"/>
+<rect x="9" y="14" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".22" filter="url(#dgt-f2)"/>
+<rect x="8" y="14" width="112" height="108" rx="36" fill="rgb(150,96,52)" opacity=".2"/>
+<rect x="8" y="8" width="112" height="108" rx="36" fill="url(#dgt-g-acompanhar)"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="var(--vidro-borda, rgba(236, 223, 210, .9))" stroke-width="2.400"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="url(#dgt-top)" stroke-width="2.800"/>
+<g style="color:var(--sec-acompanhar-ico, #1f6470)"><g transform="translate(64 62) scale(3.1) translate(-12 -12)"><g fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 8a2 2 0 1 0 4 0a2 2 0 1 0-4 0zM4 14h16v3.5H4zM6 17.5v2.5M18 17.5v2.5M15.5 8a2 2 0 1 0 4 0a2 2 0 1 0-4 0z"/></g><circle cx="12" cy="7" r="2" fill="currentColor" stroke="none"/></g></g></symbol>
+<symbol id="dg-tile-orgao" viewBox="0 0 128 128"><title>Órgão</title><rect x="9" y="17" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".16" filter="url(#dgt-f1)"/>
+<rect x="9" y="14" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".22" filter="url(#dgt-f2)"/>
+<rect x="8" y="14" width="112" height="108" rx="36" fill="rgb(150,96,52)" opacity=".2"/>
+<rect x="8" y="8" width="112" height="108" rx="36" fill="url(#dgt-g-apoio)"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="var(--vidro-borda, rgba(236, 223, 210, .9))" stroke-width="2.400"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="url(#dgt-top)" stroke-width="2.800"/>
+<g style="color:var(--sec-apoio-ico, #2d6b3c)"><g transform="translate(64 62) scale(3.1) translate(-12 -12)"><g fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 9.5h14V20H5zM3.5 20h17M8.5 12.5v4M12 12.5v4M15.5 12.5v4M12 9.5V3.5h4.5v2.5H12"/></g><circle cx="12" cy="9.5" r="1.3" fill="currentColor" stroke="none"/></g></g></symbol>
+<symbol id="dg-tile-prova" viewBox="0 0 128 128"><title>Prova</title><rect x="9" y="17" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".16" filter="url(#dgt-f1)"/>
+<rect x="9" y="14" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".22" filter="url(#dgt-f2)"/>
+<rect x="8" y="14" width="112" height="108" rx="36" fill="rgb(150,96,52)" opacity=".2"/>
+<rect x="8" y="8" width="112" height="108" rx="36" fill="url(#dgt-g-treino)"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="var(--vidro-borda, rgba(236, 223, 210, .9))" stroke-width="2.400"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="url(#dgt-top)" stroke-width="2.800"/>
+<g style="color:var(--sec-treino-ico, #b4561a)"><g transform="translate(64 62) scale(3.1) translate(-12 -12)"><g fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3.5h7l4 4V19a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 6 19V5A1.5 1.5 0 0 1 7.5 3.5zM14 3.5v4h4"/></g><circle cx="10" cy="11.5" r="1.2" fill="currentColor" stroke="none"/><circle cx="14" cy="11.5" r="1.2" fill="currentColor" stroke="none"/><circle cx="10" cy="15" r="1.2" fill="currentColor" stroke="none"/><circle cx="14" cy="15" r="1.2" fill="currentColor" stroke="none"/><circle cx="10" cy="18" r="1.2" fill="currentColor" stroke="none"/></g></g></symbol>
+<symbol id="dg-tile-cronograma" viewBox="0 0 128 128"><title>Cronograma</title><rect x="9" y="17" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".16" filter="url(#dgt-f1)"/>
+<rect x="9" y="14" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".22" filter="url(#dgt-f2)"/>
+<rect x="8" y="14" width="112" height="108" rx="36" fill="rgb(150,96,52)" opacity=".2"/>
+<rect x="8" y="8" width="112" height="108" rx="36" fill="url(#dgt-g-acompanhar)"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="var(--vidro-borda, rgba(236, 223, 210, .9))" stroke-width="2.400"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="url(#dgt-top)" stroke-width="2.800"/>
+<g style="color:var(--sec-acompanhar-ico, #1f6470)"><g transform="translate(64 62) scale(3.1) translate(-12 -12)"><g fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4v16M8 7h7M8 12h10M8 17h5"/></g><circle cx="15" cy="7" r="1.6" fill="currentColor" stroke="none"/><circle cx="18" cy="12" r="1.6" fill="currentColor" stroke="none"/><circle cx="13" cy="17" r="1.6" fill="currentColor" stroke="none"/></g></g></symbol>
+<symbol id="dg-tile-plano" viewBox="0 0 128 128"><title>Plano</title><rect x="9" y="17" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".16" filter="url(#dgt-f1)"/>
+<rect x="9" y="14" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".22" filter="url(#dgt-f2)"/>
+<rect x="8" y="14" width="112" height="108" rx="36" fill="rgb(150,96,52)" opacity=".2"/>
+<rect x="8" y="8" width="112" height="108" rx="36" fill="url(#dgt-g-treino)"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="var(--vidro-borda, rgba(236, 223, 210, .9))" stroke-width="2.400"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="url(#dgt-top)" stroke-width="2.800"/>
+<g style="color:var(--sec-treino-ico, #b4561a)"><g transform="translate(64 62) scale(3.1) translate(-12 -12)"><g fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4h6v3H9zM9 5.5H6.5A1.5 1.5 0 0 0 5 7v12.5A1.5 1.5 0 0 0 6.5 21h11a1.5 1.5 0 0 0 1.5-1.5V7a1.5 1.5 0 0 0-1.5-1.5H15M8.5 12h7M8.5 16h4.5"/></g><circle cx="15.8" cy="16" r="1.2" fill="currentColor" stroke="none"/></g></g></symbol>
+<symbol id="dg-tile-trilha" viewBox="0 0 128 128"><title>Trilha</title><rect x="9" y="17" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".16" filter="url(#dgt-f1)"/>
+<rect x="9" y="14" width="110" height="104" rx="36" fill="rgb(92,56,26)" opacity=".22" filter="url(#dgt-f2)"/>
+<rect x="8" y="14" width="112" height="108" rx="36" fill="rgb(150,96,52)" opacity=".2"/>
+<rect x="8" y="8" width="112" height="108" rx="36" fill="url(#dgt-g-apoio)"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="var(--vidro-borda, rgba(236, 223, 210, .9))" stroke-width="2.400"/>
+<rect x="9.2" y="9.2" width="109.6" height="105.6" rx="34.800" fill="none" stroke="url(#dgt-top)" stroke-width="2.800"/>
+<g style="color:var(--sec-apoio-ico, #2d6b3c)"><g transform="translate(64 62) scale(3.1) translate(-12 -12)"><g fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 18.5C11 18.5 6 12 12 12s3-7.5 6.5-7.5"/></g><circle cx="5.5" cy="18.5" r="1.9" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="1.6" fill="currentColor" stroke="none"/><circle cx="18.5" cy="4.5" r="1.9" fill="currentColor" stroke="none"/></g></g></symbol>
+</svg>

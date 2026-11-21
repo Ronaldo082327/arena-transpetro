@@ -478,6 +478,8 @@ html.pn-open .sq kbd{display:none}.sq{overflow:hidden}
 .tb button,.sb .pb,.sb .mini,#pn .ph .ib{box-shadow:none!important}.tb button{border:0!important;background:transparent!important}.sb .pb{border:0!important;background:transparent!important}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 
+/* capas 3x1 da identidade, no topo de cada tela */
+#app[data-capa]::before{content:'';display:block;height:clamp(96px,15vw,190px);width:100%;margin:14px 0 6px;border-radius:var(--raio-g);box-shadow:var(--sombra-2);background:var(--capa) center/cover no-repeat}
 /* ===== Visual Dora Guilda: relevo, vidro, ladrilhos e barra flutuante (tokens de temas.css) ===== */
 .sb{background:var(--vidro);-webkit-backdrop-filter:blur(18px) saturate(1.4);backdrop-filter:blur(18px) saturate(1.4);color:var(--ink);border-right:1px solid var(--vidro-borda);box-shadow:var(--sombra-1)}
 .sb .logo{color:var(--ink)}.sb .gt{color:var(--muted);opacity:1}
@@ -503,7 +505,7 @@ html.pn-open .sq kbd{display:none}.sq{overflow:hidden}
 }
 .mirarow{display:grid;gap:6px;padding:10px 12px;margin:8px 0;border-radius:var(--raio-p);border:1px solid var(--line);border-top-color:var(--brilho);background:linear-gradient(180deg,var(--paper),var(--paper-2));box-shadow:var(--sombra-btn);text-decoration:none;color:var(--ink)}
 .mirarow:hover{border-color:var(--destaque)}.mirarow .mt1{display:grid;gap:2px}.mirarow i{display:block;height:8px;border-radius:6px;background:var(--grad-btn-p);box-shadow:var(--sombra-afundado)}
-</style><link rel="stylesheet" href="temas.css"><link rel="stylesheet" href="tema.css"><script src="tema.js"></script><script src="guilda.js"></script><script src="abrir.js" defer></script></head>
+</style><link rel="icon" type="image/svg+xml" href="favicon.svg"><link rel="apple-touch-icon" href="apple-touch-icon-180.png"><meta property="og:image" content="identidade/premium/oficial/og-1200x630-escuro.png"><meta name="theme-color" content="#211a16"><link rel="stylesheet" href="temas.css"><link rel="stylesheet" href="tema.css"><script src="tema.js"></script><script src="guilda.js"></script><script src="abrir.js" defer></script></head>
 <body>
 <div class="shell">
 <aside id="sb" class="sb" aria-label="Menu de ferramentas"></aside>
@@ -517,7 +519,7 @@ html.pn-open .sq kbd{display:none}.sq{overflow:hidden}
   <button type="button" class="sq" id="sq" aria-label="Buscar ferramenta ou tópico"><span aria-hidden="true">🔍</span><span class="sqt">Buscar ferramenta ou tópico…</span><kbd>Ctrl K</kbd></button>
   <span class="chip-dias" id="dias" title="Dias até a prova (06/12/2026)"></span><span id="thslot"></span>
  </header>
- <div class="wrap"><main id="app" aria-live="polite"><p class="note" style="padding:40px 0">Abrindo o estúdio…</p></main></div>
+ <div class="wrap"><main id="app" aria-live="polite"><p class="note carregando"><span id="gsp0"></span>Abrindo o estúdio…</p></main></div>
 </div>
 </div>
 <nav class="tb" id="tb" aria-label="Atalhos"></nav>
@@ -533,8 +535,9 @@ var S={seen:{},box:{},voice:true,speed:1,cc:true,check:{},auto:true,disc:'dados'
 try{var r=localStorage.getItem(KEY);if(r)S=Object.assign(S,JSON.parse(r));}catch(e){}
 function save(){try{localStorage.setItem(KEY,JSON.stringify(S));}catch(e){}}
 var $=function(s,r){return (r||document).querySelector(s);},$$=function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s));};
-var app=$('#app'),IDX=null,DISC={};
-var ICON={portugues:'📜',ingles:'🌐',dados:'🛢️',projetos:'🧭',governanca:'⚓',engsoft:'⚙️',ux:'🧩',bi:'📡',logica:'🔦',seguranca:'🛡️'};
+var MODO_PUBLICO=false;/* a cópia pública (publico/construir.py) troca por true */
+var app=$('#app'),IDX=null,DISC={};try{var gs0=document.getElementById('gsp0');if(gs0)gs0.innerHTML=window.GUILDA.giro(30);}catch(e){}
+var ICON={erros:'🧾',portugues:'📜',ingles:'🌐',dados:'🛢️',projetos:'🧭',governanca:'⚓',engsoft:'⚙️',ux:'🧩',bi:'📡',logica:'🔦',seguranca:'🛡️'};
 var COR={portugues:'#e8916f',ingles:'#7fc8a0',dados:'#5fd0e0',projetos:'#f2c14e',governanca:'#b9a3ff',engsoft:'#7cc4ec',ux:'#ff9fb6',bi:'#62e3c4',logica:'#ffd166',seguranca:'#ff7b8a'};
 function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
 function today(){var d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');}
@@ -741,7 +744,7 @@ function discBar(cur,base){return '<div class="discs" role="group" aria-label="D
 document.addEventListener('click',function(e){var b=e.target.closest('[data-href]');if(b){e.preventDefault();if(b.hasAttribute('data-autoplay'))sessionStorage.setItem('estudio.autoplay','1');location.hash=b.dataset.href;}});
 
 function home(){nav('');var D=IDX.disciplinas,nt=D.reduce(function(a,d){return a+d.topicos.length;},0),nf=D.reduce(function(a,d){return a+d.nformatos;},0),seen=Object.keys(S.seen).length;
-  app.innerHTML='<header class="hero"><div class="eyebrow">Engenharia Cognitiva para Concursos Públicos · Transpetro 2026 · Ênfase 5</div><h1>Dora Guilda</h1><p class="note" style="max-width:68ch">Tudo gerado dos seus guias de estudo: videoaulas animadas e narradas, um método para cada tipo de questão, mapas mentais, esquemas de contraste e flashcards. Cada peça mostra como a banca cobra o assunto e onde ela tenta te derrubar.</p></header>'+
+  app.innerHTML='<header class="hero" style="background:url(identidade/capa.svg) right center/cover no-repeat,var(--paper);border-radius:var(--raio-g);box-shadow:var(--sombra-2);padding:28px 22px;margin-top:14px"><div class="eyebrow">Engenharia Cognitiva para Concursos Públicos · Transpetro 2026 · Ênfase 5</div><h1>Dora Guilda</h1><p class="note" style="max-width:68ch">Tudo gerado dos seus guias de estudo: videoaulas animadas e narradas, um método para cada tipo de questão, mapas mentais, esquemas de contraste e flashcards. Cada peça mostra como a banca cobra o assunto e onde ela tenta te derrubar.</p></header>'+
   '<div class="grid">'+
   card('plano','🎯','Plano da prova','Previsão de questões por disciplina × o seu acerto: onde estão os pontos que você ainda pode ganhar, e o dia a dia até 06/12.','comece por aqui')+
   card('cq','🧠','Cartões-questão','Frente: a questão como na prova. Verso: cada alternativa explicada, árvore do conceito × vizinhos, metacognição, rascunho para a prova. Caderno de erros integrado ao Doroxandria. Trilha de Inglês do zero.','responda e aprenda')+
@@ -873,11 +876,12 @@ function deck(slugs,types){var out=[];slugs.forEach(function(s){var o=DISC[s];if
   if(types.duel)o.duelos.forEach(function(d){var many=d.dist.length===d.lados.length&&d.lados.length>1;out.push({id:'d'+hash(s+d.lados.join('|')),s:s,tipo:'Duelo',tag:d.src,f:'<p class="note">Qual a diferença?</p><p class="q"><b>'+d.lados.map(inline).join(' <span style="color:var(--accent)">×</span> ')+'</b></p>',b:many?'<ol>'+d.lados.map(function(l,k){return '<li><b>'+inline(l)+'</b>: '+inline(d.dist[k])+'</li>';}).join('')+'</ol>':'<p class="q">'+inline(d.dist[0])+'</p>'});});
   if(types.met)o.formatos.forEach(function(f){var st=stepsOf(f.proc);if(!st.length)return;out.push({id:'m'+hash(s+f.t),s:s,tipo:'Método',tag:f.t,f:'<p class="note">Como resolver este tipo de questão?</p><p class="q"><b>'+inline(f.t)+'</b></p>'+(f.rec?'<p class="note">'+inline(short(f.rec,160))+'</p>':''),b:'<ol>'+st.map(function(x){return '<li>'+inline(x)+'</li>';}).join('')+'</ol>'});});
   if(types.list)o.listas.forEach(function(l){if(!l.items||l.items.length<2)return;out.push({id:'l'+hash(s+l.t),s:s,tipo:'Lista',tag:l.gat,f:'<p class="note">Recite a lista</p><p class="q"><b>'+inline(l.t)+'</b></p>'+(l.gat?'<p class="note">Gatilho: '+inline(l.gat)+'</p>':''),b:'<ol>'+l.items.map(function(x){return '<li>'+inline(x)+'</li>';}).join('')+'</ol>'});});});
+  if(types.erros)erGet().forEach(function(e){(e.cartas||[]).forEach(function(c,k){out.push({id:'er'+e.id+'_'+k,s:'erros',tipo:'Caderno de Erros',tag:(e.topico||e.disc||''),f:'<p class="note">Do seu caderno de erros'+(e.topico?' · '+esc(e.topico):'')+'</p><p class="q">'+esc(c.f)+'</p>',b:'<p class="q">'+esc(c.b)+'</p>'+(e.analise&&e.analise.regra?'<p class="note">Regra: '+esc(e.analise.regra)+'</p>':'')});});});
   return out;}
-function flash(){nav('fc');var F=S.fc||(S.fc={discs:['dados'],types:{anki:true,duel:true,met:true,list:true}});
+function flash(){nav('fc');var F=S.fc||(S.fc={discs:['dados'],types:{anki:true,duel:true,met:true,list:true}});if(F.types.erros===undefined)F.types.erros=true;
   app.innerHTML='<header class="hero"><div class="eyebrow">Flashcards</div><h2>Cartões com revisão espaçada</h2><p class="note">Cinco caixas: errou volta para a 1; acertou fácil sobe. Cada cartão volta em 1, 3, 7, 14 ou 30 dias.</p></header>'+
   '<div class="panel"><div class="eyebrow">Disciplinas</div><div class="toggles" style="margin-top:6px">'+IDX.disciplinas.map(function(d){return '<label><input type="checkbox" data-d="'+d.slug+'"'+(F.discs.indexOf(d.slug)>=0?' checked':'')+'> '+ICON[d.slug]+' '+esc(d.nome)+'</label>';}).join('')+'</div>'+
-  '<div class="eyebrow" style="margin-top:12px">Tipos</div><div class="toggles" style="margin-top:6px">'+[['anki','Do guia'],['duel','Duelos X × Y'],['met','Métodos'],['list','Listas']].map(function(t){return '<label><input type="checkbox" data-t="'+t[0]+'"'+(F.types[t[0]]?' checked':'')+'> '+t[1]+'</label>';}).join('')+'</div>'+
+  '<div class="eyebrow" style="margin-top:12px">Tipos</div><div class="toggles" style="margin-top:6px">'+[['anki','Do guia'],['duel','Duelos X × Y'],['met','Métodos'],['list','Listas'],['erros','Do Caderno de Erros']].map(function(t){return '<label><input type="checkbox" data-t="'+t[0]+'"'+(F.types[t[0]]?' checked':'')+'> '+t[1]+'</label>';}).join('')+'</div>'+
   '<div class="row" style="margin-top:14px"><button class="primary" id="go">Começar sessão de 20</button><span class="note" id="cnt"></span></div></div><div id="fz"></div>';
   var upd=function(){F.discs=$$('[data-d]').filter(function(x){return x.checked;}).map(function(x){return x.dataset.d;});$$('[data-t]').forEach(function(x){F.types[x.dataset.t]=x.checked;});save();
     Promise.all(F.discs.map(loadDisc)).then(function(){var dk=deck(F.discs,F.types),now=Date.now();var due=dk.filter(function(c){var b=S.box[c.id];return !b||b.due<=now;});$('#cnt').textContent=dk.length+' cartões · '+due.length+' para hoje';});};
@@ -888,7 +892,7 @@ function session(list){var i=0,ok=0,box=$('#fz');
   var draw=function(){if(i>=list.length){box.innerHTML='<div class="panel"><h3>Sessão concluída</h3><p class="note" style="margin-top:6px">'+ok+' de '+list.length+' certos. +'+(ok*4)+' XP no Arena Relâmpago.</p></div>';xp(ok*4);return;}
     var c=list[i],b=(S.box[c.id]||{}).b||0;box.innerHTML='<div class="spread" style="margin-top:14px"><span class="mono note">'+(i+1)+'/'+list.length+' · '+ICON[c.s]+' '+c.tipo+' · caixa '+(b||'nova')+'</span></div><div class="fcard" id="fcd" tabindex="0" role="button" aria-label="Virar cartão"><div class="inner"><div class="face">'+c.f+'<span class="note">toque ou Espaço para virar</span></div><div class="face back">'+c.b+(c.tag?'<p class="note" style="margin-top:8px">'+inline(short(c.tag,120))+'</p>':'')+'</div></div></div><div class="grade" id="gr" hidden><button data-g="0" style="color:var(--bad)">1 · Errei</button><button data-g="1" style="color:var(--warn)">2 · Difícil</button><button data-g="2" style="color:var(--ok)">3 · Fácil</button></div>';
     var fc=$('#fcd');var flip=function(){fc.classList.add('on');$('#gr').hidden=false;};fc.onclick=flip;fc.onkeydown=function(e){if(e.key===' '||e.key==='Enter'){e.preventDefault();flip();}};
-    var grade=function(g){var nb=g===0?1:(g===1?Math.max(1,b):Math.min(5,b+1));S.box[c.id]={b:nb,due:Date.now()+IV[nb]*864e5-36e5};save();if(g>0)ok++;i++;draw();};
+    var grade=function(g){var nb=g===0?1:(g===1?Math.max(1,b):Math.min(5,b+1));S.box[c.id]={b:nb,due:Date.now()+IV[nb]*864e5-36e5};save();if(g===0&&/^er/.test(c.id)){try{var eid=c.id.slice(2).replace(/_\d+$/,''),ea=erGet(),ei=ea.findIndex(function(x){return x.id===eid;});if(ei>=0){ea[ei].rev={n:0,prox:erSoma(erHoje(),1)};ea[ei].reincidiu=(ea[ei].reincidiu||0)+1;erPut(ea);}}catch(x){}}if(g>0)ok++;i++;draw();};
     $('#gr').onclick=function(e){var bt=e.target.closest('[data-g]');if(bt)grade(+bt.dataset.g);};
     session.key=function(k){if(!fc.classList.contains('on')){if(k===' ')flip();return;}if(/^[123]$/.test(k))grade(+k-1);};};
   draw();box.scrollIntoView({behavior:'smooth',block:'start'});}
@@ -994,9 +998,12 @@ var CMODELS=[['claude-opus-5-5','Claude Opus 5.5 · melhor qualidade · US$ 4 / 
 function ccfg(){try{return JSON.parse(localStorage.getItem(CKEY)||'{}');}catch(e){return {};}}
 function csave(o){try{localStorage.setItem(CKEY,JSON.stringify(o));}catch(e){}}
 function iaProv(){try{var p=localStorage.getItem(IAKEY);if(p)return p;}catch(e){}return ccfg().key&&!gcfg().key?'claude':'gemini';}
-function iaReady(){return iaProv()==='claude'?!!ccfg().key:!!gcfg().key;}
-function iaName(){return iaProv()==='claude'?'Claude':'Gemini';}
-function iaModel(){return iaProv()==='claude'?(ccfg().used||ccfg().model||'claude-opus-5-5'):(gcfg().used||'gemini-4-neon');}
+var PKEY='arenaTP.porteiro';
+function pcfg(){try{return JSON.parse(localStorage.getItem(PKEY)||'{}');}catch(e){return {};}}
+function psave(o){try{localStorage.setItem(PKEY,JSON.stringify(o));}catch(e){}}
+function iaReady(){return iaProv()==='porteiro'?!!(pcfg().url&&pcfg().codigo):iaProv()==='claude'?!!ccfg().key:!!gcfg().key;}
+function iaName(){return iaProv()==='porteiro'?'IA da Guilda':iaProv()==='claude'?'Claude':'Gemini';}
+function iaModel(){return iaProv()==='porteiro'?'porteiro':iaProv()==='claude'?(ccfg().used||ccfg().model||'claude-opus-5-5'):(gcfg().used||'gemini-4-neon');}
 function cmes(){return new Date().toISOString().slice(0,7);}
 function cgasto(){return ((ccfg().gasto||{})[cmes()])||0;}
 var CLAD=['claude-opus-5-5','claude-sonnet-5-5','claude-haiku-5-5'];
@@ -1017,16 +1024,26 @@ function ccall(prompt,json){var c=ccfg();if(!c.key)return Promise.reject(new Err
   if(!lad.length)return Promise.reject(new Error('Todos os modelos Claude estão com limite agora. Tente em alguns minutos.'));
   function go(){if(i>=lad.length)return Promise.reject(last);var m=lad[i++];return ccallOne(prompt,json,m).catch(function(e){var k=classify(e.st,e.message,e.ra);if(k){blkSet('c:'+m,k.ms,k.why);last=e;return go();}throw e;});}
   return go();}
-function aicall(prompt,json){return iaProv()==='claude'?ccall(prompt,json):gcall(prompt,json);}
+/* Porteiro da Guilda: servidor (Cloudflare Worker) que guarda a chave e limita o uso por pessoa. O app só envia o código de acesso. Contrato: POST {url}/ia {provedor:'auto',codigo,prompt,json} -> {texto,modelo,prov,restanteHoje}; erro: {erro:true,msg}. POST {url}/conta {codigo} -> {nome,ativo,gemini:{usado,limite},claude} */
+function pcall(prompt,json){var c=pcfg();if(!c.url||!c.codigo)return Promise.reject(new Error('Falta a URL do porteiro ou o código de acesso'));
+  return fetch(c.url.replace(/\/+$/,'')+'/ia',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({provedor:'auto',codigo:c.codigo,prompt:prompt,json:!!json})}).then(function(r){return r.json().catch(function(){return {};}).then(function(j){
+    if(!r.ok){var e=new Error(j.msg||(typeof j.erro==='string'?j.erro:'')||j.error||('Porteiro: HTTP '+r.status));e.st=r.status;throw e;}
+    var t=j.texto!=null?j.texto:(j.text!=null?j.text:j.resposta);if(t==null)throw new Error('Resposta inesperada do porteiro');return String(t);});});}
+function aicall(prompt,json){return iaProv()==='porteiro'?pcall(prompt,json):iaProv()==='claude'?ccall(prompt,json):gcall(prompt,json);}
 function pjson(t){t=String(t||'');var a=t.indexOf('{'),b=t.lastIndexOf('}');return JSON.parse(a>=0&&b>a?t.slice(a,b+1):t);}
 function claudePanel(){var c=ccfg(),cap=c.cap==null?10:+c.cap,g=cgasto(),prov=iaProv();
-  return '<section class="panel"><h3>Qual IA usar</h3><div class="tabs" style="margin-top:6px"><button aria-selected="'+(prov==='gemini')+'" data-prov="gemini">Gemini (Google, cota gratuita)</button><button aria-selected="'+(prov==='claude')+'" data-prov="claude">Claude (Anthropic, pago por uso)</button></div>'+
+  return '<section class="panel"><h3>Qual IA usar</h3><div class="tabs" style="margin-top:6px"><button aria-selected="'+(prov==='gemini')+'" data-prov="gemini">Gemini (Google, cota gratuita)</button><button aria-selected="'+(prov==='claude')+'" data-prov="claude">Claude (Anthropic, pago por uso)</button><button aria-selected="'+(prov==='porteiro')+'" data-prov="porteiro">IA da Guilda (código de acesso)</button></div>'+
   '<p class="note">Todas as ferramentas de IA do Estúdio (questão inédita, professor, previsão, "Explicar" nos cartões e o Examinador IA da Mente do examinador) usam a IA escolhida aqui.</p></section>'+
+  '<section class="panel"><h3>IA da Guilda (porteiro)</h3><p class="note" style="max-width:74ch">Use a IA do servidor da Guilda sem ter chave própria. Cole o endereço do porteiro e o seu código de acesso. A chave de verdade fica guardada no servidor, que limita o uso por pessoa.</p><div class="row" style="margin-top:8px"><input id="pu" placeholder="Endereço do porteiro (https://…)" value="'+esc(pcfg().url||'')+'" style="flex:1;min-width:220px"><input id="pc" type="password" autocomplete="off" placeholder="Código de acesso" value="'+esc(pcfg().codigo||'')+'" style="min-width:160px"><button class="primary" id="ps">Salvar</button><button class="ghost" id="pt">Testar código</button></div><p class="note" id="pr" style="margin-top:6px"></p></section>'+
   '<section class="panel"><h3>Claude</h3><p class="note" style="max-width:74ch">Crie a chave no <a href="https://console.anthropic.com/settings/keys" target="_blank" rel="noopener">Console da Anthropic</a> (é outra conta, separada da assinatura do claude.ai) e cole abaixo. A chave fica <b>só neste navegador</b>. O app tem um <b>teto mensal próprio</b>: ao chegar nele, nada mais é enviado. Para garantir de verdade, defina também o limite mensal em <a href="https://console.anthropic.com/settings/limits" target="_blank" rel="noopener">Console → Settings → Limits</a>.</p>'+
   '<div class="row" style="margin-top:8px"><input id="ck" type="password" autocomplete="off" placeholder="Chave da Claude (sk-ant-…)" value="'+esc(c.key||'')+'" style="flex:1;min-width:220px"><select id="cm">'+CMODELS.map(function(m){return '<option value="'+m[0]+'"'+(m[0]===(c.model||'claude-opus-5-5')?' selected':'')+'>'+esc(m[1])+'</option>';}).join('')+'</select></div>'+
   '<div class="row" style="margin-top:8px"><label class="note">Teto do app por mês (US$) <input id="ccap" type="number" min="0" step="1" value="'+cap+'" style="width:90px"></label><button class="primary" id="cs">Salvar</button>'+(c.key?'<button class="ghost" id="cx">Apagar chave</button>':'')+'</div>'+
   '<p class="note" style="margin-top:6px">Gasto estimado neste mês, neste aparelho: <b>US$ '+g.toFixed(3)+'</b> de US$ '+cap.toFixed(2)+'. Uma explicação custa em média de US$ 0,02 a 0,10 no Opus 5.5. Se a Claude limitar o uso, o app desce de Opus para Sonnet e Haiku e volta ao melhor quando o limite renova.</p></section>';}
 function claudeBind(){$$('[data-prov]').forEach(function(b){b.onclick=function(){try{localStorage.setItem(IAKEY,b.dataset.prov);}catch(e){}gemini();};});
+  var pt=$('#pt');if(pt)pt.onclick=function(){var u=$('#pu').value.trim().replace(/\/+$/,''),k=$('#pc').value.trim(),o=$('#pr');if(!u||!k){o.textContent='Preencha o endereço e o código.';return;}o.textContent='Testando…';
+    fetch(u+'/conta',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({codigo:k})}).then(function(r){return r.json().catch(function(){return {};}).then(function(j){
+      if(!r.ok)o.textContent=j.msg||('Não deu certo (HTTP '+r.status+').');else{var g=j.gemini||{};o.textContent=(j.ativo===false?'Código desativado. ':'Código válido'+(j.nome?' · '+j.nome:'')+'. ')+(g.limite!=null?'Uso de hoje: '+g.usado+' de '+g.limite+'.':'');}});}).catch(function(){o.textContent='Não consegui falar com o porteiro. Confira o endereço.';});};
+  var ps=$('#ps');if(ps)ps.onclick=function(){var o={url:$('#pu').value.trim(),codigo:$('#pc').value.trim()};psave(o);if(o.url&&o.codigo){try{localStorage.setItem(IAKEY,'porteiro');}catch(e){}}toast(o.url&&o.codigo?'Porteiro salvo neste aparelho':'Porteiro removido');gemini();};
   $('#cs').onclick=function(){var o=ccfg();o.key=$('#ck').value.trim();o.model=$('#cm').value;var v=parseFloat($('#ccap').value);o.cap=isNaN(v)||v<0?10:v;csave(o);if(o.key){try{localStorage.setItem(IAKEY,'claude');}catch(e){}}toast(o.key?'Claude salva neste aparelho':'Chave removida');gemini();};
   var cx=$('#cx');if(cx)cx.onclick=function(){var o=ccfg();delete o.key;csave(o);try{localStorage.setItem(IAKEY,'gemini');}catch(e){}gemini();};}
 function topicCtx(o,t){var q=t.qs.find(function(x){return x.alts&&Object.keys(x.alts).length===5;});return 'Disciplina: '+o.nome+'\nTópico do edital: '+t.t+'\nPeso: '+(t.peso||'')+'\nO que a banca cobra: '+(t.cobra||'')+'\nComo ela pergunta: '+(t.pergunta||'')+'\nOnde ela confunde: '+(t.confunde||'')+'\nMacete: '+(t.macete||'')+(q?'\nQuestão real de referência: '+q.stem+' '+JSON.stringify(q.alts)+' Gabarito '+q.gab+'. '+q.expl:'');}
@@ -1057,6 +1074,86 @@ function gemini(){nav('gem');var c=gcfg();
       aicall(ask+' Use apenas o material abaixo; se algo não estiver nele, diga "não consta no guia".\n\nMATERIAL:\n'+ctx).then(function(txt){out.innerHTML='<div class="panel">'+md(txt)+'<p class="note">Texto gerado por '+iaName()+' a partir do seu guia.</p></div>';}).catch(function(e){out.innerHTML='<p class="note">Erro da IA: '+esc(e.message)+'</p>';});}});};
   $('#gq').onclick=function(){run('q');};$('#ge').onclick=function(){run('e');};$('#gp2').onclick=function(){run('p');};}
 
+
+
+/* abertura animada no primeiro acesso (identidade/abertura-logo.svg, respeita Movimento reduzido) */
+(function(){try{if(localStorage.getItem('arenaTP.abertura')==='1')return;}catch(e){}
+  var d=document.createElement('div');d.id='abt';d.setAttribute('role','dialog');d.setAttribute('aria-label','Abertura da Dora Guilda');
+  d.style.cssText='position:fixed;inset:0;z-index:99999;display:grid;place-items:center;background:radial-gradient(circle at 50% 40%,#3a2e26,#161110);cursor:pointer';
+  d.innerHTML='<div style="text-align:center"><img src="identidade/abertura-logo.svg" alt="Dora Guilda" style="width:min(86vw,560px);height:auto;display:block;margin:auto;border-radius:32px;box-shadow:0 20px 60px rgba(0,0,0,.45)"><button type="button" id="abtb" style="margin-top:18px;padding:12px 28px;border-radius:14px;border:1px solid rgba(255,184,120,.5);background:linear-gradient(180deg,#f4a463,#e8853a);color:#2a1a0c;font:700 16px system-ui;cursor:pointer">Entrar</button></div>';
+  document.body.appendChild(d);
+  var fim=function(){try{localStorage.setItem('arenaTP.abertura','1');}catch(e){}d.remove();document.removeEventListener('keydown',kk);};
+  var kk=function(e){if(e.key==='Escape'||e.key==='Enter')fim();};document.addEventListener('keydown',kk);d.onclick=fim;setTimeout(fim,9000);})();
+/* ===================== MEU CONCURSO (configuração) ===================== */
+var CCKEY='arenaTP.concurso';
+function ccGet(){try{return JSON.parse(localStorage.getItem(CCKEY)||'{}');}catch(e){return {};}}
+function ccPut(o){try{localStorage.setItem(CCKEY,JSON.stringify(o));if(o.prova)localStorage.setItem('arenaTP.prova',o.prova);else localStorage.removeItem('arenaTP.prova');}catch(e){}}
+/* Lê o texto do edital: linha toda em maiúsculas ou terminada em ":" = matéria; as linhas seguintes (ou itens separados por ";") = tópicos */
+function ccParse(txt){var out=[],cur=null;String(txt||'').split(/\r?\n/).forEach(function(l){l=l.replace(/^\s*(?:[-•*]|\d+[.)]|[IVX]+[.)])\s*/,'').trim();if(!l)return;
+  var disc=/:\s*$/.test(l)||(l.length>3&&l===l.toUpperCase()&&/[A-ZÁÉÍÓÚÂÊÔÃÕÇ]/.test(l));
+  if(disc){var nm=l.replace(/:\s*$/,'');nm=nm.charAt(0)+nm.slice(1).toLowerCase();cur={nome:nm,topicos:[],peso:1,questoes:10};out.push(cur);return;}
+  if(!cur){cur={nome:'Geral',topicos:[],peso:1,questoes:10};out.push(cur);}
+  l.split(/;|\.\s+(?=[A-ZÁÉÍÓÚ])/).forEach(function(t){t=t.replace(/\.\s*$/,'').trim();if(t)cur.topicos.push(t);});});
+  return out;}
+/* Resposta da IA no formato "1 Matéria" / "1.1 Tópico [5]" (relevância 1 a 5 entre colchetes) */
+function ccParseIA(txt){var out=[],cur=null;String(txt||'').split(/\r?\n/).forEach(function(l){var m=l.match(/^\s*(\d+(?:\.\d+)*)[.)]?\s+(.+?)\s*(?:\[(\d)\])?\s*$/);if(!m)return;var nivel=m[1].split('.').length,nome=m[2].trim(),rel=m[3]?+m[3]:null;
+  if(nivel===1){cur={nome:nome,topicos:[],rel:[],peso:1,questoes:10};out.push(cur);}else{if(!cur){cur={nome:'Geral',topicos:[],rel:[],peso:1,questoes:10};out.push(cur);}cur.topicos.push(nome);cur.rel.push(rel==null?3:rel);}});return out;}
+function ccPrompt(c){return 'Vou te passar duas coisas sobre a disciplina [NOME DA DISCIPLINA]:\n\n1) o conteúdo programático do edital;\n2) o índice do site de questões, com a quantidade de questões de cada assunto.\n\nRelacione os itens do edital com os assuntos do site e monte a disciplina em no máximo 3 níveis (tópico, subtópico, sub-subtópico). Junte o que o edital separou sem necessidade e separe o que ele juntou.\n\nResponda só com a lista, numerada assim, com a relevância de 1 a 5 entre colchetes no fim de cada tópico (5 = mais cobrado, pela quantidade de questões):\n1 Nome da disciplina\n1.1 Tópico [5]\n1.1.1 Subtópico [3]\n\nEDITAL:\n'+(c.edital||'[cole aqui]')+'\n\nÍNDICE DO SITE DE QUESTÕES:\n'+(c.indice||'[cole aqui]');}
+function configConcurso(){nav('config');var c=ccGet();c.disc=c.disc||[];
+  function tabela(){return c.disc.length?'<table class="note" style="width:100%;border-collapse:collapse;margin-top:8px"><tr><th align="left">Matéria</th><th>Tópicos</th><th>Peso</th><th>Questões</th></tr>'+c.disc.map(function(d,i){return '<tr><td>'+esc(d.nome)+'</td><td align="center">'+d.topicos.length+'</td><td align="center"><input type="number" min="0" step="0.5" value="'+d.peso+'" data-k="peso" data-i="'+i+'" style="width:64px"></td><td align="center"><input type="number" min="0" value="'+d.questoes+'" data-k="questoes" data-i="'+i+'" style="width:64px"></td></tr>';}).join('')+'</table><p class="note" style="margin-top:6px">Total: '+c.disc.reduce(function(a,d){return a+d.topicos.length;},0)+' tópicos · '+c.disc.reduce(function(a,d){return a+(+d.questoes||0);},0)+' questões.</p>':'<p class="note">Cole o edital abaixo e toque em "Montar matérias e tópicos".</p>';}
+  app.innerHTML='<header class="hero"><div class="eyebrow">Configuração</div><h2>Meu concurso</h2><p class="note" style="max-width:72ch">Diga qual é a prova. O app usa esses dados na contagem regressiva e na lista de matérias. Tudo fica só neste navegador.</p></header>'+
+  '<section class="panel"><h3>Dados da prova</h3><div class="row" style="margin-top:8px"><input id="mc_cn" placeholder="Concurso (ex.: Prefeitura de Exemplo 2026)" value="'+esc(c.nome||'')+'" style="flex:2;min-width:220px"><input id="mc_cb" placeholder="Banca" value="'+esc(c.banca||'')+'" style="flex:1;min-width:140px"></div>'+
+  '<div class="row" style="margin-top:8px"><input id="mc_cg" placeholder="Cargo" value="'+esc(c.cargo||'')+'" style="flex:2;min-width:220px"><label class="note">Data da prova <input id="mc_cd" type="date" value="'+esc(c.prova||'')+'"></label></div></section>'+
+  '<section class="panel"><h3>Edital</h3><p class="note" style="max-width:74ch">Cole o conteúdo programático. Linha em MAIÚSCULAS ou terminada em ":" vira matéria; as linhas seguintes viram tópicos (separe itens com ";").</p><textarea id="mc_ce" rows="9" style="width:100%;margin-top:8px" placeholder="LÍNGUA PORTUGUESA:&#10;Compreensão de texto; Ortografia; Concordância&#10;INFORMÁTICA:&#10;Segurança da informação; Redes">'+esc(c.edital||'')+'</textarea>'+
+  '<div class="row" style="margin-top:8px"><button class="primary" id="mc_cm">Montar matérias e tópicos</button></div>'+
+  '<h3 style="margin-top:16px">Com a sua IA (opcional, com relevância 1 a 5)</h3><p class="note" style="max-width:74ch">Cole o índice do seu site de questões (com a quantidade por assunto), copie o pedido, cole na IA que você já usa (ChatGPT, Claude, Gemini) e traga a resposta de volta.</p><textarea id="mc_ci" rows="4" style="width:100%;margin-top:6px" placeholder="Índice do site de questões, com a quantidade por assunto">'+esc(c.indice||'')+'</textarea>'+
+  '<div class="row" style="margin-top:8px"><button class="ghost" id="mc_cp">Copiar pedido para a minha IA</button></div><textarea id="mc_cia" rows="5" style="width:100%;margin-top:8px" placeholder="Cole aqui a resposta da IA (1 Matéria / 1.1 Tópico [5])"></textarea><div class="row" style="margin-top:8px"><button class="primary" id="mc_cim">Importar resposta da IA</button></div><div id="mc_ct">'+tabela()+'</div></section>'+
+  '<div class="row" style="margin:12px 0"><button class="primary" id="mc_cs2">Salvar</button><button class="ghost" id="mc_cl">Limpar tudo</button><span class="note" id="mc_cr"></span></div>';
+  function ler(){c.indice=$('#mc_ci').value;c.nome=$('#mc_cn').value.trim();c.banca=$('#mc_cb').value.trim();c.cargo=$('#mc_cg').value.trim();c.prova=$('#mc_cd').value;c.edital=$('#mc_ce').value;}
+  function bindT(){$$('#mc_ct input[data-i]').forEach(function(i){i.onchange=function(){c.disc[+i.dataset.i][i.dataset.k]=+i.value;};});}
+  $('#mc_cm').onclick=function(){ler();c.disc=ccParse(c.edital);$('#mc_ct').innerHTML=tabela();bindT();};
+  $('#mc_cp').onclick=function(){ler();var t=ccPrompt(c);(navigator.clipboard&&navigator.clipboard.writeText?navigator.clipboard.writeText(t):Promise.reject()).then(function(){$('#mc_cr').textContent='Pedido copiado.';}).catch(function(){$('#mc_cia').value=t;$('#mc_cr').textContent='Copie o texto da caixa de baixo.';});};
+  $('#mc_cim').onclick=function(){var d=ccParseIA($('#mc_cia').value);if(!d.length){$('#mc_cr').textContent='Não reconheci a lista. Use o formato 1 Matéria / 1.1 Tópico [5].';return;}ler();c.disc=d;$('#mc_ct').innerHTML=tabela();bindT();$('#mc_cr').textContent='Importado: '+d.length+' matérias.';};
+  bindT();
+  $('#mc_cs2').onclick=function(){ler();ccPut(c);$('#mc_cr').textContent='Salvo neste aparelho.';if(typeof diasUpd==='function')diasUpd();};
+  $('#mc_cl').onclick=function(){try{localStorage.removeItem(CCKEY);localStorage.removeItem('arenaTP.prova');}catch(e){}configConcurso();if(typeof diasUpd==='function')diasUpd();};}
+
+/* ===================== CADERNO DE ERROS DA GUILDA ===================== */
+var ERKEY='arenaTP.erros',ERTIPOS=[['teoria','Não sabia (teoria)'],['pegadinha','Sabia e caí na pegadinha'],['leitura','Li errado o enunciado'],['chute','Chutei ou fiquei em dúvida']];
+function erGet(){try{return JSON.parse(localStorage.getItem(ERKEY)||'[]');}catch(e){return [];}}
+function erPut(a){try{localStorage.setItem(ERKEY,JSON.stringify(a));}catch(e){}}
+function erHoje(){return new Date().toISOString().slice(0,10);}
+function erSoma(d,n){var x=new Date(d+'T12:00:00');x.setDate(x.getDate()+n);return x.toISOString().slice(0,10);}
+function erTipoNome(k){var t=ERTIPOS.find(function(x){return x[0]===k;});return t?t[1]:k;}
+function erros(){nav('erros');var L=erGet(),hoje=erHoje(),fT=app.dataset.ft||'',fD=app.dataset.fd||'';
+  var venc=L.filter(function(e){return e.rev&&e.rev.prox<=hoje;});
+  var porTipo={};ERTIPOS.forEach(function(t){porTipo[t[0]]=0;});L.forEach(function(e){porTipo[e.tipo]=(porTipo[e.tipo]||0)+1;});
+  var discs=[];L.forEach(function(e){if(e.disc&&discs.indexOf(e.disc)<0)discs.push(e.disc);});
+  var lista=L.filter(function(e){return (!fT||e.tipo===fT)&&(!fD||e.disc===fD);}).slice().reverse();
+  app.innerHTML='<header class="hero"><div class="eyebrow">Treinar</div><h2>Caderno de Erros da Guilda</h2><p class="note" style="max-width:74ch">Registre a questão que errou, o motivo e o que fazer. A IA (se você tiver uma) escreve a causa, a regra e cartas de revisão. Os erros voltam para revisar em 1, 3, 7, 15 e 30 dias. Tudo fica só neste navegador.</p></header>'+
+  '<section class="panel"><h3>Resumo</h3><div class="row" style="gap:8px;flex-wrap:wrap;margin-top:8px"><span class="chip">'+L.length+' erros</span><span class="chip">'+venc.length+' para revisar hoje</span>'+ERTIPOS.map(function(t){return '<button class="chip" data-ft="'+t[0]+'" style="cursor:pointer'+(fT===t[0]?';outline:2px solid var(--accent)':'')+'">'+esc(t[1])+': '+porTipo[t[0]]+'</button>';}).join('')+(fT||fD?'<button class="ghost" id="erl">Limpar filtro</button>':'')+'</div>'+(discs.length?'<div class="row" style="gap:8px;flex-wrap:wrap;margin-top:8px">'+discs.map(function(d){return '<button class="chip" data-fd="'+esc(d)+'" style="cursor:pointer'+(fD===d?';outline:2px solid var(--accent)':'')+'">'+esc(d)+'</button>';}).join('')+'</div>':'')+'</section>'+
+  '<section class="panel"><h3>Registrar um erro</h3><textarea id="er_q" rows="5" style="width:100%;margin-top:8px" placeholder="Cole o enunciado e as alternativas (ou só o enunciado)"></textarea>'+
+  '<div class="row" style="margin-top:8px"><input id="er_d" placeholder="Matéria (ex.: Dados)" style="flex:1;min-width:140px"><input id="er_t" placeholder="Tópico (ex.: 1.4 Modelagem)" style="flex:2;min-width:180px"><input id="er_m" placeholder="Marquei" maxlength="3" style="width:90px"><input id="er_g" placeholder="Gabarito" maxlength="3" style="width:90px"></div>'+
+  '<div class="row" style="margin-top:8px"><select id="er_k">'+ERTIPOS.map(function(t){return '<option value="'+t[0]+'">'+esc(t[1])+'</option>';}).join('')+'</select><input id="er_n" placeholder="Por que errei / o que fazer da próxima vez" style="flex:1;min-width:220px"></div>'+
+  '<div class="row" style="margin-top:8px"><button class="primary" id="er_s">Salvar erro</button><button class="ghost" id="er_x">Exportar</button><label class="ghost" style="cursor:pointer;padding:8px 14px">Importar<input type="file" id="er_i" accept="application/json" hidden></label><span class="note" id="er_r"></span></div></section>'+
+  '<section class="panel"><h3>'+(venc.length&&!fT&&!fD?'Para revisar hoje e todos os erros':'Seus erros')+'</h3>'+(lista.length?lista.map(function(e){var due=e.rev&&e.rev.prox<=hoje;return '<div class="card" style="margin-top:10px;padding:12px"><div class="row" style="gap:8px;flex-wrap:wrap"><span class="chip">'+esc(e.disc||'sem matéria')+'</span><span class="chip">'+esc(e.topico||'sem tópico')+'</span><span class="chip">'+esc(erTipoNome(e.tipo))+'</span>'+(e.minha||e.gab?'<span class="chip">marquei '+esc(e.minha||'?')+' · gabarito '+esc(e.gab||'?')+'</span>':'')+(due?'<span class="chip" style="border-color:var(--accent)">revisar hoje</span>':'<span class="chip">próxima: '+esc(e.rev?e.rev.prox:'-')+'</span>')+'</div><p style="margin:8px 0;white-space:pre-wrap">'+esc((e.enunciado||'').slice(0,420))+((e.enunciado||'').length>420?'…':'')+'</p>'+(e.nota?'<p class="note">'+esc(e.nota)+'</p>':'')+(e.analise?'<div class="note" style="margin-top:6px"><b>Causa:</b> '+esc(e.analise.causa||'')+'<br><b>Regra:</b> '+esc(e.analise.regra||'')+'</div>':'')+(e.cartas&&e.cartas.length?'<div style="margin-top:8px">'+e.cartas.map(function(c){return '<details class="note"><summary>'+esc(c.f)+'</summary>'+esc(c.b)+'</details>';}).join('')+'</div>':'')+
+   '<div class="row" style="margin-top:8px"><button class="ghost" data-ia="'+e.id+'">'+(e.cartas&&e.cartas.length?'Gerar de novo com IA':'Gerar causa e cartas com IA')+'</button><button class="ghost" data-ok="'+e.id+'">Lembrei</button><button class="ghost" data-no="'+e.id+'">Errei de novo</button><button class="ghost" data-del="'+e.id+'">Apagar</button></div></div>';}).join(''):'<p class="note">Nenhum erro registrado ainda.</p>')+'</section>';
+  var msg=function(t){var r=$('#er_r');if(r)r.textContent=t;};
+  $$('[data-ft]').forEach(function(b){b.onclick=function(){app.dataset.ft=app.dataset.ft===b.dataset.ft?'':b.dataset.ft;erros();};});
+  $$('[data-fd]').forEach(function(b){b.onclick=function(){app.dataset.fd=app.dataset.fd===b.dataset.fd?'':b.dataset.fd;erros();};});
+  var erl=$('#erl');if(erl)erl.onclick=function(){app.dataset.ft='';app.dataset.fd='';erros();};
+  $('#er_s').onclick=function(){var q=$('#er_q').value.trim();if(!q){msg('Cole o enunciado.');return;}var a=erGet();
+    a.push({id:'e'+Date.now(),quando:erHoje(),disc:$('#er_d').value.trim(),topico:$('#er_t').value.trim(),enunciado:q,minha:$('#er_m').value.trim().toUpperCase(),gab:$('#er_g').value.trim().toUpperCase(),tipo:$('#er_k').value,nota:$('#er_n').value.trim(),cartas:[],rev:{n:0,prox:erSoma(erHoje(),1)}});erPut(a);erros();};
+  $('#er_x').onclick=function(){var b=new Blob([JSON.stringify({tipo:'dora-guilda-erros',versao:1,erros:erGet()},null,1)],{type:'application/json'}),u=URL.createObjectURL(b),l=document.createElement('a');l.href=u;l.download='caderno-de-erros-dora-guilda.json';l.click();setTimeout(function(){URL.revokeObjectURL(u);},2000);};
+  $('#er_i').onchange=function(ev){var f=ev.target.files[0];if(!f)return;var r=new FileReader();r.onload=function(){try{var o=JSON.parse(r.result),inn=Array.isArray(o)?o:(o.erros||[]),a=erGet(),ids={};a.forEach(function(e){ids[e.id]=1;});var n=0;
+    inn.forEach(function(e){if(!e||!e.enunciado)return;if(!e.id||ids[e.id])e.id='e'+Date.now()+'_'+(n++);e.rev=e.rev||{n:0,prox:erSoma(erHoje(),1)};var MAPT={conteudo:'teoria',reconhecer:'pegadinha',execucao:'teoria',leitura:'leitura',chute:'chute'};if(e.tipo==='execucao'&&!/execu/i.test(e.nota||''))e.nota='(execução) '+(e.nota||'');e.tipo=MAPT[e.tipo]||e.tipo||'teoria';a.push(e);});erPut(a);erros();}catch(x){msg('Arquivo não reconhecido.');}};r.readAsText(f);};
+  function acha(id){var a=erGet();return [a,a.findIndex(function(e){return e.id===id;})];}
+  $$('[data-del]').forEach(function(b){b.onclick=function(){var r=acha(b.dataset.del);if(r[1]>=0&&confirm('Apagar este erro?')){r[0].splice(r[1],1);erPut(r[0]);erros();}};});
+  var PASSOS=[1,3,7,15,30];
+  $$('[data-ok]').forEach(function(b){b.onclick=function(){var r=acha(b.dataset.ok);if(r[1]<0)return;var e=r[0][r[1]];e.rev.n=Math.min(PASSOS.length-1,(e.rev.n||0)+1);e.rev.prox=erSoma(erHoje(),PASSOS[e.rev.n]);erPut(r[0]);erros();};});
+  $$('[data-no]').forEach(function(b){b.onclick=function(){var r=acha(b.dataset.no);if(r[1]<0)return;var e=r[0][r[1]];e.rev.n=0;e.rev.prox=erSoma(erHoje(),1);e.reincidiu=(e.reincidiu||0)+1;erPut(r[0]);erros();};});
+  $$('[data-ia]').forEach(function(b){b.onclick=function(){if(!iaReady()){toast('Configure uma IA em Dora Mentora (chave ou código de acesso).');return;}var r=acha(b.dataset.ia);if(r[1]<0)return;var e=r[0][r[1]];b.disabled=true;b.textContent='Pensando…';
+    aicall('Você é um tutor de concursos. O aluno errou esta questão.\n\nQUESTÃO:\n'+e.enunciado+'\n\nMarcou: '+(e.minha||'?')+'. Gabarito: '+(e.gab||'?')+'. Tipo do erro: '+erTipoNome(e.tipo)+'. Anotação do aluno: '+(e.nota||'-')+'.\nMatéria: '+(e.disc||'-')+'. Tópico: '+(e.topico||'-')+'.\n\nResponda só com JSON: {"causa":"por que o aluno provavelmente errou, em 1 frase","regra":"a regra ou o método para não errar de novo, em 1 a 2 frases","cartas":[{"f":"frente da carta (pergunta curta)","b":"verso (resposta curta)"}]} com 2 a 3 cartas de revisão sobre o conceito cobrado, sem copiar o enunciado inteiro.',true).then(function(t){var o=pjson(t);e.analise={causa:String(o.causa||''),regra:String(o.regra||'')};e.cartas=(o.cartas||[]).filter(function(c){return c&&c.f&&c.b;}).slice(0,3).map(function(c){return {f:String(c.f),b:String(c.b)};});erPut(r[0]);erros();}).catch(function(x){b.disabled=false;b.textContent='Tentar de novo';toast('A IA não respondeu: '+x.message);});};});}
 /* ===================== REFLEXO CESGRANRIO ===================== */
 var QB=null,INC=null;function loadInc(){return INC?Promise.resolve(INC):getJ('inteligencia/incidencia.json').then(function(j){INC=j.questoes;return INC;}).catch(function(){INC=[];return INC;});}
 function loadQB(){return QB?Promise.resolve(QB):Promise.all([getJ('questoes.json'),loadInc()]).then(function(r){var ids={};QB=r[0].filter(function(x){ids[x.id]=1;return x.gabarito&&x.alternativas&&Object.keys(x.alternativas).length===5;});r[1].forEach(function(x){if(!x.figura&&!ids[x.id])QB.push(x);});return QB;});}
@@ -1235,7 +1332,7 @@ function pranchas(slug){nav('esq');slug=slug||S.disc;Promise.all([loadDisc(slug)
 
 /* ===================== PLANO DA PROVA (previsão medida × seu acerto) ===================== */
 var PREV=[{s:'portugues',q:10,nota:'questões 1 a 10 · zero elimina'},{s:'ingles',q:10,nota:'questões 11 a 20 · zero elimina'},{s:'dados',q:13},{s:'seguranca',q:8},{s:'projetos',q:7.5},{s:'engsoft',q:6},{s:'governanca',q:5,nota:'inclui LGPD'},{s:'logica',q:4},{s:'ux',q:4},{s:'bi',q:2.5}];
-function plano(){nav('plano');var J=jogoState().disc||{},hoje=new Date(),prova=new Date('2026-12-06T13:00:00-03:00'),dias=Math.max(0,Math.ceil((prova-hoje)/864e5));
+function plano(){if(MODO_PUBLICO)return planoConcurso();nav('plano');var J=jogoState().disc||{},hoje=new Date(),prova=new Date('2026-12-06T13:00:00-03:00'),dias=Math.max(0,Math.ceil((prova-hoje)/864e5));
   var rows=PREV.map(function(p){var o=J[DQ[p.s]],a=o&&o.n>=10?o.ok/o.n:null,base=a==null?.5:a;return Object.assign({},p,{a:a,n:o?o.n:0,ganho:p.q*(1-base)});});
   var tot=rows.reduce(function(x,r){return x+r.ganho;},0),esp=rows.reduce(function(x,r){return x+r.q*(r.a==null?.5:r.a);},0);
   var ord=rows.slice().sort(function(a,b){return b.ganho-a.ganho;});
@@ -1537,7 +1634,7 @@ function menteTopico(s,ti){app.innerHTML='<p class="note" style="padding:30px 0"
 
 /* ===================== MIRA DA GUILDA (onde mirar: o que mais vale × onde você mais erra) ===================== */
 function miraHist(){try{return (JSON.parse(localStorage.getItem('arenaTP.v2')||'{}').hist)||{};}catch(e){return {};}}
-function mira(){nav('mira');app.innerHTML='<p class="note" style="padding:30px 0">Calculando onde mirar…</p>';
+function mira(){if(MODO_PUBLICO)return miraConcurso();nav('mira');app.innerHTML='<p class="note carregando">'+window.GUILDA.giro(30)+'Calculando onde mirar…</p>';
   var sl=IDX.disciplinas.map(function(d){return d.slug;});
   loadAll().then(function(){return Promise.all([0,loadInc(),Promise.all(sl.map(function(x){return loadDossie(x);})),Promise.all(sl.map(function(x){return topicQB(x,DISC[x]);}))]);}).then(function(r){
     var inc=r[1]||[],dz=r[2],qb=r[3],H=miraHist(),L=cqLog(),rows=[],incId={},topIdx={},cnt={},dcnt={},seenF={};
@@ -1546,19 +1643,36 @@ function mira(){nav('mira');app.innerHTML='<p class="note" style="padding:30px 0
     Object.keys(L).forEach(function(id){var e=L[id];if(!e||e.ok==null)return;var m=id.match(/^g([a-z]+)(\d+)_/),k=null,d=e.s||null;
       if(m){k=m[1]+':'+m[2];d=d||m[1];}else if(id.charAt(0)==='x'&&incId[id.slice(1)]){var q=incId[id.slice(1)],x=SLUG_INC[q.disc];if(x&&topIdx[x]&&topIdx[x][q.subitem]!=null){k=x+':'+topIdx[x][q.subitem];d=d||x;}}
       if(k){cnt[k]=cnt[k]||{n:0,c:0};cnt[k].n++;if(e.ok)cnt[k].c++;}if(d){dcnt[d]=dcnt[d]||{n:0,c:0};dcnt[d].n++;if(e.ok)dcnt[d].c++;}});
+    var ER=erGet(),erT={},erD={};ER.forEach(function(e){var sg=Object.keys(DQ).find(function(k){return DQ[k].toLowerCase()===String(e.disc||'').toLowerCase()||k===String(e.disc||'').toLowerCase();});if(!sg)return;erD[sg]=(erD[sg]||0)+1;var m=String(e.topico||'').match(/^\d+(?:\.\d+)*/);if(m){var k2=sg+':'+m[0];erT[k2]=(erT[k2]||0)+1;}});
     sl.forEach(function(x,si){var o=DISC[x],d=dz[si];
       o.topicos.forEach(function(t,ti){var n=tnum(t),f=d&&d.byId[n];if(!f||seenF[x+':'+n])return;seenF[x+':'+n]=1;var c=cnt[x+':'+ti]||{n:0,c:0},n0=c.n,c0=c.c;
         (qb[si][ti]||[]).forEach(function(q){var h=H[String(q.id)];if(h&&h.ok!=null){n0++;if(h.ok)c0++;}});
-        var ac=(c0+1)/(n0+2);rows.push({s:x,nome:short(t.t.replace(/^[\d.]+\s*/,''),64),num:n,esp:f.esperado||0,ch:f.chance||0,n:n0,ac:ac,prio:(f.esperado||0)*(1-ac),h:'#mt/'+x+'/'+ti});});
+        var ac=(c0+1)/(n0+2);var ne=erT[x+':'+n]||0;rows.push({s:x,nome:short(t.t.replace(/^[\d.]+\s*/,''),64),num:n,esp:f.esperado||0,ch:f.chance||0,n:n0,ac:ac,er:ne,prio:(f.esperado||0)*(1-ac)*(1+0.25*Math.min(4,ne)),h:'#mt/'+x+'/'+ti});});
       if((x==='portugues'||x==='ingles')&&d){var c=dcnt[x]||{n:0,c:0},ac=(c.c+1)/(c.n+2);d.subitens.forEach(function(f){rows.push({s:x,nome:short(f.edital,64),num:'',esp:f.esperado||0,ch:f.chance||0,n:c.n,ac:ac,prio:(f.esperado||0)*(1-ac),h:'#mt/'+x+'/f/'+encodeURIComponent(f.id)});});}});
     rows.sort(function(a,b){return b.prio-a.prio;});var max=rows.length?rows[0].prio||1:1;
-    var row=function(x){return '<a class="mirarow" href="'+x.h+'"><span class="mt1"><b>'+ICON[x.s]+' '+(x.num?esc(x.num)+' ':'')+esc(x.nome)+'</b><span class="note mono">≈'+x.esp+' questões · chance '+Math.round(x.ch)+'% · '+(x.n?x.n+' respondidas · acerto '+Math.round(x.ac*100)+'%':'sem respostas ainda (palpite de 50%)')+'</span></span><i style="width:'+Math.max(4,Math.round(100*x.prio/max))+'%"></i></a>';};
+    var row=function(x){return '<a class="mirarow" href="'+x.h+'"><span class="mt1"><b>'+ICON[x.s]+' '+(x.num?esc(x.num)+' ':'')+esc(x.nome)+'</b><span class="note mono">≈'+x.esp+' questões · chance '+Math.round(x.ch)+'% · '+(x.n?x.n+' respondidas · acerto '+Math.round(x.ac*100)+'%':'sem respostas ainda (palpite de 50%)')+(x.er?' · '+x.er+' no caderno de erros':'')+'</span></span><i style="width:'+Math.max(4,Math.round(100*x.prio/max))+'%"></i></a>';};
     app.innerHTML='<header class="hero"><div class="eyebrow">Mira da Guilda · onde mirar até a prova</div><h2>O que mais vale × onde você mais erra</h2><p class="note" style="max-width:74ch">Prioridade = questões esperadas do tópico (dossiê do examinador) × chance de você errar. Quanto mais você responde em Dora Cartas, Reflexo e Doroxandria, mais exato fica. Sem respostas, vale o palpite neutro de 50%.</p></header>'+
       '<section class="panel mtcore"><h3>🎯 Mire nestes 10 primeiro</h3>'+rows.slice(0,10).map(row).join('')+'</section>'+
       '<details class="ex" style="margin-top:12px"><summary>Ver os '+rows.length+' tópicos e tipos</summary>'+rows.slice(10).map(row).join('')+'</details>';});}
+
+/* ===================== VERSÃO PÚBLICA: Mira e Plano a partir de "Meu concurso" ===================== */
+function ccLinhas(){var c=ccGet(),er=erGet(),rows=[];(c.disc||[]).forEach(function(d){var pesoD=+d.peso||1;(d.topicos||[]).forEach(function(t,j){var rel=(d.rel&&d.rel[j])||3,ne=er.filter(function(e){var tt=String(e.topico||'').toLowerCase(),tn=t.toLowerCase();return (tt&&(tt.indexOf(tn)>=0||tn.indexOf(tt)>=0))||(!tt&&String(e.disc||'').toLowerCase()===d.nome.toLowerCase());}).length;
+  rows.push({disc:d.nome,topico:t,rel:rel,er:ne,prio:pesoD*(rel/5)*(1+0.5*Math.min(6,ne))});});});rows.sort(function(a,b){return b.prio-a.prio;});return rows;}
+function ccSemConfig(tit){app.innerHTML='<header class="hero"><div class="eyebrow">'+tit+'</div><h2>Falta dizer qual é a sua prova</h2><p class="note" style="max-width:70ch">Informe o concurso, a data e cole o edital. Depois disso esta tela mostra onde mirar.</p><p><a class="primary" href="#config" style="display:inline-block;padding:10px 18px;border-radius:12px;text-decoration:none">Configurar o meu concurso</a></p></header>';}
+function miraConcurso(){nav('mira');var rows=ccLinhas();if(!rows.length)return ccSemConfig('Mira da Guilda');var max=rows[0].prio||1;
+  var row=function(x){return '<div class="mirarow"><span class="mt1"><b>'+esc(x.disc)+' · '+esc(x.topico)+'</b><span class="note mono">relevância '+x.rel+'/5'+(x.er?' · '+x.er+' no caderno de erros':'')+'</span></span><i style="width:'+Math.max(4,Math.round(100*x.prio/max))+'%"></i></div>';};
+  app.innerHTML='<header class="hero"><div class="eyebrow">Mira da Guilda · onde mirar até a prova</div><h2>O que mais vale × onde você mais erra</h2><p class="note" style="max-width:74ch">Prioridade = peso da matéria × relevância do tópico (1 a 5) × seus erros no Caderno de Erros. Cadastre mais erros e a ordem se ajusta.</p></header><section class="panel mtcore"><h3>🎯 Mire nestes 10 primeiro</h3>'+rows.slice(0,10).map(row).join('')+'</section>'+(rows.length>10?'<details class="ex" style="margin-top:12px"><summary>Ver os '+rows.length+' tópicos</summary>'+rows.slice(10).map(row).join('')+'</details>':'');}
+function planoConcurso(){nav('plano');var c=ccGet(),rows=ccLinhas();if(!rows.length)return ccSemConfig('Dora Missão do Dia');
+  var dias=null;if(c.prova){dias=Math.ceil((new Date(c.prova+'T12:00:00')-new Date(new Date().toDateString()))/864e5);}
+  var horas=+c.horas||2,venc=erGet().filter(function(e){return e.rev&&e.rev.prox<=erHoje();}).length,top=rows.slice(0,3),soma=top.reduce(function(a,x){return a+x.prio;},0)||1;
+  app.innerHTML='<header class="hero"><div class="eyebrow">Dora Missão do Dia'+(c.nome?' · '+esc(c.nome):'')+(dias!=null?' · faltam '+Math.max(0,dias)+' dias':'')+'</div><h2>O que estudar agora</h2><p class="note" style="max-width:72ch">Plano simples: revisões vencidas primeiro, depois os 3 tópicos de maior prioridade, divididos pelo tempo que você tem hoje.</p></header>'+
+  '<section class="panel"><h3>1. Revisar o que venceu</h3><p>'+(venc?'<b>'+venc+'</b> erros para revisar hoje.':'Nenhum erro vencido hoje.')+'</p><p><a href="#erros">Abrir o Caderno de Erros</a> · <a href="#fc">Fazer as cartas (Dora Memória)</a></p></section>'+
+  '<section class="panel"><h3>2. Estudar hoje ('+horas+' h)</h3><label class="note">Horas por dia <input id="pc_h" type="number" min="0.5" step="0.5" value="'+horas+'" style="width:70px"></label>'+top.map(function(x){var min=Math.round(horas*60*0.7*x.prio/soma);return '<div class="mirarow"><span class="mt1"><b>'+esc(x.disc)+' · '+esc(x.topico)+'</b><span class="note mono">'+min+' min · relevância '+x.rel+'/5'+(x.er?' · '+x.er+' erros':'')+'</span></span><i style="width:'+Math.round(100*x.prio/soma)+'%"></i></div>';}).join('')+'<p class="note">70% do tempo em tópicos novos e 30% fica para revisão e questões.</p></section>'+
+  '<section class="panel"><h3>3. Registrar o que errou</h3><p>Errou uma questão? <a href="#erros">Registre no Caderno de Erros</a>: a IA escreve a causa e as cartas.</p></section>';
+  $('#pc_h').onchange=function(){var cc=ccGet();cc.horas=+this.value||2;ccPut(cc);planoConcurso();};}
 /* ===================== MAIS (grade por seção) e contagem regressiva ===================== */
 function mais(){nav('mais');var h='<header class="hero"><div class="eyebrow">Tudo da Dora Guilda</div><h2>Mais</h2><p class="note">Tudo do app, por área. Toque para abrir.</p></header><div class="mais">';
-  TOOLS.forEach(function(g){h+='<h3>'+esc(g[0])+'</h3><div class="grade">';g[1].forEach(function(t){h+='<a class="lad" data-sec="'+g[2]+'" href="'+href(t)+'"><span class="ico" aria-hidden="true">'+t[1]+'</span><span>'+esc(t[2])+'</span></a>';});h+='</div>';});
+  TOOLS.forEach(function(g){h+='<h3>'+esc(g[0])+'</h3><div class="grade">';g[1].forEach(function(t){h+='<a class="lad" data-sec="'+g[2]+'" href="'+href(t)+'"><span class="ico" aria-hidden="true">'+window.GUILDA.ico(t,32)+'</span><span>'+esc(t[2])+'</span></a>';});h+='</div>';});
   app.innerHTML=h+'</div>';}
 function diasUpd(){var el=$('#dias');if(!el)return;var d=Math.ceil((new Date(2026,11,6)-new Date(new Date().toDateString()))/864e5);el.textContent=d>1?d+' dias':(d===1?'1 dia':(d===0?'Hoje é a prova':'Prova feita'));el.hidden=false;}
 setTimeout(diasUpd,0);setInterval(diasUpd,3600000);
@@ -1567,11 +1681,11 @@ var TOOLS=window.GUILDA.groups;
 var TKEY={};TOOLS.forEach(function(g){g[1].forEach(function(t){TKEY[t[0]]=t;});});
 var HH=document.documentElement,MOB=window.matchMedia('(max-width:899px)'),ULT='arenaTP.ultima',SBK='arenaTP.sb';
 function href(t){return /^https?:|\.html$/.test(t[0])?t[0]:'#'+t[0];}
-function sbRender(){var h='<a class="logo" href="#" data-nav=""><i>🏰</i><span>Dora Guilda<small>Engenharia Cognitiva para Concursos Públicos</small></span></a><div id="contbox"></div>';
-  TOOLS.forEach(function(g){h+='<div class="gt">'+esc(g[0])+'</div>';g[1].forEach(function(t){h+='<div class="row2"><a class="it" data-sec="'+g[2]+'" href="'+href(t)+'" data-nav="'+t[0]+'" title="'+esc(t[2])+'"><span class="ic" aria-hidden="true">'+t[1]+'</span><span class="tx"><b>'+esc(t[2])+'</b><small>'+esc(t[3])+'</small></span></a>'+(/^https?:/.test(t[0])?'':'<button type="button" class="pb" data-pn="'+href(t)+'" data-t="'+esc(t[2])+'" aria-label="Abrir '+esc(t[2])+' na segunda tela" title="Abrir na segunda tela">⧉</button>')+'</div>';});});
+function sbRender(){var h='<a class="logo" href="#" data-nav=""><i>'+window.GUILDA.svg('marca',38,'lento')+'</i><span>Dora Guilda<small>Engenharia Cognitiva para Concursos Públicos</small></span></a><div id="contbox"></div>';
+  TOOLS.forEach(function(g){h+='<div class="gt">'+esc(g[0])+'</div>';g[1].forEach(function(t){h+='<div class="row2"><a class="it" data-sec="'+g[2]+'" href="'+href(t)+'" data-nav="'+t[0]+'" title="'+esc(t[2])+'"><span class="ic" aria-hidden="true">'+window.GUILDA.ico(t,22)+'</span><span class="tx"><b>'+esc(t[2])+'</b><small>'+esc(t[3])+'</small></span></a>'+(/^https?:/.test(t[0])?'':'<button type="button" class="pb" data-pn="'+href(t)+'" data-t="'+esc(t[2])+'" aria-label="Abrir '+esc(t[2])+' na segunda tela" title="Abrir na segunda tela">⧉</button>')+'</div>';});});
   h+='<span class="fill"></span><button type="button" class="mini" id="sbm" aria-label="Recolher o menu" title="Recolher ou expandir o menu">«</button>';$('#sb').innerHTML=h;
-  var tb='';[['plano','Hoje'],['mt','Método'],['cq','Treinar'],['v','Assistir']].forEach(function(x){var t=TKEY[x[0]];tb+='<a href="#'+x[0]+'" data-nav="'+x[0]+'"><span aria-hidden="true">'+t[1]+'</span>'+x[1]+'</a>';});
-  tb+='<a href="#mais" data-nav="mais"><span aria-hidden="true">☰</span>Mais</a>';$('#tb').innerHTML=tb;contUpdate();}
+  var tb='';[['plano','Hoje'],['mt','Método'],['cq','Treinar'],['v','Assistir']].forEach(function(x){var t=TKEY[x[0]];tb+='<a href="#'+x[0]+'" data-nav="'+x[0]+'"><span aria-hidden="true">'+window.GUILDA.ico(t,24)+'</span>'+x[1]+'</a>';});
+  tb+='<a href="#mais" data-nav="mais"><span aria-hidden="true"><svg class="gi" viewBox="0 0 48 48" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><circle class="nd" cx="12" cy="12" r="4"/><circle class="nd" cx="36" cy="12" r="4"/><circle class="nd" cx="12" cy="36" r="4"/><circle class="nd" cx="36" cy="36" r="4"/></svg></span>Mais</a>';$('#tb').innerHTML=tb;contUpdate();}
 function contUpdate(){var b=$('#contbox');if(!b)return;try{var u=JSON.parse(localStorage.getItem(ULT)||'null');if(u&&u.h&&u.h!==location.hash)b.innerHTML='<a class="cont" href="'+esc(u.h)+'"><b>Continuar</b>'+esc(u.t)+'</a>';else b.innerHTML='';}catch(e){b.innerHTML='';}}
 function navImpl(k){var t=TKEY[k]||(k==='mais'?['mais','☰','Mais','']:null);$$('#sb a.it,#tb a').forEach(function(a){a.setAttribute('aria-current',a.dataset.nav===k?'page':'false');});
   $('#bt').textContent=t?t[2]:'Dora Guilda';document.title=(t?t[2]+' · ':'')+'Dora Guilda';
@@ -1593,14 +1707,14 @@ var CPI=[],CPS=0,CPT=null;
 function cpOpen(){closeDrawer();$('#cp').hidden=false;$('#cpq').value='';cpRender();$('#cpq').focus();if(!CPT)CPT=loadAll().then(function(){var t=[];IDX.disciplinas.forEach(function(d){DISC[d.slug].topicos.forEach(function(x,i){t.push({ic:ICON[d.slug]||'📘',t:x.t.replace(/^[\d.]+\s*/,''),n:(x.t.match(/^([\d.]+)/)||['',''])[1],s:d.nome,h:'#mt/'+d.slug+'/'+i,ttl:'Mente do examinador'});});});CPT=t;if(!$('#cp').hidden)cpRender();}).catch(function(){CPT=[];});}
 function closePalette(){$('#cp').hidden=true;}
 function cpRender(){var q=norm($('#cpq').value.trim()),toks=q.split(/\s+/).filter(Boolean),items=[];
-  var tools=[];TOOLS.forEach(function(g){g[1].forEach(function(t){tools.push({ic:t[1],t:t[2],s:t[3],h:href(t),g:g[0],ttl:t[2]});});});
+  var tools=[];TOOLS.forEach(function(g){g[1].forEach(function(t){tools.push({ic:window.GUILDA.ico(t,22),t:t[2],s:t[3],h:href(t),g:g[0],ttl:t[2]});});});
   var ok=function(x){var tx=norm(x.t+' '+x.s+' '+(x.n||'')+' '+(x.g||''));return toks.every(function(w){return tx.indexOf(w)>=0;});};
   var a=tools.filter(ok),b=(Array.isArray(CPT)&&toks.length)?CPT.filter(ok).slice(0,24):[];
   CPI=a.concat(b);if(CPS>=CPI.length)CPS=0;var h='';
   if(a.length)h+='<div class="cpg">Ferramentas</div>'+a.map(function(x,i){return cpRow(x,i);}).join('');
   if(b.length)h+='<div class="cpg">Tópicos do edital (Mente do examinador)</div>'+b.map(function(x,i){return cpRow(x,a.length+i);}).join('');
   if(!toks.length&&Array.isArray(CPT))h+='<div class="cpg">Dica</div><div class="cpr" style="cursor:default"><span class="ic">💡</span><span class="tx"><small>Digite o nome de um tópico (ex.: normalização, SQL, crase) para abrir a Mente do examinador dele.</small></span></div>';
-  if(!CPI.length)h='<div class="cpr" style="cursor:default"><span class="ic">🤷</span><span class="tx"><b>Nada encontrado</b><small>Tente outra palavra.</small></span></div>';
+  if(!CPI.length)h='<div class="cpr" style="cursor:default"><span class="ic"><img src="identidade/estados-vazios/sem-resultados.svg" width="64" alt=""></span><span class="tx"><b>Nada encontrado</b><small>Tente outra palavra.</small></span></div>';
   $('#cpl').innerHTML=h;$$('.cpr[data-i]').forEach(function(e){e.onclick=function(ev){if(ev.target.closest('.pb2'))return cpGo(+e.dataset.i,true);cpGo(+e.dataset.i,ev.shiftKey);};e.onmouseenter=function(){CPS=+e.dataset.i;cpSel();};});cpSel();}
 function cpRow(x,i){return '<div class="cpr" role="option" data-i="'+i+'" aria-selected="false"><span class="ic" aria-hidden="true">'+x.ic+'</span><span class="tx"><b>'+esc(x.t)+(x.n?' <small style="display:inline">· '+esc(x.n)+'</small>':'')+'</b><small>'+esc(x.s)+'</small></span><button type="button" class="pb2" title="Abrir na segunda tela">⧉</button></div>';}
 function cpSel(){$$('.cpr[data-i]').forEach(function(e){var on=+e.dataset.i===CPS;e.setAttribute('aria-selected',String(on));if(on&&e.scrollIntoView)e.scrollIntoView({block:'nearest'});});}
@@ -1622,8 +1736,9 @@ document.addEventListener('keydown',function(e){var k=e.key,typing=/INPUT|SELECT
 addEventListener('hashchange',function(){subSet();contUpdate();});
 MOB.addEventListener&&MOB.addEventListener('change',function(){closeDrawer();});
 /* ===================== ROTAS E TECLADO ===================== */
-function route(){var h=decodeURIComponent(location.hash.slice(1)).split('/');stopPlayer();session.key=null;cqSession.key=null;window.scrollTo(0,0);
-  switch(h[0]){case 'v':return videoteca(h[1]);case 'play':return play(h[1],h[2],+h[3]||0);case 'met':return metodos(h[1]);case 'mm':return mapa(h[1]);case 'esq':return esquemas(h[1],h[2]);case 'fc':return flash();case 'ref':if(h[1]==='raiox')return drillRaiox(h[2]);return h[1]==='vizinho'?drillVizinho():(h[1]==='sinal'?drillSinal():(h[1]==='elimina'?drillElimina():reflexo()));case 'anki':return baralhos(h[1]);case 'plano':return plano();case 'cq':return cartoes(h[1]);case 'sim':return simulador();case 'prancha':return pranchas(h[1]);case 'geo':return geo();case 'lab':return lab();case 'radar':return radar();case 'gem':return gemini();case 'mt':return mente(h[1],h[2],h[3]);case 'pod':return podcasts();case 'mira':return mira();case 'mais':return mais();default:return home();}}
+function route(){var h=decodeURIComponent(location.hash.slice(1)).split('/');var CAPAS={plano:'edital',mt:'examinador',sim:'simulados',gem:'mentora',mm:'estudar',met:'estudar',esq:'estudar',ref:'estudar',geo:'atlas',radar:'atlas',lab:'atlas',v:'galeria',play:'galeria',pod:'galeria',mira:'edital'};var cp=CAPAS[h[0]];if(cp){app.dataset.capa=cp;app.style.setProperty('--capa','url(identidade/capas/capa-'+cp+'-3x1.svg)');}else{delete app.dataset.capa;}
+stopPlayer();session.key=null;cqSession.key=null;window.scrollTo(0,0);
+  switch(h[0]){case 'v':return videoteca(h[1]);case 'play':return play(h[1],h[2],+h[3]||0);case 'met':return metodos(h[1]);case 'mm':return mapa(h[1]);case 'esq':return esquemas(h[1],h[2]);case 'fc':return flash();case 'ref':if(h[1]==='raiox')return drillRaiox(h[2]);return h[1]==='vizinho'?drillVizinho():(h[1]==='sinal'?drillSinal():(h[1]==='elimina'?drillElimina():reflexo()));case 'anki':return baralhos(h[1]);case 'plano':return plano();case 'cq':return cartoes(h[1]);case 'sim':return simulador();case 'prancha':return pranchas(h[1]);case 'geo':return geo();case 'lab':return lab();case 'radar':return radar();case 'gem':return gemini();case 'mt':return mente(h[1],h[2],h[3]);case 'pod':return podcasts();case 'mira':return mira();case 'config':return configConcurso();case 'erros':return erros();case 'mais':return mais();default:return home();}}
 addEventListener('hashchange',route);
 document.addEventListener('keydown',function(e){if(e.metaKey||e.ctrlKey||e.altKey||/INPUT|SELECT|TEXTAREA/.test(e.target.tagName))return;
   if(P){if(e.key===' '){e.preventDefault();P.toggle();}else if(e.key==='ArrowRight'){e.preventDefault();P.seekCue(Math.min(P.b.cues.length-1,P.i+1));}else if(e.key==='ArrowLeft'){e.preventDefault();P.seekCue(Math.max(0,P.i-1));}else if(e.key==='f'||e.key==='F'){var r=P.root;if(document.fullscreenElement)document.exitFullscreen();else if(r.requestFullscreen)r.requestFullscreen();}return;}

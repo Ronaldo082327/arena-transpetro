@@ -340,7 +340,7 @@
 
   // ---------- backup ----------
   const VERSAO_BACKUP = 1;
-  const LOJAS = ['concursos', 'disciplinas', 'topicos', 'cartoes', 'questoes', 'cadernos', 'respostas', 'erros', 'materiais', 'grifos', 'sessoes', 'capturas', 'simulados', 'config'];
+  const LOJAS = ['concursos', 'disciplinas', 'topicos', 'cartoes', 'questoes', 'cadernos', 'respostas', 'erros', 'materiais', 'grifos', 'sessoes', 'capturas', 'simulados', 'mural', 'config'];
   function montarBackup(dados, extra = {}) { const out = { app: 'dora-draw', versao: VERSAO_BACKUP, criadoEm: new Date().toISOString() }; Object.assign(out, extra); LOJAS.forEach(l => { out[l] = (dados[l] || []).slice(); }); return out; }
   function validarBackup(o) {
     if (!o || typeof o !== 'object') return { ok: false, erro: 'O arquivo não é um backup do Dora Draw.' };
