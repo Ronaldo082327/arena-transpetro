@@ -1042,7 +1042,7 @@ function ccall(prompt,json){var c=ccfg();if(!c.key)return Promise.reject(new Err
 function pcall(prompt,json){var c=pcfg();if(!c.url||!c.codigo)return Promise.reject(new Error('Falta a URL do porteiro ou o código de acesso'));
   return fetch(c.url.replace(/\/+$/,'')+'/ia',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({provedor:c.prov||'auto',codigo:c.codigo,prompt:prompt,json:!!json})}).then(function(r){return r.json().catch(function(){return {};}).then(function(j){
     if(!r.ok){var e=new Error(j.msg||(typeof j.erro==='string'?j.erro:'')||j.error||('Porteiro: HTTP '+r.status));e.st=r.status;throw e;}
-    var t=j.texto!=null?j.texto:(j.text!=null?j.text:j.resposta);if(t==null)throw new Error('Resposta inesperada do porteiro');return String(t);});});}
+    var t=j.texto!=null?j.texto:(j.text!=null?j.text:j.resposta);if(t==null)throw new Error('Resposta inesperada do porteiro');if(j.aviso)toast(j.aviso);else if(typeof j.restanteHoje==='number'&&j.restanteHoje<=3)toast('Restam '+j.restanteHoje+' pedidos de IA hoje.');return String(t);});});}
 function aicall(prompt,json){return iaProv()==='porteiro'?pcall(prompt,json):iaProv()==='claude'?ccall(prompt,json):gcall(prompt,json);}
 function pjson(t){t=String(t||'');var a=t.indexOf('{'),b=t.lastIndexOf('}');return JSON.parse(a>=0&&b>a?t.slice(a,b+1):t);}
 function claudePanel(){var c=ccfg(),cap=c.cap==null?10:+c.cap,g=cgasto(),prov=iaProv();

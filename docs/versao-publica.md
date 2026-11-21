@@ -41,3 +41,6 @@ A cópia pública mostra só o que funciona sem conteúdo pronto: Meu concurso, 
 
 ## Dora Examinadora na cópia pública (22/11)
 `#mt` na cópia pública lista os tópicos de "Meu concurso" e gera a ficha com a IA do aluno (cobra, pergunta, armadilhas, sinais, método, macete e 4 a 6 cartas), guardada em `arenaTP.fichas`. As cartas entram na Dora Memória e a Mira mostra "ficha pronta". O prompt proíbe inventar dados de prova (usa [VERIFICAR]). Não testado com IA real, só com resposta simulada.
+
+## Porteiro (22/11)
+Contrato final: POST {url}/ia {codigo, prompt, sistema?, json?, provedor|prov:'auto'|'gemini'|'claude'} -> {texto, modelo, prov, restanteHoje, aviso?}; erro {erro:true, msg, volta?}. O app mostra `aviso` (ex.: limite mensal da Claude acabou, respondeu com Gemini) e avisa quando restam 3 pedidos ou menos no dia. Teto global da Claude e limites por código ficam no worker (ver porteiro/LEIA-ME.md da sessão local); gestão em {url}/admin.
