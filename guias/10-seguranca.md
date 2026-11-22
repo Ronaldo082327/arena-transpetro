@@ -759,6 +759,42 @@ Criptografia:
 (A) antivírus de assinatura em cada sensor. (B) segmentar os dispositivos em rede própria isolada, com credenciais únicas e atualização de firmware. (C) WAF na saída da planta. (D) migrar o SCADA para SaaS. (E) desativar o SIEM.
 **Gabarito: B.** A: sensores não comportam antivírus; o problema é senha e firmware. C: WAF é HTTP. D: não trata o dispositivo. E: absurdo.
 
+**Questão-modelo (autoral).** Em 2016, câmeras IP e roteadores domésticos que mantinham as credenciais de fábrica foram infectados em massa e organizados para executar ataques distribuídos de negação de serviço de volume recorde. O malware responsável por formar essa rede de dispositivos IoT é o
+(A) Stuxnet. (B) WannaCry. (C) Mirai. (D) Petya. (E) Spectre.
+**Gabarito: C.** Mirai: botnet de IoT, senha padrão, DDoS. A: Stuxnet é worm contra SCADA/PLC (Transpetro 2023, tec 2695558). B e D: ransomware. E: falha de processador, não malware.
+
+**Questão-modelo (autoral).** As duas fragilidades mais exploradas em dispositivos IoT, segundo o OWASP IoT Top 10 e os grandes incidentes conhecidos, são
+(A) injeção de SQL e cross-site scripting nas páginas do fabricante. (B) excesso de memória e processadores ociosos. (C) uso obrigatório de certificados digitais e criptografia forte. (D) dependência de antivírus de assinatura desatualizado. (E) credenciais padrão não alteradas e firmware sem mecanismo de atualização segura.
+**Gabarito: E.** Senha padrão (I1) e falta de atualização segura (I4). A: ataques de aplicação web, não o problema típico do dispositivo. B e C: o oposto da realidade (pouca capacidade, criptografia fraca). D: sensores nem comportam antivírus.
+
+**Questão-modelo (autoral).** Em redes de tecnologia operacional (OT), como as que supervisionam dutos e terminais, o atributo de segurança tratado como prioritário, diferentemente do que ocorre na TI corporativa, é a
+(A) disponibilidade. (B) confidencialidade. (C) irretratabilidade. (D) autenticidade. (E) privacidade.
+**Gabarito: A.** Em OT/ICS a ordem se inverte: disponibilidade e segurança física (safety) primeiro, porque parar o processo é o maior dano. Por isso patch em PLC exige janela de parada e teste. B: prioridade típica da TI corporativa.
+
+**Questão-modelo (autoral).** A série de normas que trata da segurança de sistemas de automação e controle industrial, organizando a rede em zonas e conduítes, é a
+(A) ISO/IEC 27017. (B) NIST SP 800-61. (C) ISO 22301. (D) IEC 62443. (E) ISO 31000.
+**Gabarito: D.** IEC 62443: automação industrial, zonas e conduítes. A: controles para nuvem. B: resposta a incidentes. C: continuidade de negócios. E: gestão de riscos. Vizinho: NIST SP 800-82 é o guia do NIST para OT.
+
+**Questão-modelo (autoral).** Em um sistema SCADA de supervisão de dutos, o equipamento instalado em campo, ao longo da linha, que coleta os dados dos sensores e os transmite ao centro de controle é a
+(A) HMI. (B) RTU. (C) DMZ. (D) CASB. (E) SIEM.
+**Gabarito: B.** RTU (unidade terminal remota) fica no campo e envia as leituras. A: HMI é a tela do operador. C: zona de rede. D: CASB controla uso de SaaS. E: SIEM correlaciona logs de segurança.
+
+**Questão-modelo (autoral).** Uma empresa de logística mantém milhares de sensores conectados à mesma rede usada pelos computadores administrativos. Para impedir que um sensor comprometido sirva de porta de entrada para os sistemas corporativos, a medida mais adequada é
+(A) instalar antivírus de assinatura em cada sensor. (B) substituir o firewall por um WAF. (C) desativar o registro de eventos para economizar banda. (D) segmentar a rede, isolando os dispositivos IoT em uma rede própria com controle de tráfego entre as zonas. (E) confiar no isolamento físico (air gap) e dispensar outros controles.
+**Gabarito: D.** Segmentação (VLAN própria, DMZ industrial) limita o movimento lateral. A: o sensor não comporta antivírus. B: WAF protege aplicação web. C: piora a detecção. E: o Stuxnet entrou por USB; air gap sozinho não basta.
+
+**Questão-modelo (autoral).** A arquitetura de referência que organiza as redes industriais em níveis, do processo físico (nível 0) à rede corporativa, e recomenda uma zona desmilitarizada entre a TI e a OT, é o
+(A) modelo OSI. (B) framework Zachman. (C) modelo Cynefin. (D) TOGAF. (E) modelo de Purdue.
+**Gabarito: E.** Modelo de Purdue: níveis 0 a 5 com DMZ industrial entre TI e OT. A: camadas de comunicação de rede. B e D: arquitetura corporativa. C: tomada de decisão em contextos complexos.
+
+**Questão-modelo (autoral).** O protocolo leve de mensagens no modelo publicar/assinar (publish/subscribe), muito usado por sensores IoT e que, em sua configuração padrão, não cifra o tráfego, devendo ser protegido com TLS, é o
+(A) MQTT. (B) LDAP. (C) SMTP. (D) BGP. (E) SNMPv3.
+**Gabarito: A.** MQTT: publish/subscribe via broker, leve, sem cifragem por padrão (usar MQTT sobre TLS). B: diretório. C: e-mail. D: roteamento entre sistemas autônomos. E: gerência de rede, a versão 3 já tem autenticação e cifragem.
+
+**Questão-modelo (autoral).** Sobre segurança em IoT e em sistemas de controle industrial, assinale a afirmativa correta.
+(A) Os sistemas de OT têm os mesmos requisitos da TI corporativa e podem receber atualizações imediatas. (B) O isolamento físico da rede industrial garante, por si só, a proteção contra malware. (C) O Mirai é um ransomware que cifra os dados de controladores industriais. (D) Manter o inventário dos dispositivos e trocar as credenciais de fábrica por credenciais únicas são controles básicos para dispositivos IoT. (E) O NIST SP 800-61 é o guia específico do NIST para segurança de sistemas de controle industrial.
+**Gabarito: D.** Inventário e credencial única são a base. A: OT prioriza disponibilidade e exige janela para patch. B: o Stuxnet entrou por USB. C: o Mirai é botnet de DDoS. E: o 800-61 trata de resposta a incidentes; o de OT é o 800-82.
+
 **Para o Anki.**
 - Duas vulnerabilidades típicas de IoT → Credenciais padrão não alteradas e firmware sem atualização (OWASP IoT I1, I4).
 - Medida de rede contra IoT comprometido → Segmentação (VLAN própria, DMZ industrial) + credencial única + OTA assinada.
